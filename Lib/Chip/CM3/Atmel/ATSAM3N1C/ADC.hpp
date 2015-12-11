@@ -21,7 +21,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trgen)::Type,TrgenVal::dis> dis{};
             constexpr Register::FieldValue<decltype(trgen)::Type,TrgenVal::en> en{};
         }
-        }
         ///Trigger Selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,1),Register::ReadWriteAccess,unsigned> trgsel{}; 
         ///Resolution
@@ -34,7 +33,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lowres)::Type,LowresVal::bits10> bits10{};
             constexpr Register::FieldValue<decltype(lowres)::Type,LowresVal::bits8> bits8{};
         }
-        }
         ///Sleep Mode
         enum class SleepVal {
             normal=0x00000000,     ///<Normal Mode: The ADC Core and reference voltage circuitry are kept ON between conversions
@@ -44,7 +42,6 @@ namespace Kvasir {
         namespace SleepValC{
             constexpr Register::FieldValue<decltype(sleep)::Type,SleepVal::normal> normal{};
             constexpr Register::FieldValue<decltype(sleep)::Type,SleepVal::sleep> sleep{};
-        }
         }
         ///Fast Wake Up
         enum class FwupVal {
@@ -56,7 +53,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fwup)::Type,FwupVal::off> off{};
             constexpr Register::FieldValue<decltype(fwup)::Type,FwupVal::on> on{};
         }
-        }
         ///Free Run Mode
         enum class FreerunVal {
             off=0x00000000,     ///<Normal Mode
@@ -66,7 +62,6 @@ namespace Kvasir {
         namespace FreerunValC{
             constexpr Register::FieldValue<decltype(freerun)::Type,FreerunVal::off> off{};
             constexpr Register::FieldValue<decltype(freerun)::Type,FreerunVal::on> on{};
-        }
         }
         ///Prescaler Rate Selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> prescal{}; 
@@ -108,7 +103,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(startup)::Type,StartupVal::sut896> sut896{};
             constexpr Register::FieldValue<decltype(startup)::Type,StartupVal::sut960> sut960{};
         }
-        }
         ///Tracking Time
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> tracktim{}; 
         ///Use Sequence Enable
@@ -120,7 +114,6 @@ namespace Kvasir {
         namespace UseqValC{
             constexpr Register::FieldValue<decltype(useq)::Type,UseqVal::numOrder> numOrder{};
             constexpr Register::FieldValue<decltype(useq)::Type,UseqVal::regOrder> regOrder{};
-        }
         }
     }
     namespace AdcSeqr1{    ///<Channel Sequence Register 1
@@ -503,7 +496,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmpmode)::Type,CmpmodeVal::high> high{};
             constexpr Register::FieldValue<decltype(cmpmode)::Type,CmpmodeVal::in> in{};
             constexpr Register::FieldValue<decltype(cmpmode)::Type,CmpmodeVal::out> out{};
-        }
         }
         ///Comparison Selected Channel
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> cmpsel{}; 

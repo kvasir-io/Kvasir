@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wdogen)::Type,WdogenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wdogen)::Type,WdogenVal::v1> v1{};
         }
-        }
         ///no description available
         enum class ClksrcVal {
             v0=0x00000000,     ///<WDOG clock sourced from LPO .
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace ClksrcValC{
             constexpr Register::FieldValue<decltype(clksrc)::Type,ClksrcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(clksrc)::Type,ClksrcVal::v1> v1{};
-        }
         }
         ///no description available
         enum class IrqrstenVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqrsten)::Type,IrqrstenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irqrsten)::Type,IrqrstenVal::v1> v1{};
         }
-        }
         ///no description available
         enum class WinenVal {
             v0=0x00000000,     ///<Windowing mode is disabled.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace WinenValC{
             constexpr Register::FieldValue<decltype(winen)::Type,WinenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(winen)::Type,WinenVal::v1> v1{};
-        }
         }
         ///no description available
         enum class AllowupdateVal {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(allowupdate)::Type,AllowupdateVal::v0> v0{};
             constexpr Register::FieldValue<decltype(allowupdate)::Type,AllowupdateVal::v1> v1{};
         }
-        }
         ///no description available
         enum class DbgenVal {
             v0=0x00000000,     ///<WDOG is disabled in CPU Debug mode.
@@ -69,7 +64,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dbgen)::Type,DbgenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dbgen)::Type,DbgenVal::v1> v1{};
         }
-        }
         ///no description available
         enum class StopenVal {
             v0=0x00000000,     ///<WDOG is disabled in CPU Stop mode.
@@ -79,7 +73,6 @@ namespace Kvasir {
         namespace StopenValC{
             constexpr Register::FieldValue<decltype(stopen)::Type,StopenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(stopen)::Type,StopenVal::v1> v1{};
-        }
         }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> testwdog{}; 
@@ -92,7 +85,6 @@ namespace Kvasir {
         namespace TestselValC{
             constexpr Register::FieldValue<decltype(testsel)::Type,TestselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(testsel)::Type,TestselVal::v1> v1{};
-        }
         }
         ///no description available
         enum class ByteselVal {
@@ -108,7 +100,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bytesel)::Type,ByteselVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bytesel)::Type,ByteselVal::v11> v11{};
         }
-        }
         ///no description available
         enum class DistestwdogVal {
             v0=0x00000000,     ///<WDOG functional test mode is not disabled.
@@ -118,7 +109,6 @@ namespace Kvasir {
         namespace DistestwdogValC{
             constexpr Register::FieldValue<decltype(distestwdog)::Type,DistestwdogVal::v0> v0{};
             constexpr Register::FieldValue<decltype(distestwdog)::Type,DistestwdogVal::v1> v1{};
-        }
         }
     }
     namespace WdogStctrll{    ///<Watchdog Status and Control Register Low

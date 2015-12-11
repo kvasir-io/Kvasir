@@ -23,7 +23,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(st)::Type,StVal::v0> v0{};
             constexpr Register::FieldValue<decltype(st)::Type,StVal::v1> v1{};
         }
-        }
         ///Generate seed.
         enum class GsVal {
             v0=0x00000000,     ///<Not in seed generation mode.
@@ -33,7 +32,6 @@ namespace Kvasir {
         namespace GsValC{
             constexpr Register::FieldValue<decltype(gs)::Type,GsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gs)::Type,GsVal::v1> v1{};
-        }
         }
         ///Clear interrupt.
         enum class CiVal {
@@ -45,7 +43,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ci)::Type,CiVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ci)::Type,CiVal::v1> v1{};
         }
-        }
         ///Clear error.
         enum class CeVal {
             v0=0x00000000,     ///<Do not clear errors and interrupt.
@@ -56,7 +53,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::v1> v1{};
         }
-        }
         ///Software reset.
         enum class SrVal {
             v0=0x00000000,     ///<Do not perform a software reset.
@@ -66,7 +62,6 @@ namespace Kvasir {
         namespace SrValC{
             constexpr Register::FieldValue<decltype(sr)::Type,SrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sr)::Type,SrVal::v1> v1{};
-        }
         }
     }
     namespace RngCr{    ///<RNGB Control Register
@@ -85,7 +80,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fufmod)::Type,FufmodVal::v10> v10{};
             constexpr Register::FieldValue<decltype(fufmod)::Type,FufmodVal::v11> v11{};
         }
-        }
         ///Auto-reseed.
         enum class ArVal {
             v0=0x00000000,     ///<Do not enable automatic reseeding.
@@ -95,7 +89,6 @@ namespace Kvasir {
         namespace ArValC{
             constexpr Register::FieldValue<decltype(ar)::Type,ArVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ar)::Type,ArVal::v1> v1{};
-        }
         }
         ///Mask done interrupt.
         enum class MaskdoneVal {
@@ -107,7 +100,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(maskdone)::Type,MaskdoneVal::v0> v0{};
             constexpr Register::FieldValue<decltype(maskdone)::Type,MaskdoneVal::v1> v1{};
         }
-        }
         ///Mask error interrupt.
         enum class MaskerrVal {
             v0=0x00000000,     ///<No mask applied.
@@ -117,7 +109,6 @@ namespace Kvasir {
         namespace MaskerrValC{
             constexpr Register::FieldValue<decltype(maskerr)::Type,MaskerrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(maskerr)::Type,MaskerrVal::v1> v1{};
-        }
         }
     }
     namespace RngSr{    ///<RNGB Status Register
@@ -132,7 +123,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::v0> v0{};
             constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::v1> v1{};
         }
-        }
         ///Sleep.
         enum class SlpVal {
             v0=0x00000000,     ///<RNGB is not in sleep mode.
@@ -142,7 +132,6 @@ namespace Kvasir {
         namespace SlpValC{
             constexpr Register::FieldValue<decltype(slp)::Type,SlpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(slp)::Type,SlpVal::v1> v1{};
-        }
         }
         ///Reseed needed.
         enum class RsVal {
@@ -154,7 +143,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rs)::Type,RsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rs)::Type,RsVal::v1> v1{};
         }
-        }
         ///Self test done.
         enum class StdnVal {
             v0=0x00000000,     ///<Self test not complete.
@@ -165,7 +153,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stdn)::Type,StdnVal::v0> v0{};
             constexpr Register::FieldValue<decltype(stdn)::Type,StdnVal::v1> v1{};
         }
-        }
         ///Seed done.
         enum class SdnVal {
             v0=0x00000000,     ///<Seed generation process not complete.
@@ -175,7 +162,6 @@ namespace Kvasir {
         namespace SdnValC{
             constexpr Register::FieldValue<decltype(sdn)::Type,SdnVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sdn)::Type,SdnVal::v1> v1{};
-        }
         }
         ///New seed done.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> nsdn{}; 
@@ -192,7 +178,6 @@ namespace Kvasir {
         namespace ErrValC{
             constexpr Register::FieldValue<decltype(err)::Type,ErrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(err)::Type,ErrVal::v1> v1{};
-        }
         }
         ///Self Test Pass Fail.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,21),Register::ReadWriteAccess,unsigned> stPf{}; 
@@ -211,7 +196,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lfe)::Type,LfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lfe)::Type,LfeVal::v1> v1{};
         }
-        }
         ///Oscillator error.
         enum class OsceVal {
             v0=0x00000000,     ///<RNG oscillator is working properly.
@@ -221,7 +205,6 @@ namespace Kvasir {
         namespace OsceValC{
             constexpr Register::FieldValue<decltype(osce)::Type,OsceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(osce)::Type,OsceVal::v1> v1{};
-        }
         }
         ///Self test error.
         enum class SteVal {
@@ -233,7 +216,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ste)::Type,SteVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ste)::Type,SteVal::v1> v1{};
         }
-        }
         ///Statistical test error.
         enum class SateVal {
             v0=0x00000000,     ///<RNGB has not failed the statistical tests.
@@ -244,7 +226,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sate)::Type,SateVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sate)::Type,SateVal::v1> v1{};
         }
-        }
         ///FIFO underflow error
         enum class FufeVal {
             v0=0x00000000,     ///<FIFO underflow has not occurred.
@@ -254,7 +235,6 @@ namespace Kvasir {
         namespace FufeValC{
             constexpr Register::FieldValue<decltype(fufe)::Type,FufeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fufe)::Type,FufeVal::v1> v1{};
-        }
         }
     }
     namespace RngOut{    ///<RNGB Output FIFO

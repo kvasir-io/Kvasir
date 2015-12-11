@@ -67,7 +67,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(resolution)::Type,ResolutionVal::dith5> dith5{};
             constexpr Register::FieldValue<decltype(resolution)::Type,ResolutionVal::dith6> dith6{};
         }
-        }
         ///Prescaler
         enum class PrescalerVal {
             div1=0x00000000,     ///<None
@@ -90,7 +89,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prescaler)::Type,PrescalerVal::div256> div256{};
             constexpr Register::FieldValue<decltype(prescaler)::Type,PrescalerVal::div1024> div1024{};
         }
-        }
         ///Run in Standby
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> runstdby{}; 
         ///Prescaler and Counter Synchronization Selection
@@ -104,7 +102,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prescsync)::Type,PrescsyncVal::gclk> gclk{};
             constexpr Register::FieldValue<decltype(prescsync)::Type,PrescsyncVal::presc> presc{};
             constexpr Register::FieldValue<decltype(prescsync)::Type,PrescsyncVal::resync> resync{};
-        }
         }
         ///Auto Lock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> alock{}; 
@@ -141,7 +138,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(idxcmd)::Type,IdxcmdVal::clear> clear{};
             constexpr Register::FieldValue<decltype(idxcmd)::Type,IdxcmdVal::hold> hold{};
         }
-        }
         ///TCC Command
         enum class CmdVal {
             none=0x00000000,     ///<None
@@ -157,7 +153,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmd)::Type,CmdVal::stop> stop{};
             constexpr Register::FieldValue<decltype(cmd)::Type,CmdVal::update> update{};
             constexpr Register::FieldValue<decltype(cmd)::Type,CmdVal::readsync> readsync{};
-        }
         }
     }
     namespace TccCtrlbset{    ///<Control B Set
@@ -182,7 +177,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(idxcmd)::Type,IdxcmdVal::clear> clear{};
             constexpr Register::FieldValue<decltype(idxcmd)::Type,IdxcmdVal::hold> hold{};
         }
-        }
         ///TCC Command
         enum class CmdVal {
             none=0x00000000,     ///<None
@@ -198,7 +192,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmd)::Type,CmdVal::stop> stop{};
             constexpr Register::FieldValue<decltype(cmd)::Type,CmdVal::update> update{};
             constexpr Register::FieldValue<decltype(cmd)::Type,CmdVal::readsync> readsync{};
-        }
         }
     }
     namespace TccDbgctrl{    ///<Debug Control
@@ -285,7 +278,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(evact0)::Type,Evact0Val::count> count{};
             constexpr Register::FieldValue<decltype(evact0)::Type,Evact0Val::fault> fault{};
         }
-        }
         ///Timer/counter Input Event1 Action
         enum class Evact1Val {
             off=0x00000000,     ///<None
@@ -308,7 +300,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(evact1)::Type,Evact1Val::pwp> pwp{};
             constexpr Register::FieldValue<decltype(evact1)::Type,Evact1Val::fault> fault{};
         }
-        }
         ///Timer/counter Output Event Mode
         enum class CntselVal {
             start=0x00000000,     ///<None
@@ -322,7 +313,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cntsel)::Type,CntselVal::end> end{};
             constexpr Register::FieldValue<decltype(cntsel)::Type,CntselVal::between> between{};
             constexpr Register::FieldValue<decltype(cntsel)::Type,CntselVal::boundary> boundary{};
-        }
         }
         ///Overflow/Underflow Output Event Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ovfeo{}; 
@@ -371,7 +361,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src)::Type,SrcVal::invert> invert{};
             constexpr Register::FieldValue<decltype(src)::Type,SrcVal::altfault> altfault{};
         }
-        }
         ///FaultA Keeper
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> keep{}; 
         ///FaultA Qualification
@@ -390,7 +379,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(blank)::Type,BlankVal::fall> fall{};
             constexpr Register::FieldValue<decltype(blank)::Type,BlankVal::both> both{};
         }
-        }
         ///FaultA Restart
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> restart{}; 
         ///FaultA Halt Mode
@@ -407,7 +395,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(halt)::Type,HaltVal::sw> sw{};
             constexpr Register::FieldValue<decltype(halt)::Type,HaltVal::nr> nr{};
         }
-        }
         ///FaultA Capture Channel
         enum class ChselVal {
             cc0=0x00000000,     ///<None
@@ -421,7 +408,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chsel)::Type,ChselVal::cc1> cc1{};
             constexpr Register::FieldValue<decltype(chsel)::Type,ChselVal::cc2> cc2{};
             constexpr Register::FieldValue<decltype(chsel)::Type,ChselVal::cc3> cc3{};
-        }
         }
         ///FaultA Capture Action
         enum class CaptureVal {
@@ -442,7 +428,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(capture)::Type,CaptureVal::locmin> locmin{};
             constexpr Register::FieldValue<decltype(capture)::Type,CaptureVal::locmax> locmax{};
             constexpr Register::FieldValue<decltype(capture)::Type,CaptureVal::deriv0> deriv0{};
-        }
         }
         ///FaultA Blanking Time
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> blankval{}; 
@@ -465,7 +450,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src)::Type,SrcVal::invert> invert{};
             constexpr Register::FieldValue<decltype(src)::Type,SrcVal::altfault> altfault{};
         }
-        }
         ///FaultB Keeper
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> keep{}; 
         ///FaultB Qualification
@@ -484,7 +468,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(blank)::Type,BlankVal::fall> fall{};
             constexpr Register::FieldValue<decltype(blank)::Type,BlankVal::both> both{};
         }
-        }
         ///FaultB Restart
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> restart{}; 
         ///FaultB Halt Mode
@@ -501,7 +484,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(halt)::Type,HaltVal::sw> sw{};
             constexpr Register::FieldValue<decltype(halt)::Type,HaltVal::nr> nr{};
         }
-        }
         ///FaultB Capture Channel
         enum class ChselVal {
             cc0=0x00000000,     ///<None
@@ -515,7 +497,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chsel)::Type,ChselVal::cc1> cc1{};
             constexpr Register::FieldValue<decltype(chsel)::Type,ChselVal::cc2> cc2{};
             constexpr Register::FieldValue<decltype(chsel)::Type,ChselVal::cc3> cc3{};
-        }
         }
         ///FaultB Capture Action
         enum class CaptureVal {
@@ -536,7 +517,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(capture)::Type,CaptureVal::locmin> locmin{};
             constexpr Register::FieldValue<decltype(capture)::Type,CaptureVal::locmax> locmax{};
             constexpr Register::FieldValue<decltype(capture)::Type,CaptureVal::deriv0> deriv0{};
-        }
         }
         ///FaultB Blanking Time
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> blankval{}; 
@@ -820,7 +800,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wavegen)::Type,WavegenVal::dsboth> dsboth{};
             constexpr Register::FieldValue<decltype(wavegen)::Type,WavegenVal::dstop> dstop{};
         }
-        }
         ///Ramp Mode
         enum class RampVal {
             ramp1=0x00000000,     ///<None
@@ -832,7 +811,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ramp)::Type,RampVal::ramp1> ramp1{};
             constexpr Register::FieldValue<decltype(ramp)::Type,RampVal::ramp2a> ramp2a{};
             constexpr Register::FieldValue<decltype(ramp)::Type,RampVal::ramp2> ramp2{};
-        }
         }
         ///Circular period Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ciperen{}; 
@@ -882,7 +860,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wavegenb)::Type,WavegenbVal::dsbottom> dsbottom{};
             constexpr Register::FieldValue<decltype(wavegenb)::Type,WavegenbVal::dsboth> dsboth{};
             constexpr Register::FieldValue<decltype(wavegenb)::Type,WavegenbVal::dstop> dstop{};
-        }
         }
         ///Ramp Mode Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> rampb{}; 

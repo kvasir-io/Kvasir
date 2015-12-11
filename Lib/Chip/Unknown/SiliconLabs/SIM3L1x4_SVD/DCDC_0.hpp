@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rdylowf)::Type,RdylowfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rdylowf)::Type,RdylowfVal::set> set{};
         }
-        }
         ///DC-DC Converter Ready High Flag. 
         enum class RdyhighfVal {
             notSet=0x00000000,     ///<The output voltage (VDC) has not exceeded 105% of the programmed output value.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace RdyhighfValC{
             constexpr Register::FieldValue<decltype(rdyhighf)::Type,RdyhighfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rdyhighf)::Type,RdyhighfVal::set> set{};
-        }
         }
         ///DC-DC Converter Dropout Flag. 
         enum class DropoutfVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dropoutf)::Type,DropoutfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(dropoutf)::Type,DropoutfVal::set> set{};
         }
-        }
         ///Bandgap Ready Flag. 
         enum class BgrdyfVal {
             notSet=0x00000000,     ///<The bandgap voltage is not above the threshold.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace BgrdyfValC{
             constexpr Register::FieldValue<decltype(bgrdyf)::Type,BgrdyfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(bgrdyf)::Type,BgrdyfVal::set> set{};
-        }
         }
         ///Oscillator Disable. 
         enum class OscdisVal {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oscdis)::Type,OscdisVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(oscdis)::Type,OscdisVal::active> active{};
         }
-        }
         ///Clock Source Select. 
         enum class ClkselVal {
             dcdcosc=0x00000000,     ///<Select the local DC-DC oscillator as the clock source.
@@ -68,7 +63,6 @@ namespace Kvasir {
         namespace ClkselValC{
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::dcdcosc> dcdcosc{};
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::apb> apb{};
-        }
         }
         ///Clock Divider. 
         enum class ClkdivVal {
@@ -86,7 +80,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::div8> div8{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::div16> div16{};
         }
-        }
         ///ADC Synchronization Enable. 
         enum class AdcsyncenVal {
             disabled=0x00000000,     ///<Do not synchronize the ADC to the DC-DC converter.
@@ -96,7 +89,6 @@ namespace Kvasir {
         namespace AdcsyncenValC{
             constexpr Register::FieldValue<decltype(adcsyncen)::Type,AdcsyncenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(adcsyncen)::Type,AdcsyncenVal::enabled> enabled{};
-        }
         }
         ///Clock Inversion Enable. 
         enum class ClkinvenVal {
@@ -108,7 +100,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkinven)::Type,ClkinvenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(clkinven)::Type,ClkinvenVal::enabled> enabled{};
         }
-        }
         ///ADC Clock Inversion Enable. 
         enum class AdcclkinvenVal {
             disabled=0x00000000,     ///<Do not invert the ADC clock derived from the DC-DC switching frequency.
@@ -118,7 +109,6 @@ namespace Kvasir {
         namespace AdcclkinvenValC{
             constexpr Register::FieldValue<decltype(adcclkinven)::Type,AdcclkinvenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(adcclkinven)::Type,AdcclkinvenVal::enabled> enabled{};
-        }
         }
         ///Output Voltage Select. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> outvsel{}; 
@@ -131,7 +121,6 @@ namespace Kvasir {
         namespace MienValC{
             constexpr Register::FieldValue<decltype(mien)::Type,MienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(mien)::Type,MienVal::enabled> enabled{};
-        }
         }
         ///Minimum Pulse Width Select. 
         enum class MinpwselVal {
@@ -147,7 +136,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(minpwsel)::Type,MinpwselVal::v20Ns> v20Ns{};
             constexpr Register::FieldValue<decltype(minpwsel)::Type,MinpwselVal::v40Ns> v40Ns{};
         }
-        }
         ///Power Switch Mode. 
         enum class PsmdVal {
             swsel0=0x00000000,     ///<Mode 0. Set the M1 and M2 power switches to each use one MOSFET only.
@@ -162,7 +150,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psmd)::Type,PsmdVal::swsel2> swsel2{};
             constexpr Register::FieldValue<decltype(psmd)::Type,PsmdVal::swsel3> swsel3{};
         }
-        }
         ///Asynchronous Mode Enable. 
         enum class AsyncenVal {
             disabled=0x00000000,     ///<Enable DC-DC synchronous mode.
@@ -172,7 +159,6 @@ namespace Kvasir {
         namespace AsyncenValC{
             constexpr Register::FieldValue<decltype(asyncen)::Type,AsyncenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(asyncen)::Type,AsyncenVal::enabled> enabled{};
-        }
         }
         ///Automatic Bypass Enable. 
         enum class AbenVal {
@@ -184,7 +170,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aben)::Type,AbenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(aben)::Type,AbenVal::enabled> enabled{};
         }
-        }
         ///Bypass Enable. 
         enum class BenVal {
             disabled=0x00000000,     ///<Disable the MBYP bypass switch.
@@ -195,7 +180,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ben)::Type,BenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ben)::Type,BenVal::enabled> enabled{};
         }
-        }
         ///DC-DC Converter Enable. 
         enum class DcdcenVal {
             disabled=0x00000000,     ///<Disable the DC-DC converter.
@@ -205,7 +189,6 @@ namespace Kvasir {
         namespace DcdcenValC{
             constexpr Register::FieldValue<decltype(dcdcen)::Type,DcdcenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dcdcen)::Type,DcdcenVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneconfig{    ///<Module Configuration
@@ -230,7 +213,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ilimit)::Type,IlimitVal::limit6> limit6{};
             constexpr Register::FieldValue<decltype(ilimit)::Type,IlimitVal::limit7> limit7{};
         }
-        }
         ///Interrupt Mode. 
         enum class IntmdVal {
             outputTooLow=0x00000000,     ///<Generate an interrupt when the regulated converter output voltage is too low, according to the RDYLOWF flag.
@@ -245,7 +227,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intmd)::Type,IntmdVal::outOfReg> outOfReg{};
             constexpr Register::FieldValue<decltype(intmd)::Type,IntmdVal::inReg> inReg{};
         }
-        }
         ///Converter Ready Low Threshold. 
         enum class RdylowthVal {
             v95Percent=0x00000000,     ///<Hardware sets the RDYLOWF flag if the regulated output voltage is greater than 95% of the programmed output voltage.
@@ -259,7 +240,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rdylowth)::Type,RdylowthVal::v90Percent> v90Percent{};
             constexpr Register::FieldValue<decltype(rdylowth)::Type,RdylowthVal::v85Percent> v85Percent{};
             constexpr Register::FieldValue<decltype(rdylowth)::Type,RdylowthVal::v80Percent> v80Percent{};
-        }
         }
     }
 }

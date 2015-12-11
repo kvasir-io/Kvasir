@@ -44,7 +44,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::enabled> enabled{};
         }
-        }
         ///Enable or disable interrupt on EVENTS_END event
         enum class EndVal {
             disabled=0x00000000,     ///<Disable
@@ -54,7 +53,6 @@ namespace Kvasir {
         namespace EndValC{
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
-        }
         }
         ///Enable or disable interrupt on EVENTS_DONE event
         enum class DoneVal {
@@ -66,7 +64,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(done)::Type,DoneVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(done)::Type,DoneVal::enabled> enabled{};
         }
-        }
         ///Enable or disable interrupt on EVENTS_RESULTDONE event
         enum class ResultdoneVal {
             disabled=0x00000000,     ///<Disable
@@ -76,7 +73,6 @@ namespace Kvasir {
         namespace ResultdoneValC{
             constexpr Register::FieldValue<decltype(resultdone)::Type,ResultdoneVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(resultdone)::Type,ResultdoneVal::enabled> enabled{};
-        }
         }
         ///Enable or disable interrupt on EVENTS_CALIBRATEDONE event
         enum class CalibratedoneVal {
@@ -88,7 +84,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(calibratedone)::Type,CalibratedoneVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(calibratedone)::Type,CalibratedoneVal::enabled> enabled{};
         }
-        }
         ///Enable or disable interrupt on EVENTS_STOPPED event
         enum class StoppedVal {
             disabled=0x00000000,     ///<Disable
@@ -98,7 +93,6 @@ namespace Kvasir {
         namespace StoppedValC{
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::enabled> enabled{};
-        }
         }
         ///Enable or disable interrupt on EVENTS_CH[0].LIMITH event
         enum class Ch0limithVal {
@@ -110,7 +104,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0limith)::Type,Ch0limithVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch0limith)::Type,Ch0limithVal::enabled> enabled{};
         }
-        }
         ///Enable or disable interrupt on EVENTS_CH[0].LIMITL event
         enum class Ch0limitlVal {
             disabled=0x00000000,     ///<Disable
@@ -120,7 +113,6 @@ namespace Kvasir {
         namespace Ch0limitlValC{
             constexpr Register::FieldValue<decltype(ch0limitl)::Type,Ch0limitlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch0limitl)::Type,Ch0limitlVal::enabled> enabled{};
-        }
         }
         ///Enable or disable interrupt on EVENTS_CH[1].LIMITH event
         enum class Ch1limithVal {
@@ -132,7 +124,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch1limith)::Type,Ch1limithVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch1limith)::Type,Ch1limithVal::enabled> enabled{};
         }
-        }
         ///Enable or disable interrupt on EVENTS_CH[1].LIMITL event
         enum class Ch1limitlVal {
             disabled=0x00000000,     ///<Disable
@@ -142,7 +133,6 @@ namespace Kvasir {
         namespace Ch1limitlValC{
             constexpr Register::FieldValue<decltype(ch1limitl)::Type,Ch1limitlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch1limitl)::Type,Ch1limitlVal::enabled> enabled{};
-        }
         }
         ///Enable or disable interrupt on EVENTS_CH[2].LIMITH event
         enum class Ch2limithVal {
@@ -154,7 +144,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2limith)::Type,Ch2limithVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch2limith)::Type,Ch2limithVal::enabled> enabled{};
         }
-        }
         ///Enable or disable interrupt on EVENTS_CH[2].LIMITL event
         enum class Ch2limitlVal {
             disabled=0x00000000,     ///<Disable
@@ -164,7 +153,6 @@ namespace Kvasir {
         namespace Ch2limitlValC{
             constexpr Register::FieldValue<decltype(ch2limitl)::Type,Ch2limitlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch2limitl)::Type,Ch2limitlVal::enabled> enabled{};
-        }
         }
         ///Enable or disable interrupt on EVENTS_CH[3].LIMITH event
         enum class Ch3limithVal {
@@ -176,7 +164,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch3limith)::Type,Ch3limithVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch3limith)::Type,Ch3limithVal::enabled> enabled{};
         }
-        }
         ///Enable or disable interrupt on EVENTS_CH[3].LIMITL event
         enum class Ch3limitlVal {
             disabled=0x00000000,     ///<Disable
@@ -186,7 +173,6 @@ namespace Kvasir {
         namespace Ch3limitlValC{
             constexpr Register::FieldValue<decltype(ch3limitl)::Type,Ch3limitlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch3limitl)::Type,Ch3limitlVal::enabled> enabled{};
-        }
         }
         ///Enable or disable interrupt on EVENTS_CH[4].LIMITH event
         enum class Ch4limithVal {
@@ -198,7 +184,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4limith)::Type,Ch4limithVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch4limith)::Type,Ch4limithVal::enabled> enabled{};
         }
-        }
         ///Enable or disable interrupt on EVENTS_CH[4].LIMITL event
         enum class Ch4limitlVal {
             disabled=0x00000000,     ///<Disable
@@ -208,7 +193,6 @@ namespace Kvasir {
         namespace Ch4limitlValC{
             constexpr Register::FieldValue<decltype(ch4limitl)::Type,Ch4limitlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch4limitl)::Type,Ch4limitlVal::enabled> enabled{};
-        }
         }
         ///Enable or disable interrupt on EVENTS_CH[5].LIMITH event
         enum class Ch5limithVal {
@@ -220,7 +204,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch5limith)::Type,Ch5limithVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch5limith)::Type,Ch5limithVal::enabled> enabled{};
         }
-        }
         ///Enable or disable interrupt on EVENTS_CH[5].LIMITL event
         enum class Ch5limitlVal {
             disabled=0x00000000,     ///<Disable
@@ -230,7 +213,6 @@ namespace Kvasir {
         namespace Ch5limitlValC{
             constexpr Register::FieldValue<decltype(ch5limitl)::Type,Ch5limitlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch5limitl)::Type,Ch5limitlVal::enabled> enabled{};
-        }
         }
         ///Enable or disable interrupt on EVENTS_CH[6].LIMITH event
         enum class Ch6limithVal {
@@ -242,7 +224,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch6limith)::Type,Ch6limithVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch6limith)::Type,Ch6limithVal::enabled> enabled{};
         }
-        }
         ///Enable or disable interrupt on EVENTS_CH[6].LIMITL event
         enum class Ch6limitlVal {
             disabled=0x00000000,     ///<Disable
@@ -252,7 +233,6 @@ namespace Kvasir {
         namespace Ch6limitlValC{
             constexpr Register::FieldValue<decltype(ch6limitl)::Type,Ch6limitlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch6limitl)::Type,Ch6limitlVal::enabled> enabled{};
-        }
         }
         ///Enable or disable interrupt on EVENTS_CH[7].LIMITH event
         enum class Ch7limithVal {
@@ -264,7 +244,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch7limith)::Type,Ch7limithVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch7limith)::Type,Ch7limithVal::enabled> enabled{};
         }
-        }
         ///Enable or disable interrupt on EVENTS_CH[7].LIMITL event
         enum class Ch7limitlVal {
             disabled=0x00000000,     ///<Disable
@@ -274,7 +253,6 @@ namespace Kvasir {
         namespace Ch7limitlValC{
             constexpr Register::FieldValue<decltype(ch7limitl)::Type,Ch7limitlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch7limitl)::Type,Ch7limitlVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneintenset{    ///<Enable interrupt
@@ -291,7 +269,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_END event
         enum class EndVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -303,7 +280,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::set> set{};
-        }
         }
         ///Write '1' to Enable interrupt on EVENTS_DONE event
         enum class DoneVal {
@@ -317,7 +293,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(done)::Type,DoneVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(done)::Type,DoneVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_RESULTDONE event
         enum class ResultdoneVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -329,7 +304,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(resultdone)::Type,ResultdoneVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(resultdone)::Type,ResultdoneVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(resultdone)::Type,ResultdoneVal::set> set{};
-        }
         }
         ///Write '1' to Enable interrupt on EVENTS_CALIBRATEDONE event
         enum class CalibratedoneVal {
@@ -343,7 +317,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(calibratedone)::Type,CalibratedoneVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(calibratedone)::Type,CalibratedoneVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_STOPPED event
         enum class StoppedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -355,7 +328,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::set> set{};
-        }
         }
         ///Write '1' to Enable interrupt on EVENTS_CH[0].LIMITH event
         enum class Ch0limithVal {
@@ -369,7 +341,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0limith)::Type,Ch0limithVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch0limith)::Type,Ch0limithVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_CH[0].LIMITL event
         enum class Ch0limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -381,7 +352,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0limitl)::Type,Ch0limitlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch0limitl)::Type,Ch0limitlVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch0limitl)::Type,Ch0limitlVal::set> set{};
-        }
         }
         ///Write '1' to Enable interrupt on EVENTS_CH[1].LIMITH event
         enum class Ch1limithVal {
@@ -395,7 +365,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch1limith)::Type,Ch1limithVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch1limith)::Type,Ch1limithVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_CH[1].LIMITL event
         enum class Ch1limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -407,7 +376,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch1limitl)::Type,Ch1limitlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch1limitl)::Type,Ch1limitlVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch1limitl)::Type,Ch1limitlVal::set> set{};
-        }
         }
         ///Write '1' to Enable interrupt on EVENTS_CH[2].LIMITH event
         enum class Ch2limithVal {
@@ -421,7 +389,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2limith)::Type,Ch2limithVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch2limith)::Type,Ch2limithVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_CH[2].LIMITL event
         enum class Ch2limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -433,7 +400,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2limitl)::Type,Ch2limitlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch2limitl)::Type,Ch2limitlVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch2limitl)::Type,Ch2limitlVal::set> set{};
-        }
         }
         ///Write '1' to Enable interrupt on EVENTS_CH[3].LIMITH event
         enum class Ch3limithVal {
@@ -447,7 +413,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch3limith)::Type,Ch3limithVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch3limith)::Type,Ch3limithVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_CH[3].LIMITL event
         enum class Ch3limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -459,7 +424,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch3limitl)::Type,Ch3limitlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch3limitl)::Type,Ch3limitlVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch3limitl)::Type,Ch3limitlVal::set> set{};
-        }
         }
         ///Write '1' to Enable interrupt on EVENTS_CH[4].LIMITH event
         enum class Ch4limithVal {
@@ -473,7 +437,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4limith)::Type,Ch4limithVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch4limith)::Type,Ch4limithVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_CH[4].LIMITL event
         enum class Ch4limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -485,7 +448,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4limitl)::Type,Ch4limitlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch4limitl)::Type,Ch4limitlVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch4limitl)::Type,Ch4limitlVal::set> set{};
-        }
         }
         ///Write '1' to Enable interrupt on EVENTS_CH[5].LIMITH event
         enum class Ch5limithVal {
@@ -499,7 +461,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch5limith)::Type,Ch5limithVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch5limith)::Type,Ch5limithVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_CH[5].LIMITL event
         enum class Ch5limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -511,7 +472,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch5limitl)::Type,Ch5limitlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch5limitl)::Type,Ch5limitlVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch5limitl)::Type,Ch5limitlVal::set> set{};
-        }
         }
         ///Write '1' to Enable interrupt on EVENTS_CH[6].LIMITH event
         enum class Ch6limithVal {
@@ -525,7 +485,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch6limith)::Type,Ch6limithVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch6limith)::Type,Ch6limithVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_CH[6].LIMITL event
         enum class Ch6limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -537,7 +496,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch6limitl)::Type,Ch6limitlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch6limitl)::Type,Ch6limitlVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch6limitl)::Type,Ch6limitlVal::set> set{};
-        }
         }
         ///Write '1' to Enable interrupt on EVENTS_CH[7].LIMITH event
         enum class Ch7limithVal {
@@ -551,7 +509,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch7limith)::Type,Ch7limithVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch7limith)::Type,Ch7limithVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_CH[7].LIMITL event
         enum class Ch7limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -563,7 +520,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch7limitl)::Type,Ch7limitlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch7limitl)::Type,Ch7limitlVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch7limitl)::Type,Ch7limitlVal::set> set{};
-        }
         }
     }
     namespace Noneintenclr{    ///<Disable interrupt
@@ -580,7 +536,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_END event
         enum class EndVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -592,7 +547,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_DONE event
         enum class DoneVal {
@@ -606,7 +560,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(done)::Type,DoneVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(done)::Type,DoneVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_RESULTDONE event
         enum class ResultdoneVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -618,7 +571,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(resultdone)::Type,ResultdoneVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(resultdone)::Type,ResultdoneVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(resultdone)::Type,ResultdoneVal::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_CALIBRATEDONE event
         enum class CalibratedoneVal {
@@ -632,7 +584,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(calibratedone)::Type,CalibratedoneVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(calibratedone)::Type,CalibratedoneVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_STOPPED event
         enum class StoppedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -644,7 +595,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_CH[0].LIMITH event
         enum class Ch0limithVal {
@@ -658,7 +608,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0limith)::Type,Ch0limithVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch0limith)::Type,Ch0limithVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_CH[0].LIMITL event
         enum class Ch0limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -670,7 +619,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0limitl)::Type,Ch0limitlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch0limitl)::Type,Ch0limitlVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch0limitl)::Type,Ch0limitlVal::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_CH[1].LIMITH event
         enum class Ch1limithVal {
@@ -684,7 +632,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch1limith)::Type,Ch1limithVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch1limith)::Type,Ch1limithVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_CH[1].LIMITL event
         enum class Ch1limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -696,7 +643,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch1limitl)::Type,Ch1limitlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch1limitl)::Type,Ch1limitlVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch1limitl)::Type,Ch1limitlVal::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_CH[2].LIMITH event
         enum class Ch2limithVal {
@@ -710,7 +656,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2limith)::Type,Ch2limithVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch2limith)::Type,Ch2limithVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_CH[2].LIMITL event
         enum class Ch2limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -722,7 +667,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2limitl)::Type,Ch2limitlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch2limitl)::Type,Ch2limitlVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch2limitl)::Type,Ch2limitlVal::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_CH[3].LIMITH event
         enum class Ch3limithVal {
@@ -736,7 +680,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch3limith)::Type,Ch3limithVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch3limith)::Type,Ch3limithVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_CH[3].LIMITL event
         enum class Ch3limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -748,7 +691,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch3limitl)::Type,Ch3limitlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch3limitl)::Type,Ch3limitlVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch3limitl)::Type,Ch3limitlVal::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_CH[4].LIMITH event
         enum class Ch4limithVal {
@@ -762,7 +704,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4limith)::Type,Ch4limithVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch4limith)::Type,Ch4limithVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_CH[4].LIMITL event
         enum class Ch4limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -774,7 +715,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4limitl)::Type,Ch4limitlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch4limitl)::Type,Ch4limitlVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch4limitl)::Type,Ch4limitlVal::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_CH[5].LIMITH event
         enum class Ch5limithVal {
@@ -788,7 +728,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch5limith)::Type,Ch5limithVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch5limith)::Type,Ch5limithVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_CH[5].LIMITL event
         enum class Ch5limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -800,7 +739,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch5limitl)::Type,Ch5limitlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch5limitl)::Type,Ch5limitlVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch5limitl)::Type,Ch5limitlVal::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_CH[6].LIMITH event
         enum class Ch6limithVal {
@@ -814,7 +752,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch6limith)::Type,Ch6limithVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch6limith)::Type,Ch6limithVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_CH[6].LIMITL event
         enum class Ch6limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -826,7 +763,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch6limitl)::Type,Ch6limitlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch6limitl)::Type,Ch6limitlVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch6limitl)::Type,Ch6limitlVal::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_CH[7].LIMITH event
         enum class Ch7limithVal {
@@ -840,7 +776,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch7limith)::Type,Ch7limithVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch7limith)::Type,Ch7limithVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_CH[7].LIMITL event
         enum class Ch7limitlVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -852,7 +787,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch7limitl)::Type,Ch7limitlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ch7limitl)::Type,Ch7limitlVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ch7limitl)::Type,Ch7limitlVal::clear> clear{};
-        }
         }
     }
     namespace Nonestatus{    ///<Status
@@ -867,7 +801,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(status)::Type,StatusVal::ready> ready{};
             constexpr Register::FieldValue<decltype(status)::Type,StatusVal::busy> busy{};
         }
-        }
     }
     namespace Noneenable{    ///<Enable or disable ADC
         using Addr = Register::Address<0x40007500,0xfffffffe,0,unsigned>;
@@ -880,7 +813,6 @@ namespace Kvasir {
         namespace EnableValC{
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneresolution{    ///<Resolution configuration
@@ -914,7 +846,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oversample)::Type,OversampleVal::over128x> over128x{};
             constexpr Register::FieldValue<decltype(oversample)::Type,OversampleVal::over256x> over256x{};
         }
-        }
     }
     namespace Nonesamplerate{    ///<Controls normal or continuous sample rate
         using Addr = Register::Address<0x400075f8,0xffffe800,0,unsigned>;
@@ -929,7 +860,6 @@ namespace Kvasir {
         namespace ModeValC{
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::task> task{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::timers> timers{};
-        }
         }
     }
 }

@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lvoscen)::Type,LvoscenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(lvoscen)::Type,LvoscenVal::enabled> enabled{};
         }
-        }
         ///High Voltage Oscillator Enable. 
         enum class HvoscenVal {
             disabled=0x00000000,     ///<Disable the high voltage PVT oscillator.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace HvoscenValC{
             constexpr Register::FieldValue<decltype(hvoscen)::Type,HvoscenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hvoscen)::Type,HvoscenVal::enabled> enabled{};
-        }
         }
         ///Low Voltage Oscillator Mode. 
         enum class LvoscmdVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lvoscmd)::Type,LvoscmdVal::fast> fast{};
             constexpr Register::FieldValue<decltype(lvoscmd)::Type,LvoscmdVal::slow> slow{};
         }
-        }
         ///High Voltage Oscillator Mode. 
         enum class HvoscmdVal {
             fast=0x00000000,     ///<Select fast mode for the high voltage PVT oscillator (~6.4 MHz).
@@ -47,7 +44,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hvoscmd)::Type,HvoscmdVal::fast> fast{};
             constexpr Register::FieldValue<decltype(hvoscmd)::Type,HvoscmdVal::slow> slow{};
         }
-        }
         ///Clock Select. 
         enum class ClkselVal {
             oscillators=0x00000000,     ///<Select the low voltage and high voltage oscillators as the inputs to the clock dividers.
@@ -57,7 +53,6 @@ namespace Kvasir {
         namespace ClkselValC{
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::oscillators> oscillators{};
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::ahb> ahb{};
-        }
         }
     }
 }

@@ -24,6 +24,5 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::v1> v1{};
         }
-        }
     }
 }

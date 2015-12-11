@@ -16,7 +16,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::v10> v10{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::v11> v11{};
         }
-        }
         ///Low-Power Mode Enable
         enum class LpenVal {
             v0=0x00000000,     ///<High-Speed mode selected. In this mode, OPAMP has faster slew rate and unity gain bandwidth performance with higher current consumption.
@@ -27,7 +26,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lpen)::Type,LpenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lpen)::Type,LpenVal::v1> v1{};
         }
-        }
         ///OPAMP Enable
         enum class EnVal {
             v0=0x00000000,     ///<OPAMP is disabled and not powered.
@@ -37,7 +35,6 @@ namespace Kvasir {
         namespace EnValC{
             constexpr Register::FieldValue<decltype(en)::Type,EnVal::v0> v0{};
             constexpr Register::FieldValue<decltype(en)::Type,EnVal::v1> v1{};
-        }
         }
     }
     namespace Opamp1C1{    ///<Control Register 1
@@ -71,7 +68,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ampnsel)::Type,AmpnselVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ampnsel)::Type,AmpnselVal::v111> v111{};
         }
-        }
         ///Amplifier Positive Input Terminal Selector
         enum class AmppselVal {
             v000=0x00000000,     ///<Positive input 0
@@ -93,7 +89,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(amppsel)::Type,AmppselVal::v101> v101{};
             constexpr Register::FieldValue<decltype(amppsel)::Type,AmppselVal::v110> v110{};
             constexpr Register::FieldValue<decltype(amppsel)::Type,AmppselVal::v111> v111{};
-        }
         }
     }
 }

@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(alm0aren)::Type,Alm0arenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(alm0aren)::Type,Alm0arenVal::enabled> enabled{};
         }
-        }
         ///RTC Timer Enable. 
         enum class RunVal {
             stop=0x00000000,     ///<Stop the RTC timer.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace RunValC{
             constexpr Register::FieldValue<decltype(run)::Type,RunVal::stop> stop{};
             constexpr Register::FieldValue<decltype(run)::Type,RunVal::start> start{};
-        }
         }
         ///Missing Clock Detector Enable. 
         enum class MclkenVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mclken)::Type,MclkenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(mclken)::Type,MclkenVal::enabled> enabled{};
         }
-        }
         ///Automatic Crystal Load Capacitance Stepping Enable. 
         enum class AsenVal {
             disabled=0x00000000,     ///<Disable automatic load capacitance stepping.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace AsenValC{
             constexpr Register::FieldValue<decltype(asen)::Type,AsenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(asen)::Type,AsenVal::enabled> enabled{};
-        }
         }
         ///Load Capacitance Value. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> rtclc{}; 
@@ -60,7 +56,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bden)::Type,BdenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(bden)::Type,BdenVal::enabled> enabled{};
         }
-        }
         ///Crystal Oscillator Enable. 
         enum class CrysenVal {
             disabled=0x00000000,     ///<Disable the crystal oscillator circuitry.
@@ -70,7 +65,6 @@ namespace Kvasir {
         namespace CrysenValC{
             constexpr Register::FieldValue<decltype(crysen)::Type,CrysenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(crysen)::Type,CrysenVal::enabled> enabled{};
-        }
         }
         ///Automatic Gain Control Enable. 
         enum class AgcenVal {
@@ -82,7 +76,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(agcen)::Type,AgcenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(agcen)::Type,AgcenVal::enabled> enabled{};
         }
-        }
         ///Alarm 0 Enable. 
         enum class Alm0enVal {
             disabled=0x00000000,     ///<Disable RTC Alarm 0.
@@ -92,7 +85,6 @@ namespace Kvasir {
         namespace Alm0enValC{
             constexpr Register::FieldValue<decltype(alm0en)::Type,Alm0enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(alm0en)::Type,Alm0enVal::enabled> enabled{};
-        }
         }
         ///Alarm 1 Enable. 
         enum class Alm1enVal {
@@ -104,7 +96,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(alm1en)::Type,Alm1enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(alm1en)::Type,Alm1enVal::enabled> enabled{};
         }
-        }
         ///Alarm 2 Enable. 
         enum class Alm2enVal {
             disabled=0x00000000,     ///<Disable RTC Alarm 2.
@@ -114,7 +105,6 @@ namespace Kvasir {
         namespace Alm2enValC{
             constexpr Register::FieldValue<decltype(alm2en)::Type,Alm2enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(alm2en)::Type,Alm2enVal::enabled> enabled{};
-        }
         }
         ///RTC0 External Output Enable. 
         enum class RtcoenVal {
@@ -126,7 +116,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rtcoen)::Type,RtcoenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rtcoen)::Type,RtcoenVal::enabled> enabled{};
         }
-        }
         ///RTC Timer Clock Select. 
         enum class ClkselVal {
             rtcnosc=0x00000000,     ///<Select the RTC clock (RTCnOSC) as the RTC Timer clock.
@@ -137,7 +126,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::rtcnosc> rtcnosc{};
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::lfoscn> lfoscn{};
         }
-        }
         ///RTC Oscillator and Timer Enable. 
         enum class RtcenVal {
             disabled=0x00000000,     ///<Disable the RTC Oscillator and Timer.
@@ -147,7 +135,6 @@ namespace Kvasir {
         namespace RtcenValC{
             constexpr Register::FieldValue<decltype(rtcen)::Type,RtcenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rtcen)::Type,RtcenVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonecontrol{    ///<RTC Control
@@ -162,7 +149,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(alm0i)::Type,Alm0iVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(alm0i)::Type,Alm0iVal::set> set{};
         }
-        }
         ///Alarm 1 Interrupt Flag. 
         enum class Alm1iVal {
             notSet=0x00000000,     ///<Alarm 1 event has not occurred.
@@ -172,7 +158,6 @@ namespace Kvasir {
         namespace Alm1iValC{
             constexpr Register::FieldValue<decltype(alm1i)::Type,Alm1iVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(alm1i)::Type,Alm1iVal::set> set{};
-        }
         }
         ///Alarm 2 Interrupt Flag. 
         enum class Alm2iVal {
@@ -184,7 +169,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(alm2i)::Type,Alm2iVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(alm2i)::Type,Alm2iVal::set> set{};
         }
-        }
         ///RTC Timer Capture. 
         enum class TmrcapVal {
             notSet=0x00000000,     ///<RTC timer capture operation is complete.
@@ -194,7 +178,6 @@ namespace Kvasir {
         namespace TmrcapValC{
             constexpr Register::FieldValue<decltype(tmrcap)::Type,TmrcapVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(tmrcap)::Type,TmrcapVal::set> set{};
-        }
         }
         ///RTC Timer Set. 
         enum class TmrsetVal {
@@ -206,7 +189,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tmrset)::Type,TmrsetVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(tmrset)::Type,TmrsetVal::set> set{};
         }
-        }
         ///RTC External Oscillator Valid Flag. 
         enum class ClkvfVal {
             notSet=0x00000000,     ///<External oscillator is not valid.
@@ -216,7 +198,6 @@ namespace Kvasir {
         namespace ClkvfValC{
             constexpr Register::FieldValue<decltype(clkvf)::Type,ClkvfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(clkvf)::Type,ClkvfVal::set> set{};
-        }
         }
         ///RTC Oscillator Fail Interrupt Flag. 
         enum class OscfiVal {
@@ -228,7 +209,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oscfi)::Type,OscfiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(oscfi)::Type,OscfiVal::set> set{};
         }
-        }
         ///RTC High Speed Mode Enable. 
         enum class HsmdenVal {
             disabled=0x00000000,     ///<Disable high speed mode.
@@ -239,7 +219,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hsmden)::Type,HsmdenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hsmden)::Type,HsmdenVal::enabled> enabled{};
         }
-        }
         ///RTC Load Capacitance Ready Flag. 
         enum class LrdyfVal {
             notSet=0x00000000,     ///<The load capacitance is currently stepping.
@@ -249,7 +228,6 @@ namespace Kvasir {
         namespace LrdyfValC{
             constexpr Register::FieldValue<decltype(lrdyf)::Type,LrdyfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(lrdyf)::Type,LrdyfVal::set> set{};
-        }
         }
     }
     namespace Nonealarm0{    ///<RTC Alarm 0
@@ -283,7 +261,6 @@ namespace Kvasir {
         namespace LfoscenValC{
             constexpr Register::FieldValue<decltype(lfoscen)::Type,LfoscenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(lfoscen)::Type,LfoscenVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonelfoscadj{    ///<LFOSC Output Frequency Adjust

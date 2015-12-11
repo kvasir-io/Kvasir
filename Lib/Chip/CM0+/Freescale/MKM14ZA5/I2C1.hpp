@@ -23,7 +23,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mult)::Type,MultVal::v01> v01{};
             constexpr Register::FieldValue<decltype(mult)::Type,MultVal::v10> v10{};
         }
-        }
     }
     namespace I2c1C1{    ///<I2C Control Register 1
         using Addr = Register::Address<0x40068002,0xffffff00,0,unsigned char>;
@@ -37,7 +36,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v1> v1{};
         }
-        }
         ///Wakeup Enable
         enum class WuenVal {
             v0=0x00000000,     ///<Normal operation. No interrupt generated when address matching in low power mode.
@@ -47,7 +45,6 @@ namespace Kvasir {
         namespace WuenValC{
             constexpr Register::FieldValue<decltype(wuen)::Type,WuenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wuen)::Type,WuenVal::v1> v1{};
-        }
         }
         ///Repeat START
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rsta{}; 
@@ -61,7 +58,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txak)::Type,TxakVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txak)::Type,TxakVal::v1> v1{};
         }
-        }
         ///Transmit Mode Select
         enum class TxVal {
             v0=0x00000000,     ///<Receive
@@ -71,7 +67,6 @@ namespace Kvasir {
         namespace TxValC{
             constexpr Register::FieldValue<decltype(tx)::Type,TxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tx)::Type,TxVal::v1> v1{};
-        }
         }
         ///Master Mode Select
         enum class MstVal {
@@ -83,7 +78,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mst)::Type,MstVal::v0> v0{};
             constexpr Register::FieldValue<decltype(mst)::Type,MstVal::v1> v1{};
         }
-        }
         ///I2C Interrupt Enable
         enum class IicieVal {
             v0=0x00000000,     ///<Disabled
@@ -94,7 +88,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iicie)::Type,IicieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(iicie)::Type,IicieVal::v1> v1{};
         }
-        }
         ///I2C Enable
         enum class IicenVal {
             v0=0x00000000,     ///<Disabled
@@ -104,7 +97,6 @@ namespace Kvasir {
         namespace IicenValC{
             constexpr Register::FieldValue<decltype(iicen)::Type,IicenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(iicen)::Type,IicenVal::v1> v1{};
-        }
         }
     }
     namespace I2c1S{    ///<I2C Status register
@@ -119,7 +111,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxak)::Type,RxakVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxak)::Type,RxakVal::v1> v1{};
         }
-        }
         ///Interrupt Flag
         enum class IicifVal {
             v0=0x00000000,     ///<No interrupt pending
@@ -129,7 +120,6 @@ namespace Kvasir {
         namespace IicifValC{
             constexpr Register::FieldValue<decltype(iicif)::Type,IicifVal::v0> v0{};
             constexpr Register::FieldValue<decltype(iicif)::Type,IicifVal::v1> v1{};
-        }
         }
         ///Slave Read/Write
         enum class SrwVal {
@@ -141,7 +131,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srw)::Type,SrwVal::v0> v0{};
             constexpr Register::FieldValue<decltype(srw)::Type,SrwVal::v1> v1{};
         }
-        }
         ///Range Address Match
         enum class RamVal {
             v0=0x00000000,     ///<Not addressed
@@ -151,7 +140,6 @@ namespace Kvasir {
         namespace RamValC{
             constexpr Register::FieldValue<decltype(ram)::Type,RamVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ram)::Type,RamVal::v1> v1{};
-        }
         }
         ///Arbitration Lost
         enum class ArblVal {
@@ -163,7 +151,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(arbl)::Type,ArblVal::v0> v0{};
             constexpr Register::FieldValue<decltype(arbl)::Type,ArblVal::v1> v1{};
         }
-        }
         ///Bus Busy
         enum class BusyVal {
             v0=0x00000000,     ///<Bus is idle
@@ -173,7 +160,6 @@ namespace Kvasir {
         namespace BusyValC{
             constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::v0> v0{};
             constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::v1> v1{};
-        }
         }
         ///Addressed As A Slave
         enum class IaasVal {
@@ -185,7 +171,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iaas)::Type,IaasVal::v0> v0{};
             constexpr Register::FieldValue<decltype(iaas)::Type,IaasVal::v1> v1{};
         }
-        }
         ///Transfer Complete Flag
         enum class TcfVal {
             v0=0x00000000,     ///<Transfer in progress
@@ -195,7 +180,6 @@ namespace Kvasir {
         namespace TcfValC{
             constexpr Register::FieldValue<decltype(tcf)::Type,TcfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tcf)::Type,TcfVal::v1> v1{};
-        }
         }
     }
     namespace I2c1D{    ///<I2C Data I/O register
@@ -217,7 +201,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rmen)::Type,RmenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rmen)::Type,RmenVal::v1> v1{};
         }
-        }
         ///Slave Baud Rate Control
         enum class SbrcVal {
             v0=0x00000000,     ///<The slave baud rate follows the master baud rate and clock stretching may occur
@@ -227,7 +210,6 @@ namespace Kvasir {
         namespace SbrcValC{
             constexpr Register::FieldValue<decltype(sbrc)::Type,SbrcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sbrc)::Type,SbrcVal::v1> v1{};
-        }
         }
         ///High Drive Select
         enum class HdrsVal {
@@ -239,7 +221,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hdrs)::Type,HdrsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hdrs)::Type,HdrsVal::v1> v1{};
         }
-        }
         ///Address Extension
         enum class AdextVal {
             v0=0x00000000,     ///<7-bit address scheme
@@ -250,7 +231,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adext)::Type,AdextVal::v0> v0{};
             constexpr Register::FieldValue<decltype(adext)::Type,AdextVal::v1> v1{};
         }
-        }
         ///General Call Address Enable
         enum class GcaenVal {
             v0=0x00000000,     ///<Disabled
@@ -260,7 +240,6 @@ namespace Kvasir {
         namespace GcaenValC{
             constexpr Register::FieldValue<decltype(gcaen)::Type,GcaenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gcaen)::Type,GcaenVal::v1> v1{};
-        }
         }
     }
     namespace I2c1Flt{    ///<I2C Programmable Input Glitch Filter Register
@@ -277,7 +256,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(startf)::Type,StartfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(startf)::Type,StartfVal::v1> v1{};
         }
-        }
         ///I2C Bus Stop or Start Interrupt Enable
         enum class SsieVal {
             v0=0x00000000,     ///<Stop or start detection interrupt is disabled
@@ -287,7 +265,6 @@ namespace Kvasir {
         namespace SsieValC{
             constexpr Register::FieldValue<decltype(ssie)::Type,SsieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ssie)::Type,SsieVal::v1> v1{};
-        }
         }
         ///I2C Bus Stop Detect Flag
         enum class StopfVal {
@@ -299,7 +276,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopf)::Type,StopfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(stopf)::Type,StopfVal::v1> v1{};
         }
-        }
         ///Stop Hold Enable
         enum class ShenVal {
             v0=0x00000000,     ///<Stop holdoff is disabled. The MCU's entry to stop mode is not gated.
@@ -309,7 +285,6 @@ namespace Kvasir {
         namespace ShenValC{
             constexpr Register::FieldValue<decltype(shen)::Type,ShenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(shen)::Type,ShenVal::v1> v1{};
-        }
         }
     }
     namespace I2c1Ra{    ///<I2C Range Address register
@@ -329,7 +304,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(shtf2ie)::Type,Shtf2ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(shtf2ie)::Type,Shtf2ieVal::v1> v1{};
         }
-        }
         ///SCL High Timeout Flag 2
         enum class Shtf2Val {
             v0=0x00000000,     ///<No SCL high and SDA low timeout occurs
@@ -339,7 +313,6 @@ namespace Kvasir {
         namespace Shtf2ValC{
             constexpr Register::FieldValue<decltype(shtf2)::Type,Shtf2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(shtf2)::Type,Shtf2Val::v1> v1{};
-        }
         }
         ///SCL High Timeout Flag 1
         enum class Shtf1Val {
@@ -351,7 +324,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(shtf1)::Type,Shtf1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(shtf1)::Type,Shtf1Val::v1> v1{};
         }
-        }
         ///SCL Low Timeout Flag
         enum class SltfVal {
             v0=0x00000000,     ///<No low timeout occurs
@@ -361,7 +333,6 @@ namespace Kvasir {
         namespace SltfValC{
             constexpr Register::FieldValue<decltype(sltf)::Type,SltfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sltf)::Type,SltfVal::v1> v1{};
-        }
         }
         ///Timeout Counter Clock Select
         enum class TckselVal {
@@ -373,7 +344,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tcksel)::Type,TckselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tcksel)::Type,TckselVal::v1> v1{};
         }
-        }
         ///Second I2C Address Enable
         enum class SiicaenVal {
             v0=0x00000000,     ///<I2C address register 2 matching is disabled
@@ -383,7 +353,6 @@ namespace Kvasir {
         namespace SiicaenValC{
             constexpr Register::FieldValue<decltype(siicaen)::Type,SiicaenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(siicaen)::Type,SiicaenVal::v1> v1{};
-        }
         }
         ///SMBus Alert Response Address Enable
         enum class AlertenVal {
@@ -395,7 +364,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(alerten)::Type,AlertenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(alerten)::Type,AlertenVal::v1> v1{};
         }
-        }
         ///Fast NACK/ACK Enable
         enum class FackVal {
             v0=0x00000000,     ///<An ACK or NACK is sent on the following receiving data byte
@@ -405,7 +373,6 @@ namespace Kvasir {
         namespace FackValC{
             constexpr Register::FieldValue<decltype(fack)::Type,FackVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fack)::Type,FackVal::v1> v1{};
-        }
         }
     }
     namespace I2c1A2{    ///<I2C Address Register 2

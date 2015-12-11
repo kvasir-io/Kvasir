@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wden)::Type,WdenVal::stopped> stopped{};
             constexpr Register::FieldValue<decltype(wden)::Type,WdenVal::run> run{};
         }
-        }
         ///Watchdog reset enable bit. This bit is Set Only.
         enum class WdresetVal {
             noreset=0x00000000,     ///<A watchdog timeout will not cause a chip reset.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace WdresetValC{
             constexpr Register::FieldValue<decltype(wdreset)::Type,WdresetVal::noreset> noreset{};
             constexpr Register::FieldValue<decltype(wdreset)::Type,WdresetVal::reset> reset{};
-        }
         }
         ///Watchdog time-out flag. Set when the watchdog timer times out, by a feed error, or by events associated with WDPROTECT, cleared by software. Causes a chip reset if WDRESET = 1.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wdtof{}; 
@@ -39,7 +37,6 @@ namespace Kvasir {
         namespace WdprotectValC{
             constexpr Register::FieldValue<decltype(wdprotect)::Type,WdprotectVal::anytime> anytime{};
             constexpr Register::FieldValue<decltype(wdprotect)::Type,WdprotectVal::lowcounter> lowcounter{};
-        }
         }
     }
     namespace Nonewdtc{    ///<Watchdog timer constant register. This register determines the time-out value.

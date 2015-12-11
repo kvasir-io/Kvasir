@@ -22,7 +22,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swreset)::Type,SwresetVal::notInReset> notInReset{};
             constexpr Register::FieldValue<decltype(swreset)::Type,SwresetVal::inReset> inReset{};
         }
-        }
         ///Oscillator fail detect status.
         enum class OfdVal {
             run=0x00000000,     ///<Run. The RTC oscillator is running properly.
@@ -35,7 +34,6 @@ namespace Kvasir {
         namespace OfdValC{
             constexpr Register::FieldValue<decltype(ofd)::Type,OfdVal::run> run{};
             constexpr Register::FieldValue<decltype(ofd)::Type,OfdVal::fail> fail{};
-        }
         }
         ///RTC 1 Hz timer alarm flag status.
         enum class Alarm1hzVal {
@@ -51,7 +49,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(alarm1hz)::Type,Alarm1hzVal::noMatch> noMatch{};
             constexpr Register::FieldValue<decltype(alarm1hz)::Type,Alarm1hzVal::match> match{};
         }
-        }
         ///RTC 1 kHz timer wake-up flag status.
         enum class Wake1khzVal {
             run=0x00000000,     ///<Run. The RTC 1 kHz timer is running. Writing a 0
@@ -66,7 +63,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wake1khz)::Type,Wake1khzVal::run> run{};
             constexpr Register::FieldValue<decltype(wake1khz)::Type,Wake1khzVal::timeOut> timeOut{};
         }
-        }
         ///RTC 1 Hz timer alarm enable for Deep
 								power-down.
         enum class AlarmdpdenVal {
@@ -80,7 +76,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(alarmdpdEn)::Type,AlarmdpdenVal::disable> disable{};
             constexpr Register::FieldValue<decltype(alarmdpdEn)::Type,AlarmdpdenVal::enable> enable{};
         }
-        }
         ///RTC 1 kHz timer wake-up enable for Deep
 								power-down.
         enum class WakedpdenVal {
@@ -93,7 +88,6 @@ namespace Kvasir {
         namespace WakedpdenValC{
             constexpr Register::FieldValue<decltype(wakedpdEn)::Type,WakedpdenVal::disable> disable{};
             constexpr Register::FieldValue<decltype(wakedpdEn)::Type,WakedpdenVal::enable> enable{};
-        }
         }
         ///RTC 1 kHz clock enable. This bit can be set to 0 to
 								conserve power if the 1 kHz timer is not used. This bit has no
@@ -109,7 +103,6 @@ namespace Kvasir {
         namespace Rtc1khzenValC{
             constexpr Register::FieldValue<decltype(rtc1khzEn)::Type,Rtc1khzenVal::disable> disable{};
             constexpr Register::FieldValue<decltype(rtc1khzEn)::Type,Rtc1khzenVal::enable> enable{};
-        }
         }
         ///RTC enable.
         enum class RtcenVal {
@@ -128,7 +121,6 @@ namespace Kvasir {
         namespace RtcenValC{
             constexpr Register::FieldValue<decltype(rtcEn)::Type,RtcenVal::disable> disable{};
             constexpr Register::FieldValue<decltype(rtcEn)::Type,RtcenVal::enable> enable{};
-        }
         }
     }
     namespace Nonematch{    ///<RTC match register

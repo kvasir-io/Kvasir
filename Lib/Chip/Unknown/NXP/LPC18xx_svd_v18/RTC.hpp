@@ -21,7 +21,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clken)::Type,ClkenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(clken)::Type,ClkenVal::enabled> enabled{};
         }
-        }
         ///CTC Reset.
         enum class CtcrstVal {
             noEffect=0x00000000,     ///<No effect.
@@ -32,7 +31,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ctcrst)::Type,CtcrstVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(ctcrst)::Type,CtcrstVal::resetvalue> resetvalue{};
         }
-        }
         ///Calibration counter enable.
         enum class CcalenVal {
             enabled=0x00000000,     ///<The calibration counter is enabled and counting, using the 1 Hz clock. When the calibration counter is equal to the value of the CALIBRATION register, the counter resets and repeats counting up to the value of the CALIBRATION register. See Section 29.6.6.2 and  Section 29.7.1.
@@ -42,7 +40,6 @@ namespace Kvasir {
         namespace CcalenValC{
             constexpr Register::FieldValue<decltype(ccalen)::Type,CcalenVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ccalen)::Type,CcalenVal::disabled> disabled{};
-        }
         }
     }
     namespace Noneciir{    ///<Counter Increment Interrupt Register
@@ -161,7 +158,6 @@ namespace Kvasir {
         namespace CaldirValC{
             constexpr Register::FieldValue<decltype(caldir)::Type,CaldirVal::forwardCalibration> forwardCalibration{};
             constexpr Register::FieldValue<decltype(caldir)::Type,CaldirVal::backwardCalibration> backwardCalibration{};
-        }
         }
     }
     namespace Noneasec{    ///<Alarm value for Seconds

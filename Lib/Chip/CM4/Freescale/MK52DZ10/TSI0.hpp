@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stpe)::Type,StpeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(stpe)::Type,StpeVal::v1> v1{};
         }
-        }
         ///Scan trigger mode
         enum class StmVal {
             v0=0x00000000,     ///<Software trigger scan
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace StmValC{
             constexpr Register::FieldValue<decltype(stm)::Type,StmVal::v0> v0{};
             constexpr Register::FieldValue<decltype(stm)::Type,StmVal::v1> v1{};
-        }
         }
         ///End-of-scan or out-of-range interrupt select
         enum class EsorVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esor)::Type,EsorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esor)::Type,EsorVal::v1> v1{};
         }
-        }
         ///TSI error interrupt Enable
         enum class ErieVal {
             v0=0x00000000,     ///<Error interrupt disabled
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace ErieValC{
             constexpr Register::FieldValue<decltype(erie)::Type,ErieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(erie)::Type,ErieVal::v1> v1{};
-        }
         }
         ///TSI interrupt enable
         enum class TsiieVal {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tsiie)::Type,TsiieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tsiie)::Type,TsiieVal::v1> v1{};
         }
-        }
         ///TSI module enable
         enum class TsienVal {
             v0=0x00000000,     ///<TSI disabled
@@ -68,7 +63,6 @@ namespace Kvasir {
         namespace TsienValC{
             constexpr Register::FieldValue<decltype(tsien)::Type,TsienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tsien)::Type,TsienVal::v1> v1{};
-        }
         }
         ///Software trigger start
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> swts{}; 
@@ -84,7 +78,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ovrf)::Type,OvrfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ovrf)::Type,OvrfVal::v1> v1{};
         }
-        }
         ///External electrode error occurred
         enum class ExterfVal {
             v0=0x00000000,     ///<No short
@@ -94,7 +87,6 @@ namespace Kvasir {
         namespace ExterfValC{
             constexpr Register::FieldValue<decltype(exterf)::Type,ExterfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(exterf)::Type,ExterfVal::v1> v1{};
-        }
         }
         ///Out of Range Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> outrgf{}; 
@@ -121,7 +113,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v101> v101{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v111> v111{};
-        }
         }
         ///Number of Consecutive Scans per Electrode
         enum class NscnVal {
@@ -193,7 +184,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nscn)::Type,NscnVal::v11110> v11110{};
             constexpr Register::FieldValue<decltype(nscn)::Type,NscnVal::v11111> v11111{};
         }
-        }
         ///TSI Low Power Mode Scan Interval
         enum class LpscnitvVal {
             v0000=0x00000000,     ///<1 ms scan interval
@@ -232,7 +222,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lpscnitv)::Type,LpscnitvVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(lpscnitv)::Type,LpscnitvVal::v1111> v1111{};
         }
-        }
         ///Low Power Mode Clock Source Selection
         enum class LpclksVal {
             v0=0x00000000,     ///<LPOCLK
@@ -242,7 +231,6 @@ namespace Kvasir {
         namespace LpclksValC{
             constexpr Register::FieldValue<decltype(lpclks)::Type,LpclksVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lpclks)::Type,LpclksVal::v1> v1{};
-        }
         }
     }
     namespace Tsi0Scanc{    ///<SCAN control register
@@ -269,7 +257,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ampsc)::Type,AmpscVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ampsc)::Type,AmpscVal::v111> v111{};
         }
-        }
         ///Active mode clock source
         enum class AmclksVal {
             v00=0x00000000,     ///<Bus Clock
@@ -284,7 +271,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(amclks)::Type,AmclksVal::v10> v10{};
             constexpr Register::FieldValue<decltype(amclks)::Type,AmclksVal::v11> v11{};
         }
-        }
         ///Active mode clock divider
         enum class AmclkdivVal {
             v0=0x00000000,     ///<Divider set to 1
@@ -294,7 +280,6 @@ namespace Kvasir {
         namespace AmclkdivValC{
             constexpr Register::FieldValue<decltype(amclkdiv)::Type,AmclkdivVal::v0> v0{};
             constexpr Register::FieldValue<decltype(amclkdiv)::Type,AmclkdivVal::v1> v1{};
-        }
         }
         ///Scan modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> smod{}; 
@@ -319,7 +304,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(delvol)::Type,DelvolVal::v101> v101{};
             constexpr Register::FieldValue<decltype(delvol)::Type,DelvolVal::v110> v110{};
             constexpr Register::FieldValue<decltype(delvol)::Type,DelvolVal::v111> v111{};
-        }
         }
         ///External oscillator charge current select
         enum class ExtchrgVal {
@@ -391,7 +375,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(extchrg)::Type,ExtchrgVal::v11110> v11110{};
             constexpr Register::FieldValue<decltype(extchrg)::Type,ExtchrgVal::v11111> v11111{};
         }
-        }
         ///Internal capacitance trim value
         enum class CaptrmVal {
             v000=0x00000000,     ///<0.5 pF internal reference capacitance
@@ -413,7 +396,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(captrm)::Type,CaptrmVal::v101> v101{};
             constexpr Register::FieldValue<decltype(captrm)::Type,CaptrmVal::v110> v110{};
             constexpr Register::FieldValue<decltype(captrm)::Type,CaptrmVal::v111> v111{};
-        }
         }
         ///Reference oscillator charge current select
         enum class RefchrgVal {
@@ -485,7 +467,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(refchrg)::Type,RefchrgVal::v11110> v11110{};
             constexpr Register::FieldValue<decltype(refchrg)::Type,RefchrgVal::v11111> v11111{};
         }
-        }
     }
     namespace Tsi0Pen{    ///<Pin enable register
         using Addr = Register::Address<0x40045008,0xfff00000,0,unsigned>;
@@ -499,7 +480,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pen0)::Type,Pen0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pen0)::Type,Pen0Val::v1> v1{};
         }
-        }
         ///TSI pin 1 enable
         enum class Pen1Val {
             v0=0x00000000,     ///<The corresponding pin is not used by TSI
@@ -509,7 +489,6 @@ namespace Kvasir {
         namespace Pen1ValC{
             constexpr Register::FieldValue<decltype(pen1)::Type,Pen1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pen1)::Type,Pen1Val::v1> v1{};
-        }
         }
         ///TSI pin 2 enable
         enum class Pen2Val {
@@ -521,7 +500,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pen2)::Type,Pen2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pen2)::Type,Pen2Val::v1> v1{};
         }
-        }
         ///TSI pin 3 enable
         enum class Pen3Val {
             v0=0x00000000,     ///<The corresponding pin is not used by TSI
@@ -531,7 +509,6 @@ namespace Kvasir {
         namespace Pen3ValC{
             constexpr Register::FieldValue<decltype(pen3)::Type,Pen3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pen3)::Type,Pen3Val::v1> v1{};
-        }
         }
         ///TSI pin 4 enable
         enum class Pen4Val {
@@ -543,7 +520,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pen4)::Type,Pen4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pen4)::Type,Pen4Val::v1> v1{};
         }
-        }
         ///TSI pin 5 enable
         enum class Pen5Val {
             v0=0x00000000,     ///<The corresponding pin is not used by TSI
@@ -553,7 +529,6 @@ namespace Kvasir {
         namespace Pen5ValC{
             constexpr Register::FieldValue<decltype(pen5)::Type,Pen5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pen5)::Type,Pen5Val::v1> v1{};
-        }
         }
         ///TSI pin 6 enable
         enum class Pen6Val {
@@ -565,7 +540,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pen6)::Type,Pen6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pen6)::Type,Pen6Val::v1> v1{};
         }
-        }
         ///TSI pin 7 enable
         enum class Pen7Val {
             v0=0x00000000,     ///<The corresponding pin is not used by TSI
@@ -575,7 +549,6 @@ namespace Kvasir {
         namespace Pen7ValC{
             constexpr Register::FieldValue<decltype(pen7)::Type,Pen7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pen7)::Type,Pen7Val::v1> v1{};
-        }
         }
         ///TSI pin 8 enable
         enum class Pen8Val {
@@ -587,7 +560,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pen8)::Type,Pen8Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pen8)::Type,Pen8Val::v1> v1{};
         }
-        }
         ///TSI pin 9 enable
         enum class Pen9Val {
             v0=0x00000000,     ///<The corresponding pin is not used by TSI
@@ -597,7 +569,6 @@ namespace Kvasir {
         namespace Pen9ValC{
             constexpr Register::FieldValue<decltype(pen9)::Type,Pen9Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pen9)::Type,Pen9Val::v1> v1{};
-        }
         }
         ///TSI pin 10 enable
         enum class Pen10Val {
@@ -609,7 +580,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pen10)::Type,Pen10Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pen10)::Type,Pen10Val::v1> v1{};
         }
-        }
         ///TSI pin 11 enable
         enum class Pen11Val {
             v0=0x00000000,     ///<The corresponding pin is not used by TSI
@@ -619,7 +589,6 @@ namespace Kvasir {
         namespace Pen11ValC{
             constexpr Register::FieldValue<decltype(pen11)::Type,Pen11Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pen11)::Type,Pen11Val::v1> v1{};
-        }
         }
         ///TSI pin 12 enable
         enum class Pen12Val {
@@ -631,7 +600,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pen12)::Type,Pen12Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pen12)::Type,Pen12Val::v1> v1{};
         }
-        }
         ///TSI pin 13 enable
         enum class Pen13Val {
             v0=0x00000000,     ///<The corresponding pin is not used by TSI
@@ -641,7 +609,6 @@ namespace Kvasir {
         namespace Pen13ValC{
             constexpr Register::FieldValue<decltype(pen13)::Type,Pen13Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pen13)::Type,Pen13Val::v1> v1{};
-        }
         }
         ///TSI pin 14 enable
         enum class Pen14Val {
@@ -653,7 +620,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pen14)::Type,Pen14Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pen14)::Type,Pen14Val::v1> v1{};
         }
-        }
         ///TSI pin 15 enable
         enum class Pen15Val {
             v0=0x00000000,     ///<The corresponding pin is not used by TSI
@@ -663,7 +629,6 @@ namespace Kvasir {
         namespace Pen15ValC{
             constexpr Register::FieldValue<decltype(pen15)::Type,Pen15Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pen15)::Type,Pen15Val::v1> v1{};
-        }
         }
         ///Low-power scan pin
         enum class LpspVal {
@@ -702,7 +667,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lpsp)::Type,LpspVal::v1101> v1101{};
             constexpr Register::FieldValue<decltype(lpsp)::Type,LpspVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(lpsp)::Type,LpspVal::v1111> v1111{};
-        }
         }
     }
     namespace Tsi0Status{    ///<Status Register

@@ -74,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sec)::Type,SecVal::v10> v10{};
             constexpr Register::FieldValue<decltype(sec)::Type,SecVal::v11> v11{};
         }
-        }
         ///Freescale Failure Analysis Access Code
         enum class FslaccVal {
             v10=0x00000002,     ///<Freescale factory access denied
@@ -84,7 +83,6 @@ namespace Kvasir {
         namespace FslaccValC{
             constexpr Register::FieldValue<decltype(fslacc)::Type,FslaccVal::v10> v10{};
             constexpr Register::FieldValue<decltype(fslacc)::Type,FslaccVal::v11> v11{};
-        }
         }
         ///no description available
         enum class MeenVal {
@@ -96,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(meen)::Type,MeenVal::v10> v10{};
             constexpr Register::FieldValue<decltype(meen)::Type,MeenVal::v11> v11{};
         }
-        }
         ///Backdoor Key Security Enable
         enum class KeyenVal {
             v10=0x00000002,     ///<Backdoor key access enabled
@@ -106,7 +103,6 @@ namespace Kvasir {
         namespace KeyenValC{
             constexpr Register::FieldValue<decltype(keyen)::Type,KeyenVal::v10> v10{};
             constexpr Register::FieldValue<decltype(keyen)::Type,KeyenVal::v11> v11{};
-        }
         }
     }
     namespace NvFopt{    ///<Non-volatile Flash Option Register
@@ -121,7 +117,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lpboot0)::Type,Lpboot0Val::v00> v00{};
             constexpr Register::FieldValue<decltype(lpboot0)::Type,Lpboot0Val::v01> v01{};
         }
-        }
         ///no description available
         enum class BootpinoptVal {
             v00=0x00000000,     ///<Force Boot from ROM if BOOTCFG0 asserted, where BOOTCFG0 is the boot config function which is muxed with NMI pin
@@ -131,7 +126,6 @@ namespace Kvasir {
         namespace BootpinoptValC{
             constexpr Register::FieldValue<decltype(bootpinOpt)::Type,BootpinoptVal::v00> v00{};
             constexpr Register::FieldValue<decltype(bootpinOpt)::Type,BootpinoptVal::v01> v01{};
-        }
         }
         ///no description available
         enum class NmidisVal {
@@ -143,7 +137,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nmiDis)::Type,NmidisVal::v00> v00{};
             constexpr Register::FieldValue<decltype(nmiDis)::Type,NmidisVal::v01> v01{};
         }
-        }
         ///no description available
         enum class ResetpincfgVal {
             v00=0x00000000,     ///<RESET pin is disabled following a POR and cannot be enabled as reset function
@@ -153,7 +146,6 @@ namespace Kvasir {
         namespace ResetpincfgValC{
             constexpr Register::FieldValue<decltype(resetPinCfg)::Type,ResetpincfgVal::v00> v00{};
             constexpr Register::FieldValue<decltype(resetPinCfg)::Type,ResetpincfgVal::v01> v01{};
-        }
         }
         ///no description available
         enum class Lpboot1Val {
@@ -165,7 +157,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lpboot1)::Type,Lpboot1Val::v00> v00{};
             constexpr Register::FieldValue<decltype(lpboot1)::Type,Lpboot1Val::v01> v01{};
         }
-        }
         ///no description available
         enum class FastinitVal {
             v00=0x00000000,     ///<Slower initialization
@@ -175,7 +166,6 @@ namespace Kvasir {
         namespace FastinitValC{
             constexpr Register::FieldValue<decltype(fastInit)::Type,FastinitVal::v00> v00{};
             constexpr Register::FieldValue<decltype(fastInit)::Type,FastinitVal::v01> v01{};
-        }
         }
         ///Boot source selection
         enum class BootsrcselVal {
@@ -188,7 +178,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bootsrcSel)::Type,BootsrcselVal::v00> v00{};
             constexpr Register::FieldValue<decltype(bootsrcSel)::Type,BootsrcselVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bootsrcSel)::Type,BootsrcselVal::v11> v11{};
-        }
         }
     }
 }

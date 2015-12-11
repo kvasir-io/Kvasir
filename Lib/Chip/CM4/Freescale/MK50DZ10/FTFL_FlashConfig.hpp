@@ -74,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sec)::Type,SecVal::v10> v10{};
             constexpr Register::FieldValue<decltype(sec)::Type,SecVal::v11> v11{};
         }
-        }
         ///Freescale Failure Analysis Access Code
         enum class FslaccVal {
             v10=0x00000002,     ///<Freescale factory access denied
@@ -84,7 +83,6 @@ namespace Kvasir {
         namespace FslaccValC{
             constexpr Register::FieldValue<decltype(fslacc)::Type,FslaccVal::v10> v10{};
             constexpr Register::FieldValue<decltype(fslacc)::Type,FslaccVal::v11> v11{};
-        }
         }
         ///no description available
         enum class MeenVal {
@@ -96,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(meen)::Type,MeenVal::v10> v10{};
             constexpr Register::FieldValue<decltype(meen)::Type,MeenVal::v11> v11{};
         }
-        }
         ///Backdoor Key Security Enable
         enum class KeyenVal {
             v10=0x00000002,     ///<Backdoor key access enabled
@@ -106,7 +103,6 @@ namespace Kvasir {
         namespace KeyenValC{
             constexpr Register::FieldValue<decltype(keyen)::Type,KeyenVal::v10> v10{};
             constexpr Register::FieldValue<decltype(keyen)::Type,KeyenVal::v11> v11{};
-        }
         }
     }
     namespace NvFopt{    ///<Non-volatile Flash Option Register
@@ -121,7 +117,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lpboot)::Type,LpbootVal::v00> v00{};
             constexpr Register::FieldValue<decltype(lpboot)::Type,LpbootVal::v01> v01{};
         }
-        }
         ///no description available
         enum class EzportdisVal {
             v00=0x00000000,     ///<EzPort operation is disabled
@@ -131,7 +126,6 @@ namespace Kvasir {
         namespace EzportdisValC{
             constexpr Register::FieldValue<decltype(ezportDis)::Type,EzportdisVal::v00> v00{};
             constexpr Register::FieldValue<decltype(ezportDis)::Type,EzportdisVal::v01> v01{};
-        }
         }
     }
 }

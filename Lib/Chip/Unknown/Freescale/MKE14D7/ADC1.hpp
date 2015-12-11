@@ -36,7 +36,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01011> v01011{};
             constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11111> v11111{};
         }
-        }
         ///Continuous Conversion Enable
         enum class AdcoVal {
             v0=0x00000000,     ///<One conversion following a write to the ADCSC1 when software triggered operation is selected, or one conversion following assertion of ADHWT when hardware triggered operation is selected. When the FIFO function is enabled (AFDEP > 0), a set of conversions are triggerd.
@@ -46,7 +45,6 @@ namespace Kvasir {
         namespace AdcoValC{
             constexpr Register::FieldValue<decltype(adco)::Type,AdcoVal::v0> v0{};
             constexpr Register::FieldValue<decltype(adco)::Type,AdcoVal::v1> v1{};
-        }
         }
         ///Interrupt Enable
         enum class AienVal {
@@ -58,7 +56,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v1> v1{};
         }
-        }
         ///Conversion Complete Flag
         enum class CocoVal {
             v0=0x00000000,     ///<Conversion not completed.
@@ -68,7 +65,6 @@ namespace Kvasir {
         namespace CocoValC{
             constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v0> v0{};
             constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v1> v1{};
-        }
         }
     }
     namespace Adc1Sc2{    ///<Status and Control Register 2
@@ -83,7 +79,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ffull)::Type,FfullVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ffull)::Type,FfullVal::v1> v1{};
         }
-        }
         ///Result FIFO empty
         enum class FemptyVal {
             v0=0x00000000,     ///<Indicates that ADC result fifo have at least one valid new data.
@@ -93,7 +88,6 @@ namespace Kvasir {
         namespace FemptyValC{
             constexpr Register::FieldValue<decltype(fempty)::Type,FemptyVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fempty)::Type,FemptyVal::v1> v1{};
-        }
         }
         ///Compare Data Selection
         enum class AcdselVal {
@@ -105,7 +99,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acdsel)::Type,AcdselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(acdsel)::Type,AcdselVal::v1> v1{};
         }
-        }
         ///Compare Function Enable
         enum class AcfeVal {
             v0=0x00000000,     ///<Compare function disabled.
@@ -115,7 +108,6 @@ namespace Kvasir {
         namespace AcfeValC{
             constexpr Register::FieldValue<decltype(acfe)::Type,AcfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(acfe)::Type,AcfeVal::v1> v1{};
-        }
         }
         ///Conversion Trigger Select
         enum class AdtrgVal {
@@ -127,7 +119,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adtrg)::Type,AdtrgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(adtrg)::Type,AdtrgVal::v1> v1{};
         }
-        }
         ///Conversion Active
         enum class AdactVal {
             v0=0x00000000,     ///<Conversion not in progress.
@@ -137,7 +128,6 @@ namespace Kvasir {
         namespace AdactValC{
             constexpr Register::FieldValue<decltype(adact)::Type,AdactVal::v0> v0{};
             constexpr Register::FieldValue<decltype(adact)::Type,AdactVal::v1> v1{};
-        }
         }
     }
     namespace Adc1Sc3{    ///<Status and Control Register 3
@@ -156,7 +146,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adiclk)::Type,AdiclkVal::v10> v10{};
             constexpr Register::FieldValue<decltype(adiclk)::Type,AdiclkVal::v11> v11{};
         }
-        }
         ///Conversion Mode Selection
         enum class ModeVal {
             v00=0x00000000,     ///<8-bit conversion (N=8)
@@ -171,7 +160,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::v10> v10{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::v11> v11{};
         }
-        }
         ///Long Sample Time Configuration
         enum class AdlsmpVal {
             v0=0x00000000,     ///<Short sample time.
@@ -181,7 +169,6 @@ namespace Kvasir {
         namespace AdlsmpValC{
             constexpr Register::FieldValue<decltype(adlsmp)::Type,AdlsmpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(adlsmp)::Type,AdlsmpVal::v1> v1{};
-        }
         }
         ///Clock Divide Select
         enum class AdivVal {
@@ -197,7 +184,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adiv)::Type,AdivVal::v10> v10{};
             constexpr Register::FieldValue<decltype(adiv)::Type,AdivVal::v11> v11{};
         }
-        }
         ///Low-Power Configuration
         enum class AdlpcVal {
             v0=0x00000000,     ///<High speed configuration.
@@ -207,7 +193,6 @@ namespace Kvasir {
         namespace AdlpcValC{
             constexpr Register::FieldValue<decltype(adlpc)::Type,AdlpcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(adlpc)::Type,AdlpcVal::v1> v1{};
-        }
         }
     }
     namespace Adc1Sc4{    ///<Status and Control Register 4
@@ -234,7 +219,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(afdep)::Type,AfdepVal::v110> v110{};
             constexpr Register::FieldValue<decltype(afdep)::Type,AfdepVal::v111> v111{};
         }
-        }
         ///no description available
         enum class AcfselVal {
             v0=0x00000000,     ///<OR all of compare trigger.
@@ -244,7 +228,6 @@ namespace Kvasir {
         namespace AcfselValC{
             constexpr Register::FieldValue<decltype(acfsel)::Type,AcfselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(acfsel)::Type,AcfselVal::v1> v1{};
-        }
         }
         ///no description available
         enum class AscaneVal {
@@ -256,7 +239,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ascane)::Type,AscaneVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ascane)::Type,AscaneVal::v1> v1{};
         }
-        }
         ///DMA Enable
         enum class DmaenVal {
             v0=0x00000000,     ///<DMA read request is disabled.
@@ -266,7 +248,6 @@ namespace Kvasir {
         namespace DmaenValC{
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v1> v1{};
-        }
         }
     }
     namespace Adc1R{    ///<Conversion Result Register
@@ -296,7 +277,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adpc0)::Type,Adpc0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(adpc0)::Type,Adpc0Val::v1> v1{};
         }
-        }
         ///ADC Pin Control 1
         enum class Adpc1Val {
             v0=0x00000000,     ///<AD1 pin I/O control enabled.
@@ -306,7 +286,6 @@ namespace Kvasir {
         namespace Adpc1ValC{
             constexpr Register::FieldValue<decltype(adpc1)::Type,Adpc1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(adpc1)::Type,Adpc1Val::v1> v1{};
-        }
         }
         ///ADC Pin Control 2
         enum class Adpc2Val {
@@ -318,7 +297,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adpc2)::Type,Adpc2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(adpc2)::Type,Adpc2Val::v1> v1{};
         }
-        }
         ///ADC Pin Control 3
         enum class Adpc3Val {
             v0=0x00000000,     ///<AD3 pin I/O control enabled.
@@ -328,7 +306,6 @@ namespace Kvasir {
         namespace Adpc3ValC{
             constexpr Register::FieldValue<decltype(adpc3)::Type,Adpc3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(adpc3)::Type,Adpc3Val::v1> v1{};
-        }
         }
         ///ADC Pin Control 4
         enum class Adpc4Val {
@@ -340,7 +317,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adpc4)::Type,Adpc4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(adpc4)::Type,Adpc4Val::v1> v1{};
         }
-        }
         ///ADC Pin Control 5
         enum class Adpc5Val {
             v0=0x00000000,     ///<AD5 pin I/O control enabled.
@@ -350,7 +326,6 @@ namespace Kvasir {
         namespace Adpc5ValC{
             constexpr Register::FieldValue<decltype(adpc5)::Type,Adpc5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(adpc5)::Type,Adpc5Val::v1> v1{};
-        }
         }
         ///ADC Pin Control 6
         enum class Adpc6Val {
@@ -362,7 +337,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adpc6)::Type,Adpc6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(adpc6)::Type,Adpc6Val::v1> v1{};
         }
-        }
         ///ADC Pin Control 7
         enum class Adpc7Val {
             v0=0x00000000,     ///<AD7 pin I/O control enabled.
@@ -372,7 +346,6 @@ namespace Kvasir {
         namespace Adpc7ValC{
             constexpr Register::FieldValue<decltype(adpc7)::Type,Adpc7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(adpc7)::Type,Adpc7Val::v1> v1{};
-        }
         }
         ///ADC Pin Control 8
         enum class Adpc8Val {
@@ -384,7 +357,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adpc8)::Type,Adpc8Val::v0> v0{};
             constexpr Register::FieldValue<decltype(adpc8)::Type,Adpc8Val::v1> v1{};
         }
-        }
         ///ADC Pin Control 9
         enum class Adpc9Val {
             v0=0x00000000,     ///<AD9 pin I/O control enabled.
@@ -394,7 +366,6 @@ namespace Kvasir {
         namespace Adpc9ValC{
             constexpr Register::FieldValue<decltype(adpc9)::Type,Adpc9Val::v0> v0{};
             constexpr Register::FieldValue<decltype(adpc9)::Type,Adpc9Val::v1> v1{};
-        }
         }
         ///ADC Pin Control 10
         enum class Adpc10Val {
@@ -406,7 +377,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adpc10)::Type,Adpc10Val::v0> v0{};
             constexpr Register::FieldValue<decltype(adpc10)::Type,Adpc10Val::v1> v1{};
         }
-        }
         ///ADC Pin Control 11
         enum class Adpc11Val {
             v0=0x00000000,     ///<AD11 pin I/O control enabled.
@@ -416,7 +386,6 @@ namespace Kvasir {
         namespace Adpc11ValC{
             constexpr Register::FieldValue<decltype(adpc11)::Type,Adpc11Val::v0> v0{};
             constexpr Register::FieldValue<decltype(adpc11)::Type,Adpc11Val::v1> v1{};
-        }
         }
     }
 }

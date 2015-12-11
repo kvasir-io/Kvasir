@@ -12,7 +12,6 @@ namespace Kvasir {
         namespace XfrstaValC{
             constexpr Register::FieldValue<decltype(xfrsta)::Type,XfrstaVal::start> start{};
         }
-        }
         ///Key Capture Enable. 
         enum class KeycpenVal {
             disabled=0x00000000,     ///<Disable key capture.
@@ -22,7 +21,6 @@ namespace Kvasir {
         namespace KeycpenValC{
             constexpr Register::FieldValue<decltype(keycpen)::Type,KeycpenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(keycpen)::Type,KeycpenVal::enabled> enabled{};
-        }
         }
         ///Encryption/Decryption Mode. 
         enum class EdmdVal {
@@ -34,7 +32,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edmd)::Type,EdmdVal::decrypt> decrypt{};
             constexpr Register::FieldValue<decltype(edmd)::Type,EdmdVal::encrypt> encrypt{};
         }
-        }
         ///Software Mode Enable. 
         enum class SwmdenVal {
             disabled=0x00000000,     ///<Disable software mode.
@@ -45,7 +42,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swmden)::Type,SwmdenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(swmden)::Type,SwmdenVal::enabled> enabled{};
         }
-        }
         ///Bypass AES Operation Enable. 
         enum class BenVal {
             disabled=0x00000000,     ///<Do not bypass AES operations.
@@ -55,7 +51,6 @@ namespace Kvasir {
         namespace BenValC{
             constexpr Register::FieldValue<decltype(ben)::Type,BenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ben)::Type,BenVal::enabled> enabled{};
-        }
         }
         ///XOR Enable. 
         enum class XorenVal {
@@ -69,7 +64,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(xoren)::Type,XorenVal::xorInput> xorInput{};
             constexpr Register::FieldValue<decltype(xoren)::Type,XorenVal::xorOutput> xorOutput{};
         }
-        }
         ///Hardware Counter Mode Enable. 
         enum class HctrenVal {
             disabled=0x00000000,     ///<Disable hardware counter mode.
@@ -80,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hctren)::Type,HctrenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hctren)::Type,HctrenVal::enabled> enabled{};
         }
-        }
         ///Hardware Cipher-Block Chaining Mode Enable. 
         enum class HcbcenVal {
             disabled=0x00000000,     ///<Disable hardware cipher-block chaining (CBC) mode.
@@ -90,7 +83,6 @@ namespace Kvasir {
         namespace HcbcenValC{
             constexpr Register::FieldValue<decltype(hcbcen)::Type,HcbcenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hcbcen)::Type,HcbcenVal::enabled> enabled{};
-        }
         }
         ///Keystore Size Select. 
         enum class KeysizeVal {
@@ -104,7 +96,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(keysize)::Type,KeysizeVal::key192> key192{};
             constexpr Register::FieldValue<decltype(keysize)::Type,KeysizeVal::key256> key256{};
         }
-        }
         ///Error Interrupt Enable. 
         enum class ErrienVal {
             disabled=0x00000000,     ///<Disable the error interrupt.
@@ -114,7 +105,6 @@ namespace Kvasir {
         namespace ErrienValC{
             constexpr Register::FieldValue<decltype(errien)::Type,ErrienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(errien)::Type,ErrienVal::enabled> enabled{};
-        }
         }
         ///Operation Complete Interrupt Enable. 
         enum class OcienVal {
@@ -126,7 +116,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ocien)::Type,OcienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ocien)::Type,OcienVal::enabled> enabled{};
         }
-        }
         ///AES Debug Mode. 
         enum class DbgmdVal {
             halt=0x00000000,     ///<A debug breakpoint will cause the AES module to halt.
@@ -137,7 +126,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::halt> halt{};
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::run> run{};
         }
-        }
         ///Module Soft Reset. 
         enum class ResetVal {
             inactive=0x00000000,     ///<AES module is not in soft reset.
@@ -147,7 +135,6 @@ namespace Kvasir {
         namespace ResetValC{
             constexpr Register::FieldValue<decltype(reset)::Type,ResetVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(reset)::Type,ResetVal::active> active{};
-        }
         }
     }
     namespace Nonexfrsize{    ///<Number of Blocks
@@ -267,7 +254,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dfifolvl)::Type,DfifolvlVal::v15Bytes> v15Bytes{};
             constexpr Register::FieldValue<decltype(dfifolvl)::Type,DfifolvlVal::full> full{};
         }
-        }
         ///XOR Data FIFO Level. 
         enum class XfifolvlVal {
             empty=0x00000000,     ///<XOR data FIFO is empty.
@@ -308,7 +294,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(xfifolvl)::Type,XfifolvlVal::v15Bytes> v15Bytes{};
             constexpr Register::FieldValue<decltype(xfifolvl)::Type,XfifolvlVal::full> full{};
         }
-        }
         ///Module Busy Flag. 
         enum class BusyfVal {
             notSet=0x00000000,     ///<AES module is not busy.
@@ -318,7 +303,6 @@ namespace Kvasir {
         namespace BusyfValC{
             constexpr Register::FieldValue<decltype(busyf)::Type,BusyfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(busyf)::Type,BusyfVal::set> set{};
-        }
         }
         ///Input/Output Data FIFO Underrun Interrupt Flag. 
         enum class DuriVal {
@@ -330,7 +314,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(duri)::Type,DuriVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(duri)::Type,DuriVal::set> set{};
         }
-        }
         ///Input/Output Data FIFO Overrun Interrupt Flag. 
         enum class DoriVal {
             notSet=0x00000000,     ///<No input/output data FIFO overrun.
@@ -340,7 +323,6 @@ namespace Kvasir {
         namespace DoriValC{
             constexpr Register::FieldValue<decltype(dori)::Type,DoriVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(dori)::Type,DoriVal::set> set{};
-        }
         }
         ///XOR Data FIFO Overrun Interrupt Flag. 
         enum class XoriVal {
@@ -352,7 +334,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(xori)::Type,XoriVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(xori)::Type,XoriVal::set> set{};
         }
-        }
         ///Operation Complete Interrupt Flag. 
         enum class OciVal {
             notSet=0x00000000,     ///<AES operation complete interrupt has not occurred.
@@ -362,7 +343,6 @@ namespace Kvasir {
         namespace OciValC{
             constexpr Register::FieldValue<decltype(oci)::Type,OciVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(oci)::Type,OciVal::set> set{};
-        }
         }
     }
 }

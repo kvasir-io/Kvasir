@@ -33,7 +33,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(blksize)::Type,BlksizeVal::v100000000000> v100000000000{};
             constexpr Register::FieldValue<decltype(blksize)::Type,BlksizeVal::v1000000000000> v1000000000000{};
         }
-        }
         ///Blocks Count For Current Transfer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> blkcnt{}; 
     }
@@ -54,7 +53,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v1> v1{};
         }
-        }
         ///Block Count Enable
         enum class BcenVal {
             v0=0x00000000,     ///<Disable
@@ -64,7 +62,6 @@ namespace Kvasir {
         namespace BcenValC{
             constexpr Register::FieldValue<decltype(bcen)::Type,BcenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bcen)::Type,BcenVal::v1> v1{};
-        }
         }
         ///Auto CMD12 Enable
         enum class Ac12enVal {
@@ -76,7 +73,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ac12en)::Type,Ac12enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ac12en)::Type,Ac12enVal::v1> v1{};
         }
-        }
         ///Data Transfer Direction Select
         enum class DtdselVal {
             v0=0x00000000,     ///<Write host to card.
@@ -87,7 +83,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtdsel)::Type,DtdselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dtdsel)::Type,DtdselVal::v1> v1{};
         }
-        }
         ///Multi/Single Block Select
         enum class MsbselVal {
             v0=0x00000000,     ///<Single block.
@@ -97,7 +92,6 @@ namespace Kvasir {
         namespace MsbselValC{
             constexpr Register::FieldValue<decltype(msbsel)::Type,MsbselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(msbsel)::Type,MsbselVal::v1> v1{};
-        }
         }
         ///Response Type Select
         enum class RsptypVal {
@@ -113,7 +107,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rsptyp)::Type,RsptypVal::v10> v10{};
             constexpr Register::FieldValue<decltype(rsptyp)::Type,RsptypVal::v11> v11{};
         }
-        }
         ///Command CRC Check Enable
         enum class CccenVal {
             v0=0x00000000,     ///<Disable
@@ -123,7 +116,6 @@ namespace Kvasir {
         namespace CccenValC{
             constexpr Register::FieldValue<decltype(cccen)::Type,CccenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cccen)::Type,CccenVal::v1> v1{};
-        }
         }
         ///Command Index Check Enable
         enum class CicenVal {
@@ -135,7 +127,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cicen)::Type,CicenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cicen)::Type,CicenVal::v1> v1{};
         }
-        }
         ///Data Present Select
         enum class DpselVal {
             v0=0x00000000,     ///<No data present.
@@ -145,7 +136,6 @@ namespace Kvasir {
         namespace DpselValC{
             constexpr Register::FieldValue<decltype(dpsel)::Type,DpselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpsel)::Type,DpselVal::v1> v1{};
-        }
         }
         ///Command Type
         enum class CmdtypVal {
@@ -160,7 +150,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmdtyp)::Type,CmdtypVal::v01> v01{};
             constexpr Register::FieldValue<decltype(cmdtyp)::Type,CmdtypVal::v10> v10{};
             constexpr Register::FieldValue<decltype(cmdtyp)::Type,CmdtypVal::v11> v11{};
-        }
         }
         ///Command Index
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,24),Register::ReadWriteAccess,unsigned> cmdinx{}; 
@@ -202,7 +191,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cihb)::Type,CihbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cihb)::Type,CihbVal::v1> v1{};
         }
-        }
         ///Command Inhibit (DAT)
         enum class CdihbVal {
             v0=0x00000000,     ///<Can issue command which uses the DAT line.
@@ -212,7 +200,6 @@ namespace Kvasir {
         namespace CdihbValC{
             constexpr Register::FieldValue<decltype(cdihb)::Type,CdihbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cdihb)::Type,CdihbVal::v1> v1{};
-        }
         }
         ///Data Line Active
         enum class DlaVal {
@@ -224,7 +211,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dla)::Type,DlaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dla)::Type,DlaVal::v1> v1{};
         }
-        }
         ///SD Clock Stable
         enum class SdstbVal {
             v0=0x00000000,     ///<Clock is changing frequency and not stable.
@@ -234,7 +220,6 @@ namespace Kvasir {
         namespace SdstbValC{
             constexpr Register::FieldValue<decltype(sdstb)::Type,SdstbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sdstb)::Type,SdstbVal::v1> v1{};
-        }
         }
         ///Bus Clock Gated Off Internally
         enum class IpgoffVal {
@@ -246,7 +231,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ipgoff)::Type,IpgoffVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ipgoff)::Type,IpgoffVal::v1> v1{};
         }
-        }
         ///System Clock Gated Off Internally
         enum class HckoffVal {
             v0=0x00000000,     ///<System clock is active.
@@ -256,7 +240,6 @@ namespace Kvasir {
         namespace HckoffValC{
             constexpr Register::FieldValue<decltype(hckoff)::Type,HckoffVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hckoff)::Type,HckoffVal::v1> v1{};
-        }
         }
         ///SDHC clock Gated Off Internally
         enum class PeroffVal {
@@ -268,7 +251,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(peroff)::Type,PeroffVal::v0> v0{};
             constexpr Register::FieldValue<decltype(peroff)::Type,PeroffVal::v1> v1{};
         }
-        }
         ///SD Clock Gated Off Internally
         enum class SdoffVal {
             v0=0x00000000,     ///<SD clock is active.
@@ -278,7 +260,6 @@ namespace Kvasir {
         namespace SdoffValC{
             constexpr Register::FieldValue<decltype(sdoff)::Type,SdoffVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sdoff)::Type,SdoffVal::v1> v1{};
-        }
         }
         ///Write Transfer Active
         enum class WtaVal {
@@ -290,7 +271,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wta)::Type,WtaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wta)::Type,WtaVal::v1> v1{};
         }
-        }
         ///Read Transfer Active
         enum class RtaVal {
             v0=0x00000000,     ///<No valid data.
@@ -300,7 +280,6 @@ namespace Kvasir {
         namespace RtaValC{
             constexpr Register::FieldValue<decltype(rta)::Type,RtaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rta)::Type,RtaVal::v1> v1{};
-        }
         }
         ///Buffer Write Enable
         enum class BwenVal {
@@ -312,7 +291,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwen)::Type,BwenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bwen)::Type,BwenVal::v1> v1{};
         }
-        }
         ///Buffer Read Enable
         enum class BrenVal {
             v0=0x00000000,     ///<Read disable, valid data less than the watermark level exist in the buffer.
@@ -323,7 +301,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bren)::Type,BrenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bren)::Type,BrenVal::v1> v1{};
         }
-        }
         ///Card Inserted
         enum class CinsVal {
             v0=0x00000000,     ///<Power on reset or no card.
@@ -333,7 +310,6 @@ namespace Kvasir {
         namespace CinsValC{
             constexpr Register::FieldValue<decltype(cins)::Type,CinsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cins)::Type,CinsVal::v1> v1{};
-        }
         }
         ///CMD Line Signal Level
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> clsl{}; 
@@ -352,7 +328,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lctl)::Type,LctlVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lctl)::Type,LctlVal::v1> v1{};
         }
-        }
         ///Data Transfer Width
         enum class DtwVal {
             v00=0x00000000,     ///<1-bit mode
@@ -365,7 +340,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtw)::Type,DtwVal::v01> v01{};
             constexpr Register::FieldValue<decltype(dtw)::Type,DtwVal::v10> v10{};
         }
-        }
         ///DAT3 As Card Detection Pin
         enum class D3cdVal {
             v0=0x00000000,     ///<DAT3 does not monitor card Insertion.
@@ -375,7 +349,6 @@ namespace Kvasir {
         namespace D3cdValC{
             constexpr Register::FieldValue<decltype(d3cd)::Type,D3cdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(d3cd)::Type,D3cdVal::v1> v1{};
-        }
         }
         ///Endian Mode
         enum class EmodeVal {
@@ -389,7 +362,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(emode)::Type,EmodeVal::v01> v01{};
             constexpr Register::FieldValue<decltype(emode)::Type,EmodeVal::v10> v10{};
         }
-        }
         ///Card Detect Test Level
         enum class CdtlVal {
             v0=0x00000000,     ///<Card detect test level is 0, no card inserted.
@@ -400,7 +372,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cdtl)::Type,CdtlVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cdtl)::Type,CdtlVal::v1> v1{};
         }
-        }
         ///Card Detect Signal Selection
         enum class CdssVal {
             v0=0x00000000,     ///<Card detection level is selected for normal purpose.
@@ -410,7 +381,6 @@ namespace Kvasir {
         namespace CdssValC{
             constexpr Register::FieldValue<decltype(cdss)::Type,CdssVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cdss)::Type,CdssVal::v1> v1{};
-        }
         }
         ///DMA Select
         enum class DmasVal {
@@ -424,7 +394,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmas)::Type,DmasVal::v01> v01{};
             constexpr Register::FieldValue<decltype(dmas)::Type,DmasVal::v10> v10{};
         }
-        }
         ///Stop At Block Gap Request
         enum class SabgreqVal {
             v0=0x00000000,     ///<Transfer
@@ -434,7 +403,6 @@ namespace Kvasir {
         namespace SabgreqValC{
             constexpr Register::FieldValue<decltype(sabgreq)::Type,SabgreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sabgreq)::Type,SabgreqVal::v1> v1{};
-        }
         }
         ///Continue Request
         enum class CreqVal {
@@ -446,7 +414,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(creq)::Type,CreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(creq)::Type,CreqVal::v1> v1{};
         }
-        }
         ///Read Wait Control
         enum class RwctlVal {
             v0=0x00000000,     ///<Disable read wait control, and stop SD clock at block gap when SABGREQ is set.
@@ -456,7 +423,6 @@ namespace Kvasir {
         namespace RwctlValC{
             constexpr Register::FieldValue<decltype(rwctl)::Type,RwctlVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rwctl)::Type,RwctlVal::v1> v1{};
-        }
         }
         ///Interrupt At Block Gap
         enum class IabgVal {
@@ -468,7 +434,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iabg)::Type,IabgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(iabg)::Type,IabgVal::v1> v1{};
         }
-        }
         ///Wakeup Event Enable On Card Interrupt
         enum class WecintVal {
             v0=0x00000000,     ///<Disabled
@@ -478,7 +443,6 @@ namespace Kvasir {
         namespace WecintValC{
             constexpr Register::FieldValue<decltype(wecint)::Type,WecintVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wecint)::Type,WecintVal::v1> v1{};
-        }
         }
         ///Wakeup Event Enable On SD Card Insertion
         enum class WecinsVal {
@@ -490,7 +454,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wecins)::Type,WecinsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wecins)::Type,WecinsVal::v1> v1{};
         }
-        }
         ///Wakeup Event Enable On SD Card Removal
         enum class WecrmVal {
             v0=0x00000000,     ///<Disabled
@@ -500,7 +463,6 @@ namespace Kvasir {
         namespace WecrmValC{
             constexpr Register::FieldValue<decltype(wecrm)::Type,WecrmVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wecrm)::Type,WecrmVal::v1> v1{};
-        }
         }
     }
     namespace SdhcSysctl{    ///<System Control register
@@ -515,7 +477,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ipgen)::Type,IpgenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ipgen)::Type,IpgenVal::v1> v1{};
         }
-        }
         ///System Clock Enable
         enum class HckenVal {
             v0=0x00000000,     ///<System clock will be internally gated off.
@@ -526,7 +487,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hcken)::Type,HckenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hcken)::Type,HckenVal::v1> v1{};
         }
-        }
         ///Peripheral Clock Enable
         enum class PerenVal {
             v0=0x00000000,     ///<SDHC clock will be internally gated off.
@@ -536,7 +496,6 @@ namespace Kvasir {
         namespace PerenValC{
             constexpr Register::FieldValue<decltype(peren)::Type,PerenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(peren)::Type,PerenVal::v1> v1{};
-        }
         }
         ///SD Clock Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> sdclken{}; 
@@ -564,7 +523,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sdclkfs)::Type,SdclkfsVal::v1000000> v1000000{};
             constexpr Register::FieldValue<decltype(sdclkfs)::Type,SdclkfsVal::v10000000> v10000000{};
         }
-        }
         ///Data Timeout Counter Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> dtocv{}; 
         ///Software Reset For ALL
@@ -577,7 +535,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rsta)::Type,RstaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rsta)::Type,RstaVal::v1> v1{};
         }
-        }
         ///Software Reset For CMD Line
         enum class RstcVal {
             v0=0x00000000,     ///<No reset.
@@ -588,7 +545,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rstc)::Type,RstcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rstc)::Type,RstcVal::v1> v1{};
         }
-        }
         ///Software Reset For DAT Line
         enum class RstdVal {
             v0=0x00000000,     ///<No reset.
@@ -598,7 +554,6 @@ namespace Kvasir {
         namespace RstdValC{
             constexpr Register::FieldValue<decltype(rstd)::Type,RstdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rstd)::Type,RstdVal::v1> v1{};
-        }
         }
         ///Initialization Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> inita{}; 
@@ -615,7 +570,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cc)::Type,CcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cc)::Type,CcVal::v1> v1{};
         }
-        }
         ///Transfer Complete
         enum class TcVal {
             v0=0x00000000,     ///<Transfer not complete.
@@ -625,7 +579,6 @@ namespace Kvasir {
         namespace TcValC{
             constexpr Register::FieldValue<decltype(tc)::Type,TcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tc)::Type,TcVal::v1> v1{};
-        }
         }
         ///Block Gap Event
         enum class BgeVal {
@@ -637,7 +590,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bge)::Type,BgeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bge)::Type,BgeVal::v1> v1{};
         }
-        }
         ///DMA Interrupt
         enum class DintVal {
             v0=0x00000000,     ///<No DMA Interrupt.
@@ -647,7 +599,6 @@ namespace Kvasir {
         namespace DintValC{
             constexpr Register::FieldValue<decltype(dint)::Type,DintVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dint)::Type,DintVal::v1> v1{};
-        }
         }
         ///Buffer Write Ready
         enum class BwrVal {
@@ -659,7 +610,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwr)::Type,BwrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bwr)::Type,BwrVal::v1> v1{};
         }
-        }
         ///Buffer Read Ready
         enum class BrrVal {
             v0=0x00000000,     ///<Not ready to read buffer.
@@ -669,7 +619,6 @@ namespace Kvasir {
         namespace BrrValC{
             constexpr Register::FieldValue<decltype(brr)::Type,BrrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(brr)::Type,BrrVal::v1> v1{};
-        }
         }
         ///Card Insertion
         enum class CinsVal {
@@ -681,7 +630,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cins)::Type,CinsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cins)::Type,CinsVal::v1> v1{};
         }
-        }
         ///Card Removal
         enum class CrmVal {
             v0=0x00000000,     ///<Card state unstable or inserted.
@@ -691,7 +639,6 @@ namespace Kvasir {
         namespace CrmValC{
             constexpr Register::FieldValue<decltype(crm)::Type,CrmVal::v0> v0{};
             constexpr Register::FieldValue<decltype(crm)::Type,CrmVal::v1> v1{};
-        }
         }
         ///Card Interrupt
         enum class CintVal {
@@ -703,7 +650,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cint)::Type,CintVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cint)::Type,CintVal::v1> v1{};
         }
-        }
         ///Command Timeout Error
         enum class CtoeVal {
             v0=0x00000000,     ///<No error.
@@ -713,7 +659,6 @@ namespace Kvasir {
         namespace CtoeValC{
             constexpr Register::FieldValue<decltype(ctoe)::Type,CtoeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ctoe)::Type,CtoeVal::v1> v1{};
-        }
         }
         ///Command CRC Error
         enum class CceVal {
@@ -725,7 +670,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cce)::Type,CceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cce)::Type,CceVal::v1> v1{};
         }
-        }
         ///Command End Bit Error
         enum class CebeVal {
             v0=0x00000000,     ///<No error.
@@ -735,7 +679,6 @@ namespace Kvasir {
         namespace CebeValC{
             constexpr Register::FieldValue<decltype(cebe)::Type,CebeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cebe)::Type,CebeVal::v1> v1{};
-        }
         }
         ///Command Index Error
         enum class CieVal {
@@ -747,7 +690,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cie)::Type,CieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cie)::Type,CieVal::v1> v1{};
         }
-        }
         ///Data Timeout Error
         enum class DtoeVal {
             v0=0x00000000,     ///<No error.
@@ -757,7 +699,6 @@ namespace Kvasir {
         namespace DtoeValC{
             constexpr Register::FieldValue<decltype(dtoe)::Type,DtoeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dtoe)::Type,DtoeVal::v1> v1{};
-        }
         }
         ///Data CRC Error
         enum class DceVal {
@@ -769,7 +710,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dce)::Type,DceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dce)::Type,DceVal::v1> v1{};
         }
-        }
         ///Data End Bit Error
         enum class DebeVal {
             v0=0x00000000,     ///<No error.
@@ -779,7 +719,6 @@ namespace Kvasir {
         namespace DebeValC{
             constexpr Register::FieldValue<decltype(debe)::Type,DebeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(debe)::Type,DebeVal::v1> v1{};
-        }
         }
         ///Auto CMD12 Error
         enum class Ac12eVal {
@@ -791,7 +730,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ac12e)::Type,Ac12eVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ac12e)::Type,Ac12eVal::v1> v1{};
         }
-        }
         ///DMA Error
         enum class DmaeVal {
             v0=0x00000000,     ///<No error.
@@ -801,7 +739,6 @@ namespace Kvasir {
         namespace DmaeValC{
             constexpr Register::FieldValue<decltype(dmae)::Type,DmaeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmae)::Type,DmaeVal::v1> v1{};
-        }
         }
     }
     namespace SdhcIrqstaten{    ///<Interrupt Status Enable register
@@ -816,7 +753,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ccsen)::Type,CcsenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ccsen)::Type,CcsenVal::v1> v1{};
         }
-        }
         ///Transfer Complete Status Enable
         enum class TcsenVal {
             v0=0x00000000,     ///<Masked
@@ -826,7 +762,6 @@ namespace Kvasir {
         namespace TcsenValC{
             constexpr Register::FieldValue<decltype(tcsen)::Type,TcsenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tcsen)::Type,TcsenVal::v1> v1{};
-        }
         }
         ///Block Gap Event Status Enable
         enum class BgesenVal {
@@ -838,7 +773,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bgesen)::Type,BgesenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bgesen)::Type,BgesenVal::v1> v1{};
         }
-        }
         ///DMA Interrupt Status Enable
         enum class DintsenVal {
             v0=0x00000000,     ///<Masked
@@ -848,7 +782,6 @@ namespace Kvasir {
         namespace DintsenValC{
             constexpr Register::FieldValue<decltype(dintsen)::Type,DintsenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dintsen)::Type,DintsenVal::v1> v1{};
-        }
         }
         ///Buffer Write Ready Status Enable
         enum class BwrsenVal {
@@ -860,7 +793,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwrsen)::Type,BwrsenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bwrsen)::Type,BwrsenVal::v1> v1{};
         }
-        }
         ///Buffer Read Ready Status Enable
         enum class BrrsenVal {
             v0=0x00000000,     ///<Masked
@@ -870,7 +802,6 @@ namespace Kvasir {
         namespace BrrsenValC{
             constexpr Register::FieldValue<decltype(brrsen)::Type,BrrsenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(brrsen)::Type,BrrsenVal::v1> v1{};
-        }
         }
         ///Card Insertion Status Enable
         enum class CinsenVal {
@@ -882,7 +813,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cinsen)::Type,CinsenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cinsen)::Type,CinsenVal::v1> v1{};
         }
-        }
         ///Card Removal Status Enable
         enum class CrmsenVal {
             v0=0x00000000,     ///<Masked
@@ -892,7 +822,6 @@ namespace Kvasir {
         namespace CrmsenValC{
             constexpr Register::FieldValue<decltype(crmsen)::Type,CrmsenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(crmsen)::Type,CrmsenVal::v1> v1{};
-        }
         }
         ///Card Interrupt Status Enable
         enum class CintsenVal {
@@ -904,7 +833,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cintsen)::Type,CintsenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cintsen)::Type,CintsenVal::v1> v1{};
         }
-        }
         ///Command Timeout Error Status Enable
         enum class CtoesenVal {
             v0=0x00000000,     ///<Masked
@@ -914,7 +842,6 @@ namespace Kvasir {
         namespace CtoesenValC{
             constexpr Register::FieldValue<decltype(ctoesen)::Type,CtoesenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ctoesen)::Type,CtoesenVal::v1> v1{};
-        }
         }
         ///Command CRC Error Status Enable
         enum class CcesenVal {
@@ -926,7 +853,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ccesen)::Type,CcesenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ccesen)::Type,CcesenVal::v1> v1{};
         }
-        }
         ///Command End Bit Error Status Enable
         enum class CebesenVal {
             v0=0x00000000,     ///<Masked
@@ -936,7 +862,6 @@ namespace Kvasir {
         namespace CebesenValC{
             constexpr Register::FieldValue<decltype(cebesen)::Type,CebesenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cebesen)::Type,CebesenVal::v1> v1{};
-        }
         }
         ///Command Index Error Status Enable
         enum class CiesenVal {
@@ -948,7 +873,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ciesen)::Type,CiesenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ciesen)::Type,CiesenVal::v1> v1{};
         }
-        }
         ///Data Timeout Error Status Enable
         enum class DtoesenVal {
             v0=0x00000000,     ///<Masked
@@ -958,7 +882,6 @@ namespace Kvasir {
         namespace DtoesenValC{
             constexpr Register::FieldValue<decltype(dtoesen)::Type,DtoesenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dtoesen)::Type,DtoesenVal::v1> v1{};
-        }
         }
         ///Data CRC Error Status Enable
         enum class DcesenVal {
@@ -970,7 +893,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dcesen)::Type,DcesenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dcesen)::Type,DcesenVal::v1> v1{};
         }
-        }
         ///Data End Bit Error Status Enable
         enum class DebesenVal {
             v0=0x00000000,     ///<Masked
@@ -980,7 +902,6 @@ namespace Kvasir {
         namespace DebesenValC{
             constexpr Register::FieldValue<decltype(debesen)::Type,DebesenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(debesen)::Type,DebesenVal::v1> v1{};
-        }
         }
         ///Auto CMD12 Error Status Enable
         enum class Ac12esenVal {
@@ -992,7 +913,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ac12esen)::Type,Ac12esenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ac12esen)::Type,Ac12esenVal::v1> v1{};
         }
-        }
         ///DMA Error Status Enable
         enum class DmaesenVal {
             v0=0x00000000,     ///<Masked
@@ -1002,7 +922,6 @@ namespace Kvasir {
         namespace DmaesenValC{
             constexpr Register::FieldValue<decltype(dmaesen)::Type,DmaesenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmaesen)::Type,DmaesenVal::v1> v1{};
-        }
         }
     }
     namespace SdhcIrqsigen{    ///<Interrupt Signal Enable register
@@ -1017,7 +936,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ccien)::Type,CcienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ccien)::Type,CcienVal::v1> v1{};
         }
-        }
         ///Transfer Complete Interrupt Enable
         enum class TcienVal {
             v0=0x00000000,     ///<Masked
@@ -1027,7 +945,6 @@ namespace Kvasir {
         namespace TcienValC{
             constexpr Register::FieldValue<decltype(tcien)::Type,TcienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tcien)::Type,TcienVal::v1> v1{};
-        }
         }
         ///Block Gap Event Interrupt Enable
         enum class BgeienVal {
@@ -1039,7 +956,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bgeien)::Type,BgeienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bgeien)::Type,BgeienVal::v1> v1{};
         }
-        }
         ///DMA Interrupt Enable
         enum class DintienVal {
             v0=0x00000000,     ///<Masked
@@ -1049,7 +965,6 @@ namespace Kvasir {
         namespace DintienValC{
             constexpr Register::FieldValue<decltype(dintien)::Type,DintienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dintien)::Type,DintienVal::v1> v1{};
-        }
         }
         ///Buffer Write Ready Interrupt Enable
         enum class BwrienVal {
@@ -1061,7 +976,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwrien)::Type,BwrienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bwrien)::Type,BwrienVal::v1> v1{};
         }
-        }
         ///Buffer Read Ready Interrupt Enable
         enum class BrrienVal {
             v0=0x00000000,     ///<Masked
@@ -1071,7 +985,6 @@ namespace Kvasir {
         namespace BrrienValC{
             constexpr Register::FieldValue<decltype(brrien)::Type,BrrienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(brrien)::Type,BrrienVal::v1> v1{};
-        }
         }
         ///Card Insertion Interrupt Enable
         enum class CinsienVal {
@@ -1083,7 +996,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cinsien)::Type,CinsienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cinsien)::Type,CinsienVal::v1> v1{};
         }
-        }
         ///Card Removal Interrupt Enable
         enum class CrmienVal {
             v0=0x00000000,     ///<Masked
@@ -1093,7 +1005,6 @@ namespace Kvasir {
         namespace CrmienValC{
             constexpr Register::FieldValue<decltype(crmien)::Type,CrmienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(crmien)::Type,CrmienVal::v1> v1{};
-        }
         }
         ///Card Interrupt Enable
         enum class CintienVal {
@@ -1105,7 +1016,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cintien)::Type,CintienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cintien)::Type,CintienVal::v1> v1{};
         }
-        }
         ///Command Timeout Error Interrupt Enable
         enum class CtoeienVal {
             v0=0x00000000,     ///<Masked
@@ -1115,7 +1025,6 @@ namespace Kvasir {
         namespace CtoeienValC{
             constexpr Register::FieldValue<decltype(ctoeien)::Type,CtoeienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ctoeien)::Type,CtoeienVal::v1> v1{};
-        }
         }
         ///Command CRC Error Interrupt Enable
         enum class CceienVal {
@@ -1127,7 +1036,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cceien)::Type,CceienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cceien)::Type,CceienVal::v1> v1{};
         }
-        }
         ///Command End Bit Error Interrupt Enable
         enum class CebeienVal {
             v0=0x00000000,     ///<Masked
@@ -1137,7 +1045,6 @@ namespace Kvasir {
         namespace CebeienValC{
             constexpr Register::FieldValue<decltype(cebeien)::Type,CebeienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cebeien)::Type,CebeienVal::v1> v1{};
-        }
         }
         ///Command Index Error Interrupt Enable
         enum class CieienVal {
@@ -1149,7 +1056,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cieien)::Type,CieienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cieien)::Type,CieienVal::v1> v1{};
         }
-        }
         ///Data Timeout Error Interrupt Enable
         enum class DtoeienVal {
             v0=0x00000000,     ///<Masked
@@ -1159,7 +1065,6 @@ namespace Kvasir {
         namespace DtoeienValC{
             constexpr Register::FieldValue<decltype(dtoeien)::Type,DtoeienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dtoeien)::Type,DtoeienVal::v1> v1{};
-        }
         }
         ///Data CRC Error Interrupt Enable
         enum class DceienVal {
@@ -1171,7 +1076,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dceien)::Type,DceienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dceien)::Type,DceienVal::v1> v1{};
         }
-        }
         ///Data End Bit Error Interrupt Enable
         enum class DebeienVal {
             v0=0x00000000,     ///<Masked
@@ -1181,7 +1085,6 @@ namespace Kvasir {
         namespace DebeienValC{
             constexpr Register::FieldValue<decltype(debeien)::Type,DebeienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(debeien)::Type,DebeienVal::v1> v1{};
-        }
         }
         ///Auto CMD12 Error Interrupt Enable
         enum class Ac12eienVal {
@@ -1193,7 +1096,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ac12eien)::Type,Ac12eienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ac12eien)::Type,Ac12eienVal::v1> v1{};
         }
-        }
         ///DMA Error Interrupt Enable
         enum class DmaeienVal {
             v0=0x00000000,     ///<Masked
@@ -1203,7 +1105,6 @@ namespace Kvasir {
         namespace DmaeienValC{
             constexpr Register::FieldValue<decltype(dmaeien)::Type,DmaeienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmaeien)::Type,DmaeienVal::v1> v1{};
-        }
         }
     }
     namespace SdhcAc12err{    ///<Auto CMD12 Error Status Register
@@ -1218,7 +1119,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ac12ne)::Type,Ac12neVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ac12ne)::Type,Ac12neVal::v1> v1{};
         }
-        }
         ///Auto CMD12 Timeout Error
         enum class Ac12toeVal {
             v0=0x00000000,     ///<No error.
@@ -1228,7 +1128,6 @@ namespace Kvasir {
         namespace Ac12toeValC{
             constexpr Register::FieldValue<decltype(ac12toe)::Type,Ac12toeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ac12toe)::Type,Ac12toeVal::v1> v1{};
-        }
         }
         ///Auto CMD12 End Bit Error
         enum class Ac12ebeVal {
@@ -1240,7 +1139,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ac12ebe)::Type,Ac12ebeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ac12ebe)::Type,Ac12ebeVal::v1> v1{};
         }
-        }
         ///Auto CMD12 CRC Error
         enum class Ac12ceVal {
             v0=0x00000000,     ///<No CRC error.
@@ -1250,7 +1148,6 @@ namespace Kvasir {
         namespace Ac12ceValC{
             constexpr Register::FieldValue<decltype(ac12ce)::Type,Ac12ceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ac12ce)::Type,Ac12ceVal::v1> v1{};
-        }
         }
         ///Auto CMD12 Index Error
         enum class Ac12ieVal {
@@ -1262,7 +1159,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ac12ie)::Type,Ac12ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ac12ie)::Type,Ac12ieVal::v1> v1{};
         }
-        }
         ///Command Not Issued By Auto CMD12 Error
         enum class Cnibac12eVal {
             v0=0x00000000,     ///<No error.
@@ -1272,7 +1168,6 @@ namespace Kvasir {
         namespace Cnibac12eValC{
             constexpr Register::FieldValue<decltype(cnibac12e)::Type,Cnibac12eVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cnibac12e)::Type,Cnibac12eVal::v1> v1{};
-        }
         }
     }
     namespace SdhcHtcapblt{    ///<Host Controller Capabilities
@@ -1289,7 +1184,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(admas)::Type,AdmasVal::v0> v0{};
             constexpr Register::FieldValue<decltype(admas)::Type,AdmasVal::v1> v1{};
         }
-        }
         ///High Speed Support
         enum class HssVal {
             v0=0x00000000,     ///<High speed not supported.
@@ -1299,7 +1193,6 @@ namespace Kvasir {
         namespace HssValC{
             constexpr Register::FieldValue<decltype(hss)::Type,HssVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hss)::Type,HssVal::v1> v1{};
-        }
         }
         ///DMA Support
         enum class DmasVal {
@@ -1311,7 +1204,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmas)::Type,DmasVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmas)::Type,DmasVal::v1> v1{};
         }
-        }
         ///Suspend/Resume Support
         enum class SrsVal {
             v0=0x00000000,     ///<Not supported.
@@ -1322,7 +1214,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srs)::Type,SrsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(srs)::Type,SrsVal::v1> v1{};
         }
-        }
         ///Voltage Support 3.3 V
         enum class Vs33Val {
             v0=0x00000000,     ///<3.3 V not supported.
@@ -1332,7 +1223,6 @@ namespace Kvasir {
         namespace Vs33ValC{
             constexpr Register::FieldValue<decltype(vs33)::Type,Vs33Val::v0> v0{};
             constexpr Register::FieldValue<decltype(vs33)::Type,Vs33Val::v1> v1{};
-        }
         }
     }
     namespace SdhcWml{    ///<Watermark Level Register
@@ -1391,7 +1281,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(admalme)::Type,AdmalmeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(admalme)::Type,AdmalmeVal::v1> v1{};
         }
-        }
         ///ADMA Descriptor Error
         enum class AdmadceVal {
             v0=0x00000000,     ///<No error.
@@ -1401,7 +1290,6 @@ namespace Kvasir {
         namespace AdmadceValC{
             constexpr Register::FieldValue<decltype(admadce)::Type,AdmadceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(admadce)::Type,AdmadceVal::v1> v1{};
-        }
         }
     }
     namespace SdhcAdsaddr{    ///<ADMA System Addressregister
@@ -1421,7 +1309,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(extdmaen)::Type,ExtdmaenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(extdmaen)::Type,ExtdmaenVal::v1> v1{};
         }
-        }
         ///Exact Block Number Block Read Enable For SDIO CMD53
         enum class ExblknuVal {
             v0=0x00000000,     ///<None exact block read.
@@ -1431,7 +1318,6 @@ namespace Kvasir {
         namespace ExblknuValC{
             constexpr Register::FieldValue<decltype(exblknu)::Type,ExblknuVal::v0> v0{};
             constexpr Register::FieldValue<decltype(exblknu)::Type,ExblknuVal::v1> v1{};
-        }
         }
         ///Internal State Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> intstval{}; 
@@ -1462,7 +1348,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtocvack)::Type,DtocvackVal::v0111> v0111{};
             constexpr Register::FieldValue<decltype(dtocvack)::Type,DtocvackVal::v1110> v1110{};
         }
-        }
         ///Boot Ack Mode Select
         enum class BootackVal {
             v0=0x00000000,     ///<No ack.
@@ -1472,7 +1357,6 @@ namespace Kvasir {
         namespace BootackValC{
             constexpr Register::FieldValue<decltype(bootack)::Type,BootackVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bootack)::Type,BootackVal::v1> v1{};
-        }
         }
         ///Boot Mode Select
         enum class BootmodeVal {
@@ -1484,7 +1368,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bootmode)::Type,BootmodeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bootmode)::Type,BootmodeVal::v1> v1{};
         }
-        }
         ///Boot Mode Enable
         enum class BootenVal {
             v0=0x00000000,     ///<Fast boot disable.
@@ -1494,7 +1377,6 @@ namespace Kvasir {
         namespace BootenValC{
             constexpr Register::FieldValue<decltype(booten)::Type,BootenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(booten)::Type,BootenVal::v1> v1{};
-        }
         }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> autosabgen{}; 

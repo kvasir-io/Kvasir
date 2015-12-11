@@ -16,7 +16,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bias)::Type,BiasVal::short> short{};
             constexpr Register::FieldValue<decltype(bias)::Type,BiasVal::long_> long_{};
         }
-        }
     }
     namespace Nonectrl{    ///<DAC control register.
         using Addr = Register::Address<0x400e1004,0xfffffff0,0,unsigned>;
@@ -30,7 +29,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intDmaReq)::Type,IntdmareqVal::clr> clr{};
             constexpr Register::FieldValue<decltype(intDmaReq)::Type,IntdmareqVal::set> set{};
         }
-        }
         ///DMA double-buffering
         enum class DblbufenaVal {
             disabled=0x00000000,     ///<DACR double-buffering is disabled.
@@ -40,7 +38,6 @@ namespace Kvasir {
         namespace DblbufenaValC{
             constexpr Register::FieldValue<decltype(dblbufEna)::Type,DblbufenaVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dblbufEna)::Type,DblbufenaVal::enabled> enabled{};
-        }
         }
         ///DMA time-out
         enum class CntenaVal {
@@ -52,7 +49,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cntEna)::Type,CntenaVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cntEna)::Type,CntenaVal::enabled> enabled{};
         }
-        }
         ///DMA enable
         enum class DmaenaVal {
             disabled=0x00000000,     ///<DMA access is disabled.
@@ -62,7 +58,6 @@ namespace Kvasir {
         namespace DmaenaValC{
             constexpr Register::FieldValue<decltype(dmaEna)::Type,DmaenaVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dmaEna)::Type,DmaenaVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonecntval{    ///<DAC counter value register.

@@ -44,7 +44,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(reportrdyReadclracc)::Type,ReportrdyreadclraccVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(reportrdyReadclracc)::Type,ReportrdyreadclraccVal::enabled> enabled{};
         }
-        }
         ///Shortcut between EVENTS_SAMPLERDY event and TASKS_STOP task
         enum class SamplerdystopVal {
             disabled=0x00000000,     ///<Disable shortcut
@@ -54,7 +53,6 @@ namespace Kvasir {
         namespace SamplerdystopValC{
             constexpr Register::FieldValue<decltype(samplerdyStop)::Type,SamplerdystopVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(samplerdyStop)::Type,SamplerdystopVal::enabled> enabled{};
-        }
         }
         ///Shortcut between EVENTS_REPORTRDY event and TASKS_RDCLRACC task
         enum class ReportrdyrdclraccVal {
@@ -66,7 +64,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(reportrdyRdclracc)::Type,ReportrdyrdclraccVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(reportrdyRdclracc)::Type,ReportrdyrdclraccVal::enabled> enabled{};
         }
-        }
         ///Shortcut between EVENTS_REPORTRDY event and TASKS_STOP task
         enum class ReportrdystopVal {
             disabled=0x00000000,     ///<Disable shortcut
@@ -76,7 +73,6 @@ namespace Kvasir {
         namespace ReportrdystopValC{
             constexpr Register::FieldValue<decltype(reportrdyStop)::Type,ReportrdystopVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(reportrdyStop)::Type,ReportrdystopVal::enabled> enabled{};
-        }
         }
         ///Shortcut between EVENTS_DBLRDY event and TASKS_RDCLRDBL task
         enum class DblrdyrdclrdblVal {
@@ -88,7 +84,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dblrdyRdclrdbl)::Type,DblrdyrdclrdblVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dblrdyRdclrdbl)::Type,DblrdyrdclrdblVal::enabled> enabled{};
         }
-        }
         ///Shortcut between EVENTS_DBLRDY event and TASKS_STOP task
         enum class DblrdystopVal {
             disabled=0x00000000,     ///<Disable shortcut
@@ -99,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dblrdyStop)::Type,DblrdystopVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dblrdyStop)::Type,DblrdystopVal::enabled> enabled{};
         }
-        }
         ///Shortcut between EVENTS_SAMPLERDY event and TASKS_READCLRACC task
         enum class SamplerdyreadclraccVal {
             disabled=0x00000000,     ///<Disable shortcut
@@ -109,7 +103,6 @@ namespace Kvasir {
         namespace SamplerdyreadclraccValC{
             constexpr Register::FieldValue<decltype(samplerdyReadclracc)::Type,SamplerdyreadclraccVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(samplerdyReadclracc)::Type,SamplerdyreadclraccVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneintenset{    ///<Enable interrupt
@@ -126,7 +119,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(samplerdy)::Type,SamplerdyVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(samplerdy)::Type,SamplerdyVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_REPORTRDY event
         enum class ReportrdyVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -138,7 +130,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(reportrdy)::Type,ReportrdyVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(reportrdy)::Type,ReportrdyVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(reportrdy)::Type,ReportrdyVal::set> set{};
-        }
         }
         ///Write '1' to Enable interrupt on EVENTS_ACCOF event
         enum class AccofVal {
@@ -152,7 +143,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(accof)::Type,AccofVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(accof)::Type,AccofVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_DBLRDY event
         enum class DblrdyVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -165,7 +155,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dblrdy)::Type,DblrdyVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(dblrdy)::Type,DblrdyVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_STOPPED event
         enum class StoppedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -177,7 +166,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::set> set{};
-        }
         }
     }
     namespace Noneintenclr{    ///<Disable interrupt
@@ -194,7 +182,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(samplerdy)::Type,SamplerdyVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(samplerdy)::Type,SamplerdyVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_REPORTRDY event
         enum class ReportrdyVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -206,7 +193,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(reportrdy)::Type,ReportrdyVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(reportrdy)::Type,ReportrdyVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(reportrdy)::Type,ReportrdyVal::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_ACCOF event
         enum class AccofVal {
@@ -220,7 +206,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(accof)::Type,AccofVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(accof)::Type,AccofVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_DBLRDY event
         enum class DblrdyVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -233,7 +218,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dblrdy)::Type,DblrdyVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(dblrdy)::Type,DblrdyVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_STOPPED event
         enum class StoppedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -245,7 +229,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::clear> clear{};
-        }
         }
     }
     namespace Noneenable{    ///<Enable the quadrature decoder
@@ -260,7 +243,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
         }
-        }
     }
     namespace Noneledpol{    ///<LED output pin polarity
         using Addr = Register::Address<0x40012504,0xfffffffe,0,unsigned>;
@@ -273,7 +255,6 @@ namespace Kvasir {
         namespace LedpolValC{
             constexpr Register::FieldValue<decltype(ledpol)::Type,LedpolVal::activelow> activelow{};
             constexpr Register::FieldValue<decltype(ledpol)::Type,LedpolVal::activehigh> activehigh{};
-        }
         }
     }
     namespace Nonesampleper{    ///<Sample period
@@ -305,7 +286,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sampleper)::Type,SampleperVal::v32ms> v32ms{};
             constexpr Register::FieldValue<decltype(sampleper)::Type,SampleperVal::v65ms> v65ms{};
             constexpr Register::FieldValue<decltype(sampleper)::Type,SampleperVal::v131ms> v131ms{};
-        }
         }
     }
     namespace Nonesample{    ///<Motion sample value
@@ -339,7 +319,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(reportper)::Type,ReportperVal::v280smpl> v280smpl{};
             constexpr Register::FieldValue<decltype(reportper)::Type,ReportperVal::v1smpl> v1smpl{};
         }
-        }
     }
     namespace Noneacc{    ///<Register accumulating the valid transitions
         using Addr = Register::Address<0x40012514,0x00000000,0,unsigned>;
@@ -362,7 +341,6 @@ namespace Kvasir {
         namespace DbfenValC{
             constexpr Register::FieldValue<decltype(dbfen)::Type,DbfenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dbfen)::Type,DbfenVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneledpre{    ///<Time period the LED is switched ON prior to sampling

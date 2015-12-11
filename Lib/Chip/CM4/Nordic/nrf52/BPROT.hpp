@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region0)::Type,Region0Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region0)::Type,Region0Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 1. Write '0' has no effect.
         enum class Region1Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace Region1ValC{
             constexpr Register::FieldValue<decltype(region1)::Type,Region1Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region1)::Type,Region1Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 2. Write '0' has no effect.
         enum class Region2Val {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region2)::Type,Region2Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region2)::Type,Region2Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 3. Write '0' has no effect.
         enum class Region3Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace Region3ValC{
             constexpr Register::FieldValue<decltype(region3)::Type,Region3Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region3)::Type,Region3Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 4. Write '0' has no effect.
         enum class Region4Val {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region4)::Type,Region4Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region4)::Type,Region4Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 5. Write '0' has no effect.
         enum class Region5Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -68,7 +63,6 @@ namespace Kvasir {
         namespace Region5ValC{
             constexpr Register::FieldValue<decltype(region5)::Type,Region5Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region5)::Type,Region5Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 6. Write '0' has no effect.
         enum class Region6Val {
@@ -80,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region6)::Type,Region6Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region6)::Type,Region6Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 7. Write '0' has no effect.
         enum class Region7Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -90,7 +83,6 @@ namespace Kvasir {
         namespace Region7ValC{
             constexpr Register::FieldValue<decltype(region7)::Type,Region7Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region7)::Type,Region7Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 8. Write '0' has no effect.
         enum class Region8Val {
@@ -102,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region8)::Type,Region8Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region8)::Type,Region8Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 9. Write '0' has no effect.
         enum class Region9Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -112,7 +103,6 @@ namespace Kvasir {
         namespace Region9ValC{
             constexpr Register::FieldValue<decltype(region9)::Type,Region9Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region9)::Type,Region9Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 10. Write '0' has no effect.
         enum class Region10Val {
@@ -124,7 +114,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region10)::Type,Region10Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region10)::Type,Region10Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 11. Write '0' has no effect.
         enum class Region11Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -134,7 +123,6 @@ namespace Kvasir {
         namespace Region11ValC{
             constexpr Register::FieldValue<decltype(region11)::Type,Region11Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region11)::Type,Region11Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 12. Write '0' has no effect.
         enum class Region12Val {
@@ -146,7 +134,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region12)::Type,Region12Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region12)::Type,Region12Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 13. Write '0' has no effect.
         enum class Region13Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -156,7 +143,6 @@ namespace Kvasir {
         namespace Region13ValC{
             constexpr Register::FieldValue<decltype(region13)::Type,Region13Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region13)::Type,Region13Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 14. Write '0' has no effect.
         enum class Region14Val {
@@ -168,7 +154,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region14)::Type,Region14Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region14)::Type,Region14Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 15. Write '0' has no effect.
         enum class Region15Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -178,7 +163,6 @@ namespace Kvasir {
         namespace Region15ValC{
             constexpr Register::FieldValue<decltype(region15)::Type,Region15Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region15)::Type,Region15Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 16. Write '0' has no effect.
         enum class Region16Val {
@@ -190,7 +174,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region16)::Type,Region16Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region16)::Type,Region16Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 17. Write '0' has no effect.
         enum class Region17Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -200,7 +183,6 @@ namespace Kvasir {
         namespace Region17ValC{
             constexpr Register::FieldValue<decltype(region17)::Type,Region17Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region17)::Type,Region17Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 18. Write '0' has no effect.
         enum class Region18Val {
@@ -212,7 +194,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region18)::Type,Region18Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region18)::Type,Region18Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 19. Write '0' has no effect.
         enum class Region19Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -222,7 +203,6 @@ namespace Kvasir {
         namespace Region19ValC{
             constexpr Register::FieldValue<decltype(region19)::Type,Region19Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region19)::Type,Region19Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 20. Write '0' has no effect.
         enum class Region20Val {
@@ -234,7 +214,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region20)::Type,Region20Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region20)::Type,Region20Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 21. Write '0' has no effect.
         enum class Region21Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -244,7 +223,6 @@ namespace Kvasir {
         namespace Region21ValC{
             constexpr Register::FieldValue<decltype(region21)::Type,Region21Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region21)::Type,Region21Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 22. Write '0' has no effect.
         enum class Region22Val {
@@ -256,7 +234,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region22)::Type,Region22Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region22)::Type,Region22Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 23. Write '0' has no effect.
         enum class Region23Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -266,7 +243,6 @@ namespace Kvasir {
         namespace Region23ValC{
             constexpr Register::FieldValue<decltype(region23)::Type,Region23Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region23)::Type,Region23Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 24. Write '0' has no effect.
         enum class Region24Val {
@@ -278,7 +254,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region24)::Type,Region24Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region24)::Type,Region24Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 25. Write '0' has no effect.
         enum class Region25Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -288,7 +263,6 @@ namespace Kvasir {
         namespace Region25ValC{
             constexpr Register::FieldValue<decltype(region25)::Type,Region25Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region25)::Type,Region25Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 26. Write '0' has no effect.
         enum class Region26Val {
@@ -300,7 +274,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region26)::Type,Region26Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region26)::Type,Region26Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 27. Write '0' has no effect.
         enum class Region27Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -310,7 +283,6 @@ namespace Kvasir {
         namespace Region27ValC{
             constexpr Register::FieldValue<decltype(region27)::Type,Region27Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region27)::Type,Region27Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 28. Write '0' has no effect.
         enum class Region28Val {
@@ -322,7 +294,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region28)::Type,Region28Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region28)::Type,Region28Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 29. Write '0' has no effect.
         enum class Region29Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -332,7 +303,6 @@ namespace Kvasir {
         namespace Region29ValC{
             constexpr Register::FieldValue<decltype(region29)::Type,Region29Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region29)::Type,Region29Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 30. Write '0' has no effect.
         enum class Region30Val {
@@ -344,7 +314,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region30)::Type,Region30Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region30)::Type,Region30Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 31. Write '0' has no effect.
         enum class Region31Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -354,7 +323,6 @@ namespace Kvasir {
         namespace Region31ValC{
             constexpr Register::FieldValue<decltype(region31)::Type,Region31Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region31)::Type,Region31Val::enabled> enabled{};
-        }
         }
     }
     namespace Noneconfig1{    ///<Block protect configuration register 1
@@ -369,7 +337,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region32)::Type,Region32Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region32)::Type,Region32Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 33. Write '0' has no effect.
         enum class Region33Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -379,7 +346,6 @@ namespace Kvasir {
         namespace Region33ValC{
             constexpr Register::FieldValue<decltype(region33)::Type,Region33Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region33)::Type,Region33Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 34. Write '0' has no effect.
         enum class Region34Val {
@@ -391,7 +357,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region34)::Type,Region34Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region34)::Type,Region34Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 35. Write '0' has no effect.
         enum class Region35Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -401,7 +366,6 @@ namespace Kvasir {
         namespace Region35ValC{
             constexpr Register::FieldValue<decltype(region35)::Type,Region35Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region35)::Type,Region35Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 36. Write '0' has no effect.
         enum class Region36Val {
@@ -413,7 +377,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region36)::Type,Region36Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region36)::Type,Region36Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 37. Write '0' has no effect.
         enum class Region37Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -423,7 +386,6 @@ namespace Kvasir {
         namespace Region37ValC{
             constexpr Register::FieldValue<decltype(region37)::Type,Region37Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region37)::Type,Region37Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 38. Write '0' has no effect.
         enum class Region38Val {
@@ -435,7 +397,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region38)::Type,Region38Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region38)::Type,Region38Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 39. Write '0' has no effect.
         enum class Region39Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -445,7 +406,6 @@ namespace Kvasir {
         namespace Region39ValC{
             constexpr Register::FieldValue<decltype(region39)::Type,Region39Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region39)::Type,Region39Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 40. Write '0' has no effect.
         enum class Region40Val {
@@ -457,7 +417,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region40)::Type,Region40Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region40)::Type,Region40Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 41. Write '0' has no effect.
         enum class Region41Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -467,7 +426,6 @@ namespace Kvasir {
         namespace Region41ValC{
             constexpr Register::FieldValue<decltype(region41)::Type,Region41Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region41)::Type,Region41Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 42. Write '0' has no effect.
         enum class Region42Val {
@@ -479,7 +437,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region42)::Type,Region42Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region42)::Type,Region42Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 43. Write '0' has no effect.
         enum class Region43Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -489,7 +446,6 @@ namespace Kvasir {
         namespace Region43ValC{
             constexpr Register::FieldValue<decltype(region43)::Type,Region43Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region43)::Type,Region43Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 44. Write '0' has no effect.
         enum class Region44Val {
@@ -501,7 +457,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region44)::Type,Region44Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region44)::Type,Region44Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 45. Write '0' has no effect.
         enum class Region45Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -511,7 +466,6 @@ namespace Kvasir {
         namespace Region45ValC{
             constexpr Register::FieldValue<decltype(region45)::Type,Region45Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region45)::Type,Region45Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 46. Write '0' has no effect.
         enum class Region46Val {
@@ -523,7 +477,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region46)::Type,Region46Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region46)::Type,Region46Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 47. Write '0' has no effect.
         enum class Region47Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -533,7 +486,6 @@ namespace Kvasir {
         namespace Region47ValC{
             constexpr Register::FieldValue<decltype(region47)::Type,Region47Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region47)::Type,Region47Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 48. Write '0' has no effect.
         enum class Region48Val {
@@ -545,7 +497,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region48)::Type,Region48Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region48)::Type,Region48Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 49. Write '0' has no effect.
         enum class Region49Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -555,7 +506,6 @@ namespace Kvasir {
         namespace Region49ValC{
             constexpr Register::FieldValue<decltype(region49)::Type,Region49Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region49)::Type,Region49Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 50. Write '0' has no effect.
         enum class Region50Val {
@@ -567,7 +517,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region50)::Type,Region50Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region50)::Type,Region50Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 51. Write '0' has no effect.
         enum class Region51Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -577,7 +526,6 @@ namespace Kvasir {
         namespace Region51ValC{
             constexpr Register::FieldValue<decltype(region51)::Type,Region51Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region51)::Type,Region51Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 52. Write '0' has no effect.
         enum class Region52Val {
@@ -589,7 +537,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region52)::Type,Region52Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region52)::Type,Region52Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 53. Write '0' has no effect.
         enum class Region53Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -599,7 +546,6 @@ namespace Kvasir {
         namespace Region53ValC{
             constexpr Register::FieldValue<decltype(region53)::Type,Region53Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region53)::Type,Region53Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 54. Write '0' has no effect.
         enum class Region54Val {
@@ -611,7 +557,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region54)::Type,Region54Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region54)::Type,Region54Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 55. Write '0' has no effect.
         enum class Region55Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -621,7 +566,6 @@ namespace Kvasir {
         namespace Region55ValC{
             constexpr Register::FieldValue<decltype(region55)::Type,Region55Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region55)::Type,Region55Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 56. Write '0' has no effect.
         enum class Region56Val {
@@ -633,7 +577,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region56)::Type,Region56Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region56)::Type,Region56Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 57. Write '0' has no effect.
         enum class Region57Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -643,7 +586,6 @@ namespace Kvasir {
         namespace Region57ValC{
             constexpr Register::FieldValue<decltype(region57)::Type,Region57Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region57)::Type,Region57Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 58. Write '0' has no effect.
         enum class Region58Val {
@@ -655,7 +597,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region58)::Type,Region58Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region58)::Type,Region58Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 59. Write '0' has no effect.
         enum class Region59Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -665,7 +606,6 @@ namespace Kvasir {
         namespace Region59ValC{
             constexpr Register::FieldValue<decltype(region59)::Type,Region59Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region59)::Type,Region59Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 60. Write '0' has no effect.
         enum class Region60Val {
@@ -677,7 +617,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region60)::Type,Region60Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region60)::Type,Region60Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 61. Write '0' has no effect.
         enum class Region61Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -687,7 +626,6 @@ namespace Kvasir {
         namespace Region61ValC{
             constexpr Register::FieldValue<decltype(region61)::Type,Region61Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region61)::Type,Region61Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 62. Write '0' has no effect.
         enum class Region62Val {
@@ -699,7 +637,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region62)::Type,Region62Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region62)::Type,Region62Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 63. Write '0' has no effect.
         enum class Region63Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -709,7 +646,6 @@ namespace Kvasir {
         namespace Region63ValC{
             constexpr Register::FieldValue<decltype(region63)::Type,Region63Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region63)::Type,Region63Val::enabled> enabled{};
-        }
         }
     }
     namespace Nonedisableindebug{    ///<Disable protection mechanism in debug mode
@@ -723,7 +659,6 @@ namespace Kvasir {
         namespace DisableindebugValC{
             constexpr Register::FieldValue<decltype(disableindebug)::Type,DisableindebugVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(disableindebug)::Type,DisableindebugVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneunused0{    ///<Unspecified
@@ -741,7 +676,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region64)::Type,Region64Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region64)::Type,Region64Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 65. Write '0' has no effect.
         enum class Region65Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -751,7 +685,6 @@ namespace Kvasir {
         namespace Region65ValC{
             constexpr Register::FieldValue<decltype(region65)::Type,Region65Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region65)::Type,Region65Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 66. Write '0' has no effect.
         enum class Region66Val {
@@ -763,7 +696,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region66)::Type,Region66Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region66)::Type,Region66Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 67. Write '0' has no effect.
         enum class Region67Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -773,7 +705,6 @@ namespace Kvasir {
         namespace Region67ValC{
             constexpr Register::FieldValue<decltype(region67)::Type,Region67Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region67)::Type,Region67Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 68. Write '0' has no effect.
         enum class Region68Val {
@@ -785,7 +716,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region68)::Type,Region68Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region68)::Type,Region68Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 69. Write '0' has no effect.
         enum class Region69Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -795,7 +725,6 @@ namespace Kvasir {
         namespace Region69ValC{
             constexpr Register::FieldValue<decltype(region69)::Type,Region69Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region69)::Type,Region69Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 70. Write '0' has no effect.
         enum class Region70Val {
@@ -807,7 +736,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region70)::Type,Region70Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region70)::Type,Region70Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 71. Write '0' has no effect.
         enum class Region71Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -817,7 +745,6 @@ namespace Kvasir {
         namespace Region71ValC{
             constexpr Register::FieldValue<decltype(region71)::Type,Region71Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region71)::Type,Region71Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 72. Write '0' has no effect.
         enum class Region72Val {
@@ -829,7 +756,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region72)::Type,Region72Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region72)::Type,Region72Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 73. Write '0' has no effect.
         enum class Region73Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -839,7 +765,6 @@ namespace Kvasir {
         namespace Region73ValC{
             constexpr Register::FieldValue<decltype(region73)::Type,Region73Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region73)::Type,Region73Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 74. Write '0' has no effect.
         enum class Region74Val {
@@ -851,7 +776,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region74)::Type,Region74Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region74)::Type,Region74Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 75. Write '0' has no effect.
         enum class Region75Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -861,7 +785,6 @@ namespace Kvasir {
         namespace Region75ValC{
             constexpr Register::FieldValue<decltype(region75)::Type,Region75Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region75)::Type,Region75Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 76. Write '0' has no effect.
         enum class Region76Val {
@@ -873,7 +796,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region76)::Type,Region76Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region76)::Type,Region76Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 77. Write '0' has no effect.
         enum class Region77Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -883,7 +805,6 @@ namespace Kvasir {
         namespace Region77ValC{
             constexpr Register::FieldValue<decltype(region77)::Type,Region77Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region77)::Type,Region77Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 78. Write '0' has no effect.
         enum class Region78Val {
@@ -895,7 +816,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region78)::Type,Region78Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region78)::Type,Region78Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 79. Write '0' has no effect.
         enum class Region79Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -905,7 +825,6 @@ namespace Kvasir {
         namespace Region79ValC{
             constexpr Register::FieldValue<decltype(region79)::Type,Region79Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region79)::Type,Region79Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 80. Write '0' has no effect.
         enum class Region80Val {
@@ -917,7 +836,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region80)::Type,Region80Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region80)::Type,Region80Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 81. Write '0' has no effect.
         enum class Region81Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -927,7 +845,6 @@ namespace Kvasir {
         namespace Region81ValC{
             constexpr Register::FieldValue<decltype(region81)::Type,Region81Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region81)::Type,Region81Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 82. Write '0' has no effect.
         enum class Region82Val {
@@ -939,7 +856,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region82)::Type,Region82Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region82)::Type,Region82Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 83. Write '0' has no effect.
         enum class Region83Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -949,7 +865,6 @@ namespace Kvasir {
         namespace Region83ValC{
             constexpr Register::FieldValue<decltype(region83)::Type,Region83Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region83)::Type,Region83Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 84. Write '0' has no effect.
         enum class Region84Val {
@@ -961,7 +876,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region84)::Type,Region84Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region84)::Type,Region84Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 85. Write '0' has no effect.
         enum class Region85Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -971,7 +885,6 @@ namespace Kvasir {
         namespace Region85ValC{
             constexpr Register::FieldValue<decltype(region85)::Type,Region85Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region85)::Type,Region85Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 86. Write '0' has no effect.
         enum class Region86Val {
@@ -983,7 +896,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region86)::Type,Region86Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region86)::Type,Region86Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 87. Write '0' has no effect.
         enum class Region87Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -993,7 +905,6 @@ namespace Kvasir {
         namespace Region87ValC{
             constexpr Register::FieldValue<decltype(region87)::Type,Region87Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region87)::Type,Region87Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 88. Write '0' has no effect.
         enum class Region88Val {
@@ -1005,7 +916,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region88)::Type,Region88Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region88)::Type,Region88Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 89. Write '0' has no effect.
         enum class Region89Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -1015,7 +925,6 @@ namespace Kvasir {
         namespace Region89ValC{
             constexpr Register::FieldValue<decltype(region89)::Type,Region89Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region89)::Type,Region89Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 90. Write '0' has no effect.
         enum class Region90Val {
@@ -1027,7 +936,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region90)::Type,Region90Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region90)::Type,Region90Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 91. Write '0' has no effect.
         enum class Region91Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -1037,7 +945,6 @@ namespace Kvasir {
         namespace Region91ValC{
             constexpr Register::FieldValue<decltype(region91)::Type,Region91Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region91)::Type,Region91Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 92. Write '0' has no effect.
         enum class Region92Val {
@@ -1049,7 +956,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region92)::Type,Region92Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region92)::Type,Region92Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 93. Write '0' has no effect.
         enum class Region93Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -1059,7 +965,6 @@ namespace Kvasir {
         namespace Region93ValC{
             constexpr Register::FieldValue<decltype(region93)::Type,Region93Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region93)::Type,Region93Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 94. Write '0' has no effect.
         enum class Region94Val {
@@ -1071,7 +976,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region94)::Type,Region94Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region94)::Type,Region94Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 95. Write '0' has no effect.
         enum class Region95Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -1081,7 +985,6 @@ namespace Kvasir {
         namespace Region95ValC{
             constexpr Register::FieldValue<decltype(region95)::Type,Region95Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region95)::Type,Region95Val::enabled> enabled{};
-        }
         }
     }
     namespace Noneconfig3{    ///<Block protect configuration register 3
@@ -1096,7 +999,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region96)::Type,Region96Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region96)::Type,Region96Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 97. Write '0' has no effect.
         enum class Region97Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -1106,7 +1008,6 @@ namespace Kvasir {
         namespace Region97ValC{
             constexpr Register::FieldValue<decltype(region97)::Type,Region97Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region97)::Type,Region97Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 98. Write '0' has no effect.
         enum class Region98Val {
@@ -1118,7 +1019,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region98)::Type,Region98Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region98)::Type,Region98Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 99. Write '0' has no effect.
         enum class Region99Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -1128,7 +1028,6 @@ namespace Kvasir {
         namespace Region99ValC{
             constexpr Register::FieldValue<decltype(region99)::Type,Region99Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region99)::Type,Region99Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 100. Write '0' has no effect.
         enum class Region100Val {
@@ -1140,7 +1039,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region100)::Type,Region100Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region100)::Type,Region100Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 101. Write '0' has no effect.
         enum class Region101Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -1150,7 +1048,6 @@ namespace Kvasir {
         namespace Region101ValC{
             constexpr Register::FieldValue<decltype(region101)::Type,Region101Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region101)::Type,Region101Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 102. Write '0' has no effect.
         enum class Region102Val {
@@ -1162,7 +1059,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region102)::Type,Region102Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region102)::Type,Region102Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 103. Write '0' has no effect.
         enum class Region103Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -1172,7 +1068,6 @@ namespace Kvasir {
         namespace Region103ValC{
             constexpr Register::FieldValue<decltype(region103)::Type,Region103Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region103)::Type,Region103Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 104. Write '0' has no effect.
         enum class Region104Val {
@@ -1184,7 +1079,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region104)::Type,Region104Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region104)::Type,Region104Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 105. Write '0' has no effect.
         enum class Region105Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -1194,7 +1088,6 @@ namespace Kvasir {
         namespace Region105ValC{
             constexpr Register::FieldValue<decltype(region105)::Type,Region105Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region105)::Type,Region105Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 106. Write '0' has no effect.
         enum class Region106Val {
@@ -1206,7 +1099,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region106)::Type,Region106Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region106)::Type,Region106Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 107. Write '0' has no effect.
         enum class Region107Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -1216,7 +1108,6 @@ namespace Kvasir {
         namespace Region107ValC{
             constexpr Register::FieldValue<decltype(region107)::Type,Region107Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region107)::Type,Region107Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 108. Write '0' has no effect.
         enum class Region108Val {
@@ -1228,7 +1119,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region108)::Type,Region108Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region108)::Type,Region108Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 109. Write '0' has no effect.
         enum class Region109Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -1238,7 +1128,6 @@ namespace Kvasir {
         namespace Region109ValC{
             constexpr Register::FieldValue<decltype(region109)::Type,Region109Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region109)::Type,Region109Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 110. Write '0' has no effect.
         enum class Region110Val {
@@ -1250,7 +1139,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region110)::Type,Region110Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region110)::Type,Region110Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 111. Write '0' has no effect.
         enum class Region111Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -1260,7 +1148,6 @@ namespace Kvasir {
         namespace Region111ValC{
             constexpr Register::FieldValue<decltype(region111)::Type,Region111Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region111)::Type,Region111Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 112. Write '0' has no effect.
         enum class Region112Val {
@@ -1272,7 +1159,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region112)::Type,Region112Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region112)::Type,Region112Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 113. Write '0' has no effect.
         enum class Region113Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -1282,7 +1168,6 @@ namespace Kvasir {
         namespace Region113ValC{
             constexpr Register::FieldValue<decltype(region113)::Type,Region113Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region113)::Type,Region113Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 114. Write '0' has no effect.
         enum class Region114Val {
@@ -1294,7 +1179,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region114)::Type,Region114Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region114)::Type,Region114Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 115. Write '0' has no effect.
         enum class Region115Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -1304,7 +1188,6 @@ namespace Kvasir {
         namespace Region115ValC{
             constexpr Register::FieldValue<decltype(region115)::Type,Region115Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region115)::Type,Region115Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 116. Write '0' has no effect.
         enum class Region116Val {
@@ -1316,7 +1199,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region116)::Type,Region116Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region116)::Type,Region116Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 117. Write '0' has no effect.
         enum class Region117Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -1326,7 +1208,6 @@ namespace Kvasir {
         namespace Region117ValC{
             constexpr Register::FieldValue<decltype(region117)::Type,Region117Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region117)::Type,Region117Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 118. Write '0' has no effect.
         enum class Region118Val {
@@ -1338,7 +1219,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region118)::Type,Region118Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region118)::Type,Region118Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 119. Write '0' has no effect.
         enum class Region119Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -1348,7 +1228,6 @@ namespace Kvasir {
         namespace Region119ValC{
             constexpr Register::FieldValue<decltype(region119)::Type,Region119Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region119)::Type,Region119Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 120. Write '0' has no effect.
         enum class Region120Val {
@@ -1360,7 +1239,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region120)::Type,Region120Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region120)::Type,Region120Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 121. Write '0' has no effect.
         enum class Region121Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -1370,7 +1248,6 @@ namespace Kvasir {
         namespace Region121ValC{
             constexpr Register::FieldValue<decltype(region121)::Type,Region121Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region121)::Type,Region121Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 122. Write '0' has no effect.
         enum class Region122Val {
@@ -1382,7 +1259,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region122)::Type,Region122Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region122)::Type,Region122Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 123. Write '0' has no effect.
         enum class Region123Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -1392,7 +1268,6 @@ namespace Kvasir {
         namespace Region123ValC{
             constexpr Register::FieldValue<decltype(region123)::Type,Region123Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region123)::Type,Region123Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 124. Write '0' has no effect.
         enum class Region124Val {
@@ -1404,7 +1279,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region124)::Type,Region124Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region124)::Type,Region124Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 125. Write '0' has no effect.
         enum class Region125Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -1414,7 +1288,6 @@ namespace Kvasir {
         namespace Region125ValC{
             constexpr Register::FieldValue<decltype(region125)::Type,Region125Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region125)::Type,Region125Val::enabled> enabled{};
-        }
         }
         ///Enable protection for region 126. Write '0' has no effect.
         enum class Region126Val {
@@ -1426,7 +1299,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(region126)::Type,Region126Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region126)::Type,Region126Val::enabled> enabled{};
         }
-        }
         ///Enable protection for region 127. Write '0' has no effect.
         enum class Region127Val {
             disabled=0x00000000,     ///<Protection disabled
@@ -1436,7 +1308,6 @@ namespace Kvasir {
         namespace Region127ValC{
             constexpr Register::FieldValue<decltype(region127)::Type,Region127Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(region127)::Type,Region127Val::enabled> enabled{};
-        }
         }
     }
 }

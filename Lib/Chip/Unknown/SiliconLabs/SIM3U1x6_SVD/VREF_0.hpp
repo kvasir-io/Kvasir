@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vref2x)::Type,Vref2xVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(vref2x)::Type,Vref2xVal::enabled> enabled{};
         }
-        }
         ///Temperature Sensor Enable. 
         enum class TempenVal {
             disabled=0x00000000,     ///<Disable the temperature sensor.
@@ -25,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tempen)::Type,TempenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(tempen)::Type,TempenVal::enabled> enabled{};
         }
-        }
         ///Voltage Reference Enable. 
         enum class VrefenVal {
             disabled=0x00000000,     ///<Disable the Voltage Reference.
@@ -35,7 +33,6 @@ namespace Kvasir {
         namespace VrefenValC{
             constexpr Register::FieldValue<decltype(vrefen)::Type,VrefenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(vrefen)::Type,VrefenVal::enabled> enabled{};
-        }
         }
     }
 }

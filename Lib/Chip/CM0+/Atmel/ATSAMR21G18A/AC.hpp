@@ -18,7 +18,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(speed)::Type,SpeedVal::low> low{};
             constexpr Register::FieldValue<decltype(speed)::Type,SpeedVal::high> high{};
         }
-        }
         ///Interrupt Selection
         enum class IntselVal {
             toggle=0x00000000,     ///<Interrupt on comparator output toggle
@@ -32,7 +31,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intsel)::Type,IntselVal::rising> rising{};
             constexpr Register::FieldValue<decltype(intsel)::Type,IntselVal::falling> falling{};
             constexpr Register::FieldValue<decltype(intsel)::Type,IntselVal::eoc> eoc{};
-        }
         }
         ///Negative Input Mux Selection
         enum class MuxnegVal {
@@ -56,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(muxneg)::Type,MuxnegVal::bandgap> bandgap{};
             constexpr Register::FieldValue<decltype(muxneg)::Type,MuxnegVal::dac> dac{};
         }
-        }
         ///Positive Input Mux Selection
         enum class MuxposVal {
             pin0=0x00000000,     ///<I/O pin 0
@@ -71,7 +68,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(muxpos)::Type,MuxposVal::pin2> pin2{};
             constexpr Register::FieldValue<decltype(muxpos)::Type,MuxposVal::pin3> pin3{};
         }
-        }
         ///Swap Inputs and Invert
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> swap{}; 
         ///Output
@@ -85,7 +81,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(out)::Type,OutVal::off> off{};
             constexpr Register::FieldValue<decltype(out)::Type,OutVal::async> async{};
             constexpr Register::FieldValue<decltype(out)::Type,OutVal::sync> sync{};
-        }
         }
         ///Hysteresis Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> hyst{}; 
@@ -108,7 +103,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(speed)::Type,SpeedVal::low> low{};
             constexpr Register::FieldValue<decltype(speed)::Type,SpeedVal::high> high{};
         }
-        }
         ///Interrupt Selection
         enum class IntselVal {
             toggle=0x00000000,     ///<Interrupt on comparator output toggle
@@ -122,7 +116,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intsel)::Type,IntselVal::rising> rising{};
             constexpr Register::FieldValue<decltype(intsel)::Type,IntselVal::falling> falling{};
             constexpr Register::FieldValue<decltype(intsel)::Type,IntselVal::eoc> eoc{};
-        }
         }
         ///Negative Input Mux Selection
         enum class MuxnegVal {
@@ -146,7 +139,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(muxneg)::Type,MuxnegVal::bandgap> bandgap{};
             constexpr Register::FieldValue<decltype(muxneg)::Type,MuxnegVal::dac> dac{};
         }
-        }
         ///Positive Input Mux Selection
         enum class MuxposVal {
             pin0=0x00000000,     ///<I/O pin 0
@@ -161,7 +153,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(muxpos)::Type,MuxposVal::pin2> pin2{};
             constexpr Register::FieldValue<decltype(muxpos)::Type,MuxposVal::pin3> pin3{};
         }
-        }
         ///Swap Inputs and Invert
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> swap{}; 
         ///Output
@@ -175,7 +166,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(out)::Type,OutVal::off> off{};
             constexpr Register::FieldValue<decltype(out)::Type,OutVal::async> async{};
             constexpr Register::FieldValue<decltype(out)::Type,OutVal::sync> sync{};
-        }
         }
         ///Hysteresis Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> hyst{}; 
@@ -268,7 +258,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wstate0)::Type,Wstate0Val::inside> inside{};
             constexpr Register::FieldValue<decltype(wstate0)::Type,Wstate0Val::below> below{};
         }
-        }
     }
     namespace AcStatusb{    ///<Status B
         using Addr = Register::Address<0x42004409,0xffffff7c,0,unsigned char>;
@@ -297,7 +286,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wstate0)::Type,Wstate0Val::inside> inside{};
             constexpr Register::FieldValue<decltype(wstate0)::Type,Wstate0Val::below> below{};
         }
-        }
     }
     namespace AcWinctrl{    ///<Window Control
         using Addr = Register::Address<0x4200440c,0xfffffff8,0,unsigned char>;
@@ -316,7 +304,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wintsel0)::Type,Wintsel0Val::inside> inside{};
             constexpr Register::FieldValue<decltype(wintsel0)::Type,Wintsel0Val::below> below{};
             constexpr Register::FieldValue<decltype(wintsel0)::Type,Wintsel0Val::outside> outside{};
-        }
         }
     }
 }

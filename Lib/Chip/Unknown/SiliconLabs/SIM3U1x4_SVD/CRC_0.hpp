@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(siniten)::Type,SinitenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(siniten)::Type,SinitenVal::enabled> enabled{};
         }
-        }
         ///Seed Setting. 
         enum class SeedVal {
             allZeroes=0x00000000,     ///<CRC seed value is all 0's (0x00000000)
@@ -25,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(seed)::Type,SeedVal::allZeroes> allZeroes{};
             constexpr Register::FieldValue<decltype(seed)::Type,SeedVal::allOnes> allOnes{};
         }
-        }
         ///CRC Enable. 
         enum class CrcenVal {
             disabled=0x00000000,     ///<Disable CRC operations.
@@ -35,7 +33,6 @@ namespace Kvasir {
         namespace CrcenValC{
             constexpr Register::FieldValue<decltype(crcen)::Type,CrcenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(crcen)::Type,CrcenVal::enabled> enabled{};
-        }
         }
         ///Polynomial Selection. 
         enum class PolyselVal {
@@ -51,7 +48,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(polysel)::Type,PolyselVal::crc163d65> crc163d65{};
             constexpr Register::FieldValue<decltype(polysel)::Type,PolyselVal::crc168005> crc168005{};
         }
-        }
         ///Byte Mode Enable. 
         enum class BmdenVal {
             disabled=0x00000000,     ///<Disable byte mode (word/byte width is determined automatically by the hardware).
@@ -62,7 +58,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bmden)::Type,BmdenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(bmden)::Type,BmdenVal::enabled> enabled{};
         }
-        }
         ///Byte-Level Bit Reversal Enable. 
         enum class BbrenVal {
             disabled=0x00000000,     ///<No byte-level bit reversal (input is same order as written).
@@ -72,7 +67,6 @@ namespace Kvasir {
         namespace BbrenValC{
             constexpr Register::FieldValue<decltype(bbren)::Type,BbrenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(bbren)::Type,BbrenVal::enabled> enabled{};
-        }
         }
         ///Input Processing Order. 
         enum class OrderVal {
@@ -85,7 +79,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(order)::Type,OrderVal::noReorder> noReorder{};
             constexpr Register::FieldValue<decltype(order)::Type,OrderVal::bigEndian16> bigEndian16{};
             constexpr Register::FieldValue<decltype(order)::Type,OrderVal::bigEndian32> bigEndian32{};
-        }
         }
     }
     namespace Nonedata{    ///<Input/Result Data

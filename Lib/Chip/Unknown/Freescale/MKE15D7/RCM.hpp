@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lvd)::Type,LvdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lvd)::Type,LvdVal::v1> v1{};
         }
-        }
         ///Loss Of Clock Reset
         enum class LocVal {
             v0=0x00000000,     ///<Reset not caused by Watchdog Reset.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace LocValC{
             constexpr Register::FieldValue<decltype(loc)::Type,LocVal::v0> v0{};
             constexpr Register::FieldValue<decltype(loc)::Type,LocVal::v1> v1{};
-        }
         }
         ///COP Watchdog Reset
         enum class CopVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cop)::Type,CopVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cop)::Type,CopVal::v1> v1{};
         }
-        }
         ///External RESETb Pin
         enum class PinVal {
             v0=0x00000000,     ///<Reset not caused by external RESETb pin.
@@ -47,7 +44,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin)::Type,PinVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pin)::Type,PinVal::v1> v1{};
         }
-        }
         ///Power On Reset
         enum class PorVal {
             v0=0x00000000,     ///<Reset not caused by POR.
@@ -57,7 +53,6 @@ namespace Kvasir {
         namespace PorValC{
             constexpr Register::FieldValue<decltype(por)::Type,PorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(por)::Type,PorVal::v1> v1{};
-        }
         }
     }
     namespace RcmSrsh{    ///<RCM System Reset Status High Register
@@ -72,7 +67,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(jtag)::Type,JtagVal::v0> v0{};
             constexpr Register::FieldValue<decltype(jtag)::Type,JtagVal::v1> v1{};
         }
-        }
         ///CPU LOCKUP Reset
         enum class LockupVal {
             v0=0x00000000,     ///<Reset not caused by CPU LOCKUP.
@@ -82,7 +76,6 @@ namespace Kvasir {
         namespace LockupValC{
             constexpr Register::FieldValue<decltype(lockup)::Type,LockupVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lockup)::Type,LockupVal::v1> v1{};
-        }
         }
         ///Software Reset
         enum class SwVal {
@@ -94,7 +87,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sw)::Type,SwVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sw)::Type,SwVal::v1> v1{};
         }
-        }
         ///MDM-AP system reset request
         enum class MdmapVal {
             v0=0x00000000,     ///<Reset not caused by MDM-AP request.
@@ -105,7 +97,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mdmap)::Type,MdmapVal::v0> v0{};
             constexpr Register::FieldValue<decltype(mdmap)::Type,MdmapVal::v1> v1{};
         }
-        }
         ///Stop Mode Acknowledge Error Reset
         enum class SackerrVal {
             v0=0x00000000,     ///<Reset not caused by peripheral failure to acknowledge attempt to enter stop mode.
@@ -115,7 +106,6 @@ namespace Kvasir {
         namespace SackerrValC{
             constexpr Register::FieldValue<decltype(sackerr)::Type,SackerrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sackerr)::Type,SackerrVal::v1> v1{};
-        }
         }
     }
     namespace RcmRpfc{    ///<RCM RESETb Pin Filter Control Register
@@ -134,7 +124,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rstfltsrw)::Type,RstfltsrwVal::v10> v10{};
             constexpr Register::FieldValue<decltype(rstfltsrw)::Type,RstfltsrwVal::v11> v11{};
         }
-        }
         ///Reset Pin Filter Select in Stop Modes
         enum class RstfltssVal {
             v0=0x00000000,     ///<All filtering disabled.
@@ -144,7 +133,6 @@ namespace Kvasir {
         namespace RstfltssValC{
             constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v1> v1{};
-        }
         }
     }
     namespace RcmRpfw{    ///<RCM RESETb Pin Filter Width Register
@@ -218,7 +206,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v11101> v11101{};
             constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v11110> v11110{};
             constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v11111> v11111{};
-        }
         }
     }
 }

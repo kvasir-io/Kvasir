@@ -284,7 +284,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(css)::Type,CssVal::pllaClk> pllaClk{};
             constexpr Register::FieldValue<decltype(css)::Type,CssVal::upllClk> upllClk{};
         }
-        }
         ///Processor Clock Prescaler
         enum class PresVal {
             clk1=0x00000000,     ///<Selected clock
@@ -306,7 +305,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pres)::Type,PresVal::clk32> clk32{};
             constexpr Register::FieldValue<decltype(pres)::Type,PresVal::clk64> clk64{};
             constexpr Register::FieldValue<decltype(pres)::Type,PresVal::clk3> clk3{};
-        }
         }
         ///PLLA Divisor by 2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> plladiv2{}; 
@@ -338,7 +336,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(css)::Type,CssVal::upllClk> upllClk{};
             constexpr Register::FieldValue<decltype(css)::Type,CssVal::mck> mck{};
         }
-        }
         ///Programmable Clock Prescaler
         enum class PresVal {
             clk1=0x00000000,     ///<Selected clock
@@ -358,7 +355,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pres)::Type,PresVal::clk16> clk16{};
             constexpr Register::FieldValue<decltype(pres)::Type,PresVal::clk32> clk32{};
             constexpr Register::FieldValue<decltype(pres)::Type,PresVal::clk64> clk64{};
-        }
         }
     }
     namespace NonepmcPck1{    ///<Programmable Clock 0 Register
@@ -379,7 +375,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(css)::Type,CssVal::upllClk> upllClk{};
             constexpr Register::FieldValue<decltype(css)::Type,CssVal::mck> mck{};
         }
-        }
         ///Programmable Clock Prescaler
         enum class PresVal {
             clk1=0x00000000,     ///<Selected clock
@@ -399,7 +394,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pres)::Type,PresVal::clk16> clk16{};
             constexpr Register::FieldValue<decltype(pres)::Type,PresVal::clk32> clk32{};
             constexpr Register::FieldValue<decltype(pres)::Type,PresVal::clk64> clk64{};
-        }
         }
     }
     namespace NonepmcPck2{    ///<Programmable Clock 0 Register
@@ -420,7 +414,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(css)::Type,CssVal::upllClk> upllClk{};
             constexpr Register::FieldValue<decltype(css)::Type,CssVal::mck> mck{};
         }
-        }
         ///Programmable Clock Prescaler
         enum class PresVal {
             clk1=0x00000000,     ///<Selected clock
@@ -440,7 +433,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pres)::Type,PresVal::clk16> clk16{};
             constexpr Register::FieldValue<decltype(pres)::Type,PresVal::clk32> clk32{};
             constexpr Register::FieldValue<decltype(pres)::Type,PresVal::clk64> clk64{};
-        }
         }
     }
     namespace NonepmcIer{    ///<Interrupt Enable Register
@@ -742,7 +734,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(div)::Type,DivVal::periphDivMck> periphDivMck{};
             constexpr Register::FieldValue<decltype(div)::Type,DivVal::periphDiv2Mck> periphDiv2Mck{};
             constexpr Register::FieldValue<decltype(div)::Type,DivVal::periphDiv4Mck> periphDiv4Mck{};
-        }
         }
         ///Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> en{}; 

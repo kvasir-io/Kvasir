@@ -35,7 +35,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tcclks)::Type,TcclksVal::xc1> xc1{};
             constexpr Register::FieldValue<decltype(tcclks)::Type,TcclksVal::xc2> xc2{};
         }
-        }
         ///Clock Invert
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> clki{}; 
         ///Burst Signal Selection
@@ -51,7 +50,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::xc0> xc0{};
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::xc1> xc1{};
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::xc2> xc2{};
-        }
         }
         ///Counter Clock Stopped with RB Loading
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ldbstop{}; 
@@ -70,7 +68,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(etrgedg)::Type,EtrgedgVal::rising> rising{};
             constexpr Register::FieldValue<decltype(etrgedg)::Type,EtrgedgVal::falling> falling{};
             constexpr Register::FieldValue<decltype(etrgedg)::Type,EtrgedgVal::edge> edge{};
-        }
         }
         ///TIOA or TIOB External Trigger Selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> abetrg{}; 
@@ -92,7 +89,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ldra)::Type,LdraVal::falling> falling{};
             constexpr Register::FieldValue<decltype(ldra)::Type,LdraVal::edge> edge{};
         }
-        }
         ///RB Loading Edge Selection
         enum class LdrbVal {
             none=0x00000000,     ///<None
@@ -106,7 +102,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ldrb)::Type,LdrbVal::rising> rising{};
             constexpr Register::FieldValue<decltype(ldrb)::Type,LdrbVal::falling> falling{};
             constexpr Register::FieldValue<decltype(ldrb)::Type,LdrbVal::edge> edge{};
-        }
         }
     }
     namespace Tc0Cmr0WaveEq1{    ///<Channel Mode Register (channel = 0)
@@ -133,7 +128,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tcclks)::Type,TcclksVal::xc1> xc1{};
             constexpr Register::FieldValue<decltype(tcclks)::Type,TcclksVal::xc2> xc2{};
         }
-        }
         ///Clock Invert
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> clki{}; 
         ///Burst Signal Selection
@@ -149,7 +143,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::xc0> xc0{};
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::xc1> xc1{};
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::xc2> xc2{};
-        }
         }
         ///Counter Clock Stopped with RC Compare
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> cpcstop{}; 
@@ -169,7 +162,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eevtedg)::Type,EevtedgVal::falling> falling{};
             constexpr Register::FieldValue<decltype(eevtedg)::Type,EevtedgVal::edge> edge{};
         }
-        }
         ///External Event Selection
         enum class EevtVal {
             tiob=0x00000000,     ///<TIOB
@@ -183,7 +175,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eevt)::Type,EevtVal::xc0> xc0{};
             constexpr Register::FieldValue<decltype(eevt)::Type,EevtVal::xc1> xc1{};
             constexpr Register::FieldValue<decltype(eevt)::Type,EevtVal::xc2> xc2{};
-        }
         }
         ///External Event Trigger Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> enetrg{}; 
@@ -201,7 +192,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wavsel)::Type,WavselVal::upRc> upRc{};
             constexpr Register::FieldValue<decltype(wavsel)::Type,WavselVal::updownRc> updownRc{};
         }
-        }
         ///Waveform Mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> wave{}; 
         ///RA Compare Effect on TIOA
@@ -218,7 +208,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acpa)::Type,AcpaVal::clear> clear{};
             constexpr Register::FieldValue<decltype(acpa)::Type,AcpaVal::toggle> toggle{};
         }
-        }
         ///RC Compare Effect on TIOA
         enum class AcpcVal {
             none=0x00000000,     ///<None
@@ -232,7 +221,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acpc)::Type,AcpcVal::set> set{};
             constexpr Register::FieldValue<decltype(acpc)::Type,AcpcVal::clear> clear{};
             constexpr Register::FieldValue<decltype(acpc)::Type,AcpcVal::toggle> toggle{};
-        }
         }
         ///External Event Effect on TIOA
         enum class AeevtVal {
@@ -248,7 +236,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aeevt)::Type,AeevtVal::clear> clear{};
             constexpr Register::FieldValue<decltype(aeevt)::Type,AeevtVal::toggle> toggle{};
         }
-        }
         ///Software Trigger Effect on TIOA
         enum class AswtrgVal {
             none=0x00000000,     ///<None
@@ -262,7 +249,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aswtrg)::Type,AswtrgVal::set> set{};
             constexpr Register::FieldValue<decltype(aswtrg)::Type,AswtrgVal::clear> clear{};
             constexpr Register::FieldValue<decltype(aswtrg)::Type,AswtrgVal::toggle> toggle{};
-        }
         }
         ///RB Compare Effect on TIOB
         enum class BcpbVal {
@@ -278,7 +264,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bcpb)::Type,BcpbVal::clear> clear{};
             constexpr Register::FieldValue<decltype(bcpb)::Type,BcpbVal::toggle> toggle{};
         }
-        }
         ///RC Compare Effect on TIOB
         enum class BcpcVal {
             none=0x00000000,     ///<None
@@ -292,7 +277,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bcpc)::Type,BcpcVal::set> set{};
             constexpr Register::FieldValue<decltype(bcpc)::Type,BcpcVal::clear> clear{};
             constexpr Register::FieldValue<decltype(bcpc)::Type,BcpcVal::toggle> toggle{};
-        }
         }
         ///External Event Effect on TIOB
         enum class BeevtVal {
@@ -308,7 +292,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(beevt)::Type,BeevtVal::clear> clear{};
             constexpr Register::FieldValue<decltype(beevt)::Type,BeevtVal::toggle> toggle{};
         }
-        }
         ///Software Trigger Effect on TIOB
         enum class BswtrgVal {
             none=0x00000000,     ///<None
@@ -322,7 +305,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bswtrg)::Type,BswtrgVal::set> set{};
             constexpr Register::FieldValue<decltype(bswtrg)::Type,BswtrgVal::clear> clear{};
             constexpr Register::FieldValue<decltype(bswtrg)::Type,BswtrgVal::toggle> toggle{};
-        }
         }
     }
     namespace Tc0Rab0{    ///<Register AB (channel = 0)
@@ -465,7 +447,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tcclks)::Type,TcclksVal::xc1> xc1{};
             constexpr Register::FieldValue<decltype(tcclks)::Type,TcclksVal::xc2> xc2{};
         }
-        }
         ///Clock Invert
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> clki{}; 
         ///Burst Signal Selection
@@ -481,7 +462,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::xc0> xc0{};
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::xc1> xc1{};
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::xc2> xc2{};
-        }
         }
         ///Counter Clock Stopped with RB Loading
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ldbstop{}; 
@@ -500,7 +480,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(etrgedg)::Type,EtrgedgVal::rising> rising{};
             constexpr Register::FieldValue<decltype(etrgedg)::Type,EtrgedgVal::falling> falling{};
             constexpr Register::FieldValue<decltype(etrgedg)::Type,EtrgedgVal::edge> edge{};
-        }
         }
         ///TIOA or TIOB External Trigger Selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> abetrg{}; 
@@ -522,7 +501,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ldra)::Type,LdraVal::falling> falling{};
             constexpr Register::FieldValue<decltype(ldra)::Type,LdraVal::edge> edge{};
         }
-        }
         ///RB Loading Edge Selection
         enum class LdrbVal {
             none=0x00000000,     ///<None
@@ -536,7 +514,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ldrb)::Type,LdrbVal::rising> rising{};
             constexpr Register::FieldValue<decltype(ldrb)::Type,LdrbVal::falling> falling{};
             constexpr Register::FieldValue<decltype(ldrb)::Type,LdrbVal::edge> edge{};
-        }
         }
     }
     namespace Tc0Cmr1WaveEq1{    ///<Channel Mode Register (channel = 1)
@@ -563,7 +540,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tcclks)::Type,TcclksVal::xc1> xc1{};
             constexpr Register::FieldValue<decltype(tcclks)::Type,TcclksVal::xc2> xc2{};
         }
-        }
         ///Clock Invert
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> clki{}; 
         ///Burst Signal Selection
@@ -579,7 +555,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::xc0> xc0{};
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::xc1> xc1{};
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::xc2> xc2{};
-        }
         }
         ///Counter Clock Stopped with RC Compare
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> cpcstop{}; 
@@ -599,7 +574,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eevtedg)::Type,EevtedgVal::falling> falling{};
             constexpr Register::FieldValue<decltype(eevtedg)::Type,EevtedgVal::edge> edge{};
         }
-        }
         ///External Event Selection
         enum class EevtVal {
             tiob=0x00000000,     ///<TIOB
@@ -613,7 +587,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eevt)::Type,EevtVal::xc0> xc0{};
             constexpr Register::FieldValue<decltype(eevt)::Type,EevtVal::xc1> xc1{};
             constexpr Register::FieldValue<decltype(eevt)::Type,EevtVal::xc2> xc2{};
-        }
         }
         ///External Event Trigger Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> enetrg{}; 
@@ -631,7 +604,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wavsel)::Type,WavselVal::upRc> upRc{};
             constexpr Register::FieldValue<decltype(wavsel)::Type,WavselVal::updownRc> updownRc{};
         }
-        }
         ///Waveform Mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> wave{}; 
         ///RA Compare Effect on TIOA
@@ -648,7 +620,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acpa)::Type,AcpaVal::clear> clear{};
             constexpr Register::FieldValue<decltype(acpa)::Type,AcpaVal::toggle> toggle{};
         }
-        }
         ///RC Compare Effect on TIOA
         enum class AcpcVal {
             none=0x00000000,     ///<None
@@ -662,7 +633,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acpc)::Type,AcpcVal::set> set{};
             constexpr Register::FieldValue<decltype(acpc)::Type,AcpcVal::clear> clear{};
             constexpr Register::FieldValue<decltype(acpc)::Type,AcpcVal::toggle> toggle{};
-        }
         }
         ///External Event Effect on TIOA
         enum class AeevtVal {
@@ -678,7 +648,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aeevt)::Type,AeevtVal::clear> clear{};
             constexpr Register::FieldValue<decltype(aeevt)::Type,AeevtVal::toggle> toggle{};
         }
-        }
         ///Software Trigger Effect on TIOA
         enum class AswtrgVal {
             none=0x00000000,     ///<None
@@ -692,7 +661,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aswtrg)::Type,AswtrgVal::set> set{};
             constexpr Register::FieldValue<decltype(aswtrg)::Type,AswtrgVal::clear> clear{};
             constexpr Register::FieldValue<decltype(aswtrg)::Type,AswtrgVal::toggle> toggle{};
-        }
         }
         ///RB Compare Effect on TIOB
         enum class BcpbVal {
@@ -708,7 +676,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bcpb)::Type,BcpbVal::clear> clear{};
             constexpr Register::FieldValue<decltype(bcpb)::Type,BcpbVal::toggle> toggle{};
         }
-        }
         ///RC Compare Effect on TIOB
         enum class BcpcVal {
             none=0x00000000,     ///<None
@@ -722,7 +689,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bcpc)::Type,BcpcVal::set> set{};
             constexpr Register::FieldValue<decltype(bcpc)::Type,BcpcVal::clear> clear{};
             constexpr Register::FieldValue<decltype(bcpc)::Type,BcpcVal::toggle> toggle{};
-        }
         }
         ///External Event Effect on TIOB
         enum class BeevtVal {
@@ -738,7 +704,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(beevt)::Type,BeevtVal::clear> clear{};
             constexpr Register::FieldValue<decltype(beevt)::Type,BeevtVal::toggle> toggle{};
         }
-        }
         ///Software Trigger Effect on TIOB
         enum class BswtrgVal {
             none=0x00000000,     ///<None
@@ -752,7 +717,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bswtrg)::Type,BswtrgVal::set> set{};
             constexpr Register::FieldValue<decltype(bswtrg)::Type,BswtrgVal::clear> clear{};
             constexpr Register::FieldValue<decltype(bswtrg)::Type,BswtrgVal::toggle> toggle{};
-        }
         }
     }
     namespace Tc0Rab1{    ///<Register AB (channel = 1)
@@ -895,7 +859,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tcclks)::Type,TcclksVal::xc1> xc1{};
             constexpr Register::FieldValue<decltype(tcclks)::Type,TcclksVal::xc2> xc2{};
         }
-        }
         ///Clock Invert
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> clki{}; 
         ///Burst Signal Selection
@@ -911,7 +874,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::xc0> xc0{};
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::xc1> xc1{};
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::xc2> xc2{};
-        }
         }
         ///Counter Clock Stopped with RB Loading
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ldbstop{}; 
@@ -930,7 +892,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(etrgedg)::Type,EtrgedgVal::rising> rising{};
             constexpr Register::FieldValue<decltype(etrgedg)::Type,EtrgedgVal::falling> falling{};
             constexpr Register::FieldValue<decltype(etrgedg)::Type,EtrgedgVal::edge> edge{};
-        }
         }
         ///TIOA or TIOB External Trigger Selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> abetrg{}; 
@@ -952,7 +913,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ldra)::Type,LdraVal::falling> falling{};
             constexpr Register::FieldValue<decltype(ldra)::Type,LdraVal::edge> edge{};
         }
-        }
         ///RB Loading Edge Selection
         enum class LdrbVal {
             none=0x00000000,     ///<None
@@ -966,7 +926,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ldrb)::Type,LdrbVal::rising> rising{};
             constexpr Register::FieldValue<decltype(ldrb)::Type,LdrbVal::falling> falling{};
             constexpr Register::FieldValue<decltype(ldrb)::Type,LdrbVal::edge> edge{};
-        }
         }
     }
     namespace Tc0Cmr2WaveEq1{    ///<Channel Mode Register (channel = 2)
@@ -993,7 +952,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tcclks)::Type,TcclksVal::xc1> xc1{};
             constexpr Register::FieldValue<decltype(tcclks)::Type,TcclksVal::xc2> xc2{};
         }
-        }
         ///Clock Invert
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> clki{}; 
         ///Burst Signal Selection
@@ -1009,7 +967,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::xc0> xc0{};
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::xc1> xc1{};
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::xc2> xc2{};
-        }
         }
         ///Counter Clock Stopped with RC Compare
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> cpcstop{}; 
@@ -1029,7 +986,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eevtedg)::Type,EevtedgVal::falling> falling{};
             constexpr Register::FieldValue<decltype(eevtedg)::Type,EevtedgVal::edge> edge{};
         }
-        }
         ///External Event Selection
         enum class EevtVal {
             tiob=0x00000000,     ///<TIOB
@@ -1043,7 +999,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eevt)::Type,EevtVal::xc0> xc0{};
             constexpr Register::FieldValue<decltype(eevt)::Type,EevtVal::xc1> xc1{};
             constexpr Register::FieldValue<decltype(eevt)::Type,EevtVal::xc2> xc2{};
-        }
         }
         ///External Event Trigger Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> enetrg{}; 
@@ -1061,7 +1016,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wavsel)::Type,WavselVal::upRc> upRc{};
             constexpr Register::FieldValue<decltype(wavsel)::Type,WavselVal::updownRc> updownRc{};
         }
-        }
         ///Waveform Mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> wave{}; 
         ///RA Compare Effect on TIOA
@@ -1078,7 +1032,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acpa)::Type,AcpaVal::clear> clear{};
             constexpr Register::FieldValue<decltype(acpa)::Type,AcpaVal::toggle> toggle{};
         }
-        }
         ///RC Compare Effect on TIOA
         enum class AcpcVal {
             none=0x00000000,     ///<None
@@ -1092,7 +1045,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acpc)::Type,AcpcVal::set> set{};
             constexpr Register::FieldValue<decltype(acpc)::Type,AcpcVal::clear> clear{};
             constexpr Register::FieldValue<decltype(acpc)::Type,AcpcVal::toggle> toggle{};
-        }
         }
         ///External Event Effect on TIOA
         enum class AeevtVal {
@@ -1108,7 +1060,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aeevt)::Type,AeevtVal::clear> clear{};
             constexpr Register::FieldValue<decltype(aeevt)::Type,AeevtVal::toggle> toggle{};
         }
-        }
         ///Software Trigger Effect on TIOA
         enum class AswtrgVal {
             none=0x00000000,     ///<None
@@ -1122,7 +1073,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aswtrg)::Type,AswtrgVal::set> set{};
             constexpr Register::FieldValue<decltype(aswtrg)::Type,AswtrgVal::clear> clear{};
             constexpr Register::FieldValue<decltype(aswtrg)::Type,AswtrgVal::toggle> toggle{};
-        }
         }
         ///RB Compare Effect on TIOB
         enum class BcpbVal {
@@ -1138,7 +1088,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bcpb)::Type,BcpbVal::clear> clear{};
             constexpr Register::FieldValue<decltype(bcpb)::Type,BcpbVal::toggle> toggle{};
         }
-        }
         ///RC Compare Effect on TIOB
         enum class BcpcVal {
             none=0x00000000,     ///<None
@@ -1152,7 +1101,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bcpc)::Type,BcpcVal::set> set{};
             constexpr Register::FieldValue<decltype(bcpc)::Type,BcpcVal::clear> clear{};
             constexpr Register::FieldValue<decltype(bcpc)::Type,BcpcVal::toggle> toggle{};
-        }
         }
         ///External Event Effect on TIOB
         enum class BeevtVal {
@@ -1168,7 +1116,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(beevt)::Type,BeevtVal::clear> clear{};
             constexpr Register::FieldValue<decltype(beevt)::Type,BeevtVal::toggle> toggle{};
         }
-        }
         ///Software Trigger Effect on TIOB
         enum class BswtrgVal {
             none=0x00000000,     ///<None
@@ -1182,7 +1129,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bswtrg)::Type,BswtrgVal::set> set{};
             constexpr Register::FieldValue<decltype(bswtrg)::Type,BswtrgVal::clear> clear{};
             constexpr Register::FieldValue<decltype(bswtrg)::Type,BswtrgVal::toggle> toggle{};
-        }
         }
     }
     namespace Tc0Rab2{    ///<Register AB (channel = 2)
@@ -1311,7 +1257,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tc0xc0s)::Type,Tc0xc0sVal::tioa1> tioa1{};
             constexpr Register::FieldValue<decltype(tc0xc0s)::Type,Tc0xc0sVal::tioa2> tioa2{};
         }
-        }
         ///External Clock Signal 1 Selection
         enum class Tc1xc1sVal {
             tclk1=0x00000000,     ///<Signal connected to XC1: TCLK1
@@ -1324,7 +1269,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tc1xc1s)::Type,Tc1xc1sVal::tioa0> tioa0{};
             constexpr Register::FieldValue<decltype(tc1xc1s)::Type,Tc1xc1sVal::tioa2> tioa2{};
         }
-        }
         ///External Clock Signal 2 Selection
         enum class Tc2xc2sVal {
             tclk2=0x00000000,     ///<Signal connected to XC2: TCLK2
@@ -1336,7 +1280,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tc2xc2s)::Type,Tc2xc2sVal::tclk2> tclk2{};
             constexpr Register::FieldValue<decltype(tc2xc2s)::Type,Tc2xc2sVal::tioa1> tioa1{};
             constexpr Register::FieldValue<decltype(tc2xc2s)::Type,Tc2xc2sVal::tioa2> tioa2{};
-        }
         }
     }
 }

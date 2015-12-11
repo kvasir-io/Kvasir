@@ -16,7 +16,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fpviol)::Type,FpviolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fpviol)::Type,FpviolVal::v1> v1{};
         }
-        }
         ///Flash Access Error Flag
         enum class AccerrVal {
             v0=0x00000000,     ///<No access error detected
@@ -26,7 +25,6 @@ namespace Kvasir {
         namespace AccerrValC{
             constexpr Register::FieldValue<decltype(accerr)::Type,AccerrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(accerr)::Type,AccerrVal::v1> v1{};
-        }
         }
         ///FTFE Read Collision Error Flag
         enum class RdcolerrVal {
@@ -38,7 +36,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rdcolerr)::Type,RdcolerrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rdcolerr)::Type,RdcolerrVal::v1> v1{};
         }
-        }
         ///Command Complete Interrupt Flag
         enum class CcifVal {
             v0=0x00000000,     ///<FTFE command or EEPROM file system operation in progress
@@ -48,7 +45,6 @@ namespace Kvasir {
         namespace CcifValC{
             constexpr Register::FieldValue<decltype(ccif)::Type,CcifVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ccif)::Type,CcifVal::v1> v1{};
-        }
         }
     }
     namespace FtfeFcnfg{    ///<Flash Configuration Register
@@ -63,7 +59,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eeerdy)::Type,EeerdyVal::v0> v0{};
             constexpr Register::FieldValue<decltype(eeerdy)::Type,EeerdyVal::v1> v1{};
         }
-        }
         ///RAM Ready
         enum class RamrdyVal {
             v0=0x00000000,     ///<For devices with FlexNVM: FlexRAM is not available for traditional RAM access. For devices without FlexNVM: Programming acceleration RAM is not available.
@@ -73,7 +68,6 @@ namespace Kvasir {
         namespace RamrdyValC{
             constexpr Register::FieldValue<decltype(ramrdy)::Type,RamrdyVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ramrdy)::Type,RamrdyVal::v1> v1{};
-        }
         }
         ///FTFE configuration
         enum class PflshVal {
@@ -85,7 +79,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pflsh)::Type,PflshVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pflsh)::Type,PflshVal::v1> v1{};
         }
-        }
         ///Swap
         enum class SwapVal {
             v0=0x00000000,     ///<For devices with FlexNVM: Logical program flash 0 block is located at relative address 0x0000 For devices with program flash only: Logical program flash 0/1 blocks are located at relative address 0x0000
@@ -95,7 +88,6 @@ namespace Kvasir {
         namespace SwapValC{
             constexpr Register::FieldValue<decltype(swap)::Type,SwapVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swap)::Type,SwapVal::v1> v1{};
-        }
         }
         ///Erase Suspend
         enum class ErssuspVal {
@@ -107,7 +99,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erssusp)::Type,ErssuspVal::v0> v0{};
             constexpr Register::FieldValue<decltype(erssusp)::Type,ErssuspVal::v1> v1{};
         }
-        }
         ///Erase All Request
         enum class ErsareqVal {
             v0=0x00000000,     ///<No request or request complete
@@ -117,7 +108,6 @@ namespace Kvasir {
         namespace ErsareqValC{
             constexpr Register::FieldValue<decltype(ersareq)::Type,ErsareqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ersareq)::Type,ErsareqVal::v1> v1{};
-        }
         }
         ///Read Collision Error Interrupt Enable
         enum class RdcollieVal {
@@ -129,7 +119,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rdcollie)::Type,RdcollieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rdcollie)::Type,RdcollieVal::v1> v1{};
         }
-        }
         ///Command Complete Interrupt Enable
         enum class CcieVal {
             v0=0x00000000,     ///<Command complete interrupt disabled
@@ -139,7 +128,6 @@ namespace Kvasir {
         namespace CcieValC{
             constexpr Register::FieldValue<decltype(ccie)::Type,CcieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ccie)::Type,CcieVal::v1> v1{};
-        }
         }
     }
     namespace FtfeFsec{    ///<Flash Security Register
@@ -158,7 +146,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sec)::Type,SecVal::v10> v10{};
             constexpr Register::FieldValue<decltype(sec)::Type,SecVal::v11> v11{};
         }
-        }
         ///Freescale Failure Analysis Access Code
         enum class FslaccVal {
             v00=0x00000000,     ///<Freescale factory access granted
@@ -172,7 +159,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fslacc)::Type,FslaccVal::v01> v01{};
             constexpr Register::FieldValue<decltype(fslacc)::Type,FslaccVal::v10> v10{};
             constexpr Register::FieldValue<decltype(fslacc)::Type,FslaccVal::v11> v11{};
-        }
         }
         ///Mass Erase Enable Bits
         enum class MeenVal {
@@ -188,7 +174,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(meen)::Type,MeenVal::v10> v10{};
             constexpr Register::FieldValue<decltype(meen)::Type,MeenVal::v11> v11{};
         }
-        }
         ///Backdoor Key Security Enable
         enum class KeyenVal {
             v00=0x00000000,     ///<Backdoor key access disabled
@@ -202,7 +187,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(keyen)::Type,KeyenVal::v01> v01{};
             constexpr Register::FieldValue<decltype(keyen)::Type,KeyenVal::v10> v10{};
             constexpr Register::FieldValue<decltype(keyen)::Type,KeyenVal::v11> v11{};
-        }
         }
     }
     namespace FtfeFopt{    ///<Flash Option Register

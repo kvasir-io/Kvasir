@@ -18,7 +18,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p00)::Type,P00Val::txd3> txd3{};
             constexpr Register::FieldValue<decltype(p00)::Type,P00Val::sda1> sda1{};
         }
-        }
         ///Pin function select P0.1.
         enum class P01Val {
             gpioP0=0x00000000,     ///<GPIO P0.1
@@ -33,7 +32,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p01)::Type,P01Val::rxd3> rxd3{};
             constexpr Register::FieldValue<decltype(p01)::Type,P01Val::scl1> scl1{};
         }
-        }
         ///Pin function select P0.2.
         enum class P02Val {
             gpioP0=0x00000000,     ///<GPIO P0.2
@@ -46,7 +44,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p02)::Type,P02Val::txd0> txd0{};
             constexpr Register::FieldValue<decltype(p02)::Type,P02Val::ad0> ad0{};
         }
-        }
         ///Pin function select P0.3.
         enum class P03Val {
             gpioP0=0x00000000,     ///<GPIO P0.3.
@@ -58,7 +55,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p03)::Type,P03Val::gpioP0> gpioP0{};
             constexpr Register::FieldValue<decltype(p03)::Type,P03Val::rxd0> rxd0{};
             constexpr Register::FieldValue<decltype(p03)::Type,P03Val::ad0> ad0{};
-        }
         }
         ///Pin function select P0.4.
         enum class P04Val {
@@ -74,7 +70,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p04)::Type,P04Val::rd2> rd2{};
             constexpr Register::FieldValue<decltype(p04)::Type,P04Val::cap2> cap2{};
         }
-        }
         ///Pin function select P0.5.
         enum class P05Val {
             gpioP0=0x00000000,     ///<GPIO P0.5.
@@ -88,7 +83,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p05)::Type,P05Val::i2srxWs> i2srxWs{};
             constexpr Register::FieldValue<decltype(p05)::Type,P05Val::td2> td2{};
             constexpr Register::FieldValue<decltype(p05)::Type,P05Val::cap2> cap2{};
-        }
         }
         ///Pin function select P0.6.
         enum class P06Val {
@@ -104,7 +98,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p06)::Type,P06Val::ssel1> ssel1{};
             constexpr Register::FieldValue<decltype(p06)::Type,P06Val::mat2> mat2{};
         }
-        }
         ///Pin function select P0.7.
         enum class P07Val {
             gpioP0=0x00000000,     ///<GPIO P0.7.
@@ -118,7 +111,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p07)::Type,P07Val::i2stxClk> i2stxClk{};
             constexpr Register::FieldValue<decltype(p07)::Type,P07Val::sck1> sck1{};
             constexpr Register::FieldValue<decltype(p07)::Type,P07Val::mat2> mat2{};
-        }
         }
         ///Pin function select P0.8.
         enum class P08Val {
@@ -134,7 +126,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p08)::Type,P08Val::miso1> miso1{};
             constexpr Register::FieldValue<decltype(p08)::Type,P08Val::mat2> mat2{};
         }
-        }
         ///Pin function select P0.9.
         enum class P09Val {
             gpioP0=0x00000000,     ///<GPIO P0.9
@@ -148,7 +139,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p09)::Type,P09Val::i2stxSda> i2stxSda{};
             constexpr Register::FieldValue<decltype(p09)::Type,P09Val::mosi1> mosi1{};
             constexpr Register::FieldValue<decltype(p09)::Type,P09Val::mat2> mat2{};
-        }
         }
         ///Pin function select P0.10.
         enum class P010Val {
@@ -164,7 +154,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p010)::Type,P010Val::sda2> sda2{};
             constexpr Register::FieldValue<decltype(p010)::Type,P010Val::mat3> mat3{};
         }
-        }
         ///Pin function select P0.11.
         enum class P011Val {
             gpioP0=0x00000000,     ///<GPIO P0.11
@@ -179,7 +168,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p011)::Type,P011Val::scl2> scl2{};
             constexpr Register::FieldValue<decltype(p011)::Type,P011Val::mat3> mat3{};
         }
-        }
         ///Pin function select P0.15.
         enum class P015Val {
             gpioP0=0x00000000,     ///<GPIO P0.15
@@ -193,7 +181,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p015)::Type,P015Val::txd1> txd1{};
             constexpr Register::FieldValue<decltype(p015)::Type,P015Val::sck0> sck0{};
             constexpr Register::FieldValue<decltype(p015)::Type,P015Val::sck> sck{};
-        }
         }
     }
     namespace Nonepinsel1{    ///<Pin function select register 1.
@@ -212,7 +199,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p016)::Type,P016Val::ssel0> ssel0{};
             constexpr Register::FieldValue<decltype(p016)::Type,P016Val::ssel> ssel{};
         }
-        }
         ///Pin function select P0.17.
         enum class P017Val {
             gpioP0=0x00000000,     ///<GPIO P0.17
@@ -226,7 +212,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p017)::Type,P017Val::cts1> cts1{};
             constexpr Register::FieldValue<decltype(p017)::Type,P017Val::miso0> miso0{};
             constexpr Register::FieldValue<decltype(p017)::Type,P017Val::miso> miso{};
-        }
         }
         ///Pin function select P0.18.
         enum class P018Val {
@@ -242,7 +227,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p018)::Type,P018Val::mosi0> mosi0{};
             constexpr Register::FieldValue<decltype(p018)::Type,P018Val::mosi> mosi{};
         }
-        }
         ///Pin function select P019.
         enum class P019Val {
             gpioP0=0x00000000,     ///<GPIO P0.19.
@@ -254,7 +238,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p019)::Type,P019Val::gpioP0> gpioP0{};
             constexpr Register::FieldValue<decltype(p019)::Type,P019Val::dsr1> dsr1{};
             constexpr Register::FieldValue<decltype(p019)::Type,P019Val::sda1> sda1{};
-        }
         }
         ///Pin function select P0.20.
         enum class P020Val {
@@ -268,7 +251,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p020)::Type,P020Val::dtr1> dtr1{};
             constexpr Register::FieldValue<decltype(p020)::Type,P020Val::scl1> scl1{};
         }
-        }
         ///Pin function select P0.21.
         enum class P021Val {
             gpioPort0=0x00000000,     ///<GPIO Port 0.21.
@@ -281,7 +263,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p021)::Type,P021Val::ri1> ri1{};
             constexpr Register::FieldValue<decltype(p021)::Type,P021Val::rd1> rd1{};
         }
-        }
         ///Pin function select P022
         enum class P022Val {
             gpioP0=0x00000000,     ///<GPIO P0.22.
@@ -293,7 +274,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p022)::Type,P022Val::gpioP0> gpioP0{};
             constexpr Register::FieldValue<decltype(p022)::Type,P022Val::rts1> rts1{};
             constexpr Register::FieldValue<decltype(p022)::Type,P022Val::td1> td1{};
-        }
         }
         ///Pin function select P023.
         enum class P023Val {
@@ -309,7 +289,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p023)::Type,P023Val::i2srxClk> i2srxClk{};
             constexpr Register::FieldValue<decltype(p023)::Type,P023Val::cap3> cap3{};
         }
-        }
         ///Pin function select P0.24.
         enum class P024Val {
             gpioP0=0x00000000,     ///<GPIO P0.24.
@@ -323,7 +302,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p024)::Type,P024Val::ad0> ad0{};
             constexpr Register::FieldValue<decltype(p024)::Type,P024Val::i2srxWs> i2srxWs{};
             constexpr Register::FieldValue<decltype(p024)::Type,P024Val::cap3> cap3{};
-        }
         }
         ///Pin function select P0.25.
         enum class P025Val {
@@ -339,7 +317,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p025)::Type,P025Val::i2srxSda> i2srxSda{};
             constexpr Register::FieldValue<decltype(p025)::Type,P025Val::txd3> txd3{};
         }
-        }
         ///Pin function select P0.26.
         enum class P026Val {
             gpioP0=0x00000000,     ///<GPIO P0.26
@@ -354,7 +331,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p026)::Type,P026Val::aout> aout{};
             constexpr Register::FieldValue<decltype(p026)::Type,P026Val::rxd3> rxd3{};
         }
-        }
         ///Pin function select P0.27.
         enum class P027Val {
             gpioP0=0x00000000,     ///<GPIO P0.27
@@ -366,7 +342,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p027)::Type,P027Val::gpioP0> gpioP0{};
             constexpr Register::FieldValue<decltype(p027)::Type,P027Val::sda0> sda0{};
             constexpr Register::FieldValue<decltype(p027)::Type,P027Val::usbSda> usbSda{};
-        }
         }
         ///Pin function select P0.28.
         enum class P028Val {
@@ -380,7 +355,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p028)::Type,P028Val::scl0> scl0{};
             constexpr Register::FieldValue<decltype(p028)::Type,P028Val::usbScl> usbScl{};
         }
-        }
         ///Pin function select P0.29
         enum class P029Val {
             gpioP0=0x00000000,     ///<GPIO P0.29
@@ -391,7 +365,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p029)::Type,P029Val::gpioP0> gpioP0{};
             constexpr Register::FieldValue<decltype(p029)::Type,P029Val::usbDp> usbDp{};
         }
-        }
         ///Pin function select P0.30.
         enum class P030Val {
             gpioP0=0x00000000,     ///<GPIO P0.30
@@ -401,7 +374,6 @@ namespace Kvasir {
         namespace P030ValC{
             constexpr Register::FieldValue<decltype(p030)::Type,P030Val::gpioP0> gpioP0{};
             constexpr Register::FieldValue<decltype(p030)::Type,P030Val::usbDm> usbDm{};
-        }
         }
     }
     namespace Nonepinsel2{    ///<Pin function select register 2.
@@ -416,7 +388,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p10)::Type,P10Val::gpioP1> gpioP1{};
             constexpr Register::FieldValue<decltype(p10)::Type,P10Val::enetTxd0> enetTxd0{};
         }
-        }
         ///Pin function select P1.1.
         enum class P11Val {
             gpioP1=0x00000000,     ///<GPIO P1.1
@@ -426,7 +397,6 @@ namespace Kvasir {
         namespace P11ValC{
             constexpr Register::FieldValue<decltype(p11)::Type,P11Val::gpioP1> gpioP1{};
             constexpr Register::FieldValue<decltype(p11)::Type,P11Val::enetTxd1> enetTxd1{};
-        }
         }
         ///Pin function select P1.4.
         enum class P14Val {
@@ -438,7 +408,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p14)::Type,P14Val::gpioP1> gpioP1{};
             constexpr Register::FieldValue<decltype(p14)::Type,P14Val::enetTxEn> enetTxEn{};
         }
-        }
         ///Pin function select P1.8.
         enum class P18Val {
             gpioP1=0x00000000,     ///<GPIO P1.8.
@@ -448,7 +417,6 @@ namespace Kvasir {
         namespace P18ValC{
             constexpr Register::FieldValue<decltype(p18)::Type,P18Val::gpioP1> gpioP1{};
             constexpr Register::FieldValue<decltype(p18)::Type,P18Val::enetCrs> enetCrs{};
-        }
         }
         ///Pin function select P1.9.
         enum class P19Val {
@@ -460,7 +428,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p19)::Type,P19Val::gpioPort1> gpioPort1{};
             constexpr Register::FieldValue<decltype(p19)::Type,P19Val::enetRxd0> enetRxd0{};
         }
-        }
         ///Pin function select P1.10.
         enum class P110Val {
             gpioP1=0x00000000,     ///<GPIO P1.10
@@ -470,7 +437,6 @@ namespace Kvasir {
         namespace P110ValC{
             constexpr Register::FieldValue<decltype(p110)::Type,P110Val::gpioP1> gpioP1{};
             constexpr Register::FieldValue<decltype(p110)::Type,P110Val::enetRxd1> enetRxd1{};
-        }
         }
         ///Pin function select P1.14.
         enum class P114Val {
@@ -482,7 +448,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p114)::Type,P114Val::gpioP1> gpioP1{};
             constexpr Register::FieldValue<decltype(p114)::Type,P114Val::enetRxEr> enetRxEr{};
         }
-        }
         ///Pin function select P1.15.
         enum class P115Val {
             gpioP1=0x00000000,     ///<GPIO P1.15
@@ -492,7 +457,6 @@ namespace Kvasir {
         namespace P115ValC{
             constexpr Register::FieldValue<decltype(p115)::Type,P115Val::gpioP1> gpioP1{};
             constexpr Register::FieldValue<decltype(p115)::Type,P115Val::enetRefClk> enetRefClk{};
-        }
         }
     }
     namespace Nonepinsel3{    ///<Pin function select register 3.
@@ -507,7 +471,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p116)::Type,P116Val::gpioP1> gpioP1{};
             constexpr Register::FieldValue<decltype(p116)::Type,P116Val::enetMdc> enetMdc{};
         }
-        }
         ///Pin function select P1.17.
         enum class P117Val {
             gpioP1=0x00000000,     ///<GPIO P1.17
@@ -517,7 +480,6 @@ namespace Kvasir {
         namespace P117ValC{
             constexpr Register::FieldValue<decltype(p117)::Type,P117Val::gpioP1> gpioP1{};
             constexpr Register::FieldValue<decltype(p117)::Type,P117Val::enetMdio> enetMdio{};
-        }
         }
         ///Pin function select P1.18.
         enum class P118Val {
@@ -533,7 +495,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p118)::Type,P118Val::pwm1> pwm1{};
             constexpr Register::FieldValue<decltype(p118)::Type,P118Val::cap1> cap1{};
         }
-        }
         ///Pin function select P1.19.
         enum class P119Val {
             gpioP1=0x00000000,     ///<GPIO P1.19.
@@ -547,7 +508,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p119)::Type,P119Val::mcoa0> mcoa0{};
             constexpr Register::FieldValue<decltype(p119)::Type,P119Val::usbPpwr> usbPpwr{};
             constexpr Register::FieldValue<decltype(p119)::Type,P119Val::cap1> cap1{};
-        }
         }
         ///Pin function select P1.20.
         enum class P120Val {
@@ -563,7 +523,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p120)::Type,P120Val::pwm1> pwm1{};
             constexpr Register::FieldValue<decltype(p120)::Type,P120Val::sck0> sck0{};
         }
-        }
         ///Pin function select P1.21.
         enum class P121Val {
             gpioP1=0x00000000,     ///<GPIO P1.21.
@@ -577,7 +536,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p121)::Type,P121Val::mcabort> mcabort{};
             constexpr Register::FieldValue<decltype(p121)::Type,P121Val::pwm1> pwm1{};
             constexpr Register::FieldValue<decltype(p121)::Type,P121Val::ssel0> ssel0{};
-        }
         }
         ///Pin function select P1.22
         enum class P122Val {
@@ -593,7 +551,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p122)::Type,P122Val::usbPwrd> usbPwrd{};
             constexpr Register::FieldValue<decltype(p122)::Type,P122Val::mat1> mat1{};
         }
-        }
         ///Pin function select P1.23.
         enum class P123Val {
             gpioP1=0x00000000,     ///<GPIO P1.23.
@@ -607,7 +564,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p123)::Type,P123Val::mci1> mci1{};
             constexpr Register::FieldValue<decltype(p123)::Type,P123Val::pwm1> pwm1{};
             constexpr Register::FieldValue<decltype(p123)::Type,P123Val::miso0> miso0{};
-        }
         }
         ///Pin function select P1.24.
         enum class P124Val {
@@ -623,7 +579,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p124)::Type,P124Val::pwm1> pwm1{};
             constexpr Register::FieldValue<decltype(p124)::Type,P124Val::mosi0> mosi0{};
         }
-        }
         ///Pin function select P1.25.
         enum class P125Val {
             gpioP1=0x00000000,     ///<GPIO P1.25
@@ -635,7 +590,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p125)::Type,P125Val::gpioP1> gpioP1{};
             constexpr Register::FieldValue<decltype(p125)::Type,P125Val::mcoa1> mcoa1{};
             constexpr Register::FieldValue<decltype(p125)::Type,P125Val::mat1> mat1{};
-        }
         }
         ///Pin function select P1.26.
         enum class P126Val {
@@ -651,7 +605,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p126)::Type,P126Val::pwm1> pwm1{};
             constexpr Register::FieldValue<decltype(p126)::Type,P126Val::cap0> cap0{};
         }
-        }
         ///Pin function select P1.27.
         enum class P127Val {
             gpioP1=0x00000000,     ///<GPIO P1.27
@@ -665,7 +618,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p127)::Type,P127Val::clkout> clkout{};
             constexpr Register::FieldValue<decltype(p127)::Type,P127Val::usbOvrcr> usbOvrcr{};
             constexpr Register::FieldValue<decltype(p127)::Type,P127Val::cap0> cap0{};
-        }
         }
         ///Pin function select P1.28.
         enum class P128Val {
@@ -681,7 +633,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p128)::Type,P128Val::pcap1> pcap1{};
             constexpr Register::FieldValue<decltype(p128)::Type,P128Val::mat0> mat0{};
         }
-        }
         ///Pin function select P1.29
         enum class P129Val {
             gpioP1=0x00000000,     ///<GPIO P1.29
@@ -696,7 +647,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p129)::Type,P129Val::pcap1> pcap1{};
             constexpr Register::FieldValue<decltype(p129)::Type,P129Val::mat0> mat0{};
         }
-        }
         ///Pin function select P1.30.
         enum class P130Val {
             gpioP1=0x00000000,     ///<GPIO P1.30
@@ -709,7 +659,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p130)::Type,P130Val::vbus> vbus{};
             constexpr Register::FieldValue<decltype(p130)::Type,P130Val::ad0> ad0{};
         }
-        }
         ///Pin function select P1.31.
         enum class P131Val {
             gpioPort1=0x00000000,     ///<GPIO Port 1.31
@@ -721,7 +670,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p131)::Type,P131Val::gpioPort1> gpioPort1{};
             constexpr Register::FieldValue<decltype(p131)::Type,P131Val::sck1> sck1{};
             constexpr Register::FieldValue<decltype(p131)::Type,P131Val::ad0> ad0{};
-        }
         }
     }
     namespace Nonepinsel4{    ///<Pin function select register 4
@@ -738,7 +686,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p20)::Type,P20Val::pwm1> pwm1{};
             constexpr Register::FieldValue<decltype(p20)::Type,P20Val::txd1> txd1{};
         }
-        }
         ///Pin function select P2.1.
         enum class P21Val {
             gpioP2=0x00000000,     ///<GPIO P2.1
@@ -750,7 +697,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p21)::Type,P21Val::gpioP2> gpioP2{};
             constexpr Register::FieldValue<decltype(p21)::Type,P21Val::pwm1> pwm1{};
             constexpr Register::FieldValue<decltype(p21)::Type,P21Val::rxd1> rxd1{};
-        }
         }
         ///Pin function select P2.2.
         enum class P22Val {
@@ -764,7 +710,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p22)::Type,P22Val::pwm1> pwm1{};
             constexpr Register::FieldValue<decltype(p22)::Type,P22Val::cts1> cts1{};
         }
-        }
         ///Pin function select P2.3.
         enum class P23Val {
             gpioP2=0x00000000,     ///<GPIO P2.3.
@@ -776,7 +721,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p23)::Type,P23Val::gpioP2> gpioP2{};
             constexpr Register::FieldValue<decltype(p23)::Type,P23Val::pwm1> pwm1{};
             constexpr Register::FieldValue<decltype(p23)::Type,P23Val::dcd1> dcd1{};
-        }
         }
         ///Pin function select P2.4.
         enum class P24Val {
@@ -790,7 +734,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p24)::Type,P24Val::pwm1> pwm1{};
             constexpr Register::FieldValue<decltype(p24)::Type,P24Val::dsr1> dsr1{};
         }
-        }
         ///Pin function select P2.5.
         enum class P25Val {
             gpioP2=0x00000000,     ///<GPIO P2.5.
@@ -802,7 +745,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p25)::Type,P25Val::gpioP2> gpioP2{};
             constexpr Register::FieldValue<decltype(p25)::Type,P25Val::pwm1> pwm1{};
             constexpr Register::FieldValue<decltype(p25)::Type,P25Val::dtr1> dtr1{};
-        }
         }
         ///Pin function select P2.6.
         enum class P26Val {
@@ -816,7 +758,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p26)::Type,P26Val::pcap1> pcap1{};
             constexpr Register::FieldValue<decltype(p26)::Type,P26Val::ri1> ri1{};
         }
-        }
         ///Pin function select P2.7.
         enum class P27Val {
             gpioP2=0x00000000,     ///<GPIO P2.7.
@@ -828,7 +769,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p27)::Type,P27Val::gpioP2> gpioP2{};
             constexpr Register::FieldValue<decltype(p27)::Type,P27Val::rd2> rd2{};
             constexpr Register::FieldValue<decltype(p27)::Type,P27Val::rts1> rts1{};
-        }
         }
         ///Pin function select P2.8.
         enum class P28Val {
@@ -844,7 +784,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p28)::Type,P28Val::txd2> txd2{};
             constexpr Register::FieldValue<decltype(p28)::Type,P28Val::enetMdc> enetMdc{};
         }
-        }
         ///Pin function select P2.9.
         enum class P29Val {
             gpioP2=0x00000000,     ///<GPIO P2.9
@@ -859,7 +798,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p29)::Type,P29Val::rxd2> rxd2{};
             constexpr Register::FieldValue<decltype(p29)::Type,P29Val::enetMdio> enetMdio{};
         }
-        }
         ///Pin function select P2.10.
         enum class P210Val {
             gpioP2=0x00000000,     ///<GPIO P2.10
@@ -871,7 +809,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p210)::Type,P210Val::gpioP2> gpioP2{};
             constexpr Register::FieldValue<decltype(p210)::Type,P210Val::eint0> eint0{};
             constexpr Register::FieldValue<decltype(p210)::Type,P210Val::nmi> nmi{};
-        }
         }
         ///Pin function select P2.11.
         enum class P211Val {
@@ -885,7 +822,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p211)::Type,P211Val::eint1> eint1{};
             constexpr Register::FieldValue<decltype(p211)::Type,P211Val::i2stxClk> i2stxClk{};
         }
-        }
         ///Pin function select P2.12.
         enum class P212Val {
             gpioP2=0x00000000,     ///<GPIO P2.12
@@ -898,7 +834,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p212)::Type,P212Val::eint2> eint2{};
             constexpr Register::FieldValue<decltype(p212)::Type,P212Val::i2stxWs> i2stxWs{};
         }
-        }
         ///Pin function select P2.13.
         enum class P213Val {
             gpioP2=0x00000000,     ///<GPIO P2.13
@@ -910,7 +845,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p213)::Type,P213Val::gpioP2> gpioP2{};
             constexpr Register::FieldValue<decltype(p213)::Type,P213Val::eint3> eint3{};
             constexpr Register::FieldValue<decltype(p213)::Type,P213Val::i2stxSda> i2stxSda{};
-        }
         }
     }
     namespace Nonepinsel7{    ///<Pin function select register 7
@@ -927,7 +861,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p325)::Type,P325Val::mat0> mat0{};
             constexpr Register::FieldValue<decltype(p325)::Type,P325Val::pwm1> pwm1{};
         }
-        }
         ///Pin function select P3.26.
         enum class P326Val {
             gpioP3=0x00000000,     ///<GPIO P3.26
@@ -941,7 +874,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p326)::Type,P326Val::stclk> stclk{};
             constexpr Register::FieldValue<decltype(p326)::Type,P326Val::mat0> mat0{};
             constexpr Register::FieldValue<decltype(p326)::Type,P326Val::pwm1> pwm1{};
-        }
         }
     }
     namespace Nonepinsel9{    ///<Pin function select register 9
@@ -960,7 +892,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p428)::Type,P428Val::mat2> mat2{};
             constexpr Register::FieldValue<decltype(p428)::Type,P428Val::txd3> txd3{};
         }
-        }
         ///Pin function select P4.29.
         enum class P429Val {
             gpioP4=0x00000000,     ///<GPIO P4.29
@@ -975,7 +906,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p429)::Type,P429Val::mat2> mat2{};
             constexpr Register::FieldValue<decltype(p429)::Type,P429Val::rxd3> rxd3{};
         }
-        }
     }
     namespace Nonepinsel10{    ///<Pin function select register 10
         using Addr = Register::Address<0x4002c028,0xfffffff7,0,unsigned>;
@@ -988,7 +918,6 @@ namespace Kvasir {
         namespace TpiuctrlValC{
             constexpr Register::FieldValue<decltype(tpiuctrl)::Type,TpiuctrlVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(tpiuctrl)::Type,TpiuctrlVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonepinmode0{    ///<Pin mode select register 0
@@ -1007,7 +936,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p000mode)::Type,P000modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p000mode)::Type,P000modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 0 pin 1 control.
         enum class P001modeVal {
             pullUp=0x00000000,     ///<Pull-up. P0.1 pin has a pull-up resistor enabled.
@@ -1021,7 +949,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p001mode)::Type,P001modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p001mode)::Type,P001modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p001mode)::Type,P001modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 0 pin 2 control.
         enum class P002modeVal {
@@ -1037,7 +964,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p002mode)::Type,P002modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p002mode)::Type,P002modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 0 pin 3 control.
         enum class P003modeVal {
             pullUp=0x00000000,     ///<Pull-up. P0.3 pin has a pull-up resistor enabled.
@@ -1051,7 +977,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p003mode)::Type,P003modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p003mode)::Type,P003modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p003mode)::Type,P003modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 0 pin 4 control.
         enum class P004modeVal {
@@ -1067,7 +992,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p004mode)::Type,P004modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p004mode)::Type,P004modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 0 pin 5 control.
         enum class P005modeVal {
             pullUp=0x00000000,     ///<Pull-up. P0.5 pin has a pull-up resistor enabled.
@@ -1081,7 +1005,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p005mode)::Type,P005modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p005mode)::Type,P005modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p005mode)::Type,P005modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 0 pin 6 control.
         enum class P006modeVal {
@@ -1097,7 +1020,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p006mode)::Type,P006modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p006mode)::Type,P006modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 0 pin 7 control.
         enum class P007modeVal {
             pullUp=0x00000000,     ///<Pull-up. P0.7 pin has a pull-up resistor enabled.
@@ -1111,7 +1033,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p007mode)::Type,P007modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p007mode)::Type,P007modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p007mode)::Type,P007modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 0 pin 8 control.
         enum class P008modeVal {
@@ -1127,7 +1048,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p008mode)::Type,P008modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p008mode)::Type,P008modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 0 pin 9 control.
         enum class P009modeVal {
             pullUp=0x00000000,     ///<Pull-up. P0.9 pin has a pull-up resistor enabled.
@@ -1141,7 +1061,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p009mode)::Type,P009modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p009mode)::Type,P009modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p009mode)::Type,P009modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 0 pin 10 control.
         enum class P010modeVal {
@@ -1157,7 +1076,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p010mode)::Type,P010modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p010mode)::Type,P010modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 0 pin 11 control.
         enum class P011modeVal {
             pullUp=0x00000000,     ///<Pull-up. P0.11 pin has a pull-up resistor enabled.
@@ -1172,7 +1090,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p011mode)::Type,P011modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p011mode)::Type,P011modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 0 pin 15 control.
         enum class P015modeVal {
             pullUp=0x00000000,     ///<Pull-up. P0.15 pin has a pull-up resistor enabled.
@@ -1186,7 +1103,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p015mode)::Type,P015modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p015mode)::Type,P015modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p015mode)::Type,P015modeVal::pullDown> pullDown{};
-        }
         }
     }
     namespace Nonepinmode1{    ///<Pin mode select register 1
@@ -1205,7 +1121,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p016mode)::Type,P016modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p016mode)::Type,P016modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 1 pin 17 control.
         enum class P017modeVal {
             pullUp=0x00000000,     ///<Pull-up. P0.17 pin has a pull-up resistor enabled.
@@ -1219,7 +1134,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p017mode)::Type,P017modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p017mode)::Type,P017modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p017mode)::Type,P017modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 1 pin 18 control.
         enum class P018modeVal {
@@ -1235,7 +1149,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p018mode)::Type,P018modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p018mode)::Type,P018modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 1 pin 19 control.
         enum class P019modeVal {
             pullUp=0x00000000,     ///<Pull-up. P0.19 pin has a pull-up resistor enabled.
@@ -1249,7 +1162,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p019mode)::Type,P019modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p019mode)::Type,P019modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p019mode)::Type,P019modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 1 pin 20 control.
         enum class P020modeVal {
@@ -1265,7 +1177,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p020mode)::Type,P020modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p020mode)::Type,P020modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 1 pin 21 control.
         enum class P021modeVal {
             pullUp=0x00000000,     ///<Pull-up. P0.21 pin has a pull-up resistor enabled.
@@ -1279,7 +1190,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p021mode)::Type,P021modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p021mode)::Type,P021modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p021mode)::Type,P021modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 1 pin 22 control.
         enum class P022modeVal {
@@ -1295,7 +1205,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p022mode)::Type,P022modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p022mode)::Type,P022modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 1 pin 23 control.
         enum class P023modeVal {
             pullUp=0x00000000,     ///<Pull-up. P0.23 pin has a pull-up resistor enabled.
@@ -1309,7 +1218,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p023mode)::Type,P023modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p023mode)::Type,P023modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p023mode)::Type,P023modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 1 pin 24 control.
         enum class P024modeVal {
@@ -1325,7 +1233,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p024mode)::Type,P024modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p024mode)::Type,P024modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 1 pin 25 control.
         enum class P025modeVal {
             pullUp=0x00000000,     ///<Pull-up. P0.25 pin has a pull-up resistor enabled.
@@ -1340,7 +1247,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p025mode)::Type,P025modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p025mode)::Type,P025modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 1 pin 26 control.
         enum class P026modeVal {
             pullUp=0x00000000,     ///<Pull-up. P0.26 pin has a pull-up resistor enabled.
@@ -1354,7 +1260,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p026mode)::Type,P026modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p026mode)::Type,P026modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p026mode)::Type,P026modeVal::pullDown> pullDown{};
-        }
         }
     }
     namespace Nonepinmode2{    ///<Pin mode select register 2
@@ -1373,7 +1278,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p100mode)::Type,P100modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p100mode)::Type,P100modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 1 pin 1 control.
         enum class P101modeVal {
             pullUp=0x00000000,     ///<Pull-up. P1.1 pin has a pull-up resistor enabled.
@@ -1387,7 +1291,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p101mode)::Type,P101modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p101mode)::Type,P101modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p101mode)::Type,P101modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 1 pin 4 control.
         enum class P104modeVal {
@@ -1403,7 +1306,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p104mode)::Type,P104modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p104mode)::Type,P104modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 1 pin 8 control.
         enum class P108modeVal {
             pullUp=0x00000000,     ///<Pull-up. P1.8 pin has a pull-up resistor enabled.
@@ -1417,7 +1319,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p108mode)::Type,P108modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p108mode)::Type,P108modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p108mode)::Type,P108modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 1 pin 9 control.
         enum class P109modeVal {
@@ -1433,7 +1334,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p109mode)::Type,P109modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p109mode)::Type,P109modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 1 pin 10 control.
         enum class P110modeVal {
             pullUp=0x00000000,     ///<Pull-up. P1.10 pin has a pull-up resistor enabled.
@@ -1447,7 +1347,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p110mode)::Type,P110modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p110mode)::Type,P110modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p110mode)::Type,P110modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 1 pin 14 control.
         enum class P114modeVal {
@@ -1463,7 +1362,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p114mode)::Type,P114modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p114mode)::Type,P114modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 1 pin 15 control.
         enum class P115modeVal {
             pullUp=0x00000000,     ///<Pull-up. P1.15 pin has a pull-up resistor enabled.
@@ -1477,7 +1375,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p115mode)::Type,P115modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p115mode)::Type,P115modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p115mode)::Type,P115modeVal::pullDown> pullDown{};
-        }
         }
     }
     namespace Nonepinmode3{    ///<Pin mode select register 3.
@@ -1496,7 +1393,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p116mode)::Type,P116modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p116mode)::Type,P116modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 1 pin 17 control.
         enum class P117modeVal {
             pullUp=0x00000000,     ///<Pull-up. P1.17 pin has a pull-up resistor enabled.
@@ -1510,7 +1406,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p117mode)::Type,P117modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p117mode)::Type,P117modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p117mode)::Type,P117modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 1 pin 18 control.
         enum class P118modeVal {
@@ -1526,7 +1421,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p118mode)::Type,P118modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p118mode)::Type,P118modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 1 pin 19 control.
         enum class P119modeVal {
             pullUp=0x00000000,     ///<Pull-up. P1.19 pin has a pull-up resistor enabled.
@@ -1540,7 +1434,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p119mode)::Type,P119modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p119mode)::Type,P119modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p119mode)::Type,P119modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 1 pin 20 control.
         enum class P120modeVal {
@@ -1556,7 +1449,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p120mode)::Type,P120modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p120mode)::Type,P120modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 1 pin 21 control.
         enum class P121modeVal {
             pullUp=0x00000000,     ///<Pull-up. P1.21 pin has a pull-up resistor enabled.
@@ -1570,7 +1462,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p121mode)::Type,P121modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p121mode)::Type,P121modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p121mode)::Type,P121modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 1 pin 22 control.
         enum class P122modeVal {
@@ -1586,7 +1477,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p122mode)::Type,P122modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p122mode)::Type,P122modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 1 pin 23 control.
         enum class P123modeVal {
             pullUp=0x00000000,     ///<Pull-up. P1.23 pin has a pull-up resistor enabled.
@@ -1600,7 +1490,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p123mode)::Type,P123modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p123mode)::Type,P123modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p123mode)::Type,P123modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 1 pin 24 control.
         enum class P124modeVal {
@@ -1616,7 +1505,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p124mode)::Type,P124modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p124mode)::Type,P124modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 1 pin 25 control.
         enum class P125modeVal {
             pullUp=0x00000000,     ///<Pull-up. P1.25 pin has a pull-up resistor enabled.
@@ -1630,7 +1518,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p125mode)::Type,P125modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p125mode)::Type,P125modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p125mode)::Type,P125modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 1 pin 26 control.
         enum class P126modeVal {
@@ -1646,7 +1533,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p126mode)::Type,P126modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p126mode)::Type,P126modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 1 pin 27 control.
         enum class P127modeVal {
             pullUp=0x00000000,     ///<Pull-up. P1.27 pin has a pull-up resistor enabled.
@@ -1660,7 +1546,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p127mode)::Type,P127modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p127mode)::Type,P127modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p127mode)::Type,P127modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 1 pin 28 control.
         enum class P128modeVal {
@@ -1676,7 +1561,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p128mode)::Type,P128modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p128mode)::Type,P128modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 1 pin 29 control.
         enum class P129modeVal {
             pullUp=0x00000000,     ///<Pull-up. P1.29 pin has a pull-up resistor enabled.
@@ -1690,7 +1574,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p129mode)::Type,P129modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p129mode)::Type,P129modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p129mode)::Type,P129modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 1 pin 30 control.
         enum class P130modeVal {
@@ -1706,7 +1589,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p130mode)::Type,P130modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p130mode)::Type,P130modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 1 pin 31 control.
         enum class P131modeVal {
             pullUp=0x00000000,     ///<Pull-up. P1.31 pin has a pull-up resistor enabled.
@@ -1720,7 +1602,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p131mode)::Type,P131modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p131mode)::Type,P131modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p131mode)::Type,P131modeVal::pullDown> pullDown{};
-        }
         }
     }
     namespace Nonepinmode4{    ///<Pin mode select register 4
@@ -1739,7 +1620,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p200mode)::Type,P200modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p200mode)::Type,P200modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 2 pin 1 control.
         enum class P201modeVal {
             pullUp=0x00000000,     ///<Pull-up. P2.1 pin has a pull-up resistor enabled.
@@ -1753,7 +1633,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p201mode)::Type,P201modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p201mode)::Type,P201modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p201mode)::Type,P201modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 2 pin 2 control.
         enum class P202modeVal {
@@ -1769,7 +1648,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p202mode)::Type,P202modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p202mode)::Type,P202modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 2 pin 3 control.
         enum class P203modeVal {
             pullUp=0x00000000,     ///<Pull-up. P2.3 pin has a pull-up resistor enabled.
@@ -1783,7 +1661,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p203mode)::Type,P203modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p203mode)::Type,P203modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p203mode)::Type,P203modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 2 pin 4 control.
         enum class P204modeVal {
@@ -1799,7 +1676,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p204mode)::Type,P204modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p204mode)::Type,P204modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 2 pin 5 control.
         enum class P205modeVal {
             pullUp=0x00000000,     ///<Pull-up. P2.5 pin has a pull-up resistor enabled.
@@ -1813,7 +1689,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p205mode)::Type,P205modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p205mode)::Type,P205modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p205mode)::Type,P205modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 2 pin 6 control.
         enum class P206modeVal {
@@ -1829,7 +1704,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p206mode)::Type,P206modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p206mode)::Type,P206modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 2 pin 7 control.
         enum class P207modeVal {
             pullUp=0x00000000,     ///<Pull-up. P2.7 pin has a pull-up resistor enabled.
@@ -1843,7 +1717,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p207mode)::Type,P207modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p207mode)::Type,P207modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p207mode)::Type,P207modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 2 pin 8 control.
         enum class P208modeVal {
@@ -1859,7 +1732,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p208mode)::Type,P208modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p208mode)::Type,P208modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 2 pin 9 control.
         enum class P209modeVal {
             pullUp=0x00000000,     ///<Pull-up. P2.9 pin has a pull-up resistor enabled.
@@ -1873,7 +1745,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p209mode)::Type,P209modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p209mode)::Type,P209modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p209mode)::Type,P209modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 2 pin 10 control.
         enum class P210modeVal {
@@ -1889,7 +1760,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p210mode)::Type,P210modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p210mode)::Type,P210modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 2 pin 11 control.
         enum class P211modeVal {
             pullUp=0x00000000,     ///<Pull-up. P2.11 pin has a pull-up resistor enabled.
@@ -1903,7 +1773,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p211mode)::Type,P211modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p211mode)::Type,P211modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p211mode)::Type,P211modeVal::pullDown> pullDown{};
-        }
         }
         ///Port 2 pin 12 control.
         enum class P212modeVal {
@@ -1919,7 +1788,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p212mode)::Type,P212modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p212mode)::Type,P212modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 2 pin 13 control.
         enum class P213modeVal {
             pullUp=0x00000000,     ///<Pull-up. P2.13 pin has a pull-up resistor enabled.
@@ -1933,7 +1801,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p213mode)::Type,P213modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p213mode)::Type,P213modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p213mode)::Type,P213modeVal::pullDown> pullDown{};
-        }
         }
     }
     namespace Nonepinmode7{    ///<Pin mode select register 7
@@ -1952,7 +1819,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p325mode)::Type,P325modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p325mode)::Type,P325modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 3 pin 26 control.
         enum class P326modeVal {
             pullUp=0x00000000,     ///<Pull-up. P3.26 pin has a pull-up resistor enabled.
@@ -1966,7 +1832,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p326mode)::Type,P326modeVal::repeater> repeater{};
             constexpr Register::FieldValue<decltype(p326mode)::Type,P326modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p326mode)::Type,P326modeVal::pullDown> pullDown{};
-        }
         }
     }
     namespace Nonepinmode9{    ///<Pin mode select register 9
@@ -1985,7 +1850,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p428mode)::Type,P428modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p428mode)::Type,P428modeVal::pullDown> pullDown{};
         }
-        }
         ///Port 4 pin 29 control.
         enum class P429modeVal {
             pullUp=0x00000000,     ///<Pull-up. P4.29 pin has a pull-up resistor enabled.
@@ -2000,7 +1864,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p429mode)::Type,P429modeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(p429mode)::Type,P429modeVal::pullDown> pullDown{};
         }
-        }
     }
     namespace NonepinmodeOd0{    ///<Open drain mode control register 0
         using Addr = Register::Address<0x4002c068,0x98007000,0,unsigned>;
@@ -2014,7 +1877,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p000od)::Type,P000odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p000od)::Type,P000odVal::openDrain> openDrain{};
         }
-        }
         ///Port 0 pin 1 open drain mode control. Pins may potentially be used for I2C-buses using standard port pins. If so, they should be configured for open drain mode via the related bits in PINMODE_OD0.
         enum class P001odVal {
             normal=0x00000000,     ///<Normal. P0.1 pin is in the normal (not open drain) mode.
@@ -2024,7 +1886,6 @@ namespace Kvasir {
         namespace P001odValC{
             constexpr Register::FieldValue<decltype(p001od)::Type,P001odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p001od)::Type,P001odVal::openDrain> openDrain{};
-        }
         }
         ///Port 0 pin 2 open drain mode control
         enum class P002odVal {
@@ -2036,7 +1897,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p002od)::Type,P002odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p002od)::Type,P002odVal::openDrain> openDrain{};
         }
-        }
         ///Port 0 pin 3 open drain mode control
         enum class P003odVal {
             normal=0x00000000,     ///<Normal. P0.3 pin is in the normal (not open drain) mode.
@@ -2046,7 +1906,6 @@ namespace Kvasir {
         namespace P003odValC{
             constexpr Register::FieldValue<decltype(p003od)::Type,P003odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p003od)::Type,P003odVal::openDrain> openDrain{};
-        }
         }
         ///Port 0 pin 4 open drain mode control
         enum class P004odVal {
@@ -2058,7 +1917,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p004od)::Type,P004odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p004od)::Type,P004odVal::openDrain> openDrain{};
         }
-        }
         ///Port 0 pin 5 open drain mode control
         enum class P005odVal {
             normal=0x00000000,     ///<Normal. P0.5 pin is in the normal (not open drain) mode.
@@ -2068,7 +1926,6 @@ namespace Kvasir {
         namespace P005odValC{
             constexpr Register::FieldValue<decltype(p005od)::Type,P005odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p005od)::Type,P005odVal::openDrain> openDrain{};
-        }
         }
         ///Port 0 pin 6 open drain mode control
         enum class P006odVal {
@@ -2080,7 +1937,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p006od)::Type,P006odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p006od)::Type,P006odVal::openDrain> openDrain{};
         }
-        }
         ///Port 0 pin 7 open drain mode control
         enum class P007odVal {
             normal=0x00000000,     ///<Normal. P0.7 pin is in the normal (not open drain) mode.
@@ -2090,7 +1946,6 @@ namespace Kvasir {
         namespace P007odValC{
             constexpr Register::FieldValue<decltype(p007od)::Type,P007odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p007od)::Type,P007odVal::openDrain> openDrain{};
-        }
         }
         ///Port 0 pin 8 open drain mode control
         enum class P008odVal {
@@ -2102,7 +1957,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p008od)::Type,P008odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p008od)::Type,P008odVal::openDrain> openDrain{};
         }
-        }
         ///Port 0 pin 9 open drain mode control
         enum class P009odVal {
             normal=0x00000000,     ///<Normal. P0.9 pin is in the normal (not open drain) mode.
@@ -2112,7 +1966,6 @@ namespace Kvasir {
         namespace P009odValC{
             constexpr Register::FieldValue<decltype(p009od)::Type,P009odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p009od)::Type,P009odVal::openDrain> openDrain{};
-        }
         }
         ///Port 0 pin 10 open drain mode control. Pins may potentially be used for I2C-buses using standard port pins. If so, they should be configured for open drain mode via the related bits in PINMODE_OD0.
         enum class P010odVal {
@@ -2124,7 +1977,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p010od)::Type,P010odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p010od)::Type,P010odVal::openDrain> openDrain{};
         }
-        }
         ///Port 0 pin 11 open drain mode control. Pins may potentially be used for I2C-buses using standard port pins. If so, they should be configured for open drain mode via the related bits in PINMODE_OD0.
         enum class P011odVal {
             normal=0x00000000,     ///<Normal. P0.11 pin is in the normal (not open drain) mode.
@@ -2134,7 +1986,6 @@ namespace Kvasir {
         namespace P011odValC{
             constexpr Register::FieldValue<decltype(p011od)::Type,P011odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p011od)::Type,P011odVal::openDrain> openDrain{};
-        }
         }
         ///Port 0 pin 15 open drain mode control
         enum class P015odVal {
@@ -2146,7 +1997,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p015od)::Type,P015odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p015od)::Type,P015odVal::openDrain> openDrain{};
         }
-        }
         ///Port 0 pin 16 open drain mode control
         enum class P016odVal {
             normal=0x00000000,     ///<Normal. P0.16 pin is in the normal (not open drain) mode.
@@ -2156,7 +2006,6 @@ namespace Kvasir {
         namespace P016odValC{
             constexpr Register::FieldValue<decltype(p016od)::Type,P016odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p016od)::Type,P016odVal::openDrain> openDrain{};
-        }
         }
         ///Port 0 pin 17 open drain mode control
         enum class P017odVal {
@@ -2168,7 +2017,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p017od)::Type,P017odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p017od)::Type,P017odVal::openDrain> openDrain{};
         }
-        }
         ///Port 0 pin 18 open drain mode control
         enum class P018odVal {
             normal=0x00000000,     ///<Normal. P0.18 pin is in the normal (not open drain) mode.
@@ -2178,7 +2026,6 @@ namespace Kvasir {
         namespace P018odValC{
             constexpr Register::FieldValue<decltype(p018od)::Type,P018odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p018od)::Type,P018odVal::openDrain> openDrain{};
-        }
         }
         ///Port 0 pin 19 open drain mode control. Pins may potentially be used for I2C-buses using standard port pins. If so, they should be configured for open drain mode via the related bits in PINMODE_OD0.
         enum class P019odVal {
@@ -2190,7 +2037,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p019od)::Type,P019odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p019od)::Type,P019odVal::openDrain> openDrain{};
         }
-        }
         ///Port 0 pin 20open drain mode control. Pins may potentially be used for I2C-buses using standard port pins. If so, they should be configured for open drain mode via the related bits in PINMODE_OD0.
         enum class P020odVal {
             normal=0x00000000,     ///<Normal. P0.20 pin is in the normal (not open drain) mode.
@@ -2200,7 +2046,6 @@ namespace Kvasir {
         namespace P020odValC{
             constexpr Register::FieldValue<decltype(p020od)::Type,P020odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p020od)::Type,P020odVal::openDrain> openDrain{};
-        }
         }
         ///Port 0 pin 21 open drain mode control
         enum class P021odVal {
@@ -2212,7 +2057,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p021od)::Type,P021odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p021od)::Type,P021odVal::openDrain> openDrain{};
         }
-        }
         ///Port 0 pin 22 open drain mode control
         enum class P022odVal {
             normal=0x00000000,     ///<Normal. P0.22 pin is in the normal (not open drain) mode.
@@ -2222,7 +2066,6 @@ namespace Kvasir {
         namespace P022odValC{
             constexpr Register::FieldValue<decltype(p022od)::Type,P022odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p022od)::Type,P022odVal::openDrain> openDrain{};
-        }
         }
         ///Port 0 pin 23 open drain mode control
         enum class P023odVal {
@@ -2234,7 +2077,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p023od)::Type,P023odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p023od)::Type,P023odVal::openDrain> openDrain{};
         }
-        }
         ///Port 0 pin 24open drain mode control
         enum class P024odVal {
             normal=0x00000000,     ///<Normal. P0.23 pin is in the normal (not open drain) mode.
@@ -2244,7 +2086,6 @@ namespace Kvasir {
         namespace P024odValC{
             constexpr Register::FieldValue<decltype(p024od)::Type,P024odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p024od)::Type,P024odVal::openDrain> openDrain{};
-        }
         }
         ///Port 0 pin 25 open drain mode control
         enum class P025odVal {
@@ -2256,7 +2097,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p025od)::Type,P025odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p025od)::Type,P025odVal::openDrain> openDrain{};
         }
-        }
         ///Port 0 pin 26 open drain mode control
         enum class P026odVal {
             normal=0x00000000,     ///<Normal. P0.26 pin is in the normal (not open drain) mode.
@@ -2266,7 +2106,6 @@ namespace Kvasir {
         namespace P026odValC{
             constexpr Register::FieldValue<decltype(p026od)::Type,P026odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p026od)::Type,P026odVal::openDrain> openDrain{};
-        }
         }
         ///Port 0 pin 29 open drain mode control
         enum class P029odVal {
@@ -2278,7 +2117,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p029od)::Type,P029odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p029od)::Type,P029odVal::openDrain> openDrain{};
         }
-        }
         ///Port 0 pin 30 open drain mode control
         enum class P030odVal {
             normal=0x00000000,     ///<Normal. P0.30 pin is in the normal (not open drain) mode.
@@ -2288,7 +2126,6 @@ namespace Kvasir {
         namespace P030odValC{
             constexpr Register::FieldValue<decltype(p030od)::Type,P030odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p030od)::Type,P030odVal::openDrain> openDrain{};
-        }
         }
     }
     namespace NonepinmodeOd1{    ///<Open drain mode control register 1
@@ -2303,7 +2140,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p100od)::Type,P100odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p100od)::Type,P100odVal::openDrain> openDrain{};
         }
-        }
         ///Port 1 pin 1 open drain mode control, see P1.00OD
         enum class P101odVal {
             normal=0x00000000,     ///<Normal. P1.1 pin is in the normal (not open drain) mode.
@@ -2313,7 +2149,6 @@ namespace Kvasir {
         namespace P101odValC{
             constexpr Register::FieldValue<decltype(p101od)::Type,P101odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p101od)::Type,P101odVal::openDrain> openDrain{};
-        }
         }
         ///Port 1 pin 4 open drain mode control, see P1.00OD
         enum class P104odVal {
@@ -2325,7 +2160,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p104od)::Type,P104odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p104od)::Type,P104odVal::openDrain> openDrain{};
         }
-        }
         ///Port 1 pin 8 open drain mode control, see P1.00OD
         enum class P108odVal {
             normal=0x00000000,     ///<Normal. P1.8 pin is in the normal (not open drain) mode.
@@ -2335,7 +2169,6 @@ namespace Kvasir {
         namespace P108odValC{
             constexpr Register::FieldValue<decltype(p108od)::Type,P108odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p108od)::Type,P108odVal::openDrain> openDrain{};
-        }
         }
         ///Port 1 pin 9 open drain mode control, see P1.00OD
         enum class P109odVal {
@@ -2347,7 +2180,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p109od)::Type,P109odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p109od)::Type,P109odVal::openDrain> openDrain{};
         }
-        }
         ///Port 1 pin 10 open drain mode control, see P1.00OD
         enum class P110odVal {
             normal=0x00000000,     ///<Normal. P1.10 pin is in the normal (not open drain) mode.
@@ -2357,7 +2189,6 @@ namespace Kvasir {
         namespace P110odValC{
             constexpr Register::FieldValue<decltype(p110od)::Type,P110odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p110od)::Type,P110odVal::openDrain> openDrain{};
-        }
         }
         ///Port 1 pin 14 open drain mode control, see P1.00OD
         enum class P114odVal {
@@ -2369,7 +2200,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p114od)::Type,P114odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p114od)::Type,P114odVal::openDrain> openDrain{};
         }
-        }
         ///Port 1 pin 15 open drain mode control, see P1.00OD
         enum class P115odVal {
             normal=0x00000000,     ///<Normal. P1.15 pin is in the normal (not open drain) mode.
@@ -2379,7 +2209,6 @@ namespace Kvasir {
         namespace P115odValC{
             constexpr Register::FieldValue<decltype(p115od)::Type,P115odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p115od)::Type,P115odVal::openDrain> openDrain{};
-        }
         }
         ///Port 1 pin 16 open drain mode control, see P1.00OD
         enum class P116odVal {
@@ -2391,7 +2220,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p116od)::Type,P116odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p116od)::Type,P116odVal::openDrain> openDrain{};
         }
-        }
         ///Port 1 pin 17 open drain mode control, see P1.00OD
         enum class P117odVal {
             normal=0x00000000,     ///<Normal. P1.17 pin is in the normal (not open drain) mode.
@@ -2401,7 +2229,6 @@ namespace Kvasir {
         namespace P117odValC{
             constexpr Register::FieldValue<decltype(p117od)::Type,P117odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p117od)::Type,P117odVal::openDrain> openDrain{};
-        }
         }
         ///Port 1 pin 18 open drain mode control, see P1.00OD
         enum class P118odVal {
@@ -2413,7 +2240,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p118od)::Type,P118odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p118od)::Type,P118odVal::openDrain> openDrain{};
         }
-        }
         ///Port 1 pin 19 open drain mode control, see P1.00OD
         enum class P119odVal {
             normal=0x00000000,     ///<Normal. P1.19 pin is in the normal (not open drain) mode.
@@ -2423,7 +2249,6 @@ namespace Kvasir {
         namespace P119odValC{
             constexpr Register::FieldValue<decltype(p119od)::Type,P119odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p119od)::Type,P119odVal::openDrain> openDrain{};
-        }
         }
         ///Port 1 pin 20open drain mode control, see P1.00OD
         enum class P120odVal {
@@ -2435,7 +2260,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p120od)::Type,P120odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p120od)::Type,P120odVal::openDrain> openDrain{};
         }
-        }
         ///Port 1 pin 21 open drain mode control, see P1.00OD
         enum class P121odVal {
             normal=0x00000000,     ///<Normal. P1.21 pin is in the normal (not open drain) mode.
@@ -2445,7 +2269,6 @@ namespace Kvasir {
         namespace P121odValC{
             constexpr Register::FieldValue<decltype(p121od)::Type,P121odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p121od)::Type,P121odVal::openDrain> openDrain{};
-        }
         }
         ///Port 1 pin 22 open drain mode control, see P1.00OD
         enum class P122odVal {
@@ -2457,7 +2280,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p122od)::Type,P122odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p122od)::Type,P122odVal::openDrain> openDrain{};
         }
-        }
         ///Port 1 pin 23 open drain mode control, see P1.00OD
         enum class P123odVal {
             normal=0x00000000,     ///<Normal. P1.23 pin is in the normal (not open drain) mode.
@@ -2467,7 +2289,6 @@ namespace Kvasir {
         namespace P123odValC{
             constexpr Register::FieldValue<decltype(p123od)::Type,P123odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p123od)::Type,P123odVal::openDrain> openDrain{};
-        }
         }
         ///Port 1 pin 24open drain mode control, see P1.00OD
         enum class P124odVal {
@@ -2479,7 +2300,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p124od)::Type,P124odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p124od)::Type,P124odVal::openDrain> openDrain{};
         }
-        }
         ///Port 1 pin 25 open drain mode control, see P1.00OD
         enum class P125odVal {
             normal=0x00000000,     ///<Normal. P1.25 pin is in the normal (not open drain) mode.
@@ -2489,7 +2309,6 @@ namespace Kvasir {
         namespace P125odValC{
             constexpr Register::FieldValue<decltype(p125od)::Type,P125odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p125od)::Type,P125odVal::openDrain> openDrain{};
-        }
         }
         ///Port 1 pin 26 open drain mode control, see P1.00OD
         enum class P126odVal {
@@ -2501,7 +2320,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p126od)::Type,P126odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p126od)::Type,P126odVal::openDrain> openDrain{};
         }
-        }
         ///Port 1 pin 27 open drain mode control, see P1.00OD
         enum class P127odVal {
             normal=0x00000000,     ///<Normal. P1.27 pin is in the normal (not open drain) mode.
@@ -2511,7 +2329,6 @@ namespace Kvasir {
         namespace P127odValC{
             constexpr Register::FieldValue<decltype(p127od)::Type,P127odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p127od)::Type,P127odVal::openDrain> openDrain{};
-        }
         }
         ///Port 1 pin 28 open drain mode control, see P1.00OD
         enum class P128odVal {
@@ -2523,7 +2340,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p128od)::Type,P128odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p128od)::Type,P128odVal::openDrain> openDrain{};
         }
-        }
         ///Port 1 pin 29 open drain mode control, see P1.00OD
         enum class P129odVal {
             normal=0x00000000,     ///<Normal. P1.29 pin is in the normal (not open drain) mode.
@@ -2533,7 +2349,6 @@ namespace Kvasir {
         namespace P129odValC{
             constexpr Register::FieldValue<decltype(p129od)::Type,P129odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p129od)::Type,P129odVal::openDrain> openDrain{};
-        }
         }
         ///Port 1 pin 30 open drain mode control, see P1.00OD
         enum class P130odVal {
@@ -2545,7 +2360,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p130od)::Type,P130odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p130od)::Type,P130odVal::openDrain> openDrain{};
         }
-        }
         ///Port 1 pin 31 open drain mode control.
         enum class P131odVal {
             normal=0x00000000,     ///<Normal. P1.31 pin is in the normal (not open drain) mode.
@@ -2555,7 +2369,6 @@ namespace Kvasir {
         namespace P131odValC{
             constexpr Register::FieldValue<decltype(p131od)::Type,P131odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p131od)::Type,P131odVal::openDrain> openDrain{};
-        }
         }
     }
     namespace NonepinmodeOd2{    ///<Open drain mode control register 2
@@ -2570,7 +2383,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p200od)::Type,P200odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p200od)::Type,P200odVal::openDrain> openDrain{};
         }
-        }
         ///Port 2 pin 1 open drain mode control, see P2.00OD
         enum class P201odVal {
             normal=0x00000000,     ///<Normal. P2.1 pin is in the normal (not open drain) mode.
@@ -2580,7 +2392,6 @@ namespace Kvasir {
         namespace P201odValC{
             constexpr Register::FieldValue<decltype(p201od)::Type,P201odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p201od)::Type,P201odVal::openDrain> openDrain{};
-        }
         }
         ///Port 2 pin 2 open drain mode control, see P2.00OD
         enum class P202odVal {
@@ -2592,7 +2403,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p202od)::Type,P202odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p202od)::Type,P202odVal::openDrain> openDrain{};
         }
-        }
         ///Port 2 pin 3 open drain mode control, see P2.00OD
         enum class P203odVal {
             normal=0x00000000,     ///<Normal. P2.3 pin is in the normal (not open drain) mode.
@@ -2602,7 +2412,6 @@ namespace Kvasir {
         namespace P203odValC{
             constexpr Register::FieldValue<decltype(p203od)::Type,P203odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p203od)::Type,P203odVal::openDrain> openDrain{};
-        }
         }
         ///Port 2 pin 4 open drain mode control, see P2.00OD
         enum class P204odVal {
@@ -2614,7 +2423,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p204od)::Type,P204odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p204od)::Type,P204odVal::openDrain> openDrain{};
         }
-        }
         ///Port 2 pin 5 open drain mode control, see P2.00OD
         enum class P205odVal {
             normal=0x00000000,     ///<Normal. P2.5 pin is in the normal (not open drain) mode.
@@ -2624,7 +2432,6 @@ namespace Kvasir {
         namespace P205odValC{
             constexpr Register::FieldValue<decltype(p205od)::Type,P205odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p205od)::Type,P205odVal::openDrain> openDrain{};
-        }
         }
         ///Port 2 pin 6 open drain mode control, see P2.00OD
         enum class P206odVal {
@@ -2636,7 +2443,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p206od)::Type,P206odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p206od)::Type,P206odVal::openDrain> openDrain{};
         }
-        }
         ///Port 2 pin 7 open drain mode control, see P2.00OD
         enum class P207odVal {
             normal=0x00000000,     ///<Normal. P2.7 pin is in the normal (not open drain) mode.
@@ -2646,7 +2452,6 @@ namespace Kvasir {
         namespace P207odValC{
             constexpr Register::FieldValue<decltype(p207od)::Type,P207odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p207od)::Type,P207odVal::openDrain> openDrain{};
-        }
         }
         ///Port 2 pin 8 open drain mode control, see P2.00OD
         enum class P208odVal {
@@ -2658,7 +2463,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p208od)::Type,P208odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p208od)::Type,P208odVal::openDrain> openDrain{};
         }
-        }
         ///Port 2 pin 9 open drain mode control, see P2.00OD
         enum class P209odVal {
             normal=0x00000000,     ///<Normal. P2.9 pin is in the normal (not open drain) mode.
@@ -2668,7 +2472,6 @@ namespace Kvasir {
         namespace P209odValC{
             constexpr Register::FieldValue<decltype(p209od)::Type,P209odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p209od)::Type,P209odVal::openDrain> openDrain{};
-        }
         }
         ///Port 2 pin 10 open drain mode control, see P2.00OD
         enum class P210odVal {
@@ -2680,7 +2483,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p210od)::Type,P210odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p210od)::Type,P210odVal::openDrain> openDrain{};
         }
-        }
         ///Port 2 pin 11 open drain mode control, see P2.00OD
         enum class P211odVal {
             normal=0x00000000,     ///<Normal. P2.11 pin is in the normal (not open drain) mode.
@@ -2690,7 +2492,6 @@ namespace Kvasir {
         namespace P211odValC{
             constexpr Register::FieldValue<decltype(p211od)::Type,P211odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p211od)::Type,P211odVal::openDrain> openDrain{};
-        }
         }
         ///Port 2 pin 12 open drain mode control, see P2.00OD
         enum class P212odVal {
@@ -2702,7 +2503,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p212od)::Type,P212odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p212od)::Type,P212odVal::openDrain> openDrain{};
         }
-        }
         ///Port 2 pin 13 open drain mode control, see P2.00OD
         enum class P213odVal {
             normal=0x00000000,     ///<Normal. P2.13 pin is in the normal (not open drain) mode.
@@ -2712,7 +2512,6 @@ namespace Kvasir {
         namespace P213odValC{
             constexpr Register::FieldValue<decltype(p213od)::Type,P213odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p213od)::Type,P213odVal::openDrain> openDrain{};
-        }
         }
     }
     namespace NonepinmodeOd3{    ///<Open drain mode control register 3
@@ -2726,7 +2525,6 @@ namespace Kvasir {
         namespace P325odValC{
             constexpr Register::FieldValue<decltype(p325od)::Type,P325odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p325od)::Type,P325odVal::openDrain> openDrain{};
-        }
         }
         ///Port 3 pin 26 open drain mode control, see P3.25OD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> p326od{}; 
@@ -2743,7 +2541,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p428od)::Type,P428odVal::normal> normal{};
             constexpr Register::FieldValue<decltype(p428od)::Type,P428odVal::openDrain> openDrain{};
         }
-        }
         ///Port 4 pin 29 open drain mode control, see P4.28OD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> p429od{}; 
     }
@@ -2759,7 +2556,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sdadrv0)::Type,Sdadrv0Val::standard> standard{};
             constexpr Register::FieldValue<decltype(sdadrv0)::Type,Sdadrv0Val::fastModePlus> fastModePlus{};
         }
-        }
         ///I 2C filter mode control for the SDA0 pin, P0.27.
         enum class Sdai2c0Val {
             enabled=0x00000000,     ///<Enabled. The SDA0 pin has I2C glitch filtering and slew rate control enabled.
@@ -2769,7 +2565,6 @@ namespace Kvasir {
         namespace Sdai2c0ValC{
             constexpr Register::FieldValue<decltype(sdai2c0)::Type,Sdai2c0Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(sdai2c0)::Type,Sdai2c0Val::disabled> disabled{};
-        }
         }
         ///Drive mode control for the SCL0 pin, P0.28.
         enum class Scldrv0Val {
@@ -2781,7 +2576,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(scldrv0)::Type,Scldrv0Val::standard> standard{};
             constexpr Register::FieldValue<decltype(scldrv0)::Type,Scldrv0Val::fastModePlus> fastModePlus{};
         }
-        }
         ///I 2C filter mode control for the SCL0 pin, P0.28.
         enum class Scli2c0Val {
             enabled=0x00000000,     ///<Enabled. The SCL0 pin has I2C glitch filtering and slew rate control enabled.
@@ -2791,7 +2585,6 @@ namespace Kvasir {
         namespace Scli2c0ValC{
             constexpr Register::FieldValue<decltype(scli2c0)::Type,Scli2c0Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(scli2c0)::Type,Scli2c0Val::disabled> disabled{};
-        }
         }
     }
 }

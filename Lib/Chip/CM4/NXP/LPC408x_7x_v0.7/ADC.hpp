@@ -18,7 +18,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::burst> burst{};
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::sw> sw{};
         }
-        }
         ///Power down mode
         enum class PdnVal {
             powered=0x00000001,     ///<The A/D converter is operational.
@@ -28,7 +27,6 @@ namespace Kvasir {
         namespace PdnValC{
             constexpr Register::FieldValue<decltype(pdn)::Type,PdnVal::powered> powered{};
             constexpr Register::FieldValue<decltype(pdn)::Type,PdnVal::powerdown> powerdown{};
-        }
         }
         ///When the BURST bit is 0, these bits control whether and when an A/D conversion is started:
         enum class StartVal {
@@ -52,7 +50,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::mat10> mat10{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::mat11> mat11{};
         }
-        }
         ///This bit is significant only when the START field contains 010-111. In these cases:
         enum class EdgeVal {
             fallling=0x00000001,     ///<Start conversion on a falling edge on the selected CAP/MAT signal.
@@ -62,7 +59,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::fallling> fallling{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::rising> rising{};
-        }
         }
     }
     namespace Nonegdr{    ///<A/D Global Data Register. This register contains the ADC's DONE bit and the result of the most recent A/D conversion.
@@ -88,7 +84,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adinten0)::Type,Adinten0Val::disable> disable{};
             constexpr Register::FieldValue<decltype(adinten0)::Type,Adinten0Val::enable> enable{};
         }
-        }
         ///Interrupt enable
         enum class Adinten1Val {
             disable=0x00000000,     ///<Completion of a conversion on ADC channel 1 will not generate an interrupt.
@@ -98,7 +93,6 @@ namespace Kvasir {
         namespace Adinten1ValC{
             constexpr Register::FieldValue<decltype(adinten1)::Type,Adinten1Val::disable> disable{};
             constexpr Register::FieldValue<decltype(adinten1)::Type,Adinten1Val::enable> enable{};
-        }
         }
         ///Interrupt enable
         enum class Adinten2Val {
@@ -110,7 +104,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adinten2)::Type,Adinten2Val::disable> disable{};
             constexpr Register::FieldValue<decltype(adinten2)::Type,Adinten2Val::enable> enable{};
         }
-        }
         ///Interrupt enable
         enum class Adinten3Val {
             disable=0x00000000,     ///<Completion of a conversion on ADC channel 3 will not generate an interrupt.
@@ -120,7 +113,6 @@ namespace Kvasir {
         namespace Adinten3ValC{
             constexpr Register::FieldValue<decltype(adinten3)::Type,Adinten3Val::disable> disable{};
             constexpr Register::FieldValue<decltype(adinten3)::Type,Adinten3Val::enable> enable{};
-        }
         }
         ///Interrupt enable
         enum class Adinten4Val {
@@ -132,7 +124,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adinten4)::Type,Adinten4Val::disable> disable{};
             constexpr Register::FieldValue<decltype(adinten4)::Type,Adinten4Val::enable> enable{};
         }
-        }
         ///Interrupt enable
         enum class Adinten5Val {
             disable=0x00000000,     ///<Completion of a conversion on ADC channel 5 will not generate an interrupt.
@@ -142,7 +133,6 @@ namespace Kvasir {
         namespace Adinten5ValC{
             constexpr Register::FieldValue<decltype(adinten5)::Type,Adinten5Val::disable> disable{};
             constexpr Register::FieldValue<decltype(adinten5)::Type,Adinten5Val::enable> enable{};
-        }
         }
         ///Interrupt enable
         enum class Adinten6Val {
@@ -154,7 +144,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adinten6)::Type,Adinten6Val::disable> disable{};
             constexpr Register::FieldValue<decltype(adinten6)::Type,Adinten6Val::enable> enable{};
         }
-        }
         ///Interrupt enable
         enum class Adinten7Val {
             disable=0x00000000,     ///<Completion of a conversion on ADC channel 7 will not generate an interrupt.
@@ -165,7 +154,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adinten7)::Type,Adinten7Val::disable> disable{};
             constexpr Register::FieldValue<decltype(adinten7)::Type,Adinten7Val::enable> enable{};
         }
-        }
         ///Interrupt enable
         enum class AdgintenVal {
             channels=0x00000000,     ///<Only the individual ADC channels enabled by ADINTEN7:0 will generate interrupts.
@@ -175,7 +163,6 @@ namespace Kvasir {
         namespace AdgintenValC{
             constexpr Register::FieldValue<decltype(adginten)::Type,AdgintenVal::channels> channels{};
             constexpr Register::FieldValue<decltype(adginten)::Type,AdgintenVal::global> global{};
-        }
         }
     }
     namespace Nonedr0{    ///<A/D Channel 0 Data Register. This register contains the result of the most recent conversion completed on channel 0.

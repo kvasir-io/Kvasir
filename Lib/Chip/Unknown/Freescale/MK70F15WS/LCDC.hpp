@@ -35,7 +35,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(op)::Type,OpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(op)::Type,OpVal::v1> v1{};
         }
-        }
         ///Cursor control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> cc{}; 
     }
@@ -56,7 +55,6 @@ namespace Kvasir {
         namespace BkenValC{
             constexpr Register::FieldValue<decltype(bkEn)::Type,BkenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bkEn)::Type,BkenVal::v1> v1{};
-        }
         }
     }
     namespace LcdcLccmr{    ///<LCDC color cursor mapping register
@@ -82,7 +80,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sclksel)::Type,SclkselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sclksel)::Type,SclkselVal::v1> v1{};
         }
-        }
         ///Alternate crystal direction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> acd{}; 
         ///ACD clock source select
@@ -95,7 +92,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acdsel)::Type,AcdselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(acdsel)::Type,AcdselVal::v1> v1{};
         }
-        }
         ///Reverse vertical scan
         enum class RevvsVal {
             v0=0x00000000,     ///<Vertical scan in normal direction.
@@ -105,7 +101,6 @@ namespace Kvasir {
         namespace RevvsValC{
             constexpr Register::FieldValue<decltype(revVs)::Type,RevvsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(revVs)::Type,RevvsVal::v1> v1{};
-        }
         }
         ///Swap select
         enum class SwapselVal {
@@ -117,7 +112,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swapSel)::Type,SwapselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swapSel)::Type,SwapselVal::v1> v1{};
         }
-        }
         ///Endian select
         enum class EndselVal {
             v0=0x00000000,     ///<Little Endian
@@ -127,7 +121,6 @@ namespace Kvasir {
         namespace EndselValC{
             constexpr Register::FieldValue<decltype(endSel)::Type,EndselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(endSel)::Type,EndselVal::v1> v1{};
-        }
         }
         ///LSCLK idle enable
         enum class SclkidleVal {
@@ -139,7 +132,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sclkidle)::Type,SclkidleVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sclkidle)::Type,SclkidleVal::v1> v1{};
         }
-        }
         ///Output enable polarity
         enum class OepolVal {
             v0=0x00000000,     ///<Active high
@@ -149,7 +141,6 @@ namespace Kvasir {
         namespace OepolValC{
             constexpr Register::FieldValue<decltype(oepol)::Type,OepolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(oepol)::Type,OepolVal::v1> v1{};
-        }
         }
         ///LCD shift clock polarity
         enum class ClkpolVal {
@@ -161,7 +152,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkpol)::Type,ClkpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(clkpol)::Type,ClkpolVal::v1> v1{};
         }
-        }
         ///Line pulse polarity
         enum class LppolVal {
             v0=0x00000000,     ///<Active high
@@ -171,7 +161,6 @@ namespace Kvasir {
         namespace LppolValC{
             constexpr Register::FieldValue<decltype(lppol)::Type,LppolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lppol)::Type,LppolVal::v1> v1{};
-        }
         }
         ///First line marker polarity
         enum class FlmpolVal {
@@ -183,7 +172,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flmpol)::Type,FlmpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(flmpol)::Type,FlmpolVal::v1> v1{};
         }
-        }
         ///Pixel polarity
         enum class PixpolVal {
             v0=0x00000000,     ///<Active high
@@ -193,7 +181,6 @@ namespace Kvasir {
         namespace PixpolValC{
             constexpr Register::FieldValue<decltype(pixpol)::Type,PixpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pixpol)::Type,PixpolVal::v1> v1{};
-        }
         }
         ///Bits per pixel
         enum class BpixVal {
@@ -217,7 +204,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bpix)::Type,BpixVal::v110> v110{};
             constexpr Register::FieldValue<decltype(bpix)::Type,BpixVal::v111> v111{};
         }
-        }
         ///Panel bus width
         enum class PbsizVal {
             v000=0x00000000,     ///<1-bit
@@ -232,7 +218,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pbsiz)::Type,PbsizVal::v010> v010{};
             constexpr Register::FieldValue<decltype(pbsiz)::Type,PbsizVal::v011> v011{};
         }
-        }
         ///Interfaces to color display
         enum class ColorVal {
             v0=0x00000000,     ///<LCD panel is a Monochrome display.
@@ -243,7 +228,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(color)::Type,ColorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(color)::Type,ColorVal::v1> v1{};
         }
-        }
         ///Interfaces to TFT display
         enum class TftVal {
             v0=0x00000000,     ///<LCD panel is a passive display.
@@ -253,7 +237,6 @@ namespace Kvasir {
         namespace TftValC{
             constexpr Register::FieldValue<decltype(tft)::Type,TftVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tft)::Type,TftVal::v1> v1{};
-        }
         }
     }
     namespace LcdcLhcr{    ///<LCDC horizontal configuration register
@@ -293,7 +276,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ccEn)::Type,CcenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ccEn)::Type,CcenVal::v1> v1{};
         }
-        }
         ///Source select
         enum class ScrVal {
             v00=0x00000000,     ///<Line pulse
@@ -308,7 +290,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(scr)::Type,ScrVal::v10> v10{};
             constexpr Register::FieldValue<decltype(scr)::Type,ScrVal::v11> v11{};
         }
-        }
         ///LD mask
         enum class LdmskVal {
             v0=0x00000000,     ///<LD [23:0] is normal.
@@ -318,7 +299,6 @@ namespace Kvasir {
         namespace LdmskValC{
             constexpr Register::FieldValue<decltype(ldmsk)::Type,LdmskVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ldmsk)::Type,LdmskVal::v1> v1{};
-        }
         }
     }
     namespace LcdcLdcr{    ///<LCDC DMA control register
@@ -337,7 +317,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::v0> v0{};
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::v1> v1{};
         }
-        }
     }
     namespace LcdcLrmcr{    ///<LCDC refresh mode control register
         using Addr = Register::Address<0x400b6034,0xfffffffe,0,unsigned>;
@@ -350,7 +329,6 @@ namespace Kvasir {
         namespace SelfrefValC{
             constexpr Register::FieldValue<decltype(selfRef)::Type,SelfrefVal::v0> v0{};
             constexpr Register::FieldValue<decltype(selfRef)::Type,SelfrefVal::v1> v1{};
-        }
         }
     }
     namespace LcdcLicr{    ///<LCDC interrupt configuration register
@@ -365,7 +343,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intcon)::Type,IntconVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intcon)::Type,IntconVal::v1> v1{};
         }
-        }
         ///Interrupt source
         enum class IntsynVal {
             v0=0x00000000,     ///<Interrupt flag is set on loading the last/first data of frame from memory.
@@ -376,7 +353,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intsyn)::Type,IntsynVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intsyn)::Type,IntsynVal::v1> v1{};
         }
-        }
         ///Graphic window interrupt condition
         enum class GwintconVal {
             v0=0x00000000,     ///<Interrupt flag is set when end of graphic window is reached.
@@ -386,7 +362,6 @@ namespace Kvasir {
         namespace GwintconValC{
             constexpr Register::FieldValue<decltype(gwIntCon)::Type,GwintconVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gwIntCon)::Type,GwintconVal::v1> v1{};
-        }
         }
     }
     namespace LcdcLier{    ///<LCDC interrupt enable register
@@ -401,7 +376,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bofEn)::Type,BofenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bofEn)::Type,BofenVal::v1> v1{};
         }
-        }
         ///End of frame interrupt enable
         enum class EofenVal {
             v0=0x00000000,     ///<Mask interrupt.
@@ -411,7 +385,6 @@ namespace Kvasir {
         namespace EofenValC{
             constexpr Register::FieldValue<decltype(eofEn)::Type,EofenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(eofEn)::Type,EofenVal::v1> v1{};
-        }
         }
         ///Under run error interrupt enable
         enum class UdrerrenVal {
@@ -423,7 +396,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(udrErrEn)::Type,UdrerrenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(udrErrEn)::Type,UdrerrenVal::v1> v1{};
         }
-        }
         ///Graphic window beginning of frame interrupt enable
         enum class GwbofenVal {
             v0=0x00000000,     ///<Mask interrupt.
@@ -433,7 +405,6 @@ namespace Kvasir {
         namespace GwbofenValC{
             constexpr Register::FieldValue<decltype(gwBofEn)::Type,GwbofenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gwBofEn)::Type,GwbofenVal::v1> v1{};
-        }
         }
         ///Graphic window end of frame interrupt enable
         enum class GweofenVal {
@@ -445,7 +416,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gwEofEn)::Type,GweofenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gwEofEn)::Type,GweofenVal::v1> v1{};
         }
-        }
         ///Graphic window under run error interrupt enable
         enum class GwudrerrenVal {
             v0=0x00000000,     ///<Mask interrupt.
@@ -455,7 +425,6 @@ namespace Kvasir {
         namespace GwudrerrenValC{
             constexpr Register::FieldValue<decltype(gwUdrErrEn)::Type,GwudrerrenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gwUdrErrEn)::Type,GwudrerrenVal::v1> v1{};
-        }
         }
     }
     namespace LcdcLisr{    ///<LCDC interrupt status register
@@ -470,7 +439,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bof)::Type,BofVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bof)::Type,BofVal::v1> v1{};
         }
-        }
         ///End of frame
         enum class EofVal {
             v0=0x00000000,     ///<Interrupt has not occurred.
@@ -480,7 +448,6 @@ namespace Kvasir {
         namespace EofValC{
             constexpr Register::FieldValue<decltype(eof)::Type,EofVal::v0> v0{};
             constexpr Register::FieldValue<decltype(eof)::Type,EofVal::v1> v1{};
-        }
         }
         ///Under run error
         enum class UdrerrVal {
@@ -492,7 +459,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(udrErr)::Type,UdrerrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(udrErr)::Type,UdrerrVal::v1> v1{};
         }
-        }
         ///Graphic window beginning of frame
         enum class GwbofVal {
             v0=0x00000000,     ///<Interrupt has not occurred.
@@ -502,7 +468,6 @@ namespace Kvasir {
         namespace GwbofValC{
             constexpr Register::FieldValue<decltype(gwBof)::Type,GwbofVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gwBof)::Type,GwbofVal::v1> v1{};
-        }
         }
         ///Graphic window end of frame
         enum class GweofVal {
@@ -514,7 +479,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gwEof)::Type,GweofVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gwEof)::Type,GweofVal::v1> v1{};
         }
-        }
         ///Graphic window under run error
         enum class GwudrerrVal {
             v0=0x00000000,     ///<Graphic window under run has not occurred.
@@ -524,7 +488,6 @@ namespace Kvasir {
         namespace GwudrerrValC{
             constexpr Register::FieldValue<decltype(gwUdrErr)::Type,GwudrerrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gwUdrErr)::Type,GwudrerrVal::v1> v1{};
-        }
         }
     }
     namespace LcdcLgwsar{    ///<LCDC graphic window start address register
@@ -574,7 +537,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gwRvs)::Type,GwrvsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gwRvs)::Type,GwrvsVal::v1> v1{};
         }
-        }
         ///Graphic window enable
         enum class GweVal {
             v0=0x00000000,     ///<Disable graphic window on screen.
@@ -585,7 +547,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gwe)::Type,GweVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gwe)::Type,GweVal::v1> v1{};
         }
-        }
         ///Graphic window color keying enable
         enum class GwckeVal {
             v0=0x00000000,     ///<Disable color keying of graphic window.
@@ -595,7 +556,6 @@ namespace Kvasir {
         namespace GwckeValC{
             constexpr Register::FieldValue<decltype(gwcke)::Type,GwckeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gwcke)::Type,GwckeVal::v1> v1{};
-        }
         }
         ///Graphic window alpha value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> gwav{}; 
@@ -616,7 +576,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gwbt)::Type,GwbtVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gwbt)::Type,GwbtVal::v1> v1{};
         }
-        }
     }
     namespace LcdcLauscr{    ///<LCDC AUS mode control register
         using Addr = Register::Address<0x400b6080,0x7f000000,0,unsigned>;
@@ -635,7 +594,6 @@ namespace Kvasir {
         namespace AusmodeValC{
             constexpr Register::FieldValue<decltype(ausMode)::Type,AusmodeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ausMode)::Type,AusmodeVal::v1> v1{};
-        }
         }
     }
     namespace LcdcLausccr{    ///<LCDC AUS mode cursor control register

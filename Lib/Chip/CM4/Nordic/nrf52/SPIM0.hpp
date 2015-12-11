@@ -41,7 +41,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(endStart)::Type,EndstartVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(endStart)::Type,EndstartVal::enabled> enabled{};
         }
-        }
     }
     namespace Noneintenset{    ///<Enable interrupt
         using Addr = Register::Address<0x40003304,0xfff7fead,0,unsigned>;
@@ -57,7 +56,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_ENDRX event
         enum class EndrxVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -69,7 +67,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(endrx)::Type,EndrxVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(endrx)::Type,EndrxVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(endrx)::Type,EndrxVal::set> set{};
-        }
         }
         ///Write '1' to Enable interrupt on EVENTS_END event
         enum class EndVal {
@@ -83,7 +80,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_ENDTX event
         enum class EndtxVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -96,7 +92,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(endtx)::Type,EndtxVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(endtx)::Type,EndtxVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_STARTED event
         enum class StartedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -108,7 +103,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::set> set{};
-        }
         }
     }
     namespace Noneintenclr{    ///<Disable interrupt
@@ -125,7 +119,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_ENDRX event
         enum class EndrxVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -137,7 +130,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(endrx)::Type,EndrxVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(endrx)::Type,EndrxVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(endrx)::Type,EndrxVal::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_END event
         enum class EndVal {
@@ -151,7 +143,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_ENDTX event
         enum class EndtxVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -164,7 +155,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(endtx)::Type,EndtxVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(endtx)::Type,EndtxVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_STARTED event
         enum class StartedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -176,7 +166,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::clear> clear{};
-        }
         }
     }
     namespace Noneenable{    ///<Enable SPIM
@@ -206,7 +195,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frequency)::Type,FrequencyVal::m4> m4{};
             constexpr Register::FieldValue<decltype(frequency)::Type,FrequencyVal::m8> m8{};
         }
-        }
     }
     namespace Noneconfig{    ///<Configuration register
         using Addr = Register::Address<0x40003554,0xfffffff8,0,unsigned>;
@@ -220,7 +208,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(order)::Type,OrderVal::msbfirst> msbfirst{};
             constexpr Register::FieldValue<decltype(order)::Type,OrderVal::lsbfirst> lsbfirst{};
         }
-        }
         ///Serial clock (SCK) phase
         enum class CphaVal {
             leading=0x00000000,     ///<Sample on leading edge of clock, shift serial data on trailing edge
@@ -231,7 +218,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::leading> leading{};
             constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::trailing> trailing{};
         }
-        }
         ///Serial clock (SCK) polarity
         enum class CpolVal {
             activehigh=0x00000000,     ///<Active high
@@ -241,7 +227,6 @@ namespace Kvasir {
         namespace CpolValC{
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::activehigh> activehigh{};
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::activelow> activelow{};
-        }
         }
     }
     namespace Noneorc{    ///<Over-read character. Character clocked out in case and over-read of the TXD buffer.

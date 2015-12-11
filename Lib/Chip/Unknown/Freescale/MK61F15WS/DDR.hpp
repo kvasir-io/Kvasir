@@ -28,7 +28,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ddrcls)::Type,DdrclsVal::v0110> v0110{};
             constexpr Register::FieldValue<decltype(ddrcls)::Type,DdrclsVal::v1111> v1111{};
         }
-        }
         ///Version
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> version{}; 
     }
@@ -56,7 +55,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(maxcol)::Type,MaxcolVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(maxcol)::Type,MaxcolVal::v1111> v1111{};
         }
-        }
         ///Chip Select Maximum
         enum class CsmaxVal {
             v00=0x00000000,     ///<Zero
@@ -70,7 +68,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(csmax)::Type,CsmaxVal::v01> v01{};
             constexpr Register::FieldValue<decltype(csmax)::Type,CsmaxVal::v10> v10{};
             constexpr Register::FieldValue<decltype(csmax)::Type,CsmaxVal::v11> v11{};
-        }
         }
     }
     namespace DdrCr02{    ///<DDR Control Register 2
@@ -97,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(latlin)::Type,LatlinVal::v0010> v0010{};
             constexpr Register::FieldValue<decltype(latlin)::Type,LatlinVal::v0011> v0011{};
             constexpr Register::FieldValue<decltype(latlin)::Type,LatlinVal::v1111> v1111{};
-        }
         }
         ///Latency Gate
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> latgate{}; 
@@ -144,7 +140,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intwbr)::Type,IntwbrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intwbr)::Type,IntwbrVal::v1> v1{};
         }
-        }
     }
     namespace DdrCr07{    ///<DDR Control Register 7
         using Addr = Register::Address<0x400ae01c,0xfefee0f8,0,unsigned>;
@@ -162,7 +157,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ap)::Type,ApVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ap)::Type,ApVal::v1> v1{};
         }
-        }
         ///Concurrent Auto-Precharge Enable
         enum class CcapenVal {
             v0=0x00000000,     ///<Disabled
@@ -172,7 +166,6 @@ namespace Kvasir {
         namespace CcapenValC{
             constexpr Register::FieldValue<decltype(ccapen)::Type,CcapenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ccapen)::Type,CcapenVal::v1> v1{};
-        }
         }
     }
     namespace DdrCr08{    ///<DDR Control Register 8
@@ -200,7 +193,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nocmd)::Type,NocmdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(nocmd)::Type,NocmdVal::v1> v1{};
         }
-        }
         ///Burst Length
         enum class BstlenVal {
             v000=0x00000000,     ///<Reserved.
@@ -218,7 +210,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bstlen)::Type,BstlenVal::v011> v011{};
             constexpr Register::FieldValue<decltype(bstlen)::Type,BstlenVal::v100> v100{};
             constexpr Register::FieldValue<decltype(bstlen)::Type,BstlenVal::v111> v111{};
-        }
         }
     }
     namespace DdrCr10{    ///<DDR Control Register 10
@@ -262,7 +253,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::v1> v1{};
         }
-        }
     }
     namespace DdrCr14{    ///<DDR Control Register 14
         using Addr = Register::Address<0x400ae038,0x00000000,0,unsigned>;
@@ -287,7 +277,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(puref)::Type,PurefVal::v0> v0{};
             constexpr Register::FieldValue<decltype(puref)::Type,PurefVal::v1> v1{};
         }
-        }
     }
     namespace DdrCr16{    ///<DDR Control Register 16
         using Addr = Register::Address<0x400ae040,0xffe0f8fe,0,unsigned>;
@@ -300,7 +289,6 @@ namespace Kvasir {
         namespace QkrefValC{
             constexpr Register::FieldValue<decltype(qkref)::Type,QkrefVal::v0> v0{};
             constexpr Register::FieldValue<decltype(qkref)::Type,QkrefVal::v1> v1{};
-        }
         }
         ///Clock Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> clkdly{}; 
@@ -343,7 +331,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lpre)::Type,LpreVal::v01> v01{};
             constexpr Register::FieldValue<decltype(lpre)::Type,LpreVal::v10> v10{};
             constexpr Register::FieldValue<decltype(lpre)::Type,LpreVal::v11> v11{};
-        }
         }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> cksre{}; 
@@ -388,7 +375,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bnk8)::Type,Bnk8Val::v0> v0{};
             constexpr Register::FieldValue<decltype(bnk8)::Type,Bnk8Val::v1> v1{};
         }
-        }
         ///Address Pins
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> addpins{}; 
         ///Column Size
@@ -412,7 +398,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(addcol)::Type,AddcolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(addcol)::Type,AddcolVal::v1> v1{};
         }
-        }
         ///Bank Split enable
         enum class BnksptVal {
             v0=0x00000000,     ///<Disabled
@@ -422,7 +407,6 @@ namespace Kvasir {
         namespace BnksptValC{
             constexpr Register::FieldValue<decltype(bnkspt)::Type,BnksptVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bnkspt)::Type,BnksptVal::v1> v1{};
-        }
         }
     }
     namespace DdrCr27{    ///<DDR Control Register 27
@@ -437,7 +421,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(plen)::Type,PlenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(plen)::Type,PlenVal::v1> v1{};
         }
-        }
         ///Priority Enable
         enum class PrienVal {
             v0=0x00000000,     ///<Disabled
@@ -447,7 +430,6 @@ namespace Kvasir {
         namespace PrienValC{
             constexpr Register::FieldValue<decltype(prien)::Type,PrienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(prien)::Type,PrienVal::v1> v1{};
-        }
         }
         ///Read Write same Enable
         enum class RwenVal {
@@ -459,7 +441,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rwen)::Type,RwenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rwen)::Type,RwenVal::v1> v1{};
         }
-        }
         ///Swap Enable
         enum class SwpenVal {
             v0=0x00000000,     ///<Disabled
@@ -469,7 +450,6 @@ namespace Kvasir {
         namespace SwpenValC{
             constexpr Register::FieldValue<decltype(swpen)::Type,SwpenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swpen)::Type,SwpenVal::v1> v1{};
-        }
         }
     }
     namespace DdrCr28{    ///<DDR Control Register 28
@@ -486,7 +466,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(reduc)::Type,ReducVal::v0> v0{};
             constexpr Register::FieldValue<decltype(reduc)::Type,ReducVal::v1> v1{};
         }
-        }
         ///Big Endian Enable
         enum class BigendVal {
             v0=0x00000000,     ///<Little endian
@@ -497,7 +476,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bigend)::Type,BigendVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bigend)::Type,BigendVal::v1> v1{};
         }
-        }
         ///Command Latency Reduction Enable
         enum class CmdlatrVal {
             v0=0x00000000,     ///<Disable
@@ -507,7 +485,6 @@ namespace Kvasir {
         namespace CmdlatrValC{
             constexpr Register::FieldValue<decltype(cmdlatr)::Type,CmdlatrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cmdlatr)::Type,CmdlatrVal::v1> v1{};
-        }
         }
     }
     namespace DdrCr29{    ///<DDR Control Register 29
@@ -522,7 +499,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wrlatr)::Type,WrlatrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wrlatr)::Type,WrlatrVal::v1> v1{};
         }
-        }
         ///Fast Write
         enum class FstwrVal {
             v0=0x00000000,     ///<The memory controller issues a write command to the DRAM devices when it has received enough data for one DRAM burst. Write data can be sent in any cycle relative to the write command. This mode also allows for multi-word write command data to arrive in non-sequential cycles.
@@ -532,7 +508,6 @@ namespace Kvasir {
         namespace FstwrValC{
             constexpr Register::FieldValue<decltype(fstwr)::Type,FstwrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fstwr)::Type,FstwrVal::v1> v1{};
-        }
         }
         ///Queue Fullness
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> qfull{}; 
@@ -546,7 +521,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(resync)::Type,ResyncVal::v0> v0{};
             constexpr Register::FieldValue<decltype(resync)::Type,ResyncVal::v1> v1{};
         }
-        }
     }
     namespace DdrCr30{    ///<DDR Control Register 30
         using Addr = Register::Address<0x400ae078,0x00fe00fe,0,unsigned>;
@@ -559,7 +533,6 @@ namespace Kvasir {
         namespace RsyncrfValC{
             constexpr Register::FieldValue<decltype(rsyncrf)::Type,RsyncrfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rsyncrf)::Type,RsyncrfVal::v1> v1{};
-        }
         }
         ///Interrupt Status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,8),Register::ReadWriteAccess,unsigned> intstat{}; 
@@ -644,7 +617,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rp0)::Type,Rp0Val::v10> v10{};
             constexpr Register::FieldValue<decltype(rp0)::Type,Rp0Val::v11> v11{};
         }
-        }
         ///Port 0 Write command Priority
         enum class Wp0Val {
             v00=0x00000000,     ///<Highest
@@ -658,7 +630,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v01> v01{};
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v10> v10{};
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v11> v11{};
-        }
         }
     }
     namespace DdrCr40{    ///<DDR Control Register 40
@@ -686,7 +657,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rp1)::Type,Rp1Val::v10> v10{};
             constexpr Register::FieldValue<decltype(rp1)::Type,Rp1Val::v11> v11{};
         }
-        }
         ///Write command priority Port 1
         enum class Wp1Val {
             v00=0x00000000,     ///<Highest
@@ -700,7 +670,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v01> v01{};
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v10> v10{};
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v11> v11{};
-        }
         }
     }
     namespace DdrCr42{    ///<DDR Control Register 42
@@ -728,7 +697,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rp2)::Type,Rp2Val::v10> v10{};
             constexpr Register::FieldValue<decltype(rp2)::Type,Rp2Val::v11> v11{};
         }
-        }
         ///Write command priority Port 2
         enum class Wp2Val {
             v00=0x00000000,     ///<Highest
@@ -742,7 +710,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v01> v01{};
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v10> v10{};
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v11> v11{};
-        }
         }
     }
     namespace DdrCr44{    ///<DDR Control Register 44
@@ -759,7 +726,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wrrlat)::Type,WrrlatVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wrrlat)::Type,WrrlatVal::v1> v1{};
         }
-        }
         ///WRR Shared arbitration
         enum class WrrshareVal {
             v0=0x00000000,     ///<Port 0 and port 1 are treated independently for arbitration
@@ -769,7 +735,6 @@ namespace Kvasir {
         namespace WrrshareValC{
             constexpr Register::FieldValue<decltype(wrrshare)::Type,WrrshareVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wrrshare)::Type,WrrshareVal::v1> v1{};
-        }
         }
         ///WRR parameters Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> wrrerr{}; 
@@ -801,7 +766,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p0ord)::Type,P0ordVal::v10> v10{};
             constexpr Register::FieldValue<decltype(p0ord)::Type,P0ordVal::v11> v11{};
         }
-        }
         ///Port 0 Priority Relax
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,8),Register::ReadWriteAccess,unsigned> p0prirlx{}; 
         ///Port 1 Priority 0 commands
@@ -824,7 +788,6 @@ namespace Kvasir {
         namespace P1ordValC{
             constexpr Register::FieldValue<decltype(p1ord)::Type,P1ordVal::v00> v00{};
             constexpr Register::FieldValue<decltype(p1ord)::Type,P1ordVal::v11> v11{};
-        }
         }
     }
     namespace DdrCr48{    ///<DDR Control Register 48
@@ -856,7 +819,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p2ord)::Type,P2ordVal::v10> v10{};
             constexpr Register::FieldValue<decltype(p2ord)::Type,P2ordVal::v11> v11{};
         }
-        }
     }
     namespace DdrCr50{    ///<DDR Control Register 50
         using Addr = Register::Address<0x400ae0c8,0xfffefc00,0,unsigned>;
@@ -871,7 +833,6 @@ namespace Kvasir {
         namespace ClkstatusValC{
             constexpr Register::FieldValue<decltype(clkstatus)::Type,ClkstatusVal::v0> v0{};
             constexpr Register::FieldValue<decltype(clkstatus)::Type,ClkstatusVal::v1> v1{};
-        }
         }
     }
     namespace DdrCr51{    ///<DDR Control Register 51
@@ -905,7 +866,6 @@ namespace Kvasir {
         namespace ClkdiscsValC{
             constexpr Register::FieldValue<decltype(clkdiscs)::Type,ClkdiscsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(clkdiscs)::Type,ClkdiscsVal::v1> v1{};
-        }
         }
         ///DFI CRTLUPD Minimum
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> crtlupdmn{}; 
@@ -952,7 +912,6 @@ namespace Kvasir {
         namespace OdtaltenValC{
             constexpr Register::FieldValue<decltype(odtalten)::Type,OdtaltenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(odtalten)::Type,OdtaltenVal::v1> v1{};
-        }
         }
     }
     namespace DdrCr58{    ///<DDR Control Register 58
@@ -1009,7 +968,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rst)::Type,RstVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rst)::Type,RstVal::v1> v1{};
         }
-        }
     }
     namespace DdrPadCtrl{    ///<I/O Pad Control Register
         using Addr = Register::Address<0x400ae1ac,0xfcfffff0,0,unsigned>;
@@ -1028,7 +986,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(padOdtCs0)::Type,Padodtcs0Val::v01> v01{};
             constexpr Register::FieldValue<decltype(padOdtCs0)::Type,Padodtcs0Val::v10> v10{};
             constexpr Register::FieldValue<decltype(padOdtCs0)::Type,Padodtcs0Val::v11> v11{};
-        }
         }
     }
 }

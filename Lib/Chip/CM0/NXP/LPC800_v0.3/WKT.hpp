@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::dividedIrcClockT> dividedIrcClockT{};
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::lowPowerClockThi> lowPowerClockThi{};
         }
-        }
         ///Wake-up or alarm timer flag.
         enum class AlarmflagVal {
             noTimeOutTheSel=0x00000000,     ///<No time-out. The self wake-up timer has not timed out. Writing a 0 to has no effect.
@@ -25,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(alarmflag)::Type,AlarmflagVal::noTimeOutTheSel> noTimeOutTheSel{};
             constexpr Register::FieldValue<decltype(alarmflag)::Type,AlarmflagVal::timeOutTheSelfW> timeOutTheSelfW{};
         }
-        }
         ///Clears the self wake-up timer.
         enum class ClearctrVal {
             noEffectReadingT=0x00000000,     ///<No effect. Reading this bit always returns 0.
@@ -35,7 +33,6 @@ namespace Kvasir {
         namespace ClearctrValC{
             constexpr Register::FieldValue<decltype(clearctr)::Type,ClearctrVal::noEffectReadingT> noEffectReadingT{};
             constexpr Register::FieldValue<decltype(clearctr)::Type,ClearctrVal::clearTheCounterC> clearTheCounterC{};
-        }
         }
     }
     namespace Nonecount{    ///<Counter register.

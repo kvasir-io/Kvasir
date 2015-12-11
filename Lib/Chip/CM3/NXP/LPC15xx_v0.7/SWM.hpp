@@ -186,7 +186,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adc00)::Type,Adc00Val::enabledOnPinP008> enabledOnPinP008{};
             constexpr Register::FieldValue<decltype(adc00)::Type,Adc00Val::disabled> disabled{};
         }
-        }
         ///ADC0_1 pin enable.
         enum class Adc01Val {
             enabledOnPinP007=0x00000000,     ///<Enabled on pin P0_07.
@@ -196,7 +195,6 @@ namespace Kvasir {
         namespace Adc01ValC{
             constexpr Register::FieldValue<decltype(adc01)::Type,Adc01Val::enabledOnPinP007> enabledOnPinP007{};
             constexpr Register::FieldValue<decltype(adc01)::Type,Adc01Val::disabled> disabled{};
-        }
         }
         ///ADC0_2 pin enable.
         enum class Adc02Val {
@@ -208,7 +206,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adc02)::Type,Adc02Val::enabledOnPinP006> enabledOnPinP006{};
             constexpr Register::FieldValue<decltype(adc02)::Type,Adc02Val::disabled> disabled{};
         }
-        }
         ///ADC0_3 pin enable.
         enum class Adc03Val {
             enabledOnPinP005=0x00000000,     ///<Enabled on pin P0_05.
@@ -218,7 +215,6 @@ namespace Kvasir {
         namespace Adc03ValC{
             constexpr Register::FieldValue<decltype(adc03)::Type,Adc03Val::enabledOnPinP005> enabledOnPinP005{};
             constexpr Register::FieldValue<decltype(adc03)::Type,Adc03Val::disabled> disabled{};
-        }
         }
         ///ADC0_4 pin enable.
         enum class Adc04Val {
@@ -230,7 +226,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adc04)::Type,Adc04Val::enabledOnPinP004> enabledOnPinP004{};
             constexpr Register::FieldValue<decltype(adc04)::Type,Adc04Val::disabled> disabled{};
         }
-        }
         ///ADC0_5 pin enable.
         enum class Adc05Val {
             enabledOnPinP003=0x00000000,     ///<Enabled on pin P0_03.
@@ -240,7 +235,6 @@ namespace Kvasir {
         namespace Adc05ValC{
             constexpr Register::FieldValue<decltype(adc05)::Type,Adc05Val::enabledOnPinP003> enabledOnPinP003{};
             constexpr Register::FieldValue<decltype(adc05)::Type,Adc05Val::disabled> disabled{};
-        }
         }
         ///ADC0_6 pin enable.
         enum class Adc06Val {
@@ -252,7 +246,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adc06)::Type,Adc06Val::enabledOnPinP002> enabledOnPinP002{};
             constexpr Register::FieldValue<decltype(adc06)::Type,Adc06Val::disabled> disabled{};
         }
-        }
         ///ADC0_7 pin enable.
         enum class Adc07Val {
             enabledOnPinP001=0x00000000,     ///<Enabled on pin P0_01.
@@ -262,7 +255,6 @@ namespace Kvasir {
         namespace Adc07ValC{
             constexpr Register::FieldValue<decltype(adc07)::Type,Adc07Val::enabledOnPinP001> enabledOnPinP001{};
             constexpr Register::FieldValue<decltype(adc07)::Type,Adc07Val::disabled> disabled{};
-        }
         }
         ///ADC0_8 pin enable.
         enum class Adc08Val {
@@ -274,7 +266,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adc08)::Type,Adc08Val::enabledOnPinP100> enabledOnPinP100{};
             constexpr Register::FieldValue<decltype(adc08)::Type,Adc08Val::disabled> disabled{};
         }
-        }
         ///ADC0_9 pin enable.
         enum class Adc09Val {
             enabledOnPinP031=0x00000000,     ///<Enabled on pin P0_31.
@@ -284,7 +275,6 @@ namespace Kvasir {
         namespace Adc09ValC{
             constexpr Register::FieldValue<decltype(adc09)::Type,Adc09Val::enabledOnPinP031> enabledOnPinP031{};
             constexpr Register::FieldValue<decltype(adc09)::Type,Adc09Val::disabled> disabled{};
-        }
         }
         ///ADC0_10 pin enable.
         enum class Adc010Val {
@@ -296,7 +286,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adc010)::Type,Adc010Val::enabledOnPinP000> enabledOnPinP000{};
             constexpr Register::FieldValue<decltype(adc010)::Type,Adc010Val::disabled> disabled{};
         }
-        }
         ///ADC0_11 pin enable.
         enum class Adc011Val {
             enabledOnPinP030=0x00000000,     ///<Enabled on pin P0_30.
@@ -306,7 +295,6 @@ namespace Kvasir {
         namespace Adc011ValC{
             constexpr Register::FieldValue<decltype(adc011)::Type,Adc011Val::enabledOnPinP030> enabledOnPinP030{};
             constexpr Register::FieldValue<decltype(adc011)::Type,Adc011Val::disabled> disabled{};
-        }
         }
         ///ADC1_0 pin enable.
         enum class Adc10Val {
@@ -318,7 +306,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adc10)::Type,Adc10Val::enabledOnPinP101> enabledOnPinP101{};
             constexpr Register::FieldValue<decltype(adc10)::Type,Adc10Val::disabled> disabled{};
         }
-        }
         ///ADC1_1 pin enable.
         enum class Adc11Val {
             enabledOnPinP009=0x00000000,     ///<Enabled on pin P0_09.
@@ -328,7 +315,6 @@ namespace Kvasir {
         namespace Adc11ValC{
             constexpr Register::FieldValue<decltype(adc11)::Type,Adc11Val::enabledOnPinP009> enabledOnPinP009{};
             constexpr Register::FieldValue<decltype(adc11)::Type,Adc11Val::disabled> disabled{};
-        }
         }
         ///ADC1_2 pin enable.
         enum class Adc12Val {
@@ -340,7 +326,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adc12)::Type,Adc12Val::enabledOnPinP010> enabledOnPinP010{};
             constexpr Register::FieldValue<decltype(adc12)::Type,Adc12Val::disabled> disabled{};
         }
-        }
         ///ADC1_3 pin enable.
         enum class Adc13Val {
             enabledOnPinP011=0x00000000,     ///<Enabled on pin P0_11.
@@ -350,7 +335,6 @@ namespace Kvasir {
         namespace Adc13ValC{
             constexpr Register::FieldValue<decltype(adc13)::Type,Adc13Val::enabledOnPinP011> enabledOnPinP011{};
             constexpr Register::FieldValue<decltype(adc13)::Type,Adc13Val::disabled> disabled{};
-        }
         }
         ///ADC1_4 pin enable.
         enum class Adc14Val {
@@ -362,7 +346,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adc14)::Type,Adc14Val::enabledOnPinP102> enabledOnPinP102{};
             constexpr Register::FieldValue<decltype(adc14)::Type,Adc14Val::disabled> disabled{};
         }
-        }
         ///ADC1_5 pin enable.
         enum class Adc15Val {
             enabledOnPinP103=0x00000000,     ///<Enabled on pin P1_03.
@@ -372,7 +355,6 @@ namespace Kvasir {
         namespace Adc15ValC{
             constexpr Register::FieldValue<decltype(adc15)::Type,Adc15Val::enabledOnPinP103> enabledOnPinP103{};
             constexpr Register::FieldValue<decltype(adc15)::Type,Adc15Val::disabled> disabled{};
-        }
         }
         ///ADC1_6 pin enable.
         enum class Adc16Val {
@@ -384,7 +366,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adc16)::Type,Adc16Val::enabledOnPinP013> enabledOnPinP013{};
             constexpr Register::FieldValue<decltype(adc16)::Type,Adc16Val::disabled> disabled{};
         }
-        }
         ///ADC1_7 pin enable.
         enum class Adc17Val {
             enabledOnPinP014=0x00000000,     ///<Enabled on pin P0_14.
@@ -394,7 +375,6 @@ namespace Kvasir {
         namespace Adc17ValC{
             constexpr Register::FieldValue<decltype(adc17)::Type,Adc17Val::enabledOnPinP014> enabledOnPinP014{};
             constexpr Register::FieldValue<decltype(adc17)::Type,Adc17Val::disabled> disabled{};
-        }
         }
         ///ADC1_8 pin enable.
         enum class Adc18Val {
@@ -406,7 +386,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adc18)::Type,Adc18Val::enabledOnPinP015> enabledOnPinP015{};
             constexpr Register::FieldValue<decltype(adc18)::Type,Adc18Val::disabled> disabled{};
         }
-        }
         ///ADC1_9 pin enable.
         enum class Adc19Val {
             enabledOnPinP016=0x00000000,     ///<Enabled on pin P0_16.
@@ -416,7 +395,6 @@ namespace Kvasir {
         namespace Adc19ValC{
             constexpr Register::FieldValue<decltype(adc19)::Type,Adc19Val::enabledOnPinP016> enabledOnPinP016{};
             constexpr Register::FieldValue<decltype(adc19)::Type,Adc19Val::disabled> disabled{};
-        }
         }
         ///ADC1_10 pin enable.
         enum class Adc110Val {
@@ -428,7 +406,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adc110)::Type,Adc110Val::enabledOnPinP104> enabledOnPinP104{};
             constexpr Register::FieldValue<decltype(adc110)::Type,Adc110Val::disabled> disabled{};
         }
-        }
         ///ADC1_11 pin enable.
         enum class Adc111Val {
             enabledOnPinP105=0x00000000,     ///<Enabled on pin P1_05.
@@ -438,7 +415,6 @@ namespace Kvasir {
         namespace Adc111ValC{
             constexpr Register::FieldValue<decltype(adc111)::Type,Adc111Val::enabledOnPinP105> enabledOnPinP105{};
             constexpr Register::FieldValue<decltype(adc111)::Type,Adc111Val::disabled> disabled{};
-        }
         }
         ///DAC_OUT pin enable.
         enum class DacoutVal {
@@ -450,7 +426,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dacOut)::Type,DacoutVal::enabledOnPinP012> enabledOnPinP012{};
             constexpr Register::FieldValue<decltype(dacOut)::Type,DacoutVal::disabled> disabled{};
         }
-        }
         ///ACMP input 1 (common input) pin enable.
         enum class Acmpi1Val {
             enabledOnPinP027=0x00000000,     ///<Enabled on pin P0_27.
@@ -460,7 +435,6 @@ namespace Kvasir {
         namespace Acmpi1ValC{
             constexpr Register::FieldValue<decltype(acmpI1)::Type,Acmpi1Val::enabledOnPinP027> enabledOnPinP027{};
             constexpr Register::FieldValue<decltype(acmpI1)::Type,Acmpi1Val::disabled> disabled{};
-        }
         }
         ///ACMP input 2 (common input) pin enable.
         enum class Acmpi2Val {
@@ -472,7 +446,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acmpI2)::Type,Acmpi2Val::enabledOnPinP106> enabledOnPinP106{};
             constexpr Register::FieldValue<decltype(acmpI2)::Type,Acmpi2Val::disabled> disabled{};
         }
-        }
         ///Analog comparator 0 input 3 pin enable.
         enum class Acmp0i3Val {
             enabledOnPinP026=0x00000000,     ///<Enabled on pin P0_26.
@@ -482,7 +455,6 @@ namespace Kvasir {
         namespace Acmp0i3ValC{
             constexpr Register::FieldValue<decltype(acmp0I3)::Type,Acmp0i3Val::enabledOnPinP026> enabledOnPinP026{};
             constexpr Register::FieldValue<decltype(acmp0I3)::Type,Acmp0i3Val::disabled> disabled{};
-        }
         }
         ///Analog comparator 0 input 4 pin enable.
         enum class Acmp0i4Val {
@@ -494,7 +466,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acmp0I4)::Type,Acmp0i4Val::enabledOnPinP025> enabledOnPinP025{};
             constexpr Register::FieldValue<decltype(acmp0I4)::Type,Acmp0i4Val::disabled> disabled{};
         }
-        }
         ///Analog comparator 1 input 3 pin enable.
         enum class Acmp1i3Val {
             enabledOnPinP028=0x00000000,     ///<Enabled on pin P0_28.
@@ -504,7 +475,6 @@ namespace Kvasir {
         namespace Acmp1i3ValC{
             constexpr Register::FieldValue<decltype(acmp1I3)::Type,Acmp1i3Val::enabledOnPinP028> enabledOnPinP028{};
             constexpr Register::FieldValue<decltype(acmp1I3)::Type,Acmp1i3Val::disabled> disabled{};
-        }
         }
         ///Analog comparator 1 input 4 pin enable.
         enum class Acmp1i4Val {
@@ -516,7 +486,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acmp1I4)::Type,Acmp1i4Val::enabledOnPinP110> enabledOnPinP110{};
             constexpr Register::FieldValue<decltype(acmp1I4)::Type,Acmp1i4Val::disabled> disabled{};
         }
-        }
         ///Analog comparator 2 input 3 pin enable.
         enum class Acmp2i3Val {
             enabledOnPinP029=0x00000000,     ///<Enabled on pin P0_29.
@@ -526,7 +495,6 @@ namespace Kvasir {
         namespace Acmp2i3ValC{
             constexpr Register::FieldValue<decltype(acmp2I3)::Type,Acmp2i3Val::enabledOnPinP029> enabledOnPinP029{};
             constexpr Register::FieldValue<decltype(acmp2I3)::Type,Acmp2i3Val::disabled> disabled{};
-        }
         }
     }
     namespace Nonepinenable1{    ///<Pin enable register 0. Enables fixed-pin functions
@@ -541,7 +509,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acmp2I4)::Type,Acmp2i4Val::enabledOnPinP109> enabledOnPinP109{};
             constexpr Register::FieldValue<decltype(acmp2I4)::Type,Acmp2i4Val::disabled> disabled{};
         }
-        }
         ///Analog comparator 3 input 3 pin enable.
         enum class Acmp3i3Val {
             enabledOnPinP108=0x00000000,     ///<Enabled on pin P1_08.
@@ -551,7 +518,6 @@ namespace Kvasir {
         namespace Acmp3i3ValC{
             constexpr Register::FieldValue<decltype(acmp3I3)::Type,Acmp3i3Val::enabledOnPinP108> enabledOnPinP108{};
             constexpr Register::FieldValue<decltype(acmp3I3)::Type,Acmp3i3Val::disabled> disabled{};
-        }
         }
         ///Analog comparator 3 input 4 pin enable.
         enum class Acmp3i4Val {
@@ -563,7 +529,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acmp3I4)::Type,Acmp3i4Val::enabledOnPinP107> enabledOnPinP107{};
             constexpr Register::FieldValue<decltype(acmp3I4)::Type,Acmp3i4Val::disabled> disabled{};
         }
-        }
         ///I2C0_SDA pin enable.
         enum class I2c0sdaVal {
             enabledOnPinP023=0x00000000,     ///<Enabled on pin P0_23.
@@ -573,7 +538,6 @@ namespace Kvasir {
         namespace I2c0sdaValC{
             constexpr Register::FieldValue<decltype(i2c0Sda)::Type,I2c0sdaVal::enabledOnPinP023> enabledOnPinP023{};
             constexpr Register::FieldValue<decltype(i2c0Sda)::Type,I2c0sdaVal::disabled> disabled{};
-        }
         }
         ///I2C0_SCL pin enable.
         enum class I2c0sclVal {
@@ -585,7 +549,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2c0Scl)::Type,I2c0sclVal::enabledOnPinP022> enabledOnPinP022{};
             constexpr Register::FieldValue<decltype(i2c0Scl)::Type,I2c0sclVal::disabled> disabled{};
         }
-        }
         ///SCT0_OUT3 pin enable.
         enum class Sct0out3Val {
             enabledOnPinP000=0x00000000,     ///<Enabled on pin P0_00.
@@ -595,7 +558,6 @@ namespace Kvasir {
         namespace Sct0out3ValC{
             constexpr Register::FieldValue<decltype(sct0Out3)::Type,Sct0out3Val::enabledOnPinP000> enabledOnPinP000{};
             constexpr Register::FieldValue<decltype(sct0Out3)::Type,Sct0out3Val::disabled> disabled{};
-        }
         }
         ///SCT0_OUT4 pin enable.
         enum class Sct0out4Val {
@@ -607,7 +569,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sct0Out4)::Type,Sct0out4Val::enabledOnPinP001> enabledOnPinP001{};
             constexpr Register::FieldValue<decltype(sct0Out4)::Type,Sct0out4Val::disabled> disabled{};
         }
-        }
         ///SCT0_OUT5 pin enable.
         enum class Sct0out5Val {
             enabledOnPinP018=0x00000000,     ///<Enabled on pin P0_18.
@@ -617,7 +578,6 @@ namespace Kvasir {
         namespace Sct0out5ValC{
             constexpr Register::FieldValue<decltype(sct0Out5)::Type,Sct0out5Val::enabledOnPinP018> enabledOnPinP018{};
             constexpr Register::FieldValue<decltype(sct0Out5)::Type,Sct0out5Val::disabled> disabled{};
-        }
         }
         ///SCT0_OUT6 pin enable.
         enum class Sct0out6Val {
@@ -629,7 +589,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sct0Out6)::Type,Sct0out6Val::enabledOnPinP024> enabledOnPinP024{};
             constexpr Register::FieldValue<decltype(sct0Out6)::Type,Sct0out6Val::disabled> disabled{};
         }
-        }
         ///SCT0_OUT7 pin enable.
         enum class Sct0out7Val {
             enabledOnPinP114=0x00000000,     ///<Enabled on pin P1_14.
@@ -639,7 +598,6 @@ namespace Kvasir {
         namespace Sct0out7ValC{
             constexpr Register::FieldValue<decltype(sct0Out7)::Type,Sct0out7Val::enabledOnPinP114> enabledOnPinP114{};
             constexpr Register::FieldValue<decltype(sct0Out7)::Type,Sct0out7Val::disabled> disabled{};
-        }
         }
         ///SCT1_OUT3 pin enable.
         enum class Sct1out3Val {
@@ -651,7 +609,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sct1Out3)::Type,Sct1out3Val::enabledOnPinP002> enabledOnPinP002{};
             constexpr Register::FieldValue<decltype(sct1Out3)::Type,Sct1out3Val::disabled> disabled{};
         }
-        }
         ///SCT1_OUT4 pin enable.
         enum class Sct1out4Val {
             enabledOnPinP003=0x00000000,     ///<Enabled on pin P0_03.
@@ -661,7 +618,6 @@ namespace Kvasir {
         namespace Sct1out4ValC{
             constexpr Register::FieldValue<decltype(sct1Out4)::Type,Sct1out4Val::enabledOnPinP003> enabledOnPinP003{};
             constexpr Register::FieldValue<decltype(sct1Out4)::Type,Sct1out4Val::disabled> disabled{};
-        }
         }
         ///SCT1_OUT5 pin enable.
         enum class Sct1out5Val {
@@ -673,7 +629,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sct1Out5)::Type,Sct1out5Val::enabledOnPinP014> enabledOnPinP014{};
             constexpr Register::FieldValue<decltype(sct1Out5)::Type,Sct1out5Val::disabled> disabled{};
         }
-        }
         ///SCT1_OUT6 pin enable.
         enum class Sct1out6Val {
             enabledOnPinP020=0x00000000,     ///<Enabled on pin P0_20.
@@ -683,7 +638,6 @@ namespace Kvasir {
         namespace Sct1out6ValC{
             constexpr Register::FieldValue<decltype(sct1Out6)::Type,Sct1out6Val::enabledOnPinP020> enabledOnPinP020{};
             constexpr Register::FieldValue<decltype(sct1Out6)::Type,Sct1out6Val::disabled> disabled{};
-        }
         }
         ///SCT1_OUT7 pin enable.
         enum class Sct1out7Val {
@@ -695,7 +649,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sct1Out7)::Type,Sct1out7Val::enabledOnPinP117> enabledOnPinP117{};
             constexpr Register::FieldValue<decltype(sct1Out7)::Type,Sct1out7Val::disabled> disabled{};
         }
-        }
         ///SCT2_OUT3 pin enable.
         enum class Sct2out3Val {
             enabledOnPinP006=0x00000000,     ///<Enabled on pin P0_06.
@@ -705,7 +658,6 @@ namespace Kvasir {
         namespace Sct2out3ValC{
             constexpr Register::FieldValue<decltype(sct2Out3)::Type,Sct2out3Val::enabledOnPinP006> enabledOnPinP006{};
             constexpr Register::FieldValue<decltype(sct2Out3)::Type,Sct2out3Val::disabled> disabled{};
-        }
         }
         ///SCT2_OUT4 pin enable.
         enum class Sct2out4Val {
@@ -717,7 +669,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sct2Out4)::Type,Sct2out4Val::enabledOnPinP029> enabledOnPinP029{};
             constexpr Register::FieldValue<decltype(sct2Out4)::Type,Sct2out4Val::disabled> disabled{};
         }
-        }
         ///SCT2_OUT5 pin enable.
         enum class Sct2out5Val {
             enabledOnPinP120=0x00000000,     ///<Enabled on pin P1_20.
@@ -727,7 +678,6 @@ namespace Kvasir {
         namespace Sct2out5ValC{
             constexpr Register::FieldValue<decltype(sct2Out5)::Type,Sct2out5Val::enabledOnPinP120> enabledOnPinP120{};
             constexpr Register::FieldValue<decltype(sct2Out5)::Type,Sct2out5Val::disabled> disabled{};
-        }
         }
         ///SCT3_OUT3 pin enable.
         enum class Sct3out3Val {
@@ -739,7 +689,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sct3Out3)::Type,Sct3out3Val::enabledOnPinP026> enabledOnPinP026{};
             constexpr Register::FieldValue<decltype(sct3Out3)::Type,Sct3out3Val::disabled> disabled{};
         }
-        }
         ///SCT3_OUT4 pin enable.
         enum class Sct3out4Val {
             enabledOnPinP108=0x00000000,     ///<Enabled on pin P1_08.
@@ -749,7 +698,6 @@ namespace Kvasir {
         namespace Sct3out4ValC{
             constexpr Register::FieldValue<decltype(sct3Out4)::Type,Sct3out4Val::enabledOnPinP108> enabledOnPinP108{};
             constexpr Register::FieldValue<decltype(sct3Out4)::Type,Sct3out4Val::disabled> disabled{};
-        }
         }
         ///SCT3_OUT5 pin enable.
         enum class Sct3out5Val {
@@ -761,7 +709,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sct3Out5)::Type,Sct3out5Val::enabledOnPinP124> enabledOnPinP124{};
             constexpr Register::FieldValue<decltype(sct3Out5)::Type,Sct3out5Val::disabled> disabled{};
         }
-        }
         ///RESETN pin enable.
         enum class ResetnVal {
             enabledOnPinP021=0x00000000,     ///<Enabled on pin P0_21.
@@ -771,7 +718,6 @@ namespace Kvasir {
         namespace ResetnValC{
             constexpr Register::FieldValue<decltype(resetn)::Type,ResetnVal::enabledOnPinP021> enabledOnPinP021{};
             constexpr Register::FieldValue<decltype(resetn)::Type,ResetnVal::disabled> disabled{};
-        }
         }
         ///SWCLK_TCK pin enable.
         enum class SwclktckVal {
@@ -783,7 +729,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swclkTck)::Type,SwclktckVal::enabledOnPinP019> enabledOnPinP019{};
             constexpr Register::FieldValue<decltype(swclkTck)::Type,SwclktckVal::disabled> disabled{};
         }
-        }
         ///SWDIO pin enable.
         enum class SwdioVal {
             enabledOnPinP020=0x00000000,     ///<Enabled on pin P0_20.
@@ -793,7 +738,6 @@ namespace Kvasir {
         namespace SwdioValC{
             constexpr Register::FieldValue<decltype(swdio)::Type,SwdioVal::enabledOnPinP020> enabledOnPinP020{};
             constexpr Register::FieldValue<decltype(swdio)::Type,SwdioVal::disabled> disabled{};
-        }
         }
     }
 }

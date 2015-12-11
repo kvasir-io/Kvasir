@@ -24,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(efds)::Type,EfdsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(efds)::Type,EfdsVal::v1> v1{};
         }
-        }
         ///Disable Flash Controller Speculation
         enum class DfcsVal {
             v0=0x00000000,     ///<Enable flash controller speculation.
@@ -35,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dfcs)::Type,DfcsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dfcs)::Type,DfcsVal::v1> v1{};
         }
-        }
         ///Enable Stalling Flash Controller
         enum class EsfcVal {
             v0=0x00000000,     ///<Disable stalling flash controller when flash is busy.
@@ -45,7 +43,6 @@ namespace Kvasir {
         namespace EsfcValC{
             constexpr Register::FieldValue<decltype(esfc)::Type,EsfcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esfc)::Type,EsfcVal::v1> v1{};
-        }
         }
     }
     namespace McmCpo{    ///<Compute Operation Control Register
@@ -60,7 +57,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cporeq)::Type,CporeqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cporeq)::Type,CporeqVal::v1> v1{};
         }
-        }
         ///Compute Operation Acknowledge
         enum class CpoackVal {
             v0=0x00000000,     ///<Compute operation entry has not completed or compute operation exit has completed.
@@ -71,7 +67,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpoack)::Type,CpoackVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cpoack)::Type,CpoackVal::v1> v1{};
         }
-        }
         ///Compute Operation Wake-up on Interrupt
         enum class CpowoiVal {
             v0=0x00000000,     ///<No effect.
@@ -81,7 +76,6 @@ namespace Kvasir {
         namespace CpowoiValC{
             constexpr Register::FieldValue<decltype(cpowoi)::Type,CpowoiVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cpowoi)::Type,CpowoiVal::v1> v1{};
-        }
         }
     }
 }

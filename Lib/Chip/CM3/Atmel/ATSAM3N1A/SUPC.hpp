@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vroff)::Type,VroffVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(vroff)::Type,VroffVal::stopVreg> stopVreg{};
         }
-        }
         ///Crystal Oscillator Select
         enum class XtalselVal {
             noEffect=0x00000000,     ///<no effect.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace XtalselValC{
             constexpr Register::FieldValue<decltype(xtalsel)::Type,XtalselVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(xtalsel)::Type,XtalselVal::crystalSel> crystalSel{};
-        }
         }
         ///Password
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> key{}; 
@@ -69,7 +67,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(smth)::Type,SmthVal::v33v> v33v{};
             constexpr Register::FieldValue<decltype(smth)::Type,SmthVal::v34v> v34v{};
         }
-        }
         ///Supply Monitor Sampling Period
         enum class SmsmplVal {
             smd=0x00000000,     ///<Supply Monitor disabled
@@ -86,7 +83,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(smsmpl)::Type,SmsmplVal::v256slck> v256slck{};
             constexpr Register::FieldValue<decltype(smsmpl)::Type,SmsmplVal::v2048slck> v2048slck{};
         }
-        }
         ///Supply Monitor Reset Enable
         enum class SmrstenVal {
             notEnable=0x00000000,     ///<the core reset signal "vddcore_nreset" is not affected when a supply monitor detection occurs.
@@ -97,7 +93,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(smrsten)::Type,SmrstenVal::notEnable> notEnable{};
             constexpr Register::FieldValue<decltype(smrsten)::Type,SmrstenVal::enable> enable{};
         }
-        }
         ///Supply Monitor Interrupt Enable
         enum class SmienVal {
             notEnable=0x00000000,     ///<the SUPC interrupt signal is not affected when a supply monitor detection occurs.
@@ -107,7 +102,6 @@ namespace Kvasir {
         namespace SmienValC{
             constexpr Register::FieldValue<decltype(smien)::Type,SmienVal::notEnable> notEnable{};
             constexpr Register::FieldValue<decltype(smien)::Type,SmienVal::enable> enable{};
-        }
         }
     }
     namespace SupcMr{    ///<Supply Controller Mode Register
@@ -122,7 +116,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bodrsten)::Type,BodrstenVal::notEnable> notEnable{};
             constexpr Register::FieldValue<decltype(bodrsten)::Type,BodrstenVal::enable> enable{};
         }
-        }
         ///Brownout Detector Disable
         enum class BoddisVal {
             enable=0x00000000,     ///<the core brownout detector is enabled.
@@ -132,7 +125,6 @@ namespace Kvasir {
         namespace BoddisValC{
             constexpr Register::FieldValue<decltype(boddis)::Type,BoddisVal::enable> enable{};
             constexpr Register::FieldValue<decltype(boddis)::Type,BoddisVal::disable> disable{};
-        }
         }
         ///Voltage Regulator enable
         enum class OnregVal {
@@ -144,7 +136,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(onreg)::Type,OnregVal::onregUnused> onregUnused{};
             constexpr Register::FieldValue<decltype(onreg)::Type,OnregVal::onregUsed> onregUsed{};
         }
-        }
         ///Oscillator Bypass
         enum class OscbypassVal {
             noEffect=0x00000000,     ///<no effect. Clock selection depends on XTALSEL value.
@@ -154,7 +145,6 @@ namespace Kvasir {
         namespace OscbypassValC{
             constexpr Register::FieldValue<decltype(oscbypass)::Type,OscbypassVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(oscbypass)::Type,OscbypassVal::bypass> bypass{};
-        }
         }
         ///Password Key
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> key{}; 
@@ -171,7 +161,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(smen)::Type,SmenVal::notEnable> notEnable{};
             constexpr Register::FieldValue<decltype(smen)::Type,SmenVal::enable> enable{};
         }
-        }
         ///Real Time Timer Wake Up Enable
         enum class RttenVal {
             notEnable=0x00000000,     ///<the RTT alarm signal has no wake up effect.
@@ -182,7 +171,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rtten)::Type,RttenVal::notEnable> notEnable{};
             constexpr Register::FieldValue<decltype(rtten)::Type,RttenVal::enable> enable{};
         }
-        }
         ///Real Time Clock Wake Up Enable
         enum class RtcenVal {
             notEnable=0x00000000,     ///<the RTC alarm signal has no wake up effect.
@@ -192,7 +180,6 @@ namespace Kvasir {
         namespace RtcenValC{
             constexpr Register::FieldValue<decltype(rtcen)::Type,RtcenVal::notEnable> notEnable{};
             constexpr Register::FieldValue<decltype(rtcen)::Type,RtcenVal::enable> enable{};
-        }
         }
         ///Wake Up Inputs Debouncer Period
         enum class WkupdbcVal {
@@ -212,7 +199,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupdbc)::Type,WkupdbcVal::v4096Sclk> v4096Sclk{};
             constexpr Register::FieldValue<decltype(wkupdbc)::Type,WkupdbcVal::v32768Sclk> v32768Sclk{};
         }
-        }
     }
     namespace SupcWuir{    ///<Supply Controller Wake Up Inputs Register
         using Addr = Register::Address<0x400e1420,0x00000000,0,unsigned>;
@@ -226,7 +212,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupen0)::Type,Wkupen0Val::disable> disable{};
             constexpr Register::FieldValue<decltype(wkupen0)::Type,Wkupen0Val::enable> enable{};
         }
-        }
         ///Wake Up Input Enable 1
         enum class Wkupen1Val {
             disable=0x00000000,     ///<the corresponding wake-up input has no wake up effect.
@@ -236,7 +221,6 @@ namespace Kvasir {
         namespace Wkupen1ValC{
             constexpr Register::FieldValue<decltype(wkupen1)::Type,Wkupen1Val::disable> disable{};
             constexpr Register::FieldValue<decltype(wkupen1)::Type,Wkupen1Val::enable> enable{};
-        }
         }
         ///Wake Up Input Enable 2
         enum class Wkupen2Val {
@@ -248,7 +232,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupen2)::Type,Wkupen2Val::disable> disable{};
             constexpr Register::FieldValue<decltype(wkupen2)::Type,Wkupen2Val::enable> enable{};
         }
-        }
         ///Wake Up Input Enable 3
         enum class Wkupen3Val {
             disable=0x00000000,     ///<the corresponding wake-up input has no wake up effect.
@@ -258,7 +241,6 @@ namespace Kvasir {
         namespace Wkupen3ValC{
             constexpr Register::FieldValue<decltype(wkupen3)::Type,Wkupen3Val::disable> disable{};
             constexpr Register::FieldValue<decltype(wkupen3)::Type,Wkupen3Val::enable> enable{};
-        }
         }
         ///Wake Up Input Enable 4
         enum class Wkupen4Val {
@@ -270,7 +252,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupen4)::Type,Wkupen4Val::disable> disable{};
             constexpr Register::FieldValue<decltype(wkupen4)::Type,Wkupen4Val::enable> enable{};
         }
-        }
         ///Wake Up Input Enable 5
         enum class Wkupen5Val {
             disable=0x00000000,     ///<the corresponding wake-up input has no wake up effect.
@@ -280,7 +261,6 @@ namespace Kvasir {
         namespace Wkupen5ValC{
             constexpr Register::FieldValue<decltype(wkupen5)::Type,Wkupen5Val::disable> disable{};
             constexpr Register::FieldValue<decltype(wkupen5)::Type,Wkupen5Val::enable> enable{};
-        }
         }
         ///Wake Up Input Enable 6
         enum class Wkupen6Val {
@@ -292,7 +272,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupen6)::Type,Wkupen6Val::disable> disable{};
             constexpr Register::FieldValue<decltype(wkupen6)::Type,Wkupen6Val::enable> enable{};
         }
-        }
         ///Wake Up Input Enable 7
         enum class Wkupen7Val {
             disable=0x00000000,     ///<the corresponding wake-up input has no wake up effect.
@@ -302,7 +281,6 @@ namespace Kvasir {
         namespace Wkupen7ValC{
             constexpr Register::FieldValue<decltype(wkupen7)::Type,Wkupen7Val::disable> disable{};
             constexpr Register::FieldValue<decltype(wkupen7)::Type,Wkupen7Val::enable> enable{};
-        }
         }
         ///Wake Up Input Enable 8
         enum class Wkupen8Val {
@@ -314,7 +292,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupen8)::Type,Wkupen8Val::disable> disable{};
             constexpr Register::FieldValue<decltype(wkupen8)::Type,Wkupen8Val::enable> enable{};
         }
-        }
         ///Wake Up Input Enable 9
         enum class Wkupen9Val {
             disable=0x00000000,     ///<the corresponding wake-up input has no wake up effect.
@@ -324,7 +301,6 @@ namespace Kvasir {
         namespace Wkupen9ValC{
             constexpr Register::FieldValue<decltype(wkupen9)::Type,Wkupen9Val::disable> disable{};
             constexpr Register::FieldValue<decltype(wkupen9)::Type,Wkupen9Val::enable> enable{};
-        }
         }
         ///Wake Up Input Enable 10
         enum class Wkupen10Val {
@@ -336,7 +312,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupen10)::Type,Wkupen10Val::disable> disable{};
             constexpr Register::FieldValue<decltype(wkupen10)::Type,Wkupen10Val::enable> enable{};
         }
-        }
         ///Wake Up Input Enable 11
         enum class Wkupen11Val {
             disable=0x00000000,     ///<the corresponding wake-up input has no wake up effect.
@@ -346,7 +321,6 @@ namespace Kvasir {
         namespace Wkupen11ValC{
             constexpr Register::FieldValue<decltype(wkupen11)::Type,Wkupen11Val::disable> disable{};
             constexpr Register::FieldValue<decltype(wkupen11)::Type,Wkupen11Val::enable> enable{};
-        }
         }
         ///Wake Up Input Enable 12
         enum class Wkupen12Val {
@@ -358,7 +332,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupen12)::Type,Wkupen12Val::disable> disable{};
             constexpr Register::FieldValue<decltype(wkupen12)::Type,Wkupen12Val::enable> enable{};
         }
-        }
         ///Wake Up Input Enable 13
         enum class Wkupen13Val {
             disable=0x00000000,     ///<the corresponding wake-up input has no wake up effect.
@@ -368,7 +341,6 @@ namespace Kvasir {
         namespace Wkupen13ValC{
             constexpr Register::FieldValue<decltype(wkupen13)::Type,Wkupen13Val::disable> disable{};
             constexpr Register::FieldValue<decltype(wkupen13)::Type,Wkupen13Val::enable> enable{};
-        }
         }
         ///Wake Up Input Enable 14
         enum class Wkupen14Val {
@@ -380,7 +352,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupen14)::Type,Wkupen14Val::disable> disable{};
             constexpr Register::FieldValue<decltype(wkupen14)::Type,Wkupen14Val::enable> enable{};
         }
-        }
         ///Wake Up Input Enable 15
         enum class Wkupen15Val {
             disable=0x00000000,     ///<the corresponding wake-up input has no wake up effect.
@@ -390,7 +361,6 @@ namespace Kvasir {
         namespace Wkupen15ValC{
             constexpr Register::FieldValue<decltype(wkupen15)::Type,Wkupen15Val::disable> disable{};
             constexpr Register::FieldValue<decltype(wkupen15)::Type,Wkupen15Val::enable> enable{};
-        }
         }
         ///Wake Up Input Type 0
         enum class Wkupt0Val {
@@ -402,7 +372,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupt0)::Type,Wkupt0Val::highToLow> highToLow{};
             constexpr Register::FieldValue<decltype(wkupt0)::Type,Wkupt0Val::lowToHigh> lowToHigh{};
         }
-        }
         ///Wake Up Input Type 1
         enum class Wkupt1Val {
             highToLow=0x00000000,     ///<a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake up of the core power supply.
@@ -412,7 +381,6 @@ namespace Kvasir {
         namespace Wkupt1ValC{
             constexpr Register::FieldValue<decltype(wkupt1)::Type,Wkupt1Val::highToLow> highToLow{};
             constexpr Register::FieldValue<decltype(wkupt1)::Type,Wkupt1Val::lowToHigh> lowToHigh{};
-        }
         }
         ///Wake Up Input Type 2
         enum class Wkupt2Val {
@@ -424,7 +392,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupt2)::Type,Wkupt2Val::highToLow> highToLow{};
             constexpr Register::FieldValue<decltype(wkupt2)::Type,Wkupt2Val::lowToHigh> lowToHigh{};
         }
-        }
         ///Wake Up Input Type 3
         enum class Wkupt3Val {
             highToLow=0x00000000,     ///<a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake up of the core power supply.
@@ -434,7 +401,6 @@ namespace Kvasir {
         namespace Wkupt3ValC{
             constexpr Register::FieldValue<decltype(wkupt3)::Type,Wkupt3Val::highToLow> highToLow{};
             constexpr Register::FieldValue<decltype(wkupt3)::Type,Wkupt3Val::lowToHigh> lowToHigh{};
-        }
         }
         ///Wake Up Input Type 4
         enum class Wkupt4Val {
@@ -446,7 +412,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupt4)::Type,Wkupt4Val::highToLow> highToLow{};
             constexpr Register::FieldValue<decltype(wkupt4)::Type,Wkupt4Val::lowToHigh> lowToHigh{};
         }
-        }
         ///Wake Up Input Type 5
         enum class Wkupt5Val {
             highToLow=0x00000000,     ///<a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake up of the core power supply.
@@ -456,7 +421,6 @@ namespace Kvasir {
         namespace Wkupt5ValC{
             constexpr Register::FieldValue<decltype(wkupt5)::Type,Wkupt5Val::highToLow> highToLow{};
             constexpr Register::FieldValue<decltype(wkupt5)::Type,Wkupt5Val::lowToHigh> lowToHigh{};
-        }
         }
         ///Wake Up Input Type 6
         enum class Wkupt6Val {
@@ -468,7 +432,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupt6)::Type,Wkupt6Val::highToLow> highToLow{};
             constexpr Register::FieldValue<decltype(wkupt6)::Type,Wkupt6Val::lowToHigh> lowToHigh{};
         }
-        }
         ///Wake Up Input Type 7
         enum class Wkupt7Val {
             highToLow=0x00000000,     ///<a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake up of the core power supply.
@@ -478,7 +441,6 @@ namespace Kvasir {
         namespace Wkupt7ValC{
             constexpr Register::FieldValue<decltype(wkupt7)::Type,Wkupt7Val::highToLow> highToLow{};
             constexpr Register::FieldValue<decltype(wkupt7)::Type,Wkupt7Val::lowToHigh> lowToHigh{};
-        }
         }
         ///Wake Up Input Type 8
         enum class Wkupt8Val {
@@ -490,7 +452,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupt8)::Type,Wkupt8Val::highToLow> highToLow{};
             constexpr Register::FieldValue<decltype(wkupt8)::Type,Wkupt8Val::lowToHigh> lowToHigh{};
         }
-        }
         ///Wake Up Input Type 9
         enum class Wkupt9Val {
             highToLow=0x00000000,     ///<a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake up of the core power supply.
@@ -500,7 +461,6 @@ namespace Kvasir {
         namespace Wkupt9ValC{
             constexpr Register::FieldValue<decltype(wkupt9)::Type,Wkupt9Val::highToLow> highToLow{};
             constexpr Register::FieldValue<decltype(wkupt9)::Type,Wkupt9Val::lowToHigh> lowToHigh{};
-        }
         }
         ///Wake Up Input Type 10
         enum class Wkupt10Val {
@@ -512,7 +472,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupt10)::Type,Wkupt10Val::highToLow> highToLow{};
             constexpr Register::FieldValue<decltype(wkupt10)::Type,Wkupt10Val::lowToHigh> lowToHigh{};
         }
-        }
         ///Wake Up Input Type 11
         enum class Wkupt11Val {
             highToLow=0x00000000,     ///<a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake up of the core power supply.
@@ -522,7 +481,6 @@ namespace Kvasir {
         namespace Wkupt11ValC{
             constexpr Register::FieldValue<decltype(wkupt11)::Type,Wkupt11Val::highToLow> highToLow{};
             constexpr Register::FieldValue<decltype(wkupt11)::Type,Wkupt11Val::lowToHigh> lowToHigh{};
-        }
         }
         ///Wake Up Input Type 12
         enum class Wkupt12Val {
@@ -534,7 +492,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupt12)::Type,Wkupt12Val::highToLow> highToLow{};
             constexpr Register::FieldValue<decltype(wkupt12)::Type,Wkupt12Val::lowToHigh> lowToHigh{};
         }
-        }
         ///Wake Up Input Type 13
         enum class Wkupt13Val {
             highToLow=0x00000000,     ///<a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake up of the core power supply.
@@ -544,7 +501,6 @@ namespace Kvasir {
         namespace Wkupt13ValC{
             constexpr Register::FieldValue<decltype(wkupt13)::Type,Wkupt13Val::highToLow> highToLow{};
             constexpr Register::FieldValue<decltype(wkupt13)::Type,Wkupt13Val::lowToHigh> lowToHigh{};
-        }
         }
         ///Wake Up Input Type 14
         enum class Wkupt14Val {
@@ -556,7 +512,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupt14)::Type,Wkupt14Val::highToLow> highToLow{};
             constexpr Register::FieldValue<decltype(wkupt14)::Type,Wkupt14Val::lowToHigh> lowToHigh{};
         }
-        }
         ///Wake Up Input Type 15
         enum class Wkupt15Val {
             highToLow=0x00000000,     ///<a high to low level transition for a period defined by WKUPDBC on the corresponding wake-up input forces the wake up of the core power supply.
@@ -566,7 +521,6 @@ namespace Kvasir {
         namespace Wkupt15ValC{
             constexpr Register::FieldValue<decltype(wkupt15)::Type,Wkupt15Val::highToLow> highToLow{};
             constexpr Register::FieldValue<decltype(wkupt15)::Type,Wkupt15Val::lowToHigh> lowToHigh{};
-        }
         }
     }
     namespace SupcSr{    ///<Supply Controller Status Register
@@ -581,7 +535,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkups)::Type,WkupsVal::no> no{};
             constexpr Register::FieldValue<decltype(wkups)::Type,WkupsVal::present> present{};
         }
-        }
         ///Supply Monitor Detection Wake Up Status
         enum class SmwsVal {
             no=0x00000000,     ///<no wake up due to a supply monitor detection has occurred since the last read of SUPC_SR.
@@ -591,7 +544,6 @@ namespace Kvasir {
         namespace SmwsValC{
             constexpr Register::FieldValue<decltype(smws)::Type,SmwsVal::no> no{};
             constexpr Register::FieldValue<decltype(smws)::Type,SmwsVal::present> present{};
-        }
         }
         ///Brownout Detector Reset Status
         enum class BodrstsVal {
@@ -603,7 +555,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bodrsts)::Type,BodrstsVal::no> no{};
             constexpr Register::FieldValue<decltype(bodrsts)::Type,BodrstsVal::present> present{};
         }
-        }
         ///Supply Monitor Reset Status
         enum class SmrstsVal {
             no=0x00000000,     ///<no supply monitor detection has generated a core reset since the last read of the SUPC_SR.
@@ -613,7 +564,6 @@ namespace Kvasir {
         namespace SmrstsValC{
             constexpr Register::FieldValue<decltype(smrsts)::Type,SmrstsVal::no> no{};
             constexpr Register::FieldValue<decltype(smrsts)::Type,SmrstsVal::present> present{};
-        }
         }
         ///Supply Monitor Status
         enum class SmsVal {
@@ -625,7 +575,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sms)::Type,SmsVal::no> no{};
             constexpr Register::FieldValue<decltype(sms)::Type,SmsVal::present> present{};
         }
-        }
         ///Supply Monitor Output Status
         enum class SmosVal {
             high=0x00000000,     ///<the supply monitor detected VDDIO higher than its threshold at its last measurement.
@@ -635,7 +584,6 @@ namespace Kvasir {
         namespace SmosValC{
             constexpr Register::FieldValue<decltype(smos)::Type,SmosVal::high> high{};
             constexpr Register::FieldValue<decltype(smos)::Type,SmosVal::low> low{};
-        }
         }
         ///32-kHz Oscillator Selection Status
         enum class OscselVal {
@@ -647,7 +595,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oscsel)::Type,OscselVal::rc> rc{};
             constexpr Register::FieldValue<decltype(oscsel)::Type,OscselVal::cryst> cryst{};
         }
-        }
         ///WKUP Input Status 0
         enum class Wkupis0Val {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
@@ -657,7 +604,6 @@ namespace Kvasir {
         namespace Wkupis0ValC{
             constexpr Register::FieldValue<decltype(wkupis0)::Type,Wkupis0Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis0)::Type,Wkupis0Val::en> en{};
-        }
         }
         ///WKUP Input Status 1
         enum class Wkupis1Val {
@@ -669,7 +615,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupis1)::Type,Wkupis1Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis1)::Type,Wkupis1Val::en> en{};
         }
-        }
         ///WKUP Input Status 2
         enum class Wkupis2Val {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
@@ -679,7 +624,6 @@ namespace Kvasir {
         namespace Wkupis2ValC{
             constexpr Register::FieldValue<decltype(wkupis2)::Type,Wkupis2Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis2)::Type,Wkupis2Val::en> en{};
-        }
         }
         ///WKUP Input Status 3
         enum class Wkupis3Val {
@@ -691,7 +635,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupis3)::Type,Wkupis3Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis3)::Type,Wkupis3Val::en> en{};
         }
-        }
         ///WKUP Input Status 4
         enum class Wkupis4Val {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
@@ -701,7 +644,6 @@ namespace Kvasir {
         namespace Wkupis4ValC{
             constexpr Register::FieldValue<decltype(wkupis4)::Type,Wkupis4Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis4)::Type,Wkupis4Val::en> en{};
-        }
         }
         ///WKUP Input Status 5
         enum class Wkupis5Val {
@@ -713,7 +655,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupis5)::Type,Wkupis5Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis5)::Type,Wkupis5Val::en> en{};
         }
-        }
         ///WKUP Input Status 6
         enum class Wkupis6Val {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
@@ -723,7 +664,6 @@ namespace Kvasir {
         namespace Wkupis6ValC{
             constexpr Register::FieldValue<decltype(wkupis6)::Type,Wkupis6Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis6)::Type,Wkupis6Val::en> en{};
-        }
         }
         ///WKUP Input Status 7
         enum class Wkupis7Val {
@@ -735,7 +675,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupis7)::Type,Wkupis7Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis7)::Type,Wkupis7Val::en> en{};
         }
-        }
         ///WKUP Input Status 8
         enum class Wkupis8Val {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
@@ -745,7 +684,6 @@ namespace Kvasir {
         namespace Wkupis8ValC{
             constexpr Register::FieldValue<decltype(wkupis8)::Type,Wkupis8Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis8)::Type,Wkupis8Val::en> en{};
-        }
         }
         ///WKUP Input Status 9
         enum class Wkupis9Val {
@@ -757,7 +695,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupis9)::Type,Wkupis9Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis9)::Type,Wkupis9Val::en> en{};
         }
-        }
         ///WKUP Input Status 10
         enum class Wkupis10Val {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
@@ -767,7 +704,6 @@ namespace Kvasir {
         namespace Wkupis10ValC{
             constexpr Register::FieldValue<decltype(wkupis10)::Type,Wkupis10Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis10)::Type,Wkupis10Val::en> en{};
-        }
         }
         ///WKUP Input Status 11
         enum class Wkupis11Val {
@@ -779,7 +715,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupis11)::Type,Wkupis11Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis11)::Type,Wkupis11Val::en> en{};
         }
-        }
         ///WKUP Input Status 12
         enum class Wkupis12Val {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
@@ -789,7 +724,6 @@ namespace Kvasir {
         namespace Wkupis12ValC{
             constexpr Register::FieldValue<decltype(wkupis12)::Type,Wkupis12Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis12)::Type,Wkupis12Val::en> en{};
-        }
         }
         ///WKUP Input Status 13
         enum class Wkupis13Val {
@@ -801,7 +735,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupis13)::Type,Wkupis13Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis13)::Type,Wkupis13Val::en> en{};
         }
-        }
         ///WKUP Input Status 14
         enum class Wkupis14Val {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
@@ -812,7 +745,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkupis14)::Type,Wkupis14Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis14)::Type,Wkupis14Val::en> en{};
         }
-        }
         ///WKUP Input Status 15
         enum class Wkupis15Val {
             dis=0x00000000,     ///<the corresponding wake-up input is disabled, or was inactive at the time the debouncer triggered a wake up event.
@@ -822,7 +754,6 @@ namespace Kvasir {
         namespace Wkupis15ValC{
             constexpr Register::FieldValue<decltype(wkupis15)::Type,Wkupis15Val::dis> dis{};
             constexpr Register::FieldValue<decltype(wkupis15)::Type,Wkupis15Val::en> en{};
-        }
         }
     }
 }

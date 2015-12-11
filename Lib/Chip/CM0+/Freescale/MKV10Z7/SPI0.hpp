@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(halt)::Type,HaltVal::v0> v0{};
             constexpr Register::FieldValue<decltype(halt)::Type,HaltVal::v1> v1{};
         }
-        }
         ///Sample Point
         enum class SmplptVal {
             v00=0x00000000,     ///<0 protocol clock cycles between SCK edge and SIN sample
@@ -27,7 +26,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(smplPt)::Type,SmplptVal::v01> v01{};
             constexpr Register::FieldValue<decltype(smplPt)::Type,SmplptVal::v10> v10{};
         }
-        }
         ///CLR_RXF
         enum class ClrrxfVal {
             v0=0x00000000,     ///<Do not clear the RX FIFO counter.
@@ -37,7 +35,6 @@ namespace Kvasir {
         namespace ClrrxfValC{
             constexpr Register::FieldValue<decltype(clrRxf)::Type,ClrrxfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(clrRxf)::Type,ClrrxfVal::v1> v1{};
-        }
         }
         ///Clear TX FIFO
         enum class ClrtxfVal {
@@ -49,7 +46,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrTxf)::Type,ClrtxfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(clrTxf)::Type,ClrtxfVal::v1> v1{};
         }
-        }
         ///Disable Receive FIFO
         enum class DisrxfVal {
             v0=0x00000000,     ///<RX FIFO is enabled.
@@ -59,7 +55,6 @@ namespace Kvasir {
         namespace DisrxfValC{
             constexpr Register::FieldValue<decltype(disRxf)::Type,DisrxfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(disRxf)::Type,DisrxfVal::v1> v1{};
-        }
         }
         ///Disable Transmit FIFO
         enum class DistxfVal {
@@ -71,7 +66,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(disTxf)::Type,DistxfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(disTxf)::Type,DistxfVal::v1> v1{};
         }
-        }
         ///Module Disable
         enum class MdisVal {
             v0=0x00000000,     ///<Enables the module clocks.
@@ -82,7 +76,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mdis)::Type,MdisVal::v0> v0{};
             constexpr Register::FieldValue<decltype(mdis)::Type,MdisVal::v1> v1{};
         }
-        }
         ///Doze Enable
         enum class DozeVal {
             v0=0x00000000,     ///<Doze mode has no effect on the module.
@@ -92,7 +85,6 @@ namespace Kvasir {
         namespace DozeValC{
             constexpr Register::FieldValue<decltype(doze)::Type,DozeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(doze)::Type,DozeVal::v1> v1{};
-        }
         }
         ///Peripheral Chip Select x Inactive State
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> pcsis{}; 
@@ -106,7 +98,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rooe)::Type,RooeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rooe)::Type,RooeVal::v1> v1{};
         }
-        }
         ///Modified Timing Format Enable
         enum class MtfeVal {
             v0=0x00000000,     ///<Modified SPI transfer format disabled.
@@ -116,7 +107,6 @@ namespace Kvasir {
         namespace MtfeValC{
             constexpr Register::FieldValue<decltype(mtfe)::Type,MtfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(mtfe)::Type,MtfeVal::v1> v1{};
-        }
         }
         ///Freeze
         enum class FrzVal {
@@ -128,7 +118,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frz)::Type,FrzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frz)::Type,FrzVal::v1> v1{};
         }
-        }
         ///SPI Configuration.
         enum class DconfVal {
             v00=0x00000000,     ///<SPI
@@ -136,7 +125,6 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,DconfVal> dconf{}; 
         namespace DconfValC{
             constexpr Register::FieldValue<decltype(dconf)::Type,DconfVal::v00> v00{};
-        }
         }
         ///Continuous SCK Enable
         enum class ContsckeVal {
@@ -148,7 +136,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(contScke)::Type,ContsckeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(contScke)::Type,ContsckeVal::v1> v1{};
         }
-        }
         ///Master/Slave Mode Select
         enum class MstrVal {
             v0=0x00000000,     ///<Enables Slave mode
@@ -158,7 +145,6 @@ namespace Kvasir {
         namespace MstrValC{
             constexpr Register::FieldValue<decltype(mstr)::Type,MstrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(mstr)::Type,MstrVal::v1> v1{};
-        }
         }
     }
     namespace Spi0Tcr{    ///<Transfer Count Register
@@ -190,7 +176,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pbr)::Type,PbrVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pbr)::Type,PbrVal::v11> v11{};
         }
-        }
         ///Delay after Transfer Prescaler
         enum class PdtVal {
             v00=0x00000000,     ///<Delay after Transfer Prescaler value is 1.
@@ -204,7 +189,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pdt)::Type,PdtVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pdt)::Type,PdtVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pdt)::Type,PdtVal::v11> v11{};
-        }
         }
         ///After SCK Delay Prescaler
         enum class PascVal {
@@ -220,7 +204,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pasc)::Type,PascVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pasc)::Type,PascVal::v11> v11{};
         }
-        }
         ///PCS to SCK Delay Prescaler
         enum class PcssckVal {
             v00=0x00000000,     ///<PCS to SCK Prescaler value is 1.
@@ -235,7 +218,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pcssck)::Type,PcssckVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pcssck)::Type,PcssckVal::v11> v11{};
         }
-        }
         ///LSB First
         enum class LsbfeVal {
             v0=0x00000000,     ///<Data is transferred MSB first.
@@ -245,7 +227,6 @@ namespace Kvasir {
         namespace LsbfeValC{
             constexpr Register::FieldValue<decltype(lsbfe)::Type,LsbfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lsbfe)::Type,LsbfeVal::v1> v1{};
-        }
         }
         ///Clock Phase
         enum class CphaVal {
@@ -257,7 +238,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::v1> v1{};
         }
-        }
         ///Clock Polarity
         enum class CpolVal {
             v0=0x00000000,     ///<The inactive state value of SCK is low.
@@ -267,7 +247,6 @@ namespace Kvasir {
         namespace CpolValC{
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::v1> v1{};
-        }
         }
         ///Frame Size
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,27),Register::ReadWriteAccess,unsigned> fmsz{}; 
@@ -280,7 +259,6 @@ namespace Kvasir {
         namespace DbrValC{
             constexpr Register::FieldValue<decltype(dbr)::Type,DbrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dbr)::Type,DbrVal::v1> v1{};
-        }
         }
     }
     namespace Spi0Ctar1{    ///<Clock and Transfer Attributes Register (In Master Mode)
@@ -307,7 +285,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pbr)::Type,PbrVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pbr)::Type,PbrVal::v11> v11{};
         }
-        }
         ///Delay after Transfer Prescaler
         enum class PdtVal {
             v00=0x00000000,     ///<Delay after Transfer Prescaler value is 1.
@@ -321,7 +298,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pdt)::Type,PdtVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pdt)::Type,PdtVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pdt)::Type,PdtVal::v11> v11{};
-        }
         }
         ///After SCK Delay Prescaler
         enum class PascVal {
@@ -337,7 +313,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pasc)::Type,PascVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pasc)::Type,PascVal::v11> v11{};
         }
-        }
         ///PCS to SCK Delay Prescaler
         enum class PcssckVal {
             v00=0x00000000,     ///<PCS to SCK Prescaler value is 1.
@@ -352,7 +327,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pcssck)::Type,PcssckVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pcssck)::Type,PcssckVal::v11> v11{};
         }
-        }
         ///LSB First
         enum class LsbfeVal {
             v0=0x00000000,     ///<Data is transferred MSB first.
@@ -362,7 +336,6 @@ namespace Kvasir {
         namespace LsbfeValC{
             constexpr Register::FieldValue<decltype(lsbfe)::Type,LsbfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lsbfe)::Type,LsbfeVal::v1> v1{};
-        }
         }
         ///Clock Phase
         enum class CphaVal {
@@ -374,7 +347,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::v1> v1{};
         }
-        }
         ///Clock Polarity
         enum class CpolVal {
             v0=0x00000000,     ///<The inactive state value of SCK is low.
@@ -384,7 +356,6 @@ namespace Kvasir {
         namespace CpolValC{
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::v1> v1{};
-        }
         }
         ///Frame Size
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,27),Register::ReadWriteAccess,unsigned> fmsz{}; 
@@ -397,7 +368,6 @@ namespace Kvasir {
         namespace DbrValC{
             constexpr Register::FieldValue<decltype(dbr)::Type,DbrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dbr)::Type,DbrVal::v1> v1{};
-        }
         }
     }
     namespace Spi0CtarSlave{    ///<Clock and Transfer Attributes Register (In Slave Mode)
@@ -412,7 +382,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::v1> v1{};
         }
-        }
         ///Clock Polarity
         enum class CpolVal {
             v0=0x00000000,     ///<The inactive state value of SCK is low.
@@ -422,7 +391,6 @@ namespace Kvasir {
         namespace CpolValC{
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::v1> v1{};
-        }
         }
         ///Frame Size
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,27),Register::ReadWriteAccess,unsigned> fmsz{}; 
@@ -447,7 +415,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rfdf)::Type,RfdfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rfdf)::Type,RfdfVal::v1> v1{};
         }
-        }
         ///Receive FIFO Overflow Flag
         enum class RfofVal {
             v0=0x00000000,     ///<No Rx FIFO overflow.
@@ -457,7 +424,6 @@ namespace Kvasir {
         namespace RfofValC{
             constexpr Register::FieldValue<decltype(rfof)::Type,RfofVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rfof)::Type,RfofVal::v1> v1{};
-        }
         }
         ///Transmit FIFO Fill Flag
         enum class TfffVal {
@@ -469,7 +435,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tfff)::Type,TfffVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tfff)::Type,TfffVal::v1> v1{};
         }
-        }
         ///Transmit FIFO Underflow Flag
         enum class TfufVal {
             v0=0x00000000,     ///<No TX FIFO underflow.
@@ -479,7 +444,6 @@ namespace Kvasir {
         namespace TfufValC{
             constexpr Register::FieldValue<decltype(tfuf)::Type,TfufVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tfuf)::Type,TfufVal::v1> v1{};
-        }
         }
         ///End of Queue Flag
         enum class EoqfVal {
@@ -491,7 +455,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eoqf)::Type,EoqfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(eoqf)::Type,EoqfVal::v1> v1{};
         }
-        }
         ///TX and RX Status
         enum class TxrxsVal {
             v0=0x00000000,     ///<Transmit and receive operations are disabled (The module is in Stopped state).
@@ -502,7 +465,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txrxs)::Type,TxrxsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txrxs)::Type,TxrxsVal::v1> v1{};
         }
-        }
         ///Transfer Complete Flag
         enum class TcfVal {
             v0=0x00000000,     ///<Transfer not complete.
@@ -512,7 +474,6 @@ namespace Kvasir {
         namespace TcfValC{
             constexpr Register::FieldValue<decltype(tcf)::Type,TcfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tcf)::Type,TcfVal::v1> v1{};
-        }
         }
     }
     namespace Spi0Rser{    ///<DMA/Interrupt Request Select and Enable Register
@@ -527,7 +488,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rfdfDirs)::Type,RfdfdirsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rfdfDirs)::Type,RfdfdirsVal::v1> v1{};
         }
-        }
         ///Receive FIFO Drain Request Enable
         enum class RfdfreVal {
             v0=0x00000000,     ///<RFDF interrupt or DMA requests are disabled.
@@ -537,7 +497,6 @@ namespace Kvasir {
         namespace RfdfreValC{
             constexpr Register::FieldValue<decltype(rfdfRe)::Type,RfdfreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rfdfRe)::Type,RfdfreVal::v1> v1{};
-        }
         }
         ///Receive FIFO Overflow Request Enable
         enum class RfofreVal {
@@ -549,7 +508,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rfofRe)::Type,RfofreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rfofRe)::Type,RfofreVal::v1> v1{};
         }
-        }
         ///Transmit FIFO Fill DMA or Interrupt Request Select
         enum class TfffdirsVal {
             v0=0x00000000,     ///<TFFF flag generates interrupt requests.
@@ -559,7 +517,6 @@ namespace Kvasir {
         namespace TfffdirsValC{
             constexpr Register::FieldValue<decltype(tfffDirs)::Type,TfffdirsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tfffDirs)::Type,TfffdirsVal::v1> v1{};
-        }
         }
         ///Transmit FIFO Fill Request Enable
         enum class TfffreVal {
@@ -571,7 +528,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tfffRe)::Type,TfffreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tfffRe)::Type,TfffreVal::v1> v1{};
         }
-        }
         ///Transmit FIFO Underflow Request Enable
         enum class TfufreVal {
             v0=0x00000000,     ///<TFUF interrupt requests are disabled.
@@ -581,7 +537,6 @@ namespace Kvasir {
         namespace TfufreValC{
             constexpr Register::FieldValue<decltype(tfufRe)::Type,TfufreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tfufRe)::Type,TfufreVal::v1> v1{};
-        }
         }
         ///Finished Request Enable
         enum class EoqfreVal {
@@ -593,7 +548,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eoqfRe)::Type,EoqfreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(eoqfRe)::Type,EoqfreVal::v1> v1{};
         }
-        }
         ///Transmission Complete Request Enable
         enum class TcfreVal {
             v0=0x00000000,     ///<TCF interrupt requests are disabled.
@@ -603,7 +557,6 @@ namespace Kvasir {
         namespace TcfreValC{
             constexpr Register::FieldValue<decltype(tcfRe)::Type,TcfreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tcfRe)::Type,TcfreVal::v1> v1{};
-        }
         }
     }
     namespace Spi0Pushr{    ///<PUSH TX FIFO Register In Master Mode
@@ -622,7 +575,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ctcnt)::Type,CtcntVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ctcnt)::Type,CtcntVal::v1> v1{};
         }
-        }
         ///End Of Queue
         enum class EoqVal {
             v0=0x00000000,     ///<The SPI data is not the last data to transfer.
@@ -632,7 +584,6 @@ namespace Kvasir {
         namespace EoqValC{
             constexpr Register::FieldValue<decltype(eoq)::Type,EoqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(eoq)::Type,EoqVal::v1> v1{};
-        }
         }
         ///Clock and Transfer Attributes Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,28),Register::ReadWriteAccess,unsigned> ctas{}; 
@@ -645,7 +596,6 @@ namespace Kvasir {
         namespace ContValC{
             constexpr Register::FieldValue<decltype(cont)::Type,ContVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cont)::Type,ContVal::v1> v1{};
-        }
         }
     }
     namespace Spi0PushrSlave{    ///<PUSH TX FIFO Register In Slave Mode

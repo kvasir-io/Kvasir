@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(avlp)::Type,AvlpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(avlp)::Type,AvlpVal::v1> v1{};
         }
-        }
     }
     namespace SmcPmctrl{    ///<SMC Power Mode Control Register
         using Addr = Register::Address<0x40056001,0xfffffff0,0,unsigned char>;
@@ -30,7 +29,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopa)::Type,StopaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(stopa)::Type,StopaVal::v1> v1{};
         }
-        }
     }
     namespace SmcPmstat{    ///<SMC Power Mode Status Register
         using Addr = Register::Address<0x40056003,0xffffffec,0,unsigned char>;
@@ -44,7 +42,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(run)::Type,RunVal::v0> v0{};
             constexpr Register::FieldValue<decltype(run)::Type,RunVal::v1> v1{};
         }
-        }
         ///Current Power mode is STOP
         enum class StopVal {
             v0=0x00000000,     ///<Current Power mode is not stop.
@@ -55,7 +52,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stop)::Type,StopVal::v0> v0{};
             constexpr Register::FieldValue<decltype(stop)::Type,StopVal::v1> v1{};
         }
-        }
         ///Current Power mode is VLPS
         enum class VlpsVal {
             v0=0x00000000,     ///<Current Power mode is not VLPS.
@@ -65,7 +61,6 @@ namespace Kvasir {
         namespace VlpsValC{
             constexpr Register::FieldValue<decltype(vlps)::Type,VlpsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(vlps)::Type,VlpsVal::v1> v1{};
-        }
         }
     }
 }

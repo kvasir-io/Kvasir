@@ -47,7 +47,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ctsStartrx)::Type,CtsstartrxVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ctsStartrx)::Type,CtsstartrxVal::enabled> enabled{};
         }
-        }
         ///Shortcut between NCTS event and STOPRX task.
         enum class NctsstoprxVal {
             disabled=0x00000000,     ///<Shortcut disabled.
@@ -57,7 +56,6 @@ namespace Kvasir {
         namespace NctsstoprxValC{
             constexpr Register::FieldValue<decltype(nctsStoprx)::Type,NctsstoprxVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(nctsStoprx)::Type,NctsstoprxVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneintenset{    ///<Interrupt enable set register.
@@ -74,7 +72,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cts)::Type,CtsVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(cts)::Type,CtsVal::set> set{};
         }
-        }
         ///Enable interrupt on NCTS event.
         enum class NctsVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -86,7 +83,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ncts)::Type,NctsVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ncts)::Type,NctsVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ncts)::Type,NctsVal::set> set{};
-        }
         }
         ///Enable interrupt on RXRDY event.
         enum class RxdrdyVal {
@@ -100,7 +96,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxdrdy)::Type,RxdrdyVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(rxdrdy)::Type,RxdrdyVal::set> set{};
         }
-        }
         ///Enable interrupt on TXRDY event.
         enum class TxdrdyVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -112,7 +107,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txdrdy)::Type,TxdrdyVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(txdrdy)::Type,TxdrdyVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(txdrdy)::Type,TxdrdyVal::set> set{};
-        }
         }
         ///Enable interrupt on ERROR event.
         enum class ErrorVal {
@@ -126,7 +120,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::set> set{};
         }
-        }
         ///Enable interrupt on RXTO event.
         enum class RxtoVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -138,7 +131,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxto)::Type,RxtoVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rxto)::Type,RxtoVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(rxto)::Type,RxtoVal::set> set{};
-        }
         }
     }
     namespace Noneintenclr{    ///<Interrupt enable clear register.
@@ -155,7 +147,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cts)::Type,CtsVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(cts)::Type,CtsVal::clear> clear{};
         }
-        }
         ///Disable interrupt on NCTS event.
         enum class NctsVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -167,7 +158,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ncts)::Type,NctsVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ncts)::Type,NctsVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ncts)::Type,NctsVal::clear> clear{};
-        }
         }
         ///Disable interrupt on RXRDY event.
         enum class RxdrdyVal {
@@ -181,7 +171,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxdrdy)::Type,RxdrdyVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(rxdrdy)::Type,RxdrdyVal::clear> clear{};
         }
-        }
         ///Disable interrupt on TXRDY event.
         enum class TxdrdyVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -193,7 +182,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txdrdy)::Type,TxdrdyVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(txdrdy)::Type,TxdrdyVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(txdrdy)::Type,TxdrdyVal::clear> clear{};
-        }
         }
         ///Disable interrupt on ERROR event.
         enum class ErrorVal {
@@ -207,7 +195,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::clear> clear{};
         }
-        }
         ///Disable interrupt on RXTO event.
         enum class RxtoVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -219,7 +206,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxto)::Type,RxtoVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rxto)::Type,RxtoVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(rxto)::Type,RxtoVal::clear> clear{};
-        }
         }
     }
     namespace Noneerrorsrc{    ///<Error source. Write error field to 1 to clear error.
@@ -236,7 +222,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(overrun)::Type,OverrunVal::present> present{};
             constexpr Register::FieldValue<decltype(overrun)::Type,OverrunVal::clear> clear{};
         }
-        }
         ///A character with bad parity is received. Only checked if HW parity control is enabled.
         enum class ParityVal {
             notpresent=0x00000000,     ///<Error not present.
@@ -248,7 +233,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(parity)::Type,ParityVal::notpresent> notpresent{};
             constexpr Register::FieldValue<decltype(parity)::Type,ParityVal::present> present{};
             constexpr Register::FieldValue<decltype(parity)::Type,ParityVal::clear> clear{};
-        }
         }
         ///A valid stop bit is not detected on the serial data input after all bits in a character have been received.
         enum class FramingVal {
@@ -262,7 +246,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(framing)::Type,FramingVal::present> present{};
             constexpr Register::FieldValue<decltype(framing)::Type,FramingVal::clear> clear{};
         }
-        }
         ///The serial data input is '0' for longer than the length of a data frame.
         enum class Break_Val {
             notpresent=0x00000000,     ///<Error not present.
@@ -274,7 +257,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(break_)::Type,Break_Val::notpresent> notpresent{};
             constexpr Register::FieldValue<decltype(break_)::Type,Break_Val::present> present{};
             constexpr Register::FieldValue<decltype(break_)::Type,Break_Val::clear> clear{};
-        }
         }
     }
     namespace Noneenable{    ///<Enable UART and acquire IOs.
@@ -344,7 +326,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(baudrate)::Type,BaudrateVal::baud921600> baud921600{};
             constexpr Register::FieldValue<decltype(baudrate)::Type,BaudrateVal::baud1m> baud1m{};
         }
-        }
     }
     namespace Noneconfig{    ///<Configuration of parity and hardware flow control register.
         using Addr = Register::Address<0x4000256c,0xfffffff0,0,unsigned>;
@@ -357,7 +338,6 @@ namespace Kvasir {
         namespace HwfcValC{
             constexpr Register::FieldValue<decltype(hwfc)::Type,HwfcVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwfc)::Type,HwfcVal::enabled> enabled{};
-        }
         }
         ///Include parity bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,1),Register::ReadWriteAccess,unsigned> parity{}; 
@@ -373,7 +353,6 @@ namespace Kvasir {
         namespace PowerValC{
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::enabled> enabled{};
-        }
         }
     }
 }

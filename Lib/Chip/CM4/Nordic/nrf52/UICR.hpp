@@ -323,7 +323,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(connect)::Type,ConnectVal::disconnected> disconnected{};
             constexpr Register::FieldValue<decltype(connect)::Type,ConnectVal::connected> connected{};
         }
-        }
     }
     namespace Nonepselreset1{    ///<Description collection[0]:  Mapping of the nRESET function (see POWER chapter for details)
         using Addr = Register::Address<0x10001204,0x7fffffe0,0,unsigned>;
@@ -338,7 +337,6 @@ namespace Kvasir {
         namespace ConnectValC{
             constexpr Register::FieldValue<decltype(connect)::Type,ConnectVal::disconnected> disconnected{};
             constexpr Register::FieldValue<decltype(connect)::Type,ConnectVal::connected> connected{};
-        }
         }
     }
     namespace Noneapprotect{    ///<Access port protection
@@ -357,7 +355,6 @@ namespace Kvasir {
         namespace ProtectValC{
             constexpr Register::FieldValue<decltype(protect)::Type,ProtectVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(protect)::Type,ProtectVal::nfc> nfc{};
-        }
         }
     }
 }

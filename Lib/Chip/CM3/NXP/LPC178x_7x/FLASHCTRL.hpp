@@ -21,7 +21,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sigStart)::Type,SigstartVal::stop> stop{};
             constexpr Register::FieldValue<decltype(sigStart)::Type,SigstartVal::start> start{};
         }
-        }
     }
     namespace Nonefmsw0{    ///<128-bit signature Word 0
         using Addr = Register::Address<0x0020002c,0x00000000,0,unsigned>;

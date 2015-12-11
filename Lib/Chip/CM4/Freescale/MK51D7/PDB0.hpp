@@ -16,7 +16,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cont)::Type,ContVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cont)::Type,ContVal::v1> v1{};
         }
-        }
         ///Multiplication Factor Select for Prescaler
         enum class MultVal {
             v00=0x00000000,     ///<Multiplication factor is 1
@@ -31,7 +30,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mult)::Type,MultVal::v10> v10{};
             constexpr Register::FieldValue<decltype(mult)::Type,MultVal::v11> v11{};
         }
-        }
         ///PDB Interrupt Enable.
         enum class PdbieVal {
             v0=0x00000000,     ///<PDB interrupt disabled
@@ -41,7 +39,6 @@ namespace Kvasir {
         namespace PdbieValC{
             constexpr Register::FieldValue<decltype(pdbie)::Type,PdbieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pdbie)::Type,PdbieVal::v1> v1{};
-        }
         }
         ///PDB Interrupt Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> pdbif{}; 
@@ -54,7 +51,6 @@ namespace Kvasir {
         namespace PdbenValC{
             constexpr Register::FieldValue<decltype(pdben)::Type,PdbenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pdben)::Type,PdbenVal::v1> v1{};
-        }
         }
         ///Trigger Input Source Select
         enum class TrgselVal {
@@ -94,7 +90,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trgsel)::Type,TrgselVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(trgsel)::Type,TrgselVal::v1111> v1111{};
         }
-        }
         ///Prescaler Divider Select
         enum class PrescalerVal {
             v000=0x00000000,     ///<Counting uses the peripheral clock divided by multiplication factor selected by MULT.
@@ -117,7 +112,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prescaler)::Type,PrescalerVal::v110> v110{};
             constexpr Register::FieldValue<decltype(prescaler)::Type,PrescalerVal::v111> v111{};
         }
-        }
         ///DMA Enable
         enum class DmaenVal {
             v0=0x00000000,     ///<DMA disabled
@@ -127,7 +121,6 @@ namespace Kvasir {
         namespace DmaenValC{
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v1> v1{};
-        }
         }
         ///Software Trigger
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> swtrig{}; 
@@ -140,7 +133,6 @@ namespace Kvasir {
         namespace PdbeieValC{
             constexpr Register::FieldValue<decltype(pdbeie)::Type,PdbeieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pdbeie)::Type,PdbeieVal::v1> v1{};
-        }
         }
         ///Load Mode Select
         enum class LdmodVal {
@@ -155,7 +147,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ldmod)::Type,LdmodVal::v01> v01{};
             constexpr Register::FieldValue<decltype(ldmod)::Type,LdmodVal::v10> v10{};
             constexpr Register::FieldValue<decltype(ldmod)::Type,LdmodVal::v11> v11{};
-        }
         }
     }
     namespace Pdb0Mod{    ///<Modulus Register
@@ -237,7 +228,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(toe)::Type,ToeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(toe)::Type,ToeVal::v1> v1{};
         }
-        }
         ///DAC External Trigger Input Enable
         enum class ExtVal {
             v0=0x00000000,     ///<DAC external trigger input disabled. DAC interval counter is reset and started counting when a rising edge is detected on selected trigger input source or software trigger is selected and SWTRIG is written with 1.
@@ -247,7 +237,6 @@ namespace Kvasir {
         namespace ExtValC{
             constexpr Register::FieldValue<decltype(ext)::Type,ExtVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ext)::Type,ExtVal::v1> v1{};
-        }
         }
     }
     namespace Pdb0Dacint{    ///<DAC Interval n Register

@@ -57,7 +57,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usartMode)::Type,UsartmodeVal::is07816T1> is07816T1{};
             constexpr Register::FieldValue<decltype(usartMode)::Type,UsartmodeVal::irda> irda{};
         }
-        }
         ///Clock Selection
         enum class UsclksVal {
             mck=0x00000000,     ///<Master Clock MCK is selected
@@ -69,7 +68,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usclks)::Type,UsclksVal::mck> mck{};
             constexpr Register::FieldValue<decltype(usclks)::Type,UsclksVal::div> div{};
             constexpr Register::FieldValue<decltype(usclks)::Type,UsclksVal::sck> sck{};
-        }
         }
         ///Character Length.
         enum class ChrlVal {
@@ -84,7 +82,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chrl)::Type,ChrlVal::v6Bit> v6Bit{};
             constexpr Register::FieldValue<decltype(chrl)::Type,ChrlVal::v7Bit> v7Bit{};
             constexpr Register::FieldValue<decltype(chrl)::Type,ChrlVal::v8Bit> v8Bit{};
-        }
         }
         ///Synchronous Mode Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> sync{}; 
@@ -106,7 +103,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(par)::Type,ParVal::no> no{};
             constexpr Register::FieldValue<decltype(par)::Type,ParVal::multidrop> multidrop{};
         }
-        }
         ///Number of Stop Bits
         enum class NbstopVal {
             v1Bit=0x00000000,     ///<1 stop bit
@@ -118,7 +114,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbstop)::Type,NbstopVal::v1Bit> v1Bit{};
             constexpr Register::FieldValue<decltype(nbstop)::Type,NbstopVal::v15Bit> v15Bit{};
             constexpr Register::FieldValue<decltype(nbstop)::Type,NbstopVal::v2Bit> v2Bit{};
-        }
         }
         ///Channel Mode
         enum class ChmodeVal {
@@ -133,7 +128,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chmode)::Type,ChmodeVal::automatic> automatic{};
             constexpr Register::FieldValue<decltype(chmode)::Type,ChmodeVal::localLoopback> localLoopback{};
             constexpr Register::FieldValue<decltype(chmode)::Type,ChmodeVal::remoteLoopback> remoteLoopback{};
-        }
         }
         ///Bit Order
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> msbf{}; 
@@ -360,7 +354,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txPp)::Type,TxppVal::zeroOne> zeroOne{};
             constexpr Register::FieldValue<decltype(txPp)::Type,TxppVal::oneZero> oneZero{};
         }
-        }
         ///Transmitter Manchester Polarity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> txMpol{}; 
         ///Receiver Preamble Length
@@ -378,7 +371,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxPp)::Type,RxppVal::allZero> allZero{};
             constexpr Register::FieldValue<decltype(rxPp)::Type,RxppVal::zeroOne> zeroOne{};
             constexpr Register::FieldValue<decltype(rxPp)::Type,RxppVal::oneZero> oneZero{};
-        }
         }
         ///Receiver Manchester Polarity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> rxMpol{}; 

@@ -36,7 +36,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pbpuen)::Type,PbpuenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pbpuen)::Type,PbpuenVal::enabled> enabled{};
         }
-        }
     }
     namespace Nonepm{    ///<Port Match Value
         using Addr = Register::Address<0x4002a370,0xffff0000,0,unsigned>;

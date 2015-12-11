@@ -16,7 +16,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bias)::Type,BiasVal::fast> fast{};
             constexpr Register::FieldValue<decltype(bias)::Type,BiasVal::slow> slow{};
         }
-        }
     }
     namespace Nonectrl{    ///<DAC Control register. This register controls DMA and timer operation.
         using Addr = Register::Address<0x4008c004,0xfffffff0,0,unsigned>;
@@ -30,7 +29,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intDmaReq)::Type,IntdmareqVal::clearOnAnyWriteT> clearOnAnyWriteT{};
             constexpr Register::FieldValue<decltype(intDmaReq)::Type,IntdmareqVal::setByHardwareWhen> setByHardwareWhen{};
         }
-        }
         ///Double buffering
         enum class DblbufenaVal {
             disable=0x00000000,     ///<Disable
@@ -40,7 +38,6 @@ namespace Kvasir {
         namespace DblbufenaValC{
             constexpr Register::FieldValue<decltype(dblbufEna)::Type,DblbufenaVal::disable> disable{};
             constexpr Register::FieldValue<decltype(dblbufEna)::Type,DblbufenaVal::enableWhenThisBi> enableWhenThisBi{};
-        }
         }
         ///Time-out counter operation
         enum class CntenaVal {
@@ -52,7 +49,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cntEna)::Type,CntenaVal::disable> disable{};
             constexpr Register::FieldValue<decltype(cntEna)::Type,CntenaVal::enable> enable{};
         }
-        }
         ///DMA access
         enum class DmaenaVal {
             disable=0x00000000,     ///<Disable
@@ -62,7 +58,6 @@ namespace Kvasir {
         namespace DmaenaValC{
             constexpr Register::FieldValue<decltype(dmaEna)::Type,DmaenaVal::disable> disable{};
             constexpr Register::FieldValue<decltype(dmaEna)::Type,DmaenaVal::enableDmaBurstRe> enableDmaBurstRe{};
-        }
         }
     }
     namespace Nonecntval{    ///<DAC Counter Value register. This register contains the reload value for the DAC DMA/Interrupt timer.

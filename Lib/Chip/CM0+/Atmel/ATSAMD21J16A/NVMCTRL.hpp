@@ -41,7 +41,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmd)::Type,CmdVal::ssb> ssb{};
             constexpr Register::FieldValue<decltype(cmd)::Type,CmdVal::invall> invall{};
         }
-        }
         ///Command Execution
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> cmdex{}; 
     }
@@ -63,7 +62,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sleepprm)::Type,SleepprmVal::wakeupinstant> wakeupinstant{};
             constexpr Register::FieldValue<decltype(sleepprm)::Type,SleepprmVal::disabled> disabled{};
         }
-        }
         ///NVMCTRL Read Mode
         enum class ReadmodeVal {
             noMissPenalty=0x00000000,     ///<The NVM Controller (cache system) does not insert wait states on a cache miss. Gives the best system performance.
@@ -75,7 +73,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(readmode)::Type,ReadmodeVal::noMissPenalty> noMissPenalty{};
             constexpr Register::FieldValue<decltype(readmode)::Type,ReadmodeVal::lowPower> lowPower{};
             constexpr Register::FieldValue<decltype(readmode)::Type,ReadmodeVal::deterministic> deterministic{};
-        }
         }
         ///Cache Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> cachedis{}; 
@@ -131,7 +128,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psz)::Type,PszVal::v256> v256{};
             constexpr Register::FieldValue<decltype(psz)::Type,PszVal::v512> v512{};
             constexpr Register::FieldValue<decltype(psz)::Type,PszVal::v1024> v1024{};
-        }
         }
     }
     namespace NvmctrlStatus{    ///<Status

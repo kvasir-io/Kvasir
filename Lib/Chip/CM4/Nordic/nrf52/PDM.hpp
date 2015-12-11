@@ -29,7 +29,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::enabled> enabled{};
         }
-        }
         ///Enable or disable interrupt on EVENTS_STOPPED event
         enum class StoppedVal {
             disabled=0x00000000,     ///<Disable
@@ -40,7 +39,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::enabled> enabled{};
         }
-        }
         ///Enable or disable interrupt on EVENTS_END event
         enum class EndVal {
             disabled=0x00000000,     ///<Disable
@@ -50,7 +48,6 @@ namespace Kvasir {
         namespace EndValC{
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneintenset{    ///<Enable interrupt
@@ -67,7 +64,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_STOPPED event
         enum class StoppedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -80,7 +76,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_END event
         enum class EndVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -92,7 +87,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::set> set{};
-        }
         }
     }
     namespace Noneintenclr{    ///<Disable interrupt
@@ -109,7 +103,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(started)::Type,StartedVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_STOPPED event
         enum class StoppedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -121,7 +114,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_END event
         enum class EndVal {
@@ -135,7 +127,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::clear> clear{};
         }
-        }
     }
     namespace Noneenable{    ///<PDM module enable register
         using Addr = Register::Address<0x4001d500,0xfffffffe,0,unsigned>;
@@ -148,7 +139,6 @@ namespace Kvasir {
         namespace EnableValC{
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonepdmclkctrl{    ///<PDM clock generator control
@@ -168,7 +158,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mono)::Type,MonoVal::stereo> stereo{};
             constexpr Register::FieldValue<decltype(mono)::Type,MonoVal::mono> mono{};
         }
-        }
         ///Defines on which PDM_CLK edge Left (or mono) is sampled
         enum class EdgeVal {
             leftfalling=0x00000000,     ///<Left (or mono) is sampled on falling edge of PDM_CLK
@@ -178,7 +167,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::leftfalling> leftfalling{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::leftrising> leftrising{};
-        }
         }
     }
     namespace Nonegainl{    ///<Left output gain adjustment

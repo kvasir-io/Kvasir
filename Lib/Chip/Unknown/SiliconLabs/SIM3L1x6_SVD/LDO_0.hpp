@@ -16,7 +16,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aldobsel)::Type,AldobselVal::low> low{};
             constexpr Register::FieldValue<decltype(aldobsel)::Type,AldobselVal::high> high{};
         }
-        }
         ///Analog LDO Source Select. 
         enum class AldosselVal {
             vbat=0x00000000,     ///<Select the VBAT pin as the input voltage to the analog LDO.
@@ -26,7 +25,6 @@ namespace Kvasir {
         namespace AldosselValC{
             constexpr Register::FieldValue<decltype(aldossel)::Type,AldosselVal::vbat> vbat{};
             constexpr Register::FieldValue<decltype(aldossel)::Type,AldosselVal::dcdc> dcdc{};
-        }
         }
         ///Memory LDO Output Value Select. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> mldooval{}; 
@@ -40,7 +38,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mldobsel)::Type,MldobselVal::low> low{};
             constexpr Register::FieldValue<decltype(mldobsel)::Type,MldobselVal::high> high{};
         }
-        }
         ///Memory LDO Source Select. 
         enum class MldosselVal {
             vbat=0x00000000,     ///<Select the VBAT pin as the input voltage to the memory LDO.
@@ -50,7 +47,6 @@ namespace Kvasir {
         namespace MldosselValC{
             constexpr Register::FieldValue<decltype(mldossel)::Type,MldosselVal::vbat> vbat{};
             constexpr Register::FieldValue<decltype(mldossel)::Type,MldosselVal::dcdc> dcdc{};
-        }
         }
         ///Digital LDO Output Value Select. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> dldooval{}; 
@@ -64,7 +60,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dldobsel)::Type,DldobselVal::low> low{};
             constexpr Register::FieldValue<decltype(dldobsel)::Type,DldobselVal::high> high{};
         }
-        }
         ///Digital LDO Source Select. 
         enum class DldosselVal {
             vbat=0x00000000,     ///<Select the VBAT pin as the input voltage to the digital LDO.
@@ -74,7 +69,6 @@ namespace Kvasir {
         namespace DldosselValC{
             constexpr Register::FieldValue<decltype(dldossel)::Type,DldosselVal::vbat> vbat{};
             constexpr Register::FieldValue<decltype(dldossel)::Type,DldosselVal::dcdc> dcdc{};
-        }
         }
     }
 }

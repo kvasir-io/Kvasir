@@ -18,7 +18,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pagesize)::Type,PagesizeVal::ps204864> ps204864{};
             constexpr Register::FieldValue<decltype(pagesize)::Type,PagesizeVal::ps4096128> ps4096128{};
         }
-        }
         ///Write Spare Area
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> wspare{}; 
         ///Read Spare Area
@@ -50,7 +49,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtomul)::Type,DtomulVal::x4096> x4096{};
             constexpr Register::FieldValue<decltype(dtomul)::Type,DtomulVal::x65536> x65536{};
             constexpr Register::FieldValue<decltype(dtomul)::Type,DtomulVal::x1048576> x1048576{};
-        }
         }
     }
     namespace SmcCtrl{    ///<SMC NFC Control Register
@@ -185,7 +183,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eccPagesize)::Type,EccpagesizeVal::ps204864> ps204864{};
             constexpr Register::FieldValue<decltype(eccPagesize)::Type,EccpagesizeVal::ps4096128> ps4096128{};
         }
-        }
         ///Type of Correction
         enum class TypcorrecVal {
             cpage=0x00000000,     ///<1 bit correction for a page of 512/1024/2048/4096 Bytes  (for 8 or 16-bit NAND Flash)
@@ -197,7 +194,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(typcorrec)::Type,TypcorrecVal::cpage> cpage{};
             constexpr Register::FieldValue<decltype(typcorrec)::Type,TypcorrecVal::c256b> c256b{};
             constexpr Register::FieldValue<decltype(typcorrec)::Type,TypcorrecVal::c512b> c512b{};
-        }
         }
     }
     namespace SmcEccSr1{    ///<SMC ECC Status 1 Register
@@ -570,7 +566,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(readMode)::Type,ReadmodeVal::ncsCtrl> ncsCtrl{};
             constexpr Register::FieldValue<decltype(readMode)::Type,ReadmodeVal::nrdCtrl> nrdCtrl{};
         }
-        }
         ///None
         enum class WritemodeVal {
             ncsCtrl=0x00000000,     ///<The Write operation is controller by the NCS signal.
@@ -580,7 +575,6 @@ namespace Kvasir {
         namespace WritemodeValC{
             constexpr Register::FieldValue<decltype(writeMode)::Type,WritemodeVal::ncsCtrl> ncsCtrl{};
             constexpr Register::FieldValue<decltype(writeMode)::Type,WritemodeVal::nweCtrl> nweCtrl{};
-        }
         }
         ///NWAIT Mode
         enum class ExnwmodeVal {
@@ -594,7 +588,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(exnwMode)::Type,ExnwmodeVal::frozen> frozen{};
             constexpr Register::FieldValue<decltype(exnwMode)::Type,ExnwmodeVal::ready> ready{};
         }
-        }
         ///Byte Access Type
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> bat{}; 
         ///Data Bus Width
@@ -606,7 +599,6 @@ namespace Kvasir {
         namespace DbwValC{
             constexpr Register::FieldValue<decltype(dbw)::Type,DbwVal::bit8> bit8{};
             constexpr Register::FieldValue<decltype(dbw)::Type,DbwVal::bit16> bit16{};
-        }
         }
         ///Data Float Time
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> tdfCycles{}; 
@@ -673,7 +665,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(readMode)::Type,ReadmodeVal::ncsCtrl> ncsCtrl{};
             constexpr Register::FieldValue<decltype(readMode)::Type,ReadmodeVal::nrdCtrl> nrdCtrl{};
         }
-        }
         ///None
         enum class WritemodeVal {
             ncsCtrl=0x00000000,     ///<The Write operation is controller by the NCS signal.
@@ -683,7 +674,6 @@ namespace Kvasir {
         namespace WritemodeValC{
             constexpr Register::FieldValue<decltype(writeMode)::Type,WritemodeVal::ncsCtrl> ncsCtrl{};
             constexpr Register::FieldValue<decltype(writeMode)::Type,WritemodeVal::nweCtrl> nweCtrl{};
-        }
         }
         ///NWAIT Mode
         enum class ExnwmodeVal {
@@ -697,7 +687,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(exnwMode)::Type,ExnwmodeVal::frozen> frozen{};
             constexpr Register::FieldValue<decltype(exnwMode)::Type,ExnwmodeVal::ready> ready{};
         }
-        }
         ///Byte Access Type
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> bat{}; 
         ///Data Bus Width
@@ -709,7 +698,6 @@ namespace Kvasir {
         namespace DbwValC{
             constexpr Register::FieldValue<decltype(dbw)::Type,DbwVal::bit8> bit8{};
             constexpr Register::FieldValue<decltype(dbw)::Type,DbwVal::bit16> bit16{};
-        }
         }
         ///Data Float Time
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> tdfCycles{}; 
@@ -776,7 +764,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(readMode)::Type,ReadmodeVal::ncsCtrl> ncsCtrl{};
             constexpr Register::FieldValue<decltype(readMode)::Type,ReadmodeVal::nrdCtrl> nrdCtrl{};
         }
-        }
         ///None
         enum class WritemodeVal {
             ncsCtrl=0x00000000,     ///<The Write operation is controller by the NCS signal.
@@ -786,7 +773,6 @@ namespace Kvasir {
         namespace WritemodeValC{
             constexpr Register::FieldValue<decltype(writeMode)::Type,WritemodeVal::ncsCtrl> ncsCtrl{};
             constexpr Register::FieldValue<decltype(writeMode)::Type,WritemodeVal::nweCtrl> nweCtrl{};
-        }
         }
         ///NWAIT Mode
         enum class ExnwmodeVal {
@@ -800,7 +786,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(exnwMode)::Type,ExnwmodeVal::frozen> frozen{};
             constexpr Register::FieldValue<decltype(exnwMode)::Type,ExnwmodeVal::ready> ready{};
         }
-        }
         ///Byte Access Type
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> bat{}; 
         ///Data Bus Width
@@ -812,7 +797,6 @@ namespace Kvasir {
         namespace DbwValC{
             constexpr Register::FieldValue<decltype(dbw)::Type,DbwVal::bit8> bit8{};
             constexpr Register::FieldValue<decltype(dbw)::Type,DbwVal::bit16> bit16{};
-        }
         }
         ///Data Float Time
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> tdfCycles{}; 
@@ -879,7 +863,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(readMode)::Type,ReadmodeVal::ncsCtrl> ncsCtrl{};
             constexpr Register::FieldValue<decltype(readMode)::Type,ReadmodeVal::nrdCtrl> nrdCtrl{};
         }
-        }
         ///None
         enum class WritemodeVal {
             ncsCtrl=0x00000000,     ///<The Write operation is controller by the NCS signal.
@@ -889,7 +872,6 @@ namespace Kvasir {
         namespace WritemodeValC{
             constexpr Register::FieldValue<decltype(writeMode)::Type,WritemodeVal::ncsCtrl> ncsCtrl{};
             constexpr Register::FieldValue<decltype(writeMode)::Type,WritemodeVal::nweCtrl> nweCtrl{};
-        }
         }
         ///NWAIT Mode
         enum class ExnwmodeVal {
@@ -903,7 +885,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(exnwMode)::Type,ExnwmodeVal::frozen> frozen{};
             constexpr Register::FieldValue<decltype(exnwMode)::Type,ExnwmodeVal::ready> ready{};
         }
-        }
         ///Byte Access Type
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> bat{}; 
         ///Data Bus Width
@@ -915,7 +896,6 @@ namespace Kvasir {
         namespace DbwValC{
             constexpr Register::FieldValue<decltype(dbw)::Type,DbwVal::bit8> bit8{};
             constexpr Register::FieldValue<decltype(dbw)::Type,DbwVal::bit16> bit16{};
-        }
         }
         ///Data Float Time
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> tdfCycles{}; 

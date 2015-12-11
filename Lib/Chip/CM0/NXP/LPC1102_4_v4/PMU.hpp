@@ -14,6 +14,5 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sleepflag)::Type,SleepflagVal::nopowerdown> nopowerdown{};
             constexpr Register::FieldValue<decltype(sleepflag)::Type,SleepflagVal::powerdownentered> powerdownentered{};
         }
-        }
     }
 }

@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in0sel)::Type,In0selVal::sampeInA0Select> sampeInA0Select{};
             constexpr Register::FieldValue<decltype(in0sel)::Type,In0selVal::sampeInB0Select> sampeInB0Select{};
         }
-        }
         ///Select SCT IPU input source for output channel 1.
         enum class In1selVal {
             sampeInA1Select=0x00000000,     ///<SAMPE_IN_A1. Select input SAMPLE_IN_A1.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace In1selValC{
             constexpr Register::FieldValue<decltype(in1sel)::Type,In1selVal::sampeInA1Select> sampeInA1Select{};
             constexpr Register::FieldValue<decltype(in1sel)::Type,In1selVal::sampeInB1Select> sampeInB1Select{};
-        }
         }
         ///Select SCT IPU input source for output channel 2.
         enum class In2selVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in2sel)::Type,In2selVal::sampeInA2Select> sampeInA2Select{};
             constexpr Register::FieldValue<decltype(in2sel)::Type,In2selVal::sampeInB2Select> sampeInB2Select{};
         }
-        }
         ///Select. SCT IPU input source for output channel 3.
         enum class In3selVal {
             sampeInA3Select=0x00000000,     ///<SAMPE_IN_A3. Select input SAMPLE_IN_A3.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace In3selValC{
             constexpr Register::FieldValue<decltype(in3sel)::Type,In3selVal::sampeInA3Select> sampeInA3Select{};
             constexpr Register::FieldValue<decltype(in3sel)::Type,In3selVal::sampeInB3Select> sampeInB3Select{};
-        }
         }
         ///Select the sample enable input as the latch/sample-enable control for the Sample_Output(0)  latch. Depending on the value of the corresponding LATCHn_EN bit, this latch is transparent when the LATCHn_EN bit is 1 or latched when the LATCHn_EN bit is 0.
         enum class Sampleen0selVal {
@@ -62,7 +58,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sampleEn0sel)::Type,Sampleen0selVal::selectsSampleEnabl> selectsSampleEnabl{};
             constexpr Register::FieldValue<decltype(sampleEn0sel)::Type,Sampleen0selVal::selectsSampleEnabl> selectsSampleEnabl{};
         }
-        }
         ///Select the sample enable input as the latch/sample-enable control for the Sample_Output(1)  latch. Depending on the value of the corresponding LATCHn_EN bit, this latch is transparent when the LATCHn_EN bit is 1 or latched when the LATCHn_EN bit is 0.
         enum class Sampleen1selVal {
             selectsSampleEnabl=0x00000000,     ///<Selects Sample_Enable_A as the latch/sample-enable control for the Sample_Output(1)  latch.
@@ -76,7 +71,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sampleEn1sel)::Type,Sampleen1selVal::selectsSampleEnabl> selectsSampleEnabl{};
             constexpr Register::FieldValue<decltype(sampleEn1sel)::Type,Sampleen1selVal::selectsSampleEnabl> selectsSampleEnabl{};
             constexpr Register::FieldValue<decltype(sampleEn1sel)::Type,Sampleen1selVal::selectsSampleEnabl> selectsSampleEnabl{};
-        }
         }
         ///Select the sample enable input as the latch/sample-enable control for the Sample_Output(2)  latch. Depending on the value of the corresponding LATCHn_EN bit, this latch is transparent when the LATCHn_EN bit is 1 or latched when the LATCHn_EN bit is 0.
         enum class Sampleen2selVal {
@@ -92,7 +86,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sampleEn2sel)::Type,Sampleen2selVal::selectsSampleEnabl> selectsSampleEnabl{};
             constexpr Register::FieldValue<decltype(sampleEn2sel)::Type,Sampleen2selVal::selectsSampleEnabl> selectsSampleEnabl{};
         }
-        }
         ///Select the sample enable input as the latch/sample-enable control for the Sample_Output(3)  latch. Depending on the value of the corresponding LATCHn_EN bit, this latch is transparent when the LATCHn_EN bit is 1 or latched when the LATCHn_EN bit is 0.
         enum class Sampleen3selVal {
             selectsSampleEnabl=0x00000000,     ///<Selects Sample_Enable_A as the latch/sample-enable control for the Sample_Output(3)  latch.
@@ -107,7 +100,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sampleEn3sel)::Type,Sampleen3selVal::selectsSampleEnabl> selectsSampleEnabl{};
             constexpr Register::FieldValue<decltype(sampleEn3sel)::Type,Sampleen3selVal::selectsSampleEnabl> selectsSampleEnabl{};
         }
-        }
         ///Enable latch for output channel 0.
         enum class Latchen0Val {
             transparentModeSa=0x00000000,     ///<Transparent mode. Sample_Output(0) latch is forced into transparent mode. The selected Sample_Input is passed directly through to Sample_Output(0). The sample-enable control line selected  for this latch has no effect.
@@ -117,7 +109,6 @@ namespace Kvasir {
         namespace Latchen0ValC{
             constexpr Register::FieldValue<decltype(latchen0)::Type,Latchen0Val::transparentModeSa> transparentModeSa{};
             constexpr Register::FieldValue<decltype(latchen0)::Type,Latchen0Val::latchedModeTheSa> latchedModeTheSa{};
-        }
         }
         ///Enable latch for output channel 1.
         enum class Latchen1Val {
@@ -129,7 +120,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(latchen1)::Type,Latchen1Val::transparentModeSa> transparentModeSa{};
             constexpr Register::FieldValue<decltype(latchen1)::Type,Latchen1Val::latchedModeTheSa> latchedModeTheSa{};
         }
-        }
         ///Enable latch for output channel 2.
         enum class Latchen2Val {
             transparentModeSa=0x00000000,     ///<Transparent mode. Sample_Output(2) latch is forced into transparent mode. The selected Sample_Input is passed directly through to Sample_Output(2). The sample-enable control line selected  for this latch has no effect.
@@ -140,7 +130,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(latchen2)::Type,Latchen2Val::transparentModeSa> transparentModeSa{};
             constexpr Register::FieldValue<decltype(latchen2)::Type,Latchen2Val::latchedModeTheSa> latchedModeTheSa{};
         }
-        }
         ///Enable latch for output channel 3.
         enum class Latchen3Val {
             transparentModeSa=0x00000000,     ///<Transparent mode. Sample_Output(3) latch is forced into transparent mode. The selected Sample_Input is passed directly through to Sample_Output(3). The sample-enable control line selected  for this latch has no effect.
@@ -150,7 +139,6 @@ namespace Kvasir {
         namespace Latchen3ValC{
             constexpr Register::FieldValue<decltype(latchen3)::Type,Latchen3Val::transparentModeSa> transparentModeSa{};
             constexpr Register::FieldValue<decltype(latchen3)::Type,Latchen3Val::latchedModeTheSa> latchedModeTheSa{};
-        }
         }
     }
     namespace NoneabortEnable0{    ///<SCT IPU abort enable  register: Selects which input source  contributes to ORed Abort Output 0.
@@ -165,7 +153,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena0)::Type,Ena0Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena0)::Type,Ena0Val::enabled> enabled{};
         }
-        }
         ///Enable abort source SCT_ABORT1.
         enum class Ena1Val {
             disabled=0x00000000,     ///<Disabled.
@@ -175,7 +162,6 @@ namespace Kvasir {
         namespace Ena1ValC{
             constexpr Register::FieldValue<decltype(ena1)::Type,Ena1Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena1)::Type,Ena1Val::enabled> enabled{};
-        }
         }
         ///Enable abort source ACMP0 output.
         enum class Ena2Val {
@@ -187,7 +173,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena2)::Type,Ena2Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena2)::Type,Ena2Val::enabled> enabled{};
         }
-        }
         ///Enable abort source ACMP1 output.
         enum class Ena3Val {
             disabled=0x00000000,     ///<Disabled.
@@ -197,7 +182,6 @@ namespace Kvasir {
         namespace Ena3ValC{
             constexpr Register::FieldValue<decltype(ena3)::Type,Ena3Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena3)::Type,Ena3Val::enabled> enabled{};
-        }
         }
         ///Enable abort source ACMP2 output.
         enum class Ena4Val {
@@ -209,7 +193,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena4)::Type,Ena4Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena4)::Type,Ena4Val::enabled> enabled{};
         }
-        }
         ///Enable abort source ACMP3 output.
         enum class Ena5Val {
             disabled=0x00000000,     ///<Disabled.
@@ -219,7 +202,6 @@ namespace Kvasir {
         namespace Ena5ValC{
             constexpr Register::FieldValue<decltype(ena5)::Type,Ena5Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena5)::Type,Ena5Val::enabled> enabled{};
-        }
         }
         ///Enable abort source SCT0_OUT9.
         enum class Ena6Val {
@@ -231,7 +213,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena6)::Type,Ena6Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena6)::Type,Ena6Val::enabled> enabled{};
         }
-        }
         ///Enable abort source ADC0_THCMP_IRQ.
         enum class Ena7Val {
             disabled=0x00000000,     ///<Disabled.
@@ -242,7 +223,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena7)::Type,Ena7Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena7)::Type,Ena7Val::enabled> enabled{};
         }
-        }
         ///Enable abort source ADC1_THCMP_IRQ.
         enum class Ena8Val {
             disabled=0x00000000,     ///<Disabled.
@@ -252,7 +232,6 @@ namespace Kvasir {
         namespace Ena8ValC{
             constexpr Register::FieldValue<decltype(ena8)::Type,Ena8Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena8)::Type,Ena8Val::enabled> enabled{};
-        }
         }
     }
     namespace NoneabortEnable1{    ///<SCT IPU abort enable  register: Selects which input source  contributes to ORed Abort Output 0.
@@ -267,7 +246,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena0)::Type,Ena0Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena0)::Type,Ena0Val::enabled> enabled{};
         }
-        }
         ///Enable abort source SCT_ABORT1.
         enum class Ena1Val {
             disabled=0x00000000,     ///<Disabled.
@@ -277,7 +255,6 @@ namespace Kvasir {
         namespace Ena1ValC{
             constexpr Register::FieldValue<decltype(ena1)::Type,Ena1Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena1)::Type,Ena1Val::enabled> enabled{};
-        }
         }
         ///Enable abort source ACMP0 output.
         enum class Ena2Val {
@@ -289,7 +266,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena2)::Type,Ena2Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena2)::Type,Ena2Val::enabled> enabled{};
         }
-        }
         ///Enable abort source ACMP1 output.
         enum class Ena3Val {
             disabled=0x00000000,     ///<Disabled.
@@ -299,7 +275,6 @@ namespace Kvasir {
         namespace Ena3ValC{
             constexpr Register::FieldValue<decltype(ena3)::Type,Ena3Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena3)::Type,Ena3Val::enabled> enabled{};
-        }
         }
         ///Enable abort source ACMP2 output.
         enum class Ena4Val {
@@ -311,7 +286,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena4)::Type,Ena4Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena4)::Type,Ena4Val::enabled> enabled{};
         }
-        }
         ///Enable abort source ACMP3 output.
         enum class Ena5Val {
             disabled=0x00000000,     ///<Disabled.
@@ -321,7 +295,6 @@ namespace Kvasir {
         namespace Ena5ValC{
             constexpr Register::FieldValue<decltype(ena5)::Type,Ena5Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena5)::Type,Ena5Val::enabled> enabled{};
-        }
         }
         ///Enable abort source SCT0_OUT9.
         enum class Ena6Val {
@@ -333,7 +306,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena6)::Type,Ena6Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena6)::Type,Ena6Val::enabled> enabled{};
         }
-        }
         ///Enable abort source ADC0_THCMP_IRQ.
         enum class Ena7Val {
             disabled=0x00000000,     ///<Disabled.
@@ -344,7 +316,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena7)::Type,Ena7Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena7)::Type,Ena7Val::enabled> enabled{};
         }
-        }
         ///Enable abort source ADC1_THCMP_IRQ.
         enum class Ena8Val {
             disabled=0x00000000,     ///<Disabled.
@@ -354,7 +325,6 @@ namespace Kvasir {
         namespace Ena8ValC{
             constexpr Register::FieldValue<decltype(ena8)::Type,Ena8Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena8)::Type,Ena8Val::enabled> enabled{};
-        }
         }
     }
     namespace NoneabortEnable2{    ///<SCT IPU abort enable  register: Selects which input source  contributes to ORed Abort Output 0.
@@ -369,7 +339,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena0)::Type,Ena0Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena0)::Type,Ena0Val::enabled> enabled{};
         }
-        }
         ///Enable abort source SCT_ABORT1.
         enum class Ena1Val {
             disabled=0x00000000,     ///<Disabled.
@@ -379,7 +348,6 @@ namespace Kvasir {
         namespace Ena1ValC{
             constexpr Register::FieldValue<decltype(ena1)::Type,Ena1Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena1)::Type,Ena1Val::enabled> enabled{};
-        }
         }
         ///Enable abort source ACMP0 output.
         enum class Ena2Val {
@@ -391,7 +359,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena2)::Type,Ena2Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena2)::Type,Ena2Val::enabled> enabled{};
         }
-        }
         ///Enable abort source ACMP1 output.
         enum class Ena3Val {
             disabled=0x00000000,     ///<Disabled.
@@ -401,7 +368,6 @@ namespace Kvasir {
         namespace Ena3ValC{
             constexpr Register::FieldValue<decltype(ena3)::Type,Ena3Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena3)::Type,Ena3Val::enabled> enabled{};
-        }
         }
         ///Enable abort source ACMP2 output.
         enum class Ena4Val {
@@ -413,7 +379,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena4)::Type,Ena4Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena4)::Type,Ena4Val::enabled> enabled{};
         }
-        }
         ///Enable abort source ACMP3 output.
         enum class Ena5Val {
             disabled=0x00000000,     ///<Disabled.
@@ -423,7 +388,6 @@ namespace Kvasir {
         namespace Ena5ValC{
             constexpr Register::FieldValue<decltype(ena5)::Type,Ena5Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena5)::Type,Ena5Val::enabled> enabled{};
-        }
         }
         ///Enable abort source SCT0_OUT9.
         enum class Ena6Val {
@@ -435,7 +399,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena6)::Type,Ena6Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena6)::Type,Ena6Val::enabled> enabled{};
         }
-        }
         ///Enable abort source ADC0_THCMP_IRQ.
         enum class Ena7Val {
             disabled=0x00000000,     ///<Disabled.
@@ -446,7 +409,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena7)::Type,Ena7Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena7)::Type,Ena7Val::enabled> enabled{};
         }
-        }
         ///Enable abort source ADC1_THCMP_IRQ.
         enum class Ena8Val {
             disabled=0x00000000,     ///<Disabled.
@@ -456,7 +418,6 @@ namespace Kvasir {
         namespace Ena8ValC{
             constexpr Register::FieldValue<decltype(ena8)::Type,Ena8Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena8)::Type,Ena8Val::enabled> enabled{};
-        }
         }
     }
     namespace NoneabortEnable3{    ///<SCT IPU abort enable  register: Selects which input source  contributes to ORed Abort Output 0.
@@ -471,7 +432,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena0)::Type,Ena0Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena0)::Type,Ena0Val::enabled> enabled{};
         }
-        }
         ///Enable abort source SCT_ABORT1.
         enum class Ena1Val {
             disabled=0x00000000,     ///<Disabled.
@@ -481,7 +441,6 @@ namespace Kvasir {
         namespace Ena1ValC{
             constexpr Register::FieldValue<decltype(ena1)::Type,Ena1Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena1)::Type,Ena1Val::enabled> enabled{};
-        }
         }
         ///Enable abort source ACMP0 output.
         enum class Ena2Val {
@@ -493,7 +452,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena2)::Type,Ena2Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena2)::Type,Ena2Val::enabled> enabled{};
         }
-        }
         ///Enable abort source ACMP1 output.
         enum class Ena3Val {
             disabled=0x00000000,     ///<Disabled.
@@ -503,7 +461,6 @@ namespace Kvasir {
         namespace Ena3ValC{
             constexpr Register::FieldValue<decltype(ena3)::Type,Ena3Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena3)::Type,Ena3Val::enabled> enabled{};
-        }
         }
         ///Enable abort source ACMP2 output.
         enum class Ena4Val {
@@ -515,7 +472,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena4)::Type,Ena4Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena4)::Type,Ena4Val::enabled> enabled{};
         }
-        }
         ///Enable abort source ACMP3 output.
         enum class Ena5Val {
             disabled=0x00000000,     ///<Disabled.
@@ -525,7 +481,6 @@ namespace Kvasir {
         namespace Ena5ValC{
             constexpr Register::FieldValue<decltype(ena5)::Type,Ena5Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena5)::Type,Ena5Val::enabled> enabled{};
-        }
         }
         ///Enable abort source SCT0_OUT9.
         enum class Ena6Val {
@@ -537,7 +492,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena6)::Type,Ena6Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena6)::Type,Ena6Val::enabled> enabled{};
         }
-        }
         ///Enable abort source ADC0_THCMP_IRQ.
         enum class Ena7Val {
             disabled=0x00000000,     ///<Disabled.
@@ -548,7 +502,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena7)::Type,Ena7Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena7)::Type,Ena7Val::enabled> enabled{};
         }
-        }
         ///Enable abort source ADC1_THCMP_IRQ.
         enum class Ena8Val {
             disabled=0x00000000,     ///<Disabled.
@@ -558,7 +511,6 @@ namespace Kvasir {
         namespace Ena8ValC{
             constexpr Register::FieldValue<decltype(ena8)::Type,Ena8Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena8)::Type,Ena8Val::enabled> enabled{};
-        }
         }
     }
     namespace NoneabortSource0{    ///<SCT IPU abort source  register: Status register indicating which input source caused abort output 0.
@@ -573,7 +525,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(act0)::Type,Act0Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act0)::Type,Act0Val::activated> activated{};
         }
-        }
         ///Source SCT_ABORT1 activated. This bit is set by hardware when the source is actived. Write 0 to clear. This function can be assigned to any pin via the PINASSIGN10 register in the switch matrix.
         enum class Act1Val {
             notActivated=0x00000000,     ///<Not activated.
@@ -583,7 +534,6 @@ namespace Kvasir {
         namespace Act1ValC{
             constexpr Register::FieldValue<decltype(act1)::Type,Act1Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act1)::Type,Act1Val::activated> activated{};
-        }
         }
         ///Source ACMP0 output activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act2Val {
@@ -595,7 +545,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(act2)::Type,Act2Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act2)::Type,Act2Val::activated> activated{};
         }
-        }
         ///Source ACMP1 output activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act3Val {
             notActivated=0x00000000,     ///<Not activated.
@@ -605,7 +554,6 @@ namespace Kvasir {
         namespace Act3ValC{
             constexpr Register::FieldValue<decltype(act3)::Type,Act3Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act3)::Type,Act3Val::activated> activated{};
-        }
         }
         ///Source ACMP2 output activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act4Val {
@@ -617,7 +565,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(act4)::Type,Act4Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act4)::Type,Act4Val::activated> activated{};
         }
-        }
         ///Source ACMP3 output activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act5Val {
             notActivated=0x00000000,     ///<Not activated.
@@ -627,7 +574,6 @@ namespace Kvasir {
         namespace Act5ValC{
             constexpr Register::FieldValue<decltype(act5)::Type,Act5Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act5)::Type,Act5Val::activated> activated{};
-        }
         }
         ///Source SCT0_OUT9 activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act6Val {
@@ -639,7 +585,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(act6)::Type,Act6Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act6)::Type,Act6Val::activated> activated{};
         }
-        }
         ///Source ADC0_THCMP_IRQ activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act7Val {
             notActivated=0x00000000,     ///<Not activated.
@@ -650,7 +595,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(act7)::Type,Act7Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act7)::Type,Act7Val::activated> activated{};
         }
-        }
         ///Source ADC1_THCMP_IRQ activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act8Val {
             notActivated=0x00000000,     ///<Not activated.
@@ -660,7 +604,6 @@ namespace Kvasir {
         namespace Act8ValC{
             constexpr Register::FieldValue<decltype(act8)::Type,Act8Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act8)::Type,Act8Val::activated> activated{};
-        }
         }
     }
     namespace NoneabortSource1{    ///<SCT IPU abort source  register: Status register indicating which input source caused abort output 0.
@@ -675,7 +618,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(act0)::Type,Act0Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act0)::Type,Act0Val::activated> activated{};
         }
-        }
         ///Source SCT_ABORT1 activated. This bit is set by hardware when the source is actived. Write 0 to clear. This function can be assigned to any pin via the PINASSIGN10 register in the switch matrix.
         enum class Act1Val {
             notActivated=0x00000000,     ///<Not activated.
@@ -685,7 +627,6 @@ namespace Kvasir {
         namespace Act1ValC{
             constexpr Register::FieldValue<decltype(act1)::Type,Act1Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act1)::Type,Act1Val::activated> activated{};
-        }
         }
         ///Source ACMP0 output activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act2Val {
@@ -697,7 +638,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(act2)::Type,Act2Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act2)::Type,Act2Val::activated> activated{};
         }
-        }
         ///Source ACMP1 output activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act3Val {
             notActivated=0x00000000,     ///<Not activated.
@@ -707,7 +647,6 @@ namespace Kvasir {
         namespace Act3ValC{
             constexpr Register::FieldValue<decltype(act3)::Type,Act3Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act3)::Type,Act3Val::activated> activated{};
-        }
         }
         ///Source ACMP2 output activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act4Val {
@@ -719,7 +658,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(act4)::Type,Act4Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act4)::Type,Act4Val::activated> activated{};
         }
-        }
         ///Source ACMP3 output activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act5Val {
             notActivated=0x00000000,     ///<Not activated.
@@ -729,7 +667,6 @@ namespace Kvasir {
         namespace Act5ValC{
             constexpr Register::FieldValue<decltype(act5)::Type,Act5Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act5)::Type,Act5Val::activated> activated{};
-        }
         }
         ///Source SCT0_OUT9 activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act6Val {
@@ -741,7 +678,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(act6)::Type,Act6Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act6)::Type,Act6Val::activated> activated{};
         }
-        }
         ///Source ADC0_THCMP_IRQ activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act7Val {
             notActivated=0x00000000,     ///<Not activated.
@@ -752,7 +688,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(act7)::Type,Act7Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act7)::Type,Act7Val::activated> activated{};
         }
-        }
         ///Source ADC1_THCMP_IRQ activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act8Val {
             notActivated=0x00000000,     ///<Not activated.
@@ -762,7 +697,6 @@ namespace Kvasir {
         namespace Act8ValC{
             constexpr Register::FieldValue<decltype(act8)::Type,Act8Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act8)::Type,Act8Val::activated> activated{};
-        }
         }
     }
     namespace NoneabortSource2{    ///<SCT IPU abort source  register: Status register indicating which input source caused abort output 0.
@@ -777,7 +711,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(act0)::Type,Act0Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act0)::Type,Act0Val::activated> activated{};
         }
-        }
         ///Source SCT_ABORT1 activated. This bit is set by hardware when the source is actived. Write 0 to clear. This function can be assigned to any pin via the PINASSIGN10 register in the switch matrix.
         enum class Act1Val {
             notActivated=0x00000000,     ///<Not activated.
@@ -787,7 +720,6 @@ namespace Kvasir {
         namespace Act1ValC{
             constexpr Register::FieldValue<decltype(act1)::Type,Act1Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act1)::Type,Act1Val::activated> activated{};
-        }
         }
         ///Source ACMP0 output activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act2Val {
@@ -799,7 +731,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(act2)::Type,Act2Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act2)::Type,Act2Val::activated> activated{};
         }
-        }
         ///Source ACMP1 output activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act3Val {
             notActivated=0x00000000,     ///<Not activated.
@@ -809,7 +740,6 @@ namespace Kvasir {
         namespace Act3ValC{
             constexpr Register::FieldValue<decltype(act3)::Type,Act3Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act3)::Type,Act3Val::activated> activated{};
-        }
         }
         ///Source ACMP2 output activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act4Val {
@@ -821,7 +751,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(act4)::Type,Act4Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act4)::Type,Act4Val::activated> activated{};
         }
-        }
         ///Source ACMP3 output activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act5Val {
             notActivated=0x00000000,     ///<Not activated.
@@ -831,7 +760,6 @@ namespace Kvasir {
         namespace Act5ValC{
             constexpr Register::FieldValue<decltype(act5)::Type,Act5Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act5)::Type,Act5Val::activated> activated{};
-        }
         }
         ///Source SCT0_OUT9 activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act6Val {
@@ -843,7 +771,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(act6)::Type,Act6Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act6)::Type,Act6Val::activated> activated{};
         }
-        }
         ///Source ADC0_THCMP_IRQ activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act7Val {
             notActivated=0x00000000,     ///<Not activated.
@@ -854,7 +781,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(act7)::Type,Act7Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act7)::Type,Act7Val::activated> activated{};
         }
-        }
         ///Source ADC1_THCMP_IRQ activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act8Val {
             notActivated=0x00000000,     ///<Not activated.
@@ -864,7 +790,6 @@ namespace Kvasir {
         namespace Act8ValC{
             constexpr Register::FieldValue<decltype(act8)::Type,Act8Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act8)::Type,Act8Val::activated> activated{};
-        }
         }
     }
     namespace NoneabortSource3{    ///<SCT IPU abort source  register: Status register indicating which input source caused abort output 0.
@@ -879,7 +804,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(act0)::Type,Act0Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act0)::Type,Act0Val::activated> activated{};
         }
-        }
         ///Source SCT_ABORT1 activated. This bit is set by hardware when the source is actived. Write 0 to clear. This function can be assigned to any pin via the PINASSIGN10 register in the switch matrix.
         enum class Act1Val {
             notActivated=0x00000000,     ///<Not activated.
@@ -889,7 +813,6 @@ namespace Kvasir {
         namespace Act1ValC{
             constexpr Register::FieldValue<decltype(act1)::Type,Act1Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act1)::Type,Act1Val::activated> activated{};
-        }
         }
         ///Source ACMP0 output activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act2Val {
@@ -901,7 +824,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(act2)::Type,Act2Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act2)::Type,Act2Val::activated> activated{};
         }
-        }
         ///Source ACMP1 output activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act3Val {
             notActivated=0x00000000,     ///<Not activated.
@@ -911,7 +833,6 @@ namespace Kvasir {
         namespace Act3ValC{
             constexpr Register::FieldValue<decltype(act3)::Type,Act3Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act3)::Type,Act3Val::activated> activated{};
-        }
         }
         ///Source ACMP2 output activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act4Val {
@@ -923,7 +844,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(act4)::Type,Act4Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act4)::Type,Act4Val::activated> activated{};
         }
-        }
         ///Source ACMP3 output activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act5Val {
             notActivated=0x00000000,     ///<Not activated.
@@ -933,7 +853,6 @@ namespace Kvasir {
         namespace Act5ValC{
             constexpr Register::FieldValue<decltype(act5)::Type,Act5Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act5)::Type,Act5Val::activated> activated{};
-        }
         }
         ///Source SCT0_OUT9 activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act6Val {
@@ -945,7 +864,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(act6)::Type,Act6Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act6)::Type,Act6Val::activated> activated{};
         }
-        }
         ///Source ADC0_THCMP_IRQ activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act7Val {
             notActivated=0x00000000,     ///<Not activated.
@@ -956,7 +874,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(act7)::Type,Act7Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act7)::Type,Act7Val::activated> activated{};
         }
-        }
         ///Source ADC1_THCMP_IRQ activated. This bit is set by hardware when the source is actived. Write 0 to clear.
         enum class Act8Val {
             notActivated=0x00000000,     ///<Not activated.
@@ -966,7 +883,6 @@ namespace Kvasir {
         namespace Act8ValC{
             constexpr Register::FieldValue<decltype(act8)::Type,Act8Val::notActivated> notActivated{};
             constexpr Register::FieldValue<decltype(act8)::Type,Act8Val::activated> activated{};
-        }
         }
     }
 }

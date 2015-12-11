@@ -34,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dacbfrpbf)::Type,DacbfrpbfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dacbfrpbf)::Type,DacbfrpbfVal::v1> v1{};
         }
-        }
         ///DAC Buffer Read Pointer Top Position Flag
         enum class DacbfrptfVal {
             v0=0x00000000,     ///<The DAC buffer read pointer is not zero.
@@ -44,7 +43,6 @@ namespace Kvasir {
         namespace DacbfrptfValC{
             constexpr Register::FieldValue<decltype(dacbfrptf)::Type,DacbfrptfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dacbfrptf)::Type,DacbfrptfVal::v1> v1{};
-        }
         }
     }
     namespace Dac0C0{    ///<DAC Control Register
@@ -59,7 +57,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dacbbien)::Type,DacbbienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dacbbien)::Type,DacbbienVal::v1> v1{};
         }
-        }
         ///DAC Buffer Read Pointer Top Flag Interrupt Enable
         enum class DacbtienVal {
             v0=0x00000000,     ///<The DAC buffer read pointer top flag interrupt is disabled.
@@ -69,7 +66,6 @@ namespace Kvasir {
         namespace DacbtienValC{
             constexpr Register::FieldValue<decltype(dacbtien)::Type,DacbtienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dacbtien)::Type,DacbtienVal::v1> v1{};
-        }
         }
         ///DAC Low Power Control
         enum class LpenVal {
@@ -81,7 +77,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lpen)::Type,LpenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lpen)::Type,LpenVal::v1> v1{};
         }
-        }
         ///DAC Software Trigger
         enum class DacswtrgVal {
             v0=0x00000000,     ///<The DAC soft trigger is not valid.
@@ -91,7 +86,6 @@ namespace Kvasir {
         namespace DacswtrgValC{
             constexpr Register::FieldValue<decltype(dacswtrg)::Type,DacswtrgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dacswtrg)::Type,DacswtrgVal::v1> v1{};
-        }
         }
         ///DAC Trigger Select
         enum class DactrgselVal {
@@ -103,7 +97,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dactrgsel)::Type,DactrgselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dactrgsel)::Type,DactrgselVal::v1> v1{};
         }
-        }
         ///DAC Reference Select
         enum class DacrfsVal {
             v0=0x00000000,     ///<The DAC selects DACREF_1 as the reference voltage.
@@ -114,7 +107,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dacrfs)::Type,DacrfsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dacrfs)::Type,DacrfsVal::v1> v1{};
         }
-        }
         ///DAC Enable
         enum class DacenVal {
             v0=0x00000000,     ///<The DAC system is disabled.
@@ -124,7 +116,6 @@ namespace Kvasir {
         namespace DacenValC{
             constexpr Register::FieldValue<decltype(dacen)::Type,DacenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dacen)::Type,DacenVal::v1> v1{};
-        }
         }
     }
     namespace Dac0C1{    ///<DAC Control Register 1
@@ -139,7 +130,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dacbfen)::Type,DacbfenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dacbfen)::Type,DacbfenVal::v1> v1{};
         }
-        }
         ///DAC Buffer Work Mode Select
         enum class DacbfmdVal {
             v0=0x00000000,     ///<Normal mode
@@ -150,7 +140,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dacbfmd)::Type,DacbfmdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dacbfmd)::Type,DacbfmdVal::v1> v1{};
         }
-        }
         ///DMA Enable Select
         enum class DmaenVal {
             v0=0x00000000,     ///<DMA is disabled.
@@ -160,7 +149,6 @@ namespace Kvasir {
         namespace DmaenValC{
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v1> v1{};
-        }
         }
     }
     namespace Dac0C2{    ///<DAC Control Register 2

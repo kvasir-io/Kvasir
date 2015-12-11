@@ -65,7 +65,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mmEna)::Type,MmenaVal::monitorModeDisable> monitorModeDisable{};
             constexpr Register::FieldValue<decltype(mmEna)::Type,MmenaVal::theI2cModuleWill> theI2cModuleWill{};
         }
-        }
         ///SCL output enable.
         enum class EnasclVal {
             high=0x00000000,     ///<When this bit is cleared to 0, the SCL output will be forced high when the module is in monitor mode. As described above, this will prevent the module from having any control over the I2C clock line.
@@ -76,7 +75,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enaScl)::Type,EnasclVal::high> high{};
             constexpr Register::FieldValue<decltype(enaScl)::Type,EnasclVal::normal> normal{};
         }
-        }
         ///Select interrupt register match.
         enum class MatchallVal {
             match=0x00000000,     ///<When this bit is cleared, an interrupt will only be generated when a match occurs to one of the (up-to) four address registers described above.   That is, the module will respond as a normal slave as far as address-recognition is concerned.
@@ -86,7 +84,6 @@ namespace Kvasir {
         namespace MatchallValC{
             constexpr Register::FieldValue<decltype(matchAll)::Type,MatchallVal::match> match{};
             constexpr Register::FieldValue<decltype(matchAll)::Type,MatchallVal::anyaddress> anyaddress{};
-        }
         }
     }
     namespace Noneadr1{    ///<I2C Slave Address Register 1. Contains the 7-bit slave address for operation of the I2C interface in slave mode, and is not used in master mode. The least significant bit determines whether a slave responds to the General Call address.

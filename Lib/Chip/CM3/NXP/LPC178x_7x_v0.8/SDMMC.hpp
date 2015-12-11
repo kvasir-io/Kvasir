@@ -16,7 +16,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::powerUp> powerUp{};
             constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::powerOn> powerOn{};
         }
-        }
         ///SD_CMD output control.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> opendrain{}; 
         ///Rod control.
@@ -36,7 +35,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::clockDisabled> clockDisabled{};
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::clockEnabled> clockEnabled{};
         }
-        }
         ///Disable SD_CLK output when bus is idle:
         enum class PwrsaveVal {
             alwaysEnabled=0x00000000,     ///<Always enabled.
@@ -46,7 +44,6 @@ namespace Kvasir {
         namespace PwrsaveValC{
             constexpr Register::FieldValue<decltype(pwrsave)::Type,PwrsaveVal::alwaysEnabled> alwaysEnabled{};
             constexpr Register::FieldValue<decltype(pwrsave)::Type,PwrsaveVal::clockEnabledWhenB> clockEnabledWhenB{};
-        }
         }
         ///Enable bypass of clock divide logic:
         enum class BypassVal {
@@ -58,7 +55,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bypass)::Type,BypassVal::disableBypass> disableBypass{};
             constexpr Register::FieldValue<decltype(bypass)::Type,BypassVal::enableBypassMclk> enableBypassMclk{};
         }
-        }
         ///Enable wide bus mode.
         enum class WidebusVal {
             standardBusModeO=0x00000000,     ///<Standard bus mode (only SD_DAT[0] used).
@@ -68,7 +64,6 @@ namespace Kvasir {
         namespace WidebusValC{
             constexpr Register::FieldValue<decltype(widebus)::Type,WidebusVal::standardBusModeO> standardBusModeO{};
             constexpr Register::FieldValue<decltype(widebus)::Type,WidebusVal::wideBusModeSdDa> wideBusModeSdDa{};
-        }
         }
     }
     namespace Noneargument{    ///<Argument register.
@@ -140,7 +135,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(direction)::Type,DirectionVal::fromControllerToC> fromControllerToC{};
             constexpr Register::FieldValue<decltype(direction)::Type,DirectionVal::fromCardToControl> fromCardToControl{};
         }
-        }
         ///Data transfer mode
         enum class ModeVal {
             blockDataTransfer=0x00000000,     ///<Block data transfer.
@@ -151,7 +145,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::blockDataTransfer> blockDataTransfer{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::streamDataTransfer> streamDataTransfer{};
         }
-        }
         ///Enable DMA
         enum class DmaenableVal {
             dmaDisabled=0x00000000,     ///<DMA disabled.
@@ -161,7 +154,6 @@ namespace Kvasir {
         namespace DmaenableValC{
             constexpr Register::FieldValue<decltype(dmaenable)::Type,DmaenableVal::dmaDisabled> dmaDisabled{};
             constexpr Register::FieldValue<decltype(dmaenable)::Type,DmaenableVal::dmaEnabled> dmaEnabled{};
-        }
         }
         ///Data block length
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> blocksize{}; 

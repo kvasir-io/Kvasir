@@ -16,7 +16,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sbns)::Type,SbnsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sbns)::Type,SbnsVal::v1> v1{};
         }
-        }
         ///RX Input Active Edge Interrupt Enable (for RXEDGIF)
         enum class RxedgieVal {
             v0=0x00000000,     ///<Hardware interrupts from UART_S2[RXEDGIF] disabled (use polling).
@@ -27,7 +26,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxedgie)::Type,RxedgieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxedgie)::Type,RxedgieVal::v1> v1{};
         }
-        }
         ///LIN Break Detect Interrupt Enable (for LBKDIF)
         enum class LbkdieVal {
             v0=0x00000000,     ///<Hardware interrupts from UART_S2[LBKDIF] disabled (use polling).
@@ -37,7 +35,6 @@ namespace Kvasir {
         namespace LbkdieValC{
             constexpr Register::FieldValue<decltype(lbkdie)::Type,LbkdieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lbkdie)::Type,LbkdieVal::v1> v1{};
-        }
         }
     }
     namespace Uart0Bdl{    ///<UART Baud Rate Register Low
@@ -57,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt)::Type,PtVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pt)::Type,PtVal::v1> v1{};
         }
-        }
         ///Parity Enable
         enum class PeVal {
             v0=0x00000000,     ///<No hardware parity generation or checking.
@@ -67,7 +63,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Idle Line Type Select
         enum class IltVal {
@@ -79,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ilt)::Type,IltVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ilt)::Type,IltVal::v1> v1{};
         }
-        }
         ///Receiver Wakeup Method Select
         enum class WakeVal {
             v0=0x00000000,     ///<Idle-line wakeup.
@@ -89,7 +83,6 @@ namespace Kvasir {
         namespace WakeValC{
             constexpr Register::FieldValue<decltype(wake)::Type,WakeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wake)::Type,WakeVal::v1> v1{};
-        }
         }
         ///9-Bit or 8-Bit Mode Select
         enum class MVal {
@@ -101,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(m)::Type,MVal::v0> v0{};
             constexpr Register::FieldValue<decltype(m)::Type,MVal::v1> v1{};
         }
-        }
         ///Receiver Source Select
         enum class RsrcVal {
             v0=0x00000000,     ///<Provided LOOPS is set, RSRC is cleared, selects internal loop back mode and the UART does not use the UART_RX pins.
@@ -111,7 +103,6 @@ namespace Kvasir {
         namespace RsrcValC{
             constexpr Register::FieldValue<decltype(rsrc)::Type,RsrcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rsrc)::Type,RsrcVal::v1> v1{};
-        }
         }
         ///Doze Enable
         enum class DozeenVal {
@@ -123,7 +114,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dozeen)::Type,DozeenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dozeen)::Type,DozeenVal::v1> v1{};
         }
-        }
         ///Loop Mode Select
         enum class LoopsVal {
             v0=0x00000000,     ///<Normal operation - UART_RX and UART_TX use separate pins.
@@ -133,7 +123,6 @@ namespace Kvasir {
         namespace LoopsValC{
             constexpr Register::FieldValue<decltype(loops)::Type,LoopsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(loops)::Type,LoopsVal::v1> v1{};
-        }
         }
     }
     namespace Uart0C2{    ///<UART Control Register 2
@@ -148,7 +137,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sbk)::Type,SbkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sbk)::Type,SbkVal::v1> v1{};
         }
-        }
         ///Receiver Wakeup Control
         enum class RwuVal {
             v0=0x00000000,     ///<Normal UART receiver operation.
@@ -158,7 +146,6 @@ namespace Kvasir {
         namespace RwuValC{
             constexpr Register::FieldValue<decltype(rwu)::Type,RwuVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rwu)::Type,RwuVal::v1> v1{};
-        }
         }
         ///Receiver Enable
         enum class ReVal {
@@ -170,7 +157,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(re)::Type,ReVal::v0> v0{};
             constexpr Register::FieldValue<decltype(re)::Type,ReVal::v1> v1{};
         }
-        }
         ///Transmitter Enable
         enum class TeVal {
             v0=0x00000000,     ///<Transmitter disabled.
@@ -180,7 +166,6 @@ namespace Kvasir {
         namespace TeValC{
             constexpr Register::FieldValue<decltype(te)::Type,TeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(te)::Type,TeVal::v1> v1{};
-        }
         }
         ///Idle Line Interrupt Enable for IDLE
         enum class IlieVal {
@@ -192,7 +177,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ilie)::Type,IlieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ilie)::Type,IlieVal::v1> v1{};
         }
-        }
         ///Receiver Interrupt Enable for RDRF
         enum class RieVal {
             v0=0x00000000,     ///<Hardware interrupts from RDRF disabled; use polling.
@@ -202,7 +186,6 @@ namespace Kvasir {
         namespace RieValC{
             constexpr Register::FieldValue<decltype(rie)::Type,RieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rie)::Type,RieVal::v1> v1{};
-        }
         }
         ///Transmission Complete Interrupt Enable for TC
         enum class TcieVal {
@@ -214,7 +197,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tcie)::Type,TcieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tcie)::Type,TcieVal::v1> v1{};
         }
-        }
         ///Transmit Interrupt Enable for TDRE
         enum class TieVal {
             v0=0x00000000,     ///<Hardware interrupts from TDRE disabled; use polling.
@@ -224,7 +206,6 @@ namespace Kvasir {
         namespace TieValC{
             constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v1> v1{};
-        }
         }
     }
     namespace Uart0S1{    ///<UART Status Register 1
@@ -239,7 +220,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pf)::Type,PfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pf)::Type,PfVal::v1> v1{};
         }
-        }
         ///Framing Error Flag
         enum class FeVal {
             v0=0x00000000,     ///<No framing error detected. This does not guarantee the framing is correct.
@@ -249,7 +229,6 @@ namespace Kvasir {
         namespace FeValC{
             constexpr Register::FieldValue<decltype(fe)::Type,FeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fe)::Type,FeVal::v1> v1{};
-        }
         }
         ///Noise Flag
         enum class NfVal {
@@ -261,7 +240,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nf)::Type,NfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(nf)::Type,NfVal::v1> v1{};
         }
-        }
         ///Receiver Overrun Flag
         enum class Or_Val {
             v0=0x00000000,     ///<No overrun.
@@ -271,7 +249,6 @@ namespace Kvasir {
         namespace Or_ValC{
             constexpr Register::FieldValue<decltype(or_)::Type,Or_Val::v0> v0{};
             constexpr Register::FieldValue<decltype(or_)::Type,Or_Val::v1> v1{};
-        }
         }
         ///Idle Line Flag
         enum class IdleVal {
@@ -283,7 +260,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(idle)::Type,IdleVal::v0> v0{};
             constexpr Register::FieldValue<decltype(idle)::Type,IdleVal::v1> v1{};
         }
-        }
         ///Receive Data Register Full Flag
         enum class RdrfVal {
             v0=0x00000000,     ///<Receive data buffer empty.
@@ -293,7 +269,6 @@ namespace Kvasir {
         namespace RdrfValC{
             constexpr Register::FieldValue<decltype(rdrf)::Type,RdrfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rdrf)::Type,RdrfVal::v1> v1{};
-        }
         }
         ///Transmission Complete Flag
         enum class TcVal {
@@ -305,7 +280,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tc)::Type,TcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tc)::Type,TcVal::v1> v1{};
         }
-        }
         ///Transmit Data Register Empty Flag
         enum class TdreVal {
             v0=0x00000000,     ///<Transmit data buffer full.
@@ -315,7 +289,6 @@ namespace Kvasir {
         namespace TdreValC{
             constexpr Register::FieldValue<decltype(tdre)::Type,TdreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tdre)::Type,TdreVal::v1> v1{};
-        }
         }
     }
     namespace Uart0S2{    ///<UART Status Register 2
@@ -330,7 +303,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(raf)::Type,RafVal::v0> v0{};
             constexpr Register::FieldValue<decltype(raf)::Type,RafVal::v1> v1{};
         }
-        }
         ///LIN Break Detection Enable
         enum class LbkdeVal {
             v0=0x00000000,     ///<Break character is detected at length 10 bit times (if M = 0, SBNS = 0) or 11 (if M = 1, SBNS = 0 or M = 0, SBNS = 1) or 12 (if M = 1, SBNS = 1 or M10 = 1, SNBS = 0) or 13 (if M10 = 1, SNBS = 1).
@@ -340,7 +312,6 @@ namespace Kvasir {
         namespace LbkdeValC{
             constexpr Register::FieldValue<decltype(lbkde)::Type,LbkdeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lbkde)::Type,LbkdeVal::v1> v1{};
-        }
         }
         ///Break Character Generation Length
         enum class Brk13Val {
@@ -352,7 +323,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(brk13)::Type,Brk13Val::v0> v0{};
             constexpr Register::FieldValue<decltype(brk13)::Type,Brk13Val::v1> v1{};
         }
-        }
         ///Receive Wake Up Idle Detect
         enum class RwuidVal {
             v0=0x00000000,     ///<During receive standby state (RWU = 1), the IDLE bit does not get set upon detection of an idle character.
@@ -362,7 +332,6 @@ namespace Kvasir {
         namespace RwuidValC{
             constexpr Register::FieldValue<decltype(rwuid)::Type,RwuidVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rwuid)::Type,RwuidVal::v1> v1{};
-        }
         }
         ///Receive Data Inversion
         enum class RxinvVal {
@@ -374,7 +343,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxinv)::Type,RxinvVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxinv)::Type,RxinvVal::v1> v1{};
         }
-        }
         ///MSB First
         enum class MsbfVal {
             v0=0x00000000,     ///<LSB (bit0) is the first bit that is transmitted following the start bit. Further, the first bit received after the start bit is identified as bit0.
@@ -384,7 +352,6 @@ namespace Kvasir {
         namespace MsbfValC{
             constexpr Register::FieldValue<decltype(msbf)::Type,MsbfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(msbf)::Type,MsbfVal::v1> v1{};
-        }
         }
         ///UART_RX Pin Active Edge Interrupt Flag
         enum class RxedgifVal {
@@ -396,7 +363,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxedgif)::Type,RxedgifVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxedgif)::Type,RxedgifVal::v1> v1{};
         }
-        }
         ///LIN Break Detect Interrupt Flag
         enum class LbkdifVal {
             v0=0x00000000,     ///<No LIN break character has been detected.
@@ -406,7 +372,6 @@ namespace Kvasir {
         namespace LbkdifValC{
             constexpr Register::FieldValue<decltype(lbkdif)::Type,LbkdifVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lbkdif)::Type,LbkdifVal::v1> v1{};
-        }
         }
     }
     namespace Uart0C3{    ///<UART Control Register 3
@@ -421,7 +386,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(peie)::Type,PeieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(peie)::Type,PeieVal::v1> v1{};
         }
-        }
         ///Framing Error Interrupt Enable
         enum class FeieVal {
             v0=0x00000000,     ///<FE interrupts disabled; use polling.
@@ -431,7 +395,6 @@ namespace Kvasir {
         namespace FeieValC{
             constexpr Register::FieldValue<decltype(feie)::Type,FeieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(feie)::Type,FeieVal::v1> v1{};
-        }
         }
         ///Noise Error Interrupt Enable
         enum class NeieVal {
@@ -443,7 +406,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(neie)::Type,NeieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(neie)::Type,NeieVal::v1> v1{};
         }
-        }
         ///Overrun Interrupt Enable
         enum class OrieVal {
             v0=0x00000000,     ///<OR interrupts disabled; use polling.
@@ -453,7 +415,6 @@ namespace Kvasir {
         namespace OrieValC{
             constexpr Register::FieldValue<decltype(orie)::Type,OrieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(orie)::Type,OrieVal::v1> v1{};
-        }
         }
         ///Transmit Data Inversion
         enum class TxinvVal {
@@ -465,7 +426,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txinv)::Type,TxinvVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txinv)::Type,TxinvVal::v1> v1{};
         }
-        }
         ///UART_TX Pin Direction in Single-Wire Mode
         enum class TxdirVal {
             v0=0x00000000,     ///<UART_TXD pin is an input in single-wire mode.
@@ -475,7 +435,6 @@ namespace Kvasir {
         namespace TxdirValC{
             constexpr Register::FieldValue<decltype(txdir)::Type,TxdirVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txdir)::Type,TxdirVal::v1> v1{};
-        }
         }
         ///Receive Bit 9 / Transmit Bit 8
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> r9t8{}; 
@@ -525,7 +484,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(m10)::Type,M10Val::v0> v0{};
             constexpr Register::FieldValue<decltype(m10)::Type,M10Val::v1> v1{};
         }
-        }
         ///Match Address Mode Enable 2
         enum class Maen2Val {
             v0=0x00000000,     ///<All data received is transferred to the data buffer if MAEN1 is cleared.
@@ -536,7 +494,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(maen2)::Type,Maen2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(maen2)::Type,Maen2Val::v1> v1{};
         }
-        }
         ///Match Address Mode Enable 1
         enum class Maen1Val {
             v0=0x00000000,     ///<All data received is transferred to the data buffer if MAEN2 is cleared.
@@ -546,7 +503,6 @@ namespace Kvasir {
         namespace Maen1ValC{
             constexpr Register::FieldValue<decltype(maen1)::Type,Maen1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(maen1)::Type,Maen1Val::v1> v1{};
-        }
         }
     }
     namespace Uart0C5{    ///<UART Control Register 5
@@ -561,7 +517,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(resyncdis)::Type,ResyncdisVal::v0> v0{};
             constexpr Register::FieldValue<decltype(resyncdis)::Type,ResyncdisVal::v1> v1{};
         }
-        }
         ///Both Edge Sampling
         enum class BothedgeVal {
             v0=0x00000000,     ///<Receiver samples input data using the rising edge of the baud rate clock.
@@ -571,7 +526,6 @@ namespace Kvasir {
         namespace BothedgeValC{
             constexpr Register::FieldValue<decltype(bothedge)::Type,BothedgeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bothedge)::Type,BothedgeVal::v1> v1{};
-        }
         }
         ///Receiver Full DMA Enable
         enum class RdmaeVal {
@@ -583,7 +537,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rdmae)::Type,RdmaeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rdmae)::Type,RdmaeVal::v1> v1{};
         }
-        }
         ///Transmitter DMA Enable
         enum class TdmaeVal {
             v0=0x00000000,     ///<DMA request disabled.
@@ -593,7 +546,6 @@ namespace Kvasir {
         namespace TdmaeValC{
             constexpr Register::FieldValue<decltype(tdmae)::Type,TdmaeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tdmae)::Type,TdmaeVal::v1> v1{};
-        }
         }
     }
 }

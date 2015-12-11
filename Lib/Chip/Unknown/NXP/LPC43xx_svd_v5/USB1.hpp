@@ -56,7 +56,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rs)::Type,RsVal::detach> detach{};
             constexpr Register::FieldValue<decltype(rs)::Type,RsVal::atach> atach{};
         }
-        }
         ///Controller reset. Software uses this bit to reset the controller. This bit is set to zero by the Host/Device Controller when the reset process is complete. Software cannot terminate the reset process early by writing a zero to this register.
         enum class RstVal {
             resetcomplete=0x00000000,     ///<Set to 0 by hardware when the reset process is complete.
@@ -66,7 +65,6 @@ namespace Kvasir {
         namespace RstValC{
             constexpr Register::FieldValue<decltype(rst)::Type,RstVal::resetcomplete> resetcomplete{};
             constexpr Register::FieldValue<decltype(rst)::Type,RstVal::reset> reset{};
-        }
         }
         ///Setup trip wire  During handling a setup packet, this bit is used as a semaphore to ensure that the setup data payload of 8 bytes is extracted from a QH by the DCD without being corrupted. If the setup lockout mode is off (see USBMODE register) then there exists a hazard when new setup data arrives while the DCD is copying the setup data payload from the QH for a previous setup packet. This bit is set and cleared by software and will be cleared by hardware when a hazard exists. (See Section 18.10).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> sutw{}; 
@@ -89,7 +87,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rs)::Type,RsVal::halt> halt{};
             constexpr Register::FieldValue<decltype(rs)::Type,RsVal::proceed> proceed{};
         }
-        }
         ///Controller reset.  Software uses this bit to reset the controller. This bit is set to zero by the Host/Device Controller when the reset process is complete. Software cannot terminate the reset process early by writing a zero to this register.
         enum class RstVal {
             resetcomplete=0x00000000,     ///<This bit is set to zero by hardware when the reset process is complete.
@@ -99,7 +96,6 @@ namespace Kvasir {
         namespace RstValC{
             constexpr Register::FieldValue<decltype(rst)::Type,RstVal::resetcomplete> resetcomplete{};
             constexpr Register::FieldValue<decltype(rst)::Type,RstVal::reset> reset{};
-        }
         }
         ///Bit 0 of the Frame List Size bits. See Table 281. This field specifies the size of the frame list that controls which bits in the Frame Index Register should be used for the Frame List Current index. Note that this field is made up from USBCMD bits 15, 3, and 2.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> fs0{}; 
@@ -115,7 +111,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pse)::Type,PseVal::doNotProcessTheP> doNotProcessTheP{};
             constexpr Register::FieldValue<decltype(pse)::Type,PseVal::useThePeriodiclist> useThePeriodiclist{};
         }
-        }
         ///This bit controls whether the host controller skips processing the asynchronous schedule.
         enum class AseVal {
             doNotProcessTheA=0x00000000,     ///<Do not process the asynchronous schedule.
@@ -126,7 +121,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ase)::Type,AseVal::doNotProcessTheA> doNotProcessTheA{};
             constexpr Register::FieldValue<decltype(ase)::Type,AseVal::useTheAsynclistadd> useTheAsynclistadd{};
         }
-        }
         ///This bit is used as a doorbell by software to tell the host controller to issue an interrupt the next time it advances asynchronous schedule.
         enum class IaaVal {
             st=0x00000000,     ///<The host controller sets this bit to zero after it has set the Interrupt on Sync Advance status bit in the USBSTS register to one.
@@ -136,7 +130,6 @@ namespace Kvasir {
         namespace IaaValC{
             constexpr Register::FieldValue<decltype(iaa)::Type,IaaVal::st> st{};
             constexpr Register::FieldValue<decltype(iaa)::Type,IaaVal::doorbell> doorbell{};
-        }
         }
         ///Asynchronous schedule park mode. Contains a count of the number of successive transactions the host controller is allowed to execute from a high-speed queue head on the Asynchronous schedule before continuing traversal of the Asynchronous schedule. Valid values are 0x1 to 0x3.  Software must not write 00 to this bit when Park Mode Enable is one as this will result in undefined behavior.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> asp10{}; 
@@ -149,7 +142,6 @@ namespace Kvasir {
         namespace AspeValC{
             constexpr Register::FieldValue<decltype(aspe)::Type,AspeVal::parkModeIsDisable> parkModeIsDisable{};
             constexpr Register::FieldValue<decltype(aspe)::Type,AspeVal::parkModeIsEnabled> parkModeIsEnabled{};
-        }
         }
         ///Bit 2 of the Frame List Size bits. See Table 281.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> fs2{}; 
@@ -168,7 +160,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ui)::Type,UiVal::st> st{};
             constexpr Register::FieldValue<decltype(ui)::Type,UiVal::clear> clear{};
         }
-        }
         ///USB error interrupt
         enum class UeiVal {
             st=0x00000000,     ///<This bit is cleared by software writing a one to it.
@@ -178,7 +169,6 @@ namespace Kvasir {
         namespace UeiValC{
             constexpr Register::FieldValue<decltype(uei)::Type,UeiVal::st> st{};
             constexpr Register::FieldValue<decltype(uei)::Type,UeiVal::clear> clear{};
-        }
         }
         ///Port change detect.
         enum class PciVal {
@@ -190,7 +180,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pci)::Type,PciVal::st> st{};
             constexpr Register::FieldValue<decltype(pci)::Type,PciVal::clear> clear{};
         }
-        }
         ///USB reset received
         enum class UriVal {
             st=0x00000000,     ///<This bit is cleared by software writing a one to it.
@@ -200,7 +189,6 @@ namespace Kvasir {
         namespace UriValC{
             constexpr Register::FieldValue<decltype(uri)::Type,UriVal::st> st{};
             constexpr Register::FieldValue<decltype(uri)::Type,UriVal::clear> clear{};
-        }
         }
         ///SOF received
         enum class SriVal {
@@ -212,7 +200,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sri)::Type,SriVal::st> st{};
             constexpr Register::FieldValue<decltype(sri)::Type,SriVal::clear> clear{};
         }
-        }
         ///DCSuspend
         enum class SliVal {
             st=0x00000000,     ///<The device controller clears the bit upon exiting from a suspend state. This bit is cleared by software writing a one to it.
@@ -223,7 +210,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sli)::Type,SliVal::st> st{};
             constexpr Register::FieldValue<decltype(sli)::Type,SliVal::clear> clear{};
         }
-        }
         ///NAK interrupt bit
         enum class NakiVal {
             endpclear=0x00000000,     ///<This bit is automatically cleared by hardware when the all the enabled TX/RX Endpoint NAK bits are cleared.
@@ -233,7 +219,6 @@ namespace Kvasir {
         namespace NakiValC{
             constexpr Register::FieldValue<decltype(naki)::Type,NakiVal::endpclear> endpclear{};
             constexpr Register::FieldValue<decltype(naki)::Type,NakiVal::set> set{};
-        }
         }
     }
     namespace NoneusbstsH{    ///<USB status (host mode)
@@ -248,7 +233,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ui)::Type,UiVal::st> st{};
             constexpr Register::FieldValue<decltype(ui)::Type,UiVal::clear> clear{};
         }
-        }
         ///USB error interrupt (USBERRINT)
         enum class UeiVal {
             st=0x00000000,     ///<This bit is cleared by software writing a one to it.
@@ -258,7 +242,6 @@ namespace Kvasir {
         namespace UeiValC{
             constexpr Register::FieldValue<decltype(uei)::Type,UeiVal::st> st{};
             constexpr Register::FieldValue<decltype(uei)::Type,UeiVal::clear> clear{};
-        }
         }
         ///Port change detect.
         enum class PciVal {
@@ -270,7 +253,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pci)::Type,PciVal::st> st{};
             constexpr Register::FieldValue<decltype(pci)::Type,PciVal::clear> clear{};
         }
-        }
         ///Frame list roll-over
         enum class FriVal {
             st=0x00000000,     ///<This bit is cleared by software writing a one to it.
@@ -280,7 +262,6 @@ namespace Kvasir {
         namespace FriValC{
             constexpr Register::FieldValue<decltype(fri)::Type,FriVal::st> st{};
             constexpr Register::FieldValue<decltype(fri)::Type,FriVal::clear> clear{};
-        }
         }
         ///Interrupt on async advance
         enum class AaiVal {
@@ -292,7 +273,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aai)::Type,AaiVal::st> st{};
             constexpr Register::FieldValue<decltype(aai)::Type,AaiVal::clear> clear{};
         }
-        }
         ///SOF received
         enum class SriVal {
             st=0x00000000,     ///<This bit is cleared by software writing a one to it.
@@ -302,7 +282,6 @@ namespace Kvasir {
         namespace SriValC{
             constexpr Register::FieldValue<decltype(sri)::Type,SriVal::st> st{};
             constexpr Register::FieldValue<decltype(sri)::Type,SriVal::clear> clear{};
-        }
         }
         ///Not used by the Host controller.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> sli{}; 
@@ -316,7 +295,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hch)::Type,HchVal::rs> rs{};
             constexpr Register::FieldValue<decltype(hch)::Type,HchVal::stop> stop{};
         }
-        }
         ///Reclamation
         enum class RclVal {
             noEmptyAsynchronou=0x00000000,     ///<No empty asynchronous schedule detected.
@@ -326,7 +304,6 @@ namespace Kvasir {
         namespace RclValC{
             constexpr Register::FieldValue<decltype(rcl)::Type,RclVal::noEmptyAsynchronou> noEmptyAsynchronou{};
             constexpr Register::FieldValue<decltype(rcl)::Type,RclVal::emptyAsynchronou> emptyAsynchronou{};
-        }
         }
         ///Periodic schedule status This bit reports the current real status of the Periodic Schedule. The Host Controller is not required to immediately disable or enable the Periodic Schedule when software transitions the Periodic Schedule Enable bit in the USBCMD register. When this bit and the Periodic Schedule Enable bit are the same value, the Periodic Schedule is either enabled (if both are 1) or disabled (if both are 0).
         enum class PsVal {
@@ -338,7 +315,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::enabled> enabled{};
         }
-        }
         ///Asynchronous schedule status This bit reports the current real status of the Asynchronous Schedule. The Host Controller is not required to immediately disable or enable the Asynchronous Schedule when software transitions the Asynchronous Schedule Enable bit in the USBCMD register. When this bit and the Asynchronous Schedule Enable bit are the same value, the Asynchronous Schedule is either enabled (if both are 1) or disabled (if both are 0).
         enum class AsVal {
             disabled=0x00000000,     ///<Asynchronous schedule status is disabled.
@@ -348,7 +324,6 @@ namespace Kvasir {
         namespace AsValC{
             constexpr Register::FieldValue<decltype(as)::Type,AsVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(as)::Type,AsVal::enabled> enabled{};
-        }
         }
         ///USB host asynchronous interrupt (USBHSTASYNCINT)
         enum class UaiVal {
@@ -360,7 +335,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(uai)::Type,UaiVal::st> st{};
             constexpr Register::FieldValue<decltype(uai)::Type,UaiVal::clear> clear{};
         }
-        }
         ///USB host periodic interrupt (USBHSTPERINT)
         enum class UpiVal {
             st=0x00000000,     ///<This bit is cleared by software writing a one to it.
@@ -370,7 +344,6 @@ namespace Kvasir {
         namespace UpiValC{
             constexpr Register::FieldValue<decltype(upi)::Type,UpiVal::st> st{};
             constexpr Register::FieldValue<decltype(upi)::Type,UpiVal::clear> clear{};
-        }
         }
     }
     namespace NoneusbintrD{    ///<USB interrupt enable (device mode)
@@ -439,7 +412,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usbadra)::Type,UsbadraVal::advance> advance{};
             constexpr Register::FieldValue<decltype(usbadra)::Type,UsbadraVal::hold> hold{};
         }
-        }
         ///USB device address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,25),Register::ReadWriteAccess,unsigned> usbadr{}; 
     }
@@ -499,7 +471,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ulpiss)::Type,UlpissVal::inAnotherStateI> inAnotherStateI{};
             constexpr Register::FieldValue<decltype(ulpiss)::Type,UlpissVal::normalSyncState> normalSyncState{};
         }
-        }
         ///ULPI Read/Write control. This bit selects between running a read or write operation.
         enum class UlpirwVal {
             read=0x00000000,     ///<Read
@@ -509,7 +480,6 @@ namespace Kvasir {
         namespace UlpirwValC{
             constexpr Register::FieldValue<decltype(ulpirw)::Type,UlpirwVal::read> read{};
             constexpr Register::FieldValue<decltype(ulpirw)::Type,UlpirwVal::write> write{};
-        }
         }
         ///ULPI Read/Write Run. Writing the 1 to this bit will begin the  read/write operation. The bit will automatically transition to 0 after the  read/write is complete. Once this bit is set, the driver can not set it back to 0. The driver must never executue a wakeup and a read/write operation at  the same time.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> ulpirun{}; 
@@ -571,7 +541,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ccs)::Type,CcsVal::deviceNotAttached> deviceNotAttached{};
             constexpr Register::FieldValue<decltype(ccs)::Type,CcsVal::deviceAttachedA> deviceAttachedA{};
         }
-        }
         ///Not used in device mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> csc{}; 
         ///Port enable. This bit is always 1. The device port is always enabled.
@@ -588,7 +557,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fpr)::Type,FprVal::noResumeKState> noResumeKState{};
             constexpr Register::FieldValue<decltype(fpr)::Type,FprVal::resumeDetecteddriv> resumeDetecteddriv{};
         }
-        }
         ///Suspend In device mode, this is a read-only status bit .
         enum class SuspVal {
             portNotInSuspend=0x00000000,     ///<Port not in suspend state
@@ -598,7 +566,6 @@ namespace Kvasir {
         namespace SuspValC{
             constexpr Register::FieldValue<decltype(susp)::Type,SuspVal::portNotInSuspend> portNotInSuspend{};
             constexpr Register::FieldValue<decltype(susp)::Type,SuspVal::portInSuspendStat> portInSuspendStat{};
-        }
         }
         ///Port reset In device mode, this is a read-only status bit. A device reset from the USB bus is also indicated in the USBSTS register.
         enum class PrVal {
@@ -610,7 +577,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pr)::Type,PrVal::portIsNotInTheR> portIsNotInTheR{};
             constexpr Register::FieldValue<decltype(pr)::Type,PrVal::portIsInTheReset> portIsInTheReset{};
         }
-        }
         ///High-speed status This bit is redundant with bits 27:26 (PSPD) in this register. It is implemented for compatibility reasons.
         enum class HspVal {
             hostdeviceConnecte=0x00000000,     ///<Host/device connected to the port is not in High-speed mode.
@@ -620,7 +586,6 @@ namespace Kvasir {
         namespace HspValC{
             constexpr Register::FieldValue<decltype(hsp)::Type,HspVal::hostdeviceConnecte> hostdeviceConnecte{};
             constexpr Register::FieldValue<decltype(hsp)::Type,HspVal::hostdeviceConnecte> hostdeviceConnecte{};
-        }
         }
         ///Not used in device mode.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> ls{}; 
@@ -639,7 +604,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pic10)::Type,Pic10Val::amber> amber{};
             constexpr Register::FieldValue<decltype(pic10)::Type,Pic10Val::green> green{};
             constexpr Register::FieldValue<decltype(pic10)::Type,Pic10Val::undefined> undefined{};
-        }
         }
         ///Port test control Any value other than 0000 indicates that the port is operating in test mode. The FORCE_ENABLE_FS and FORCE ENABLE_LS are extensions to the test mode support specified in the EHCI specification. Writing the PTC field to any of the FORCE_ENABLE_HS/FS/LS values will force the port into the connected and enabled state at the selected speed. Writing the PTC field back to TEST_MODE_DISABLE will allow the port state machines to progress normally from that point. Values 0x7 to 0xF are reserved.
         enum class Ptc30Val {
@@ -661,7 +625,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptc30)::Type,Ptc30Val::forceEnableHs> forceEnableHs{};
             constexpr Register::FieldValue<decltype(ptc30)::Type,Ptc30Val::forceEnableFs> forceEnableFs{};
         }
-        }
         ///PHY low power suspend - clock disable (PLPSCD) In device mode, The PHY can be put into Low Power Suspend - Clock Disable when the device is not running (USBCMD Run/Stop = 0) or the host has signaled suspend (PORTSC SUSPEND = 1). Low power suspend will be cleared automatically when the host has signaled resume. Before forcing a resume from the device, the device controller driver must clear this bit.
         enum class PhcdVal {
             enabled=0x00000000,     ///<Writing a 0 enables the PHY clock. Reading a 0 indicates the status of the PHY clock (enabled).
@@ -672,7 +635,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(phcd)::Type,PhcdVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(phcd)::Type,PhcdVal::disabled> disabled{};
         }
-        }
         ///Port force full speed connect
         enum class PfscVal {
             anyspeed=0x00000000,     ///<Port connects at any speed.
@@ -682,7 +644,6 @@ namespace Kvasir {
         namespace PfscValC{
             constexpr Register::FieldValue<decltype(pfsc)::Type,PfscVal::anyspeed> anyspeed{};
             constexpr Register::FieldValue<decltype(pfsc)::Type,PfscVal::fullspeed> fullspeed{};
-        }
         }
         ///Port speed This register field indicates the speed at which the port is operating.
         enum class PspdVal {
@@ -696,7 +657,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pspd)::Type,PspdVal::invalidInDeviceMo> invalidInDeviceMo{};
             constexpr Register::FieldValue<decltype(pspd)::Type,PspdVal::highSpeed> highSpeed{};
         }
-        }
         ///Parallel transceiver select. All other values are reserved.
         enum class PtsVal {
             ulpi=0x00000002,     ///<ULPI
@@ -706,7 +666,6 @@ namespace Kvasir {
         namespace PtsValC{
             constexpr Register::FieldValue<decltype(pts)::Type,PtsVal::ulpi> ulpi{};
             constexpr Register::FieldValue<decltype(pts)::Type,PtsVal::serial11PhyFul> serial11PhyFul{};
-        }
         }
     }
     namespace Noneportsc1H{    ///<Port 1 status/control (host mode)
@@ -721,7 +680,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ccs)::Type,CcsVal::noDeviceIsPresent> noDeviceIsPresent{};
             constexpr Register::FieldValue<decltype(ccs)::Type,CcsVal::deviceIsPresentOn> deviceIsPresentOn{};
         }
-        }
         ///Connect status change Indicates a change has occurred in the port's Current Connect Status. The host/device controller sets this bit for all changes to the port device connect status, even if system software has not cleared an existing connect status change. For example, the insertion status changes twice before system software has cleared the changed condition, hub hardware will be setting an already-set bit (i.e., the bit will remain set). Software clears this bit by writing a one to it. This bit is 0 if PP (Port Power bit) is 0
         enum class CscVal {
             noChangeInCurrent=0x00000000,     ///<No change in current status.
@@ -731,7 +689,6 @@ namespace Kvasir {
         namespace CscValC{
             constexpr Register::FieldValue<decltype(csc)::Type,CscVal::noChangeInCurrent> noChangeInCurrent{};
             constexpr Register::FieldValue<decltype(csc)::Type,CscVal::changeInCurrentSt> changeInCurrentSt{};
-        }
         }
         ///Port enable. Ports can only be enabled by the host controller as a part of the reset and enable. Software cannot enable a port by writing a one to this field. Ports can be disabled by either a fault condition (disconnect event or other fault condition) or by the host software. Note that the bit status does not change until the port state actually changes. There may be a delay in disabling or enabling a port due to other host controller and bus events. When the port is disabled. downstream propagation of data is blocked except for reset. This bit is 0 if PP (Port Power bit) is 0.
         enum class PeVal {
@@ -743,7 +700,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::portDisabled> portDisabled{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::portEnabled> portEnabled{};
         }
-        }
         ///Port disable/enable change For the root hub, this bit gets set to a one only when a port is disabled due to disconnect on the port or due to the appropriate conditions existing at the EOF2 point (See Chapter 11 of the USB Specification). Software clears this by writing a one to it. This bit is 0 if PP (Port Power bit) is 0,
         enum class PecVal {
             noChange=0x00000000,     ///<No change.
@@ -754,7 +710,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pec)::Type,PecVal::noChange> noChange{};
             constexpr Register::FieldValue<decltype(pec)::Type,PecVal::portEnableddisable> portEnableddisable{};
         }
-        }
         ///Over-current active This bit will automatically transition from 1 to 0 when the over-current condition is removed.
         enum class OcaVal {
             thePortDoesNotHa=0x00000000,     ///<The port does not have an over-current condition.
@@ -764,7 +719,6 @@ namespace Kvasir {
         namespace OcaValC{
             constexpr Register::FieldValue<decltype(oca)::Type,OcaVal::thePortDoesNotHa> thePortDoesNotHa{};
             constexpr Register::FieldValue<decltype(oca)::Type,OcaVal::thePortHasCurrent> thePortHasCurrent{};
-        }
         }
         ///Over-current change This bit gets set to one when there is a change to Over-current Active. Software clears this bit by writing a one to this bit position.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> occ{}; 
@@ -778,7 +732,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fpr)::Type,FprVal::noResumeKState> noResumeKState{};
             constexpr Register::FieldValue<decltype(fpr)::Type,FprVal::resumeDetecteddriv> resumeDetecteddriv{};
         }
-        }
         ///Suspend Together with the PE (Port enabled bit), this bit describes the port states, see Table 302 Port states as described by the PE and SUSP bits in the PORTSC1 register. The host controller will unconditionally set this bit to zero when software sets the Force Port Resume bit to zero. The host controller ignores a write of zero to this bit. If host software sets this bit to a one when the port is not enabled (i.e. Port enabled bit is a zero) the results are undefined. This bit is 0 if PP (Port Power bit) is 0.
         enum class SuspVal {
             portNotInSuspend=0x00000000,     ///<Port not in suspend state
@@ -788,7 +741,6 @@ namespace Kvasir {
         namespace SuspValC{
             constexpr Register::FieldValue<decltype(susp)::Type,SuspVal::portNotInSuspend> portNotInSuspend{};
             constexpr Register::FieldValue<decltype(susp)::Type,SuspVal::portInSuspendStat> portInSuspendStat{};
-        }
         }
         ///Port reset When software writes a one to this bit the bus-reset sequence as defined in the USB Specification Revision 2.0 is started. This bit will automatically change to zero after the reset sequence is complete. This behavior is different from EHCI where the host controller driver is required to set this bit to a zero after the reset duration is timed in the driver. This bit is 0 if PP (Port Power bit) is 0.
         enum class PrVal {
@@ -800,7 +752,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pr)::Type,PrVal::notInReset> notInReset{};
             constexpr Register::FieldValue<decltype(pr)::Type,PrVal::portIsInTheReset> portIsInTheReset{};
         }
-        }
         ///High-speed status
         enum class HspVal {
             nohighspeed=0x00000000,     ///<Host/device connected to the port is not in High-speed mode.
@@ -810,7 +761,6 @@ namespace Kvasir {
         namespace HspValC{
             constexpr Register::FieldValue<decltype(hsp)::Type,HspVal::nohighspeed> nohighspeed{};
             constexpr Register::FieldValue<decltype(hsp)::Type,HspVal::highspeed> highspeed{};
-        }
         }
         ///Line status These bits reflect the current logical levels of the USB_DP and USB_DM signal lines. USB_DP corresponds to bit 11 and USB_DM to bit 10. In host mode, the use of linestate by the host controller driver is not necessary for this controller (unlike EHCI) because the controller hardware manages the connection of LS and FS.
         enum class LsVal {
@@ -826,7 +776,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ls)::Type,LsVal::kStateUsbDpLow> kStateUsbDpLow{};
             constexpr Register::FieldValue<decltype(ls)::Type,LsVal::undefined> undefined{};
         }
-        }
         ///Port power control Host controller requires port power control switches. This bit represents the current setting of the switch (0=off, 1=on). When power is not available on a port (i.e. PP equals a 0), the port is non-functional and will not report attaches, detaches, etc. When an over-current condition is detected on a powered port and PPC is a one, the PP bit in each affected port may be transitioned by the host controller driver from a one to a zero (removing power from the port).
         enum class PpVal {
             portPowerOff=0x00000000,     ///<Port power off.
@@ -836,7 +785,6 @@ namespace Kvasir {
         namespace PpValC{
             constexpr Register::FieldValue<decltype(pp)::Type,PpVal::portPowerOff> portPowerOff{};
             constexpr Register::FieldValue<decltype(pp)::Type,PpVal::portPowerOn> portPowerOn{};
-        }
         }
         ///Port indicator control Writing to this field controls the value of the pins USB1_IND1 and USB1_IND0.
         enum class Pic10Val {
@@ -851,7 +799,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pic10)::Type,Pic10Val::amber> amber{};
             constexpr Register::FieldValue<decltype(pic10)::Type,Pic10Val::green> green{};
             constexpr Register::FieldValue<decltype(pic10)::Type,Pic10Val::undefined> undefined{};
-        }
         }
         ///Port test control Any value other than 0000 indicates that the port is operating in test mode.  The FORCE_ENABLE_FS and FORCE ENABLE_LS are extensions to the test mode support specified in the EHCI specification. Writing the PTC field to any of the FORCE_ENABLE_{HS/FS/LS} values will force the port into the connected and enabled state at the selected speed. Writing the PTC field back to TEST_MODE_DISABLE will allow the port state machines to progress normally from that point. Values 0x8 to 0xF are reserved.
         enum class Ptc30Val {
@@ -875,7 +822,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptc30)::Type,Ptc30Val::forceEnableFs> forceEnableFs{};
             constexpr Register::FieldValue<decltype(ptc30)::Type,Ptc30Val::forceEnableLs> forceEnableLs{};
         }
-        }
         ///Wake on connect enable (WKCNNT_E) This bit is 0 if PP (Port Power bit) is 0
         enum class WkcnVal {
             disablesThePortTo=0x00000000,     ///<Disables the port to wake up on device connects.
@@ -885,7 +831,6 @@ namespace Kvasir {
         namespace WkcnValC{
             constexpr Register::FieldValue<decltype(wkcn)::Type,WkcnVal::disablesThePortTo> disablesThePortTo{};
             constexpr Register::FieldValue<decltype(wkcn)::Type,WkcnVal::enableDeviceCon> enableDeviceCon{};
-        }
         }
         ///Wake on disconnect enable (WKDSCNNT_E) This bit is 0 if PP (Port Power bit) is 0.
         enum class WkdcVal {
@@ -897,7 +842,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wkdc)::Type,WkdcVal::disablesThePortTo> disablesThePortTo{};
             constexpr Register::FieldValue<decltype(wkdc)::Type,WkdcVal::enableDeviceCon> enableDeviceCon{};
         }
-        }
         ///Wake on over-current enable (WKOC_E)
         enum class WkocVal {
             disablesOvercurrent=0x00000000,     ///<Disables the port to wake up on over-current events.
@@ -907,7 +851,6 @@ namespace Kvasir {
         namespace WkocValC{
             constexpr Register::FieldValue<decltype(wkoc)::Type,WkocVal::disablesOvercurrent> disablesOvercurrent{};
             constexpr Register::FieldValue<decltype(wkoc)::Type,WkocVal::enableOvercurrent> enableOvercurrent{};
-        }
         }
         ///PHY low power suspend - clock disable (PLPSCD) In host mode, the PHY can be put into Low Power Suspend - Clock Disable when the downstream device has been put into suspend mode or when no downstream device is connected. Low power suspend is completely under the control of software.
         enum class PhcdVal {
@@ -919,7 +862,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(phcd)::Type,PhcdVal::enablePhyClk> enablePhyClk{};
             constexpr Register::FieldValue<decltype(phcd)::Type,PhcdVal::disablePhyClk> disablePhyClk{};
         }
-        }
         ///Port force full speed connect
         enum class PfscVal {
             anyspeed=0x00000000,     ///<Port connects at any speed.
@@ -929,7 +871,6 @@ namespace Kvasir {
         namespace PfscValC{
             constexpr Register::FieldValue<decltype(pfsc)::Type,PfscVal::anyspeed> anyspeed{};
             constexpr Register::FieldValue<decltype(pfsc)::Type,PfscVal::fullspeed> fullspeed{};
-        }
         }
         ///Port speed This register field indicates the speed at which the port is operating. For HS mode operation in the host controller and HS/FS operation in the device controller the port routing steers data to the Protocol engine. For FS and LS mode operation in the host controller, the port routing steers data to the Protocol Engine w/ Embedded Transaction Translator.
         enum class PspdVal {
@@ -943,7 +884,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pspd)::Type,PspdVal::lowSpeed> lowSpeed{};
             constexpr Register::FieldValue<decltype(pspd)::Type,PspdVal::highSpeed> highSpeed{};
         }
-        }
         ///Parallel transceiver select. All other values are reserved.
         enum class PtsVal {
             ulpi=0x00000002,     ///<ULPI
@@ -953,7 +893,6 @@ namespace Kvasir {
         namespace PtsValC{
             constexpr Register::FieldValue<decltype(pts)::Type,PtsVal::ulpi> ulpi{};
             constexpr Register::FieldValue<decltype(pts)::Type,PtsVal::serial11PhyFul> serial11PhyFul{};
-        }
         }
     }
     namespace NoneusbmodeD{    ///<USB mode (device mode)
@@ -970,7 +909,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cm10)::Type,Cm10Val::deviceController> deviceController{};
             constexpr Register::FieldValue<decltype(cm10)::Type,Cm10Val::hostController> hostController{};
         }
-        }
         ///Endian select This bit can change the byte ordering of the transfer buffers to match the host microprocessor bus architecture. The bit fields in the microprocessor interface and the DMA data structures (including the setup buffer within the device QH) are unaffected by the value of this bit, because they are based upon 32-bit words.
         enum class EsVal {
             littleEndianFirst=0x00000000,     ///<Little endian: first byte referenced in least significant byte of 32-bit word.
@@ -980,7 +918,6 @@ namespace Kvasir {
         namespace EsValC{
             constexpr Register::FieldValue<decltype(es)::Type,EsVal::littleEndianFirst> littleEndianFirst{};
             constexpr Register::FieldValue<decltype(es)::Type,EsVal::bigEndianFirstBy> bigEndianFirstBy{};
-        }
         }
         ///Setup Lockout mode In device mode, this bit controls behavior of the setup lock mechanism. See Section 18.10.8.
         enum class SlomVal {
@@ -992,7 +929,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slom)::Type,SlomVal::setupLockoutsOn> setupLockoutsOn{};
             constexpr Register::FieldValue<decltype(slom)::Type,SlomVal::setupLockoutsOff> setupLockoutsOff{};
         }
-        }
         ///Stream disable mode  The use of this feature substantially limits the overall USB performance that can be achieved.
         enum class SdisVal {
             notDisabled=0x00000000,     ///<Not disabled
@@ -1002,7 +938,6 @@ namespace Kvasir {
         namespace SdisValC{
             constexpr Register::FieldValue<decltype(sdis)::Type,SdisVal::notDisabled> notDisabled{};
             constexpr Register::FieldValue<decltype(sdis)::Type,SdisVal::disabledSettingTh> disabledSettingTh{};
-        }
         }
     }
     namespace NoneusbmodeH{    ///<USB mode (host mode)
@@ -1019,7 +954,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cm10)::Type,Cm10Val::deviceController> deviceController{};
             constexpr Register::FieldValue<decltype(cm10)::Type,Cm10Val::hostController> hostController{};
         }
-        }
         ///Endian select This bit can change the byte ordering of the transfer buffers. The bit fields in the microprocessor interface and the DMA data structures (including the setup buffer within the device QH) are unaffected by the value of this bit, because they are based upon 32-bit words.
         enum class EsVal {
             littleEndianFirst=0x00000000,     ///<Little endian: first byte referenced in least significant byte of 32-bit word.
@@ -1029,7 +963,6 @@ namespace Kvasir {
         namespace EsValC{
             constexpr Register::FieldValue<decltype(es)::Type,EsVal::littleEndianFirst> littleEndianFirst{};
             constexpr Register::FieldValue<decltype(es)::Type,EsVal::bigEndianFirstBy> bigEndianFirstBy{};
-        }
         }
         ///Stream disable mode  The use of this feature substantially limits the overall USB performance that can be achieved.
         enum class SdisVal {
@@ -1041,7 +974,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sdis)::Type,SdisVal::notDisabled> notDisabled{};
             constexpr Register::FieldValue<decltype(sdis)::Type,SdisVal::disabledSettingTo> disabledSettingTo{};
         }
-        }
         ///VBUS power select
         enum class VbpsVal {
             low=0x00000000,     ///<vbus_pwr_select is set LOW.
@@ -1051,7 +983,6 @@ namespace Kvasir {
         namespace VbpsValC{
             constexpr Register::FieldValue<decltype(vbps)::Type,VbpsVal::low> low{};
             constexpr Register::FieldValue<decltype(vbps)::Type,VbpsVal::high> high{};
-        }
         }
     }
     namespace Noneendptsetupstat{    ///<Endpoint setup status
@@ -1153,7 +1084,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::endpointOk> endpointOk{};
             constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::endpointStalledSof> endpointStalledSof{};
         }
-        }
         ///Endpoint type Endpoint 0 is always a control endpoint.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> rxt{}; 
         ///Rx endpoint enable Endpoint enabled. Control endpoint 0 is always enabled. This bit is always 1.
@@ -1167,7 +1097,6 @@ namespace Kvasir {
         namespace TxsValC{
             constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::endpointOk> endpointOk{};
             constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::endpointStalledSof> endpointStalledSof{};
-        }
         }
         ///Endpoint type Endpoint 0 is always a control endpoint.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> txt{}; 
@@ -1186,7 +1115,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::endpointOkThisBi> endpointOkThisBi{};
             constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::endpointStalledSof> endpointStalledSof{};
         }
-        }
         ///Endpoint type
         enum class RxtVal {
             control=0x00000000,     ///<Control
@@ -1199,7 +1127,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::isochronous> isochronous{};
             constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::bulk> bulk{};
         }
-        }
         ///Rx data toggle inhibit This bit is only used for test and should always be written as zero. Writing a one to this bit will cause this endpoint to ignore the data toggle sequence and always accept data packets regardless of their data PID.
         enum class RxiVal {
             disabled=0x00000000,     ///<Disabled
@@ -1209,7 +1136,6 @@ namespace Kvasir {
         namespace RxiValC{
             constexpr Register::FieldValue<decltype(rxi)::Type,RxiVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rxi)::Type,RxiVal::enabled> enabled{};
-        }
         }
         ///Rx data toggle reset Write 1 to reset the PID sequence. Whenever a configuration event is received for this Endpoint, software must write a one to this bit in order to synchronize the data PIDs between the host and device.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rxr{}; 
@@ -1223,7 +1149,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::endpointDisabled> endpointDisabled{};
             constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::endpointEnabled> endpointEnabled{};
         }
-        }
         ///Tx endpoint stall
         enum class TxsVal {
             endpointOkThisBi=0x00000000,     ///<Endpoint ok. This bit will be cleared automatically upon receipt of a SETUP request if this Endpoint is configured as a Control Endpoint, and this bit will continue to be cleared by hardware until the associated ENDPTSETUPSTAT bit is cleared.
@@ -1233,7 +1158,6 @@ namespace Kvasir {
         namespace TxsValC{
             constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::endpointOkThisBi> endpointOkThisBi{};
             constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::endpointStalledSof> endpointStalledSof{};
-        }
         }
         ///Tx endpoint type
         enum class TxtVal {
@@ -1249,7 +1173,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::bulk> bulk{};
             constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::interrupt> interrupt{};
         }
-        }
         ///Tx data toggle inhibit This bit is only used for test and should always be written as zero. Writing a one to this bit will cause this endpoint to ignore the data toggle sequence and always accept data packets regardless of their data PID.
         enum class TxiVal {
             enabled=0x00000000,     ///<Enabled
@@ -1259,7 +1182,6 @@ namespace Kvasir {
         namespace TxiValC{
             constexpr Register::FieldValue<decltype(txi)::Type,TxiVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(txi)::Type,TxiVal::disabled> disabled{};
-        }
         }
         ///Tx data toggle reset Write 1 to reset the PID sequence. Whenever a configuration event is received for this Endpoint, software must write a one to this bit in order to synchronize the data PIDs between the host and device.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> txr{}; 
@@ -1272,7 +1194,6 @@ namespace Kvasir {
         namespace TxeValC{
             constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::endpointDisabled> endpointDisabled{};
             constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::endpointEnabled> endpointEnabled{};
-        }
         }
     }
     namespace Noneendptctrl2{    ///<Endpoint control 
@@ -1287,7 +1208,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::endpointOkThisBi> endpointOkThisBi{};
             constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::endpointStalledSof> endpointStalledSof{};
         }
-        }
         ///Endpoint type
         enum class RxtVal {
             control=0x00000000,     ///<Control
@@ -1300,7 +1220,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::isochronous> isochronous{};
             constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::bulk> bulk{};
         }
-        }
         ///Rx data toggle inhibit This bit is only used for test and should always be written as zero. Writing a one to this bit will cause this endpoint to ignore the data toggle sequence and always accept data packets regardless of their data PID.
         enum class RxiVal {
             disabled=0x00000000,     ///<Disabled
@@ -1310,7 +1229,6 @@ namespace Kvasir {
         namespace RxiValC{
             constexpr Register::FieldValue<decltype(rxi)::Type,RxiVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rxi)::Type,RxiVal::enabled> enabled{};
-        }
         }
         ///Rx data toggle reset Write 1 to reset the PID sequence. Whenever a configuration event is received for this Endpoint, software must write a one to this bit in order to synchronize the data PIDs between the host and device.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rxr{}; 
@@ -1324,7 +1242,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::endpointDisabled> endpointDisabled{};
             constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::endpointEnabled> endpointEnabled{};
         }
-        }
         ///Tx endpoint stall
         enum class TxsVal {
             endpointOkThisBi=0x00000000,     ///<Endpoint ok. This bit will be cleared automatically upon receipt of a SETUP request if this Endpoint is configured as a Control Endpoint, and this bit will continue to be cleared by hardware until the associated ENDPTSETUPSTAT bit is cleared.
@@ -1334,7 +1251,6 @@ namespace Kvasir {
         namespace TxsValC{
             constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::endpointOkThisBi> endpointOkThisBi{};
             constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::endpointStalledSof> endpointStalledSof{};
-        }
         }
         ///Tx endpoint type
         enum class TxtVal {
@@ -1350,7 +1266,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::bulk> bulk{};
             constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::interrupt> interrupt{};
         }
-        }
         ///Tx data toggle inhibit This bit is only used for test and should always be written as zero. Writing a one to this bit will cause this endpoint to ignore the data toggle sequence and always accept data packets regardless of their data PID.
         enum class TxiVal {
             enabled=0x00000000,     ///<Enabled
@@ -1360,7 +1275,6 @@ namespace Kvasir {
         namespace TxiValC{
             constexpr Register::FieldValue<decltype(txi)::Type,TxiVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(txi)::Type,TxiVal::disabled> disabled{};
-        }
         }
         ///Tx data toggle reset Write 1 to reset the PID sequence. Whenever a configuration event is received for this Endpoint, software must write a one to this bit in order to synchronize the data PIDs between the host and device.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> txr{}; 
@@ -1373,7 +1287,6 @@ namespace Kvasir {
         namespace TxeValC{
             constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::endpointDisabled> endpointDisabled{};
             constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::endpointEnabled> endpointEnabled{};
-        }
         }
     }
     namespace Noneendptctrl3{    ///<Endpoint control 
@@ -1388,7 +1301,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::endpointOkThisBi> endpointOkThisBi{};
             constexpr Register::FieldValue<decltype(rxs)::Type,RxsVal::endpointStalledSof> endpointStalledSof{};
         }
-        }
         ///Endpoint type
         enum class RxtVal {
             control=0x00000000,     ///<Control
@@ -1401,7 +1313,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::isochronous> isochronous{};
             constexpr Register::FieldValue<decltype(rxt)::Type,RxtVal::bulk> bulk{};
         }
-        }
         ///Rx data toggle inhibit This bit is only used for test and should always be written as zero. Writing a one to this bit will cause this endpoint to ignore the data toggle sequence and always accept data packets regardless of their data PID.
         enum class RxiVal {
             disabled=0x00000000,     ///<Disabled
@@ -1411,7 +1322,6 @@ namespace Kvasir {
         namespace RxiValC{
             constexpr Register::FieldValue<decltype(rxi)::Type,RxiVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rxi)::Type,RxiVal::enabled> enabled{};
-        }
         }
         ///Rx data toggle reset Write 1 to reset the PID sequence. Whenever a configuration event is received for this Endpoint, software must write a one to this bit in order to synchronize the data PIDs between the host and device.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rxr{}; 
@@ -1425,7 +1335,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::endpointDisabled> endpointDisabled{};
             constexpr Register::FieldValue<decltype(rxe)::Type,RxeVal::endpointEnabled> endpointEnabled{};
         }
-        }
         ///Tx endpoint stall
         enum class TxsVal {
             endpointOkThisBi=0x00000000,     ///<Endpoint ok. This bit will be cleared automatically upon receipt of a SETUP request if this Endpoint is configured as a Control Endpoint, and this bit will continue to be cleared by hardware until the associated ENDPTSETUPSTAT bit is cleared.
@@ -1435,7 +1344,6 @@ namespace Kvasir {
         namespace TxsValC{
             constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::endpointOkThisBi> endpointOkThisBi{};
             constexpr Register::FieldValue<decltype(txs)::Type,TxsVal::endpointStalledSof> endpointStalledSof{};
-        }
         }
         ///Tx endpoint type
         enum class TxtVal {
@@ -1451,7 +1359,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::bulk> bulk{};
             constexpr Register::FieldValue<decltype(txt)::Type,TxtVal::interrupt> interrupt{};
         }
-        }
         ///Tx data toggle inhibit This bit is only used for test and should always be written as zero. Writing a one to this bit will cause this endpoint to ignore the data toggle sequence and always accept data packets regardless of their data PID.
         enum class TxiVal {
             enabled=0x00000000,     ///<Enabled
@@ -1461,7 +1368,6 @@ namespace Kvasir {
         namespace TxiValC{
             constexpr Register::FieldValue<decltype(txi)::Type,TxiVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(txi)::Type,TxiVal::disabled> disabled{};
-        }
         }
         ///Tx data toggle reset Write 1 to reset the PID sequence. Whenever a configuration event is received for this Endpoint, software must write a one to this bit in order to synchronize the data PIDs between the host and device.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> txr{}; 
@@ -1474,7 +1380,6 @@ namespace Kvasir {
         namespace TxeValC{
             constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::endpointDisabled> endpointDisabled{};
             constexpr Register::FieldValue<decltype(txe)::Type,TxeVal::endpointEnabled> endpointEnabled{};
-        }
         }
     }
 }

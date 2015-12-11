@@ -20,7 +20,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -31,7 +30,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -41,7 +39,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio20{    ///<I/O configuration for pin PIO2_0/DTR/SSEL1
@@ -62,7 +59,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -73,7 +69,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -83,7 +78,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace NoneresetPio00{    ///<I/O configuration for pin RESET/PIO0_0
@@ -104,7 +98,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -115,7 +108,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -125,7 +117,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio01{    ///<I/O configuration for pin PIO0_1/CLKOUT/CT32B0_MAT2
@@ -146,7 +137,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -157,7 +147,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -167,7 +156,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio18{    ///<I/O configuration for pin PIO1_8/CT16B1_CAP0
@@ -188,7 +176,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -199,7 +186,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -209,7 +195,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio02{    ///<I/O configuration for pin PIO0_2/SSEL0/CT16B0_CAP0
@@ -230,7 +215,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -241,7 +225,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -251,7 +234,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio27{    ///<I/O configuration for pin PIO2_7/ CT32B0_MAT2/RXD
@@ -272,7 +254,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -283,7 +264,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -293,7 +273,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio28{    ///<I/O configuration for pin PIO2_8/ CT32B0_MAT3/TXD
@@ -314,7 +293,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -325,7 +303,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -335,7 +312,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio21{    ///<I/O configuration for pin PIO2_1/DSR/SCK1
@@ -356,7 +332,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -367,7 +342,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -377,7 +351,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio03{    ///<I/O configuration for pin PIO0_3
@@ -398,7 +371,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -409,7 +381,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -419,7 +390,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio04{    ///<I/O configuration for pin PIO0_4/SCL
@@ -438,7 +408,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2cmode)::Type,I2cmodeVal::standardIoFunction> standardIoFunction{};
             constexpr Register::FieldValue<decltype(i2cmode)::Type,I2cmodeVal::fastModePlusI2c> fastModePlusI2c{};
         }
-        }
     }
     namespace Nonepio05{    ///<I/O configuration for pin PIO0_5/SDA
         using Addr = Register::Address<0x40044034,0xfffffcf8,0,unsigned>;
@@ -455,7 +424,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2cmode)::Type,I2cmodeVal::standardModeFast> standardModeFast{};
             constexpr Register::FieldValue<decltype(i2cmode)::Type,I2cmodeVal::standardIoFunction> standardIoFunction{};
             constexpr Register::FieldValue<decltype(i2cmode)::Type,I2cmodeVal::fastModePlusI2c> fastModePlusI2c{};
-        }
         }
     }
     namespace Nonepio19{    ///<I/O configuration for pin PIO1_9/CT16B1_MAT0/ MOSI1
@@ -476,7 +444,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -487,7 +454,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -497,7 +463,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio34{    ///<I/O configuration for pin PIO3_4/ CT16B0_CAP1/RXD
@@ -518,7 +483,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -529,7 +493,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -539,7 +502,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio35{    ///<I/O configuration for pin PIO3_5/ CT16B1_CAP1/TXD
@@ -560,7 +522,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -571,7 +532,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -581,7 +541,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio06{    ///<I/O configuration for pin PIO0_6/SCK0
@@ -602,7 +561,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -613,7 +571,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -623,7 +580,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio07{    ///<I/O configuration for pin PIO0_7/CTS
@@ -644,7 +600,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -655,7 +610,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -665,7 +619,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio29{    ///<I/O configuration for pin PIO2_9/ CT32B0_CAP0
@@ -686,7 +639,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -697,7 +649,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -707,7 +658,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio210{    ///<I/O configuration for pin PIO2_10
@@ -728,7 +678,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -739,7 +688,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -749,7 +697,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio22{    ///<I/O configuration for pin PIO2_2/DCD/MISO1
@@ -770,7 +717,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -781,7 +727,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -791,7 +736,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio08{    ///<I/O configuration for pin PIO0_8/MISO0/CT16B0_MAT0
@@ -812,7 +756,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -823,7 +766,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -833,7 +775,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio09{    ///<I/O configuration for pin PIO0_9/MOSI0/CT16B0_MAT1
@@ -854,7 +795,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -865,7 +805,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -875,7 +814,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace NoneswclkPio010{    ///<I/O configuration for pin SWCLK/PIO0_10/ SCK0/CT16B0_MAT2
@@ -896,7 +834,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -907,7 +844,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -917,7 +853,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio110{    ///<I/O configuration for pin PIO1_10/AD6/CT16B1_MAT1/ MISO1
@@ -938,7 +873,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -948,7 +882,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Selects Analog/Digital mode
         enum class AdmodeVal {
@@ -960,7 +893,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
             constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -970,7 +902,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio211{    ///<I/O configuration for pin PIO2_11/SCK0/ CT32B0_CAP1
@@ -991,7 +922,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1002,7 +932,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -1012,7 +941,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace NonerPio011{    ///<I/O configuration for pin R/PIO0_11/AD0/CT32B0_MAT3
@@ -1033,7 +961,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1043,7 +970,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Selects Analog/Digital mode
         enum class AdmodeVal {
@@ -1055,7 +981,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
             constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -1065,7 +990,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace NonerPio10{    ///<I/O configuration for pin R/PIO1_0/AD1/CT32B1_CAP0
@@ -1086,7 +1010,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1096,7 +1019,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Selects Analog/Digital mode
         enum class AdmodeVal {
@@ -1108,7 +1030,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
             constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -1118,7 +1039,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace NonerPio11{    ///<I/O configuration for pin R/PIO1_1/AD2/CT32B1_MAT0
@@ -1139,7 +1059,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1149,7 +1068,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Selects Analog/Digital mode
         enum class AdmodeVal {
@@ -1161,7 +1079,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
             constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -1171,7 +1088,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace NonerPio12{    ///<I/O configuration for pin R/PIO1_2/AD3/CT32B1_MAT1
@@ -1192,7 +1108,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1202,7 +1117,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Selects Analog/Digital mode
         enum class AdmodeVal {
@@ -1214,7 +1128,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
             constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -1224,7 +1137,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio30{    ///<I/O configuration for pin PIO3_0/DTR/CT16B0_MAT0/TXD
@@ -1245,7 +1157,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1256,7 +1167,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -1266,7 +1176,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio31{    ///<I/O configuration for pin PIO3_1/DSR/CT16B0_MAT1/RXD
@@ -1287,7 +1196,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1298,7 +1206,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -1308,7 +1215,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio23{    ///<I/O configuration for pin PIO2_3/RI/MOSI1
@@ -1329,7 +1235,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1340,7 +1245,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -1350,7 +1254,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace NoneswdioPio13{    ///<I/O configuration for pin SWDIO/PIO1_3/AD4/CT32B1_MAT2
@@ -1371,7 +1274,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1381,7 +1283,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Selects Analog/Digital mode
         enum class AdmodeVal {
@@ -1393,7 +1294,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
             constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -1403,7 +1303,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio14{    ///<I/O configuration for pin PIO1_4/AD5/CT32B1_MAT3
@@ -1424,7 +1323,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1434,7 +1332,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Selects Analog/Digital mode
         enum class AdmodeVal {
@@ -1446,7 +1343,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
             constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -1456,7 +1352,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio111{    ///<I/O configuration for pin PIO1_11/AD7/CT32B1_CAP1
@@ -1477,7 +1372,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1487,7 +1381,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Selects Analog/Digital mode
         enum class AdmodeVal {
@@ -1499,7 +1392,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
             constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -1509,7 +1401,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio32{    ///<I/O configuration for pin PIO3_2/DCD/ CT16B0_MAT2/SCK1
@@ -1530,7 +1421,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1541,7 +1431,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -1551,7 +1440,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio15{    ///<I/O configuration for pin PIO1_5/RTS/CT32B0_CAP0
@@ -1572,7 +1460,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1583,7 +1470,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -1593,7 +1479,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio16{    ///<I/O configuration for pin PIO1_6/RXD/CT32B0_MAT0
@@ -1614,7 +1499,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1625,7 +1509,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -1635,7 +1518,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio17{    ///<I/O configuration for pin PIO1_7/TXD/CT32B0_MAT1
@@ -1656,7 +1538,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1667,7 +1548,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -1677,7 +1557,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonepio33{    ///<I/O configuration for pin PIO3_3/RI/ CT16B0_CAP0
@@ -1698,7 +1577,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1709,7 +1587,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
-        }
         ///Selects pseudo open-drain mode.
         enum class OdVal {
             standardGpioOutput=0x00000000,     ///<Standard GPIO output
@@ -1719,7 +1596,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::standardGpioOutput> standardGpioOutput{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainOutput> openDrainOutput{};
-        }
         }
     }
     namespace Nonesck0Loc{    ///<SCK0 pin location select register
@@ -1736,7 +1612,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sckloc)::Type,ScklocVal::pio211> pio211{};
             constexpr Register::FieldValue<decltype(sckloc)::Type,ScklocVal::pio06> pio06{};
         }
-        }
     }
     namespace NonedsrLoc{    ///<DSR pin location select register
         using Addr = Register::Address<0x400440b4,0xfffffffc,0,unsigned>;
@@ -1749,7 +1624,6 @@ namespace Kvasir {
         namespace DsrlocValC{
             constexpr Register::FieldValue<decltype(dsrloc)::Type,DsrlocVal::pio21> pio21{};
             constexpr Register::FieldValue<decltype(dsrloc)::Type,DsrlocVal::pio31> pio31{};
-        }
         }
     }
     namespace NonedcdLoc{    ///<DCD pin location select register
@@ -1764,7 +1638,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dcdloc)::Type,DcdlocVal::pio22> pio22{};
             constexpr Register::FieldValue<decltype(dcdloc)::Type,DcdlocVal::pio32> pio32{};
         }
-        }
     }
     namespace NoneriLoc{    ///<RI pin location select register
         using Addr = Register::Address<0x400440bc,0xfffffffc,0,unsigned>;
@@ -1777,7 +1650,6 @@ namespace Kvasir {
         namespace RilocValC{
             constexpr Register::FieldValue<decltype(riloc)::Type,RilocVal::pio23> pio23{};
             constexpr Register::FieldValue<decltype(riloc)::Type,RilocVal::pio33> pio33{};
-        }
         }
     }
     namespace Nonessel1Loc{    ///<SSEL1 pin location select register
@@ -1792,7 +1664,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssel1loc)::Type,Ssel1locVal::pio22> pio22{};
             constexpr Register::FieldValue<decltype(ssel1loc)::Type,Ssel1locVal::pio24> pio24{};
         }
-        }
     }
     namespace Nonesck1Loc{    ///<SCK1 pin location select register
         using Addr = Register::Address<0x400440c4,0xfffffffc,0,unsigned>;
@@ -1805,7 +1676,6 @@ namespace Kvasir {
         namespace Sck1locValC{
             constexpr Register::FieldValue<decltype(sck1loc)::Type,Sck1locVal::pio21> pio21{};
             constexpr Register::FieldValue<decltype(sck1loc)::Type,Sck1locVal::pio32> pio32{};
-        }
         }
     }
     namespace Nonemiso1Loc{    ///<MISO1 pin location select register
@@ -1820,7 +1690,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(miso1loc)::Type,Miso1locVal::pio22> pio22{};
             constexpr Register::FieldValue<decltype(miso1loc)::Type,Miso1locVal::pio110> pio110{};
         }
-        }
     }
     namespace Nonemosi1Loc{    ///<MOSI1 pin location select register
         using Addr = Register::Address<0x400440cc,0xfffffffc,0,unsigned>;
@@ -1833,7 +1702,6 @@ namespace Kvasir {
         namespace Mosi1locValC{
             constexpr Register::FieldValue<decltype(mosi1loc)::Type,Mosi1locVal::pio23> pio23{};
             constexpr Register::FieldValue<decltype(mosi1loc)::Type,Mosi1locVal::pio19> pio19{};
-        }
         }
     }
     namespace NonerxdLoc{    ///<RXD pin location select register
@@ -1851,7 +1719,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxdloc)::Type,RxdlocVal::pio27> pio27{};
             constexpr Register::FieldValue<decltype(rxdloc)::Type,RxdlocVal::pio31> pio31{};
             constexpr Register::FieldValue<decltype(rxdloc)::Type,RxdlocVal::pio34> pio34{};
-        }
         }
     }
 }

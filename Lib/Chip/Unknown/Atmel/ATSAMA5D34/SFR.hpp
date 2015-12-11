@@ -38,7 +38,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfetch10)::Type,Pfetch10Val::incr4> incr4{};
             constexpr Register::FieldValue<decltype(pfetch10)::Type,Pfetch10Val::incr8> incr8{};
         }
-        }
         ///AHB MASTERx 11 Converter Prefetch
         enum class Pfetch11Val {
             incr4=0x00000000,     ///<INCR undefined burst converted to burst of 4 beats.
@@ -48,7 +47,6 @@ namespace Kvasir {
         namespace Pfetch11ValC{
             constexpr Register::FieldValue<decltype(pfetch11)::Type,Pfetch11Val::incr4> incr4{};
             constexpr Register::FieldValue<decltype(pfetch11)::Type,Pfetch11Val::incr8> incr8{};
-        }
         }
         ///AHB MASTERx 12 Converter Prefetch
         enum class Pfetch12Val {
@@ -60,7 +58,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfetch12)::Type,Pfetch12Val::incr4> incr4{};
             constexpr Register::FieldValue<decltype(pfetch12)::Type,Pfetch12Val::incr8> incr8{};
         }
-        }
         ///AHB MASTERx 13 Converter Prefetch
         enum class Pfetch13Val {
             incr4=0x00000000,     ///<INCR undefined burst converted to burst of 4 beats.
@@ -71,7 +68,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfetch13)::Type,Pfetch13Val::incr4> incr4{};
             constexpr Register::FieldValue<decltype(pfetch13)::Type,Pfetch13Val::incr8> incr8{};
         }
-        }
         ///AHB MASTERx 14 Converter Prefetch
         enum class Pfetch14Val {
             incr4=0x00000000,     ///<INCR undefined burst converted to burst of 4 beats.
@@ -81,7 +77,6 @@ namespace Kvasir {
         namespace Pfetch14ValC{
             constexpr Register::FieldValue<decltype(pfetch14)::Type,Pfetch14Val::incr4> incr4{};
             constexpr Register::FieldValue<decltype(pfetch14)::Type,Pfetch14Val::incr8> incr8{};
-        }
         }
         ///AHB MASTERx 10 Converter Define Length Burst Optimization
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> dlbopt10{}; 
@@ -108,7 +103,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(axi2ahbsel)::Type,Axi2ahbselVal::single> single{};
             constexpr Register::FieldValue<decltype(axi2ahbsel)::Type,Axi2ahbselVal::dual> dual{};
         }
-        }
     }
     namespace SfrSecure{    ///<Security Configuration Register
         using Addr = Register::Address<0xf0038028,0xfffffefe,0,unsigned>;
@@ -132,7 +126,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(freq)::Type,FreqVal::v16> v16{};
             constexpr Register::FieldValue<decltype(freq)::Type,FreqVal::v24> v24{};
             constexpr Register::FieldValue<decltype(freq)::Type,FreqVal::v48> v48{};
-        }
         }
         ///UTMI Band Gap Voltage Trimming
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> vbg{}; 
@@ -175,7 +168,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(port0)::Type,Port0Val::normal> normal{};
             constexpr Register::FieldValue<decltype(port0)::Type,Port0Val::swapped> swapped{};
         }
-        }
         ///PORT 1 DP/DM Pin Swapping
         enum class Port1Val {
             normal=0x00000000,     ///<DP/DM normal pinout.
@@ -186,7 +178,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(port1)::Type,Port1Val::normal> normal{};
             constexpr Register::FieldValue<decltype(port1)::Type,Port1Val::swapped> swapped{};
         }
-        }
         ///PORT 2 DP/DM Pin Swapping
         enum class Port2Val {
             normal=0x00000000,     ///<DP/DM normal pinout.
@@ -196,7 +187,6 @@ namespace Kvasir {
         namespace Port2ValC{
             constexpr Register::FieldValue<decltype(port2)::Type,Port2Val::normal> normal{};
             constexpr Register::FieldValue<decltype(port2)::Type,Port2Val::swapped> swapped{};
-        }
         }
     }
     namespace SfrEbicfg{    ///<EBI Configuration Register
@@ -213,7 +203,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive0)::Type,Drive0Val::medium> medium{};
             constexpr Register::FieldValue<decltype(drive0)::Type,Drive0Val::high> high{};
         }
-        }
         ///EBI Pins Pull Value
         enum class Pull0Val {
             up=0x00000000,     ///<Pull-up
@@ -225,7 +214,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull0)::Type,Pull0Val::up> up{};
             constexpr Register::FieldValue<decltype(pull0)::Type,Pull0Val::none> none{};
             constexpr Register::FieldValue<decltype(pull0)::Type,Pull0Val::down> down{};
-        }
         }
         ///EBI Pins Schmitt Trigger
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> sch0{}; 
@@ -241,7 +229,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drive1)::Type,Drive1Val::medium> medium{};
             constexpr Register::FieldValue<decltype(drive1)::Type,Drive1Val::high> high{};
         }
-        }
         ///EBI Pins Pull Value
         enum class Pull1Val {
             up=0x00000000,     ///<Pull-up
@@ -254,7 +241,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pull1)::Type,Pull1Val::none> none{};
             constexpr Register::FieldValue<decltype(pull1)::Type,Pull1Val::down> down{};
         }
-        }
         ///EBI Pins Schmitt Trigger
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> sch1{}; 
         ///BMS Sampled Value (Read Only)
@@ -266,7 +252,6 @@ namespace Kvasir {
         namespace BmsValC{
             constexpr Register::FieldValue<decltype(bms)::Type,BmsVal::rom> rom{};
             constexpr Register::FieldValue<decltype(bms)::Type,BmsVal::ebi> ebi{};
-        }
         }
     }
 }

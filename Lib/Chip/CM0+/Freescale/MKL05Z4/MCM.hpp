@@ -24,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::v1> v1{};
         }
-        }
         ///Clear Flash Controller Cache
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> cfcc{}; 
         ///Disable Flash Controller Data Caching
@@ -37,7 +36,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dfcda)::Type,DfcdaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dfcda)::Type,DfcdaVal::v1> v1{};
         }
-        }
         ///Disable Flash Controller Instruction Caching
         enum class DfcicVal {
             v0=0x00000000,     ///<Enable flash controller instruction caching.
@@ -47,7 +45,6 @@ namespace Kvasir {
         namespace DfcicValC{
             constexpr Register::FieldValue<decltype(dfcic)::Type,DfcicVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dfcic)::Type,DfcicVal::v1> v1{};
-        }
         }
         ///Disable Flash Controller Cache
         enum class DfccVal {
@@ -59,7 +56,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dfcc)::Type,DfccVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dfcc)::Type,DfccVal::v1> v1{};
         }
-        }
         ///Enable Flash Data Speculation
         enum class EfdsVal {
             v0=0x00000000,     ///<Disable flash data speculation.
@@ -69,7 +65,6 @@ namespace Kvasir {
         namespace EfdsValC{
             constexpr Register::FieldValue<decltype(efds)::Type,EfdsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(efds)::Type,EfdsVal::v1> v1{};
-        }
         }
         ///Disable Flash Controller Speculation
         enum class DfcsVal {
@@ -81,7 +76,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dfcs)::Type,DfcsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dfcs)::Type,DfcsVal::v1> v1{};
         }
-        }
         ///Enable Stalling Flash Controller
         enum class EsfcVal {
             v0=0x00000000,     ///<Disable stalling flash controller when flash is busy.
@@ -91,7 +85,6 @@ namespace Kvasir {
         namespace EsfcValC{
             constexpr Register::FieldValue<decltype(esfc)::Type,EsfcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esfc)::Type,EsfcVal::v1> v1{};
-        }
         }
     }
     namespace McmCpo{    ///<Compute Operation Control Register
@@ -106,7 +99,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cporeq)::Type,CporeqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cporeq)::Type,CporeqVal::v1> v1{};
         }
-        }
         ///Compute Operation acknowledge
         enum class CpoackVal {
             v0=0x00000000,     ///<Compute operation entry has not completed or compute operation exit has completed.
@@ -117,7 +109,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpoack)::Type,CpoackVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cpoack)::Type,CpoackVal::v1> v1{};
         }
-        }
         ///Compute Operation wakeup on interrupt
         enum class CpowoiVal {
             v0=0x00000000,     ///<No effect.
@@ -127,7 +118,6 @@ namespace Kvasir {
         namespace CpowoiValC{
             constexpr Register::FieldValue<decltype(cpowoi)::Type,CpowoiVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cpowoi)::Type,CpowoiVal::v1> v1{};
-        }
         }
     }
 }

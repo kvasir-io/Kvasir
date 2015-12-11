@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(avlls)::Type,AvllsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(avlls)::Type,AvllsVal::v1> v1{};
         }
-        }
         ///Allow Low-Leakage Stop Mode
         enum class AllsVal {
             v0=0x00000000,     ///<LLS is not allowed
@@ -25,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(alls)::Type,AllsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(alls)::Type,AllsVal::v1> v1{};
         }
-        }
         ///Allow Very-Low-Power Modes
         enum class AvlpVal {
             v0=0x00000000,     ///<VLPR, VLPW, and VLPS are not allowed.
@@ -35,7 +33,6 @@ namespace Kvasir {
         namespace AvlpValC{
             constexpr Register::FieldValue<decltype(avlp)::Type,AvlpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(avlp)::Type,AvlpVal::v1> v1{};
-        }
         }
     }
     namespace SmcPmctrl{    ///<Power Mode Control register
@@ -56,7 +53,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopm)::Type,StopmVal::v100> v100{};
             constexpr Register::FieldValue<decltype(stopm)::Type,StopmVal::v110> v110{};
         }
-        }
         ///Stop Aborted
         enum class StopaVal {
             v0=0x00000000,     ///<The previous stop mode entry was successsful.
@@ -67,7 +63,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopa)::Type,StopaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(stopa)::Type,StopaVal::v1> v1{};
         }
-        }
         ///Run Mode Control
         enum class RunmVal {
             v00=0x00000000,     ///<Normal Run mode (RUN)
@@ -77,7 +72,6 @@ namespace Kvasir {
         namespace RunmValC{
             constexpr Register::FieldValue<decltype(runm)::Type,RunmVal::v00> v00{};
             constexpr Register::FieldValue<decltype(runm)::Type,RunmVal::v10> v10{};
-        }
         }
     }
     namespace SmcStopctrl{    ///<Stop Control Register
@@ -94,7 +88,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(porpo)::Type,PorpoVal::v0> v0{};
             constexpr Register::FieldValue<decltype(porpo)::Type,PorpoVal::v1> v1{};
         }
-        }
         ///Partial Stop Option
         enum class PstopoVal {
             v00=0x00000000,     ///<STOP - Normal Stop mode
@@ -106,7 +99,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pstopo)::Type,PstopoVal::v00> v00{};
             constexpr Register::FieldValue<decltype(pstopo)::Type,PstopoVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pstopo)::Type,PstopoVal::v10> v10{};
-        }
         }
     }
     namespace SmcPmstat{    ///<Power Mode Status register

@@ -18,7 +18,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::softwareControlled> softwareControlled{};
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::hardwareScanMode> hardwareScanMode{};
         }
-        }
         ///This field selects the number of clocks used for each conversion in Burst mode, and the number of bits of accuracy of the result in the LS bits of ADDR, between 11 clocks (10 bits) and 4 clocks (3 bits).
         enum class ClksVal {
             v11Clocks=0x00000000,     ///<11 clocks / 10 bits
@@ -40,7 +39,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v6Clocks> v6Clocks{};
             constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v5Clocks> v5Clocks{};
             constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v4Clocks> v4Clocks{};
-        }
         }
         ///When the BURST bit is 0, these bits control whether and when an A/D conversion is started:
         enum class StartVal {
@@ -64,7 +62,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::ct16b0Mat0> ct16b0Mat0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::ct16b0Mat1> ct16b0Mat1{};
         }
-        }
         ///This bit is significant only when the START field contains 010-111. In these cases:
         enum class EdgeVal {
             rising=0x00000000,     ///<Start conversion on a rising edge on the selected CAP/MAT signal.
@@ -74,7 +71,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::rising> rising{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::falling> falling{};
-        }
         }
     }
     namespace Nonegdr{    ///<A/D Global Data Register. Contains the result of the most recent A/D conversion.

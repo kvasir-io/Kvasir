@@ -220,7 +220,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(speedCfg)::Type,SpeedcfgVal::highSpeed> highSpeed{};
             constexpr Register::FieldValue<decltype(speedCfg)::Type,SpeedcfgVal::fullSpeed> fullSpeed{};
         }
-        }
         ///Test J Mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> tstJ{}; 
         ///Test K Mode
@@ -254,7 +253,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v512> v512{};
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v1024> v1024{};
         }
-        }
         ///Endpoint Direction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
         ///Endpoint Type
@@ -271,7 +269,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::bulk> bulk{};
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::int_> int_{};
         }
-        }
         ///Number of Banks
         enum class BknumberVal {
             v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
@@ -285,7 +282,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v1> v1{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v2> v2{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v3> v3{};
-        }
         }
         ///Number Of Transaction per Microframe
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
@@ -546,7 +542,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
         }
-        }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
         ///Received OUT Data/KILL Bank
@@ -577,7 +572,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
         }
-        }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
         ///Short Packet
@@ -598,7 +592,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data1> data1{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
-        }
         }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
@@ -626,7 +619,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank2> bank2{};
         }
-        }
         ///Busy Bank Number
         enum class BusybankstaVal {
             v1busybank=0x00000000,     ///<1 busy bank
@@ -638,7 +630,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v1busybank> v1busybank{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
-        }
         }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
@@ -669,7 +660,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v512> v512{};
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v1024> v1024{};
         }
-        }
         ///Endpoint Direction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
         ///Endpoint Type
@@ -686,7 +676,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::bulk> bulk{};
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::int_> int_{};
         }
-        }
         ///Number of Banks
         enum class BknumberVal {
             v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
@@ -700,7 +689,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v1> v1{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v2> v2{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v3> v3{};
-        }
         }
         ///Number Of Transaction per Microframe
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
@@ -961,7 +949,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
         }
-        }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
         ///Received OUT Data/KILL Bank
@@ -992,7 +979,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
         }
-        }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
         ///Short Packet
@@ -1013,7 +999,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data1> data1{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
-        }
         }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
@@ -1041,7 +1026,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank2> bank2{};
         }
-        }
         ///Busy Bank Number
         enum class BusybankstaVal {
             v1busybank=0x00000000,     ///<1 busy bank
@@ -1053,7 +1037,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v1busybank> v1busybank{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
-        }
         }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
@@ -1084,7 +1067,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v512> v512{};
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v1024> v1024{};
         }
-        }
         ///Endpoint Direction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
         ///Endpoint Type
@@ -1101,7 +1083,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::bulk> bulk{};
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::int_> int_{};
         }
-        }
         ///Number of Banks
         enum class BknumberVal {
             v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
@@ -1115,7 +1096,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v1> v1{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v2> v2{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v3> v3{};
-        }
         }
         ///Number Of Transaction per Microframe
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
@@ -1376,7 +1356,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
         }
-        }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
         ///Received OUT Data/KILL Bank
@@ -1407,7 +1386,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
         }
-        }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
         ///Short Packet
@@ -1428,7 +1406,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data1> data1{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
-        }
         }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
@@ -1456,7 +1433,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank2> bank2{};
         }
-        }
         ///Busy Bank Number
         enum class BusybankstaVal {
             v1busybank=0x00000000,     ///<1 busy bank
@@ -1468,7 +1444,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v1busybank> v1busybank{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
-        }
         }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
@@ -1499,7 +1474,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v512> v512{};
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v1024> v1024{};
         }
-        }
         ///Endpoint Direction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
         ///Endpoint Type
@@ -1516,7 +1490,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::bulk> bulk{};
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::int_> int_{};
         }
-        }
         ///Number of Banks
         enum class BknumberVal {
             v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
@@ -1530,7 +1503,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v1> v1{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v2> v2{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v3> v3{};
-        }
         }
         ///Number Of Transaction per Microframe
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
@@ -1791,7 +1763,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
         }
-        }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
         ///Received OUT Data/KILL Bank
@@ -1822,7 +1793,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
         }
-        }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
         ///Short Packet
@@ -1843,7 +1813,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data1> data1{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
-        }
         }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
@@ -1871,7 +1840,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank2> bank2{};
         }
-        }
         ///Busy Bank Number
         enum class BusybankstaVal {
             v1busybank=0x00000000,     ///<1 busy bank
@@ -1883,7 +1851,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v1busybank> v1busybank{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
-        }
         }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
@@ -1914,7 +1881,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v512> v512{};
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v1024> v1024{};
         }
-        }
         ///Endpoint Direction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
         ///Endpoint Type
@@ -1931,7 +1897,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::bulk> bulk{};
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::int_> int_{};
         }
-        }
         ///Number of Banks
         enum class BknumberVal {
             v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
@@ -1945,7 +1910,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v1> v1{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v2> v2{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v3> v3{};
-        }
         }
         ///Number Of Transaction per Microframe
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
@@ -2206,7 +2170,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
         }
-        }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
         ///Received OUT Data/KILL Bank
@@ -2237,7 +2200,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
         }
-        }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
         ///Short Packet
@@ -2258,7 +2220,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data1> data1{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
-        }
         }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
@@ -2286,7 +2247,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank2> bank2{};
         }
-        }
         ///Busy Bank Number
         enum class BusybankstaVal {
             v1busybank=0x00000000,     ///<1 busy bank
@@ -2298,7 +2258,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v1busybank> v1busybank{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
-        }
         }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
@@ -2329,7 +2288,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v512> v512{};
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v1024> v1024{};
         }
-        }
         ///Endpoint Direction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
         ///Endpoint Type
@@ -2346,7 +2304,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::bulk> bulk{};
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::int_> int_{};
         }
-        }
         ///Number of Banks
         enum class BknumberVal {
             v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
@@ -2360,7 +2317,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v1> v1{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v2> v2{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v3> v3{};
-        }
         }
         ///Number Of Transaction per Microframe
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
@@ -2621,7 +2577,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
         }
-        }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
         ///Received OUT Data/KILL Bank
@@ -2652,7 +2607,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
         }
-        }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
         ///Short Packet
@@ -2673,7 +2627,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data1> data1{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
-        }
         }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
@@ -2701,7 +2654,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank2> bank2{};
         }
-        }
         ///Busy Bank Number
         enum class BusybankstaVal {
             v1busybank=0x00000000,     ///<1 busy bank
@@ -2713,7 +2665,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v1busybank> v1busybank{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
-        }
         }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
@@ -2744,7 +2695,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v512> v512{};
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v1024> v1024{};
         }
-        }
         ///Endpoint Direction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
         ///Endpoint Type
@@ -2761,7 +2711,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::bulk> bulk{};
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::int_> int_{};
         }
-        }
         ///Number of Banks
         enum class BknumberVal {
             v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
@@ -2775,7 +2724,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v1> v1{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v2> v2{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v3> v3{};
-        }
         }
         ///Number Of Transaction per Microframe
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
@@ -3036,7 +2984,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
         }
-        }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
         ///Received OUT Data/KILL Bank
@@ -3067,7 +3014,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
         }
-        }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
         ///Short Packet
@@ -3088,7 +3034,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data1> data1{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
-        }
         }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
@@ -3116,7 +3061,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank2> bank2{};
         }
-        }
         ///Busy Bank Number
         enum class BusybankstaVal {
             v1busybank=0x00000000,     ///<1 busy bank
@@ -3128,7 +3072,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v1busybank> v1busybank{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
-        }
         }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
@@ -3159,7 +3102,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v512> v512{};
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v1024> v1024{};
         }
-        }
         ///Endpoint Direction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
         ///Endpoint Type
@@ -3176,7 +3118,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::bulk> bulk{};
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::int_> int_{};
         }
-        }
         ///Number of Banks
         enum class BknumberVal {
             v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
@@ -3190,7 +3131,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v1> v1{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v2> v2{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v3> v3{};
-        }
         }
         ///Number Of Transaction per Microframe
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
@@ -3451,7 +3391,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
         }
-        }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
         ///Received OUT Data/KILL Bank
@@ -3482,7 +3421,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
         }
-        }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
         ///Short Packet
@@ -3503,7 +3441,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data1> data1{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
-        }
         }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
@@ -3531,7 +3468,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank2> bank2{};
         }
-        }
         ///Busy Bank Number
         enum class BusybankstaVal {
             v1busybank=0x00000000,     ///<1 busy bank
@@ -3543,7 +3479,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v1busybank> v1busybank{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
-        }
         }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
@@ -3574,7 +3509,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v512> v512{};
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v1024> v1024{};
         }
-        }
         ///Endpoint Direction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
         ///Endpoint Type
@@ -3591,7 +3525,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::bulk> bulk{};
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::int_> int_{};
         }
-        }
         ///Number of Banks
         enum class BknumberVal {
             v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
@@ -3605,7 +3538,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v1> v1{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v2> v2{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v3> v3{};
-        }
         }
         ///Number Of Transaction per Microframe
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
@@ -3866,7 +3798,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
         }
-        }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
         ///Received OUT Data/KILL Bank
@@ -3897,7 +3828,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
         }
-        }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
         ///Short Packet
@@ -3918,7 +3848,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data1> data1{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
-        }
         }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
@@ -3946,7 +3875,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank2> bank2{};
         }
-        }
         ///Busy Bank Number
         enum class BusybankstaVal {
             v1busybank=0x00000000,     ///<1 busy bank
@@ -3958,7 +3886,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v1busybank> v1busybank{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
-        }
         }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
@@ -3989,7 +3916,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v512> v512{};
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v1024> v1024{};
         }
-        }
         ///Endpoint Direction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
         ///Endpoint Type
@@ -4006,7 +3932,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::bulk> bulk{};
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::int_> int_{};
         }
-        }
         ///Number of Banks
         enum class BknumberVal {
             v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
@@ -4020,7 +3945,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v1> v1{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v2> v2{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v3> v3{};
-        }
         }
         ///Number Of Transaction per Microframe
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
@@ -4281,7 +4205,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
         }
-        }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
         ///Received OUT Data/KILL Bank
@@ -4312,7 +4235,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
         }
-        }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
         ///Short Packet
@@ -4333,7 +4255,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data1> data1{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
-        }
         }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
@@ -4361,7 +4282,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank2> bank2{};
         }
-        }
         ///Busy Bank Number
         enum class BusybankstaVal {
             v1busybank=0x00000000,     ///<1 busy bank
@@ -4373,7 +4293,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v1busybank> v1busybank{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
-        }
         }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
@@ -4404,7 +4323,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v512> v512{};
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v1024> v1024{};
         }
-        }
         ///Endpoint Direction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
         ///Endpoint Type
@@ -4421,7 +4339,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::bulk> bulk{};
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::int_> int_{};
         }
-        }
         ///Number of Banks
         enum class BknumberVal {
             v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
@@ -4435,7 +4352,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v1> v1{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v2> v2{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v3> v3{};
-        }
         }
         ///Number Of Transaction per Microframe
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
@@ -4696,7 +4612,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
         }
-        }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
         ///Received OUT Data/KILL Bank
@@ -4727,7 +4642,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
         }
-        }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
         ///Short Packet
@@ -4748,7 +4662,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data1> data1{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
-        }
         }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
@@ -4776,7 +4689,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank2> bank2{};
         }
-        }
         ///Busy Bank Number
         enum class BusybankstaVal {
             v1busybank=0x00000000,     ///<1 busy bank
@@ -4788,7 +4700,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v1busybank> v1busybank{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
-        }
         }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
@@ -4819,7 +4730,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v512> v512{};
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v1024> v1024{};
         }
-        }
         ///Endpoint Direction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
         ///Endpoint Type
@@ -4836,7 +4746,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::bulk> bulk{};
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::int_> int_{};
         }
-        }
         ///Number of Banks
         enum class BknumberVal {
             v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
@@ -4850,7 +4759,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v1> v1{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v2> v2{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v3> v3{};
-        }
         }
         ///Number Of Transaction per Microframe
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
@@ -5111,7 +5019,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
         }
-        }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
         ///Received OUT Data/KILL Bank
@@ -5142,7 +5049,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
         }
-        }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
         ///Short Packet
@@ -5163,7 +5069,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data1> data1{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
-        }
         }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
@@ -5191,7 +5096,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank2> bank2{};
         }
-        }
         ///Busy Bank Number
         enum class BusybankstaVal {
             v1busybank=0x00000000,     ///<1 busy bank
@@ -5203,7 +5107,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v1busybank> v1busybank{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
-        }
         }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
@@ -5234,7 +5137,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v512> v512{};
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v1024> v1024{};
         }
-        }
         ///Endpoint Direction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
         ///Endpoint Type
@@ -5251,7 +5153,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::bulk> bulk{};
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::int_> int_{};
         }
-        }
         ///Number of Banks
         enum class BknumberVal {
             v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
@@ -5265,7 +5166,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v1> v1{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v2> v2{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v3> v3{};
-        }
         }
         ///Number Of Transaction per Microframe
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
@@ -5526,7 +5426,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
         }
-        }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
         ///Received OUT Data/KILL Bank
@@ -5557,7 +5456,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
         }
-        }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
         ///Short Packet
@@ -5578,7 +5476,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data1> data1{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
-        }
         }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
@@ -5606,7 +5503,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank2> bank2{};
         }
-        }
         ///Busy Bank Number
         enum class BusybankstaVal {
             v1busybank=0x00000000,     ///<1 busy bank
@@ -5618,7 +5514,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v1busybank> v1busybank{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
-        }
         }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
@@ -5649,7 +5544,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v512> v512{};
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v1024> v1024{};
         }
-        }
         ///Endpoint Direction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
         ///Endpoint Type
@@ -5666,7 +5560,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::bulk> bulk{};
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::int_> int_{};
         }
-        }
         ///Number of Banks
         enum class BknumberVal {
             v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
@@ -5680,7 +5573,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v1> v1{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v2> v2{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v3> v3{};
-        }
         }
         ///Number Of Transaction per Microframe
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
@@ -5941,7 +5833,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
         }
-        }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
         ///Received OUT Data/KILL Bank
@@ -5972,7 +5863,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
         }
-        }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
         ///Short Packet
@@ -5993,7 +5883,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data1> data1{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
-        }
         }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
@@ -6021,7 +5910,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank2> bank2{};
         }
-        }
         ///Busy Bank Number
         enum class BusybankstaVal {
             v1busybank=0x00000000,     ///<1 busy bank
@@ -6033,7 +5921,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v1busybank> v1busybank{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
-        }
         }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
@@ -6064,7 +5951,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v512> v512{};
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v1024> v1024{};
         }
-        }
         ///Endpoint Direction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
         ///Endpoint Type
@@ -6081,7 +5967,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::bulk> bulk{};
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::int_> int_{};
         }
-        }
         ///Number of Banks
         enum class BknumberVal {
             v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
@@ -6095,7 +5980,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v1> v1{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v2> v2{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v3> v3{};
-        }
         }
         ///Number Of Transaction per Microframe
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
@@ -6356,7 +6240,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
         }
-        }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
         ///Received OUT Data/KILL Bank
@@ -6387,7 +6270,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
         }
-        }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
         ///Short Packet
@@ -6408,7 +6290,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data1> data1{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
-        }
         }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
@@ -6436,7 +6317,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank2> bank2{};
         }
-        }
         ///Busy Bank Number
         enum class BusybankstaVal {
             v1busybank=0x00000000,     ///<1 busy bank
@@ -6448,7 +6328,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v1busybank> v1busybank{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
-        }
         }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
@@ -6479,7 +6358,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v512> v512{};
             constexpr Register::FieldValue<decltype(eptSize)::Type,EptsizeVal::v1024> v1024{};
         }
-        }
         ///Endpoint Direction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eptDir{}; 
         ///Endpoint Type
@@ -6496,7 +6374,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::bulk> bulk{};
             constexpr Register::FieldValue<decltype(eptType)::Type,EpttypeVal::int_> int_{};
         }
-        }
         ///Number of Banks
         enum class BknumberVal {
             v0=0x00000000,     ///<Zero bank, the endpoint is not mapped in memory
@@ -6510,7 +6387,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v1> v1{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v2> v2{};
             constexpr Register::FieldValue<decltype(bkNumber)::Type,BknumberVal::v3> v3{};
-        }
         }
         ///Number Of Transaction per Microframe
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> nbTrans{}; 
@@ -6771,7 +6647,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
         }
-        }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
         ///Received OUT Data/KILL Bank
@@ -6802,7 +6677,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
         }
-        }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 
         ///Short Packet
@@ -6823,7 +6697,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data1> data1{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::data2> data2{};
             constexpr Register::FieldValue<decltype(togglesqSta)::Type,TogglesqstaVal::mdata> mdata{};
-        }
         }
         ///Overflow Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> errOvflw{}; 
@@ -6851,7 +6724,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(curbk)::Type,CurbkVal::bank2> bank2{};
         }
-        }
         ///Busy Bank Number
         enum class BusybankstaVal {
             v1busybank=0x00000000,     ///<1 busy bank
@@ -6863,7 +6735,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v1busybank> v1busybank{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v2busybanks> v2busybanks{};
             constexpr Register::FieldValue<decltype(busyBankSta)::Type,BusybankstaVal::v3busybanks> v3busybanks{};
-        }
         }
         ///UDPHS Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,20),Register::ReadWriteAccess,unsigned> byteCount{}; 

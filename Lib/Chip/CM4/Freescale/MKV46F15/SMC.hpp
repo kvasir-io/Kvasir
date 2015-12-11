@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(avlls)::Type,AvllsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(avlls)::Type,AvllsVal::v1> v1{};
         }
-        }
         ///Allow Very-Low-Power Modes
         enum class AvlpVal {
             v0=0x00000000,     ///<VLPR, VLPW, and VLPS are not allowed.
@@ -25,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(avlp)::Type,AvlpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(avlp)::Type,AvlpVal::v1> v1{};
         }
-        }
         ///Allow High Speed Run mode
         enum class AhsrunVal {
             v0=0x00000000,     ///<HSRUN is not allowed
@@ -35,7 +33,6 @@ namespace Kvasir {
         namespace AhsrunValC{
             constexpr Register::FieldValue<decltype(ahsrun)::Type,AhsrunVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ahsrun)::Type,AhsrunVal::v1> v1{};
-        }
         }
     }
     namespace SmcPmctrl{    ///<Power Mode Control register
@@ -52,7 +49,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopa)::Type,StopaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(stopa)::Type,StopaVal::v1> v1{};
         }
-        }
         ///Run Mode Control
         enum class RunmVal {
             v00=0x00000000,     ///<Normal Run mode (RUN)
@@ -64,7 +60,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(runm)::Type,RunmVal::v00> v00{};
             constexpr Register::FieldValue<decltype(runm)::Type,RunmVal::v10> v10{};
             constexpr Register::FieldValue<decltype(runm)::Type,RunmVal::v11> v11{};
-        }
         }
     }
     namespace SmcStopctrl{    ///<Stop Control Register
@@ -81,7 +76,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lpopo)::Type,LpopoVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lpopo)::Type,LpopoVal::v1> v1{};
         }
-        }
         ///RAM2 Power Option
         enum class Ram2poVal {
             v0=0x00000000,     ///<RAM2 not powered in VLLS2
@@ -92,7 +86,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ram2po)::Type,Ram2poVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ram2po)::Type,Ram2poVal::v1> v1{};
         }
-        }
         ///POR Power Option
         enum class PorpoVal {
             v0=0x00000000,     ///<POR detect circuit is enabled in VLLS0
@@ -102,7 +95,6 @@ namespace Kvasir {
         namespace PorpoValC{
             constexpr Register::FieldValue<decltype(porpo)::Type,PorpoVal::v0> v0{};
             constexpr Register::FieldValue<decltype(porpo)::Type,PorpoVal::v1> v1{};
-        }
         }
         ///Partial Stop Option
         enum class PstopoVal {
@@ -115,7 +107,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pstopo)::Type,PstopoVal::v00> v00{};
             constexpr Register::FieldValue<decltype(pstopo)::Type,PstopoVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pstopo)::Type,PstopoVal::v10> v10{};
-        }
         }
     }
     namespace SmcPmstat{    ///<Power Mode Status register

@@ -111,7 +111,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(selPmatch)::Type,SelpmatchVal::pinInterrupt> pinInterrupt{};
             constexpr Register::FieldValue<decltype(selPmatch)::Type,SelpmatchVal::patternMatch> patternMatch{};
         }
-        }
         ///Enables the RXEV output to the CPU and/or to a GPIO output
 								when the specified boolean expression evaluates to
 								true.
@@ -125,7 +124,6 @@ namespace Kvasir {
         namespace EnarxevValC{
             constexpr Register::FieldValue<decltype(enaRxev)::Type,EnarxevVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(enaRxev)::Type,EnarxevVal::enabled> enabled{};
-        }
         }
         ///This field displays the current state of pattern matches. A
 								1 in any bit of this field indicates that the corresponding product
@@ -165,7 +163,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src0)::Type,Src0Val::input6> input6{};
             constexpr Register::FieldValue<decltype(src0)::Type,Src0Val::input7> input7{};
         }
-        }
         ///Selects the input source for bit slice 1
         enum class Src1Val {
             input0=0x00000000,     ///<Input 0. Selects the pin selected in the PINTSEL0
@@ -195,7 +192,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src1)::Type,Src1Val::input5> input5{};
             constexpr Register::FieldValue<decltype(src1)::Type,Src1Val::input6> input6{};
             constexpr Register::FieldValue<decltype(src1)::Type,Src1Val::input7> input7{};
-        }
         }
         ///Selects the input source for bit slice 2
         enum class Src2Val {
@@ -227,7 +223,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src2)::Type,Src2Val::input6> input6{};
             constexpr Register::FieldValue<decltype(src2)::Type,Src2Val::input7> input7{};
         }
-        }
         ///Selects the input source for bit slice 3
         enum class Src3Val {
             input0=0x00000000,     ///<Input 0. Selects the pin selected in the PINTSEL0
@@ -257,7 +252,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src3)::Type,Src3Val::input5> input5{};
             constexpr Register::FieldValue<decltype(src3)::Type,Src3Val::input6> input6{};
             constexpr Register::FieldValue<decltype(src3)::Type,Src3Val::input7> input7{};
-        }
         }
         ///Selects the input source for bit slice 4
         enum class Src4Val {
@@ -289,7 +283,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src4)::Type,Src4Val::input6> input6{};
             constexpr Register::FieldValue<decltype(src4)::Type,Src4Val::input7> input7{};
         }
-        }
         ///Selects the input source for bit slice 5
         enum class Src5Val {
             input0=0x00000000,     ///<Input 0. Selects the pin selected in the PINTSEL0
@@ -319,7 +312,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src5)::Type,Src5Val::input5> input5{};
             constexpr Register::FieldValue<decltype(src5)::Type,Src5Val::input6> input6{};
             constexpr Register::FieldValue<decltype(src5)::Type,Src5Val::input7> input7{};
-        }
         }
         ///Selects the input source for bit slice 6
         enum class Src6Val {
@@ -351,7 +343,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src6)::Type,Src6Val::input6> input6{};
             constexpr Register::FieldValue<decltype(src6)::Type,Src6Val::input7> input7{};
         }
-        }
         ///Selects the input source for bit slice 7
         enum class Src7Val {
             input0=0x00000000,     ///<Input 0. Selects the pin selected in the PINTSEL0
@@ -382,7 +373,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src7)::Type,Src7Val::input6> input6{};
             constexpr Register::FieldValue<decltype(src7)::Type,Src7Val::input7> input7{};
         }
-        }
     }
     namespace Nonepmcfg{    ///<Pattern match interrupt bit slice configuration
 						register
@@ -400,7 +390,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prodEndpts0)::Type,Prodendpts0Val::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(prodEndpts0)::Type,Prodendpts0Val::endpoint> endpoint{};
         }
-        }
         ///Determines whether slice 1 is an endpoint.
         enum class Prodendpts1Val {
             noEffect=0x00000000,     ///<No effect. Slice 1 is not an
@@ -413,7 +402,6 @@ namespace Kvasir {
         namespace Prodendpts1ValC{
             constexpr Register::FieldValue<decltype(prodEndpts1)::Type,Prodendpts1Val::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(prodEndpts1)::Type,Prodendpts1Val::endpoint> endpoint{};
-        }
         }
         ///Determines whether slice 2 is an endpoint.
         enum class Prodendpts2Val {
@@ -428,7 +416,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prodEndpts2)::Type,Prodendpts2Val::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(prodEndpts2)::Type,Prodendpts2Val::endpoint> endpoint{};
         }
-        }
         ///Determines whether slice 3 is an endpoint.
         enum class Prodendpts3Val {
             noEffect=0x00000000,     ///<No effect. Slice 3 is not an
@@ -441,7 +428,6 @@ namespace Kvasir {
         namespace Prodendpts3ValC{
             constexpr Register::FieldValue<decltype(prodEndpts3)::Type,Prodendpts3Val::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(prodEndpts3)::Type,Prodendpts3Val::endpoint> endpoint{};
-        }
         }
         ///Determines whether slice 4 is an endpoint.
         enum class Prodendpts4Val {
@@ -456,7 +442,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prodEndpts4)::Type,Prodendpts4Val::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(prodEndpts4)::Type,Prodendpts4Val::endpoint> endpoint{};
         }
-        }
         ///Determines whether slice 5 is an endpoint.
         enum class Prodendpts5Val {
             noEffect=0x00000000,     ///<No effect. Slice 5 is not an
@@ -470,7 +455,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prodEndpts5)::Type,Prodendpts5Val::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(prodEndpts5)::Type,Prodendpts5Val::endpoint> endpoint{};
         }
-        }
         ///Determines whether slice 6 is an endpoint.
         enum class Prodendpts6Val {
             noEffect=0x00000000,     ///<No effect. Slice 6 is not an
@@ -483,7 +467,6 @@ namespace Kvasir {
         namespace Prodendpts6ValC{
             constexpr Register::FieldValue<decltype(prodEndpts6)::Type,Prodendpts6Val::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(prodEndpts6)::Type,Prodendpts6Val::endpoint> endpoint{};
-        }
         }
         ///Specifies the match contribution condition for bit slice
 								0.
@@ -530,7 +513,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfg0)::Type,Cfg0Val::constant0> constant0{};
             constexpr Register::FieldValue<decltype(cfg0)::Type,Cfg0Val::event> event{};
         }
-        }
         ///Specifies the match contribution condition for bit slice
 								1.
         enum class Cfg1Val {
@@ -575,7 +557,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfg1)::Type,Cfg1Val::lowLevel> lowLevel{};
             constexpr Register::FieldValue<decltype(cfg1)::Type,Cfg1Val::constant0> constant0{};
             constexpr Register::FieldValue<decltype(cfg1)::Type,Cfg1Val::event> event{};
-        }
         }
         ///Specifies the match contribution condition for bit slice
 								2.
@@ -622,7 +603,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfg2)::Type,Cfg2Val::constant0> constant0{};
             constexpr Register::FieldValue<decltype(cfg2)::Type,Cfg2Val::event> event{};
         }
-        }
         ///Specifies the match contribution condition for bit slice
 								3.
         enum class Cfg3Val {
@@ -667,7 +647,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfg3)::Type,Cfg3Val::lowLevel> lowLevel{};
             constexpr Register::FieldValue<decltype(cfg3)::Type,Cfg3Val::constant0> constant0{};
             constexpr Register::FieldValue<decltype(cfg3)::Type,Cfg3Val::event> event{};
-        }
         }
         ///Specifies the match contribution condition for bit slice
 								4.
@@ -714,7 +693,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfg4)::Type,Cfg4Val::constant0> constant0{};
             constexpr Register::FieldValue<decltype(cfg4)::Type,Cfg4Val::event> event{};
         }
-        }
         ///Specifies the match contribution condition for bit slice
 								5.
         enum class Cfg5Val {
@@ -759,7 +737,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfg5)::Type,Cfg5Val::lowLevel> lowLevel{};
             constexpr Register::FieldValue<decltype(cfg5)::Type,Cfg5Val::constant0> constant0{};
             constexpr Register::FieldValue<decltype(cfg5)::Type,Cfg5Val::event> event{};
-        }
         }
         ///Specifies the match contribution condition for bit slice
 								6.
@@ -806,7 +783,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfg6)::Type,Cfg6Val::constant0> constant0{};
             constexpr Register::FieldValue<decltype(cfg6)::Type,Cfg6Val::event> event{};
         }
-        }
         ///Specifies the match contribution condition for bit slice
 								7.
         enum class Cfg7Val {
@@ -851,7 +827,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfg7)::Type,Cfg7Val::lowLevel> lowLevel{};
             constexpr Register::FieldValue<decltype(cfg7)::Type,Cfg7Val::constant0> constant0{};
             constexpr Register::FieldValue<decltype(cfg7)::Type,Cfg7Val::event> event{};
-        }
         }
     }
 }

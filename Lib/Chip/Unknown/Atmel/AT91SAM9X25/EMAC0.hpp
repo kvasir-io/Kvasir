@@ -59,7 +59,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clk)::Type,ClkVal::mck32> mck32{};
             constexpr Register::FieldValue<decltype(clk)::Type,ClkVal::mck64> mck64{};
         }
-        }
         ///Retry test
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rty{}; 
         ///Pause Enable
@@ -77,7 +76,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rbof)::Type,RbofVal::offset1> offset1{};
             constexpr Register::FieldValue<decltype(rbof)::Type,RbofVal::offset2> offset2{};
             constexpr Register::FieldValue<decltype(rbof)::Type,RbofVal::offset3> offset3{};
-        }
         }
         ///Receive Length field Checking Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rlce{}; 

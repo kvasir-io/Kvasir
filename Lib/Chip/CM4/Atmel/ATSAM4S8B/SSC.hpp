@@ -34,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cks)::Type,CksVal::tk> tk{};
             constexpr Register::FieldValue<decltype(cks)::Type,CksVal::rk> rk{};
         }
-        }
         ///Receive Clock Output Mode Selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,2),Register::ReadWriteAccess,unsigned> cko{}; 
         ///Receive Clock Inversion
@@ -50,7 +49,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ckg)::Type,CkgVal::continuous> continuous{};
             constexpr Register::FieldValue<decltype(ckg)::Type,CkgVal::enRfLow> enRfLow{};
             constexpr Register::FieldValue<decltype(ckg)::Type,CkgVal::enRfHigh> enRfHigh{};
-        }
         }
         ///Receive Start Selection
         enum class StartVal {
@@ -75,7 +73,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::rfLevel> rfLevel{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::rfEdge> rfEdge{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::cmp0> cmp0{};
-        }
         }
         ///Receive Stop Selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> stop{}; 
@@ -114,7 +111,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fsos)::Type,FsosVal::high> high{};
             constexpr Register::FieldValue<decltype(fsos)::Type,FsosVal::toggling> toggling{};
         }
-        }
         ///Frame Sync Edge Detection
         enum class FsedgeVal {
             positive=0x00000000,     ///<Positive Edge Detection
@@ -124,7 +120,6 @@ namespace Kvasir {
         namespace FsedgeValC{
             constexpr Register::FieldValue<decltype(fsedge)::Type,FsedgeVal::positive> positive{};
             constexpr Register::FieldValue<decltype(fsedge)::Type,FsedgeVal::negative> negative{};
-        }
         }
         ///FSLEN Field Extension
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> fslenExt{}; 
@@ -143,7 +138,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cks)::Type,CksVal::rk> rk{};
             constexpr Register::FieldValue<decltype(cks)::Type,CksVal::tk> tk{};
         }
-        }
         ///Transmit Clock Output Mode Selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,2),Register::ReadWriteAccess,unsigned> cko{}; 
         ///Transmit Clock Inversion
@@ -159,7 +153,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ckg)::Type,CkgVal::continuous> continuous{};
             constexpr Register::FieldValue<decltype(ckg)::Type,CkgVal::enTfLow> enTfLow{};
             constexpr Register::FieldValue<decltype(ckg)::Type,CkgVal::enTfHigh> enTfHigh{};
-        }
         }
         ///Transmit Start Selection
         enum class StartVal {
@@ -182,7 +175,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::tfRising> tfRising{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::tfLevel> tfLevel{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::tfEdge> tfEdge{};
-        }
         }
         ///Transmit Start Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> sttdly{}; 
@@ -219,7 +211,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fsos)::Type,FsosVal::high> high{};
             constexpr Register::FieldValue<decltype(fsos)::Type,FsosVal::toggling> toggling{};
         }
-        }
         ///Frame Sync Data Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> fsden{}; 
         ///Frame Sync Edge Detection
@@ -231,7 +222,6 @@ namespace Kvasir {
         namespace FsedgeValC{
             constexpr Register::FieldValue<decltype(fsedge)::Type,FsedgeVal::positive> positive{};
             constexpr Register::FieldValue<decltype(fsedge)::Type,FsedgeVal::negative> negative{};
-        }
         }
         ///FSLEN Field Extension
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> fslenExt{}; 

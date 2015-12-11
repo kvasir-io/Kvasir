@@ -56,7 +56,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::v01> v01{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::v10> v10{};
         }
-        }
         ///Reload Source Select
         enum class ReloadselVal {
             v0=0x00000000,     ///<The local RELOAD signal is used to reload registers.
@@ -66,7 +65,6 @@ namespace Kvasir {
         namespace ReloadselValC{
             constexpr Register::FieldValue<decltype(reloadSel)::Type,ReloadselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(reloadSel)::Type,ReloadselVal::v1> v1{};
-        }
         }
         ///This read/write bit determines the source of the FORCE OUTPUT signal for this submodule.
         enum class ForceselVal {
@@ -90,7 +88,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(forceSel)::Type,ForceselVal::v110> v110{};
             constexpr Register::FieldValue<decltype(forceSel)::Type,ForceselVal::v111> v111{};
         }
-        }
         ///Force Initialization
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> force{}; 
         ///Force Initialization Enable
@@ -102,7 +99,6 @@ namespace Kvasir {
         namespace FrcenValC{
             constexpr Register::FieldValue<decltype(frcen)::Type,FrcenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frcen)::Type,FrcenVal::v1> v1{};
-        }
         }
         ///Initialization Control Select
         enum class InitselVal {
@@ -117,7 +113,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(initSel)::Type,InitselVal::v01> v01{};
             constexpr Register::FieldValue<decltype(initSel)::Type,InitselVal::v10> v10{};
             constexpr Register::FieldValue<decltype(initSel)::Type,InitselVal::v11> v11{};
-        }
         }
         ///PWM_X Initial Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> pwmxInit{}; 
@@ -134,7 +129,6 @@ namespace Kvasir {
         namespace IndepValC{
             constexpr Register::FieldValue<decltype(indep)::Type,IndepVal::v0> v0{};
             constexpr Register::FieldValue<decltype(indep)::Type,IndepVal::v1> v1{};
-        }
         }
         ///WAIT Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> waiten{}; 
@@ -155,7 +149,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::v01> v01{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::v10> v10{};
         }
-        }
         ///Reload Source Select
         enum class ReloadselVal {
             v0=0x00000000,     ///<The local RELOAD signal is used to reload registers.
@@ -165,7 +158,6 @@ namespace Kvasir {
         namespace ReloadselValC{
             constexpr Register::FieldValue<decltype(reloadSel)::Type,ReloadselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(reloadSel)::Type,ReloadselVal::v1> v1{};
-        }
         }
         ///This read/write bit determines the source of the FORCE OUTPUT signal for this submodule.
         enum class ForceselVal {
@@ -189,7 +181,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(forceSel)::Type,ForceselVal::v110> v110{};
             constexpr Register::FieldValue<decltype(forceSel)::Type,ForceselVal::v111> v111{};
         }
-        }
         ///Force Initialization
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> force{}; 
         ///Force Initialization Enable
@@ -201,7 +192,6 @@ namespace Kvasir {
         namespace FrcenValC{
             constexpr Register::FieldValue<decltype(frcen)::Type,FrcenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frcen)::Type,FrcenVal::v1> v1{};
-        }
         }
         ///Initialization Control Select
         enum class InitselVal {
@@ -216,7 +206,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(initSel)::Type,InitselVal::v01> v01{};
             constexpr Register::FieldValue<decltype(initSel)::Type,InitselVal::v10> v10{};
             constexpr Register::FieldValue<decltype(initSel)::Type,InitselVal::v11> v11{};
-        }
         }
         ///PWM_X Initial Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> pwmxInit{}; 
@@ -233,7 +222,6 @@ namespace Kvasir {
         namespace IndepValC{
             constexpr Register::FieldValue<decltype(indep)::Type,IndepVal::v0> v0{};
             constexpr Register::FieldValue<decltype(indep)::Type,IndepVal::v1> v1{};
-        }
         }
         ///WAIT Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> waiten{}; 
@@ -254,7 +242,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::v01> v01{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::v10> v10{};
         }
-        }
         ///Reload Source Select
         enum class ReloadselVal {
             v0=0x00000000,     ///<The local RELOAD signal is used to reload registers.
@@ -264,7 +251,6 @@ namespace Kvasir {
         namespace ReloadselValC{
             constexpr Register::FieldValue<decltype(reloadSel)::Type,ReloadselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(reloadSel)::Type,ReloadselVal::v1> v1{};
-        }
         }
         ///This read/write bit determines the source of the FORCE OUTPUT signal for this submodule.
         enum class ForceselVal {
@@ -288,7 +274,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(forceSel)::Type,ForceselVal::v110> v110{};
             constexpr Register::FieldValue<decltype(forceSel)::Type,ForceselVal::v111> v111{};
         }
-        }
         ///Force Initialization
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> force{}; 
         ///Force Initialization Enable
@@ -300,7 +285,6 @@ namespace Kvasir {
         namespace FrcenValC{
             constexpr Register::FieldValue<decltype(frcen)::Type,FrcenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frcen)::Type,FrcenVal::v1> v1{};
-        }
         }
         ///Initialization Control Select
         enum class InitselVal {
@@ -315,7 +299,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(initSel)::Type,InitselVal::v01> v01{};
             constexpr Register::FieldValue<decltype(initSel)::Type,InitselVal::v10> v10{};
             constexpr Register::FieldValue<decltype(initSel)::Type,InitselVal::v11> v11{};
-        }
         }
         ///PWM_X Initial Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> pwmxInit{}; 
@@ -332,7 +315,6 @@ namespace Kvasir {
         namespace IndepValC{
             constexpr Register::FieldValue<decltype(indep)::Type,IndepVal::v0> v0{};
             constexpr Register::FieldValue<decltype(indep)::Type,IndepVal::v1> v1{};
-        }
         }
         ///WAIT Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> waiten{}; 
@@ -353,7 +335,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::v01> v01{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::v10> v10{};
         }
-        }
         ///Reload Source Select
         enum class ReloadselVal {
             v0=0x00000000,     ///<The local RELOAD signal is used to reload registers.
@@ -363,7 +344,6 @@ namespace Kvasir {
         namespace ReloadselValC{
             constexpr Register::FieldValue<decltype(reloadSel)::Type,ReloadselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(reloadSel)::Type,ReloadselVal::v1> v1{};
-        }
         }
         ///This read/write bit determines the source of the FORCE OUTPUT signal for this submodule.
         enum class ForceselVal {
@@ -387,7 +367,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(forceSel)::Type,ForceselVal::v110> v110{};
             constexpr Register::FieldValue<decltype(forceSel)::Type,ForceselVal::v111> v111{};
         }
-        }
         ///Force Initialization
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> force{}; 
         ///Force Initialization Enable
@@ -399,7 +378,6 @@ namespace Kvasir {
         namespace FrcenValC{
             constexpr Register::FieldValue<decltype(frcen)::Type,FrcenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frcen)::Type,FrcenVal::v1> v1{};
-        }
         }
         ///Initialization Control Select
         enum class InitselVal {
@@ -414,7 +392,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(initSel)::Type,InitselVal::v01> v01{};
             constexpr Register::FieldValue<decltype(initSel)::Type,InitselVal::v10> v10{};
             constexpr Register::FieldValue<decltype(initSel)::Type,InitselVal::v11> v11{};
-        }
         }
         ///PWM_X Initial Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> pwmxInit{}; 
@@ -431,7 +408,6 @@ namespace Kvasir {
         namespace IndepValC{
             constexpr Register::FieldValue<decltype(indep)::Type,IndepVal::v0> v0{};
             constexpr Register::FieldValue<decltype(indep)::Type,IndepVal::v1> v1{};
-        }
         }
         ///WAIT Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> waiten{}; 
@@ -450,7 +426,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dblen)::Type,DblenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dblen)::Type,DblenVal::v1> v1{};
         }
-        }
         ///PWMX Double Switching Enable
         enum class DblxVal {
             v0=0x00000000,     ///<PWMX double pulse disabled.
@@ -461,7 +436,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dblx)::Type,DblxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dblx)::Type,DblxVal::v1> v1{};
         }
-        }
         ///Load Mode Select
         enum class LdmodVal {
             v0=0x00000000,     ///<Buffered registers of this submodule are loaded and take effect at the next PWM reload if MCTRL[LDOK] is set.
@@ -471,7 +445,6 @@ namespace Kvasir {
         namespace LdmodValC{
             constexpr Register::FieldValue<decltype(ldmod)::Type,LdmodVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ldmod)::Type,LdmodVal::v1> v1{};
-        }
         }
         ///Prescaler
         enum class PrscVal {
@@ -495,7 +468,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prsc)::Type,PrscVal::v110> v110{};
             constexpr Register::FieldValue<decltype(prsc)::Type,PrscVal::v111> v111{};
         }
-        }
         ///Deadtime
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> dt{}; 
         ///Full Cycle Reload
@@ -508,7 +480,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(full)::Type,FullVal::v0> v0{};
             constexpr Register::FieldValue<decltype(full)::Type,FullVal::v1> v1{};
         }
-        }
         ///Half Cycle Reload
         enum class HalfVal {
             v0=0x00000000,     ///<Half-cycle reloads disabled.
@@ -518,7 +489,6 @@ namespace Kvasir {
         namespace HalfValC{
             constexpr Register::FieldValue<decltype(half)::Type,HalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(half)::Type,HalfVal::v1> v1{};
-        }
         }
         ///no description available
         enum class LdfqVal {
@@ -557,7 +527,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ldfq)::Type,LdfqVal::v1101> v1101{};
             constexpr Register::FieldValue<decltype(ldfq)::Type,LdfqVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(ldfq)::Type,LdfqVal::v1111> v1111{};
-        }
         }
     }
     namespace PwmaSm1ctrl{    ///<Control Register
@@ -572,7 +541,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dblen)::Type,DblenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dblen)::Type,DblenVal::v1> v1{};
         }
-        }
         ///PWMX Double Switching Enable
         enum class DblxVal {
             v0=0x00000000,     ///<PWMX double pulse disabled.
@@ -583,7 +551,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dblx)::Type,DblxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dblx)::Type,DblxVal::v1> v1{};
         }
-        }
         ///Load Mode Select
         enum class LdmodVal {
             v0=0x00000000,     ///<Buffered registers of this submodule are loaded and take effect at the next PWM reload if MCTRL[LDOK] is set.
@@ -593,7 +560,6 @@ namespace Kvasir {
         namespace LdmodValC{
             constexpr Register::FieldValue<decltype(ldmod)::Type,LdmodVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ldmod)::Type,LdmodVal::v1> v1{};
-        }
         }
         ///Prescaler
         enum class PrscVal {
@@ -617,7 +583,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prsc)::Type,PrscVal::v110> v110{};
             constexpr Register::FieldValue<decltype(prsc)::Type,PrscVal::v111> v111{};
         }
-        }
         ///Deadtime
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> dt{}; 
         ///Full Cycle Reload
@@ -630,7 +595,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(full)::Type,FullVal::v0> v0{};
             constexpr Register::FieldValue<decltype(full)::Type,FullVal::v1> v1{};
         }
-        }
         ///Half Cycle Reload
         enum class HalfVal {
             v0=0x00000000,     ///<Half-cycle reloads disabled.
@@ -640,7 +604,6 @@ namespace Kvasir {
         namespace HalfValC{
             constexpr Register::FieldValue<decltype(half)::Type,HalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(half)::Type,HalfVal::v1> v1{};
-        }
         }
         ///no description available
         enum class LdfqVal {
@@ -679,7 +642,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ldfq)::Type,LdfqVal::v1101> v1101{};
             constexpr Register::FieldValue<decltype(ldfq)::Type,LdfqVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(ldfq)::Type,LdfqVal::v1111> v1111{};
-        }
         }
     }
     namespace PwmaSm2ctrl{    ///<Control Register
@@ -694,7 +656,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dblen)::Type,DblenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dblen)::Type,DblenVal::v1> v1{};
         }
-        }
         ///PWMX Double Switching Enable
         enum class DblxVal {
             v0=0x00000000,     ///<PWMX double pulse disabled.
@@ -705,7 +666,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dblx)::Type,DblxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dblx)::Type,DblxVal::v1> v1{};
         }
-        }
         ///Load Mode Select
         enum class LdmodVal {
             v0=0x00000000,     ///<Buffered registers of this submodule are loaded and take effect at the next PWM reload if MCTRL[LDOK] is set.
@@ -715,7 +675,6 @@ namespace Kvasir {
         namespace LdmodValC{
             constexpr Register::FieldValue<decltype(ldmod)::Type,LdmodVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ldmod)::Type,LdmodVal::v1> v1{};
-        }
         }
         ///Prescaler
         enum class PrscVal {
@@ -739,7 +698,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prsc)::Type,PrscVal::v110> v110{};
             constexpr Register::FieldValue<decltype(prsc)::Type,PrscVal::v111> v111{};
         }
-        }
         ///Deadtime
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> dt{}; 
         ///Full Cycle Reload
@@ -752,7 +710,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(full)::Type,FullVal::v0> v0{};
             constexpr Register::FieldValue<decltype(full)::Type,FullVal::v1> v1{};
         }
-        }
         ///Half Cycle Reload
         enum class HalfVal {
             v0=0x00000000,     ///<Half-cycle reloads disabled.
@@ -762,7 +719,6 @@ namespace Kvasir {
         namespace HalfValC{
             constexpr Register::FieldValue<decltype(half)::Type,HalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(half)::Type,HalfVal::v1> v1{};
-        }
         }
         ///no description available
         enum class LdfqVal {
@@ -801,7 +757,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ldfq)::Type,LdfqVal::v1101> v1101{};
             constexpr Register::FieldValue<decltype(ldfq)::Type,LdfqVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(ldfq)::Type,LdfqVal::v1111> v1111{};
-        }
         }
     }
     namespace PwmaSm3ctrl{    ///<Control Register
@@ -816,7 +771,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dblen)::Type,DblenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dblen)::Type,DblenVal::v1> v1{};
         }
-        }
         ///PWMX Double Switching Enable
         enum class DblxVal {
             v0=0x00000000,     ///<PWMX double pulse disabled.
@@ -827,7 +781,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dblx)::Type,DblxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dblx)::Type,DblxVal::v1> v1{};
         }
-        }
         ///Load Mode Select
         enum class LdmodVal {
             v0=0x00000000,     ///<Buffered registers of this submodule are loaded and take effect at the next PWM reload if MCTRL[LDOK] is set.
@@ -837,7 +790,6 @@ namespace Kvasir {
         namespace LdmodValC{
             constexpr Register::FieldValue<decltype(ldmod)::Type,LdmodVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ldmod)::Type,LdmodVal::v1> v1{};
-        }
         }
         ///Prescaler
         enum class PrscVal {
@@ -861,7 +813,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prsc)::Type,PrscVal::v110> v110{};
             constexpr Register::FieldValue<decltype(prsc)::Type,PrscVal::v111> v111{};
         }
-        }
         ///Deadtime
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> dt{}; 
         ///Full Cycle Reload
@@ -874,7 +825,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(full)::Type,FullVal::v0> v0{};
             constexpr Register::FieldValue<decltype(full)::Type,FullVal::v1> v1{};
         }
-        }
         ///Half Cycle Reload
         enum class HalfVal {
             v0=0x00000000,     ///<Half-cycle reloads disabled.
@@ -884,7 +834,6 @@ namespace Kvasir {
         namespace HalfValC{
             constexpr Register::FieldValue<decltype(half)::Type,HalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(half)::Type,HalfVal::v1> v1{};
-        }
         }
         ///no description available
         enum class LdfqVal {
@@ -923,7 +872,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ldfq)::Type,LdfqVal::v1101> v1101{};
             constexpr Register::FieldValue<decltype(ldfq)::Type,LdfqVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(ldfq)::Type,LdfqVal::v1111> v1111{};
-        }
         }
     }
     namespace PwmaSm0val0{    ///<Value Register 0
@@ -1158,7 +1106,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frac1En)::Type,Frac1enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frac1En)::Type,Frac1enVal::v1> v1{};
         }
-        }
         ///Fractional Cycle Placement Enable for PWM_A
         enum class Frac23enVal {
             v0=0x00000000,     ///<Disable fractional cycle placement for PWM_A.
@@ -1168,7 +1115,6 @@ namespace Kvasir {
         namespace Frac23enValC{
             constexpr Register::FieldValue<decltype(frac23En)::Type,Frac23enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frac23En)::Type,Frac23enVal::v1> v1{};
-        }
         }
         ///Fractional Cycle Placement Enable for PWM_B
         enum class Frac45enVal {
@@ -1180,7 +1126,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frac45En)::Type,Frac45enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frac45En)::Type,Frac45enVal::v1> v1{};
         }
-        }
         ///Fractional Delay Circuit Power Up
         enum class FracpuVal {
             v0=0x00000000,     ///<Turn off fractional delay logic.
@@ -1190,7 +1135,6 @@ namespace Kvasir {
         namespace FracpuValC{
             constexpr Register::FieldValue<decltype(fracPu)::Type,FracpuVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fracPu)::Type,FracpuVal::v1> v1{};
-        }
         }
         ///Test Status Bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> test{}; 
@@ -1207,7 +1151,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frac1En)::Type,Frac1enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frac1En)::Type,Frac1enVal::v1> v1{};
         }
-        }
         ///Fractional Cycle Placement Enable for PWM_A
         enum class Frac23enVal {
             v0=0x00000000,     ///<Disable fractional cycle placement for PWM_A.
@@ -1217,7 +1160,6 @@ namespace Kvasir {
         namespace Frac23enValC{
             constexpr Register::FieldValue<decltype(frac23En)::Type,Frac23enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frac23En)::Type,Frac23enVal::v1> v1{};
-        }
         }
         ///Fractional Cycle Placement Enable for PWM_B
         enum class Frac45enVal {
@@ -1229,7 +1171,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frac45En)::Type,Frac45enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frac45En)::Type,Frac45enVal::v1> v1{};
         }
-        }
         ///Fractional Delay Circuit Power Up
         enum class FracpuVal {
             v0=0x00000000,     ///<Turn off fractional delay logic.
@@ -1239,7 +1180,6 @@ namespace Kvasir {
         namespace FracpuValC{
             constexpr Register::FieldValue<decltype(fracPu)::Type,FracpuVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fracPu)::Type,FracpuVal::v1> v1{};
-        }
         }
         ///Test Status Bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> test{}; 
@@ -1256,7 +1196,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frac1En)::Type,Frac1enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frac1En)::Type,Frac1enVal::v1> v1{};
         }
-        }
         ///Fractional Cycle Placement Enable for PWM_A
         enum class Frac23enVal {
             v0=0x00000000,     ///<Disable fractional cycle placement for PWM_A.
@@ -1266,7 +1205,6 @@ namespace Kvasir {
         namespace Frac23enValC{
             constexpr Register::FieldValue<decltype(frac23En)::Type,Frac23enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frac23En)::Type,Frac23enVal::v1> v1{};
-        }
         }
         ///Fractional Cycle Placement Enable for PWM_B
         enum class Frac45enVal {
@@ -1278,7 +1216,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frac45En)::Type,Frac45enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frac45En)::Type,Frac45enVal::v1> v1{};
         }
-        }
         ///Fractional Delay Circuit Power Up
         enum class FracpuVal {
             v0=0x00000000,     ///<Turn off fractional delay logic.
@@ -1288,7 +1225,6 @@ namespace Kvasir {
         namespace FracpuValC{
             constexpr Register::FieldValue<decltype(fracPu)::Type,FracpuVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fracPu)::Type,FracpuVal::v1> v1{};
-        }
         }
         ///Test Status Bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> test{}; 
@@ -1305,7 +1241,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frac1En)::Type,Frac1enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frac1En)::Type,Frac1enVal::v1> v1{};
         }
-        }
         ///Fractional Cycle Placement Enable for PWM_A
         enum class Frac23enVal {
             v0=0x00000000,     ///<Disable fractional cycle placement for PWM_A.
@@ -1315,7 +1250,6 @@ namespace Kvasir {
         namespace Frac23enValC{
             constexpr Register::FieldValue<decltype(frac23En)::Type,Frac23enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frac23En)::Type,Frac23enVal::v1> v1{};
-        }
         }
         ///Fractional Cycle Placement Enable for PWM_B
         enum class Frac45enVal {
@@ -1327,7 +1261,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frac45En)::Type,Frac45enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frac45En)::Type,Frac45enVal::v1> v1{};
         }
-        }
         ///Fractional Delay Circuit Power Up
         enum class FracpuVal {
             v0=0x00000000,     ///<Turn off fractional delay logic.
@@ -1337,7 +1270,6 @@ namespace Kvasir {
         namespace FracpuValC{
             constexpr Register::FieldValue<decltype(fracPu)::Type,FracpuVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fracPu)::Type,FracpuVal::v1> v1{};
-        }
         }
         ///Test Status Bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> test{}; 
@@ -1358,7 +1290,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmxfs)::Type,PwmxfsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pwmxfs)::Type,PwmxfsVal::v11> v11{};
         }
-        }
         ///PWM_B Fault State
         enum class PwmbfsVal {
             v00=0x00000000,     ///<Output is forced to logic 0 state prior to consideration of output polarity control.
@@ -1372,7 +1303,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmbfs)::Type,PwmbfsVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pwmbfs)::Type,PwmbfsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pwmbfs)::Type,PwmbfsVal::v11> v11{};
-        }
         }
         ///PWM_A Fault State
         enum class PwmafsVal {
@@ -1388,7 +1318,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmafs)::Type,PwmafsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pwmafs)::Type,PwmafsVal::v11> v11{};
         }
-        }
         ///PWM_X Output Polarity
         enum class PolxVal {
             v0=0x00000000,     ///<PWM_X output not inverted. A high level on the PWM_X pin represents the "on" or "active" state.
@@ -1398,7 +1327,6 @@ namespace Kvasir {
         namespace PolxValC{
             constexpr Register::FieldValue<decltype(polx)::Type,PolxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(polx)::Type,PolxVal::v1> v1{};
-        }
         }
         ///PWM_B Output Polarity
         enum class PolbVal {
@@ -1410,7 +1338,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(polb)::Type,PolbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(polb)::Type,PolbVal::v1> v1{};
         }
-        }
         ///PWM_A Output Polarity
         enum class PolaVal {
             v0=0x00000000,     ///<PWM_A output not inverted. A high level on the PWM_A pin represents the "on" or "active" state.
@@ -1420,7 +1347,6 @@ namespace Kvasir {
         namespace PolaValC{
             constexpr Register::FieldValue<decltype(pola)::Type,PolaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pola)::Type,PolaVal::v1> v1{};
-        }
         }
         ///PWM_X Input
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> pwmxIn{}; 
@@ -1445,7 +1371,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmxfs)::Type,PwmxfsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pwmxfs)::Type,PwmxfsVal::v11> v11{};
         }
-        }
         ///PWM_B Fault State
         enum class PwmbfsVal {
             v00=0x00000000,     ///<Output is forced to logic 0 state prior to consideration of output polarity control.
@@ -1459,7 +1384,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmbfs)::Type,PwmbfsVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pwmbfs)::Type,PwmbfsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pwmbfs)::Type,PwmbfsVal::v11> v11{};
-        }
         }
         ///PWM_A Fault State
         enum class PwmafsVal {
@@ -1475,7 +1399,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmafs)::Type,PwmafsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pwmafs)::Type,PwmafsVal::v11> v11{};
         }
-        }
         ///PWM_X Output Polarity
         enum class PolxVal {
             v0=0x00000000,     ///<PWM_X output not inverted. A high level on the PWM_X pin represents the "on" or "active" state.
@@ -1485,7 +1408,6 @@ namespace Kvasir {
         namespace PolxValC{
             constexpr Register::FieldValue<decltype(polx)::Type,PolxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(polx)::Type,PolxVal::v1> v1{};
-        }
         }
         ///PWM_B Output Polarity
         enum class PolbVal {
@@ -1497,7 +1419,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(polb)::Type,PolbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(polb)::Type,PolbVal::v1> v1{};
         }
-        }
         ///PWM_A Output Polarity
         enum class PolaVal {
             v0=0x00000000,     ///<PWM_A output not inverted. A high level on the PWM_A pin represents the "on" or "active" state.
@@ -1507,7 +1428,6 @@ namespace Kvasir {
         namespace PolaValC{
             constexpr Register::FieldValue<decltype(pola)::Type,PolaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pola)::Type,PolaVal::v1> v1{};
-        }
         }
         ///PWM_X Input
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> pwmxIn{}; 
@@ -1532,7 +1452,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmxfs)::Type,PwmxfsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pwmxfs)::Type,PwmxfsVal::v11> v11{};
         }
-        }
         ///PWM_B Fault State
         enum class PwmbfsVal {
             v00=0x00000000,     ///<Output is forced to logic 0 state prior to consideration of output polarity control.
@@ -1546,7 +1465,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmbfs)::Type,PwmbfsVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pwmbfs)::Type,PwmbfsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pwmbfs)::Type,PwmbfsVal::v11> v11{};
-        }
         }
         ///PWM_A Fault State
         enum class PwmafsVal {
@@ -1562,7 +1480,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmafs)::Type,PwmafsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pwmafs)::Type,PwmafsVal::v11> v11{};
         }
-        }
         ///PWM_X Output Polarity
         enum class PolxVal {
             v0=0x00000000,     ///<PWM_X output not inverted. A high level on the PWM_X pin represents the "on" or "active" state.
@@ -1572,7 +1489,6 @@ namespace Kvasir {
         namespace PolxValC{
             constexpr Register::FieldValue<decltype(polx)::Type,PolxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(polx)::Type,PolxVal::v1> v1{};
-        }
         }
         ///PWM_B Output Polarity
         enum class PolbVal {
@@ -1584,7 +1500,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(polb)::Type,PolbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(polb)::Type,PolbVal::v1> v1{};
         }
-        }
         ///PWM_A Output Polarity
         enum class PolaVal {
             v0=0x00000000,     ///<PWM_A output not inverted. A high level on the PWM_A pin represents the "on" or "active" state.
@@ -1594,7 +1509,6 @@ namespace Kvasir {
         namespace PolaValC{
             constexpr Register::FieldValue<decltype(pola)::Type,PolaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pola)::Type,PolaVal::v1> v1{};
-        }
         }
         ///PWM_X Input
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> pwmxIn{}; 
@@ -1619,7 +1533,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmxfs)::Type,PwmxfsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pwmxfs)::Type,PwmxfsVal::v11> v11{};
         }
-        }
         ///PWM_B Fault State
         enum class PwmbfsVal {
             v00=0x00000000,     ///<Output is forced to logic 0 state prior to consideration of output polarity control.
@@ -1633,7 +1546,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmbfs)::Type,PwmbfsVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pwmbfs)::Type,PwmbfsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pwmbfs)::Type,PwmbfsVal::v11> v11{};
-        }
         }
         ///PWM_A Fault State
         enum class PwmafsVal {
@@ -1649,7 +1561,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmafs)::Type,PwmafsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pwmafs)::Type,PwmafsVal::v11> v11{};
         }
-        }
         ///PWM_X Output Polarity
         enum class PolxVal {
             v0=0x00000000,     ///<PWM_X output not inverted. A high level on the PWM_X pin represents the "on" or "active" state.
@@ -1659,7 +1570,6 @@ namespace Kvasir {
         namespace PolxValC{
             constexpr Register::FieldValue<decltype(polx)::Type,PolxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(polx)::Type,PolxVal::v1> v1{};
-        }
         }
         ///PWM_B Output Polarity
         enum class PolbVal {
@@ -1671,7 +1581,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(polb)::Type,PolbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(polb)::Type,PolbVal::v1> v1{};
         }
-        }
         ///PWM_A Output Polarity
         enum class PolaVal {
             v0=0x00000000,     ///<PWM_A output not inverted. A high level on the PWM_A pin represents the "on" or "active" state.
@@ -1681,7 +1590,6 @@ namespace Kvasir {
         namespace PolaValC{
             constexpr Register::FieldValue<decltype(pola)::Type,PolaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pola)::Type,PolaVal::v1> v1{};
-        }
         }
         ///PWM_X Input
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> pwmxIn{}; 
@@ -1716,7 +1624,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rf)::Type,RfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rf)::Type,RfVal::v1> v1{};
         }
-        }
         ///Reload Error Flag
         enum class RefVal {
             v0=0x00000000,     ///<No reload error occurred.
@@ -1727,7 +1634,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ref)::Type,RefVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ref)::Type,RefVal::v1> v1{};
         }
-        }
         ///Registers Updated Flag
         enum class RufVal {
             v0=0x00000000,     ///<No register update has occurred since last reload.
@@ -1737,7 +1643,6 @@ namespace Kvasir {
         namespace RufValC{
             constexpr Register::FieldValue<decltype(ruf)::Type,RufVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ruf)::Type,RufVal::v1> v1{};
-        }
         }
     }
     namespace PwmaSm1sts{    ///<Status Register
@@ -1766,7 +1671,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rf)::Type,RfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rf)::Type,RfVal::v1> v1{};
         }
-        }
         ///Reload Error Flag
         enum class RefVal {
             v0=0x00000000,     ///<No reload error occurred.
@@ -1777,7 +1681,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ref)::Type,RefVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ref)::Type,RefVal::v1> v1{};
         }
-        }
         ///Registers Updated Flag
         enum class RufVal {
             v0=0x00000000,     ///<No register update has occurred since last reload.
@@ -1787,7 +1690,6 @@ namespace Kvasir {
         namespace RufValC{
             constexpr Register::FieldValue<decltype(ruf)::Type,RufVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ruf)::Type,RufVal::v1> v1{};
-        }
         }
     }
     namespace PwmaSm2sts{    ///<Status Register
@@ -1816,7 +1718,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rf)::Type,RfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rf)::Type,RfVal::v1> v1{};
         }
-        }
         ///Reload Error Flag
         enum class RefVal {
             v0=0x00000000,     ///<No reload error occurred.
@@ -1827,7 +1728,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ref)::Type,RefVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ref)::Type,RefVal::v1> v1{};
         }
-        }
         ///Registers Updated Flag
         enum class RufVal {
             v0=0x00000000,     ///<No register update has occurred since last reload.
@@ -1837,7 +1737,6 @@ namespace Kvasir {
         namespace RufValC{
             constexpr Register::FieldValue<decltype(ruf)::Type,RufVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ruf)::Type,RufVal::v1> v1{};
-        }
         }
     }
     namespace PwmaSm3sts{    ///<Status Register
@@ -1866,7 +1765,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rf)::Type,RfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rf)::Type,RfVal::v1> v1{};
         }
-        }
         ///Reload Error Flag
         enum class RefVal {
             v0=0x00000000,     ///<No reload error occurred.
@@ -1877,7 +1775,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ref)::Type,RefVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ref)::Type,RefVal::v1> v1{};
         }
-        }
         ///Registers Updated Flag
         enum class RufVal {
             v0=0x00000000,     ///<No register update has occurred since last reload.
@@ -1887,7 +1784,6 @@ namespace Kvasir {
         namespace RufValC{
             constexpr Register::FieldValue<decltype(ruf)::Type,RufVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ruf)::Type,RufVal::v1> v1{};
-        }
         }
     }
     namespace PwmaSm0inten{    ///<Interrupt Enable Register
@@ -1904,7 +1800,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cx0ie)::Type,Cx0ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cx0ie)::Type,Cx0ieVal::v1> v1{};
         }
-        }
         ///Capture X 1 Interrupt Enable
         enum class Cx1ieVal {
             v0=0x00000000,     ///<Interrupt request disabled for STS[CFX1].
@@ -1914,7 +1809,6 @@ namespace Kvasir {
         namespace Cx1ieValC{
             constexpr Register::FieldValue<decltype(cx1ie)::Type,Cx1ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cx1ie)::Type,Cx1ieVal::v1> v1{};
-        }
         }
         ///Capture B 0 Interrupt Enable
         enum class Cb0ieVal {
@@ -1926,7 +1820,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cb0ie)::Type,Cb0ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cb0ie)::Type,Cb0ieVal::v1> v1{};
         }
-        }
         ///Capture B 1 Interrupt Enable
         enum class Cb1ieVal {
             v0=0x00000000,     ///<Interrupt request disabled for STS[CFB1].
@@ -1936,7 +1829,6 @@ namespace Kvasir {
         namespace Cb1ieValC{
             constexpr Register::FieldValue<decltype(cb1ie)::Type,Cb1ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cb1ie)::Type,Cb1ieVal::v1> v1{};
-        }
         }
         ///Capture A 0 Interrupt Enable
         enum class Ca0ieVal {
@@ -1948,7 +1840,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ca0ie)::Type,Ca0ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ca0ie)::Type,Ca0ieVal::v1> v1{};
         }
-        }
         ///Capture A 1 Interrupt Enable
         enum class Ca1ieVal {
             v0=0x00000000,     ///<Interrupt request disabled for STS[CFA1].
@@ -1958,7 +1849,6 @@ namespace Kvasir {
         namespace Ca1ieValC{
             constexpr Register::FieldValue<decltype(ca1ie)::Type,Ca1ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ca1ie)::Type,Ca1ieVal::v1> v1{};
-        }
         }
         ///Reload Interrupt Enable
         enum class RieVal {
@@ -1970,7 +1860,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rie)::Type,RieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rie)::Type,RieVal::v1> v1{};
         }
-        }
         ///Reload Error Interrupt Enable
         enum class ReieVal {
             v0=0x00000000,     ///<STS[REF] CPU interrupt requests disabled
@@ -1980,7 +1869,6 @@ namespace Kvasir {
         namespace ReieValC{
             constexpr Register::FieldValue<decltype(reie)::Type,ReieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(reie)::Type,ReieVal::v1> v1{};
-        }
         }
     }
     namespace PwmaSm1inten{    ///<Interrupt Enable Register
@@ -1997,7 +1885,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cx0ie)::Type,Cx0ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cx0ie)::Type,Cx0ieVal::v1> v1{};
         }
-        }
         ///Capture X 1 Interrupt Enable
         enum class Cx1ieVal {
             v0=0x00000000,     ///<Interrupt request disabled for STS[CFX1].
@@ -2007,7 +1894,6 @@ namespace Kvasir {
         namespace Cx1ieValC{
             constexpr Register::FieldValue<decltype(cx1ie)::Type,Cx1ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cx1ie)::Type,Cx1ieVal::v1> v1{};
-        }
         }
         ///Capture B 0 Interrupt Enable
         enum class Cb0ieVal {
@@ -2019,7 +1905,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cb0ie)::Type,Cb0ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cb0ie)::Type,Cb0ieVal::v1> v1{};
         }
-        }
         ///Capture B 1 Interrupt Enable
         enum class Cb1ieVal {
             v0=0x00000000,     ///<Interrupt request disabled for STS[CFB1].
@@ -2029,7 +1914,6 @@ namespace Kvasir {
         namespace Cb1ieValC{
             constexpr Register::FieldValue<decltype(cb1ie)::Type,Cb1ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cb1ie)::Type,Cb1ieVal::v1> v1{};
-        }
         }
         ///Capture A 0 Interrupt Enable
         enum class Ca0ieVal {
@@ -2041,7 +1925,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ca0ie)::Type,Ca0ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ca0ie)::Type,Ca0ieVal::v1> v1{};
         }
-        }
         ///Capture A 1 Interrupt Enable
         enum class Ca1ieVal {
             v0=0x00000000,     ///<Interrupt request disabled for STS[CFA1].
@@ -2051,7 +1934,6 @@ namespace Kvasir {
         namespace Ca1ieValC{
             constexpr Register::FieldValue<decltype(ca1ie)::Type,Ca1ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ca1ie)::Type,Ca1ieVal::v1> v1{};
-        }
         }
         ///Reload Interrupt Enable
         enum class RieVal {
@@ -2063,7 +1945,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rie)::Type,RieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rie)::Type,RieVal::v1> v1{};
         }
-        }
         ///Reload Error Interrupt Enable
         enum class ReieVal {
             v0=0x00000000,     ///<STS[REF] CPU interrupt requests disabled
@@ -2073,7 +1954,6 @@ namespace Kvasir {
         namespace ReieValC{
             constexpr Register::FieldValue<decltype(reie)::Type,ReieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(reie)::Type,ReieVal::v1> v1{};
-        }
         }
     }
     namespace PwmaSm2inten{    ///<Interrupt Enable Register
@@ -2090,7 +1970,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cx0ie)::Type,Cx0ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cx0ie)::Type,Cx0ieVal::v1> v1{};
         }
-        }
         ///Capture X 1 Interrupt Enable
         enum class Cx1ieVal {
             v0=0x00000000,     ///<Interrupt request disabled for STS[CFX1].
@@ -2100,7 +1979,6 @@ namespace Kvasir {
         namespace Cx1ieValC{
             constexpr Register::FieldValue<decltype(cx1ie)::Type,Cx1ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cx1ie)::Type,Cx1ieVal::v1> v1{};
-        }
         }
         ///Capture B 0 Interrupt Enable
         enum class Cb0ieVal {
@@ -2112,7 +1990,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cb0ie)::Type,Cb0ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cb0ie)::Type,Cb0ieVal::v1> v1{};
         }
-        }
         ///Capture B 1 Interrupt Enable
         enum class Cb1ieVal {
             v0=0x00000000,     ///<Interrupt request disabled for STS[CFB1].
@@ -2122,7 +1999,6 @@ namespace Kvasir {
         namespace Cb1ieValC{
             constexpr Register::FieldValue<decltype(cb1ie)::Type,Cb1ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cb1ie)::Type,Cb1ieVal::v1> v1{};
-        }
         }
         ///Capture A 0 Interrupt Enable
         enum class Ca0ieVal {
@@ -2134,7 +2010,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ca0ie)::Type,Ca0ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ca0ie)::Type,Ca0ieVal::v1> v1{};
         }
-        }
         ///Capture A 1 Interrupt Enable
         enum class Ca1ieVal {
             v0=0x00000000,     ///<Interrupt request disabled for STS[CFA1].
@@ -2144,7 +2019,6 @@ namespace Kvasir {
         namespace Ca1ieValC{
             constexpr Register::FieldValue<decltype(ca1ie)::Type,Ca1ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ca1ie)::Type,Ca1ieVal::v1> v1{};
-        }
         }
         ///Reload Interrupt Enable
         enum class RieVal {
@@ -2156,7 +2030,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rie)::Type,RieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rie)::Type,RieVal::v1> v1{};
         }
-        }
         ///Reload Error Interrupt Enable
         enum class ReieVal {
             v0=0x00000000,     ///<STS[REF] CPU interrupt requests disabled
@@ -2166,7 +2039,6 @@ namespace Kvasir {
         namespace ReieValC{
             constexpr Register::FieldValue<decltype(reie)::Type,ReieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(reie)::Type,ReieVal::v1> v1{};
-        }
         }
     }
     namespace PwmaSm3inten{    ///<Interrupt Enable Register
@@ -2183,7 +2055,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cx0ie)::Type,Cx0ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cx0ie)::Type,Cx0ieVal::v1> v1{};
         }
-        }
         ///Capture X 1 Interrupt Enable
         enum class Cx1ieVal {
             v0=0x00000000,     ///<Interrupt request disabled for STS[CFX1].
@@ -2193,7 +2064,6 @@ namespace Kvasir {
         namespace Cx1ieValC{
             constexpr Register::FieldValue<decltype(cx1ie)::Type,Cx1ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cx1ie)::Type,Cx1ieVal::v1> v1{};
-        }
         }
         ///Capture B 0 Interrupt Enable
         enum class Cb0ieVal {
@@ -2205,7 +2075,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cb0ie)::Type,Cb0ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cb0ie)::Type,Cb0ieVal::v1> v1{};
         }
-        }
         ///Capture B 1 Interrupt Enable
         enum class Cb1ieVal {
             v0=0x00000000,     ///<Interrupt request disabled for STS[CFB1].
@@ -2215,7 +2084,6 @@ namespace Kvasir {
         namespace Cb1ieValC{
             constexpr Register::FieldValue<decltype(cb1ie)::Type,Cb1ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cb1ie)::Type,Cb1ieVal::v1> v1{};
-        }
         }
         ///Capture A 0 Interrupt Enable
         enum class Ca0ieVal {
@@ -2227,7 +2095,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ca0ie)::Type,Ca0ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ca0ie)::Type,Ca0ieVal::v1> v1{};
         }
-        }
         ///Capture A 1 Interrupt Enable
         enum class Ca1ieVal {
             v0=0x00000000,     ///<Interrupt request disabled for STS[CFA1].
@@ -2237,7 +2104,6 @@ namespace Kvasir {
         namespace Ca1ieValC{
             constexpr Register::FieldValue<decltype(ca1ie)::Type,Ca1ieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ca1ie)::Type,Ca1ieVal::v1> v1{};
-        }
         }
         ///Reload Interrupt Enable
         enum class RieVal {
@@ -2249,7 +2115,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rie)::Type,RieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rie)::Type,RieVal::v1> v1{};
         }
-        }
         ///Reload Error Interrupt Enable
         enum class ReieVal {
             v0=0x00000000,     ///<STS[REF] CPU interrupt requests disabled
@@ -2259,7 +2124,6 @@ namespace Kvasir {
         namespace ReieValC{
             constexpr Register::FieldValue<decltype(reie)::Type,ReieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(reie)::Type,ReieVal::v1> v1{};
-        }
         }
     }
     namespace PwmaSm0dmaen{    ///<DMA Enable Register
@@ -2290,7 +2154,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(captde)::Type,CaptdeVal::v10> v10{};
             constexpr Register::FieldValue<decltype(captde)::Type,CaptdeVal::v11> v11{};
         }
-        }
         ///FIFO Watermark AND Control
         enum class FandVal {
             v0=0x00000000,     ///<Selected FIFO watermarks are OR'ed together.
@@ -2301,7 +2164,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fand)::Type,FandVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fand)::Type,FandVal::v1> v1{};
         }
-        }
         ///Value Registers DMA Enable
         enum class ValdeVal {
             v0=0x00000000,     ///<DMA write requests disabled
@@ -2311,7 +2173,6 @@ namespace Kvasir {
         namespace ValdeValC{
             constexpr Register::FieldValue<decltype(valde)::Type,ValdeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(valde)::Type,ValdeVal::v1> v1{};
-        }
         }
     }
     namespace PwmaSm1dmaen{    ///<DMA Enable Register
@@ -2342,7 +2203,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(captde)::Type,CaptdeVal::v10> v10{};
             constexpr Register::FieldValue<decltype(captde)::Type,CaptdeVal::v11> v11{};
         }
-        }
         ///FIFO Watermark AND Control
         enum class FandVal {
             v0=0x00000000,     ///<Selected FIFO watermarks are OR'ed together.
@@ -2353,7 +2213,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fand)::Type,FandVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fand)::Type,FandVal::v1> v1{};
         }
-        }
         ///Value Registers DMA Enable
         enum class ValdeVal {
             v0=0x00000000,     ///<DMA write requests disabled
@@ -2363,7 +2222,6 @@ namespace Kvasir {
         namespace ValdeValC{
             constexpr Register::FieldValue<decltype(valde)::Type,ValdeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(valde)::Type,ValdeVal::v1> v1{};
-        }
         }
     }
     namespace PwmaSm2dmaen{    ///<DMA Enable Register
@@ -2394,7 +2252,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(captde)::Type,CaptdeVal::v10> v10{};
             constexpr Register::FieldValue<decltype(captde)::Type,CaptdeVal::v11> v11{};
         }
-        }
         ///FIFO Watermark AND Control
         enum class FandVal {
             v0=0x00000000,     ///<Selected FIFO watermarks are OR'ed together.
@@ -2405,7 +2262,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fand)::Type,FandVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fand)::Type,FandVal::v1> v1{};
         }
-        }
         ///Value Registers DMA Enable
         enum class ValdeVal {
             v0=0x00000000,     ///<DMA write requests disabled
@@ -2415,7 +2271,6 @@ namespace Kvasir {
         namespace ValdeValC{
             constexpr Register::FieldValue<decltype(valde)::Type,ValdeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(valde)::Type,ValdeVal::v1> v1{};
-        }
         }
     }
     namespace PwmaSm3dmaen{    ///<DMA Enable Register
@@ -2446,7 +2301,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(captde)::Type,CaptdeVal::v10> v10{};
             constexpr Register::FieldValue<decltype(captde)::Type,CaptdeVal::v11> v11{};
         }
-        }
         ///FIFO Watermark AND Control
         enum class FandVal {
             v0=0x00000000,     ///<Selected FIFO watermarks are OR'ed together.
@@ -2457,7 +2311,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fand)::Type,FandVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fand)::Type,FandVal::v1> v1{};
         }
-        }
         ///Value Registers DMA Enable
         enum class ValdeVal {
             v0=0x00000000,     ///<DMA write requests disabled
@@ -2467,7 +2320,6 @@ namespace Kvasir {
         namespace ValdeValC{
             constexpr Register::FieldValue<decltype(valde)::Type,ValdeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(valde)::Type,ValdeVal::v1> v1{};
-        }
         }
     }
     namespace PwmaSm0tctrl{    ///<Output Trigger Control Register
@@ -2484,7 +2336,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwbot1)::Type,Pwbot1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pwbot1)::Type,Pwbot1Val::v1> v1{};
         }
-        }
         ///Output Trigger 0 Source Select
         enum class Pwaot0Val {
             v0=0x00000000,     ///<Route the PWM_OUT_TRIG0 signal to PWM_OUT_TRIG0 port.
@@ -2494,7 +2345,6 @@ namespace Kvasir {
         namespace Pwaot0ValC{
             constexpr Register::FieldValue<decltype(pwaot0)::Type,Pwaot0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pwaot0)::Type,Pwaot0Val::v1> v1{};
-        }
         }
     }
     namespace PwmaSm1tctrl{    ///<Output Trigger Control Register
@@ -2511,7 +2361,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwbot1)::Type,Pwbot1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pwbot1)::Type,Pwbot1Val::v1> v1{};
         }
-        }
         ///Output Trigger 0 Source Select
         enum class Pwaot0Val {
             v0=0x00000000,     ///<Route the PWM_OUT_TRIG0 signal to PWM_OUT_TRIG0 port.
@@ -2521,7 +2370,6 @@ namespace Kvasir {
         namespace Pwaot0ValC{
             constexpr Register::FieldValue<decltype(pwaot0)::Type,Pwaot0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pwaot0)::Type,Pwaot0Val::v1> v1{};
-        }
         }
     }
     namespace PwmaSm2tctrl{    ///<Output Trigger Control Register
@@ -2538,7 +2386,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwbot1)::Type,Pwbot1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pwbot1)::Type,Pwbot1Val::v1> v1{};
         }
-        }
         ///Output Trigger 0 Source Select
         enum class Pwaot0Val {
             v0=0x00000000,     ///<Route the PWM_OUT_TRIG0 signal to PWM_OUT_TRIG0 port.
@@ -2548,7 +2395,6 @@ namespace Kvasir {
         namespace Pwaot0ValC{
             constexpr Register::FieldValue<decltype(pwaot0)::Type,Pwaot0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pwaot0)::Type,Pwaot0Val::v1> v1{};
-        }
         }
     }
     namespace PwmaSm3tctrl{    ///<Output Trigger Control Register
@@ -2565,7 +2411,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwbot1)::Type,Pwbot1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pwbot1)::Type,Pwbot1Val::v1> v1{};
         }
-        }
         ///Output Trigger 0 Source Select
         enum class Pwaot0Val {
             v0=0x00000000,     ///<Route the PWM_OUT_TRIG0 signal to PWM_OUT_TRIG0 port.
@@ -2575,7 +2420,6 @@ namespace Kvasir {
         namespace Pwaot0ValC{
             constexpr Register::FieldValue<decltype(pwaot0)::Type,Pwaot0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pwaot0)::Type,Pwaot0Val::v1> v1{};
-        }
         }
     }
     namespace PwmaSm0dismap0{    ///<Fault Disable Mapping Register 0
@@ -2666,7 +2510,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(arma)::Type,ArmaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(arma)::Type,ArmaVal::v1> v1{};
         }
-        }
         ///One Shot Mode A
         enum class OneshotaVal {
             v0=0x00000000,     ///<Free running mode is selected. If both capture circuits are enabled, then capture circuit 0 is armed first after CAPTCTRLA[ARMA] is set. Once a capture occurs, capture circuit 0 is disarmed and capture circuit 1 is armed. After capture circuit 1 performs a capture, it is disarmed and capture circuit 0 is re-armed. The process continues indefinitely. If only one of the capture circuits is enabled, then captures continue indefinitely on the enabled capture circuit.
@@ -2676,7 +2519,6 @@ namespace Kvasir {
         namespace OneshotaValC{
             constexpr Register::FieldValue<decltype(oneshota)::Type,OneshotaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(oneshota)::Type,OneshotaVal::v1> v1{};
-        }
         }
         ///Edge A 0
         enum class Edga0Val {
@@ -2692,7 +2534,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edga0)::Type,Edga0Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edga0)::Type,Edga0Val::v11> v11{};
         }
-        }
         ///Edge A 1
         enum class Edga1Val {
             v00=0x00000000,     ///<Disabled
@@ -2707,7 +2548,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edga1)::Type,Edga1Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edga1)::Type,Edga1Val::v11> v11{};
         }
-        }
         ///Input Select A
         enum class InpselaVal {
             v0=0x00000000,     ///<Raw PWM_A input signal selected as source.
@@ -2718,7 +2558,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inpSela)::Type,InpselaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inpSela)::Type,InpselaVal::v1> v1{};
         }
-        }
         ///Edge Counter A Enable
         enum class EdgcntaenVal {
             v0=0x00000000,     ///<Edge counter disabled and held in reset
@@ -2728,7 +2567,6 @@ namespace Kvasir {
         namespace EdgcntaenValC{
             constexpr Register::FieldValue<decltype(edgcntaEn)::Type,EdgcntaenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(edgcntaEn)::Type,EdgcntaenVal::v1> v1{};
-        }
         }
         ///Capture A FIFOs Water Mark
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> cfawm{}; 
@@ -2749,7 +2587,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(arma)::Type,ArmaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(arma)::Type,ArmaVal::v1> v1{};
         }
-        }
         ///One Shot Mode A
         enum class OneshotaVal {
             v0=0x00000000,     ///<Free running mode is selected. If both capture circuits are enabled, then capture circuit 0 is armed first after CAPTCTRLA[ARMA] is set. Once a capture occurs, capture circuit 0 is disarmed and capture circuit 1 is armed. After capture circuit 1 performs a capture, it is disarmed and capture circuit 0 is re-armed. The process continues indefinitely. If only one of the capture circuits is enabled, then captures continue indefinitely on the enabled capture circuit.
@@ -2759,7 +2596,6 @@ namespace Kvasir {
         namespace OneshotaValC{
             constexpr Register::FieldValue<decltype(oneshota)::Type,OneshotaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(oneshota)::Type,OneshotaVal::v1> v1{};
-        }
         }
         ///Edge A 0
         enum class Edga0Val {
@@ -2775,7 +2611,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edga0)::Type,Edga0Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edga0)::Type,Edga0Val::v11> v11{};
         }
-        }
         ///Edge A 1
         enum class Edga1Val {
             v00=0x00000000,     ///<Disabled
@@ -2790,7 +2625,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edga1)::Type,Edga1Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edga1)::Type,Edga1Val::v11> v11{};
         }
-        }
         ///Input Select A
         enum class InpselaVal {
             v0=0x00000000,     ///<Raw PWM_A input signal selected as source.
@@ -2801,7 +2635,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inpSela)::Type,InpselaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inpSela)::Type,InpselaVal::v1> v1{};
         }
-        }
         ///Edge Counter A Enable
         enum class EdgcntaenVal {
             v0=0x00000000,     ///<Edge counter disabled and held in reset
@@ -2811,7 +2644,6 @@ namespace Kvasir {
         namespace EdgcntaenValC{
             constexpr Register::FieldValue<decltype(edgcntaEn)::Type,EdgcntaenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(edgcntaEn)::Type,EdgcntaenVal::v1> v1{};
-        }
         }
         ///Capture A FIFOs Water Mark
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> cfawm{}; 
@@ -2832,7 +2664,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(arma)::Type,ArmaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(arma)::Type,ArmaVal::v1> v1{};
         }
-        }
         ///One Shot Mode A
         enum class OneshotaVal {
             v0=0x00000000,     ///<Free running mode is selected. If both capture circuits are enabled, then capture circuit 0 is armed first after CAPTCTRLA[ARMA] is set. Once a capture occurs, capture circuit 0 is disarmed and capture circuit 1 is armed. After capture circuit 1 performs a capture, it is disarmed and capture circuit 0 is re-armed. The process continues indefinitely. If only one of the capture circuits is enabled, then captures continue indefinitely on the enabled capture circuit.
@@ -2842,7 +2673,6 @@ namespace Kvasir {
         namespace OneshotaValC{
             constexpr Register::FieldValue<decltype(oneshota)::Type,OneshotaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(oneshota)::Type,OneshotaVal::v1> v1{};
-        }
         }
         ///Edge A 0
         enum class Edga0Val {
@@ -2858,7 +2688,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edga0)::Type,Edga0Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edga0)::Type,Edga0Val::v11> v11{};
         }
-        }
         ///Edge A 1
         enum class Edga1Val {
             v00=0x00000000,     ///<Disabled
@@ -2873,7 +2702,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edga1)::Type,Edga1Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edga1)::Type,Edga1Val::v11> v11{};
         }
-        }
         ///Input Select A
         enum class InpselaVal {
             v0=0x00000000,     ///<Raw PWM_A input signal selected as source.
@@ -2884,7 +2712,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inpSela)::Type,InpselaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inpSela)::Type,InpselaVal::v1> v1{};
         }
-        }
         ///Edge Counter A Enable
         enum class EdgcntaenVal {
             v0=0x00000000,     ///<Edge counter disabled and held in reset
@@ -2894,7 +2721,6 @@ namespace Kvasir {
         namespace EdgcntaenValC{
             constexpr Register::FieldValue<decltype(edgcntaEn)::Type,EdgcntaenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(edgcntaEn)::Type,EdgcntaenVal::v1> v1{};
-        }
         }
         ///Capture A FIFOs Water Mark
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> cfawm{}; 
@@ -2915,7 +2741,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(arma)::Type,ArmaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(arma)::Type,ArmaVal::v1> v1{};
         }
-        }
         ///One Shot Mode A
         enum class OneshotaVal {
             v0=0x00000000,     ///<Free running mode is selected. If both capture circuits are enabled, then capture circuit 0 is armed first after CAPTCTRLA[ARMA] is set. Once a capture occurs, capture circuit 0 is disarmed and capture circuit 1 is armed. After capture circuit 1 performs a capture, it is disarmed and capture circuit 0 is re-armed. The process continues indefinitely. If only one of the capture circuits is enabled, then captures continue indefinitely on the enabled capture circuit.
@@ -2925,7 +2750,6 @@ namespace Kvasir {
         namespace OneshotaValC{
             constexpr Register::FieldValue<decltype(oneshota)::Type,OneshotaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(oneshota)::Type,OneshotaVal::v1> v1{};
-        }
         }
         ///Edge A 0
         enum class Edga0Val {
@@ -2941,7 +2765,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edga0)::Type,Edga0Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edga0)::Type,Edga0Val::v11> v11{};
         }
-        }
         ///Edge A 1
         enum class Edga1Val {
             v00=0x00000000,     ///<Disabled
@@ -2956,7 +2779,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edga1)::Type,Edga1Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edga1)::Type,Edga1Val::v11> v11{};
         }
-        }
         ///Input Select A
         enum class InpselaVal {
             v0=0x00000000,     ///<Raw PWM_A input signal selected as source.
@@ -2967,7 +2789,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inpSela)::Type,InpselaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inpSela)::Type,InpselaVal::v1> v1{};
         }
-        }
         ///Edge Counter A Enable
         enum class EdgcntaenVal {
             v0=0x00000000,     ///<Edge counter disabled and held in reset
@@ -2977,7 +2798,6 @@ namespace Kvasir {
         namespace EdgcntaenValC{
             constexpr Register::FieldValue<decltype(edgcntaEn)::Type,EdgcntaenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(edgcntaEn)::Type,EdgcntaenVal::v1> v1{};
-        }
         }
         ///Capture A FIFOs Water Mark
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> cfawm{}; 
@@ -3026,7 +2846,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(armb)::Type,ArmbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(armb)::Type,ArmbVal::v1> v1{};
         }
-        }
         ///One Shot Mode B
         enum class OneshotbVal {
             v0=0x00000000,     ///<Free running mode is selected. If both capture circuits are enabled, then capture circuit 0 is armed first after CAPTCTRLB[ARMB] is set. Once a capture occurs, capture circuit 0 is disarmed and capture circuit 1 is armed. After capture circuit 1 performs a capture, it is disarmed and capture circuit 0 is re-armed. The process continues indefinitely. If only one of the capture circuits is enabled, then captures continue indefinitely on the enabled capture circuit.
@@ -3036,7 +2855,6 @@ namespace Kvasir {
         namespace OneshotbValC{
             constexpr Register::FieldValue<decltype(oneshotb)::Type,OneshotbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(oneshotb)::Type,OneshotbVal::v1> v1{};
-        }
         }
         ///Edge B 0
         enum class Edgb0Val {
@@ -3052,7 +2870,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edgb0)::Type,Edgb0Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edgb0)::Type,Edgb0Val::v11> v11{};
         }
-        }
         ///Edge B 1
         enum class Edgb1Val {
             v00=0x00000000,     ///<Disabled
@@ -3067,7 +2884,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edgb1)::Type,Edgb1Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edgb1)::Type,Edgb1Val::v11> v11{};
         }
-        }
         ///Input Select B
         enum class InpselbVal {
             v0=0x00000000,     ///<Raw PWM_B input signal selected as source.
@@ -3078,7 +2894,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inpSelb)::Type,InpselbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inpSelb)::Type,InpselbVal::v1> v1{};
         }
-        }
         ///Edge Counter B Enable
         enum class EdgcntbenVal {
             v0=0x00000000,     ///<Edge counter disabled and held in reset
@@ -3088,7 +2903,6 @@ namespace Kvasir {
         namespace EdgcntbenValC{
             constexpr Register::FieldValue<decltype(edgcntbEn)::Type,EdgcntbenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(edgcntbEn)::Type,EdgcntbenVal::v1> v1{};
-        }
         }
         ///Capture B FIFOs Water Mark
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> cfbwm{}; 
@@ -3109,7 +2923,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(armb)::Type,ArmbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(armb)::Type,ArmbVal::v1> v1{};
         }
-        }
         ///One Shot Mode B
         enum class OneshotbVal {
             v0=0x00000000,     ///<Free running mode is selected. If both capture circuits are enabled, then capture circuit 0 is armed first after CAPTCTRLB[ARMB] is set. Once a capture occurs, capture circuit 0 is disarmed and capture circuit 1 is armed. After capture circuit 1 performs a capture, it is disarmed and capture circuit 0 is re-armed. The process continues indefinitely. If only one of the capture circuits is enabled, then captures continue indefinitely on the enabled capture circuit.
@@ -3119,7 +2932,6 @@ namespace Kvasir {
         namespace OneshotbValC{
             constexpr Register::FieldValue<decltype(oneshotb)::Type,OneshotbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(oneshotb)::Type,OneshotbVal::v1> v1{};
-        }
         }
         ///Edge B 0
         enum class Edgb0Val {
@@ -3135,7 +2947,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edgb0)::Type,Edgb0Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edgb0)::Type,Edgb0Val::v11> v11{};
         }
-        }
         ///Edge B 1
         enum class Edgb1Val {
             v00=0x00000000,     ///<Disabled
@@ -3150,7 +2961,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edgb1)::Type,Edgb1Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edgb1)::Type,Edgb1Val::v11> v11{};
         }
-        }
         ///Input Select B
         enum class InpselbVal {
             v0=0x00000000,     ///<Raw PWM_B input signal selected as source.
@@ -3161,7 +2971,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inpSelb)::Type,InpselbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inpSelb)::Type,InpselbVal::v1> v1{};
         }
-        }
         ///Edge Counter B Enable
         enum class EdgcntbenVal {
             v0=0x00000000,     ///<Edge counter disabled and held in reset
@@ -3171,7 +2980,6 @@ namespace Kvasir {
         namespace EdgcntbenValC{
             constexpr Register::FieldValue<decltype(edgcntbEn)::Type,EdgcntbenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(edgcntbEn)::Type,EdgcntbenVal::v1> v1{};
-        }
         }
         ///Capture B FIFOs Water Mark
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> cfbwm{}; 
@@ -3192,7 +3000,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(armb)::Type,ArmbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(armb)::Type,ArmbVal::v1> v1{};
         }
-        }
         ///One Shot Mode B
         enum class OneshotbVal {
             v0=0x00000000,     ///<Free running mode is selected. If both capture circuits are enabled, then capture circuit 0 is armed first after CAPTCTRLB[ARMB] is set. Once a capture occurs, capture circuit 0 is disarmed and capture circuit 1 is armed. After capture circuit 1 performs a capture, it is disarmed and capture circuit 0 is re-armed. The process continues indefinitely. If only one of the capture circuits is enabled, then captures continue indefinitely on the enabled capture circuit.
@@ -3202,7 +3009,6 @@ namespace Kvasir {
         namespace OneshotbValC{
             constexpr Register::FieldValue<decltype(oneshotb)::Type,OneshotbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(oneshotb)::Type,OneshotbVal::v1> v1{};
-        }
         }
         ///Edge B 0
         enum class Edgb0Val {
@@ -3218,7 +3024,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edgb0)::Type,Edgb0Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edgb0)::Type,Edgb0Val::v11> v11{};
         }
-        }
         ///Edge B 1
         enum class Edgb1Val {
             v00=0x00000000,     ///<Disabled
@@ -3233,7 +3038,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edgb1)::Type,Edgb1Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edgb1)::Type,Edgb1Val::v11> v11{};
         }
-        }
         ///Input Select B
         enum class InpselbVal {
             v0=0x00000000,     ///<Raw PWM_B input signal selected as source.
@@ -3244,7 +3048,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inpSelb)::Type,InpselbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inpSelb)::Type,InpselbVal::v1> v1{};
         }
-        }
         ///Edge Counter B Enable
         enum class EdgcntbenVal {
             v0=0x00000000,     ///<Edge counter disabled and held in reset
@@ -3254,7 +3057,6 @@ namespace Kvasir {
         namespace EdgcntbenValC{
             constexpr Register::FieldValue<decltype(edgcntbEn)::Type,EdgcntbenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(edgcntbEn)::Type,EdgcntbenVal::v1> v1{};
-        }
         }
         ///Capture B FIFOs Water Mark
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> cfbwm{}; 
@@ -3275,7 +3077,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(armb)::Type,ArmbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(armb)::Type,ArmbVal::v1> v1{};
         }
-        }
         ///One Shot Mode B
         enum class OneshotbVal {
             v0=0x00000000,     ///<Free running mode is selected. If both capture circuits are enabled, then capture circuit 0 is armed first after CAPTCTRLB[ARMB] is set. Once a capture occurs, capture circuit 0 is disarmed and capture circuit 1 is armed. After capture circuit 1 performs a capture, it is disarmed and capture circuit 0 is re-armed. The process continues indefinitely. If only one of the capture circuits is enabled, then captures continue indefinitely on the enabled capture circuit.
@@ -3285,7 +3086,6 @@ namespace Kvasir {
         namespace OneshotbValC{
             constexpr Register::FieldValue<decltype(oneshotb)::Type,OneshotbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(oneshotb)::Type,OneshotbVal::v1> v1{};
-        }
         }
         ///Edge B 0
         enum class Edgb0Val {
@@ -3301,7 +3101,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edgb0)::Type,Edgb0Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edgb0)::Type,Edgb0Val::v11> v11{};
         }
-        }
         ///Edge B 1
         enum class Edgb1Val {
             v00=0x00000000,     ///<Disabled
@@ -3316,7 +3115,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edgb1)::Type,Edgb1Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edgb1)::Type,Edgb1Val::v11> v11{};
         }
-        }
         ///Input Select B
         enum class InpselbVal {
             v0=0x00000000,     ///<Raw PWM_B input signal selected as source.
@@ -3327,7 +3125,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inpSelb)::Type,InpselbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inpSelb)::Type,InpselbVal::v1> v1{};
         }
-        }
         ///Edge Counter B Enable
         enum class EdgcntbenVal {
             v0=0x00000000,     ///<Edge counter disabled and held in reset
@@ -3337,7 +3134,6 @@ namespace Kvasir {
         namespace EdgcntbenValC{
             constexpr Register::FieldValue<decltype(edgcntbEn)::Type,EdgcntbenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(edgcntbEn)::Type,EdgcntbenVal::v1> v1{};
-        }
         }
         ///Capture B FIFOs Water Mark
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> cfbwm{}; 
@@ -3386,7 +3182,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(armx)::Type,ArmxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(armx)::Type,ArmxVal::v1> v1{};
         }
-        }
         ///One Shot Mode Aux
         enum class OneshotxVal {
             v0=0x00000000,     ///<Free running mode is selected. If both capture circuits are enabled, then capture circuit 0 is armed first after the ARMX bit is set. Once a capture occurs, capture circuit 0 is disarmed and capture circuit 1 is armed. After capture circuit 1 performs a capture, it is disarmed and capture circuit 0 is re-armed. The process continues indefinitely. If only one of the capture circuits is enabled, then captures continue indefinitely on the enabled capture circuit.
@@ -3396,7 +3191,6 @@ namespace Kvasir {
         namespace OneshotxValC{
             constexpr Register::FieldValue<decltype(oneshotx)::Type,OneshotxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(oneshotx)::Type,OneshotxVal::v1> v1{};
-        }
         }
         ///Edge X 0
         enum class Edgx0Val {
@@ -3412,7 +3206,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edgx0)::Type,Edgx0Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edgx0)::Type,Edgx0Val::v11> v11{};
         }
-        }
         ///Edge X 1
         enum class Edgx1Val {
             v00=0x00000000,     ///<Disabled
@@ -3427,7 +3220,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edgx1)::Type,Edgx1Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edgx1)::Type,Edgx1Val::v11> v11{};
         }
-        }
         ///Input Select X
         enum class InpselxVal {
             v0=0x00000000,     ///<Raw PWM_X input signal selected as source.
@@ -3438,7 +3230,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inpSelx)::Type,InpselxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inpSelx)::Type,InpselxVal::v1> v1{};
         }
-        }
         ///Edge Counter X Enable
         enum class EdgcntxenVal {
             v0=0x00000000,     ///<Edge counter disabled and held in reset
@@ -3448,7 +3239,6 @@ namespace Kvasir {
         namespace EdgcntxenValC{
             constexpr Register::FieldValue<decltype(edgcntxEn)::Type,EdgcntxenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(edgcntxEn)::Type,EdgcntxenVal::v1> v1{};
-        }
         }
         ///Capture X FIFOs Water Mark
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> cfxwm{}; 
@@ -3469,7 +3259,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(armx)::Type,ArmxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(armx)::Type,ArmxVal::v1> v1{};
         }
-        }
         ///One Shot Mode Aux
         enum class OneshotxVal {
             v0=0x00000000,     ///<Free running mode is selected. If both capture circuits are enabled, then capture circuit 0 is armed first after the ARMX bit is set. Once a capture occurs, capture circuit 0 is disarmed and capture circuit 1 is armed. After capture circuit 1 performs a capture, it is disarmed and capture circuit 0 is re-armed. The process continues indefinitely. If only one of the capture circuits is enabled, then captures continue indefinitely on the enabled capture circuit.
@@ -3479,7 +3268,6 @@ namespace Kvasir {
         namespace OneshotxValC{
             constexpr Register::FieldValue<decltype(oneshotx)::Type,OneshotxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(oneshotx)::Type,OneshotxVal::v1> v1{};
-        }
         }
         ///Edge X 0
         enum class Edgx0Val {
@@ -3495,7 +3283,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edgx0)::Type,Edgx0Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edgx0)::Type,Edgx0Val::v11> v11{};
         }
-        }
         ///Edge X 1
         enum class Edgx1Val {
             v00=0x00000000,     ///<Disabled
@@ -3510,7 +3297,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edgx1)::Type,Edgx1Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edgx1)::Type,Edgx1Val::v11> v11{};
         }
-        }
         ///Input Select X
         enum class InpselxVal {
             v0=0x00000000,     ///<Raw PWM_X input signal selected as source.
@@ -3521,7 +3307,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inpSelx)::Type,InpselxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inpSelx)::Type,InpselxVal::v1> v1{};
         }
-        }
         ///Edge Counter X Enable
         enum class EdgcntxenVal {
             v0=0x00000000,     ///<Edge counter disabled and held in reset
@@ -3531,7 +3316,6 @@ namespace Kvasir {
         namespace EdgcntxenValC{
             constexpr Register::FieldValue<decltype(edgcntxEn)::Type,EdgcntxenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(edgcntxEn)::Type,EdgcntxenVal::v1> v1{};
-        }
         }
         ///Capture X FIFOs Water Mark
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> cfxwm{}; 
@@ -3552,7 +3336,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(armx)::Type,ArmxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(armx)::Type,ArmxVal::v1> v1{};
         }
-        }
         ///One Shot Mode Aux
         enum class OneshotxVal {
             v0=0x00000000,     ///<Free running mode is selected. If both capture circuits are enabled, then capture circuit 0 is armed first after the ARMX bit is set. Once a capture occurs, capture circuit 0 is disarmed and capture circuit 1 is armed. After capture circuit 1 performs a capture, it is disarmed and capture circuit 0 is re-armed. The process continues indefinitely. If only one of the capture circuits is enabled, then captures continue indefinitely on the enabled capture circuit.
@@ -3562,7 +3345,6 @@ namespace Kvasir {
         namespace OneshotxValC{
             constexpr Register::FieldValue<decltype(oneshotx)::Type,OneshotxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(oneshotx)::Type,OneshotxVal::v1> v1{};
-        }
         }
         ///Edge X 0
         enum class Edgx0Val {
@@ -3578,7 +3360,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edgx0)::Type,Edgx0Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edgx0)::Type,Edgx0Val::v11> v11{};
         }
-        }
         ///Edge X 1
         enum class Edgx1Val {
             v00=0x00000000,     ///<Disabled
@@ -3593,7 +3374,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edgx1)::Type,Edgx1Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edgx1)::Type,Edgx1Val::v11> v11{};
         }
-        }
         ///Input Select X
         enum class InpselxVal {
             v0=0x00000000,     ///<Raw PWM_X input signal selected as source.
@@ -3604,7 +3384,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inpSelx)::Type,InpselxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inpSelx)::Type,InpselxVal::v1> v1{};
         }
-        }
         ///Edge Counter X Enable
         enum class EdgcntxenVal {
             v0=0x00000000,     ///<Edge counter disabled and held in reset
@@ -3614,7 +3393,6 @@ namespace Kvasir {
         namespace EdgcntxenValC{
             constexpr Register::FieldValue<decltype(edgcntxEn)::Type,EdgcntxenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(edgcntxEn)::Type,EdgcntxenVal::v1> v1{};
-        }
         }
         ///Capture X FIFOs Water Mark
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> cfxwm{}; 
@@ -3635,7 +3413,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(armx)::Type,ArmxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(armx)::Type,ArmxVal::v1> v1{};
         }
-        }
         ///One Shot Mode Aux
         enum class OneshotxVal {
             v0=0x00000000,     ///<Free running mode is selected. If both capture circuits are enabled, then capture circuit 0 is armed first after the ARMX bit is set. Once a capture occurs, capture circuit 0 is disarmed and capture circuit 1 is armed. After capture circuit 1 performs a capture, it is disarmed and capture circuit 0 is re-armed. The process continues indefinitely. If only one of the capture circuits is enabled, then captures continue indefinitely on the enabled capture circuit.
@@ -3645,7 +3422,6 @@ namespace Kvasir {
         namespace OneshotxValC{
             constexpr Register::FieldValue<decltype(oneshotx)::Type,OneshotxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(oneshotx)::Type,OneshotxVal::v1> v1{};
-        }
         }
         ///Edge X 0
         enum class Edgx0Val {
@@ -3661,7 +3437,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edgx0)::Type,Edgx0Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edgx0)::Type,Edgx0Val::v11> v11{};
         }
-        }
         ///Edge X 1
         enum class Edgx1Val {
             v00=0x00000000,     ///<Disabled
@@ -3676,7 +3451,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edgx1)::Type,Edgx1Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edgx1)::Type,Edgx1Val::v11> v11{};
         }
-        }
         ///Input Select X
         enum class InpselxVal {
             v0=0x00000000,     ///<Raw PWM_X input signal selected as source.
@@ -3687,7 +3461,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inpSelx)::Type,InpselxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inpSelx)::Type,InpselxVal::v1> v1{};
         }
-        }
         ///Edge Counter X Enable
         enum class EdgcntxenVal {
             v0=0x00000000,     ///<Edge counter disabled and held in reset
@@ -3697,7 +3470,6 @@ namespace Kvasir {
         namespace EdgcntxenValC{
             constexpr Register::FieldValue<decltype(edgcntxEn)::Type,EdgcntxenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(edgcntxEn)::Type,EdgcntxenVal::v1> v1{};
-        }
         }
         ///Capture X FIFOs Water Mark
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> cfxwm{}; 
@@ -4006,7 +3778,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sm0out45)::Type,Sm0out45Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sm0out45)::Type,Sm0out45Val::v1> v1{};
         }
-        }
         ///Submodule 0 Software Controlled Output 23
         enum class Sm0out23Val {
             v0=0x00000000,     ///<A logic 0 is supplied to the deadtime generator of submodule 0 instead of PWM23.
@@ -4016,7 +3787,6 @@ namespace Kvasir {
         namespace Sm0out23ValC{
             constexpr Register::FieldValue<decltype(sm0out23)::Type,Sm0out23Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sm0out23)::Type,Sm0out23Val::v1> v1{};
-        }
         }
         ///Submodule 1 Software Controlled Output 45
         enum class Sm1out45Val {
@@ -4028,7 +3798,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sm1out45)::Type,Sm1out45Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sm1out45)::Type,Sm1out45Val::v1> v1{};
         }
-        }
         ///Submodule 1 Software Controlled Output 23
         enum class Sm1out23Val {
             v0=0x00000000,     ///<A logic 0 is supplied to the deadtime generator of submodule 1 instead of PWM23.
@@ -4038,7 +3807,6 @@ namespace Kvasir {
         namespace Sm1out23ValC{
             constexpr Register::FieldValue<decltype(sm1out23)::Type,Sm1out23Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sm1out23)::Type,Sm1out23Val::v1> v1{};
-        }
         }
         ///Submodule 2 Software Controlled Output 45
         enum class Sm2out45Val {
@@ -4050,7 +3818,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sm2out45)::Type,Sm2out45Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sm2out45)::Type,Sm2out45Val::v1> v1{};
         }
-        }
         ///Submodule 2 Software Controlled Output 23
         enum class Sm2out23Val {
             v0=0x00000000,     ///<A logic 0 is supplied to the deadtime generator of submodule 2 instead of PWM23.
@@ -4060,7 +3827,6 @@ namespace Kvasir {
         namespace Sm2out23ValC{
             constexpr Register::FieldValue<decltype(sm2out23)::Type,Sm2out23Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sm2out23)::Type,Sm2out23Val::v1> v1{};
-        }
         }
         ///Submodule 3 Software Controlled Output 45
         enum class Sm3out45Val {
@@ -4072,7 +3838,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sm3out45)::Type,Sm3out45Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sm3out45)::Type,Sm3out45Val::v1> v1{};
         }
-        }
         ///Submodule 3 Software Controlled Output 23
         enum class Sm3out23Val {
             v0=0x00000000,     ///<A logic 0 is supplied to the deadtime generator of submodule 3 instead of PWM23.
@@ -4082,7 +3847,6 @@ namespace Kvasir {
         namespace Sm3out23ValC{
             constexpr Register::FieldValue<decltype(sm3out23)::Type,Sm3out23Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sm3out23)::Type,Sm3out23Val::v1> v1{};
-        }
         }
     }
     namespace PwmaDtsrcsel{    ///<PWM Source Select Register
@@ -4101,7 +3865,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sm0sel45)::Type,Sm0sel45Val::v10> v10{};
             constexpr Register::FieldValue<decltype(sm0sel45)::Type,Sm0sel45Val::v11> v11{};
         }
-        }
         ///Submodule 0 PWM23 Control Select
         enum class Sm0sel23Val {
             v00=0x00000000,     ///<Generated SM0PWM23 signal is used by the deadtime logic.
@@ -4115,7 +3878,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sm0sel23)::Type,Sm0sel23Val::v01> v01{};
             constexpr Register::FieldValue<decltype(sm0sel23)::Type,Sm0sel23Val::v10> v10{};
             constexpr Register::FieldValue<decltype(sm0sel23)::Type,Sm0sel23Val::v11> v11{};
-        }
         }
         ///Submodule 1 PWM45 Control Select
         enum class Sm1sel45Val {
@@ -4131,7 +3893,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sm1sel45)::Type,Sm1sel45Val::v10> v10{};
             constexpr Register::FieldValue<decltype(sm1sel45)::Type,Sm1sel45Val::v11> v11{};
         }
-        }
         ///Submodule 1 PWM23 Control Select
         enum class Sm1sel23Val {
             v00=0x00000000,     ///<Generated SM1PWM23 signal is used by the deadtime logic.
@@ -4145,7 +3906,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sm1sel23)::Type,Sm1sel23Val::v01> v01{};
             constexpr Register::FieldValue<decltype(sm1sel23)::Type,Sm1sel23Val::v10> v10{};
             constexpr Register::FieldValue<decltype(sm1sel23)::Type,Sm1sel23Val::v11> v11{};
-        }
         }
         ///Submodule 2 PWM45 Control Select
         enum class Sm2sel45Val {
@@ -4161,7 +3921,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sm2sel45)::Type,Sm2sel45Val::v10> v10{};
             constexpr Register::FieldValue<decltype(sm2sel45)::Type,Sm2sel45Val::v11> v11{};
         }
-        }
         ///Submodule 2 PWM23 Control Select
         enum class Sm2sel23Val {
             v00=0x00000000,     ///<Generated SM2PWM23 signal is used by the deadtime logic.
@@ -4175,7 +3934,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sm2sel23)::Type,Sm2sel23Val::v01> v01{};
             constexpr Register::FieldValue<decltype(sm2sel23)::Type,Sm2sel23Val::v10> v10{};
             constexpr Register::FieldValue<decltype(sm2sel23)::Type,Sm2sel23Val::v11> v11{};
-        }
         }
         ///Submodule 3 PWM45 Control Select
         enum class Sm3sel45Val {
@@ -4191,7 +3949,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sm3sel45)::Type,Sm3sel45Val::v10> v10{};
             constexpr Register::FieldValue<decltype(sm3sel45)::Type,Sm3sel45Val::v11> v11{};
         }
-        }
         ///Submodule 3 PWM23 Control Select
         enum class Sm3sel23Val {
             v00=0x00000000,     ///<Generated SM3PWM23 signal is used by the deadtime logic.
@@ -4205,7 +3962,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sm3sel23)::Type,Sm3sel23Val::v01> v01{};
             constexpr Register::FieldValue<decltype(sm3sel23)::Type,Sm3sel23Val::v10> v10{};
             constexpr Register::FieldValue<decltype(sm3sel23)::Type,Sm3sel23Val::v11> v11{};
-        }
         }
     }
     namespace PwmaMctrl{    ///<Master Control Register
@@ -4234,7 +3990,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(monpll)::Type,MonpllVal::v01> v01{};
             constexpr Register::FieldValue<decltype(monpll)::Type,MonpllVal::v10> v10{};
             constexpr Register::FieldValue<decltype(monpll)::Type,MonpllVal::v11> v11{};
-        }
         }
     }
     namespace PwmaFctrl{    ///<Fault Control Register
@@ -4275,7 +4030,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gstr)::Type,GstrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gstr)::Type,GstrVal::v1> v1{};
         }
-        }
     }
     namespace PwmaFtst{    ///<Fault Test Register
         using Addr = Register::Address<0x40033192,0xfffffffe,0,unsigned>;
@@ -4288,7 +4042,6 @@ namespace Kvasir {
         namespace FtestValC{
             constexpr Register::FieldValue<decltype(ftest)::Type,FtestVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ftest)::Type,FtestVal::v1> v1{};
-        }
         }
     }
     namespace PwmaFctrl2{    ///<Fault Control 2 Register

@@ -16,7 +16,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wordwidth)::Type,WordwidthVal::v16BitData> v16BitData{};
             constexpr Register::FieldValue<decltype(wordwidth)::Type,WordwidthVal::v32BitData> v32BitData{};
         }
-        }
         ///When 1, data is of monaural format. When 0, the data is in stereo format.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> mono{}; 
         ///When 1, disables accesses on FIFOs, places the transmit channel in mute mode.
@@ -43,7 +42,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wordwidth)::Type,WordwidthVal::v8BitData> v8BitData{};
             constexpr Register::FieldValue<decltype(wordwidth)::Type,WordwidthVal::v16BitData> v16BitData{};
             constexpr Register::FieldValue<decltype(wordwidth)::Type,WordwidthVal::v32BitData> v32BitData{};
-        }
         }
         ///When 1, data is of monaural format. When 0, the data is in stereo format.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> mono{}; 
@@ -148,7 +146,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txclksel)::Type,TxclkselVal::selectTheTxFracti> selectTheTxFracti{};
             constexpr Register::FieldValue<decltype(txclksel)::Type,TxclkselVal::selectTheRxMclkS> selectTheRxMclkS{};
         }
-        }
         ///Transmit 4-pin mode selection. When 1, enables 4-pin mode.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> tx4pin{}; 
         ///Enable for the TX_MCLK output. When 0, output of TX_MCLK is not enabled. When 1, output of TX_MCLK is enabled.
@@ -165,7 +162,6 @@ namespace Kvasir {
         namespace RxclkselValC{
             constexpr Register::FieldValue<decltype(rxclksel)::Type,RxclkselVal::selectTheRxFracti> selectTheRxFracti{};
             constexpr Register::FieldValue<decltype(rxclksel)::Type,RxclkselVal::selectTheTxMclkS> selectTheTxMclkS{};
-        }
         }
         ///Receive 4-pin mode selection. When 1, enables 4-pin mode.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rx4pin{}; 

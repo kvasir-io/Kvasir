@@ -30,7 +30,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pendstclr)::Type,PendstclrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pendstclr)::Type,PendstclrVal::v1> v1{};
         }
-        }
         ///no description available
         enum class PendstsetVal {
             v0=0x00000000,     ///<write: no effect; read: SysTick exception is not pending
@@ -40,7 +39,6 @@ namespace Kvasir {
         namespace PendstsetValC{
             constexpr Register::FieldValue<decltype(pendstset)::Type,PendstsetVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pendstset)::Type,PendstsetVal::v1> v1{};
-        }
         }
         ///no description available
         enum class PendsvclrVal {
@@ -52,7 +50,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pendsvclr)::Type,PendsvclrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pendsvclr)::Type,PendsvclrVal::v1> v1{};
         }
-        }
         ///no description available
         enum class PendsvsetVal {
             v0=0x00000000,     ///<write: no effect; read: PendSV exception is not pending
@@ -63,7 +60,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pendsvset)::Type,PendsvsetVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pendsvset)::Type,PendsvsetVal::v1> v1{};
         }
-        }
         ///no description available
         enum class NmipendsetVal {
             v0=0x00000000,     ///<write: no effect; read: NMI exception is not pending
@@ -73,7 +69,6 @@ namespace Kvasir {
         namespace NmipendsetValC{
             constexpr Register::FieldValue<decltype(nmipendset)::Type,NmipendsetVal::v0> v0{};
             constexpr Register::FieldValue<decltype(nmipendset)::Type,NmipendsetVal::v1> v1{};
-        }
         }
     }
     namespace ScbVtor{    ///<Vector Table Offset Register
@@ -95,7 +90,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sysresetreq)::Type,SysresetreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sysresetreq)::Type,SysresetreqVal::v1> v1{};
         }
-        }
         ///no description available
         enum class EndiannessVal {
             v0=0x00000000,     ///<Little-endian
@@ -105,7 +99,6 @@ namespace Kvasir {
         namespace EndiannessValC{
             constexpr Register::FieldValue<decltype(endianness)::Type,EndiannessVal::v0> v0{};
             constexpr Register::FieldValue<decltype(endianness)::Type,EndiannessVal::v1> v1{};
-        }
         }
         ///Register key
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> vectkey{}; 
@@ -122,7 +115,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sleeponexit)::Type,SleeponexitVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sleeponexit)::Type,SleeponexitVal::v1> v1{};
         }
-        }
         ///no description available
         enum class SleepdeepVal {
             v0=0x00000000,     ///<sleep
@@ -133,7 +125,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sleepdeep)::Type,SleepdeepVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sleepdeep)::Type,SleepdeepVal::v1> v1{};
         }
-        }
         ///no description available
         enum class SevonpendVal {
             v0=0x00000000,     ///<only enabled interrupts or events can wakeup the processor, disabled interrupts are excluded
@@ -143,7 +134,6 @@ namespace Kvasir {
         namespace SevonpendValC{
             constexpr Register::FieldValue<decltype(sevonpend)::Type,SevonpendVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sevonpend)::Type,SevonpendVal::v1> v1{};
-        }
         }
     }
     namespace ScbCcr{    ///<Configuration and Control Register
@@ -177,7 +167,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(svcallpended)::Type,SvcallpendedVal::v0> v0{};
             constexpr Register::FieldValue<decltype(svcallpended)::Type,SvcallpendedVal::v1> v1{};
         }
-        }
     }
     namespace ScbDfsr{    ///<Debug Fault Status Register
         using Addr = Register::Address<0xe000ed30,0xffffffe0,0,unsigned>;
@@ -191,7 +180,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(halted)::Type,HaltedVal::v0> v0{};
             constexpr Register::FieldValue<decltype(halted)::Type,HaltedVal::v1> v1{};
         }
-        }
         ///no description available
         enum class BkptVal {
             v0=0x00000000,     ///<No current breakpoint debug event
@@ -201,7 +189,6 @@ namespace Kvasir {
         namespace BkptValC{
             constexpr Register::FieldValue<decltype(bkpt)::Type,BkptVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bkpt)::Type,BkptVal::v1> v1{};
-        }
         }
         ///no description available
         enum class DwttrapVal {
@@ -213,7 +200,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dwttrap)::Type,DwttrapVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dwttrap)::Type,DwttrapVal::v1> v1{};
         }
-        }
         ///no description available
         enum class VcatchVal {
             v0=0x00000000,     ///<No Vector catch triggered
@@ -224,7 +210,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vcatch)::Type,VcatchVal::v0> v0{};
             constexpr Register::FieldValue<decltype(vcatch)::Type,VcatchVal::v1> v1{};
         }
-        }
         ///no description available
         enum class ExternalVal {
             v0=0x00000000,     ///<No EDBGRQ debug event
@@ -234,7 +219,6 @@ namespace Kvasir {
         namespace ExternalValC{
             constexpr Register::FieldValue<decltype(external)::Type,ExternalVal::v0> v0{};
             constexpr Register::FieldValue<decltype(external)::Type,ExternalVal::v1> v1{};
-        }
         }
     }
 }

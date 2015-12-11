@@ -47,7 +47,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(function)::Type,FunctionVal::v0110> v0110{};
             constexpr Register::FieldValue<decltype(function)::Type,FunctionVal::v0111> v0111{};
         }
-        }
         ///Data Value Match
         enum class DatavmatchVal {
             v0=0x00000000,     ///<Perform address comparison.
@@ -57,7 +56,6 @@ namespace Kvasir {
         namespace DatavmatchValC{
             constexpr Register::FieldValue<decltype(datavmatch)::Type,DatavmatchVal::v0> v0{};
             constexpr Register::FieldValue<decltype(datavmatch)::Type,DatavmatchVal::v1> v1{};
-        }
         }
         ///Data Value Size
         enum class DatavsizeVal {
@@ -73,7 +71,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(datavsize)::Type,DatavsizeVal::v10> v10{};
             constexpr Register::FieldValue<decltype(datavsize)::Type,DatavsizeVal::v11> v11{};
         }
-        }
         ///Data Value Address 0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> datavaddr0{}; 
         ///Comparator match
@@ -85,7 +82,6 @@ namespace Kvasir {
         namespace MatchedValC{
             constexpr Register::FieldValue<decltype(matched)::Type,MatchedVal::v0> v0{};
             constexpr Register::FieldValue<decltype(matched)::Type,MatchedVal::v1> v1{};
-        }
         }
     }
     namespace MtbdwtFct1{    ///<MTB_DWT Comparator Function Register 1
@@ -106,7 +102,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(function)::Type,FunctionVal::v0110> v0110{};
             constexpr Register::FieldValue<decltype(function)::Type,FunctionVal::v0111> v0111{};
         }
-        }
         ///Comparator match
         enum class MatchedVal {
             v0=0x00000000,     ///<No match.
@@ -116,7 +111,6 @@ namespace Kvasir {
         namespace MatchedValC{
             constexpr Register::FieldValue<decltype(matched)::Type,MatchedVal::v0> v0{};
             constexpr Register::FieldValue<decltype(matched)::Type,MatchedVal::v1> v1{};
-        }
         }
     }
     namespace MtbdwtTbctrl{    ///<MTB_DWT Trace Buffer Control Register
@@ -131,7 +125,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acomp0)::Type,Acomp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(acomp0)::Type,Acomp0Val::v1> v1{};
         }
-        }
         ///Action based on Comparator 1 match
         enum class Acomp1Val {
             v0=0x00000000,     ///<Trigger TSTOP based on the assertion of MTBDWT_FCT1[MATCHED].
@@ -141,7 +134,6 @@ namespace Kvasir {
         namespace Acomp1ValC{
             constexpr Register::FieldValue<decltype(acomp1)::Type,Acomp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(acomp1)::Type,Acomp1Val::v1> v1{};
-        }
         }
         ///Number of Comparators
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> numcomp{}; 

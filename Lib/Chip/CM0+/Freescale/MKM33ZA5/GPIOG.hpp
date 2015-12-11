@@ -41,7 +41,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acb)::Type,AcbVal::v110> v110{};
             constexpr Register::FieldValue<decltype(acb)::Type,AcbVal::v111> v111{};
         }
-        }
         ///Read-Only Byte
         enum class RobVal {
             v0=0x00000000,     ///<Writes to the ACB are allowed.
@@ -51,7 +50,6 @@ namespace Kvasir {
         namespace RobValC{
             constexpr Register::FieldValue<decltype(rob)::Type,RobVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rob)::Type,RobVal::v1> v1{};
-        }
         }
     }
 }

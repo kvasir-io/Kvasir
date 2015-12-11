@@ -23,7 +23,6 @@ interrupts
             constexpr Register::FieldValue<decltype(controllerReset)::Type,ControllerresetVal::nochange> nochange{};
             constexpr Register::FieldValue<decltype(controllerReset)::Type,ControllerresetVal::reset> reset{};
         }
-        }
         ///fifo_reset. To reset FIFO, firmware should set bit to 1. This bit is auto-cleared after
 completion of reset operation.
 auto-cleared after two AHB clocks.
@@ -36,7 +35,6 @@ auto-cleared after two AHB clocks.
             constexpr Register::FieldValue<decltype(fifoReset)::Type,FiforesetVal::nochange> nochange{};
             constexpr Register::FieldValue<decltype(fifoReset)::Type,FiforesetVal::reset> reset{};
         }
-        }
         ///dma_reset. To reset DMA interface, firmware should set bit to 1. This bit is
 auto-cleared after two AHB clocks.
         enum class DmaresetVal {
@@ -48,7 +46,6 @@ auto-cleared after two AHB clocks.
             constexpr Register::FieldValue<decltype(dmaReset)::Type,DmaresetVal::nochange> nochange{};
             constexpr Register::FieldValue<decltype(dmaReset)::Type,DmaresetVal::reset> reset{};
         }
-        }
         ///Global interrupt enable/disable bit. The int port is 1 only when this bit is 1 and one or more unmasked
 interrupts are set.
         enum class IntenableVal {
@@ -59,7 +56,6 @@ interrupts are set.
         namespace IntenableValC{
             constexpr Register::FieldValue<decltype(intEnable)::Type,IntenableVal::disable> disable{};
             constexpr Register::FieldValue<decltype(intEnable)::Type,IntenableVal::enable> enable{};
-        }
         }
         ///dma_enable. Valid only if DWC_mobile_storage configured for External DMA
 interface.
@@ -77,7 +73,6 @@ prioritize simultaneous host/DMA access.
             constexpr Register::FieldValue<decltype(dmaEnable)::Type,DmaenableVal::disable> disable{};
             constexpr Register::FieldValue<decltype(dmaEnable)::Type,DmaenableVal::enable> enable{};
         }
-        }
         ///read_wait. For sending read-wait to SDIO cards.
         enum class ReadwaitVal {
             clear=0x00000000,     ///<Clear read wait
@@ -87,7 +82,6 @@ prioritize simultaneous host/DMA access.
         namespace ReadwaitValC{
             constexpr Register::FieldValue<decltype(readWait)::Type,ReadwaitVal::clear> clear{};
             constexpr Register::FieldValue<decltype(readWait)::Type,ReadwaitVal::assert> assert{};
-        }
         }
         ///send_irq_response. Bit automatically clears once response is sent.
 To wait for MMC card interrupts, host issues CMD40, and
@@ -105,7 +99,6 @@ idle state.
             constexpr Register::FieldValue<decltype(sendIrqResponse)::Type,SendirqresponseVal::nochange> nochange{};
             constexpr Register::FieldValue<decltype(sendIrqResponse)::Type,SendirqresponseVal::sendresponse> sendresponse{};
         }
-        }
         ///abort_read_data. Used in SDIO card suspend sequence.
         enum class AbortreaddataVal {
             nochange=0x00000000,     ///<No change
@@ -119,7 +112,6 @@ resets to idle.
         namespace AbortreaddataValC{
             constexpr Register::FieldValue<decltype(abortReadData)::Type,AbortreaddataVal::nochange> nochange{};
             constexpr Register::FieldValue<decltype(abortReadData)::Type,AbortreaddataVal::poll> poll{};
-        }
         }
         ///send_ccsd. When set, DWC_mobile_storage sends CCSD to CE-ATA device.
 Software sets this bit only if current command is expecting CCS (that is,
@@ -142,7 +134,6 @@ device
             constexpr Register::FieldValue<decltype(sendCcsd)::Type,SendccsdVal::clear> clear{};
             constexpr Register::FieldValue<decltype(sendCcsd)::Type,SendccsdVal::send> send{};
         }
-        }
         ///send_auto_stop_ccsd. NOTE: Always set send_auto_stop_ccsd and send_ccsd bits together;
 send_auto_stop_ccsd should not be set independent of send_ccsd.
 When set, DWC_Mobile_Storage automatically sends internallygenerated
@@ -161,7 +152,6 @@ device.
             constexpr Register::FieldValue<decltype(sendAutoStopCcsd)::Type,SendautostopccsdVal::clear> clear{};
             constexpr Register::FieldValue<decltype(sendAutoStopCcsd)::Type,SendautostopccsdVal::send> send{};
         }
-        }
         ///ceata_device_interrupt
 _status. Software should appropriately write to this bit after power-on reset or
 any other reset to CE-ATA device. After reset, usually CE-ATA device
@@ -177,7 +167,6 @@ control register)
         namespace CeatadeviceinterruptstatusValC{
             constexpr Register::FieldValue<decltype(ceataDeviceInterruptStatus)::Type,CeatadeviceinterruptstatusVal::disable> disable{};
             constexpr Register::FieldValue<decltype(ceataDeviceInterruptStatus)::Type,CeatadeviceinterruptstatusVal::enable> enable{};
-        }
         }
         ///Card regulator-A voltage setting; output to card_volt_a port.
 Optional feature; ports can be used as general-purpose outputs.
@@ -198,7 +187,6 @@ drive hard 1.
             constexpr Register::FieldValue<decltype(enableOdPullup)::Type,EnableodpullupVal::disable> disable{};
             constexpr Register::FieldValue<decltype(enableOdPullup)::Type,EnableodpullupVal::enable> enable{};
         }
-        }
         ///Present only for the Internal DMAC configuration; else, it is reserved.
         enum class UseinternaldmacVal {
             host=0x00000000,     ///<The host performs data transfers through the slave interface
@@ -208,7 +196,6 @@ drive hard 1.
         namespace UseinternaldmacValC{
             constexpr Register::FieldValue<decltype(useInternalDmac)::Type,UseinternaldmacVal::host> host{};
             constexpr Register::FieldValue<decltype(useInternalDmac)::Type,UseinternaldmacVal::dmac> dmac{};
-        }
         }
     }
     namespace Nonepwren{    ///<Power Enable Register
@@ -413,7 +400,6 @@ In MMC-Ver3.3-only mode, these bits are always 0.
             constexpr Register::FieldValue<decltype(responseExpect)::Type,ResponseexpectVal::noresponse> noresponse{};
             constexpr Register::FieldValue<decltype(responseExpect)::Type,ResponseexpectVal::response> response{};
         }
-        }
         ///response length
         enum class ResponselengthVal {
             shortresponse=0x00000000,     ///<Short response expected from card
@@ -423,7 +409,6 @@ In MMC-Ver3.3-only mode, these bits are always 0.
         namespace ResponselengthValC{
             constexpr Register::FieldValue<decltype(responseLength)::Type,ResponselengthVal::shortresponse> shortresponse{};
             constexpr Register::FieldValue<decltype(responseLength)::Type,ResponselengthVal::longresponse> longresponse{};
-        }
         }
         ///check  response crc Some of command responses do not return valid CRC bits.
 Software should disable CRC checks for those commands in order
@@ -437,7 +422,6 @@ to disable CRC checking by controller.
             constexpr Register::FieldValue<decltype(checkResponseCrc)::Type,CheckresponsecrcVal::donotcheckcrc> donotcheckcrc{};
             constexpr Register::FieldValue<decltype(checkResponseCrc)::Type,CheckresponsecrcVal::checkcrc> checkcrc{};
         }
-        }
         ///data expected
         enum class DataexpectedVal {
             nodatatxf=0x00000000,     ///<No data transfer expected (read/write)
@@ -447,7 +431,6 @@ to disable CRC checking by controller.
         namespace DataexpectedValC{
             constexpr Register::FieldValue<decltype(dataExpected)::Type,DataexpectedVal::nodatatxf> nodatatxf{};
             constexpr Register::FieldValue<decltype(dataExpected)::Type,DataexpectedVal::datatxf> datatxf{};
-        }
         }
         ///read/write. Don't care if no data expected from card.
         enum class ReadwriteVal {
@@ -459,7 +442,6 @@ to disable CRC checking by controller.
             constexpr Register::FieldValue<decltype(readWrite)::Type,ReadwriteVal::readcard> readcard{};
             constexpr Register::FieldValue<decltype(readWrite)::Type,ReadwriteVal::datatxf> datatxf{};
         }
-        }
         ///transfer mode. Don' t care if no data expected.
         enum class TransfermodeVal {
             blocktxf=0x00000000,     ///<Block data transfer command
@@ -469,7 +451,6 @@ to disable CRC checking by controller.
         namespace TransfermodeValC{
             constexpr Register::FieldValue<decltype(transferMode)::Type,TransfermodeVal::blocktxf> blocktxf{};
             constexpr Register::FieldValue<decltype(transferMode)::Type,TransfermodeVal::streamtxf> streamtxf{};
-        }
         }
         ///send auto stop.  When set, DWC_mobile_storage sends stop command to
 SD_MMC_CEATA cards at end of data transfer. Refer to Table 3-8
@@ -491,7 +472,6 @@ Don't care if no data expected from card.
             constexpr Register::FieldValue<decltype(sendAutoStop)::Type,SendautostopVal::nostop> nostop{};
             constexpr Register::FieldValue<decltype(sendAutoStop)::Type,SendautostopVal::stop> stop{};
         }
-        }
         ///wait prvdata complete. The wait_prvdata_complete = 0 option typically used to query
 status of card during data transfer or to stop current data transfer;
 card_number should be same as in previous command.
@@ -505,7 +485,6 @@ command.
         namespace WaitprvdatacompleteValC{
             constexpr Register::FieldValue<decltype(waitPrvdataComplete)::Type,WaitprvdatacompleteVal::send> send{};
             constexpr Register::FieldValue<decltype(waitPrvdataComplete)::Type,WaitprvdatacompleteVal::wait> wait{};
-        }
         }
         ///stop abort cmd. When open-ended or predefined data transfer is in progress, and
 host issues stop or abort command to stop data transfer, bit should
@@ -527,7 +506,6 @@ in progress..
             constexpr Register::FieldValue<decltype(stopAbortCmd)::Type,StopabortcmdVal::nostopabort> nostopabort{};
             constexpr Register::FieldValue<decltype(stopAbortCmd)::Type,StopabortcmdVal::stopabort> stopabort{};
         }
-        }
         ///send initialization.  After power on, 80 clocks must be sent to card for initialization
 before sending any commands to card. Bit should be set while
 sending first command to card so that controller will initialize clocks
@@ -542,7 +520,6 @@ sending this command.
         namespace SendinitializationValC{
             constexpr Register::FieldValue<decltype(sendInitialization)::Type,SendinitializationVal::noinit> noinit{};
             constexpr Register::FieldValue<decltype(sendInitialization)::Type,SendinitializationVal::init> init{};
-        }
         }
         ///card number. Card number in use. Represents physical slot number of card being
 accessed. In MMC-Ver3.3-only mode, up to 30 cards are supported;
@@ -577,7 +554,6 @@ card clock domain
             constexpr Register::FieldValue<decltype(updateClockRegistersOnly)::Type,UpdateclockregistersonlyVal::normal> normal{};
             constexpr Register::FieldValue<decltype(updateClockRegistersOnly)::Type,UpdateclockregistersonlyVal::nocommand> nocommand{};
         }
-        }
         ///read ceata device. Software should set this bit to indicate that CE-ATA device is being
 accessed for read transfer. This bit is used to disable read data
 timeout indication while performing CE-ATA read transfers.
@@ -594,7 +570,6 @@ towards CE-ATA device.
         namespace ReadceatadeviceValC{
             constexpr Register::FieldValue<decltype(readCeataDevice)::Type,ReadceatadeviceVal::noread> noread{};
             constexpr Register::FieldValue<decltype(readCeataDevice)::Type,ReadceatadeviceVal::read> read{};
-        }
         }
         ///ccs expected. If the command expects Command Completion Signal (CCS) from
 the CE-ATA device, the software should set this control bit.
@@ -613,7 +588,6 @@ from CE-ATA device.
         namespace CcsexpectedValC{
             constexpr Register::FieldValue<decltype(ccsExpected)::Type,CcsexpectedVal::disable> disable{};
             constexpr Register::FieldValue<decltype(ccsExpected)::Type,CcsexpectedVal::enable> enable{};
-        }
         }
         ///Enable Boot - this bit should be set only for mandatory boot mode.
 When Software sets this bit along with start_cmd, CIU starts the
@@ -638,7 +612,6 @@ enable_boot together.
             constexpr Register::FieldValue<decltype(bootMode)::Type,BootmodeVal::mandatoryboot> mandatoryboot{};
             constexpr Register::FieldValue<decltype(bootMode)::Type,BootmodeVal::altboot> altboot{};
         }
-        }
         ///Voltage switch bit
         enum class VoltswitchVal {
             disable=0x00000000,     ///<No voltage switching
@@ -648,7 +621,6 @@ enable_boot together.
         namespace VoltswitchValC{
             constexpr Register::FieldValue<decltype(voltSwitch)::Type,VoltswitchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(voltSwitch)::Type,VoltswitchVal::enable> enable{};
-        }
         }
         ///Start command. Once command is taken by CIU, bit is cleared.
 When bit is set, host should not attempt to write to any command
@@ -942,7 +914,6 @@ MSize = 8, TX_WMark = 8, RX_WMark = 7
             constexpr Register::FieldValue<decltype(dwDmaMutipleTransactionSize)::Type,DwdmamutipletransactionsizeVal::v128txf> v128txf{};
             constexpr Register::FieldValue<decltype(dwDmaMutipleTransactionSize)::Type,DwdmamutipletransactionsizeVal::v256txf> v256txf{};
         }
-        }
     }
     namespace Nonecdetect{    ///<Card Detect Register
         using Addr = Register::Address<0x40004050,0xc0000000,0,unsigned>;
@@ -1094,7 +1065,6 @@ PBL is a read-only value.
             constexpr Register::FieldValue<decltype(pbl)::Type,PblVal::v64txf> v64txf{};
             constexpr Register::FieldValue<decltype(pbl)::Type,PblVal::v128txf> v128txf{};
             constexpr Register::FieldValue<decltype(pbl)::Type,PblVal::v256txf> v256txf{};
-        }
         }
     }
     namespace Nonepldmnd{    ///<Poll Demand Register

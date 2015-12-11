@@ -231,7 +231,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(smp)::Type,SmpVal::once> once{};
             constexpr Register::FieldValue<decltype(smp)::Type,SmpVal::three> three{};
         }
-        }
     }
     namespace Can1Tim{    ///<Timer Register
         using Addr = Register::Address<0x400b8018,0xffff0000,0,unsigned>;
@@ -328,7 +327,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mot)::Type,MotVal::mbConsumer> mbConsumer{};
             constexpr Register::FieldValue<decltype(mot)::Type,MotVal::mbProducer> mbProducer{};
         }
-        }
     }
     namespace Can1Mam0{    ///<Mailbox Acceptance Mask Register (MB = 0)
         using Addr = Register::Address<0x400b8204,0xc0000000,0,unsigned>;
@@ -412,7 +410,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mot)::Type,MotVal::mbTx> mbTx{};
             constexpr Register::FieldValue<decltype(mot)::Type,MotVal::mbConsumer> mbConsumer{};
             constexpr Register::FieldValue<decltype(mot)::Type,MotVal::mbProducer> mbProducer{};
-        }
         }
     }
     namespace Can1Mam1{    ///<Mailbox Acceptance Mask Register (MB = 1)
@@ -498,7 +495,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mot)::Type,MotVal::mbConsumer> mbConsumer{};
             constexpr Register::FieldValue<decltype(mot)::Type,MotVal::mbProducer> mbProducer{};
         }
-        }
     }
     namespace Can1Mam2{    ///<Mailbox Acceptance Mask Register (MB = 2)
         using Addr = Register::Address<0x400b8244,0xc0000000,0,unsigned>;
@@ -582,7 +578,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mot)::Type,MotVal::mbTx> mbTx{};
             constexpr Register::FieldValue<decltype(mot)::Type,MotVal::mbConsumer> mbConsumer{};
             constexpr Register::FieldValue<decltype(mot)::Type,MotVal::mbProducer> mbProducer{};
-        }
         }
     }
     namespace Can1Mam3{    ///<Mailbox Acceptance Mask Register (MB = 3)
@@ -668,7 +663,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mot)::Type,MotVal::mbConsumer> mbConsumer{};
             constexpr Register::FieldValue<decltype(mot)::Type,MotVal::mbProducer> mbProducer{};
         }
-        }
     }
     namespace Can1Mam4{    ///<Mailbox Acceptance Mask Register (MB = 4)
         using Addr = Register::Address<0x400b8284,0xc0000000,0,unsigned>;
@@ -752,7 +746,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mot)::Type,MotVal::mbTx> mbTx{};
             constexpr Register::FieldValue<decltype(mot)::Type,MotVal::mbConsumer> mbConsumer{};
             constexpr Register::FieldValue<decltype(mot)::Type,MotVal::mbProducer> mbProducer{};
-        }
         }
     }
     namespace Can1Mam5{    ///<Mailbox Acceptance Mask Register (MB = 5)
@@ -838,7 +831,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mot)::Type,MotVal::mbConsumer> mbConsumer{};
             constexpr Register::FieldValue<decltype(mot)::Type,MotVal::mbProducer> mbProducer{};
         }
-        }
     }
     namespace Can1Mam6{    ///<Mailbox Acceptance Mask Register (MB = 6)
         using Addr = Register::Address<0x400b82c4,0xc0000000,0,unsigned>;
@@ -922,7 +914,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mot)::Type,MotVal::mbTx> mbTx{};
             constexpr Register::FieldValue<decltype(mot)::Type,MotVal::mbConsumer> mbConsumer{};
             constexpr Register::FieldValue<decltype(mot)::Type,MotVal::mbProducer> mbProducer{};
-        }
         }
     }
     namespace Can1Mam7{    ///<Mailbox Acceptance Mask Register (MB = 7)

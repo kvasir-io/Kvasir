@@ -79,7 +79,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::output18bpp> output18bpp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::output24bpp> output24bpp{};
         }
-        }
         ///LCD Controller Vertical Synchronization Pulse Setup Configuration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> vspsu{}; 
         ///LCD Controller Vertical Synchronization Pulse Hold Configuration
@@ -338,7 +337,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(blen)::Type,BlenVal::ahbIncr8> ahbIncr8{};
             constexpr Register::FieldValue<decltype(blen)::Type,BlenVal::ahbIncr16> ahbIncr16{};
         }
-        }
         ///Defined Length Burst Only For Channel Bus Transaction.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> dlbo{}; 
     }
@@ -380,7 +378,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgbmode)::Type,RgbmodeVal::v32bppArgb8888> v32bppArgb8888{};
             constexpr Register::FieldValue<decltype(rgbmode)::Type,RgbmodeVal::v32bppRgba8888> v32bppRgba8888{};
         }
-        }
         ///Color Lookup Table Input Mode Selection
         enum class ClutmodeVal {
             v1bpp=0x00000000,     ///<color lookup table mode set to 1 bit per pixel
@@ -394,7 +391,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clutmode)::Type,ClutmodeVal::v2bpp> v2bpp{};
             constexpr Register::FieldValue<decltype(clutmode)::Type,ClutmodeVal::v4bpp> v4bpp{};
             constexpr Register::FieldValue<decltype(clutmode)::Type,ClutmodeVal::v8bpp> v8bpp{};
-        }
         }
     }
     namespace LcdcBasecfg2{    ///<Base Layer Configuration Register 2
@@ -541,7 +537,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(blen)::Type,BlenVal::ahbIncr8> ahbIncr8{};
             constexpr Register::FieldValue<decltype(blen)::Type,BlenVal::ahbIncr16> ahbIncr16{};
         }
-        }
         ///Defined Length Burst Only for Channel Bus Transaction.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> dlbo{}; 
         ///Hardware Rotation Optimization Disable
@@ -587,7 +582,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgbmode)::Type,RgbmodeVal::v32bppArgb8888> v32bppArgb8888{};
             constexpr Register::FieldValue<decltype(rgbmode)::Type,RgbmodeVal::v32bppRgba8888> v32bppRgba8888{};
         }
-        }
         ///Color Lookup table input mode selection
         enum class ClutmodeVal {
             v1bpp=0x00000000,     ///<color lookup table mode set to 1 bit per pixel
@@ -601,7 +595,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clutmode)::Type,ClutmodeVal::v2bpp> v2bpp{};
             constexpr Register::FieldValue<decltype(clutmode)::Type,ClutmodeVal::v4bpp> v4bpp{};
             constexpr Register::FieldValue<decltype(clutmode)::Type,ClutmodeVal::v8bpp> v8bpp{};
-        }
         }
     }
     namespace LcdcOvr1cfg2{    ///<Overlay 1 Configuration 2 Register
@@ -941,7 +934,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(blen)::Type,BlenVal::ahbIncr8> ahbIncr8{};
             constexpr Register::FieldValue<decltype(blen)::Type,BlenVal::ahbIncr16> ahbIncr16{};
         }
-        }
         ///AHB Burst Length for U-V Channel
         enum class BlenuvVal {
             ahbSingle=0x00000000,     ///<AHB Access is started as soon as there is enough space in the FIFO to store one data. SINGLE, INCR, INCR4, INCR8 and INCR16 bursts can be used. INCR is used for a burst of 2 and 3 beats.
@@ -955,7 +947,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(blenuv)::Type,BlenuvVal::ahbIncr4> ahbIncr4{};
             constexpr Register::FieldValue<decltype(blenuv)::Type,BlenuvVal::ahbIncr8> ahbIncr8{};
             constexpr Register::FieldValue<decltype(blenuv)::Type,BlenuvVal::ahbIncr16> ahbIncr16{};
-        }
         }
         ///Defined Length Burst Only For Channel Bus Transaction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> dlbo{}; 
@@ -1004,7 +995,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgbmode)::Type,RgbmodeVal::v32bppArgb8888> v32bppArgb8888{};
             constexpr Register::FieldValue<decltype(rgbmode)::Type,RgbmodeVal::v32bppRgba8888> v32bppRgba8888{};
         }
-        }
         ///Color Lookup table input mode selection
         enum class ClutmodeVal {
             v1bpp=0x00000000,     ///<color lookup table mode set to 1 bit per pixel
@@ -1018,7 +1008,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clutmode)::Type,ClutmodeVal::v2bpp> v2bpp{};
             constexpr Register::FieldValue<decltype(clutmode)::Type,ClutmodeVal::v4bpp> v4bpp{};
             constexpr Register::FieldValue<decltype(clutmode)::Type,ClutmodeVal::v8bpp> v8bpp{};
-        }
         }
         ///YUV input mode selection
         enum class YuvmodeVal {
@@ -1043,7 +1032,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(yuvmode)::Type,YuvmodeVal::v16bppYcbcrPlanar> v16bppYcbcrPlanar{};
             constexpr Register::FieldValue<decltype(yuvmode)::Type,YuvmodeVal::v12bppYcbcrSemiplanar> v12bppYcbcrSemiplanar{};
             constexpr Register::FieldValue<decltype(yuvmode)::Type,YuvmodeVal::v12bppYcbcrPlanar> v12bppYcbcrPlanar{};
-        }
         }
         ///YUV 4:2:2 Rotation
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> yuv422rot{}; 
@@ -1312,7 +1300,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(blen)::Type,BlenVal::ahbIncr8> ahbIncr8{};
             constexpr Register::FieldValue<decltype(blen)::Type,BlenVal::ahbIncr16> ahbIncr16{};
         }
-        }
         ///Defined Length Burst Only for Channel Bus Transaction.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> dlbo{}; 
     }
@@ -1354,7 +1341,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgbmode)::Type,RgbmodeVal::v32bppArgb8888> v32bppArgb8888{};
             constexpr Register::FieldValue<decltype(rgbmode)::Type,RgbmodeVal::v32bppRgba8888> v32bppRgba8888{};
         }
-        }
         ///Color Lookup table input mode selection
         enum class ClutmodeVal {
             v1bpp=0x00000000,     ///<color lookup table mode set to 1 bit per pixel
@@ -1368,7 +1354,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clutmode)::Type,ClutmodeVal::v2bpp> v2bpp{};
             constexpr Register::FieldValue<decltype(clutmode)::Type,ClutmodeVal::v4bpp> v4bpp{};
             constexpr Register::FieldValue<decltype(clutmode)::Type,ClutmodeVal::v8bpp> v8bpp{};
-        }
         }
     }
     namespace LcdcHcrcfg2{    ///<Hardware Cursor Configuration 2 Register

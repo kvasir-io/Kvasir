@@ -115,7 +115,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in0)::Type,In0Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(in0)::Type,In0Val::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_IN[1] event
         enum class In1Val {
             disabled=0x00000000,     ///<Read: Disabled
@@ -127,7 +126,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in1)::Type,In1Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(in1)::Type,In1Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(in1)::Type,In1Val::set> set{};
-        }
         }
         ///Write '1' to Enable interrupt on EVENTS_IN[2] event
         enum class In2Val {
@@ -141,7 +139,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in2)::Type,In2Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(in2)::Type,In2Val::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_IN[3] event
         enum class In3Val {
             disabled=0x00000000,     ///<Read: Disabled
@@ -153,7 +150,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in3)::Type,In3Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(in3)::Type,In3Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(in3)::Type,In3Val::set> set{};
-        }
         }
         ///Write '1' to Enable interrupt on EVENTS_IN[4] event
         enum class In4Val {
@@ -167,7 +163,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in4)::Type,In4Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(in4)::Type,In4Val::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_IN[5] event
         enum class In5Val {
             disabled=0x00000000,     ///<Read: Disabled
@@ -179,7 +174,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in5)::Type,In5Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(in5)::Type,In5Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(in5)::Type,In5Val::set> set{};
-        }
         }
         ///Write '1' to Enable interrupt on EVENTS_IN[6] event
         enum class In6Val {
@@ -193,7 +187,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in6)::Type,In6Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(in6)::Type,In6Val::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_IN[7] event
         enum class In7Val {
             disabled=0x00000000,     ///<Read: Disabled
@@ -206,7 +199,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in7)::Type,In7Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(in7)::Type,In7Val::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_PORT event
         enum class PortVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -218,7 +210,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(port)::Type,PortVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(port)::Type,PortVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(port)::Type,PortVal::set> set{};
-        }
         }
     }
     namespace Noneintenclr{    ///<Disable interrupt
@@ -235,7 +226,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in0)::Type,In0Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(in0)::Type,In0Val::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_IN[1] event
         enum class In1Val {
             disabled=0x00000000,     ///<Read: Disabled
@@ -247,7 +237,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in1)::Type,In1Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(in1)::Type,In1Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(in1)::Type,In1Val::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_IN[2] event
         enum class In2Val {
@@ -261,7 +250,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in2)::Type,In2Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(in2)::Type,In2Val::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_IN[3] event
         enum class In3Val {
             disabled=0x00000000,     ///<Read: Disabled
@@ -273,7 +261,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in3)::Type,In3Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(in3)::Type,In3Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(in3)::Type,In3Val::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_IN[4] event
         enum class In4Val {
@@ -287,7 +274,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in4)::Type,In4Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(in4)::Type,In4Val::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_IN[5] event
         enum class In5Val {
             disabled=0x00000000,     ///<Read: Disabled
@@ -299,7 +285,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in5)::Type,In5Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(in5)::Type,In5Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(in5)::Type,In5Val::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_IN[6] event
         enum class In6Val {
@@ -313,7 +298,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in6)::Type,In6Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(in6)::Type,In6Val::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_IN[7] event
         enum class In7Val {
             disabled=0x00000000,     ///<Read: Disabled
@@ -326,7 +310,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in7)::Type,In7Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(in7)::Type,In7Val::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_PORT event
         enum class PortVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -338,7 +321,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(port)::Type,PortVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(port)::Type,PortVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(port)::Type,PortVal::clear> clear{};
-        }
         }
     }
     namespace Noneconfig0{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
@@ -355,7 +337,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::event> event{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::task> task{};
         }
-        }
         ///GPIO number associated with SET[n], CLR[n] and OUT[n] tasks and IN[n] event
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
         ///When In task mode: Operation to be performed on output when OUT[n] task is triggered. When In event mode: Operation on input that shall trigger IN[n] event.
@@ -372,7 +353,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::hitolo> hitolo{};
             constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::toggle> toggle{};
         }
-        }
         ///When in task mode: Initial value of the output when the GPIOTE channel is configured. When in event mode: No effect.
         enum class OutinitVal {
             low=0x00000000,     ///<Task mode: Initial value of pin before task triggering is low
@@ -382,7 +362,6 @@ namespace Kvasir {
         namespace OutinitValC{
             constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::low> low{};
             constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::high> high{};
-        }
         }
     }
     namespace Noneconfig1{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
@@ -399,7 +378,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::event> event{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::task> task{};
         }
-        }
         ///GPIO number associated with SET[n], CLR[n] and OUT[n] tasks and IN[n] event
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
         ///When In task mode: Operation to be performed on output when OUT[n] task is triggered. When In event mode: Operation on input that shall trigger IN[n] event.
@@ -416,7 +394,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::hitolo> hitolo{};
             constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::toggle> toggle{};
         }
-        }
         ///When in task mode: Initial value of the output when the GPIOTE channel is configured. When in event mode: No effect.
         enum class OutinitVal {
             low=0x00000000,     ///<Task mode: Initial value of pin before task triggering is low
@@ -426,7 +403,6 @@ namespace Kvasir {
         namespace OutinitValC{
             constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::low> low{};
             constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::high> high{};
-        }
         }
     }
     namespace Noneconfig2{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
@@ -443,7 +419,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::event> event{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::task> task{};
         }
-        }
         ///GPIO number associated with SET[n], CLR[n] and OUT[n] tasks and IN[n] event
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
         ///When In task mode: Operation to be performed on output when OUT[n] task is triggered. When In event mode: Operation on input that shall trigger IN[n] event.
@@ -460,7 +435,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::hitolo> hitolo{};
             constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::toggle> toggle{};
         }
-        }
         ///When in task mode: Initial value of the output when the GPIOTE channel is configured. When in event mode: No effect.
         enum class OutinitVal {
             low=0x00000000,     ///<Task mode: Initial value of pin before task triggering is low
@@ -470,7 +444,6 @@ namespace Kvasir {
         namespace OutinitValC{
             constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::low> low{};
             constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::high> high{};
-        }
         }
     }
     namespace Noneconfig3{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
@@ -487,7 +460,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::event> event{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::task> task{};
         }
-        }
         ///GPIO number associated with SET[n], CLR[n] and OUT[n] tasks and IN[n] event
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
         ///When In task mode: Operation to be performed on output when OUT[n] task is triggered. When In event mode: Operation on input that shall trigger IN[n] event.
@@ -504,7 +476,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::hitolo> hitolo{};
             constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::toggle> toggle{};
         }
-        }
         ///When in task mode: Initial value of the output when the GPIOTE channel is configured. When in event mode: No effect.
         enum class OutinitVal {
             low=0x00000000,     ///<Task mode: Initial value of pin before task triggering is low
@@ -514,7 +485,6 @@ namespace Kvasir {
         namespace OutinitValC{
             constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::low> low{};
             constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::high> high{};
-        }
         }
     }
     namespace Noneconfig4{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
@@ -531,7 +501,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::event> event{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::task> task{};
         }
-        }
         ///GPIO number associated with SET[n], CLR[n] and OUT[n] tasks and IN[n] event
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
         ///When In task mode: Operation to be performed on output when OUT[n] task is triggered. When In event mode: Operation on input that shall trigger IN[n] event.
@@ -548,7 +517,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::hitolo> hitolo{};
             constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::toggle> toggle{};
         }
-        }
         ///When in task mode: Initial value of the output when the GPIOTE channel is configured. When in event mode: No effect.
         enum class OutinitVal {
             low=0x00000000,     ///<Task mode: Initial value of pin before task triggering is low
@@ -558,7 +526,6 @@ namespace Kvasir {
         namespace OutinitValC{
             constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::low> low{};
             constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::high> high{};
-        }
         }
     }
     namespace Noneconfig5{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
@@ -575,7 +542,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::event> event{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::task> task{};
         }
-        }
         ///GPIO number associated with SET[n], CLR[n] and OUT[n] tasks and IN[n] event
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
         ///When In task mode: Operation to be performed on output when OUT[n] task is triggered. When In event mode: Operation on input that shall trigger IN[n] event.
@@ -592,7 +558,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::hitolo> hitolo{};
             constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::toggle> toggle{};
         }
-        }
         ///When in task mode: Initial value of the output when the GPIOTE channel is configured. When in event mode: No effect.
         enum class OutinitVal {
             low=0x00000000,     ///<Task mode: Initial value of pin before task triggering is low
@@ -602,7 +567,6 @@ namespace Kvasir {
         namespace OutinitValC{
             constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::low> low{};
             constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::high> high{};
-        }
         }
     }
     namespace Noneconfig6{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
@@ -619,7 +583,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::event> event{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::task> task{};
         }
-        }
         ///GPIO number associated with SET[n], CLR[n] and OUT[n] tasks and IN[n] event
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
         ///When In task mode: Operation to be performed on output when OUT[n] task is triggered. When In event mode: Operation on input that shall trigger IN[n] event.
@@ -636,7 +599,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::hitolo> hitolo{};
             constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::toggle> toggle{};
         }
-        }
         ///When in task mode: Initial value of the output when the GPIOTE channel is configured. When in event mode: No effect.
         enum class OutinitVal {
             low=0x00000000,     ///<Task mode: Initial value of pin before task triggering is low
@@ -646,7 +608,6 @@ namespace Kvasir {
         namespace OutinitValC{
             constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::low> low{};
             constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::high> high{};
-        }
         }
     }
     namespace Noneconfig7{    ///<Description collection[0]:  Configuration for OUT[n], SET[n] and CLR[n] tasks and IN[n] event
@@ -663,7 +624,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::event> event{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::task> task{};
         }
-        }
         ///GPIO number associated with SET[n], CLR[n] and OUT[n] tasks and IN[n] event
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
         ///When In task mode: Operation to be performed on output when OUT[n] task is triggered. When In event mode: Operation on input that shall trigger IN[n] event.
@@ -680,7 +640,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::hitolo> hitolo{};
             constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::toggle> toggle{};
         }
-        }
         ///When in task mode: Initial value of the output when the GPIOTE channel is configured. When in event mode: No effect.
         enum class OutinitVal {
             low=0x00000000,     ///<Task mode: Initial value of pin before task triggering is low
@@ -690,7 +649,6 @@ namespace Kvasir {
         namespace OutinitValC{
             constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::low> low{};
             constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::high> high{};
-        }
         }
     }
 }

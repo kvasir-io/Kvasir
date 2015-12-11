@@ -22,7 +22,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(path)::Type,PathVal::resynchronized> resynchronized{};
             constexpr Register::FieldValue<decltype(path)::Type,PathVal::asynchronous> asynchronous{};
         }
-        }
         ///Edge Detection Selection
         enum class EdgselVal {
             noEvtOutput=0x00000000,     ///<No event output when using the resynchronized or synchronous path
@@ -36,7 +35,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edgsel)::Type,EdgselVal::risingEdge> risingEdge{};
             constexpr Register::FieldValue<decltype(edgsel)::Type,EdgselVal::fallingEdge> fallingEdge{};
             constexpr Register::FieldValue<decltype(edgsel)::Type,EdgselVal::bothEdges> bothEdges{};
-        }
         }
     }
     namespace EvsysChstatus{    ///<Channel Status

@@ -24,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::extLoadModereg> extLoadModereg{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::deepPowerdown> deepPowerdown{};
         }
-        }
     }
     namespace SdramcTr{    ///<SDRAMC Refresh Timer Register
         using Addr = Register::Address<0xffffea04,0xfffff000,0,unsigned>;
@@ -47,7 +46,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nc)::Type,NcVal::col10> col10{};
             constexpr Register::FieldValue<decltype(nc)::Type,NcVal::col11> col11{};
         }
-        }
         ///Number of Row Bits
         enum class NrVal {
             row11=0x00000000,     ///<11 row bits
@@ -60,7 +58,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nr)::Type,NrVal::row12> row12{};
             constexpr Register::FieldValue<decltype(nr)::Type,NrVal::row13> row13{};
         }
-        }
         ///Number of Banks
         enum class NbVal {
             bank2=0x00000000,     ///<2 banks
@@ -70,7 +67,6 @@ namespace Kvasir {
         namespace NbValC{
             constexpr Register::FieldValue<decltype(nb)::Type,NbVal::bank2> bank2{};
             constexpr Register::FieldValue<decltype(nb)::Type,NbVal::bank4> bank4{};
-        }
         }
         ///CAS Latency
         enum class CasVal {
@@ -83,7 +79,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::latency1> latency1{};
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::latency2> latency2{};
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::latency3> latency3{};
-        }
         }
         ///Data Bus Width
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dbw{}; 
@@ -116,7 +111,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lpcb)::Type,LpcbVal::powerDown> powerDown{};
             constexpr Register::FieldValue<decltype(lpcb)::Type,LpcbVal::deepPowerDown> deepPowerDown{};
         }
-        }
         ///Partial Array Self-refresh (only for low-power SDRAM)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> pasr{}; 
         ///Temperature Compensated Self-Refresh (only for low-power SDRAM)
@@ -134,7 +128,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timeout)::Type,TimeoutVal::lpLastXfer> lpLastXfer{};
             constexpr Register::FieldValue<decltype(timeout)::Type,TimeoutVal::lpLastXfer64> lpLastXfer64{};
             constexpr Register::FieldValue<decltype(timeout)::Type,TimeoutVal::lpLastXfer128> lpLastXfer128{};
-        }
         }
     }
     namespace SdramcIer{    ///<SDRAMC Interrupt Enable Register
@@ -168,7 +161,6 @@ namespace Kvasir {
         namespace MdValC{
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::sdram> sdram{};
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::lpsdram> lpsdram{};
-        }
         }
     }
 }

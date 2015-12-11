@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irefsten)::Type,IrefstenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irefsten)::Type,IrefstenVal::v1> v1{};
         }
-        }
         ///Internal Reference Clock Enable
         enum class IrclkenVal {
             v0=0x00000000,     ///<ICSIRCLK is inactive.
@@ -25,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irclken)::Type,IrclkenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irclken)::Type,IrclkenVal::v1> v1{};
         }
-        }
         ///Internal Reference Select
         enum class IrefsVal {
             v0=0x00000000,     ///<External reference clock is selected.
@@ -35,7 +33,6 @@ namespace Kvasir {
         namespace IrefsValC{
             constexpr Register::FieldValue<decltype(irefs)::Type,IrefsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irefs)::Type,IrefsVal::v1> v1{};
-        }
         }
         ///Reference Divider
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,3),Register::ReadWriteAccess,unsigned> rdiv{}; 
@@ -53,7 +50,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v10> v10{};
             constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v11> v11{};
         }
-        }
     }
     namespace IcsC2{    ///<ICS Control Register 2
         using Addr = Register::Address<0x40064001,0xffffff0f,0,unsigned char>;
@@ -66,7 +62,6 @@ namespace Kvasir {
         namespace LpValC{
             constexpr Register::FieldValue<decltype(lp)::Type,LpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lp)::Type,LpVal::v1> v1{};
-        }
         }
         ///Bus Frequency Divider
         enum class BdivVal {
@@ -90,7 +85,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bdiv)::Type,BdivVal::v110> v110{};
             constexpr Register::FieldValue<decltype(bdiv)::Type,BdivVal::v111> v111{};
         }
-        }
     }
     namespace IcsC3{    ///<ICS Control Register 3
         using Addr = Register::Address<0x40064002,0xffffff00,0,unsigned char>;
@@ -111,7 +105,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cme)::Type,CmeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cme)::Type,CmeVal::v1> v1{};
         }
-        }
         ///Loss of Lock Interrupt
         enum class LolieVal {
             v0=0x00000000,     ///<No request on loss of lock.
@@ -121,7 +114,6 @@ namespace Kvasir {
         namespace LolieValC{
             constexpr Register::FieldValue<decltype(lolie)::Type,LolieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lolie)::Type,LolieVal::v1> v1{};
-        }
         }
     }
     namespace IcsS{    ///<ICS Status Register
@@ -138,7 +130,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkst)::Type,ClkstVal::v01> v01{};
             constexpr Register::FieldValue<decltype(clkst)::Type,ClkstVal::v10> v10{};
         }
-        }
         ///Internal Reference Status
         enum class IrefstVal {
             v0=0x00000000,     ///<Source of reference clock is external clock.
@@ -148,7 +139,6 @@ namespace Kvasir {
         namespace IrefstValC{
             constexpr Register::FieldValue<decltype(irefst)::Type,IrefstVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irefst)::Type,IrefstVal::v1> v1{};
-        }
         }
         ///Lock Status
         enum class LockVal {
@@ -160,7 +150,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lock)::Type,LockVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lock)::Type,LockVal::v1> v1{};
         }
-        }
         ///Loss of Lock Status
         enum class LolsVal {
             v0=0x00000000,     ///<FLL has not lost lock since LOLS was last cleared.
@@ -170,7 +159,6 @@ namespace Kvasir {
         namespace LolsValC{
             constexpr Register::FieldValue<decltype(lols)::Type,LolsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lols)::Type,LolsVal::v1> v1{};
-        }
         }
     }
 }

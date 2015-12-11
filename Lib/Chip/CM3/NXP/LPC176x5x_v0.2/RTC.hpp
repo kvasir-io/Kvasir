@@ -21,7 +21,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clken)::Type,ClkenVal::theTimeCountersAr> theTimeCountersAr{};
             constexpr Register::FieldValue<decltype(clken)::Type,ClkenVal::theTimeCountersAr> theTimeCountersAr{};
         }
-        }
         ///CTC Reset.
         enum class CtcrstVal {
             reset=0x00000001,     ///<When one, the elements in the internal oscillator divider are reset, and remain reset until CCR[1] is changed to zero. This is the divider that generates the 1 Hz clock from the 32.768 kHz crystal. The state of the divider is not visible to software.
@@ -32,7 +31,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ctcrst)::Type,CtcrstVal::reset> reset{};
             constexpr Register::FieldValue<decltype(ctcrst)::Type,CtcrstVal::noEffect> noEffect{};
         }
-        }
         ///Calibration counter enable.
         enum class CcalenVal {
             theCalibrationCoun=0x00000001,     ///<The calibration counter is disabled and reset to zero.
@@ -42,7 +40,6 @@ namespace Kvasir {
         namespace CcalenValC{
             constexpr Register::FieldValue<decltype(ccalen)::Type,CcalenVal::theCalibrationCoun> theCalibrationCoun{};
             constexpr Register::FieldValue<decltype(ccalen)::Type,CcalenVal::theCalibrationCoun> theCalibrationCoun{};
-        }
         }
     }
     namespace Noneciir{    ///<Counter Increment Interrupt Register
@@ -161,7 +158,6 @@ namespace Kvasir {
         namespace CaldirValC{
             constexpr Register::FieldValue<decltype(caldir)::Type,CaldirVal::backwardCalibration> backwardCalibration{};
             constexpr Register::FieldValue<decltype(caldir)::Type,CaldirVal::forwardCalibration> forwardCalibration{};
-        }
         }
     }
     namespace Nonegpreg0{    ///<General Purpose Register 0

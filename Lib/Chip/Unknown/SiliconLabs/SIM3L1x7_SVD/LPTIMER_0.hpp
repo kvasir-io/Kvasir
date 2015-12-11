@@ -18,7 +18,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmd)::Type,CmdVal::fallingEdge> fallingEdge{};
             constexpr Register::FieldValue<decltype(cmd)::Type,CmdVal::anyEdge> anyEdge{};
         }
-        }
         ///External Trigger Source Select. 
         enum class ExtselVal {
             lptnt0=0x00000000,     ///<Select external trigger LPTnT0.
@@ -57,7 +56,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(extsel)::Type,ExtselVal::lptnt14> lptnt14{};
             constexpr Register::FieldValue<decltype(extsel)::Type,ExtselVal::lptnt15> lptnt15{};
         }
-        }
         ///Timer Set. 
         enum class TmrsetVal {
             set=0x00000001,     ///<Writing a 1 to TMRSET initiates a copy of the value from the COUNT register into the internal timer register. This field is automatically cleared by hardware when the copy is complete and does not need to be cleared by software.
@@ -66,7 +64,6 @@ namespace Kvasir {
         namespace TmrsetValC{
             constexpr Register::FieldValue<decltype(tmrset)::Type,TmrsetVal::set> set{};
         }
-        }
         ///Timer Capture. 
         enum class TmrcapVal {
             set=0x00000001,     ///<Writing a 1 to TMRCAP initiates a read of internal timer register into the COUNT register. This field is automatically cleared by hardware when the operation completes and does not need to be cleared by software.
@@ -74,7 +71,6 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,TmrcapVal> tmrcap{}; 
         namespace TmrcapValC{
             constexpr Register::FieldValue<decltype(tmrcap)::Type,TmrcapVal::set> set{};
-        }
         }
         ///High Speed Timer Access Mode Enable. 
         enum class HsmdenVal {
@@ -86,7 +82,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hsmden)::Type,HsmdenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hsmden)::Type,HsmdenVal::enabled> enabled{};
         }
-        }
         ///Timer Compare 0 Threshold Enable. 
         enum class Cmp0enVal {
             disabled=0x00000000,     ///<None
@@ -96,7 +91,6 @@ namespace Kvasir {
         namespace Cmp0enValC{
             constexpr Register::FieldValue<decltype(cmp0en)::Type,Cmp0enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmp0en)::Type,Cmp0enVal::enabled> enabled{};
-        }
         }
         ///Timer Compare 1 Threshold Enable. 
         enum class Cmp1enVal {
@@ -108,7 +102,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp1en)::Type,Cmp1enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmp1en)::Type,Cmp1enVal::enabled> enabled{};
         }
-        }
         ///Output Enable. 
         enum class OutenVal {
             disabled=0x00000000,     ///<Disable the LPTIMER0 output.
@@ -118,7 +111,6 @@ namespace Kvasir {
         namespace OutenValC{
             constexpr Register::FieldValue<decltype(outen)::Type,OutenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(outen)::Type,OutenVal::enabled> enabled{};
-        }
         }
         ///Timer Overflow Interrupt Enable. 
         enum class OvfienVal {
@@ -130,7 +122,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ovfien)::Type,OvfienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ovfien)::Type,OvfienVal::enabled> enabled{};
         }
-        }
         ///Timer Compare 0 Event Interrupt Enable. 
         enum class Cmp0ienVal {
             disabled=0x00000000,     ///<Disable the timer compare 0 event interrupt.
@@ -140,7 +131,6 @@ namespace Kvasir {
         namespace Cmp0ienValC{
             constexpr Register::FieldValue<decltype(cmp0ien)::Type,Cmp0ienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmp0ien)::Type,Cmp0ienVal::enabled> enabled{};
-        }
         }
         ///Timer Overflow Output Enable. 
         enum class OvfoenVal {
@@ -152,7 +142,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ovfoen)::Type,OvfoenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ovfoen)::Type,OvfoenVal::enabled> enabled{};
         }
-        }
         ///Timer Compare 0 Event Output Enable. 
         enum class Cmp0oenVal {
             disabled=0x00000000,     ///<Timer compare 0 events do not modify the Low Power Timer output.
@@ -162,7 +151,6 @@ namespace Kvasir {
         namespace Cmp0oenValC{
             constexpr Register::FieldValue<decltype(cmp0oen)::Type,Cmp0oenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmp0oen)::Type,Cmp0oenVal::enabled> enabled{};
-        }
         }
         ///Timer Compare 1 Event Interrupt Enable. 
         enum class Cmp1ienVal {
@@ -174,7 +162,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp1ien)::Type,Cmp1ienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmp1ien)::Type,Cmp1ienVal::enabled> enabled{};
         }
-        }
         ///Timer Compare 1 Event Output Enable. 
         enum class Cmp1oenVal {
             disabled=0x00000000,     ///<Timer compare 1 events do not modify the Low Power Timer output.
@@ -184,7 +171,6 @@ namespace Kvasir {
         namespace Cmp1oenValC{
             constexpr Register::FieldValue<decltype(cmp1oen)::Type,Cmp1oenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmp1oen)::Type,Cmp1oenVal::enabled> enabled{};
-        }
         }
         ///Output Inversion Enable. 
         enum class OutinvenVal {
@@ -196,7 +182,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(outinven)::Type,OutinvenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(outinven)::Type,OutinvenVal::enabled> enabled{};
         }
-        }
         ///Timer Compare 0 Event Reset Enable. 
         enum class Cmp0rstenVal {
             disabled=0x00000000,     ///<Timer compare 0 events do not reset the timer.
@@ -206,7 +191,6 @@ namespace Kvasir {
         namespace Cmp0rstenValC{
             constexpr Register::FieldValue<decltype(cmp0rsten)::Type,Cmp0rstenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmp0rsten)::Type,Cmp0rstenVal::enabled> enabled{};
-        }
         }
         ///Timer Compare 1 Event Reset Enable. 
         enum class Cmp1rstenVal {
@@ -218,7 +202,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp1rsten)::Type,Cmp1rstenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmp1rsten)::Type,Cmp1rstenVal::enabled> enabled{};
         }
-        }
         ///Low Power Timer Module Clock Enable. 
         enum class MclkenVal {
             disabled=0x00000000,     ///<Disable the clock to the Low Power Timer module.
@@ -228,7 +211,6 @@ namespace Kvasir {
         namespace MclkenValC{
             constexpr Register::FieldValue<decltype(mclken)::Type,MclkenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(mclken)::Type,MclkenVal::enabled> enabled{};
-        }
         }
         ///Low Power Timer Debug Mode. 
         enum class DbgmdVal {
@@ -240,7 +222,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::run> run{};
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::halt> halt{};
         }
-        }
         ///Timer Run Control and Compare Threshold Enable. 
         enum class RunVal {
             stop=0x00000000,     ///<Stop the timer and disable the compare threshold.
@@ -250,7 +231,6 @@ namespace Kvasir {
         namespace RunValC{
             constexpr Register::FieldValue<decltype(run)::Type,RunVal::stop> stop{};
             constexpr Register::FieldValue<decltype(run)::Type,RunVal::start> start{};
-        }
         }
     }
     namespace Nonecount{    ///<Timer Value
@@ -277,7 +257,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ovfi)::Type,OvfiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(ovfi)::Type,OvfiVal::set> set{};
         }
-        }
         ///Timer Compare 0 Event Interrupt Flag. 
         enum class Cmp0iVal {
             notSet=0x00000000,     ///<A timer compare 0 event has not occurred.
@@ -288,7 +267,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp0i)::Type,Cmp0iVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(cmp0i)::Type,Cmp0iVal::set> set{};
         }
-        }
         ///Timer Compare 1 Event Interrupt Flag. 
         enum class Cmp1iVal {
             notSet=0x00000000,     ///<A timer compare 1 event has not occurred.
@@ -298,7 +276,6 @@ namespace Kvasir {
         namespace Cmp1iValC{
             constexpr Register::FieldValue<decltype(cmp1i)::Type,Cmp1iVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(cmp1i)::Type,Cmp1iVal::set> set{};
-        }
         }
     }
 }

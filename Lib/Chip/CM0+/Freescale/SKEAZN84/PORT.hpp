@@ -18,7 +18,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flta)::Type,FltaVal::v10> v10{};
             constexpr Register::FieldValue<decltype(flta)::Type,FltaVal::v11> v11{};
         }
-        }
         ///Filter Selection for Input from PTB
         enum class FltbVal {
             v00=0x00000000,     ///<BUSCLK
@@ -32,7 +31,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fltb)::Type,FltbVal::v01> v01{};
             constexpr Register::FieldValue<decltype(fltb)::Type,FltbVal::v10> v10{};
             constexpr Register::FieldValue<decltype(fltb)::Type,FltbVal::v11> v11{};
-        }
         }
         ///Filter Selection for Input from PTC
         enum class FltcVal {
@@ -48,7 +46,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fltc)::Type,FltcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(fltc)::Type,FltcVal::v11> v11{};
         }
-        }
         ///Filter Selection For Input from SCL/SDA
         enum class FltiicVal {
             v00=0x00000000,     ///<No filter
@@ -62,7 +59,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fltiic)::Type,FltiicVal::v01> v01{};
             constexpr Register::FieldValue<decltype(fltiic)::Type,FltiicVal::v10> v10{};
             constexpr Register::FieldValue<decltype(fltiic)::Type,FltiicVal::v11> v11{};
-        }
         }
         ///Filter Selection For Input from FTM0CH0/FTM0CH1
         enum class Fltftm0Val {
@@ -78,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fltftm0)::Type,Fltftm0Val::v10> v10{};
             constexpr Register::FieldValue<decltype(fltftm0)::Type,Fltftm0Val::v11> v11{};
         }
-        }
         ///Filter Selection For Input from PWT_IN1/PWT_IN0
         enum class FltpwtVal {
             v00=0x00000000,     ///<No filter
@@ -92,7 +87,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fltpwt)::Type,FltpwtVal::v01> v01{};
             constexpr Register::FieldValue<decltype(fltpwt)::Type,FltpwtVal::v10> v10{};
             constexpr Register::FieldValue<decltype(fltpwt)::Type,FltpwtVal::v11> v11{};
-        }
         }
         ///Filter Selection for Input from RESET/IRQ
         enum class FltrstVal {
@@ -108,7 +102,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fltrst)::Type,FltrstVal::v10> v10{};
             constexpr Register::FieldValue<decltype(fltrst)::Type,FltrstVal::v11> v11{};
         }
-        }
         ///Filter selection for Input from KBI0
         enum class Fltkbi0Val {
             v00=0x00000000,     ///<No filter.
@@ -122,7 +115,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fltkbi0)::Type,Fltkbi0Val::v01> v01{};
             constexpr Register::FieldValue<decltype(fltkbi0)::Type,Fltkbi0Val::v10> v10{};
             constexpr Register::FieldValue<decltype(fltkbi0)::Type,Fltkbi0Val::v11> v11{};
-        }
         }
         ///Filter Selection for Input from KBI1
         enum class Fltkbi1Val {
@@ -138,7 +130,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fltkbi1)::Type,Fltkbi1Val::v10> v10{};
             constexpr Register::FieldValue<decltype(fltkbi1)::Type,Fltkbi1Val::v11> v11{};
         }
-        }
         ///Filter Selection for Input from NMI
         enum class FltnmiVal {
             v00=0x00000000,     ///<No filter.
@@ -153,7 +144,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fltnmi)::Type,FltnmiVal::v10> v10{};
             constexpr Register::FieldValue<decltype(fltnmi)::Type,FltnmiVal::v11> v11{};
         }
-        }
         ///Filter Division Set 1
         enum class Fltdiv1Val {
             v00=0x00000000,     ///<BUSCLK/2
@@ -167,7 +157,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fltdiv1)::Type,Fltdiv1Val::v01> v01{};
             constexpr Register::FieldValue<decltype(fltdiv1)::Type,Fltdiv1Val::v10> v10{};
             constexpr Register::FieldValue<decltype(fltdiv1)::Type,Fltdiv1Val::v11> v11{};
-        }
         }
         ///Filter Division Set 2
         enum class Fltdiv2Val {
@@ -191,7 +180,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fltdiv2)::Type,Fltdiv2Val::v110> v110{};
             constexpr Register::FieldValue<decltype(fltdiv2)::Type,Fltdiv2Val::v111> v111{};
         }
-        }
         ///Filter Division Set 3
         enum class Fltdiv3Val {
             v000=0x00000000,     ///<LPOCLK
@@ -214,7 +202,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fltdiv3)::Type,Fltdiv3Val::v110> v110{};
             constexpr Register::FieldValue<decltype(fltdiv3)::Type,Fltdiv3Val::v111> v111{};
         }
-        }
     }
     namespace PortPuel{    ///<Port Pullup Enable Low Register
         using Addr = Register::Address<0x40049004,0xffc00000,0,unsigned>;
@@ -228,7 +215,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptape0)::Type,Ptape0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptape0)::Type,Ptape0Val::v1> v1{};
         }
-        }
         ///Pull Enable for Port A Bit 1
         enum class Ptape1Val {
             v0=0x00000000,     ///<Pullup is disabled for port A bit 1.
@@ -238,7 +224,6 @@ namespace Kvasir {
         namespace Ptape1ValC{
             constexpr Register::FieldValue<decltype(ptape1)::Type,Ptape1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptape1)::Type,Ptape1Val::v1> v1{};
-        }
         }
         ///Pull Enable for Port A Bit 2
         enum class Ptape2Val {
@@ -250,7 +235,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptape2)::Type,Ptape2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptape2)::Type,Ptape2Val::v1> v1{};
         }
-        }
         ///Pull Enable for Port A Bit 3
         enum class Ptape3Val {
             v0=0x00000000,     ///<Pullup is disabled for port A bit 3.
@@ -260,7 +244,6 @@ namespace Kvasir {
         namespace Ptape3ValC{
             constexpr Register::FieldValue<decltype(ptape3)::Type,Ptape3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptape3)::Type,Ptape3Val::v1> v1{};
-        }
         }
         ///Pull Enable for Port A Bit 4
         enum class Ptape4Val {
@@ -272,7 +255,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptape4)::Type,Ptape4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptape4)::Type,Ptape4Val::v1> v1{};
         }
-        }
         ///Pull Enable for Port A Bit 5
         enum class Ptape5Val {
             v0=0x00000000,     ///<Pullup is disabled for port A bit 5.
@@ -282,7 +264,6 @@ namespace Kvasir {
         namespace Ptape5ValC{
             constexpr Register::FieldValue<decltype(ptape5)::Type,Ptape5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptape5)::Type,Ptape5Val::v1> v1{};
-        }
         }
         ///Pull Enable for Port A Bit 6
         enum class Ptape6Val {
@@ -294,7 +275,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptape6)::Type,Ptape6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptape6)::Type,Ptape6Val::v1> v1{};
         }
-        }
         ///Pull Enable for Port A Bit 7
         enum class Ptape7Val {
             v0=0x00000000,     ///<Pullup is disabled for port A bit 7.
@@ -304,7 +284,6 @@ namespace Kvasir {
         namespace Ptape7ValC{
             constexpr Register::FieldValue<decltype(ptape7)::Type,Ptape7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptape7)::Type,Ptape7Val::v1> v1{};
-        }
         }
         ///Pull Enable for Port B Bit 0
         enum class Ptbpe0Val {
@@ -316,7 +295,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptbpe0)::Type,Ptbpe0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptbpe0)::Type,Ptbpe0Val::v1> v1{};
         }
-        }
         ///Pull Enable for Port B Bit 1
         enum class Ptbpe1Val {
             v0=0x00000000,     ///<Pullup is disabled for port B bit 1.
@@ -326,7 +304,6 @@ namespace Kvasir {
         namespace Ptbpe1ValC{
             constexpr Register::FieldValue<decltype(ptbpe1)::Type,Ptbpe1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptbpe1)::Type,Ptbpe1Val::v1> v1{};
-        }
         }
         ///Pull Enable for Port B Bit 2
         enum class Ptbpe2Val {
@@ -338,7 +315,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptbpe2)::Type,Ptbpe2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptbpe2)::Type,Ptbpe2Val::v1> v1{};
         }
-        }
         ///Pull Enable for Port B Bit 3
         enum class Ptbpe3Val {
             v0=0x00000000,     ///<Pullup is disabled for port B bit 3.
@@ -348,7 +324,6 @@ namespace Kvasir {
         namespace Ptbpe3ValC{
             constexpr Register::FieldValue<decltype(ptbpe3)::Type,Ptbpe3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptbpe3)::Type,Ptbpe3Val::v1> v1{};
-        }
         }
         ///Pull Enable for Port B Bit 4
         enum class Ptbpe4Val {
@@ -360,7 +335,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptbpe4)::Type,Ptbpe4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptbpe4)::Type,Ptbpe4Val::v1> v1{};
         }
-        }
         ///Pull Enable for Port B Bit 5
         enum class Ptbpe5Val {
             v0=0x00000000,     ///<Pullup is disabled for port B bit 5.
@@ -370,7 +344,6 @@ namespace Kvasir {
         namespace Ptbpe5ValC{
             constexpr Register::FieldValue<decltype(ptbpe5)::Type,Ptbpe5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptbpe5)::Type,Ptbpe5Val::v1> v1{};
-        }
         }
         ///Pull Enable for Port B Bit 6
         enum class Ptbpe6Val {
@@ -382,7 +355,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptbpe6)::Type,Ptbpe6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptbpe6)::Type,Ptbpe6Val::v1> v1{};
         }
-        }
         ///Pull Enable for Port B Bit 7
         enum class Ptbpe7Val {
             v0=0x00000000,     ///<Pullup is disabled for port B bit 7.
@@ -392,7 +364,6 @@ namespace Kvasir {
         namespace Ptbpe7ValC{
             constexpr Register::FieldValue<decltype(ptbpe7)::Type,Ptbpe7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptbpe7)::Type,Ptbpe7Val::v1> v1{};
-        }
         }
         ///Pull Enable for Port C Bit 0
         enum class Ptcpe0Val {
@@ -404,7 +375,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptcpe0)::Type,Ptcpe0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptcpe0)::Type,Ptcpe0Val::v1> v1{};
         }
-        }
         ///Pull Enable for Port C Bit 1
         enum class Ptcpe1Val {
             v0=0x00000000,     ///<Pullup is disabled for port C bit 1.
@@ -414,7 +384,6 @@ namespace Kvasir {
         namespace Ptcpe1ValC{
             constexpr Register::FieldValue<decltype(ptcpe1)::Type,Ptcpe1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptcpe1)::Type,Ptcpe1Val::v1> v1{};
-        }
         }
         ///Pull Enable for Port C Bit 2
         enum class Ptcpe2Val {
@@ -426,7 +395,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptcpe2)::Type,Ptcpe2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptcpe2)::Type,Ptcpe2Val::v1> v1{};
         }
-        }
         ///Pull Enable for Port C Bit 3
         enum class Ptcpe3Val {
             v0=0x00000000,     ///<Pullup is disabled for port C bit 3.
@@ -436,7 +404,6 @@ namespace Kvasir {
         namespace Ptcpe3ValC{
             constexpr Register::FieldValue<decltype(ptcpe3)::Type,Ptcpe3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptcpe3)::Type,Ptcpe3Val::v1> v1{};
-        }
         }
         ///Pull Enable for Port C Bit 4
         enum class Ptcpe4Val {
@@ -448,7 +415,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptcpe4)::Type,Ptcpe4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptcpe4)::Type,Ptcpe4Val::v1> v1{};
         }
-        }
         ///Pull Enable for Port C Bit 5
         enum class Ptcpe5Val {
             v0=0x00000000,     ///<Pullup is disabled for port C bit 5.
@@ -458,7 +424,6 @@ namespace Kvasir {
         namespace Ptcpe5ValC{
             constexpr Register::FieldValue<decltype(ptcpe5)::Type,Ptcpe5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptcpe5)::Type,Ptcpe5Val::v1> v1{};
-        }
         }
     }
     namespace PortHdrve{    ///<Port High Drive Enable Register
@@ -473,7 +438,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptb5)::Type,Ptb5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptb5)::Type,Ptb5Val::v1> v1{};
         }
-        }
         ///High Current Drive Capability of PTC1
         enum class Ptc1Val {
             v0=0x00000000,     ///<PTC1 is disabled to offer high current drive capability.
@@ -484,7 +448,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptc1)::Type,Ptc1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptc1)::Type,Ptc1Val::v1> v1{};
         }
-        }
         ///High Current Drive Capability of PTC5
         enum class Ptc5Val {
             v0=0x00000000,     ///<PTC5 is disabled to offer high current drive capability.
@@ -494,7 +457,6 @@ namespace Kvasir {
         namespace Ptc5ValC{
             constexpr Register::FieldValue<decltype(ptc5)::Type,Ptc5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ptc5)::Type,Ptc5Val::v1> v1{};
-        }
         }
     }
 }

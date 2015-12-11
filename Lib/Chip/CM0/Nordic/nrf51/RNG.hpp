@@ -23,7 +23,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(valrdyStop)::Type,ValrdystopVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(valrdyStop)::Type,ValrdystopVal::enabled> enabled{};
         }
-        }
     }
     namespace Noneintenset{    ///<Interrupt enable set register
         using Addr = Register::Address<0x4000d304,0xfffffffe,0,unsigned>;
@@ -38,7 +37,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(valrdy)::Type,ValrdyVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(valrdy)::Type,ValrdyVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(valrdy)::Type,ValrdyVal::set> set{};
-        }
         }
     }
     namespace Noneintenclr{    ///<Interrupt enable clear register
@@ -55,7 +53,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(valrdy)::Type,ValrdyVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(valrdy)::Type,ValrdyVal::clear> clear{};
         }
-        }
     }
     namespace Noneconfig{    ///<Configuration register.
         using Addr = Register::Address<0x4000d504,0xfffffffe,0,unsigned>;
@@ -68,7 +65,6 @@ namespace Kvasir {
         namespace DercenValC{
             constexpr Register::FieldValue<decltype(dercen)::Type,DercenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dercen)::Type,DercenVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonevalue{    ///<RNG random number.
@@ -87,7 +83,6 @@ namespace Kvasir {
         namespace PowerValC{
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::enabled> enabled{};
-        }
         }
     }
 }

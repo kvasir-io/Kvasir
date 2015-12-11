@@ -19,7 +19,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(modeLv)::Type,ModelvVal::v00> v00{};
             constexpr Register::FieldValue<decltype(modeLv)::Type,ModelvVal::v10> v10{};
         }
-        }
         ///Internal Voltage Reference has settled
         enum class VrefstVal {
             v0=0x00000000,     ///<The bandgap is disabled or not ready.
@@ -29,7 +28,6 @@ namespace Kvasir {
         namespace VrefstValC{
             constexpr Register::FieldValue<decltype(vrefst)::Type,VrefstVal::v0> v0{};
             constexpr Register::FieldValue<decltype(vrefst)::Type,VrefstVal::v1> v1{};
-        }
         }
         ///Regulator enable
         enum class RegenVal {
@@ -41,7 +39,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(regen)::Type,RegenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(regen)::Type,RegenVal::v1> v1{};
         }
-        }
         ///Internal Voltage Reference enable
         enum class VrefenVal {
             v0=0x00000000,     ///<The module is disabled.
@@ -51,7 +48,6 @@ namespace Kvasir {
         namespace VrefenValC{
             constexpr Register::FieldValue<decltype(vrefen)::Type,VrefenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(vrefen)::Type,VrefenVal::v1> v1{};
-        }
         }
     }
 }

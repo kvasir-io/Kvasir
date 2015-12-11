@@ -20,7 +20,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(action)::Type,ActionVal::reset> reset{};
             constexpr Register::FieldValue<decltype(action)::Type,ActionVal::interrupt> interrupt{};
         }
-        }
         ///Run in Standby
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> runstdby{}; 
         ///Operation Mode
@@ -64,7 +63,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psel)::Type,PselVal::div16k> div16k{};
             constexpr Register::FieldValue<decltype(psel)::Type,PselVal::div32k> div32k{};
             constexpr Register::FieldValue<decltype(psel)::Type,PselVal::div64k> div64k{};
-        }
         }
         ///BOD33 Threshold Level
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> level{}; 
@@ -142,7 +140,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(filter)::Type,FilterVal::hbfilt> hbfilt{};
             constexpr Register::FieldValue<decltype(filter)::Type,FilterVal::hdfilt> hdfilt{};
         }
-        }
         ///Low-Power Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> lpen{}; 
         ///Wake Up Fast
@@ -159,7 +156,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(refclk)::Type,RefclkVal::ref1> ref1{};
             constexpr Register::FieldValue<decltype(refclk)::Type,RefclkVal::gclk> gclk{};
         }
-        }
         ///Lock Time
         enum class LtimeVal {
             v0x0=0x00000000,     ///<Default	No time-out
@@ -175,7 +171,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ltime)::Type,LtimeVal::v0x5> v0x5{};
             constexpr Register::FieldValue<decltype(ltime)::Type,LtimeVal::v0x6> v0x6{};
             constexpr Register::FieldValue<decltype(ltime)::Type,LtimeVal::v0x7> v0x7{};
-        }
         }
         ///Lock Bypass
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> lbypass{}; 
@@ -328,7 +323,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(presc)::Type,PrescVal::v0x2> v0x2{};
             constexpr Register::FieldValue<decltype(presc)::Type,PrescVal::v0x3> v0x3{};
         }
-        }
         ///Oscillator Calibration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,16),Register::ReadWriteAccess,unsigned> calib{}; 
         ///Oscillator Frequency Range
@@ -344,7 +338,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frange)::Type,FrangeVal::v0x1> v0x1{};
             constexpr Register::FieldValue<decltype(frange)::Type,FrangeVal::v0x2> v0x2{};
             constexpr Register::FieldValue<decltype(frange)::Type,FrangeVal::v0x3> v0x3{};
-        }
         }
     }
     namespace SysctrlOsc32k{    ///<32kHz Internal Oscillator (OSC32K) Control
@@ -433,7 +426,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gain)::Type,GainVal::v0x2> v0x2{};
             constexpr Register::FieldValue<decltype(gain)::Type,GainVal::v0x3> v0x3{};
             constexpr Register::FieldValue<decltype(gain)::Type,GainVal::v0x4> v0x4{};
-        }
         }
         ///Automatic Amplitude Gain Control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> ampgc{}; 

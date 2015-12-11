@@ -13,7 +13,6 @@ SPI Modification date=10/7/2011 Major revision=0 Minor revision=3
         namespace BitenableValC{
             constexpr Register::FieldValue<decltype(bitenable)::Type,BitenableVal::theSpiControllerS> theSpiControllerS{};
         }
-        }
         ///Clock phase control determines the relationship between the data and the clock on SPI transfers, and controls when a slave transfer is defined as starting and ending.
         enum class CphaVal {
             firstEdge=0x00000000,     ///<Data is sampled on the first clock edge of SCK. A transfer starts and ends with activation and deactivation of the SSEL signal.
@@ -23,7 +22,6 @@ SPI Modification date=10/7/2011 Major revision=0 Minor revision=3
         namespace CphaValC{
             constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::firstEdge> firstEdge{};
             constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::secondEdge> secondEdge{};
-        }
         }
         ///Clock polarity control.
         enum class CpolVal {
@@ -35,7 +33,6 @@ SPI Modification date=10/7/2011 Major revision=0 Minor revision=3
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::sckIsActiveHigh> sckIsActiveHigh{};
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::sckIsActiveLow> sckIsActiveLow{};
         }
-        }
         ///Master mode select.
         enum class MstrVal {
             slave=0x00000000,     ///<The SPI operates in Slave mode.
@@ -45,7 +42,6 @@ SPI Modification date=10/7/2011 Major revision=0 Minor revision=3
         namespace MstrValC{
             constexpr Register::FieldValue<decltype(mstr)::Type,MstrVal::slave> slave{};
             constexpr Register::FieldValue<decltype(mstr)::Type,MstrVal::master> master{};
-        }
         }
         ///LSB First controls which direction each byte is shifted when transferred.
         enum class LsbfVal {
@@ -57,7 +53,6 @@ SPI Modification date=10/7/2011 Major revision=0 Minor revision=3
             constexpr Register::FieldValue<decltype(lsbf)::Type,LsbfVal::msb> msb{};
             constexpr Register::FieldValue<decltype(lsbf)::Type,LsbfVal::lsb> lsb{};
         }
-        }
         ///Serial peripheral interrupt enable.
         enum class SpieVal {
             intblock=0x00000000,     ///<SPI interrupts are inhibited.
@@ -67,7 +62,6 @@ SPI Modification date=10/7/2011 Major revision=0 Minor revision=3
         namespace SpieValC{
             constexpr Register::FieldValue<decltype(spie)::Type,SpieVal::intblock> intblock{};
             constexpr Register::FieldValue<decltype(spie)::Type,SpieVal::hwint> hwint{};
-        }
         }
         ///When bit 2 of this register is 1, this field controls the number of bits per transfer:
         enum class BitsVal {
@@ -92,7 +86,6 @@ SPI Modification date=10/7/2011 Major revision=0 Minor revision=3
             constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v14BitsPerTransfer> v14BitsPerTransfer{};
             constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v15BitsPerTransfer> v15BitsPerTransfer{};
             constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v16BitsPerTransfer> v16BitsPerTransfer{};
-        }
         }
     }
     namespace Nonesr{    ///<SPI Status Register. This register shows the status of the SPI.

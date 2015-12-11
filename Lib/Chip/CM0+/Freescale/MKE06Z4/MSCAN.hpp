@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(initrq)::Type,InitrqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(initrq)::Type,InitrqVal::v1> v1{};
         }
-        }
         ///Sleep Mode Request
         enum class SlprqVal {
             v0=0x00000000,     ///<Running - The MSCAN functions normally.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace SlprqValC{
             constexpr Register::FieldValue<decltype(slprq)::Type,SlprqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(slprq)::Type,SlprqVal::v1> v1{};
-        }
         }
         ///WakeUp Enable
         enum class WupeVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wupe)::Type,WupeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wupe)::Type,WupeVal::v1> v1{};
         }
-        }
         ///Timer Enable
         enum class TimeVal {
             v0=0x00000000,     ///<Disable internal MSCAN timer.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace TimeValC{
             constexpr Register::FieldValue<decltype(time)::Type,TimeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(time)::Type,TimeVal::v1> v1{};
-        }
         }
         ///Synchronized Status
         enum class SynchVal {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::v0> v0{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::v1> v1{};
         }
-        }
         ///CAN Stops in Wait Mode
         enum class CswaiVal {
             v0=0x00000000,     ///<The module is not affected during wait mode.
@@ -68,7 +63,6 @@ namespace Kvasir {
         namespace CswaiValC{
             constexpr Register::FieldValue<decltype(cswai)::Type,CswaiVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cswai)::Type,CswaiVal::v1> v1{};
-        }
         }
         ///Receiver Active Status
         enum class RxactVal {
@@ -80,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxact)::Type,RxactVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxact)::Type,RxactVal::v1> v1{};
         }
-        }
         ///Received Frame Flag
         enum class RxfrmVal {
             v0=0x00000000,     ///<No valid message was received since last clearing this flag.
@@ -90,7 +83,6 @@ namespace Kvasir {
         namespace RxfrmValC{
             constexpr Register::FieldValue<decltype(rxfrm)::Type,RxfrmVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxfrm)::Type,RxfrmVal::v1> v1{};
-        }
         }
     }
     namespace MscanCanctl1{    ///<MSCAN Control Register 1
@@ -105,7 +97,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(initak)::Type,InitakVal::v0> v0{};
             constexpr Register::FieldValue<decltype(initak)::Type,InitakVal::v1> v1{};
         }
-        }
         ///Sleep Mode Acknowledge
         enum class SlpakVal {
             v0=0x00000000,     ///<Running - The MSCAN operates normally.
@@ -115,7 +106,6 @@ namespace Kvasir {
         namespace SlpakValC{
             constexpr Register::FieldValue<decltype(slpak)::Type,SlpakVal::v0> v0{};
             constexpr Register::FieldValue<decltype(slpak)::Type,SlpakVal::v1> v1{};
-        }
         }
         ///WakeUp Mode
         enum class WupmVal {
@@ -127,7 +117,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wupm)::Type,WupmVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wupm)::Type,WupmVal::v1> v1{};
         }
-        }
         ///Bus-Off Recovery Mode
         enum class BormVal {
             v0=0x00000000,     ///<Automatic bus-off recovery (see Bosch CAN 2.0A/B protocol specification).
@@ -137,7 +126,6 @@ namespace Kvasir {
         namespace BormValC{
             constexpr Register::FieldValue<decltype(borm)::Type,BormVal::v0> v0{};
             constexpr Register::FieldValue<decltype(borm)::Type,BormVal::v1> v1{};
-        }
         }
         ///Listen Only Mode
         enum class ListenVal {
@@ -149,7 +137,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(listen)::Type,ListenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(listen)::Type,ListenVal::v1> v1{};
         }
-        }
         ///Loopback Self Test Mode
         enum class LoopbVal {
             v0=0x00000000,     ///<Loopback self test disabled.
@@ -159,7 +146,6 @@ namespace Kvasir {
         namespace LoopbValC{
             constexpr Register::FieldValue<decltype(loopb)::Type,LoopbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(loopb)::Type,LoopbVal::v1> v1{};
-        }
         }
         ///MSCAN Clock Source
         enum class ClksrcVal {
@@ -171,7 +157,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clksrc)::Type,ClksrcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(clksrc)::Type,ClksrcVal::v1> v1{};
         }
-        }
         ///MSCAN Enable
         enum class CaneVal {
             v0=0x00000000,     ///<MSCAN module is disabled.
@@ -181,7 +166,6 @@ namespace Kvasir {
         namespace CaneValC{
             constexpr Register::FieldValue<decltype(cane)::Type,CaneVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cane)::Type,CaneVal::v1> v1{};
-        }
         }
     }
     namespace MscanCanbtr0{    ///<MSCAN Bus Timing Register 0
@@ -204,7 +188,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(brp)::Type,BrpVal::v111110> v111110{};
             constexpr Register::FieldValue<decltype(brp)::Type,BrpVal::v111111> v111111{};
         }
-        }
         ///Synchronization Jump Width
         enum class SjwVal {
             v00=0x00000000,     ///<1 Tq clock cycle.
@@ -218,7 +201,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sjw)::Type,SjwVal::v01> v01{};
             constexpr Register::FieldValue<decltype(sjw)::Type,SjwVal::v10> v10{};
             constexpr Register::FieldValue<decltype(sjw)::Type,SjwVal::v11> v11{};
-        }
         }
     }
     namespace MscanCanbtr1{    ///<MSCAN Bus Timing Register 1
@@ -240,7 +222,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tseg1)::Type,Tseg1Val::v0011> v0011{};
             constexpr Register::FieldValue<decltype(tseg1)::Type,Tseg1Val::v1110> v1110{};
             constexpr Register::FieldValue<decltype(tseg1)::Type,Tseg1Val::v1111> v1111{};
-        }
         }
         ///Time Segment 2
         enum class Tseg2Val {
@@ -264,7 +245,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tseg2)::Type,Tseg2Val::v110> v110{};
             constexpr Register::FieldValue<decltype(tseg2)::Type,Tseg2Val::v111> v111{};
         }
-        }
         ///Sampling
         enum class SampVal {
             v0=0x00000000,     ///<One sample per bit.
@@ -274,7 +254,6 @@ namespace Kvasir {
         namespace SampValC{
             constexpr Register::FieldValue<decltype(samp)::Type,SampVal::v0> v0{};
             constexpr Register::FieldValue<decltype(samp)::Type,SampVal::v1> v1{};
-        }
         }
     }
     namespace MscanCanrflg{    ///<MSCAN Receiver Flag Register
@@ -289,7 +268,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxf)::Type,RxfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxf)::Type,RxfVal::v1> v1{};
         }
-        }
         ///Overrun Interrupt Flag
         enum class OvrifVal {
             v0=0x00000000,     ///<No data overrun condition.
@@ -299,7 +277,6 @@ namespace Kvasir {
         namespace OvrifValC{
             constexpr Register::FieldValue<decltype(ovrif)::Type,OvrifVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ovrif)::Type,OvrifVal::v1> v1{};
-        }
         }
         ///Transmitter Status
         enum class TstatVal {
@@ -315,7 +292,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tstat)::Type,TstatVal::v10> v10{};
             constexpr Register::FieldValue<decltype(tstat)::Type,TstatVal::v11> v11{};
         }
-        }
         ///Receiver Status
         enum class RstatVal {
             v00=0x00000000,     ///<RxOK: 0<=receive error counter<96
@@ -330,7 +306,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rstat)::Type,RstatVal::v10> v10{};
             constexpr Register::FieldValue<decltype(rstat)::Type,RstatVal::v11> v11{};
         }
-        }
         ///CAN Status Change Interrupt Flag
         enum class CscifVal {
             v0=0x00000000,     ///<No change in CAN bus status occurred since last interrupt.
@@ -341,7 +316,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cscif)::Type,CscifVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cscif)::Type,CscifVal::v1> v1{};
         }
-        }
         ///Wake-Up Interrupt Flag
         enum class WupifVal {
             v0=0x00000000,     ///<No wakeup activity observed while in sleep mode.
@@ -351,7 +325,6 @@ namespace Kvasir {
         namespace WupifValC{
             constexpr Register::FieldValue<decltype(wupif)::Type,WupifVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wupif)::Type,WupifVal::v1> v1{};
-        }
         }
     }
     namespace MscanCanrier{    ///<MSCAN Receiver Interrupt Enable Register
@@ -366,7 +339,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxfie)::Type,RxfieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxfie)::Type,RxfieVal::v1> v1{};
         }
-        }
         ///Overrun Interrupt Enable
         enum class OvrieVal {
             v0=0x00000000,     ///<No interrupt request is generated from this event.
@@ -376,7 +348,6 @@ namespace Kvasir {
         namespace OvrieValC{
             constexpr Register::FieldValue<decltype(ovrie)::Type,OvrieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ovrie)::Type,OvrieVal::v1> v1{};
-        }
         }
         ///Transmitter Status Change Enable
         enum class TstateVal {
@@ -392,7 +363,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tstate)::Type,TstateVal::v10> v10{};
             constexpr Register::FieldValue<decltype(tstate)::Type,TstateVal::v11> v11{};
         }
-        }
         ///Receiver Status Change Enable
         enum class RstateVal {
             v00=0x00000000,     ///<Do not generate any CSCIF interrupt caused by receiver state changes.
@@ -407,7 +377,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rstate)::Type,RstateVal::v10> v10{};
             constexpr Register::FieldValue<decltype(rstate)::Type,RstateVal::v11> v11{};
         }
-        }
         ///CAN Status Change Interrupt Enable
         enum class CscieVal {
             v0=0x00000000,     ///<No interrupt request is generated from this event.
@@ -418,7 +387,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cscie)::Type,CscieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cscie)::Type,CscieVal::v1> v1{};
         }
-        }
         ///WakeUp Interrupt Enable
         enum class WupieVal {
             v0=0x00000000,     ///<No interrupt request is generated from this event.
@@ -428,7 +396,6 @@ namespace Kvasir {
         namespace WupieValC{
             constexpr Register::FieldValue<decltype(wupie)::Type,WupieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wupie)::Type,WupieVal::v1> v1{};
-        }
         }
     }
     namespace MscanCantflg{    ///<MSCAN Transmitter Flag Register
@@ -480,7 +447,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(idhit)::Type,IdhitVal::v110> v110{};
             constexpr Register::FieldValue<decltype(idhit)::Type,IdhitVal::v111> v111{};
         }
-        }
         ///Identifier Acceptance Mode
         enum class IdamVal {
             v00=0x00000000,     ///<Two 32-bit acceptance filters.
@@ -495,7 +461,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(idam)::Type,IdamVal::v10> v10{};
             constexpr Register::FieldValue<decltype(idam)::Type,IdamVal::v11> v11{};
         }
-        }
     }
     namespace MscanCanmisc{    ///<MSCAN Miscellaneous Register
         using Addr = Register::Address<0x4002400d,0xfffffffe,0,unsigned char>;
@@ -508,7 +473,6 @@ namespace Kvasir {
         namespace BoholdValC{
             constexpr Register::FieldValue<decltype(bohold)::Type,BoholdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bohold)::Type,BoholdVal::v1> v1{};
-        }
         }
     }
     namespace MscanCanrxerr{    ///<MSCAN Receive Error Counter
@@ -625,7 +589,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(reide)::Type,ReideVal::v0> v0{};
             constexpr Register::FieldValue<decltype(reide)::Type,ReideVal::v1> v1{};
         }
-        }
         ///Substitute Remote Request
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rsrr{}; 
         ///Extended Format Identifier 20-18
@@ -643,7 +606,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rside)::Type,RsideVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rside)::Type,RsideVal::v1> v1{};
         }
-        }
         ///Remote Transmission Request
         enum class RsrtrVal {
             v0=0x00000000,     ///<Data frame.
@@ -653,7 +615,6 @@ namespace Kvasir {
         namespace RsrtrValC{
             constexpr Register::FieldValue<decltype(rsrtr)::Type,RsrtrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rsrtr)::Type,RsrtrVal::v1> v1{};
-        }
         }
         ///Standard Format Identifier 2-0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> rsid2Rsid0{}; 
@@ -674,7 +635,6 @@ namespace Kvasir {
         namespace RertrValC{
             constexpr Register::FieldValue<decltype(rertr)::Type,RertrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rertr)::Type,RertrVal::v1> v1{};
-        }
         }
         ///Extended Format Identifier 6-0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> reid6Reid0{}; 
@@ -745,7 +705,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rdlc)::Type,RdlcVal::v0111> v0111{};
             constexpr Register::FieldValue<decltype(rdlc)::Type,RdlcVal::v1000> v1000{};
         }
-        }
     }
     namespace MscanRtsrh{    ///<Receive Time Stamp Register High
         using Addr = Register::Address<0x4002402e,0xffffff00,0,unsigned char>;
@@ -781,7 +740,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(teide)::Type,TeideVal::v0> v0{};
             constexpr Register::FieldValue<decltype(teide)::Type,TeideVal::v1> v1{};
         }
-        }
         ///Substitute Remote Request
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> tsrr{}; 
         ///Extended Format Identifier 20-18
@@ -799,7 +757,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tside)::Type,TsideVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tside)::Type,TsideVal::v1> v1{};
         }
-        }
         ///Remote Transmission Request
         enum class TsrtrVal {
             v0=0x00000000,     ///<Data frame.
@@ -809,7 +766,6 @@ namespace Kvasir {
         namespace TsrtrValC{
             constexpr Register::FieldValue<decltype(tsrtr)::Type,TsrtrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tsrtr)::Type,TsrtrVal::v1> v1{};
-        }
         }
         ///Standard Format Identifier 2-0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> tsid2Tsid0{}; 
@@ -830,7 +786,6 @@ namespace Kvasir {
         namespace TertrValC{
             constexpr Register::FieldValue<decltype(tertr)::Type,TertrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tertr)::Type,TertrVal::v1> v1{};
-        }
         }
         ///Extended Format Identifier 6-0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> teid6Teid0{}; 
@@ -900,7 +855,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tdlc)::Type,TdlcVal::v0110> v0110{};
             constexpr Register::FieldValue<decltype(tdlc)::Type,TdlcVal::v0111> v0111{};
             constexpr Register::FieldValue<decltype(tdlc)::Type,TdlcVal::v1000> v1000{};
-        }
         }
     }
     namespace MscanTbpr{    ///<Transmit Buffer Priority Register

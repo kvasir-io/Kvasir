@@ -26,7 +26,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oupdt)::Type,OupdtVal::dacnt14> dacnt14{};
             constexpr Register::FieldValue<decltype(oupdt)::Type,OupdtVal::dacnt15> dacnt15{};
         }
-        }
         ///Edge Trigger Source Select. 
         enum class EtrigVal {
             dacnt0=0x00000000,     ///<Select DACnT0 (DAC0T0 routed through crossbar) as the IDAC external trigger source.
@@ -49,7 +48,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(etrig)::Type,EtrigVal::dacnt6> dacnt6{};
             constexpr Register::FieldValue<decltype(etrig)::Type,EtrigVal::dacnt7> dacnt7{};
         }
-        }
         ///Output Mode. 
         enum class OutmdVal {
             v0p5Ma=0x00000000,     ///<The full-scale output current is 0.5 mA.
@@ -61,7 +59,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(outmd)::Type,OutmdVal::v0p5Ma> v0p5Ma{};
             constexpr Register::FieldValue<decltype(outmd)::Type,OutmdVal::v1Ma> v1Ma{};
             constexpr Register::FieldValue<decltype(outmd)::Type,OutmdVal::v2Ma> v2Ma{};
-        }
         }
         ///Data Input Format. 
         enum class InfmtVal {
@@ -75,7 +72,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(infmt)::Type,InfmtVal::v210Bit> v210Bit{};
             constexpr Register::FieldValue<decltype(infmt)::Type,InfmtVal::v48Bit> v48Bit{};
         }
-        }
         ///DMA Run. 
         enum class DmarunVal {
             disabled=0x00000000,     ///<Read: No DMA operations are occurring or the DMA is done. Write: No effect.
@@ -85,7 +81,6 @@ namespace Kvasir {
         namespace DmarunValC{
             constexpr Register::FieldValue<decltype(dmarun)::Type,DmarunVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dmarun)::Type,DmarunVal::enabled> enabled{};
-        }
         }
         ///Data Justification Select. 
         enum class JselVal {
@@ -97,7 +92,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(jsel)::Type,JselVal::right> right{};
             constexpr Register::FieldValue<decltype(jsel)::Type,JselVal::left> left{};
         }
-        }
         ///Data Buffer Reset. 
         enum class BufresetVal {
             reset=0x00000001,     ///<Initiate a data buffer reset.
@@ -105,7 +99,6 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,BufresetVal> bufreset{}; 
         namespace BufresetValC{
             constexpr Register::FieldValue<decltype(bufreset)::Type,BufresetVal::reset> reset{};
-        }
         }
         ///Trigger Source Inhibit. 
         enum class TriginhVal {
@@ -117,7 +110,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(triginh)::Type,TriginhVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(triginh)::Type,TriginhVal::active> active{};
         }
-        }
         ///Wrap Mode Enable. 
         enum class WrapenVal {
             disabled=0x00000000,     ///<The IDAC will not wrap when it reaches the end of the data buffer.
@@ -127,7 +119,6 @@ namespace Kvasir {
         namespace WrapenValC{
             constexpr Register::FieldValue<decltype(wrapen)::Type,WrapenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(wrapen)::Type,WrapenVal::enabled> enabled{};
-        }
         }
         ///FIFO Overrun Interrupt Enable. 
         enum class OrienVal {
@@ -139,7 +130,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(orien)::Type,OrienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(orien)::Type,OrienVal::enabled> enabled{};
         }
-        }
         ///FIFO Underrun Interrupt Enable. 
         enum class UrienVal {
             disabled=0x00000000,     ///<Disable the FIFO underrun interrupt (URI).
@@ -149,7 +139,6 @@ namespace Kvasir {
         namespace UrienValC{
             constexpr Register::FieldValue<decltype(urien)::Type,UrienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(urien)::Type,UrienVal::enabled> enabled{};
-        }
         }
         ///FIFO Went Empty Interrupt Enable. 
         enum class WeienVal {
@@ -161,7 +150,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(weien)::Type,WeienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(weien)::Type,WeienVal::enabled> enabled{};
         }
-        }
         ///IDAC Debug Mode. 
         enum class DbgmdVal {
             run=0x00000000,     ///<The IDAC module will continue to operate while the core is halted in debug mode.
@@ -171,7 +159,6 @@ namespace Kvasir {
         namespace DbgmdValC{
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::run> run{};
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::halt> halt{};
-        }
         }
         ///Load Resistor Enable. 
         enum class LoadenVal {
@@ -183,7 +170,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(loaden)::Type,LoadenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(loaden)::Type,LoadenVal::enabled> enabled{};
         }
-        }
         ///IDAC Enable. 
         enum class IdacenVal {
             disabled=0x00000000,     ///<Disable the IDAC.
@@ -193,7 +179,6 @@ namespace Kvasir {
         namespace IdacenValC{
             constexpr Register::FieldValue<decltype(idacen)::Type,IdacenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(idacen)::Type,IdacenVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonedata{    ///<Output Data
@@ -219,7 +204,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(level)::Type,LevelVal::v3words> v3words{};
             constexpr Register::FieldValue<decltype(level)::Type,LevelVal::v4words> v4words{};
         }
-        }
         ///FIFO Overrun Interrupt Flag. 
         enum class OriVal {
             notSet=0x00000000,     ///<Read: A FIFO overrun has not occurred. Write: Clear the interrupt.
@@ -229,7 +213,6 @@ namespace Kvasir {
         namespace OriValC{
             constexpr Register::FieldValue<decltype(ori)::Type,OriVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(ori)::Type,OriVal::set> set{};
-        }
         }
         ///FIFO Underrun Interrupt Flag. 
         enum class UriVal {
@@ -241,7 +224,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(uri)::Type,UriVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(uri)::Type,UriVal::set> set{};
         }
-        }
         ///FIFO Went Empty Interrupt Flag. 
         enum class WeiVal {
             notSet=0x00000000,     ///<Read: A FIFO went empty condition has not occurred. Write: Clear the interrupt.
@@ -251,7 +233,6 @@ namespace Kvasir {
         namespace WeiValC{
             constexpr Register::FieldValue<decltype(wei)::Type,WeiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(wei)::Type,WeiVal::set> set{};
-        }
         }
     }
     namespace Nonebuffer10{    ///<FIFO Buffer Entries 0 and 1

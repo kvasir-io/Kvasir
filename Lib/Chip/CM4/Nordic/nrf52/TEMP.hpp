@@ -25,7 +25,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(datardy)::Type,DatardyVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(datardy)::Type,DatardyVal::set> set{};
         }
-        }
     }
     namespace Noneintenclr{    ///<Disable interrupt
         using Addr = Register::Address<0x4000c308,0xfffffffe,0,unsigned>;
@@ -40,7 +39,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(datardy)::Type,DatardyVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(datardy)::Type,DatardyVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(datardy)::Type,DatardyVal::clear> clear{};
-        }
         }
     }
     namespace Nonetemp{    ///<Temperature in degC

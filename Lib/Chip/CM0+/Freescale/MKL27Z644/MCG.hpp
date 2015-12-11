@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irefsten)::Type,IrefstenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irefsten)::Type,IrefstenVal::v1> v1{};
         }
-        }
         ///Internal Reference Clock Enable
         enum class IrclkenVal {
             v0=0x00000000,     ///<LIRC is disabled.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace IrclkenValC{
             constexpr Register::FieldValue<decltype(irclken)::Type,IrclkenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irclken)::Type,IrclkenVal::v1> v1{};
-        }
         }
         ///Clock Source Select
         enum class ClksVal {
@@ -40,7 +38,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v10> v10{};
             constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v11> v11{};
         }
-        }
     }
     namespace McgC2{    ///<MCG Control Register 2
         using Addr = Register::Address<0x40064001,0xffffffc2,0,unsigned char>;
@@ -54,7 +51,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ircs)::Type,IrcsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ircs)::Type,IrcsVal::v1> v1{};
         }
-        }
         ///External Clock Source Select
         enum class Erefs0Val {
             v0=0x00000000,     ///<External clock requested.
@@ -65,7 +61,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erefs0)::Type,Erefs0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erefs0)::Type,Erefs0Val::v1> v1{};
         }
-        }
         ///Crystal Oscillator Operation Mode Select
         enum class Hgo0Val {
             v0=0x00000000,     ///<Configure crystal oscillator for low-power operation.
@@ -75,7 +70,6 @@ namespace Kvasir {
         namespace Hgo0ValC{
             constexpr Register::FieldValue<decltype(hgo0)::Type,Hgo0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hgo0)::Type,Hgo0Val::v1> v1{};
-        }
         }
         ///External Clock Source Frequency Range Select
         enum class Range0Val {
@@ -91,7 +85,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(range0)::Type,Range0Val::v10> v10{};
             constexpr Register::FieldValue<decltype(range0)::Type,Range0Val::v11> v11{};
         }
-        }
     }
     namespace McgS{    ///<MCG Status Register
         using Addr = Register::Address<0x40064006,0xfffffff1,0,unsigned char>;
@@ -105,7 +98,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oscinit0)::Type,Oscinit0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(oscinit0)::Type,Oscinit0Val::v1> v1{};
         }
-        }
         ///Clock Mode Status
         enum class ClkstVal {
             v00=0x00000000,     ///<HIRC clock is selected as the main clock source, and MCG_Lite works at HIRC mode.
@@ -117,7 +109,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkst)::Type,ClkstVal::v00> v00{};
             constexpr Register::FieldValue<decltype(clkst)::Type,ClkstVal::v01> v01{};
             constexpr Register::FieldValue<decltype(clkst)::Type,ClkstVal::v10> v10{};
-        }
         }
     }
     namespace McgSc{    ///<MCG Status and Control Register
@@ -144,7 +135,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fcrdiv)::Type,FcrdivVal::v110> v110{};
             constexpr Register::FieldValue<decltype(fcrdiv)::Type,FcrdivVal::v111> v111{};
         }
-        }
     }
     namespace McgMc{    ///<MCG Miscellaneous Control Register
         using Addr = Register::Address<0x40064018,0xffffff38,0,unsigned char>;
@@ -170,7 +160,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lircDiv2)::Type,Lircdiv2Val::v110> v110{};
             constexpr Register::FieldValue<decltype(lircDiv2)::Type,Lircdiv2Val::v111> v111{};
         }
-        }
         ///High-frequency IRC Low-power Mode Enable
         enum class HirclpenVal {
             v0=0x00000000,     ///<HIRC is disabled in Low-power mode, such as Stop/VLPR/VLPW/VLPS mode.
@@ -181,7 +170,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hirclpen)::Type,HirclpenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hirclpen)::Type,HirclpenVal::v1> v1{};
         }
-        }
         ///High-frequency IRC Enable
         enum class HircenVal {
             v0=0x00000000,     ///<HIRC source is not enabled.
@@ -191,7 +179,6 @@ namespace Kvasir {
         namespace HircenValC{
             constexpr Register::FieldValue<decltype(hircen)::Type,HircenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hircen)::Type,HircenVal::v1> v1{};
-        }
         }
     }
 }

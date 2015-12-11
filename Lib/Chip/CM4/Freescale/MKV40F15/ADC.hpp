@@ -22,7 +22,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(smode)::Type,SmodeVal::v100> v100{};
             constexpr Register::FieldValue<decltype(smode)::Type,SmodeVal::v101> v101{};
         }
-        }
         ///CHCNF (Channel Configure Low) bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> chncfgL{}; 
         ///High Limit Interrupt Enable
@@ -35,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hlmtie)::Type,HlmtieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hlmtie)::Type,HlmtieVal::v1> v1{};
         }
-        }
         ///Low Limit Interrupt Enable
         enum class LlmtieVal {
             v0=0x00000000,     ///<Interrupt disabled
@@ -45,7 +43,6 @@ namespace Kvasir {
         namespace LlmtieValC{
             constexpr Register::FieldValue<decltype(llmtie)::Type,LlmtieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(llmtie)::Type,LlmtieVal::v1> v1{};
-        }
         }
         ///Zero Crossing Interrupt Enable
         enum class ZcieVal {
@@ -57,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(zcie)::Type,ZcieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(zcie)::Type,ZcieVal::v1> v1{};
         }
-        }
         ///End Of Scan Interrupt Enable
         enum class Eosie0Val {
             v0=0x00000000,     ///<Interrupt disabled
@@ -67,7 +63,6 @@ namespace Kvasir {
         namespace Eosie0ValC{
             constexpr Register::FieldValue<decltype(eosie0)::Type,Eosie0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eosie0)::Type,Eosie0Val::v1> v1{};
-        }
         }
         ///SYNC0 Enable
         enum class Sync0Val {
@@ -79,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sync0)::Type,Sync0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sync0)::Type,Sync0Val::v1> v1{};
         }
-        }
         ///START0 Conversion
         enum class Start0Val {
             v0=0x00000000,     ///<No action
@@ -89,7 +83,6 @@ namespace Kvasir {
         namespace Start0ValC{
             constexpr Register::FieldValue<decltype(start0)::Type,Start0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(start0)::Type,Start0Val::v1> v1{};
-        }
         }
         ///Stop
         enum class Stop0Val {
@@ -101,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stop0)::Type,Stop0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(stop0)::Type,Stop0Val::v1> v1{};
         }
-        }
         ///DMA enable
         enum class Dmaen0Val {
             v0=0x00000000,     ///<DMA is not enabled.
@@ -111,7 +103,6 @@ namespace Kvasir {
         namespace Dmaen0ValC{
             constexpr Register::FieldValue<decltype(dmaen0)::Type,Dmaen0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(dmaen0)::Type,Dmaen0Val::v1> v1{};
-        }
         }
     }
     namespace AdcCtrl2{    ///<ADC Control Register 2
@@ -128,7 +119,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(simult)::Type,SimultVal::v0> v0{};
             constexpr Register::FieldValue<decltype(simult)::Type,SimultVal::v1> v1{};
         }
-        }
         ///CHCNF (Channel Configure High) bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,7),Register::ReadWriteAccess,unsigned> chncfgH{}; 
         ///End Of Scan Interrupt Enable
@@ -141,7 +131,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eosie1)::Type,Eosie1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eosie1)::Type,Eosie1Val::v1> v1{};
         }
-        }
         ///SYNC1 Enable
         enum class Sync1Val {
             v0=0x00000000,     ///<B converter parallel scan is initiated by a write to CTRL2[START1] bit only
@@ -151,7 +140,6 @@ namespace Kvasir {
         namespace Sync1ValC{
             constexpr Register::FieldValue<decltype(sync1)::Type,Sync1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sync1)::Type,Sync1Val::v1> v1{};
-        }
         }
         ///START1 Conversion
         enum class Start1Val {
@@ -163,7 +151,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start1)::Type,Start1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(start1)::Type,Start1Val::v1> v1{};
         }
-        }
         ///Stop
         enum class Stop1Val {
             v0=0x00000000,     ///<Normal operation
@@ -174,7 +161,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stop1)::Type,Stop1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(stop1)::Type,Stop1Val::v1> v1{};
         }
-        }
         ///DMA enable
         enum class Dmaen1Val {
             v0=0x00000000,     ///<DMA is not enabled.
@@ -184,7 +170,6 @@ namespace Kvasir {
         namespace Dmaen1ValC{
             constexpr Register::FieldValue<decltype(dmaen1)::Type,Dmaen1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(dmaen1)::Type,Dmaen1Val::v1> v1{};
-        }
         }
     }
     namespace AdcZxctrl1{    ///<ADC Zero Crossing Control 1 Register
@@ -203,7 +188,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(zce0)::Type,Zce0Val::v10> v10{};
             constexpr Register::FieldValue<decltype(zce0)::Type,Zce0Val::v11> v11{};
         }
-        }
         ///Zero crossing enable 1
         enum class Zce1Val {
             v00=0x00000000,     ///<Zero Crossing disabled
@@ -217,7 +201,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(zce1)::Type,Zce1Val::v01> v01{};
             constexpr Register::FieldValue<decltype(zce1)::Type,Zce1Val::v10> v10{};
             constexpr Register::FieldValue<decltype(zce1)::Type,Zce1Val::v11> v11{};
-        }
         }
         ///Zero crossing enable 2
         enum class Zce2Val {
@@ -233,7 +216,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(zce2)::Type,Zce2Val::v10> v10{};
             constexpr Register::FieldValue<decltype(zce2)::Type,Zce2Val::v11> v11{};
         }
-        }
         ///Zero crossing enable 3
         enum class Zce3Val {
             v00=0x00000000,     ///<Zero Crossing disabled
@@ -247,7 +229,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(zce3)::Type,Zce3Val::v01> v01{};
             constexpr Register::FieldValue<decltype(zce3)::Type,Zce3Val::v10> v10{};
             constexpr Register::FieldValue<decltype(zce3)::Type,Zce3Val::v11> v11{};
-        }
         }
         ///Zero crossing enable 4
         enum class Zce4Val {
@@ -263,7 +244,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(zce4)::Type,Zce4Val::v10> v10{};
             constexpr Register::FieldValue<decltype(zce4)::Type,Zce4Val::v11> v11{};
         }
-        }
         ///Zero crossing enable 5
         enum class Zce5Val {
             v00=0x00000000,     ///<Zero Crossing disabled
@@ -277,7 +257,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(zce5)::Type,Zce5Val::v01> v01{};
             constexpr Register::FieldValue<decltype(zce5)::Type,Zce5Val::v10> v10{};
             constexpr Register::FieldValue<decltype(zce5)::Type,Zce5Val::v11> v11{};
-        }
         }
         ///Zero crossing enable 6
         enum class Zce6Val {
@@ -293,7 +272,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(zce6)::Type,Zce6Val::v10> v10{};
             constexpr Register::FieldValue<decltype(zce6)::Type,Zce6Val::v11> v11{};
         }
-        }
         ///Zero crossing enable 7
         enum class Zce7Val {
             v00=0x00000000,     ///<Zero Crossing disabled
@@ -307,7 +285,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(zce7)::Type,Zce7Val::v01> v01{};
             constexpr Register::FieldValue<decltype(zce7)::Type,Zce7Val::v10> v10{};
             constexpr Register::FieldValue<decltype(zce7)::Type,Zce7Val::v11> v11{};
-        }
         }
     }
     namespace AdcZxctrl2{    ///<ADC Zero Crossing Control 2 Register
@@ -326,7 +303,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(zce8)::Type,Zce8Val::v10> v10{};
             constexpr Register::FieldValue<decltype(zce8)::Type,Zce8Val::v11> v11{};
         }
-        }
         ///Zero crossing enable 9
         enum class Zce9Val {
             v00=0x00000000,     ///<Zero Crossing disabled
@@ -340,7 +316,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(zce9)::Type,Zce9Val::v01> v01{};
             constexpr Register::FieldValue<decltype(zce9)::Type,Zce9Val::v10> v10{};
             constexpr Register::FieldValue<decltype(zce9)::Type,Zce9Val::v11> v11{};
-        }
         }
         ///Zero crossing enable 10
         enum class Zce10Val {
@@ -356,7 +331,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(zce10)::Type,Zce10Val::v10> v10{};
             constexpr Register::FieldValue<decltype(zce10)::Type,Zce10Val::v11> v11{};
         }
-        }
         ///Zero crossing enable 11
         enum class Zce11Val {
             v00=0x00000000,     ///<Zero Crossing disabled
@@ -370,7 +344,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(zce11)::Type,Zce11Val::v01> v01{};
             constexpr Register::FieldValue<decltype(zce11)::Type,Zce11Val::v10> v10{};
             constexpr Register::FieldValue<decltype(zce11)::Type,Zce11Val::v11> v11{};
-        }
         }
         ///Zero crossing enable 12
         enum class Zce12Val {
@@ -386,7 +359,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(zce12)::Type,Zce12Val::v10> v10{};
             constexpr Register::FieldValue<decltype(zce12)::Type,Zce12Val::v11> v11{};
         }
-        }
         ///Zero crossing enable 13
         enum class Zce13Val {
             v00=0x00000000,     ///<Zero Crossing disabled
@@ -400,7 +372,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(zce13)::Type,Zce13Val::v01> v01{};
             constexpr Register::FieldValue<decltype(zce13)::Type,Zce13Val::v10> v10{};
             constexpr Register::FieldValue<decltype(zce13)::Type,Zce13Val::v11> v11{};
-        }
         }
         ///Zero crossing enable 14
         enum class Zce14Val {
@@ -416,7 +387,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(zce14)::Type,Zce14Val::v10> v10{};
             constexpr Register::FieldValue<decltype(zce14)::Type,Zce14Val::v11> v11{};
         }
-        }
         ///Zero crossing enable 15
         enum class Zce15Val {
             v00=0x00000000,     ///<Zero Crossing disabled
@@ -430,7 +400,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(zce15)::Type,Zce15Val::v01> v01{};
             constexpr Register::FieldValue<decltype(zce15)::Type,Zce15Val::v10> v10{};
             constexpr Register::FieldValue<decltype(zce15)::Type,Zce15Val::v11> v11{};
-        }
         }
     }
     namespace AdcClist1{    ///<ADC Channel List Register 1
@@ -473,7 +442,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sample0)::Type,Sample0Val::v1110> v1110{};
             constexpr Register::FieldValue<decltype(sample0)::Type,Sample0Val::v1111> v1111{};
         }
-        }
         ///Sample Field 1
         enum class Sample1Val {
             v0000=0x00000000,     ///<Single Ended: ANA0, Differential: ANA0+, ANA1-
@@ -511,7 +479,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sample1)::Type,Sample1Val::v1101> v1101{};
             constexpr Register::FieldValue<decltype(sample1)::Type,Sample1Val::v1110> v1110{};
             constexpr Register::FieldValue<decltype(sample1)::Type,Sample1Val::v1111> v1111{};
-        }
         }
         ///Sample Field 2
         enum class Sample2Val {
@@ -551,7 +518,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sample2)::Type,Sample2Val::v1110> v1110{};
             constexpr Register::FieldValue<decltype(sample2)::Type,Sample2Val::v1111> v1111{};
         }
-        }
         ///Sample Field 3
         enum class Sample3Val {
             v0000=0x00000000,     ///<Single Ended: ANA0, Differential: ANA0+, ANA1-
@@ -589,7 +555,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sample3)::Type,Sample3Val::v1101> v1101{};
             constexpr Register::FieldValue<decltype(sample3)::Type,Sample3Val::v1110> v1110{};
             constexpr Register::FieldValue<decltype(sample3)::Type,Sample3Val::v1111> v1111{};
-        }
         }
     }
     namespace AdcClist2{    ///<ADC Channel List Register 2
@@ -632,7 +597,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sample4)::Type,Sample4Val::v1110> v1110{};
             constexpr Register::FieldValue<decltype(sample4)::Type,Sample4Val::v1111> v1111{};
         }
-        }
         ///Sample Field 5
         enum class Sample5Val {
             v0000=0x00000000,     ///<Single Ended: ANA0, Differential: ANA0+, ANA1-
@@ -670,7 +634,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sample5)::Type,Sample5Val::v1101> v1101{};
             constexpr Register::FieldValue<decltype(sample5)::Type,Sample5Val::v1110> v1110{};
             constexpr Register::FieldValue<decltype(sample5)::Type,Sample5Val::v1111> v1111{};
-        }
         }
         ///Sample Field 6
         enum class Sample6Val {
@@ -710,7 +673,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sample6)::Type,Sample6Val::v1110> v1110{};
             constexpr Register::FieldValue<decltype(sample6)::Type,Sample6Val::v1111> v1111{};
         }
-        }
         ///Sample Field 7
         enum class Sample7Val {
             v0000=0x00000000,     ///<Single Ended: ANA0, Differential: ANA0+, ANA1-
@@ -748,7 +710,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sample7)::Type,Sample7Val::v1101> v1101{};
             constexpr Register::FieldValue<decltype(sample7)::Type,Sample7Val::v1110> v1110{};
             constexpr Register::FieldValue<decltype(sample7)::Type,Sample7Val::v1111> v1111{};
-        }
         }
     }
     namespace AdcClist3{    ///<ADC Channel List Register 3
@@ -791,7 +752,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sample8)::Type,Sample8Val::v1110> v1110{};
             constexpr Register::FieldValue<decltype(sample8)::Type,Sample8Val::v1111> v1111{};
         }
-        }
         ///Sample Field 9
         enum class Sample9Val {
             v0000=0x00000000,     ///<Single Ended: ANA0, Differential: ANA0+, ANA1-
@@ -829,7 +789,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sample9)::Type,Sample9Val::v1101> v1101{};
             constexpr Register::FieldValue<decltype(sample9)::Type,Sample9Val::v1110> v1110{};
             constexpr Register::FieldValue<decltype(sample9)::Type,Sample9Val::v1111> v1111{};
-        }
         }
         ///Sample Field 10
         enum class Sample10Val {
@@ -869,7 +828,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sample10)::Type,Sample10Val::v1110> v1110{};
             constexpr Register::FieldValue<decltype(sample10)::Type,Sample10Val::v1111> v1111{};
         }
-        }
         ///Sample Field 11
         enum class Sample11Val {
             v0000=0x00000000,     ///<Single Ended: ANA0, Differential: ANA0+, ANA1-
@@ -907,7 +865,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sample11)::Type,Sample11Val::v1101> v1101{};
             constexpr Register::FieldValue<decltype(sample11)::Type,Sample11Val::v1110> v1110{};
             constexpr Register::FieldValue<decltype(sample11)::Type,Sample11Val::v1111> v1111{};
-        }
         }
     }
     namespace AdcClist4{    ///<ADC Channel List Register 4
@@ -950,7 +907,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sample12)::Type,Sample12Val::v1110> v1110{};
             constexpr Register::FieldValue<decltype(sample12)::Type,Sample12Val::v1111> v1111{};
         }
-        }
         ///Sample Field 13
         enum class Sample13Val {
             v0000=0x00000000,     ///<Single Ended: ANA0, Differential: ANA0+, ANA1-
@@ -988,7 +944,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sample13)::Type,Sample13Val::v1101> v1101{};
             constexpr Register::FieldValue<decltype(sample13)::Type,Sample13Val::v1110> v1110{};
             constexpr Register::FieldValue<decltype(sample13)::Type,Sample13Val::v1111> v1111{};
-        }
         }
         ///Sample Field 14
         enum class Sample14Val {
@@ -1028,7 +983,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sample14)::Type,Sample14Val::v1110> v1110{};
             constexpr Register::FieldValue<decltype(sample14)::Type,Sample14Val::v1111> v1111{};
         }
-        }
         ///Sample Field 15
         enum class Sample15Val {
             v0000=0x00000000,     ///<Single Ended: ANA0, Differential: ANA0+, ANA1-
@@ -1067,7 +1021,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sample15)::Type,Sample15Val::v1110> v1110{};
             constexpr Register::FieldValue<decltype(sample15)::Type,Sample15Val::v1111> v1111{};
         }
-        }
     }
     namespace AdcSdis{    ///<ADC Sample Disable Register
         using Addr = Register::Address<0x4005c010,0xffff0000,0,unsigned>;
@@ -1088,7 +1041,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hlmti)::Type,HlmtiVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hlmti)::Type,HlmtiVal::v1> v1{};
         }
-        }
         ///Low Limit Interrupt
         enum class LlmtiVal {
             v0=0x00000000,     ///<No low limit interrupt request
@@ -1098,7 +1050,6 @@ namespace Kvasir {
         namespace LlmtiValC{
             constexpr Register::FieldValue<decltype(llmti)::Type,LlmtiVal::v0> v0{};
             constexpr Register::FieldValue<decltype(llmti)::Type,LlmtiVal::v1> v1{};
-        }
         }
         ///Zero Crossing Interrupt
         enum class ZciVal {
@@ -1110,7 +1061,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(zci)::Type,ZciVal::v0> v0{};
             constexpr Register::FieldValue<decltype(zci)::Type,ZciVal::v1> v1{};
         }
-        }
         ///End of Scan Interrupt
         enum class Eosi0Val {
             v0=0x00000000,     ///<A scan cycle has not been completed, no end of scan IRQ pending
@@ -1120,7 +1070,6 @@ namespace Kvasir {
         namespace Eosi0ValC{
             constexpr Register::FieldValue<decltype(eosi0)::Type,Eosi0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eosi0)::Type,Eosi0Val::v1> v1{};
-        }
         }
         ///End of Scan Interrupt
         enum class Eosi1Val {
@@ -1132,7 +1081,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eosi1)::Type,Eosi1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eosi1)::Type,Eosi1Val::v1> v1{};
         }
-        }
         ///Conversion in Progress
         enum class Cip1Val {
             v0=0x00000000,     ///<Idle state
@@ -1143,7 +1091,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cip1)::Type,Cip1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(cip1)::Type,Cip1Val::v1> v1{};
         }
-        }
         ///Conversion in Progress
         enum class Cip0Val {
             v0=0x00000000,     ///<Idle state
@@ -1153,7 +1100,6 @@ namespace Kvasir {
         namespace Cip0ValC{
             constexpr Register::FieldValue<decltype(cip0)::Type,Cip0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(cip0)::Type,Cip0Val::v1> v1{};
-        }
         }
     }
     namespace AdcRdy{    ///<ADC Ready Register
@@ -1540,7 +1486,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd0)::Type,Pd0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pd0)::Type,Pd0Val::v1> v1{};
         }
-        }
         ///Manual Power Down for Converter B
         enum class Pd1Val {
             v0=0x00000000,     ///<Power Up ADC converter B
@@ -1551,7 +1496,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd1)::Type,Pd1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pd1)::Type,Pd1Val::v1> v1{};
         }
-        }
         ///Auto Powerdown
         enum class ApdVal {
             v0=0x00000000,     ///<Auto Powerdown Mode is not active
@@ -1561,7 +1505,6 @@ namespace Kvasir {
         namespace ApdValC{
             constexpr Register::FieldValue<decltype(apd)::Type,ApdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(apd)::Type,ApdVal::v1> v1{};
-        }
         }
         ///Power Up Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,4),Register::ReadWriteAccess,unsigned> pudelay{}; 
@@ -1575,7 +1518,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psts0)::Type,Psts0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(psts0)::Type,Psts0Val::v1> v1{};
         }
-        }
         ///ADC Converter B Power Status
         enum class Psts1Val {
             v0=0x00000000,     ///<ADC Converter B is currently powered up
@@ -1586,7 +1528,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psts1)::Type,Psts1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(psts1)::Type,Psts1Val::v1> v1{};
         }
-        }
         ///Auto Standby
         enum class AsbVal {
             v0=0x00000000,     ///<Auto standby mode disabled
@@ -1596,7 +1537,6 @@ namespace Kvasir {
         namespace AsbValC{
             constexpr Register::FieldValue<decltype(asb)::Type,AsbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(asb)::Type,AsbVal::v1> v1{};
-        }
         }
     }
     namespace AdcCal{    ///<ADC Calibration Register
@@ -1611,7 +1551,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(selVrefloA)::Type,SelvrefloaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(selVrefloA)::Type,SelvrefloaVal::v1> v1{};
         }
-        }
         ///Select V REFH Source
         enum class SelvrefhaVal {
             v0=0x00000000,     ///<VREFH pad
@@ -1621,7 +1560,6 @@ namespace Kvasir {
         namespace SelvrefhaValC{
             constexpr Register::FieldValue<decltype(selVrefhA)::Type,SelvrefhaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(selVrefhA)::Type,SelvrefhaVal::v1> v1{};
-        }
         }
         ///Select V REFLO Source
         enum class SelvreflobVal {
@@ -1633,7 +1571,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(selVrefloB)::Type,SelvreflobVal::v0> v0{};
             constexpr Register::FieldValue<decltype(selVrefloB)::Type,SelvreflobVal::v1> v1{};
         }
-        }
         ///Select V REFH Source
         enum class SelvrefhbVal {
             v0=0x00000000,     ///<VREFH pad
@@ -1643,7 +1580,6 @@ namespace Kvasir {
         namespace SelvrefhbValC{
             constexpr Register::FieldValue<decltype(selVrefhB)::Type,SelvrefhbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(selVrefhB)::Type,SelvrefhbVal::v1> v1{};
-        }
         }
     }
     namespace AdcGc1{    ///<Gain Control 1 Register
@@ -1660,7 +1596,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gain0)::Type,Gain0Val::v01> v01{};
             constexpr Register::FieldValue<decltype(gain0)::Type,Gain0Val::v10> v10{};
         }
-        }
         ///Gain Control Bit 1
         enum class Gain1Val {
             v00=0x00000000,     ///<x1 amplification
@@ -1672,7 +1607,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gain1)::Type,Gain1Val::v00> v00{};
             constexpr Register::FieldValue<decltype(gain1)::Type,Gain1Val::v01> v01{};
             constexpr Register::FieldValue<decltype(gain1)::Type,Gain1Val::v10> v10{};
-        }
         }
         ///Gain Control Bit 2
         enum class Gain2Val {
@@ -1686,7 +1620,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gain2)::Type,Gain2Val::v01> v01{};
             constexpr Register::FieldValue<decltype(gain2)::Type,Gain2Val::v10> v10{};
         }
-        }
         ///Gain Control Bit 3
         enum class Gain3Val {
             v00=0x00000000,     ///<x1 amplification
@@ -1698,7 +1631,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gain3)::Type,Gain3Val::v00> v00{};
             constexpr Register::FieldValue<decltype(gain3)::Type,Gain3Val::v01> v01{};
             constexpr Register::FieldValue<decltype(gain3)::Type,Gain3Val::v10> v10{};
-        }
         }
         ///Gain Control Bit 4
         enum class Gain4Val {
@@ -1712,7 +1644,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gain4)::Type,Gain4Val::v01> v01{};
             constexpr Register::FieldValue<decltype(gain4)::Type,Gain4Val::v10> v10{};
         }
-        }
         ///Gain Control Bit 5
         enum class Gain5Val {
             v00=0x00000000,     ///<x1 amplification
@@ -1724,7 +1655,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gain5)::Type,Gain5Val::v00> v00{};
             constexpr Register::FieldValue<decltype(gain5)::Type,Gain5Val::v01> v01{};
             constexpr Register::FieldValue<decltype(gain5)::Type,Gain5Val::v10> v10{};
-        }
         }
         ///Gain Control Bit 6
         enum class Gain6Val {
@@ -1738,7 +1668,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gain6)::Type,Gain6Val::v01> v01{};
             constexpr Register::FieldValue<decltype(gain6)::Type,Gain6Val::v10> v10{};
         }
-        }
         ///Gain Control Bit 7
         enum class Gain7Val {
             v00=0x00000000,     ///<x1 amplification
@@ -1750,7 +1679,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gain7)::Type,Gain7Val::v00> v00{};
             constexpr Register::FieldValue<decltype(gain7)::Type,Gain7Val::v01> v01{};
             constexpr Register::FieldValue<decltype(gain7)::Type,Gain7Val::v10> v10{};
-        }
         }
     }
     namespace AdcGc2{    ///<Gain Control 2 Register
@@ -1767,7 +1695,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gain8)::Type,Gain8Val::v01> v01{};
             constexpr Register::FieldValue<decltype(gain8)::Type,Gain8Val::v10> v10{};
         }
-        }
         ///Gain Control Bit 9
         enum class Gain9Val {
             v00=0x00000000,     ///<x1 amplification
@@ -1779,7 +1706,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gain9)::Type,Gain9Val::v00> v00{};
             constexpr Register::FieldValue<decltype(gain9)::Type,Gain9Val::v01> v01{};
             constexpr Register::FieldValue<decltype(gain9)::Type,Gain9Val::v10> v10{};
-        }
         }
         ///Gain Control Bit 10
         enum class Gain10Val {
@@ -1793,7 +1719,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gain10)::Type,Gain10Val::v01> v01{};
             constexpr Register::FieldValue<decltype(gain10)::Type,Gain10Val::v10> v10{};
         }
-        }
         ///Gain Control Bit 11
         enum class Gain11Val {
             v00=0x00000000,     ///<x1 amplification
@@ -1805,7 +1730,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gain11)::Type,Gain11Val::v00> v00{};
             constexpr Register::FieldValue<decltype(gain11)::Type,Gain11Val::v01> v01{};
             constexpr Register::FieldValue<decltype(gain11)::Type,Gain11Val::v10> v10{};
-        }
         }
         ///Gain Control Bit 12
         enum class Gain12Val {
@@ -1819,7 +1743,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gain12)::Type,Gain12Val::v01> v01{};
             constexpr Register::FieldValue<decltype(gain12)::Type,Gain12Val::v10> v10{};
         }
-        }
         ///Gain Control Bit 13
         enum class Gain13Val {
             v00=0x00000000,     ///<x1 amplification
@@ -1831,7 +1754,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gain13)::Type,Gain13Val::v00> v00{};
             constexpr Register::FieldValue<decltype(gain13)::Type,Gain13Val::v01> v01{};
             constexpr Register::FieldValue<decltype(gain13)::Type,Gain13Val::v10> v10{};
-        }
         }
         ///Gain Control Bit 14
         enum class Gain14Val {
@@ -1845,7 +1767,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gain14)::Type,Gain14Val::v01> v01{};
             constexpr Register::FieldValue<decltype(gain14)::Type,Gain14Val::v10> v10{};
         }
-        }
         ///Gain Control Bit 15
         enum class Gain15Val {
             v00=0x00000000,     ///<x1 amplification
@@ -1857,7 +1778,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gain15)::Type,Gain15Val::v00> v00{};
             constexpr Register::FieldValue<decltype(gain15)::Type,Gain15Val::v01> v01{};
             constexpr Register::FieldValue<decltype(gain15)::Type,Gain15Val::v10> v10{};
-        }
         }
     }
     namespace AdcSctrl{    ///<ADC Scan Control Register
@@ -1881,7 +1801,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(speeda)::Type,SpeedaVal::v10> v10{};
             constexpr Register::FieldValue<decltype(speeda)::Type,SpeedaVal::v11> v11{};
         }
-        }
         ///ADCB Speed Control Bits
         enum class SpeedbVal {
             v00=0x00000000,     ///<Conversion clock frequency <= 6.25 MHz; current consumption per converter = 6 mA
@@ -1895,7 +1814,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(speedb)::Type,SpeedbVal::v01> v01{};
             constexpr Register::FieldValue<decltype(speedb)::Type,SpeedbVal::v10> v10{};
             constexpr Register::FieldValue<decltype(speedb)::Type,SpeedbVal::v11> v11{};
-        }
         }
         ///Clock Divisor Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,8),Register::ReadWriteAccess,unsigned> div1{}; 
@@ -1915,7 +1833,6 @@ namespace Kvasir {
         namespace DmasrcValC{
             constexpr Register::FieldValue<decltype(dmasrc)::Type,DmasrcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmasrc)::Type,DmasrcVal::v1> v1{};
-        }
         }
     }
     namespace AdcSchlten{    ///<ADC Scan Interrupt Enable Register

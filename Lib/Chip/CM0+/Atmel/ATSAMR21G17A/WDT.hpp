@@ -39,7 +39,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(per)::Type,PerVal::v0xa> v0xa{};
             constexpr Register::FieldValue<decltype(per)::Type,PerVal::v0xb> v0xb{};
         }
-        }
         ///Window Mode Time-Out Period
         enum class WindowVal {
             v0x0=0x00000000,     ///<8 clock cycles
@@ -69,7 +68,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(window)::Type,WindowVal::v0x9> v0x9{};
             constexpr Register::FieldValue<decltype(window)::Type,WindowVal::v0xa> v0xa{};
             constexpr Register::FieldValue<decltype(window)::Type,WindowVal::v0xb> v0xb{};
-        }
         }
     }
     namespace WdtCtrl{    ///<Control
@@ -112,7 +110,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ewoffset)::Type,EwoffsetVal::v0x9> v0x9{};
             constexpr Register::FieldValue<decltype(ewoffset)::Type,EwoffsetVal::v0xa> v0xa{};
             constexpr Register::FieldValue<decltype(ewoffset)::Type,EwoffsetVal::v0xb> v0xb{};
-        }
         }
     }
     namespace WdtIntenclr{    ///<Interrupt Enable Clear

@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(updstsf)::Type,UpdstsfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(updstsf)::Type,UpdstsfVal::set> set{};
         }
-        }
         ///Debug Signal Select. 
         enum class DbgselVal {
             none=0x00000000,     ///<No debug signals output.
@@ -37,7 +36,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dbgsel)::Type,DbgselVal::cmp0Int0> cmp0Int0{};
             constexpr Register::FieldValue<decltype(dbgsel)::Type,DbgselVal::cmp1Int1> cmp1Int1{};
         }
-        }
         ///Flutter Quadrature-to-Dual Switch Enable. 
         enum class FlqdenVal {
             disabled=0x00000000,     ///<The pulse counter remains in quadrature mode during a flutter event.
@@ -47,7 +45,6 @@ namespace Kvasir {
         namespace FlqdenValC{
             constexpr Register::FieldValue<decltype(flqden)::Type,FlqdenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(flqden)::Type,FlqdenVal::enabled> enabled{};
-        }
         }
         ///Flutter Stop Enable. 
         enum class FlstpenVal {
@@ -59,7 +56,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flstpen)::Type,FlstpenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(flstpen)::Type,FlstpenVal::enabled> enabled{};
         }
-        }
         ///Topology Mode. 
         enum class TopmdVal {
             switch_=0x00000000,     ///<Select the switch closure topology.
@@ -69,7 +65,6 @@ namespace Kvasir {
         namespace TopmdValC{
             constexpr Register::FieldValue<decltype(topmd)::Type,TopmdVal::switch_> switch_{};
             constexpr Register::FieldValue<decltype(topmd)::Type,TopmdVal::lc> lc{};
-        }
         }
         ///Pulse Counter Mode. 
         enum class PcmdVal {
@@ -84,7 +79,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pcmd)::Type,PcmdVal::single> single{};
             constexpr Register::FieldValue<decltype(pcmd)::Type,PcmdVal::dual> dual{};
             constexpr Register::FieldValue<decltype(pcmd)::Type,PcmdVal::quadrature> quadrature{};
-        }
         }
     }
     namespace Nonecontrol{    ///<Control Register
@@ -103,7 +97,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmplth)::Type,CmplthVal::v40Percent> v40Percent{};
             constexpr Register::FieldValue<decltype(cmplth)::Type,CmplthVal::v44Percent> v44Percent{};
         }
-        }
         ///Comparator High Threshold. 
         enum class CmphthVal {
             v48Percent=0x00000000,     ///<Set the digital comparator high threshold to 48% of VIO.
@@ -118,7 +111,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmphth)::Type,CmphthVal::v56Percent> v56Percent{};
             constexpr Register::FieldValue<decltype(cmphth)::Type,CmphthVal::v60Percent> v60Percent{};
         }
-        }
         ///Automatic Calibration Mode. 
         enum class CalmdVal {
             untilPass=0x00000000,     ///<Continue to calibrate until a passing condition occurs.
@@ -128,7 +120,6 @@ namespace Kvasir {
         namespace CalmdValC{
             constexpr Register::FieldValue<decltype(calmd)::Type,CalmdVal::untilPass> untilPass{};
             constexpr Register::FieldValue<decltype(calmd)::Type,CalmdVal::untilFail> untilFail{};
-        }
         }
         ///Automatic Calibration Pull-up Mode. 
         enum class CalpumdVal {
@@ -144,7 +135,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(calpumd)::Type,CalpumdVal::medium> medium{};
             constexpr Register::FieldValue<decltype(calpumd)::Type,CalpumdVal::large> large{};
         }
-        }
         ///Force Continuous Pull-up Enable. 
         enum class FpupenVal {
             disabled=0x00000000,     ///<Pull-ups are enabled automatically by hardware.
@@ -155,7 +145,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fpupen)::Type,FpupenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(fpupen)::Type,FpupenVal::enabled> enabled{};
         }
-        }
         ///Force Ground Input Enable. 
         enum class FpdnenVal {
             disabled=0x00000000,     ///<Disable input grounding.
@@ -165,7 +154,6 @@ namespace Kvasir {
         namespace FpdnenValC{
             constexpr Register::FieldValue<decltype(fpdnen)::Type,FpdnenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(fpdnen)::Type,FpdnenVal::enabled> enabled{};
-        }
         }
         ///Pull-up Value. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> puval{}; 
@@ -179,7 +167,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(calsel)::Type,CalselVal::in0> in0{};
             constexpr Register::FieldValue<decltype(calsel)::Type,CalselVal::in1> in1{};
         }
-        }
         ///Calibration Result Flag. 
         enum class CalrfVal {
             notSet=0x00000000,     ///<The automatic calibration operation did not succeed.
@@ -190,7 +177,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(calrf)::Type,CalrfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(calrf)::Type,CalrfVal::set> set{};
         }
-        }
         ///Calibration Busy Flag. 
         enum class CalbusyfVal {
             notSet=0x00000000,     ///<A calibration operation is not in progress.
@@ -200,7 +186,6 @@ namespace Kvasir {
         namespace CalbusyfValC{
             constexpr Register::FieldValue<decltype(calbusyf)::Type,CalbusyfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(calbusyf)::Type,CalbusyfVal::set> set{};
-        }
         }
     }
     namespace Nonelcconfig{    ///<LC Configuration
@@ -217,7 +202,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pemd)::Type,PemdVal::high> high{};
             constexpr Register::FieldValue<decltype(pemd)::Type,PemdVal::none> none{};
         }
-        }
         ///LC Comparator 0 Fine Threshold. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,2),Register::ReadWriteAccess,unsigned> cmp0fth{}; 
         ///LC Comparator 0 Coarse Threshold. 
@@ -231,7 +215,6 @@ namespace Kvasir {
         namespace Cmp0thrValC{
             constexpr Register::FieldValue<decltype(cmp0thr)::Type,Cmp0thrVal::low> low{};
             constexpr Register::FieldValue<decltype(cmp0thr)::Type,Cmp0thrVal::full> full{};
-        }
         }
         ///LC Comparator 1 Fine Threshold. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> cmp1fth{}; 
@@ -247,7 +230,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp1thr)::Type,Cmp1thrVal::low> low{};
             constexpr Register::FieldValue<decltype(cmp1thr)::Type,Cmp1thrVal::full> full{};
         }
-        }
         ///LC Comparator Low-side Hysteresis. 
         enum class CmplhysVal {
             v0Mv=0x00000000,     ///<Set both LC comparators to use 0 mV low-side hysteresis.
@@ -261,7 +243,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmplhys)::Type,CmplhysVal::v5Mv> v5Mv{};
             constexpr Register::FieldValue<decltype(cmplhys)::Type,CmplhysVal::v10Mv> v10Mv{};
             constexpr Register::FieldValue<decltype(cmplhys)::Type,CmplhysVal::v20Mv> v20Mv{};
-        }
         }
         ///LC Comparator High-side Hysteresis. 
         enum class CmphhysVal {
@@ -277,7 +258,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmphhys)::Type,CmphhysVal::v10Mv> v10Mv{};
             constexpr Register::FieldValue<decltype(cmphhys)::Type,CmphhysVal::v20Mv> v20Mv{};
         }
-        }
         ///LC Comparator Mode. 
         enum class CmpmdVal {
             v5Us=0x00000000,     ///<Mode 0 (slowest response time, lowest power consumption).
@@ -292,7 +272,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmpmd)::Type,CmpmdVal::v400Ns> v400Ns{};
             constexpr Register::FieldValue<decltype(cmpmd)::Type,CmpmdVal::v200Ns> v200Ns{};
         }
-        }
         ///LC Comparator 0 to Count 1 Enable. 
         enum class Cmp0cnt1enVal {
             disabled=0x00000000,     ///<Use LC comparator 0 as an input to counter 0 and LC comparator 1 as an input to counter 1.
@@ -302,7 +281,6 @@ namespace Kvasir {
         namespace Cmp0cnt1enValC{
             constexpr Register::FieldValue<decltype(cmp0cnt1en)::Type,Cmp0cnt1enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmp0cnt1en)::Type,Cmp0cnt1enVal::enabled> enabled{};
-        }
         }
         ///Force LC Comparator 0 On Enable. 
         enum class Fcmp0enVal {
@@ -314,7 +292,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fcmp0en)::Type,Fcmp0enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(fcmp0en)::Type,Fcmp0enVal::enabled> enabled{};
         }
-        }
         ///Force LC Comparator 1 On Enable. 
         enum class Fcmp1enVal {
             disabled=0x00000000,     ///<Hardware automatically turns LC comparator 1 on and off.
@@ -324,7 +301,6 @@ namespace Kvasir {
         namespace Fcmp1enValC{
             constexpr Register::FieldValue<decltype(fcmp1en)::Type,Fcmp1enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(fcmp1en)::Type,Fcmp1enVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonetiming{    ///<Timing
@@ -341,7 +317,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(b0oen)::Type,B0oenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(b0oen)::Type,B0oenVal::enabled> enabled{};
         }
-        }
         ///Bias 1 Offset Enable. 
         enum class B1oenVal {
             disabled=0x00000000,     ///<The bias 1 pulse is a full width (minimum 2 RTC cycles).
@@ -351,7 +326,6 @@ namespace Kvasir {
         namespace B1oenValC{
             constexpr Register::FieldValue<decltype(b1oen)::Type,B1oenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(b1oen)::Type,B1oenVal::enabled> enabled{};
-        }
         }
         ///Zone D Count. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,9),Register::ReadWriteAccess,unsigned> zoned{}; 
@@ -385,7 +359,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wakemd)::Type,WakemdVal::wend> wend{};
             constexpr Register::FieldValue<decltype(wakemd)::Type,WakemdVal::wkstop> wkstop{};
         }
-        }
         ///Sequencer Start. 
         enum class StartVal {
             disabled=0x00000000,     ///<Do not start the sequencer.
@@ -395,7 +368,6 @@ namespace Kvasir {
         namespace StartValC{
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::enabled> enabled{};
-        }
         }
         ///Pulse Counter Period. 
         enum class PeriodVal {
@@ -429,7 +401,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(period)::Type,PeriodVal::singleSample> singleSample{};
             constexpr Register::FieldValue<decltype(period)::Type,PeriodVal::consecutiveSample> consecutiveSample{};
         }
-        }
     }
     namespace Nonelcmode{    ///<LC Mode
         using Addr = Register::Address<0x40042040,0x00000000,0,unsigned>;
@@ -443,7 +414,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(atrken)::Type,AtrkenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(atrken)::Type,AtrkenVal::enabled> enabled{};
         }
-        }
         ///Automatic Center Discriminator Enable. 
         enum class AcdenVal {
             disabled=0x00000000,     ///<Disable automatic center discriminator mode. Firmware must set the CD0 and CD1 fields. 
@@ -453,7 +423,6 @@ namespace Kvasir {
         namespace AcdenValC{
             constexpr Register::FieldValue<decltype(acden)::Type,AcdenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(acden)::Type,AcdenVal::enabled> enabled{};
-        }
         }
         ///LC Discriminator 0 Digital Hysterisis. 
         enum class Lcd0hysVal {
@@ -469,7 +438,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lcd0hys)::Type,Lcd0hysVal::minus2> minus2{};
             constexpr Register::FieldValue<decltype(lcd0hys)::Type,Lcd0hysVal::minus3> minus3{};
         }
-        }
         ///LC Discriminator 1 Digital Hysterisis. 
         enum class Lcd1hysVal {
             zero=0x00000000,     ///<A high-to-low transition occurs if LCCOUNT1 is less than CD1.
@@ -483,7 +451,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lcd1hys)::Type,Lcd1hysVal::minus1> minus1{};
             constexpr Register::FieldValue<decltype(lcd1hys)::Type,Lcd1hysVal::minus2> minus2{};
             constexpr Register::FieldValue<decltype(lcd1hys)::Type,Lcd1hysVal::minus3> minus3{};
-        }
         }
         ///Counter 0 Active Zone Select. 
         enum class C0zoneVal {
@@ -499,7 +466,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(c0zone)::Type,C0zoneVal::zonec> zonec{};
             constexpr Register::FieldValue<decltype(c0zone)::Type,C0zoneVal::zoned> zoned{};
         }
-        }
         ///Counter 1 Active Zone Select. 
         enum class C1zoneVal {
             zonea=0x00000000,     ///<Select zone A as the active zone for counter 1 (LCIN1 input).
@@ -513,7 +479,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(c1zone)::Type,C1zoneVal::zoneb> zoneb{};
             constexpr Register::FieldValue<decltype(c1zone)::Type,C1zoneVal::zonec> zonec{};
             constexpr Register::FieldValue<decltype(c1zone)::Type,C1zoneVal::zoned> zoned{};
-        }
         }
         ///Pulse 0 Active Zone Select. 
         enum class P0zoneVal {
@@ -529,7 +494,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p0zone)::Type,P0zoneVal::aOnly> aOnly{};
             constexpr Register::FieldValue<decltype(p0zone)::Type,P0zoneVal::aAndC> aAndC{};
         }
-        }
         ///Pulse 1 Active Zone Select. 
         enum class P1zoneVal {
             disabled=0x00000000,     ///<Disable the pulse 1 output (LCPUL1).
@@ -543,7 +507,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p1zone)::Type,P1zoneVal::cOnly> cOnly{};
             constexpr Register::FieldValue<decltype(p1zone)::Type,P1zoneVal::aOnly> aOnly{};
             constexpr Register::FieldValue<decltype(p1zone)::Type,P1zoneVal::aAndC> aAndC{};
-        }
         }
         ///LC Pulse Mode. 
         enum class PmdVal {
@@ -559,7 +522,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmd)::Type,PmdVal::pulseLow> pulseLow{};
             constexpr Register::FieldValue<decltype(pmd)::Type,PmdVal::pulseHigh> pulseHigh{};
         }
-        }
         ///Bias 0 Zone C Enable. 
         enum class B0zonecenVal {
             disabled=0x00000000,     ///<Disable bias 0 during zone C.
@@ -569,7 +531,6 @@ namespace Kvasir {
         namespace B0zonecenValC{
             constexpr Register::FieldValue<decltype(b0zonecen)::Type,B0zonecenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(b0zonecen)::Type,B0zonecenVal::enabled> enabled{};
-        }
         }
         ///Bias 0 Zone B Enable. 
         enum class B0zonebenVal {
@@ -581,7 +542,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(b0zoneben)::Type,B0zonebenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(b0zoneben)::Type,B0zonebenVal::enabled> enabled{};
         }
-        }
         ///Bias 0 Zone A Enable. 
         enum class B0zoneaenVal {
             disabled=0x00000000,     ///<Disable bias 0 during zone A.
@@ -591,7 +551,6 @@ namespace Kvasir {
         namespace B0zoneaenValC{
             constexpr Register::FieldValue<decltype(b0zoneaen)::Type,B0zoneaenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(b0zoneaen)::Type,B0zoneaenVal::enabled> enabled{};
-        }
         }
         ///Bias 0 Zone P Enable. 
         enum class B0zonepenVal {
@@ -603,7 +562,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(b0zonepen)::Type,B0zonepenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(b0zonepen)::Type,B0zonepenVal::enabled> enabled{};
         }
-        }
         ///Bias 0 Polarity. 
         enum class B0polVal {
             pulseLow=0x00000000,     ///<Set bias 0 to idle high, pulse low.
@@ -613,7 +571,6 @@ namespace Kvasir {
         namespace B0polValC{
             constexpr Register::FieldValue<decltype(b0pol)::Type,B0polVal::pulseLow> pulseLow{};
             constexpr Register::FieldValue<decltype(b0pol)::Type,B0polVal::pulseHigh> pulseHigh{};
-        }
         }
         ///Bias 1 Zone C Enable. 
         enum class B1zonecenVal {
@@ -625,7 +582,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(b1zonecen)::Type,B1zonecenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(b1zonecen)::Type,B1zonecenVal::enabled> enabled{};
         }
-        }
         ///Bias 1 Zone B Enable. 
         enum class B1zonebenVal {
             disabled=0x00000000,     ///<Disable bias 1 during zone B.
@@ -635,7 +591,6 @@ namespace Kvasir {
         namespace B1zonebenValC{
             constexpr Register::FieldValue<decltype(b1zoneben)::Type,B1zonebenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(b1zoneben)::Type,B1zonebenVal::enabled> enabled{};
-        }
         }
         ///Bias 1 Zone A Enable. 
         enum class B1zoneaenVal {
@@ -647,7 +602,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(b1zoneaen)::Type,B1zoneaenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(b1zoneaen)::Type,B1zoneaenVal::enabled> enabled{};
         }
-        }
         ///Bias 1 Zone P Enable. 
         enum class B1zonepenVal {
             disabled=0x00000000,     ///<Disable bias 1 during zone P.
@@ -658,7 +612,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(b1zonepen)::Type,B1zonepenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(b1zonepen)::Type,B1zonepenVal::enabled> enabled{};
         }
-        }
         ///Bias 1 Polarity. 
         enum class B1polVal {
             pulseLow=0x00000000,     ///<Set bias 1 to idle high, pulse low.
@@ -668,7 +621,6 @@ namespace Kvasir {
         namespace B1polValC{
             constexpr Register::FieldValue<decltype(b1pol)::Type,B1polVal::pulseLow> pulseLow{};
             constexpr Register::FieldValue<decltype(b1pol)::Type,B1polVal::pulseHigh> pulseHigh{};
-        }
         }
         ///Bias Mode. 
         enum class BmdVal {
@@ -683,7 +635,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bmd)::Type,BmdVal::mode1> mode1{};
             constexpr Register::FieldValue<decltype(bmd)::Type,BmdVal::mode2> mode2{};
             constexpr Register::FieldValue<decltype(bmd)::Type,BmdVal::mode3> mode3{};
-        }
         }
         ///LC Mode. 
         enum class LcmdVal {
@@ -723,7 +674,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lcmd)::Type,LcmdVal::mode14> mode14{};
             constexpr Register::FieldValue<decltype(lcmd)::Type,LcmdVal::mode15> mode15{};
         }
-        }
     }
     namespace Nonelcclkcontrol{    ///<LC Clock Control
         using Addr = Register::Address<0x40042050,0xf000e000,0,unsigned>;
@@ -738,7 +688,6 @@ namespace Kvasir {
         namespace ClkcalValC{
             constexpr Register::FieldValue<decltype(clkcal)::Type,ClkcalVal::notInProgress> notInProgress{};
             constexpr Register::FieldValue<decltype(clkcal)::Type,ClkcalVal::start> start{};
-        }
         }
         ///LC Oscillator Reload Value. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,16),Register::ReadWriteAccess,unsigned> reload{}; 
@@ -781,7 +730,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(integdcen)::Type,IntegdcenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(integdcen)::Type,IntegdcenVal::enabled> enabled{};
         }
-        }
         ///PC Integrator 0 Output. 
         enum class Integ0Val {
             low=0x00000000,     ///<The integrator 0 output is low.
@@ -792,7 +740,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(integ0)::Type,Integ0Val::low> low{};
             constexpr Register::FieldValue<decltype(integ0)::Type,Integ0Val::high> high{};
         }
-        }
         ///PC Integrator 1 Output. 
         enum class Integ1Val {
             low=0x00000000,     ///<The integrator 1 output is low.
@@ -802,7 +749,6 @@ namespace Kvasir {
         namespace Integ1ValC{
             constexpr Register::FieldValue<decltype(integ1)::Type,Integ1Val::low> low{};
             constexpr Register::FieldValue<decltype(integ1)::Type,Integ1Val::high> high{};
-        }
         }
     }
     namespace Nonecount0{    ///<Pulse Counter 0
@@ -837,7 +783,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dirchgi)::Type,DirchgiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(dirchgi)::Type,DirchgiVal::set> set{};
         }
-        }
         ///Counter Overflow Interrupt Flag. 
         enum class OvfiVal {
             notSet=0x00000000,     ///<Neither of the counters overflowed.
@@ -847,7 +792,6 @@ namespace Kvasir {
         namespace OvfiValC{
             constexpr Register::FieldValue<decltype(ovfi)::Type,OvfiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(ovfi)::Type,OvfiVal::set> set{};
-        }
         }
         ///Digital Comparator 0 Interrupt Flag. 
         enum class Cmp0iVal {
@@ -859,7 +803,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp0i)::Type,Cmp0iVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(cmp0i)::Type,Cmp0iVal::set> set{};
         }
-        }
         ///Digital Comparator 1 Interrupt Flag. 
         enum class Cmp1iVal {
             notSet=0x00000000,     ///<A digital comparator 1 and counter 1 match did not occur.
@@ -869,7 +812,6 @@ namespace Kvasir {
         namespace Cmp1iValC{
             constexpr Register::FieldValue<decltype(cmp1i)::Type,Cmp1iVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(cmp1i)::Type,Cmp1iVal::set> set{};
-        }
         }
         ///Integrator Transition Interrupt Flag. 
         enum class TransiVal {
@@ -881,7 +823,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(transi)::Type,TransiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(transi)::Type,TransiVal::set> set{};
         }
-        }
         ///Quadrature Error Interrupt Flag. 
         enum class QerriVal {
             notSet=0x00000000,     ///<A quadrature error did not occur.
@@ -891,7 +832,6 @@ namespace Kvasir {
         namespace QerriValC{
             constexpr Register::FieldValue<decltype(qerri)::Type,QerriVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(qerri)::Type,QerriVal::set> set{};
-        }
         }
         ///Flutter Stop Interrupt Flag. 
         enum class FlstopiVal {
@@ -903,7 +843,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flstopi)::Type,FlstopiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(flstopi)::Type,FlstopiVal::set> set{};
         }
-        }
         ///Flutter Start Interrupt Flag. 
         enum class FlstartiVal {
             notSet=0x00000000,     ///<A flutter detection start event did not occur. 
@@ -913,7 +852,6 @@ namespace Kvasir {
         namespace FlstartiValC{
             constexpr Register::FieldValue<decltype(flstarti)::Type,FlstartiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(flstarti)::Type,FlstartiVal::set> set{};
-        }
         }
         ///Direction Change Interrupt Enable. 
         enum class DirchgienVal {
@@ -925,7 +863,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dirchgien)::Type,DirchgienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dirchgien)::Type,DirchgienVal::enabled> enabled{};
         }
-        }
         ///Counter Overflow Interrupt Enable. 
         enum class OvfienVal {
             disabled=0x00000000,     ///<Disable counter overflows as an interrupt or wake up source.
@@ -935,7 +872,6 @@ namespace Kvasir {
         namespace OvfienValC{
             constexpr Register::FieldValue<decltype(ovfien)::Type,OvfienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ovfien)::Type,OvfienVal::enabled> enabled{};
-        }
         }
         ///Digital Comparator 0 Interrupt Enable. 
         enum class Cmp0ienVal {
@@ -947,7 +883,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp0ien)::Type,Cmp0ienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmp0ien)::Type,Cmp0ienVal::enabled> enabled{};
         }
-        }
         ///Digital Comparator 1 Interrupt Enable. 
         enum class Cmp1ienVal {
             disabled=0x00000000,     ///<Disable comparator 1 as an interrupt or wake up source.
@@ -957,7 +892,6 @@ namespace Kvasir {
         namespace Cmp1ienValC{
             constexpr Register::FieldValue<decltype(cmp1ien)::Type,Cmp1ienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmp1ien)::Type,Cmp1ienVal::enabled> enabled{};
-        }
         }
         ///Integrator Transition Interrupt Enable. 
         enum class TransienVal {
@@ -969,7 +903,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(transien)::Type,TransienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(transien)::Type,TransienVal::enabled> enabled{};
         }
-        }
         ///Quadrature Error Interrupt Enable. 
         enum class QerrienVal {
             disabled=0x00000000,     ///<Disable quadrature error as an interrupt or wake up source.
@@ -979,7 +912,6 @@ namespace Kvasir {
         namespace QerrienValC{
             constexpr Register::FieldValue<decltype(qerrien)::Type,QerrienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(qerrien)::Type,QerrienVal::enabled> enabled{};
-        }
         }
         ///Flutter Stop Interrupt Enable. 
         enum class FlstopienVal {
@@ -991,7 +923,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flstopien)::Type,FlstopienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(flstopien)::Type,FlstopienVal::enabled> enabled{};
         }
-        }
         ///Flutter Start Interrupt Enable. 
         enum class FlstartienVal {
             disabled=0x00000000,     ///<Disable flutter detection start events as an interrupt or wake up source.
@@ -1001,7 +932,6 @@ namespace Kvasir {
         namespace FlstartienValC{
             constexpr Register::FieldValue<decltype(flstartien)::Type,FlstartienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(flstartien)::Type,FlstartienVal::enabled> enabled{};
-        }
         }
         ///Integrator 0 Output. 
         enum class In0Val {
@@ -1013,7 +943,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in0)::Type,In0Val::low> low{};
             constexpr Register::FieldValue<decltype(in0)::Type,In0Val::high> high{};
         }
-        }
         ///Integrator 1 Output. 
         enum class In1Val {
             low=0x00000000,     ///<The integrator 1 output is low.
@@ -1023,7 +952,6 @@ namespace Kvasir {
         namespace In1ValC{
             constexpr Register::FieldValue<decltype(in1)::Type,In1Val::low> low{};
             constexpr Register::FieldValue<decltype(in1)::Type,In1Val::high> high{};
-        }
         }
         ///Previous Integrator 0 Output. 
         enum class In0prevVal {
@@ -1035,7 +963,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in0prev)::Type,In0prevVal::low> low{};
             constexpr Register::FieldValue<decltype(in0prev)::Type,In0prevVal::high> high{};
         }
-        }
         ///Previous Integrator 1 Output. 
         enum class In1prevVal {
             low=0x00000000,     ///<The previous integrator 1 output was low.
@@ -1045,7 +972,6 @@ namespace Kvasir {
         namespace In1prevValC{
             constexpr Register::FieldValue<decltype(in1prev)::Type,In1prevVal::low> low{};
             constexpr Register::FieldValue<decltype(in1prev)::Type,In1prevVal::high> high{};
-        }
         }
         ///Pulse Counter State. 
         enum class StateVal {
@@ -1061,7 +987,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(state)::Type,StateVal::st2> st2{};
             constexpr Register::FieldValue<decltype(state)::Type,StateVal::st3> st3{};
         }
-        }
         ///Direction Flag. 
         enum class DirfVal {
             counterClockwise=0x00000000,     ///<The current direction is counter-clockwise.
@@ -1072,7 +997,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dirf)::Type,DirfVal::counterClockwise> counterClockwise{};
             constexpr Register::FieldValue<decltype(dirf)::Type,DirfVal::clockwise> clockwise{};
         }
-        }
         ///Flutter Detected Flag. 
         enum class FlfVal {
             notSet=0x00000000,     ///<The switch operates normally.
@@ -1082,7 +1006,6 @@ namespace Kvasir {
         namespace FlfValC{
             constexpr Register::FieldValue<decltype(flf)::Type,FlfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(flf)::Type,FlfVal::set> set{};
-        }
         }
         ///Direction History . 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> dirhist{}; 
@@ -1096,7 +1019,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp0out)::Type,Cmp0outVal::low> low{};
             constexpr Register::FieldValue<decltype(cmp0out)::Type,Cmp0outVal::high> high{};
         }
-        }
         ///Comparator 1 Output. 
         enum class Cmp1outVal {
             low=0x00000000,     ///<The output of comparator 1 is low.
@@ -1106,7 +1028,6 @@ namespace Kvasir {
         namespace Cmp1outValC{
             constexpr Register::FieldValue<decltype(cmp1out)::Type,Cmp1outVal::low> low{};
             constexpr Register::FieldValue<decltype(cmp1out)::Type,Cmp1outVal::high> high{};
-        }
         }
     }
     namespace Nonedebugen{    ///<Calibration
@@ -1120,7 +1041,6 @@ namespace Kvasir {
         namespace DbgoenValC{
             constexpr Register::FieldValue<decltype(dbgoen)::Type,DbgoenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dbgoen)::Type,DbgoenVal::enabled> enabled{};
-        }
         }
     }
 }

@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vbusvldf)::Type,VbusvldfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(vbusvldf)::Type,VbusvldfVal::set> set{};
         }
-        }
         ///Voltage Regulator Suspend Enable. 
         enum class SusenVal {
             disabled=0x00000000,     ///<Disable regulator suspend mode.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace SusenValC{
             constexpr Register::FieldValue<decltype(susen)::Type,SusenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(susen)::Type,SusenVal::enabled> enabled{};
-        }
         }
         ///Band Gap Disable. 
         enum class BgdisVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bgdis)::Type,BgdisVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(bgdis)::Type,BgdisVal::active> active{};
         }
-        }
         ///VREGIN Sense Enable. 
         enum class SenseenVal {
             disabled=0x00000000,     ///<Disable VREGIN voltage sensing.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace SenseenValC{
             constexpr Register::FieldValue<decltype(senseen)::Type,SenseenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(senseen)::Type,SenseenVal::enabled> enabled{};
-        }
         }
         ///VBUS Invalid Interrupt Flag. 
         enum class VbusivldiVal {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vbusivldi)::Type,VbusivldiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(vbusivldi)::Type,VbusivldiVal::set> set{};
         }
-        }
         ///VBUS Invalid Interrupt Enable. 
         enum class VbusivldienVal {
             disabled=0x00000000,     ///<Disable the VBUS invalid interrupt.
@@ -69,7 +64,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vbusivldien)::Type,VbusivldienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(vbusivldien)::Type,VbusivldienVal::enabled> enabled{};
         }
-        }
         ///Voltage Regulator Disable. 
         enum class VregdisVal {
             inactive=0x00000000,     ///<Enable the voltage regulator.
@@ -79,7 +73,6 @@ namespace Kvasir {
         namespace VregdisValC{
             constexpr Register::FieldValue<decltype(vregdis)::Type,VregdisVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(vregdis)::Type,VregdisVal::active> active{};
-        }
         }
     }
 }

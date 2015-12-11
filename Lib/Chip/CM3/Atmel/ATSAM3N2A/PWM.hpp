@@ -34,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prea)::Type,PreaVal::mckdiv512> mckdiv512{};
             constexpr Register::FieldValue<decltype(prea)::Type,PreaVal::mckdiv1024> mckdiv1024{};
         }
-        }
         ///CLKA, CLKB Divide Factor
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> divb{}; 
         ///None
@@ -64,7 +63,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(preb)::Type,PrebVal::mckdiv256> mckdiv256{};
             constexpr Register::FieldValue<decltype(preb)::Type,PrebVal::mckdiv512> mckdiv512{};
             constexpr Register::FieldValue<decltype(preb)::Type,PrebVal::mckdiv1024> mckdiv1024{};
-        }
         }
     }
     namespace PwmEna{    ///<PWM Enable Register
@@ -178,7 +176,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpre)::Type,CpreVal::clka> clka{};
             constexpr Register::FieldValue<decltype(cpre)::Type,CpreVal::clkb> clkb{};
         }
-        }
         ///Channel Alignment
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> calg{}; 
         ///Channel Polarity
@@ -239,7 +236,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpre)::Type,CpreVal::mckdiv1024> mckdiv1024{};
             constexpr Register::FieldValue<decltype(cpre)::Type,CpreVal::clka> clka{};
             constexpr Register::FieldValue<decltype(cpre)::Type,CpreVal::clkb> clkb{};
-        }
         }
         ///Channel Alignment
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> calg{}; 
@@ -302,7 +298,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpre)::Type,CpreVal::clka> clka{};
             constexpr Register::FieldValue<decltype(cpre)::Type,CpreVal::clkb> clkb{};
         }
-        }
         ///Channel Alignment
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> calg{}; 
         ///Channel Polarity
@@ -363,7 +358,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpre)::Type,CpreVal::mckdiv1024> mckdiv1024{};
             constexpr Register::FieldValue<decltype(cpre)::Type,CpreVal::clka> clka{};
             constexpr Register::FieldValue<decltype(cpre)::Type,CpreVal::clkb> clkb{};
-        }
         }
         ///Channel Alignment
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> calg{}; 

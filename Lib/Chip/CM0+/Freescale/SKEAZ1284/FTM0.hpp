@@ -26,7 +26,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v111> v111{};
         }
-        }
         ///Clock Source Selection
         enum class ClksVal {
             v00=0x00000000,     ///<No clock selected. This in effect disables the FTM counter.
@@ -41,7 +40,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v10> v10{};
             constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v11> v11{};
         }
-        }
         ///Center-Aligned PWM Select
         enum class CpwmsVal {
             v0=0x00000000,     ///<FTM counter operates in Up Counting mode.
@@ -51,7 +49,6 @@ namespace Kvasir {
         namespace CpwmsValC{
             constexpr Register::FieldValue<decltype(cpwms)::Type,CpwmsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cpwms)::Type,CpwmsVal::v1> v1{};
-        }
         }
         ///Timer Overflow Interrupt Enable
         enum class ToieVal {
@@ -63,7 +60,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(toie)::Type,ToieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(toie)::Type,ToieVal::v1> v1{};
         }
-        }
         ///Timer Overflow Flag
         enum class TofVal {
             v0=0x00000000,     ///<FTM counter has not overflowed.
@@ -73,7 +69,6 @@ namespace Kvasir {
         namespace TofValC{
             constexpr Register::FieldValue<decltype(tof)::Type,TofVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tof)::Type,TofVal::v1> v1{};
-        }
         }
     }
     namespace Ftm0Cnt{    ///<Counter
@@ -106,7 +101,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
         }
-        }
         ///Channel Flag
         enum class ChfVal {
             v0=0x00000000,     ///<No channel event has occurred.
@@ -116,7 +110,6 @@ namespace Kvasir {
         namespace ChfValC{
             constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
-        }
         }
     }
     namespace Ftm0C1sc{    ///<Channel (n) Status And Control
@@ -139,7 +132,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
         }
-        }
         ///Channel Flag
         enum class ChfVal {
             v0=0x00000000,     ///<No channel event has occurred.
@@ -149,7 +141,6 @@ namespace Kvasir {
         namespace ChfValC{
             constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
-        }
         }
     }
     namespace Ftm0C0v{    ///<Channel (n) Value
@@ -174,7 +165,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2trig)::Type,Ch2trigVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch2trig)::Type,Ch2trigVal::v1> v1{};
         }
-        }
         ///Channel 3 Trigger Enable
         enum class Ch3trigVal {
             v0=0x00000000,     ///<The generation of the channel trigger is disabled.
@@ -184,7 +174,6 @@ namespace Kvasir {
         namespace Ch3trigValC{
             constexpr Register::FieldValue<decltype(ch3trig)::Type,Ch3trigVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch3trig)::Type,Ch3trigVal::v1> v1{};
-        }
         }
         ///Channel 4 Trigger Enable
         enum class Ch4trigVal {
@@ -196,7 +185,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4trig)::Type,Ch4trigVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch4trig)::Type,Ch4trigVal::v1> v1{};
         }
-        }
         ///Channel 5 Trigger Enable
         enum class Ch5trigVal {
             v0=0x00000000,     ///<The generation of the channel trigger is disabled.
@@ -206,7 +194,6 @@ namespace Kvasir {
         namespace Ch5trigValC{
             constexpr Register::FieldValue<decltype(ch5trig)::Type,Ch5trigVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch5trig)::Type,Ch5trigVal::v1> v1{};
-        }
         }
         ///Channel 0 Trigger Enable
         enum class Ch0trigVal {
@@ -218,7 +205,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0trig)::Type,Ch0trigVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch0trig)::Type,Ch0trigVal::v1> v1{};
         }
-        }
         ///Channel 1 Trigger Enable
         enum class Ch1trigVal {
             v0=0x00000000,     ///<The generation of the channel trigger is disabled.
@@ -228,7 +214,6 @@ namespace Kvasir {
         namespace Ch1trigValC{
             constexpr Register::FieldValue<decltype(ch1trig)::Type,Ch1trigVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch1trig)::Type,Ch1trigVal::v1> v1{};
-        }
         }
         ///Initialization Trigger Enable
         enum class InittrigenVal {
@@ -240,7 +225,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inittrigen)::Type,InittrigenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inittrigen)::Type,InittrigenVal::v1> v1{};
         }
-        }
         ///Channel Trigger Flag
         enum class TrigfVal {
             v0=0x00000000,     ///<No channel trigger was generated.
@@ -250,7 +234,6 @@ namespace Kvasir {
         namespace TrigfValC{
             constexpr Register::FieldValue<decltype(trigf)::Type,TrigfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(trigf)::Type,TrigfVal::v1> v1{};
-        }
         }
     }
 }

@@ -83,7 +83,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(deviceaddrtype)::Type,DeviceaddrtypeVal::public_> public_{};
             constexpr Register::FieldValue<decltype(deviceaddrtype)::Type,DeviceaddrtypeVal::random> random{};
         }
-        }
     }
     namespace Nonedeviceaddr0{    ///<Device address.
         using Addr = Register::Address<0x100000a4,0xffffffff,0,unsigned>;
@@ -103,7 +102,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nrf1mbit)::Type,Nrf1mbitVal::override> override{};
             constexpr Register::FieldValue<decltype(nrf1mbit)::Type,Nrf1mbitVal::notoverride> notoverride{};
         }
-        }
         ///Override default values for BLE_1Mbit mode.
         enum class Ble1mbitVal {
             override=0x00000000,     ///<Override the default values for BLE_1Mbit mode.
@@ -113,7 +111,6 @@ namespace Kvasir {
         namespace Ble1mbitValC{
             constexpr Register::FieldValue<decltype(ble1mbit)::Type,Ble1mbitVal::override> override{};
             constexpr Register::FieldValue<decltype(ble1mbit)::Type,Ble1mbitVal::notoverride> notoverride{};
-        }
         }
     }
     namespace Nonenrf1mbit0{    ///<Override values for the OVERRIDEn registers in RADIO for NRF_1Mbit mode.

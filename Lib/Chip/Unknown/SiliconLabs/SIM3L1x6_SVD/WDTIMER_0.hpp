@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ewien)::Type,EwienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ewien)::Type,EwienVal::enabled> enabled{};
         }
-        }
         ///Watchdog Timer Debug Mode. 
         enum class DbgmdVal {
             run=0x00000000,     ///<The WDTIMER module will continue to operate while the core is halted in debug mode.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace DbgmdValC{
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::run> run{};
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::halt> halt{};
-        }
         }
     }
     namespace Nonestatus{    ///<Module Status
@@ -39,7 +37,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(keysts)::Type,KeystsVal::idle> idle{};
             constexpr Register::FieldValue<decltype(keysts)::Type,KeystsVal::ready> ready{};
         }
-        }
         ///Register Access Status. 
         enum class PrivstsVal {
             readOnly=0x00000000,     ///<The watchdog timer registers are currently read-only.
@@ -49,7 +46,6 @@ namespace Kvasir {
         namespace PrivstsValC{
             constexpr Register::FieldValue<decltype(privsts)::Type,PrivstsVal::readOnly> readOnly{};
             constexpr Register::FieldValue<decltype(privsts)::Type,PrivstsVal::readWrite> readWrite{};
-        }
         }
         ///Early Warning Interrupt Flag. 
         enum class EwiVal {
@@ -61,7 +57,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ewi)::Type,EwiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(ewi)::Type,EwiVal::set> set{};
         }
-        }
         ///Reset Threshold Flag. 
         enum class RthfVal {
             lt=0x00000000,     ///<The counter is currently less than the reset threshold (RTH) value.
@@ -72,7 +67,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rthf)::Type,RthfVal::lt> lt{};
             constexpr Register::FieldValue<decltype(rthf)::Type,RthfVal::gte> gte{};
         }
-        }
         ///Watchdog Timer Threshold Update Status. 
         enum class UpdstsVal {
             idle=0x00000000,     ///<An update completed or is not pending. The EWTH and RTH fields can be written.
@@ -82,7 +76,6 @@ namespace Kvasir {
         namespace UpdstsValC{
             constexpr Register::FieldValue<decltype(updsts)::Type,UpdstsVal::idle> idle{};
             constexpr Register::FieldValue<decltype(updsts)::Type,UpdstsVal::updating> updating{};
-        }
         }
     }
     namespace Nonethreshold{    ///<Threshold Values
@@ -111,7 +104,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(key)::Type,KeyVal::start> start{};
             constexpr Register::FieldValue<decltype(key)::Type,KeyVal::write> write{};
             constexpr Register::FieldValue<decltype(key)::Type,KeyVal::lock> lock{};
-        }
         }
     }
 }

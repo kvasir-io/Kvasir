@@ -21,7 +21,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::i2c1Sda> i2c1Sda{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::u0Txd> u0Txd{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -38,7 +37,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -48,7 +46,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -62,7 +59,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -75,7 +71,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -86,7 +81,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep01{    ///<I/O configuration register for pin P0[1]
@@ -108,7 +102,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::i2c1Scl> i2c1Scl{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::u0Rxd> u0Rxd{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -125,7 +118,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -135,7 +127,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -149,7 +140,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -162,7 +152,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -173,7 +162,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep02{    ///<I/O configuration register for pin P0[2]
@@ -196,7 +184,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -206,7 +193,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -220,7 +206,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -233,7 +218,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -244,7 +228,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep03{    ///<I/O configuration register for pin P0[3]
@@ -267,7 +250,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -277,7 +259,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -291,7 +272,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -304,7 +284,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -315,7 +294,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep04{    ///<I/O configuration register for pin P0[4]
@@ -337,7 +315,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::t2Cap0> t2Cap0{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd0> lcdVd0{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -354,7 +331,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -364,7 +340,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -378,7 +353,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -391,7 +365,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -402,7 +375,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep05{    ///<I/O configuration register for pin P0[5]
@@ -424,7 +396,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::t2Cap1> t2Cap1{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd1> lcdVd1{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -441,7 +412,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -451,7 +421,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -465,7 +434,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -478,7 +446,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -489,7 +456,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep06{    ///<I/O configuration register for pin P0[6]
@@ -513,7 +479,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::u1Rts> u1Rts{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd8> lcdVd8{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -530,7 +495,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -540,7 +504,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -554,7 +517,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -567,7 +529,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -578,7 +539,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep07{    ///<I/O configuration register for pin P0[7] 
@@ -602,7 +562,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::rtcEv0> rtcEv0{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd9> lcdVd9{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -619,7 +578,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -629,7 +587,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -643,7 +600,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Glitch filter control
         enum class FilterVal {
             enabled=0x00000000,     ///<Noise pulses below approximately 10 ns are filtered
@@ -654,7 +610,6 @@ namespace Kvasir {
         namespace FilterValC{
             constexpr Register::FieldValue<decltype(filter)::Type,FilterVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(filter)::Type,FilterVal::disabled> disabled{};
-        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -668,7 +623,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -679,7 +633,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep08{    ///<I/O configuration register for pin P0[8] 
@@ -703,7 +656,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::rtcEv1> rtcEv1{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd16> lcdVd16{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -720,7 +672,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -730,7 +681,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -744,7 +694,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Glitch filter control
         enum class FilterVal {
             enabled=0x00000000,     ///<Noise pulses below approximately 10 ns are filtered
@@ -755,7 +704,6 @@ namespace Kvasir {
         namespace FilterValC{
             constexpr Register::FieldValue<decltype(filter)::Type,FilterVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(filter)::Type,FilterVal::disabled> disabled{};
-        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -769,7 +717,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -780,7 +727,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep09{    ///<I/O configuration register for pin P0[9]
@@ -804,7 +750,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::rtcEv2> rtcEv2{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd17> lcdVd17{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -821,7 +766,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -831,7 +775,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -845,7 +788,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Glitch filter control
         enum class FilterVal {
             enabled=0x00000000,     ///<Noise pulses below approximately 10 ns are filtered
@@ -856,7 +798,6 @@ namespace Kvasir {
         namespace FilterValC{
             constexpr Register::FieldValue<decltype(filter)::Type,FilterVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(filter)::Type,FilterVal::disabled> disabled{};
-        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -870,7 +811,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -881,7 +821,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep010{    ///<I/O configuration register for pin P0[10]
@@ -904,7 +843,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -914,7 +852,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -928,7 +865,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -941,7 +877,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -952,7 +887,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep011{    ///<I/O configuration register for pin P0[11]
@@ -975,7 +909,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -985,7 +918,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -999,7 +931,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -1012,7 +943,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -1023,7 +953,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep012{    ///<I/O configuration register for pin P0[12]
@@ -1056,7 +985,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1066,7 +994,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -1080,7 +1007,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -1093,7 +1019,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -1104,7 +1029,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep015{    ///<I/O configuration register for pin P0[15]
@@ -1127,7 +1051,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1137,7 +1060,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -1151,7 +1073,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -1164,7 +1085,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -1175,7 +1095,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep016{    ///<I/O configuration register for pin P0[16]
@@ -1198,7 +1117,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1208,7 +1126,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -1222,7 +1139,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -1235,7 +1151,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -1246,7 +1161,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep017{    ///<I/O configuration register for pin P0[17]
@@ -1269,7 +1183,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1279,7 +1192,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -1293,7 +1205,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -1306,7 +1217,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -1317,7 +1227,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep018{    ///<I/O configuration register for pin P0[18]
@@ -1340,7 +1249,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1350,7 +1258,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -1364,7 +1271,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -1377,7 +1283,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -1388,7 +1293,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep019{    ///<I/O configuration register for pin P0[19]
@@ -1411,7 +1315,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1421,7 +1324,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -1435,7 +1337,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -1448,7 +1349,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -1459,7 +1359,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep020{    ///<I/O configuration register for pin P0[20]
@@ -1482,7 +1381,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1492,7 +1390,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -1506,7 +1403,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -1519,7 +1415,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -1530,7 +1425,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep021{    ///<I/O configuration register for pin P0[21]
@@ -1554,7 +1448,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::canRd1> canRd1{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::u4Sclk> u4Sclk{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -1571,7 +1464,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1581,7 +1473,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -1595,7 +1486,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -1608,7 +1498,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -1619,7 +1508,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep022{    ///<I/O configuration register for pin P0[22]
@@ -1641,7 +1529,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::u4Txd> u4Txd{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::canTd1> canTd1{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -1658,7 +1545,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1668,7 +1554,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -1682,7 +1567,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Selects Analog/Digital mode.
         enum class AdmodeVal {
             analogInputMode=0x00000000,     ///<Analog input mode.
@@ -1692,7 +1576,6 @@ namespace Kvasir {
         namespace AdmodeValC{
             constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
             constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
-        }
         }
         ///Selects 10 ns input glitch filter.
         enum class FiltrVal {
@@ -1704,7 +1587,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterDisabled> filterDisabled{};
             constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterEnabled> filterEnabled{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -1715,7 +1597,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep023{    ///<I/O configuration register for pin P0[23]
@@ -1753,7 +1634,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1763,7 +1643,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -1777,7 +1656,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Selects Analog/Digital mode.
         enum class AdmodeVal {
             analogInputMode=0x00000000,     ///<Analog input mode.
@@ -1788,7 +1666,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
             constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
         }
-        }
         ///Selects 10 ns input glitch filter.
         enum class FiltrVal {
             filterDisabled=0x00000000,     ///<Filter disabled.
@@ -1798,7 +1675,6 @@ namespace Kvasir {
         namespace FiltrValC{
             constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterDisabled> filterDisabled{};
             constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterEnabled> filterEnabled{};
-        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -1811,7 +1687,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
         }
-        }
         ///DAC output enable.
         enum class DacenVal {
             disable=0x00000000,     ///<DAC disable.
@@ -1821,7 +1696,6 @@ namespace Kvasir {
         namespace DacenValC{
             constexpr Register::FieldValue<decltype(dacen)::Type,DacenVal::disable> disable{};
             constexpr Register::FieldValue<decltype(dacen)::Type,DacenVal::enable> enable{};
-        }
         }
     }
     namespace Nonep027{    ///<I/O configuration register for pin P0[27]
@@ -1840,7 +1714,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Configures I2C features for standard mode, fast mode, and Fast Mode
                         Plus operation.
         enum class HsVal {
@@ -1853,7 +1726,6 @@ namespace Kvasir {
         namespace HsValC{
             constexpr Register::FieldValue<decltype(hs)::Type,HsVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(hs)::Type,HsVal::disabled> disabled{};
-        }
         }
         ///Controls sink current capability of the pin, only for P5[2] and
                         P5[3].
@@ -1868,7 +1740,6 @@ namespace Kvasir {
         namespace HidriveValC{
             constexpr Register::FieldValue<decltype(hidrive)::Type,HidriveVal::lowdrive> lowdrive{};
             constexpr Register::FieldValue<decltype(hidrive)::Type,HidriveVal::highdrive> highdrive{};
-        }
         }
     }
     namespace Nonep028{    ///<I/O configuration register for pin P0[28]
@@ -1887,7 +1758,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Configures I2C features for standard mode, fast mode, and Fast Mode
                         Plus operation.
         enum class HsVal {
@@ -1900,7 +1770,6 @@ namespace Kvasir {
         namespace HsValC{
             constexpr Register::FieldValue<decltype(hs)::Type,HsVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(hs)::Type,HsVal::disabled> disabled{};
-        }
         }
         ///Controls sink current capability of the pin, only for P5[2] and
                         P5[3].
@@ -1915,7 +1784,6 @@ namespace Kvasir {
         namespace HidriveValC{
             constexpr Register::FieldValue<decltype(hidrive)::Type,HidriveVal::lowdrive> lowdrive{};
             constexpr Register::FieldValue<decltype(hidrive)::Type,HidriveVal::highdrive> highdrive{};
-        }
         }
     }
     namespace Nonep029{    ///<I/O configuration register for pin P0[29]
@@ -1953,7 +1821,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1963,7 +1830,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -1977,7 +1843,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -1990,7 +1855,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2001,7 +1865,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep11{    ///<I/O configuration register for pin P1[1]
@@ -2024,7 +1887,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2034,7 +1896,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2048,7 +1909,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -2061,7 +1921,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2072,7 +1931,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep12{    ///<I/O configuration register for pin P1[2]
@@ -2095,7 +1953,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2105,7 +1962,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2119,7 +1975,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -2132,7 +1987,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2143,7 +1997,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep13{    ///<I/O configuration register for pin P1[3]
@@ -2166,7 +2019,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2176,7 +2028,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2190,7 +2041,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -2203,7 +2053,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2214,7 +2063,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep14{    ///<I/O configuration register for pin P1[4] 
@@ -2237,7 +2085,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2247,7 +2094,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2261,7 +2107,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -2274,7 +2119,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2285,7 +2129,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep15{    ///<I/O configuration register for pin P1[5]
@@ -2308,7 +2151,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2318,7 +2160,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2332,7 +2173,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -2345,7 +2185,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2356,7 +2195,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep16{    ///<I/O configuration register for pin P1[6]
@@ -2379,7 +2217,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2389,7 +2226,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2403,7 +2239,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -2416,7 +2251,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2427,7 +2261,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep17{    ///<I/O configuration register for pin P1[7]
@@ -2450,7 +2283,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2460,7 +2292,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2474,7 +2305,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -2487,7 +2317,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2498,7 +2327,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep18{    ///<I/O configuration register for pin P1[8]
@@ -2521,7 +2349,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2531,7 +2358,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2545,7 +2371,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -2558,7 +2383,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2569,7 +2393,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep19{    ///<I/O configuration register for pin P1[9]
@@ -2592,7 +2415,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2602,7 +2424,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2616,7 +2437,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -2629,7 +2449,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2640,7 +2459,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep110{    ///<I/O configuration register for pin P1[10]
@@ -2663,7 +2481,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2673,7 +2490,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2687,7 +2503,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -2700,7 +2515,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2711,7 +2525,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep111{    ///<I/O configuration register for pin P1[11]
@@ -2734,7 +2547,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2744,7 +2556,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2758,7 +2569,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -2771,7 +2581,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2782,7 +2591,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep112{    ///<I/O configuration register for pin P1[12]
@@ -2805,7 +2613,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2815,7 +2622,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2829,7 +2635,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -2842,7 +2647,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2853,7 +2657,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep113{    ///<I/O configuration register for pin P1[13]
@@ -2876,7 +2679,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2886,7 +2688,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2900,7 +2701,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -2913,7 +2713,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2924,7 +2723,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep114{    ///<I/O configuration register for pin P1[14]
@@ -2947,7 +2745,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2957,7 +2754,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2971,7 +2767,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -2984,7 +2779,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2995,7 +2789,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep115{    ///<I/O configuration register for pin P1[15]
@@ -3018,7 +2811,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -3028,7 +2820,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -3042,7 +2833,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -3055,7 +2845,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -3066,7 +2855,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep116{    ///<I/O configuration register for pin P1[16]
@@ -3089,7 +2877,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -3099,7 +2886,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -3113,7 +2899,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -3126,7 +2911,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -3137,7 +2921,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep117{    ///<I/O configuration register for pin P1[17]
@@ -3160,7 +2943,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -3170,7 +2952,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -3184,7 +2965,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -3197,7 +2977,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -3208,7 +2987,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep118{    ///<I/O configuration register for pin P1[18]
@@ -3230,7 +3008,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::t1Cap0> t1Cap0{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ssp1Miso> ssp1Miso{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -3247,7 +3024,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -3257,7 +3033,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -3271,7 +3046,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -3284,7 +3058,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -3295,7 +3068,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep119{    ///<I/O configuration register for pin P1[19]
@@ -3321,7 +3093,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ssp1Sck> ssp1Sck{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::u2Oe> u2Oe{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -3338,7 +3109,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -3348,7 +3118,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -3362,7 +3131,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -3375,7 +3143,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -3386,7 +3153,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep120{    ///<I/O configuration register for pin P1[20]
@@ -3414,7 +3180,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd6> lcdVd6{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd10> lcdVd10{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -3431,7 +3196,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -3441,7 +3205,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -3455,7 +3218,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -3468,7 +3230,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -3479,7 +3240,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep121{    ///<I/O configuration register for pin P1[21]
@@ -3505,7 +3265,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd7> lcdVd7{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd11> lcdVd11{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -3522,7 +3281,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -3532,7 +3290,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -3546,7 +3303,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -3559,7 +3315,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -3570,7 +3325,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep122{    ///<I/O configuration register for pin P1[22]
@@ -3598,7 +3352,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd8> lcdVd8{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd12> lcdVd12{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -3615,7 +3368,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -3625,7 +3377,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -3639,7 +3390,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -3652,7 +3402,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -3663,7 +3412,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep123{    ///<I/O configuration register for pin P1[23]
@@ -3691,7 +3439,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd9> lcdVd9{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd13> lcdVd13{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -3708,7 +3455,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -3718,7 +3464,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -3732,7 +3477,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -3745,7 +3489,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -3756,7 +3499,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep124{    ///<I/O configuration register for pin P1[24]
@@ -3784,7 +3526,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd10> lcdVd10{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd14> lcdVd14{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -3801,7 +3542,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -3811,7 +3551,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -3825,7 +3564,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -3838,7 +3576,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -3849,7 +3586,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep125{    ///<I/O configuration register for pin P1[25]
@@ -3877,7 +3613,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd11> lcdVd11{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd15> lcdVd15{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -3894,7 +3629,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -3904,7 +3638,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -3918,7 +3651,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -3931,7 +3663,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -3942,7 +3673,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep126{    ///<I/O configuration register for pin P1[26]
@@ -3970,7 +3700,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd12> lcdVd12{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd20> lcdVd20{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -3987,7 +3716,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -3997,7 +3725,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -4011,7 +3738,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -4024,7 +3750,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -4035,7 +3760,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep127{    ///<I/O configuration register for pin P1[27]
@@ -4061,7 +3785,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd13> lcdVd13{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd21> lcdVd21{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -4078,7 +3801,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -4088,7 +3810,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -4102,7 +3823,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -4115,7 +3835,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -4126,7 +3845,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep128{    ///<I/O configuration register for pin P1[28]
@@ -4154,7 +3872,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd14> lcdVd14{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd22> lcdVd22{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -4171,7 +3888,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -4181,7 +3897,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -4195,7 +3910,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -4208,7 +3922,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -4219,7 +3932,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep129{    ///<I/O configuration register for pin P1[29]
@@ -4247,7 +3959,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd15> lcdVd15{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd23> lcdVd23{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -4264,7 +3975,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -4274,7 +3984,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -4288,7 +3997,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -4301,7 +4009,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -4312,7 +4019,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep130{    ///<I/O configuration register for pin P1[30]
@@ -4336,7 +4042,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::i2c0Sda> i2c0Sda{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::u3Oe> u3Oe{};
         }
-        }
     }
     namespace Nonep131{    ///<I/O configuration register for pin P1[31]
         using Addr = Register::Address<0x4002c0fc,0xfffffff8,0,unsigned>;
@@ -4356,7 +4061,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ssp1Sck> ssp1Sck{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::adc0In5> adc0In5{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::i2c0Scl> i2c0Scl{};
-        }
         }
     }
     namespace Nonep20{    ///<I/O configuration register for pin P2[0]
@@ -4379,7 +4083,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -4389,7 +4092,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -4403,7 +4105,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -4416,7 +4117,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -4427,7 +4127,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep21{    ///<I/O configuration register for pin P2[1]
@@ -4450,7 +4149,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -4460,7 +4158,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -4474,7 +4171,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -4487,7 +4183,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -4498,7 +4193,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep22{    ///<I/O configuration register for pin P2[2]
@@ -4522,7 +4216,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::tracedata3> tracedata3{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdDclk> lcdDclk{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -4539,7 +4232,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -4549,7 +4241,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -4563,7 +4254,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -4576,7 +4266,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -4587,7 +4276,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep23{    ///<I/O configuration register for pin P2[3]
@@ -4611,7 +4299,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::tracedata2> tracedata2{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdFp> lcdFp{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -4628,7 +4315,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -4638,7 +4324,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -4652,7 +4337,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -4665,7 +4349,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -4676,7 +4359,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep24{    ///<I/O configuration register for pin P2[4]
@@ -4700,7 +4382,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::tracedata1> tracedata1{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdEnabM> lcdEnabM{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -4717,7 +4398,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -4727,7 +4407,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -4741,7 +4420,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -4754,7 +4432,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -4765,7 +4442,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep25{    ///<I/O configuration register for pin P2[5]
@@ -4789,7 +4465,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::tracedata0> tracedata0{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdLp> lcdLp{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -4806,7 +4481,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -4816,7 +4490,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -4830,7 +4503,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -4843,7 +4515,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -4854,7 +4525,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep26{    ///<I/O configuration register for pin P2[6]
@@ -4882,7 +4552,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd0> lcdVd0{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd4> lcdVd4{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -4899,7 +4568,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -4909,7 +4577,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -4923,7 +4590,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -4936,7 +4602,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -4947,7 +4612,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep27{    ///<I/O configuration register for pin P2[7]
@@ -4969,7 +4633,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd1> lcdVd1{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd5> lcdVd5{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -4986,7 +4649,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -4996,7 +4658,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -5010,7 +4671,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -5023,7 +4683,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -5034,7 +4693,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep28{    ///<I/O configuration register for pin P2[8]
@@ -5060,7 +4718,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd2> lcdVd2{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd6> lcdVd6{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -5077,7 +4734,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -5087,7 +4743,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -5101,7 +4756,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -5114,7 +4768,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -5125,7 +4778,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep29{    ///<I/O configuration register for pin P2[9]
@@ -5151,7 +4803,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd3> lcdVd3{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd7> lcdVd7{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -5168,7 +4819,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -5178,7 +4828,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -5192,7 +4841,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -5205,7 +4853,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -5216,7 +4863,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep210{    ///<I/O configuration register for pin P2[10]
@@ -5242,7 +4888,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::sdDat1> sdDat1{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::i2sTxSck> i2sTxSck{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdClkin> lcdClkin{};
-        }
         }
     }
     namespace Nonep212{    ///<I/O configuration register for pin P2[12]
@@ -5270,7 +4915,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd8> lcdVd8{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd18> lcdVd18{};
         }
-        }
     }
     namespace Nonep213{    ///<I/O configuration register for pin P2[13]
         using Addr = Register::Address<0x4002c134,0xfffffff8,0,unsigned>;
@@ -5295,7 +4939,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd9> lcdVd9{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd19> lcdVd19{};
         }
-        }
     }
     namespace Nonep214{    ///<I/O configuration register for pin P2[14]
         using Addr = Register::Address<0x4002c138,0xfffff980,0,unsigned>;
@@ -5317,7 +4960,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -5327,7 +4969,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -5341,7 +4982,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -5354,7 +4994,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -5365,7 +5004,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep215{    ///<I/O configuration register for pin P2[15]
@@ -5388,7 +5026,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -5398,7 +5035,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -5412,7 +5048,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -5425,7 +5060,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -5436,7 +5070,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep216{    ///<I/O configuration register for pin P2[16]
@@ -5459,7 +5092,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -5469,7 +5101,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -5483,7 +5114,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -5496,7 +5126,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -5507,7 +5136,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep217{    ///<I/O configuration register for pin P2[17]
@@ -5530,7 +5158,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -5540,7 +5167,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -5554,7 +5180,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -5567,7 +5192,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -5578,7 +5202,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep218{    ///<I/O configuration register for pin P2[18]
@@ -5601,7 +5224,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -5611,7 +5233,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -5625,7 +5246,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Selects Analog/Digital mode.
         enum class AdmodeVal {
             analogInputMode=0x00000000,     ///<Analog input mode.
@@ -5635,7 +5255,6 @@ namespace Kvasir {
         namespace AdmodeValC{
             constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
             constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
-        }
         }
         ///Selects 10 ns input glitch filter.
         enum class FiltrVal {
@@ -5647,7 +5266,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterDisabled> filterDisabled{};
             constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterEnabled> filterEnabled{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -5658,7 +5276,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep219{    ///<I/O configuration register for pin P2[19]
@@ -5681,7 +5298,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -5691,7 +5307,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -5705,7 +5320,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Selects Analog/Digital mode.
         enum class AdmodeVal {
             analogInputMode=0x00000000,     ///<Analog input mode.
@@ -5715,7 +5329,6 @@ namespace Kvasir {
         namespace AdmodeValC{
             constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
             constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
-        }
         }
         ///Selects 10 ns input glitch filter.
         enum class FiltrVal {
@@ -5727,7 +5340,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterDisabled> filterDisabled{};
             constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterEnabled> filterEnabled{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -5738,7 +5350,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep220{    ///<I/O configuration register for pin P2[20]
@@ -5761,7 +5372,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -5771,7 +5381,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -5785,7 +5394,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -5798,7 +5406,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -5809,7 +5416,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep221{    ///<I/O configuration register for pin P2[21]
@@ -5832,7 +5438,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -5842,7 +5447,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -5856,7 +5460,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -5869,7 +5472,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -5880,7 +5482,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep222{    ///<I/O configuration register for pin P2[22]
@@ -5903,7 +5504,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -5913,7 +5513,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -5927,7 +5526,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -5940,7 +5538,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -5951,7 +5548,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep223{    ///<I/O configuration register for pin P2[23]
@@ -5974,7 +5570,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -5984,7 +5579,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -5998,7 +5592,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -6011,7 +5604,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6022,7 +5614,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep224{    ///<I/O configuration register for pin P2[24]
@@ -6045,7 +5636,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6055,7 +5645,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6069,7 +5658,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -6082,7 +5670,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6093,7 +5680,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep225{    ///<I/O configuration register for pin P2[25]
@@ -6116,7 +5702,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6126,7 +5711,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6140,7 +5724,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -6153,7 +5736,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6164,7 +5746,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep226{    ///<I/O configuration register for pin P2[26]
@@ -6187,7 +5768,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6197,7 +5777,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6211,7 +5790,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -6224,7 +5802,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6235,7 +5812,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep227{    ///<I/O configuration register for pin P2[27]
@@ -6258,7 +5834,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6268,7 +5843,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6282,7 +5856,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -6295,7 +5868,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6306,7 +5878,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep228{    ///<I/O configuration register for pin P2[28]
@@ -6329,7 +5900,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6339,7 +5909,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6353,7 +5922,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -6366,7 +5934,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6377,7 +5944,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep229{    ///<I/O configuration register for pin P2[29]
@@ -6400,7 +5966,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6410,7 +5975,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6424,7 +5988,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -6437,7 +6000,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6448,7 +6010,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep230{    ///<I/O configuration register for pin P2[30]
@@ -6471,7 +6032,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6481,7 +6041,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6495,7 +6054,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -6508,7 +6066,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6519,7 +6076,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep231{    ///<I/O configuration register for pin P2[31]
@@ -6542,7 +6098,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6552,7 +6107,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6566,7 +6120,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -6579,7 +6132,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6590,7 +6142,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep30{    ///<I/O configuration register for pin P3[0]
@@ -6613,7 +6164,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6623,7 +6173,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6637,7 +6186,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -6650,7 +6198,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6661,7 +6208,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep31{    ///<I/O configuration register for pin P3[1]
@@ -6684,7 +6230,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6694,7 +6239,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6708,7 +6252,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -6721,7 +6264,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6732,7 +6274,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep32{    ///<I/O configuration register for pin P3[2]
@@ -6755,7 +6296,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6765,7 +6305,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6779,7 +6318,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -6792,7 +6330,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6803,7 +6340,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep33{    ///<I/O configuration register for pin P3[3]
@@ -6826,7 +6362,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6836,7 +6371,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6850,7 +6384,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -6863,7 +6396,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6874,7 +6406,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep34{    ///<I/O configuration register for pin P3[4]
@@ -6897,7 +6428,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6907,7 +6437,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6921,7 +6450,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -6934,7 +6462,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6945,7 +6472,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep35{    ///<I/O configuration register for pin P3[5]
@@ -6968,7 +6494,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6978,7 +6503,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6992,7 +6516,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -7005,7 +6528,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -7016,7 +6538,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep36{    ///<I/O configuration register for pin P3[6]
@@ -7039,7 +6560,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -7049,7 +6569,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -7063,7 +6582,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -7076,7 +6594,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -7087,7 +6604,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep37{    ///<I/O configuration register for pin P3[7]
@@ -7110,7 +6626,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -7120,7 +6635,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -7134,7 +6648,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -7147,7 +6660,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -7158,7 +6670,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep38{    ///<I/O configuration register for pin P3[8]
@@ -7181,7 +6692,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -7191,7 +6701,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -7205,7 +6714,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -7218,7 +6726,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -7229,7 +6736,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep39{    ///<I/O configuration register for pin P3[9]
@@ -7252,7 +6758,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -7262,7 +6767,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -7276,7 +6780,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -7289,7 +6792,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -7300,7 +6802,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep310{    ///<I/O configuration register for pin P3[10]
@@ -7323,7 +6824,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -7333,7 +6833,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -7347,7 +6846,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -7360,7 +6858,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -7371,7 +6868,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep311{    ///<I/O configuration register for pin P3[11]
@@ -7394,7 +6890,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -7404,7 +6899,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -7418,7 +6912,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -7431,7 +6924,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -7442,7 +6934,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep312{    ///<I/O configuration register for pin P3[12]
@@ -7465,7 +6956,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -7475,7 +6965,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -7489,7 +6978,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -7502,7 +6990,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -7513,7 +7000,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep313{    ///<I/O configuration register for pin P3[13]
@@ -7536,7 +7022,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -7546,7 +7031,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -7560,7 +7044,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -7573,7 +7056,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -7584,7 +7066,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep314{    ///<I/O configuration register for pin P3[14]
@@ -7607,7 +7088,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -7617,7 +7097,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -7631,7 +7110,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -7644,7 +7122,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -7655,7 +7132,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep315{    ///<I/O configuration register for pin P3[15]
@@ -7678,7 +7154,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -7688,7 +7163,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -7702,7 +7176,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -7715,7 +7188,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -7726,7 +7198,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep316{    ///<I/O configuration register for pin P3[16]
@@ -7749,7 +7220,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -7759,7 +7229,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -7773,7 +7242,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -7786,7 +7254,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -7797,7 +7264,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep317{    ///<I/O configuration register for pin P3[17]
@@ -7820,7 +7286,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -7830,7 +7295,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -7844,7 +7308,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -7857,7 +7320,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -7868,7 +7330,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep318{    ///<I/O configuration register for pin P3[18]
@@ -7891,7 +7352,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -7901,7 +7361,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -7915,7 +7374,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -7928,7 +7386,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -7939,7 +7396,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep319{    ///<I/O configuration register for pin P3[19]
@@ -7962,7 +7418,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -7972,7 +7427,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -7986,7 +7440,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -7999,7 +7452,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -8010,7 +7462,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep320{    ///<I/O configuration register for pin P3[20]
@@ -8033,7 +7484,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -8043,7 +7493,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -8057,7 +7506,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -8070,7 +7518,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -8081,7 +7528,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep321{    ///<I/O configuration register for pin P3[21]
@@ -8104,7 +7550,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -8114,7 +7559,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -8128,7 +7572,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -8141,7 +7584,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -8152,7 +7594,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep322{    ///<I/O configuration register for pin P3[22]
@@ -8175,7 +7616,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -8185,7 +7625,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -8199,7 +7638,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -8212,7 +7650,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -8223,7 +7660,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep323{    ///<I/O configuration register for pin P3[23]
@@ -8246,7 +7682,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -8256,7 +7691,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -8270,7 +7704,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -8283,7 +7716,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -8294,7 +7726,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep324{    ///<I/O configuration register for pin P3[24]
@@ -8317,7 +7748,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -8327,7 +7757,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -8341,7 +7770,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -8354,7 +7782,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -8365,7 +7792,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep325{    ///<I/O configuration register for pin P3[25]
@@ -8388,7 +7814,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -8398,7 +7823,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -8412,7 +7836,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -8425,7 +7848,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -8436,7 +7858,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep326{    ///<I/O configuration register for pin P3[26]
@@ -8458,7 +7879,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::t0Mat1> t0Mat1{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::stclk> stclk{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -8475,7 +7895,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -8485,7 +7904,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -8499,7 +7917,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -8512,7 +7929,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -8523,7 +7939,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep327{    ///<I/O configuration register for pin P3[27]
@@ -8546,7 +7961,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -8556,7 +7970,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -8570,7 +7983,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -8583,7 +7995,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -8594,7 +8005,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep328{    ///<I/O configuration register for pin P3[28]
@@ -8617,7 +8027,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -8627,7 +8036,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -8641,7 +8049,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -8654,7 +8061,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -8665,7 +8071,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep329{    ///<I/O configuration register for pin P3[29]
@@ -8688,7 +8093,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -8698,7 +8102,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -8712,7 +8115,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -8725,7 +8127,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -8736,7 +8137,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep330{    ///<I/O configuration register for pin P3[30]
@@ -8759,7 +8159,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -8769,7 +8168,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -8783,7 +8181,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -8796,7 +8193,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -8807,7 +8203,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep331{    ///<I/O configuration register for pin P3[31]
@@ -8830,7 +8225,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -8840,7 +8234,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -8854,7 +8247,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -8867,7 +8259,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -8878,7 +8269,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep40{    ///<I/O configuration register for pin P4[0]
@@ -8901,7 +8291,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -8911,7 +8300,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -8925,7 +8313,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -8938,7 +8325,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -8949,7 +8335,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep41{    ///<I/O configuration register for pin P4[1]
@@ -8972,7 +8357,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -8982,7 +8366,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -8996,7 +8379,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -9009,7 +8391,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -9020,7 +8401,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep42{    ///<I/O configuration register for pin P4[2]
@@ -9043,7 +8423,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -9053,7 +8432,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -9067,7 +8445,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -9080,7 +8457,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -9091,7 +8467,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep43{    ///<I/O configuration register for pin P4[3]
@@ -9114,7 +8489,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -9124,7 +8498,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -9138,7 +8511,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -9151,7 +8523,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -9162,7 +8533,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep44{    ///<I/O configuration register for pin P4[4]
@@ -9185,7 +8555,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -9195,7 +8564,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -9209,7 +8577,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -9222,7 +8589,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -9233,7 +8599,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep45{    ///<I/O configuration register for pin P4[5]
@@ -9256,7 +8621,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -9266,7 +8630,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -9280,7 +8643,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -9293,7 +8655,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -9304,7 +8665,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep46{    ///<I/O configuration register for pin P4[6]
@@ -9327,7 +8687,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -9337,7 +8696,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -9351,7 +8709,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -9364,7 +8721,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -9375,7 +8731,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep47{    ///<I/O configuration register for pin P4[7]
@@ -9398,7 +8753,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -9408,7 +8762,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -9422,7 +8775,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -9435,7 +8787,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -9446,7 +8797,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep48{    ///<I/O configuration register for pin P4[8]
@@ -9469,7 +8819,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -9479,7 +8828,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -9493,7 +8841,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -9506,7 +8853,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -9517,7 +8863,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep49{    ///<I/O configuration register for pin P4[9]
@@ -9540,7 +8885,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -9550,7 +8894,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -9564,7 +8907,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -9577,7 +8919,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -9588,7 +8929,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep410{    ///<I/O configuration register for pin P4[10]
@@ -9611,7 +8951,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -9621,7 +8960,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -9635,7 +8973,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -9648,7 +8985,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -9659,7 +8995,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep411{    ///<I/O configuration register for pin P4[11]
@@ -9682,7 +9017,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -9692,7 +9026,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -9706,7 +9039,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -9719,7 +9051,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -9730,7 +9061,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep412{    ///<I/O configuration register for pin P4[12]
@@ -9753,7 +9083,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -9763,7 +9092,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -9777,7 +9105,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -9790,7 +9117,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -9801,7 +9127,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep413{    ///<I/O configuration register for pin P4[13]
@@ -9824,7 +9149,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -9834,7 +9158,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -9848,7 +9171,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -9861,7 +9183,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -9872,7 +9193,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep414{    ///<I/O configuration register for pin P4[14]
@@ -9895,7 +9215,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -9905,7 +9224,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -9919,7 +9237,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -9932,7 +9249,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -9943,7 +9259,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep415{    ///<I/O configuration register for pin P4[15]
@@ -9966,7 +9281,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -9976,7 +9290,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -9990,7 +9303,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -10003,7 +9315,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -10014,7 +9325,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep416{    ///<I/O configuration register for pin P4[16]
@@ -10037,7 +9347,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -10047,7 +9356,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -10061,7 +9369,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -10074,7 +9381,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -10085,7 +9391,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep417{    ///<I/O configuration register for pin P4[17]
@@ -10108,7 +9413,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -10118,7 +9422,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -10132,7 +9435,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -10145,7 +9447,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -10156,7 +9457,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep418{    ///<I/O configuration register for pin P4[18]
@@ -10179,7 +9479,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -10189,7 +9488,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -10203,7 +9501,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -10216,7 +9513,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -10227,7 +9523,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep419{    ///<I/O configuration register for pin P4[19]
@@ -10250,7 +9545,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -10260,7 +9554,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -10274,7 +9567,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -10287,7 +9579,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -10298,7 +9589,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep420{    ///<I/O configuration register for pin P4[20]
@@ -10321,7 +9611,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -10331,7 +9620,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -10345,7 +9633,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -10358,7 +9645,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -10369,7 +9655,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep421{    ///<I/O configuration register for pin P4[21]
@@ -10392,7 +9677,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -10402,7 +9686,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -10416,7 +9699,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -10429,7 +9711,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -10440,7 +9721,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep422{    ///<I/O configuration register for pin P4[22]
@@ -10463,7 +9743,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -10473,7 +9752,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -10487,7 +9765,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -10500,7 +9777,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -10511,7 +9787,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep423{    ///<I/O configuration register for pin P4[23]
@@ -10534,7 +9809,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -10544,7 +9818,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -10558,7 +9831,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -10571,7 +9843,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -10582,7 +9853,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep424{    ///<I/O configuration register for pin P4[24]
@@ -10605,7 +9875,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -10615,7 +9884,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -10629,7 +9897,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -10642,7 +9909,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -10653,7 +9919,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep425{    ///<I/O configuration register for pin P4[25]
@@ -10676,7 +9941,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -10686,7 +9950,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -10700,7 +9963,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -10713,7 +9975,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -10724,7 +9985,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep426{    ///<I/O configuration register for pin P4[26]
@@ -10747,7 +10007,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -10757,7 +10016,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -10771,7 +10029,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -10784,7 +10041,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -10795,7 +10051,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep427{    ///<I/O configuration register for pin P4[27]
@@ -10818,7 +10073,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -10828,7 +10082,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -10842,7 +10095,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -10855,7 +10107,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -10866,7 +10117,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep428{    ///<I/O configuration register for pin P4[28]
@@ -10892,7 +10142,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd10> lcdVd10{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd2> lcdVd2{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -10909,7 +10158,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -10919,7 +10167,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -10933,7 +10180,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -10946,7 +10192,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -10957,7 +10202,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep429{    ///<I/O configuration register for pin P4[29]
@@ -10985,7 +10229,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd11> lcdVd11{};
             constexpr Register::FieldValue<decltype(func)::Type,FuncVal::lcdVd3> lcdVd3{};
         }
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor
                         control).
         enum class ModeVal {
@@ -11002,7 +10245,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -11012,7 +10254,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -11026,7 +10267,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -11039,7 +10279,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -11050,7 +10289,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep430{    ///<I/O configuration register for pin P4[30]
@@ -11073,7 +10311,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -11083,7 +10320,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -11097,7 +10333,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -11110,7 +10345,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -11121,7 +10355,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep431{    ///<I/O configuration register for pin P4[31]
@@ -11144,7 +10377,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -11154,7 +10386,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -11168,7 +10399,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -11181,7 +10411,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -11192,7 +10421,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep50{    ///<I/O configuration register for pin P5[0]
@@ -11215,7 +10443,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -11225,7 +10452,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -11239,7 +10465,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -11252,7 +10477,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -11263,7 +10487,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep51{    ///<I/O configuration register for pin P5[1]
@@ -11286,7 +10509,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -11296,7 +10518,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -11310,7 +10531,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -11323,7 +10543,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -11334,7 +10553,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
     namespace Nonep52{    ///<I/O configuration register for pin P5[2]
@@ -11353,7 +10571,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Configures I2C features for standard mode, fast mode, and Fast Mode
                         Plus operation.
         enum class HsVal {
@@ -11366,7 +10583,6 @@ namespace Kvasir {
         namespace HsValC{
             constexpr Register::FieldValue<decltype(hs)::Type,HsVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(hs)::Type,HsVal::disabled> disabled{};
-        }
         }
         ///Controls sink current capability of the pin, only for P5[2] and
                         P5[3].
@@ -11381,7 +10597,6 @@ namespace Kvasir {
         namespace HidriveValC{
             constexpr Register::FieldValue<decltype(hidrive)::Type,HidriveVal::lowdrive> lowdrive{};
             constexpr Register::FieldValue<decltype(hidrive)::Type,HidriveVal::highdrive> highdrive{};
-        }
         }
     }
     namespace Nonep53{    ///<I/O configuration register for pin P5[3]
@@ -11400,7 +10615,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Configures I2C features for standard mode, fast mode, and Fast Mode
                         Plus operation.
         enum class HsVal {
@@ -11413,7 +10627,6 @@ namespace Kvasir {
         namespace HsValC{
             constexpr Register::FieldValue<decltype(hs)::Type,HsVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(hs)::Type,HsVal::disabled> disabled{};
-        }
         }
         ///Controls sink current capability of the pin, only for P5[2] and
                         P5[3].
@@ -11428,7 +10641,6 @@ namespace Kvasir {
         namespace HidriveValC{
             constexpr Register::FieldValue<decltype(hidrive)::Type,HidriveVal::lowdrive> lowdrive{};
             constexpr Register::FieldValue<decltype(hidrive)::Type,HidriveVal::highdrive> highdrive{};
-        }
         }
     }
     namespace Nonep54{    ///<I/O configuration register for pin P5[4]
@@ -11451,7 +10663,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -11461,7 +10672,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -11475,7 +10685,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Driver slew rate
         enum class SlewVal {
             standard=0x00000000,     ///<Standard mode, output slew rate control is enabled. More
@@ -11488,7 +10697,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standard> standard{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -11499,7 +10707,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
-        }
         }
     }
 }

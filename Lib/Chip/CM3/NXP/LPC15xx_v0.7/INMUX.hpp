@@ -56,7 +56,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inpN)::Type,InpnVal::sctipuSample3> sctipuSample3{};
             constexpr Register::FieldValue<decltype(inpN)::Type,InpnVal::debugHalted> debugHalted{};
         }
-        }
     }
     namespace Nonesct0Inmux1{    ///<Pinmux register for SCT0 input 0
         using Addr = Register::Address<0x40014004,0xffffffe0,0,unsigned>;
@@ -111,7 +110,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inpN)::Type,InpnVal::sctipuSample2> sctipuSample2{};
             constexpr Register::FieldValue<decltype(inpN)::Type,InpnVal::sctipuSample3> sctipuSample3{};
             constexpr Register::FieldValue<decltype(inpN)::Type,InpnVal::debugHalted> debugHalted{};
-        }
         }
     }
     namespace Nonesct0Inmux2{    ///<Pinmux register for SCT0 input 0
@@ -168,7 +166,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inpN)::Type,InpnVal::sctipuSample3> sctipuSample3{};
             constexpr Register::FieldValue<decltype(inpN)::Type,InpnVal::debugHalted> debugHalted{};
         }
-        }
     }
     namespace Nonesct0Inmux3{    ///<Pinmux register for SCT0 input 0
         using Addr = Register::Address<0x4001400c,0xffffffe0,0,unsigned>;
@@ -223,7 +220,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inpN)::Type,InpnVal::sctipuSample2> sctipuSample2{};
             constexpr Register::FieldValue<decltype(inpN)::Type,InpnVal::sctipuSample3> sctipuSample3{};
             constexpr Register::FieldValue<decltype(inpN)::Type,InpnVal::debugHalted> debugHalted{};
-        }
         }
     }
     namespace Nonesct0Inmux4{    ///<Pinmux register for SCT0 input 0
@@ -280,7 +276,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inpN)::Type,InpnVal::sctipuSample3> sctipuSample3{};
             constexpr Register::FieldValue<decltype(inpN)::Type,InpnVal::debugHalted> debugHalted{};
         }
-        }
     }
     namespace Nonesct0Inmux5{    ///<Pinmux register for SCT0 input 0
         using Addr = Register::Address<0x40014014,0xffffffe0,0,unsigned>;
@@ -336,7 +331,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inpN)::Type,InpnVal::sctipuSample3> sctipuSample3{};
             constexpr Register::FieldValue<decltype(inpN)::Type,InpnVal::debugHalted> debugHalted{};
         }
-        }
     }
     namespace Nonesct0Inmux6{    ///<Pinmux register for SCT0 input 0
         using Addr = Register::Address<0x40014018,0xffffffe0,0,unsigned>;
@@ -391,7 +385,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inpN)::Type,InpnVal::sctipuSample2> sctipuSample2{};
             constexpr Register::FieldValue<decltype(inpN)::Type,InpnVal::sctipuSample3> sctipuSample3{};
             constexpr Register::FieldValue<decltype(inpN)::Type,InpnVal::debugHalted> debugHalted{};
-        }
         }
     }
     namespace Nonesct1Inmux0{    ///<Pinmux register for SCT1 input 0

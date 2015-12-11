@@ -25,7 +25,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
         }
-        }
     }
     namespace AicSvr{    ///<Source Vector Register
         using Addr = Register::Address<0xfffff008,0x00000000,0,unsigned>;

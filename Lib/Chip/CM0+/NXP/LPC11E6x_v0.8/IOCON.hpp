@@ -20,7 +20,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -30,7 +29,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -42,7 +40,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -52,7 +49,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enable> enable{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -67,7 +63,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -88,7 +83,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio01{    ///<I/O configuration for  port PIO0
@@ -109,7 +103,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -119,7 +112,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -131,7 +123,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -141,7 +132,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enable> enable{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -156,7 +146,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -177,7 +166,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio02{    ///<I/O configuration for  port PIO0
@@ -198,7 +186,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -208,7 +195,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -220,7 +206,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -230,7 +215,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enable> enable{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -245,7 +229,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -266,7 +249,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio03{    ///<I/O configuration for  port PIO0
@@ -287,7 +269,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -297,7 +278,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -309,7 +289,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -319,7 +298,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enable> enable{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -334,7 +312,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -356,7 +333,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
         }
-        }
     }
     namespace Nonepio04{    ///<I/O configuration for open-drain pin PIO0_4
         using Addr = Register::Address<0x40044010,0xfffffcf8,0,unsigned>;
@@ -374,7 +350,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2cmode)::Type,I2cmodeVal::standardIoFunctio> standardIoFunctio{};
             constexpr Register::FieldValue<decltype(i2cmode)::Type,I2cmodeVal::fastModePlusI2c> fastModePlusI2c{};
         }
-        }
     }
     namespace Nonepio05{    ///<I/O configuration for open-drain pin PIO0_5
         using Addr = Register::Address<0x40044014,0xfffffcf8,0,unsigned>;
@@ -391,7 +366,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2cmode)::Type,I2cmodeVal::standardModeFast> standardModeFast{};
             constexpr Register::FieldValue<decltype(i2cmode)::Type,I2cmodeVal::standardIoFunctio> standardIoFunctio{};
             constexpr Register::FieldValue<decltype(i2cmode)::Type,I2cmodeVal::fastModePlusI2c> fastModePlusI2c{};
-        }
         }
     }
     namespace Nonepio06{    ///<I/O configuration for  port PIO0
@@ -412,7 +386,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -422,7 +395,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -434,7 +406,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -444,7 +415,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enable> enable{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -459,7 +429,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -480,7 +449,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio07{    ///<I/O configuration for  port PIO0
@@ -501,7 +469,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -511,7 +478,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -523,7 +489,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -533,7 +498,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enable> enable{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -548,7 +512,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -569,7 +532,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio08{    ///<I/O configuration for  port PIO0
@@ -590,7 +552,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -600,7 +561,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -612,7 +572,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -622,7 +581,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enable> enable{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -637,7 +595,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -658,7 +615,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio09{    ///<I/O configuration for  port PIO0
@@ -679,7 +635,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -689,7 +644,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -701,7 +655,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -711,7 +664,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enable> enable{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -726,7 +678,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -747,7 +698,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio010{    ///<I/O configuration for  port PIO0
@@ -768,7 +718,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -778,7 +727,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -790,7 +738,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -800,7 +747,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enable> enable{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -815,7 +761,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -836,7 +781,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio011{    ///<I/O configuration for  port PIO0
@@ -857,7 +801,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -867,7 +810,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -879,7 +821,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -889,7 +830,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enable> enable{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -904,7 +844,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -925,7 +864,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio012{    ///<I/O configuration for  port PIO0
@@ -946,7 +884,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -956,7 +893,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -968,7 +904,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -978,7 +913,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enable> enable{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -993,7 +927,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -1014,7 +947,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio013{    ///<I/O configuration for  port PIO0
@@ -1035,7 +967,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1045,7 +976,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -1057,7 +987,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -1067,7 +996,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enable> enable{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -1082,7 +1010,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -1103,7 +1030,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio014{    ///<I/O configuration for  port PIO0
@@ -1124,7 +1050,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1134,7 +1059,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -1146,7 +1070,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -1156,7 +1079,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enable> enable{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -1171,7 +1093,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -1192,7 +1113,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio015{    ///<I/O configuration for  port PIO0
@@ -1213,7 +1133,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1223,7 +1142,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -1235,7 +1153,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -1245,7 +1162,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enable> enable{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -1260,7 +1176,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -1281,7 +1196,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio016{    ///<I/O configuration for  port PIO0
@@ -1302,7 +1216,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1312,7 +1225,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -1324,7 +1236,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -1334,7 +1245,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enable> enable{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -1349,7 +1259,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -1370,7 +1279,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio017{    ///<I/O configuration for  port PIO0
@@ -1391,7 +1299,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1401,7 +1308,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -1413,7 +1319,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -1423,7 +1328,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enable> enable{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -1438,7 +1342,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -1459,7 +1362,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio018{    ///<I/O configuration for  port PIO0
@@ -1480,7 +1382,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1490,7 +1391,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -1502,7 +1402,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -1512,7 +1411,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enable> enable{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -1527,7 +1425,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -1548,7 +1445,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio019{    ///<I/O configuration for  port PIO0
@@ -1569,7 +1465,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1579,7 +1474,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -1591,7 +1485,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -1601,7 +1494,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enable> enable{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -1616,7 +1508,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -1637,7 +1528,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio020{    ///<I/O configuration for  port PIO0
@@ -1658,7 +1548,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1668,7 +1557,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -1680,7 +1568,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -1690,7 +1577,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enable> enable{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -1705,7 +1591,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -1726,7 +1611,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio021{    ///<I/O configuration for  port PIO0
@@ -1747,7 +1631,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1757,7 +1640,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -1769,7 +1651,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -1779,7 +1660,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enable> enable{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -1794,7 +1674,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -1815,7 +1694,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio022{    ///<I/O configuration for  port PIO0
@@ -1836,7 +1714,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1846,7 +1723,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -1858,7 +1734,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -1868,7 +1743,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enable> enable{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -1883,7 +1757,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -1904,7 +1777,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio023{    ///<I/O configuration for  port PIO0
@@ -1925,7 +1797,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -1935,7 +1806,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -1947,7 +1817,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -1957,7 +1826,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enable> enable{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -1972,7 +1840,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -1993,7 +1860,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio10{    ///<I/O configuration for port PIO1
@@ -2014,7 +1880,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2024,7 +1889,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2036,7 +1900,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2046,7 +1909,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -2061,7 +1923,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -2082,7 +1943,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio11{    ///<I/O configuration for port PIO1
@@ -2103,7 +1963,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2113,7 +1972,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2125,7 +1983,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2135,7 +1992,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -2150,7 +2006,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -2171,7 +2026,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio12{    ///<I/O configuration for port PIO1
@@ -2192,7 +2046,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2202,7 +2055,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2214,7 +2066,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2224,7 +2075,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -2239,7 +2089,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -2260,7 +2109,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio13{    ///<I/O configuration for port PIO1
@@ -2281,7 +2129,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2291,7 +2138,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2303,7 +2149,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2313,7 +2158,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -2328,7 +2172,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -2349,7 +2192,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio14{    ///<I/O configuration for port PIO1
@@ -2370,7 +2212,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2380,7 +2221,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2392,7 +2232,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2402,7 +2241,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -2417,7 +2255,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -2438,7 +2275,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio15{    ///<I/O configuration for port PIO1
@@ -2459,7 +2295,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2469,7 +2304,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2481,7 +2315,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2491,7 +2324,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -2506,7 +2338,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -2527,7 +2358,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio16{    ///<I/O configuration for port PIO1
@@ -2548,7 +2378,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2558,7 +2387,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2570,7 +2398,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2580,7 +2407,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -2595,7 +2421,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -2616,7 +2441,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio17{    ///<I/O configuration for port PIO1
@@ -2637,7 +2461,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2647,7 +2470,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2659,7 +2481,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2669,7 +2490,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -2684,7 +2504,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -2705,7 +2524,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio18{    ///<I/O configuration for port PIO1
@@ -2726,7 +2544,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2736,7 +2553,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2748,7 +2564,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2758,7 +2573,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -2773,7 +2587,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -2794,7 +2607,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio19{    ///<I/O configuration for port PIO1
@@ -2815,7 +2627,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2825,7 +2636,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2837,7 +2647,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2847,7 +2656,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -2862,7 +2670,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -2883,7 +2690,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio110{    ///<I/O configuration for port PIO1
@@ -2904,7 +2710,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -2914,7 +2719,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -2926,7 +2730,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -2936,7 +2739,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -2951,7 +2753,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -2972,7 +2773,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio111{    ///<I/O configuration for port PIO1
@@ -2993,7 +2793,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -3003,7 +2802,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -3015,7 +2813,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -3025,7 +2822,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -3040,7 +2836,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -3061,7 +2856,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio112{    ///<I/O configuration for port PIO1
@@ -3082,7 +2876,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -3092,7 +2885,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -3104,7 +2896,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -3114,7 +2905,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -3129,7 +2919,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -3150,7 +2939,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio113{    ///<I/O configuration for port PIO1
@@ -3171,7 +2959,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -3181,7 +2968,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -3193,7 +2979,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -3203,7 +2988,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -3218,7 +3002,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -3239,7 +3022,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio114{    ///<I/O configuration for port PIO1
@@ -3260,7 +3042,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -3270,7 +3051,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -3282,7 +3062,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -3292,7 +3071,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -3307,7 +3085,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -3328,7 +3105,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio115{    ///<I/O configuration for port PIO1
@@ -3349,7 +3125,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -3359,7 +3134,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -3371,7 +3145,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -3381,7 +3154,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -3396,7 +3168,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -3417,7 +3188,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio116{    ///<I/O configuration for port PIO1
@@ -3438,7 +3208,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -3448,7 +3217,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -3460,7 +3228,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -3470,7 +3237,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -3485,7 +3251,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -3506,7 +3271,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio117{    ///<I/O configuration for port PIO1
@@ -3527,7 +3291,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -3537,7 +3300,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -3549,7 +3311,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -3559,7 +3320,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -3574,7 +3334,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -3595,7 +3354,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio118{    ///<I/O configuration for port PIO1
@@ -3616,7 +3374,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -3626,7 +3383,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -3638,7 +3394,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -3648,7 +3403,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -3663,7 +3417,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -3684,7 +3437,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio119{    ///<I/O configuration for port PIO1
@@ -3705,7 +3457,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -3715,7 +3466,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -3727,7 +3477,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -3737,7 +3486,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -3752,7 +3500,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -3773,7 +3520,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio120{    ///<I/O configuration for port PIO1
@@ -3794,7 +3540,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -3804,7 +3549,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -3816,7 +3560,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -3826,7 +3569,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -3841,7 +3583,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -3862,7 +3603,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio121{    ///<I/O configuration for port PIO1
@@ -3883,7 +3623,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -3893,7 +3632,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -3905,7 +3643,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -3915,7 +3652,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -3930,7 +3666,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -3951,7 +3686,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio122{    ///<I/O configuration for port PIO1
@@ -3972,7 +3706,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -3982,7 +3715,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -3994,7 +3726,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -4004,7 +3735,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -4019,7 +3749,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -4040,7 +3769,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio123{    ///<I/O configuration for port PIO1
@@ -4061,7 +3789,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -4071,7 +3798,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -4083,7 +3809,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -4093,7 +3818,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -4108,7 +3832,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -4129,7 +3852,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio124{    ///<I/O configuration for port PIO1
@@ -4150,7 +3872,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -4160,7 +3881,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -4172,7 +3892,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -4182,7 +3901,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -4197,7 +3915,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -4218,7 +3935,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio125{    ///<I/O configuration for port PIO1
@@ -4239,7 +3955,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -4249,7 +3964,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -4261,7 +3975,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -4271,7 +3984,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -4286,7 +3998,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -4307,7 +4018,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio126{    ///<I/O configuration for port PIO1
@@ -4328,7 +4038,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -4338,7 +4047,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -4350,7 +4058,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -4360,7 +4067,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -4375,7 +4081,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -4396,7 +4101,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio127{    ///<I/O configuration for port PIO1
@@ -4417,7 +4121,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -4427,7 +4130,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -4439,7 +4141,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -4449,7 +4150,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -4464,7 +4164,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -4485,7 +4184,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio128{    ///<I/O configuration for port PIO1
@@ -4506,7 +4204,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -4516,7 +4213,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -4528,7 +4224,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -4538,7 +4233,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -4553,7 +4247,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -4574,7 +4267,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio129{    ///<I/O configuration for port PIO1
@@ -4595,7 +4287,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -4605,7 +4296,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -4617,7 +4307,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -4627,7 +4316,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -4642,7 +4330,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -4663,7 +4350,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio130{    ///<I/O configuration for port PIO1
@@ -4684,7 +4370,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -4694,7 +4379,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -4706,7 +4390,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -4716,7 +4399,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -4731,7 +4413,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -4752,7 +4433,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio131{    ///<I/O configuration for port PIO1
@@ -4773,7 +4453,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -4783,7 +4462,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -4795,7 +4473,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -4805,7 +4482,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -4820,7 +4496,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -4841,7 +4516,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio20{    ///<I/O configuration for port PIO2
@@ -4862,7 +4536,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -4872,7 +4545,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -4884,7 +4556,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -4894,7 +4565,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -4909,7 +4579,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -4930,7 +4599,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio21{    ///<I/O configuration for port PIO2
@@ -4951,7 +4619,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -4961,7 +4628,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -4973,7 +4639,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -4983,7 +4648,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -4998,7 +4662,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -5019,7 +4682,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio22{    ///<I/O configuration for port PIO2
@@ -5040,7 +4702,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -5050,7 +4711,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -5062,7 +4722,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -5072,7 +4731,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -5087,7 +4745,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -5108,7 +4765,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio23{    ///<I/O configuration for port PIO2
@@ -5129,7 +4785,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -5139,7 +4794,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -5151,7 +4805,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -5161,7 +4814,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -5176,7 +4828,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -5197,7 +4848,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio24{    ///<I/O configuration for port PIO2
@@ -5218,7 +4868,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -5228,7 +4877,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -5240,7 +4888,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -5250,7 +4897,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -5265,7 +4911,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -5286,7 +4931,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio25{    ///<I/O configuration for port PIO2
@@ -5307,7 +4951,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -5317,7 +4960,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -5329,7 +4971,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -5339,7 +4980,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -5354,7 +4994,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -5375,7 +5014,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio26{    ///<I/O configuration for port PIO2
@@ -5396,7 +5034,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -5406,7 +5043,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -5418,7 +5054,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -5428,7 +5063,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -5443,7 +5077,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -5464,7 +5097,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio27{    ///<I/O configuration for port PIO2
@@ -5485,7 +5117,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -5495,7 +5126,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -5507,7 +5137,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -5517,7 +5146,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -5532,7 +5160,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -5553,7 +5180,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio28{    ///<I/O configuration for port PIO2
@@ -5574,7 +5200,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -5584,7 +5209,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -5596,7 +5220,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -5606,7 +5229,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -5621,7 +5243,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -5642,7 +5263,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio29{    ///<I/O configuration for port PIO2
@@ -5663,7 +5283,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -5673,7 +5292,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -5685,7 +5303,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -5695,7 +5312,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -5710,7 +5326,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -5731,7 +5346,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio210{    ///<I/O configuration for port PIO2
@@ -5752,7 +5366,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -5762,7 +5375,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -5774,7 +5386,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -5784,7 +5395,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -5799,7 +5409,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -5820,7 +5429,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio211{    ///<I/O configuration for port PIO2
@@ -5841,7 +5449,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -5851,7 +5458,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -5863,7 +5469,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -5873,7 +5478,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -5888,7 +5492,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -5909,7 +5512,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio212{    ///<I/O configuration for port PIO2
@@ -5930,7 +5532,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -5940,7 +5541,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -5952,7 +5552,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -5962,7 +5561,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -5977,7 +5575,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -5998,7 +5595,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio213{    ///<I/O configuration for port PIO2
@@ -6019,7 +5615,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6029,7 +5624,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6041,7 +5635,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6051,7 +5644,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -6066,7 +5658,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -6087,7 +5678,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio214{    ///<I/O configuration for port PIO2
@@ -6108,7 +5698,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6118,7 +5707,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6130,7 +5718,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6140,7 +5727,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -6155,7 +5741,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -6176,7 +5761,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio215{    ///<I/O configuration for port PIO2
@@ -6197,7 +5781,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6207,7 +5790,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6219,7 +5801,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6229,7 +5810,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -6244,7 +5824,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -6265,7 +5844,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio216{    ///<I/O configuration for port PIO2
@@ -6286,7 +5864,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6296,7 +5873,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6308,7 +5884,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6318,7 +5893,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -6333,7 +5907,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -6354,7 +5927,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio217{    ///<I/O configuration for port PIO2
@@ -6375,7 +5947,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6385,7 +5956,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6397,7 +5967,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6407,7 +5976,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -6422,7 +5990,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -6443,7 +6010,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio218{    ///<I/O configuration for port PIO2
@@ -6464,7 +6030,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6474,7 +6039,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6486,7 +6050,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6496,7 +6059,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -6511,7 +6073,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -6532,7 +6093,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio219{    ///<I/O configuration for port PIO2
@@ -6553,7 +6113,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6563,7 +6122,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6575,7 +6133,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6585,7 +6142,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -6600,7 +6156,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -6621,7 +6176,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio220{    ///<I/O configuration for port PIO2
@@ -6642,7 +6196,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6652,7 +6205,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6664,7 +6216,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6674,7 +6225,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -6689,7 +6239,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -6710,7 +6259,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio221{    ///<I/O configuration for port PIO2
@@ -6731,7 +6279,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6741,7 +6288,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6753,7 +6299,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6763,7 +6308,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -6778,7 +6322,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -6799,7 +6342,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio222{    ///<I/O configuration for port PIO2
@@ -6820,7 +6362,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6830,7 +6371,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6842,7 +6382,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6852,7 +6391,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -6867,7 +6405,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -6888,7 +6425,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
     namespace Nonepio223{    ///<I/O configuration for port PIO2
@@ -6909,7 +6445,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
-        }
         ///Hysteresis.
         enum class HysVal {
             disable=0x00000000,     ///<Disable.
@@ -6919,7 +6454,6 @@ namespace Kvasir {
         namespace HysValC{
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
-        }
         }
         ///Invert input
         enum class InvVal {
@@ -6931,7 +6465,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
-        }
         ///Open-drain mode.
         enum class OdVal {
             disable=0x00000000,     ///<Disable.
@@ -6941,7 +6474,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::enabled> enabled{};
-        }
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -6956,7 +6488,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycle> v1ClockCycle{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
-        }
         }
         ///Select peripheral clock divider for input filter sampling clock IOCONCLKDIV. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -6977,7 +6508,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv4> ioconclkdiv4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv5> ioconclkdiv5{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::ioconclkdiv6> ioconclkdiv6{};
-        }
         }
     }
 }

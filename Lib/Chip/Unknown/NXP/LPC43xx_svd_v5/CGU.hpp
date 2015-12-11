@@ -18,7 +18,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(meas)::Type,MeasVal::rcntAndFcntDisabl> rcntAndFcntDisabl{};
             constexpr Register::FieldValue<decltype(meas)::Type,MeasVal::frequencyCountersS> frequencyCountersS{};
         }
-        }
         ///Clock-source selection for the clock to be measured. All other values are reserved.
         enum class ClkselVal {
             v32KhzOscillatorD=0x00000000,     ///<32 kHz oscillator (default)
@@ -53,7 +52,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
-        }
     }
     namespace NonextalOscCtrl{    ///<Crystal oscillator control register
         using Addr = Register::Address<0x40050018,0xfffffff8,0,unsigned>;
@@ -67,7 +65,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enable> enable{};
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::powerDownDefault> powerDownDefault{};
         }
-        }
         ///Configure crystal operation or external-clock input pin XTAL1. Do not change the BYPASS and ENABLE bits in one write-action: this will result in unstable device operation!
         enum class BypassVal {
             operationWithCryst=0x00000000,     ///<Operation with crystal connected (default).
@@ -78,7 +75,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bypass)::Type,BypassVal::operationWithCryst> operationWithCryst{};
             constexpr Register::FieldValue<decltype(bypass)::Type,BypassVal::bypassModeUseThi> bypassModeUseThi{};
         }
-        }
         ///Select frequency range
         enum class HfVal {
             oscillatorLowFrequ=0x00000000,     ///<Oscillator low-frequency mode (crystal or external clock source 1 to 20 MHz). Between 15 MHz to 20 MHz, the state of the HF bit is don't care.
@@ -88,7 +84,6 @@ namespace Kvasir {
         namespace HfValC{
             constexpr Register::FieldValue<decltype(hf)::Type,HfVal::oscillatorLowFrequ> oscillatorLowFrequ{};
             constexpr Register::FieldValue<decltype(hf)::Type,HfVal::oscillatorHighFreq> oscillatorHighFreq{};
-        }
         }
     }
     namespace Nonepll0usbStat{    ///<PLL0 (USB) status register
@@ -110,7 +105,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::pll0Enabled> pll0Enabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::pll0PoweredDown> pll0PoweredDown{};
         }
-        }
         ///Input clock bypass control
         enum class BypassVal {
             ccoClockSentToPo=0x00000000,     ///<CCO clock sent to post-dividers. Use this in normal operation.
@@ -120,7 +114,6 @@ namespace Kvasir {
         namespace BypassValC{
             constexpr Register::FieldValue<decltype(bypass)::Type,BypassVal::ccoClockSentToPo> ccoClockSentToPo{};
             constexpr Register::FieldValue<decltype(bypass)::Type,BypassVal::pll0InputClockSen> pll0InputClockSen{};
-        }
         }
         ///PLL0 direct input
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> directi{}; 
@@ -139,7 +132,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
@@ -170,7 +162,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivc> idivc{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
-        }
         }
     }
     namespace Nonepll0usbMdiv{    ///<PLL0 (USB) M-divider register
@@ -210,7 +201,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::pll0Enabled> pll0Enabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::pll0PoweredDown> pll0PoweredDown{};
         }
-        }
         ///Input clock bypass control
         enum class BypassVal {
             ccoClockSentToPo=0x00000000,     ///<CCO clock sent to post-dividers. Use this in normal operation.
@@ -220,7 +210,6 @@ namespace Kvasir {
         namespace BypassValC{
             constexpr Register::FieldValue<decltype(bypass)::Type,BypassVal::ccoClockSentToPo> ccoClockSentToPo{};
             constexpr Register::FieldValue<decltype(bypass)::Type,BypassVal::pll0InputClockSen> pll0InputClockSen{};
-        }
         }
         ///PLL0 direct input
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> directi{}; 
@@ -240,7 +229,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
         }
-        }
         ///Fractional PLL word write request
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> pllfraqReq{}; 
         ///SD modulator bypass
@@ -254,7 +242,6 @@ namespace Kvasir {
         namespace ModpdValC{
             constexpr Register::FieldValue<decltype(modPd)::Type,ModpdVal::sdModulatorEnabled> sdModulatorEnabled{};
             constexpr Register::FieldValue<decltype(modPd)::Type,ModpdVal::sdModulatorPowered> sdModulatorPowered{};
-        }
         }
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
@@ -285,7 +272,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivc> idivc{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
-        }
         }
     }
     namespace Nonepll0audioMdiv{    ///<PLL0 (audio) M-divider register
@@ -322,7 +308,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::pll1Enabled> pll1Enabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::pll1PoweredDown> pll1PoweredDown{};
         }
-        }
         ///Input clock bypass control
         enum class BypassVal {
             ccoClockSentToPo=0x00000000,     ///<CCO clock sent to post-dividers. Use for normal operation.
@@ -332,7 +317,6 @@ namespace Kvasir {
         namespace BypassValC{
             constexpr Register::FieldValue<decltype(bypass)::Type,BypassVal::ccoClockSentToPo> ccoClockSentToPo{};
             constexpr Register::FieldValue<decltype(bypass)::Type,BypassVal::pll1InputClockSen> pll1InputClockSen{};
-        }
         }
         ///PLL feedback select (see Figure 88 "PLL1 block diagram").
         enum class FbselVal {
@@ -344,7 +328,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fbsel)::Type,FbselVal::ccoOutputIsUsedA> ccoOutputIsUsedA{};
             constexpr Register::FieldValue<decltype(fbsel)::Type,FbselVal::pllOutputClockCl> pllOutputClockCl{};
         }
-        }
         ///PLL direct CCO output
         enum class DirectVal {
             disabled=0x00000000,     ///<Disabled
@@ -354,7 +337,6 @@ namespace Kvasir {
         namespace DirectValC{
             constexpr Register::FieldValue<decltype(direct)::Type,DirectVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(direct)::Type,DirectVal::enabled> enabled{};
-        }
         }
         ///Post-divider division ratio. The value applied is 2xP.
         enum class PselVal {
@@ -370,7 +352,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psel)::Type,PselVal::v4> v4{};
             constexpr Register::FieldValue<decltype(psel)::Type,PselVal::v8> v8{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -380,7 +361,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Pre-divider division ratio
         enum class NselVal {
@@ -395,7 +375,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nsel)::Type,NselVal::v2> v2{};
             constexpr Register::FieldValue<decltype(nsel)::Type,NselVal::v3Default> v3Default{};
             constexpr Register::FieldValue<decltype(nsel)::Type,NselVal::v4> v4{};
-        }
         }
         ///Feedback-divider division ratio (M) 00000000 = 1 00000001 = 2  ... 11111111 = 256
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> msel{}; 
@@ -429,7 +408,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
-        }
     }
     namespace NoneidivaCtrl{    ///<Integer divider A control register
         using Addr = Register::Address<0x40050048,0xe0fff7f2,0,unsigned>;
@@ -442,7 +420,6 @@ namespace Kvasir {
         namespace PdValC{
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::idivaEnabledDefau> idivaEnabledDefau{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
-        }
         }
         ///Integer divider A divider values (1/(IDIV + 1))
         enum class IdivVal {
@@ -458,7 +435,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(idiv)::Type,IdivVal::v3> v3{};
             constexpr Register::FieldValue<decltype(idiv)::Type,IdivVal::v4> v4{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -468,7 +444,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
@@ -494,7 +469,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::pll0ForAudio> pll0ForAudio{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::pll1> pll1{};
         }
-        }
     }
     namespace NoneidivbCtrl{    ///<Integer divider B control register
         using Addr = Register::Address<0x4005004c,0xe0fff7c2,0,unsigned>;
@@ -508,7 +482,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::idivEnabledDefaul> idivEnabledDefaul{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Integer divider B, C, D divider values (1/(IDIV + 1)) 0000 = 1 (default) 0001 = 2  ... 1111 = 16
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,2),Register::ReadWriteAccess,unsigned> idiv{}; 
         ///Block clock automatically during frequency change
@@ -520,7 +493,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock-source selection. All other values are reserved.
         enum class ClkselVal {
@@ -545,7 +517,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::pll0ForAudio> pll0ForAudio{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::pll1> pll1{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idiva> idiva{};
-        }
         }
     }
     namespace NoneidivcCtrl{    ///<Integer divider C control register
@@ -560,7 +531,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::idivEnabledDefaul> idivEnabledDefaul{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Integer divider B, C, D divider values (1/(IDIV + 1)) 0000 = 1 (default) 0001 = 2  ... 1111 = 16
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,2),Register::ReadWriteAccess,unsigned> idiv{}; 
         ///Block clock automatically during frequency change
@@ -572,7 +542,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock-source selection. All other values are reserved.
         enum class ClkselVal {
@@ -597,7 +566,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::pll0audio> pll0audio{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::pll1> pll1{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idiva> idiva{};
-        }
         }
     }
     namespace NoneidivdCtrl{    ///<Integer divider D control register
@@ -612,7 +580,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::idivEnabledDefaul> idivEnabledDefaul{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Integer divider B, C, D divider values (1/(IDIV + 1)) 0000 = 1 (default) 0001 = 2  ... 1111 = 16
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,2),Register::ReadWriteAccess,unsigned> idiv{}; 
         ///Block clock automatically during frequency change
@@ -624,7 +591,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock-source selection. All other values are reserved.
         enum class ClkselVal {
@@ -650,7 +616,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::pll1> pll1{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idiva> idiva{};
         }
-        }
     }
     namespace NoneidiveCtrl{    ///<Integer divider E control register
         using Addr = Register::Address<0x40050058,0xe0fff402,0,unsigned>;
@@ -664,7 +629,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::idivEnabledDefaul> idivEnabledDefaul{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Integer divider E divider values (1/(IDIV + 1)) 00000000 = 1 (default) 00000001 = 2  ... 111111111 = 256
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,2),Register::ReadWriteAccess,unsigned> idiv{}; 
         ///Block clock automatically during frequency change
@@ -676,7 +640,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock-source selection. All other values are reserved.
         enum class ClkselVal {
@@ -702,7 +665,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::pll1> pll1{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idiva> idiva{};
         }
-        }
     }
     namespace NonebaseSafeClk{    ///<Output stage 0 control register for base clock BASE_SAFE_CLK
         using Addr = Register::Address<0x4005005c,0xe0fff7fe,0,unsigned>;
@@ -716,7 +678,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -726,7 +687,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock source selection. All other values are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> clkSel{}; 
@@ -743,7 +703,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -753,7 +712,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock-source selection.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> clkSel{}; 
@@ -770,7 +728,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -780,7 +737,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
@@ -813,7 +769,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivc> idivc{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
-        }
         }
     }
     namespace NonebaseUsb1Clk{    ///<Output stage 3 control register for base clock BASE_USB1_CLK
@@ -828,7 +783,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -838,7 +792,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
@@ -873,7 +826,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivc> idivc{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
-        }
         }
     }
     namespace NonebaseM4Clk{    ///<Output stage BASE_M4_CLK control register
@@ -888,7 +840,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -898,7 +849,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
@@ -931,7 +881,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivc> idivc{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
-        }
         }
     }
     namespace NonebaseSpifiClk{    ///<Output stage BASE_SPIFI_CLK control register
@@ -946,7 +895,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -956,7 +904,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
@@ -989,7 +936,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivc> idivc{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
-        }
         }
     }
     namespace NonebaseSpiClk{    ///<Output stage BASE_SPI_CLK control register
@@ -1004,7 +950,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1014,7 +959,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
@@ -1047,7 +991,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivc> idivc{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
-        }
         }
     }
     namespace NonebasePhyRxClk{    ///<Output stage BASE_PHY_RX_CLK control register
@@ -1062,7 +1005,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1072,7 +1014,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
@@ -1105,7 +1046,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivc> idivc{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
-        }
         }
     }
     namespace NonebasePhyTxClk{    ///<Output stage BASE_PHY_TX_CLK control register
@@ -1120,7 +1060,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1130,7 +1069,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
@@ -1163,7 +1101,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivc> idivc{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
-        }
         }
     }
     namespace NonebaseApb1Clk{    ///<Output stage BASE_APB1_CLK control register
@@ -1178,7 +1115,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1188,7 +1124,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
@@ -1221,7 +1156,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivc> idivc{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
-        }
         }
     }
     namespace NonebaseApb3Clk{    ///<Output stage BASE_APB3_CLK control register
@@ -1236,7 +1170,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1246,7 +1179,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
@@ -1279,7 +1211,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivc> idivc{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
-        }
         }
     }
     namespace NonebaseLcdClk{    ///<Output stage BASE_LCD_CLK control register
@@ -1294,7 +1225,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1304,7 +1234,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
@@ -1337,7 +1266,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivc> idivc{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
-        }
         }
     }
     namespace NonebaseSdioClk{    ///<Output stage BASE_SDIO_CLK control register
@@ -1352,7 +1280,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1362,7 +1289,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
@@ -1395,7 +1321,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivc> idivc{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
-        }
         }
     }
     namespace NonebaseSsp0Clk{    ///<Output stage BASE_SSP0_CLK control register
@@ -1410,7 +1335,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1420,7 +1344,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
@@ -1453,7 +1376,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivc> idivc{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
-        }
         }
     }
     namespace NonebaseSsp1Clk{    ///<Output stage BASE_SSP1_CLK control register
@@ -1468,7 +1390,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1478,7 +1399,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
@@ -1511,7 +1431,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivc> idivc{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
-        }
         }
     }
     namespace NonebaseUart0Clk{    ///<Output stage BASE_UART0_CLK control register
@@ -1526,7 +1445,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1536,7 +1454,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
@@ -1569,7 +1486,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivc> idivc{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
-        }
         }
     }
     namespace NonebaseUart1Clk{    ///<Output stage BASE_UART1_CLK control register
@@ -1584,7 +1500,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1594,7 +1509,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
@@ -1627,7 +1541,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivc> idivc{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
-        }
         }
     }
     namespace NonebaseUart2Clk{    ///<Output stage BASE_UART2_CLK control register
@@ -1642,7 +1555,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1652,7 +1564,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
@@ -1685,7 +1596,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivc> idivc{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
-        }
         }
     }
     namespace NonebaseUart3Clk{    ///<Output stage BASE_UART3_CLK control register
@@ -1700,7 +1610,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1710,7 +1619,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock source selection. All other values are reserved.
         enum class ClkselVal {
@@ -1744,7 +1652,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
-        }
     }
     namespace NonebaseOutClk{    ///<Output stage 20 control register for base clock BASE_OUT_CLK
         using Addr = Register::Address<0x400500ac,0xe0fff7fe,0,unsigned>;
@@ -1758,7 +1665,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1768,7 +1674,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock-source selection.
         enum class ClkselVal {
@@ -1804,7 +1709,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
         }
-        }
     }
     namespace NonebaseApllClk{    ///<Output stage 25 control register for base clock BASE_APLL_CLK
         using Addr = Register::Address<0x400500c0,0xe0fff7fe,0,unsigned>;
@@ -1818,7 +1722,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1828,7 +1731,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock-source selection.
         enum class ClkselVal {
@@ -1861,7 +1763,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivc> idivc{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
-        }
         }
     }
     namespace NonebaseCguOut0Clk{    ///<Output stage 25 control register for base clock BASE_CGU_OUT0_CLK
@@ -1876,7 +1777,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1886,7 +1786,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock-source selection.
         enum class ClkselVal {
@@ -1919,7 +1818,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivc> idivc{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
-        }
         }
     }
     namespace NonebaseCguOut1Clk{    ///<Output stage 25 control register for base clock BASE_CGU_OUT1_CLK
@@ -1934,7 +1832,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::outputStageEnabled> outputStageEnabled{};
             constexpr Register::FieldValue<decltype(pd)::Type,PdVal::powerDown> powerDown{};
         }
-        }
         ///Block clock automatically during frequency change
         enum class AutoblockVal {
             autoblockingDisable=0x00000000,     ///<Autoblocking disabled
@@ -1944,7 +1841,6 @@ namespace Kvasir {
         namespace AutoblockValC{
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingDisable> autoblockingDisable{};
             constexpr Register::FieldValue<decltype(autoblock)::Type,AutoblockVal::autoblockingEnabled> autoblockingEnabled{};
-        }
         }
         ///Clock-source selection.
         enum class ClkselVal {
@@ -1977,7 +1873,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivc> idivc{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idivd> idivd{};
             constexpr Register::FieldValue<decltype(clkSel)::Type,ClkselVal::idive> idive{};
-        }
         }
     }
 }

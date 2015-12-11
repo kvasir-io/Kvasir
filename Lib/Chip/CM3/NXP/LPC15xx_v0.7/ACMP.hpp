@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(roscctl)::Type,RoscctlVal::acmp1Acmp0> acmp1Acmp0{};
             constexpr Register::FieldValue<decltype(roscctl)::Type,RoscctlVal::acmp0Acmp1> acmp0Acmp1{};
         }
-        }
         ///Selects the reset source for the ROSC output.
         enum class ExtresetVal {
             internal=0x00000000,     ///<Internal. The ROSC output is reset by the internal chip reset.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace ExtresetValC{
             constexpr Register::FieldValue<decltype(extReset)::Type,ExtresetVal::internal> internal{};
             constexpr Register::FieldValue<decltype(extReset)::Type,ExtresetVal::fromPinRoscReset> fromPinRoscReset{};
-        }
         }
     }
     namespace Nonecmp0{    ///<Comparator 0 source control
@@ -39,7 +37,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(en)::Type,EnVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(en)::Type,EnVal::enabled> enabled{};
         }
-        }
         ///Interrupt enable.
         enum class IntenVal {
             disabled=0x00000000,     ///<Disabled. Interrupts are disabled..
@@ -49,7 +46,6 @@ namespace Kvasir {
         namespace IntenValC{
             constexpr Register::FieldValue<decltype(inten)::Type,IntenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(inten)::Type,IntenVal::enabled> enabled{};
-        }
         }
         ///Comparator status. This bit reflects the comparator output
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> stat{}; 
@@ -75,7 +71,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vm)::Type,VmVal::tempSensor> tempSensor{};
             constexpr Register::FieldValue<decltype(vm)::Type,VmVal::adc02> adc02{};
         }
-        }
         ///VP input select.
         enum class VpVal {
             vrefDivider0=0x00000000,     ///<Vref divider 0.
@@ -98,7 +93,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vp)::Type,VpVal::tempSensor> tempSensor{};
             constexpr Register::FieldValue<decltype(vp)::Type,VpVal::adc02> adc02{};
         }
-        }
         ///Hysteresis control. When enabled, hysteresis determines the difference required between the comparator inputs before the comparator output switches. The difference must be in the direction opposite of the current comparator output.
         enum class HysVal {
             hysteresisIsTurned=0x00000000,     ///<Hysteresis is turned off, comparator output will change as the input voltages cross.
@@ -113,7 +107,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::hysteresisEq10Mv> hysteresisEq10Mv{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::hysteresisEq15Mv> hysteresisEq15Mv{};
         }
-        }
         ///Selects the polarity of the CMP output for purposes of generating level interrupts.
         enum class IntpolVal {
             notInverted=0x00000000,     ///<Not inverted. The output is used as-is for generating interrupts.
@@ -124,7 +117,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intpol)::Type,IntpolVal::notInverted> notInverted{};
             constexpr Register::FieldValue<decltype(intpol)::Type,IntpolVal::inverted> inverted{};
         }
-        }
         ///Select interrupt type.
         enum class InttypeVal {
             edge=0x00000000,     ///<Edge. Comparator interrupt is edge triggered.
@@ -134,7 +126,6 @@ namespace Kvasir {
         namespace InttypeValC{
             constexpr Register::FieldValue<decltype(inttype)::Type,InttypeVal::edge> edge{};
             constexpr Register::FieldValue<decltype(inttype)::Type,InttypeVal::level> level{};
-        }
         }
         ///Select edge triggered interrupt to be active on either high or low transitions, when INTTYPE = 0.
         enum class IntedgeVal {
@@ -148,7 +139,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intedge)::Type,IntedgeVal::rising> rising{};
             constexpr Register::FieldValue<decltype(intedge)::Type,IntedgeVal::bothEdges> bothEdges{};
         }
-        }
         ///Interrupt flag.
         enum class IntflagVal {
             notPending=0x00000000,     ///<Not pending. The Comparator interrupt is not pending.
@@ -158,7 +148,6 @@ namespace Kvasir {
         namespace IntflagValC{
             constexpr Register::FieldValue<decltype(intflag)::Type,IntflagVal::notPending> notPending{};
             constexpr Register::FieldValue<decltype(intflag)::Type,IntflagVal::pending> pending{};
-        }
         }
         ///Voltage ladder enable for comparator 0.
         enum class VladenVal {
@@ -170,7 +159,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vladen)::Type,VladenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(vladen)::Type,VladenVal::enabled> enabled{};
         }
-        }
         ///Voltage reference select for comparator 0 voltage ladder.
         enum class VladrefVal {
             vrefCmpPin=0x00000000,     ///<VREF_CMP pin.
@@ -180,7 +168,6 @@ namespace Kvasir {
         namespace VladrefValC{
             constexpr Register::FieldValue<decltype(vladref)::Type,VladrefVal::vrefCmpPin> vrefCmpPin{};
             constexpr Register::FieldValue<decltype(vladref)::Type,VladrefVal::vddaPin> vddaPin{};
-        }
         }
         ///Voltage ladder value for comparator 0. The reference voltage Vref depends on the setting of VLADREF (either VDD(3V3) or voltage on pin VREF_CMP). 00000 = Vss. 00001 = 1 x Vref / 31. 00010 = 2 x Vref / 31. ... 11111 = Vref
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> vsel{}; 
@@ -199,7 +186,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(en)::Type,EnVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(en)::Type,EnVal::enabled> enabled{};
         }
-        }
         ///Interrupt enable.
         enum class IntenVal {
             disabled=0x00000000,     ///<Disabled. Interrupts are disabled..
@@ -209,7 +195,6 @@ namespace Kvasir {
         namespace IntenValC{
             constexpr Register::FieldValue<decltype(inten)::Type,IntenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(inten)::Type,IntenVal::enabled> enabled{};
-        }
         }
         ///Comparator status. This bit reflects the comparator output
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> stat{}; 
@@ -235,7 +220,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vm)::Type,VmVal::adc01> adc01{};
             constexpr Register::FieldValue<decltype(vm)::Type,VmVal::adc03> adc03{};
         }
-        }
         ///VP input select.
         enum class VpVal {
             vrefDivider1=0x00000000,     ///<Vref divider 1.
@@ -258,7 +242,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vp)::Type,VpVal::adc01> adc01{};
             constexpr Register::FieldValue<decltype(vp)::Type,VpVal::adc03> adc03{};
         }
-        }
         ///Hysteresis control. When enabled, hysteresis determines the difference required between the comparator inputs before the comparator output switches. The difference must be in the direction opposite of the current comparator output.
         enum class HysVal {
             hysteresisIsTurned=0x00000000,     ///<Hysteresis is turned off, comparator output will change as the input voltages cross.
@@ -273,7 +256,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::hysteresisEq10Mv> hysteresisEq10Mv{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::hysteresisEq15Mv> hysteresisEq15Mv{};
         }
-        }
         ///Selects the polarity of the CMP output for purposes of generating level interrupts.
         enum class IntpolVal {
             notInverted=0x00000000,     ///<Not inverted. The output is used as-is for generating interrupts.
@@ -284,7 +266,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intpol)::Type,IntpolVal::notInverted> notInverted{};
             constexpr Register::FieldValue<decltype(intpol)::Type,IntpolVal::inverted> inverted{};
         }
-        }
         ///Select interrupt type.
         enum class InttypeVal {
             edge=0x00000000,     ///<Edge. Comparator interrupt is edge triggered.
@@ -294,7 +275,6 @@ namespace Kvasir {
         namespace InttypeValC{
             constexpr Register::FieldValue<decltype(inttype)::Type,InttypeVal::edge> edge{};
             constexpr Register::FieldValue<decltype(inttype)::Type,InttypeVal::level> level{};
-        }
         }
         ///Select edge triggered interrupt to be active on either high or low transitions, when INTTYPE = 0.
         enum class IntedgeVal {
@@ -308,7 +288,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intedge)::Type,IntedgeVal::rising> rising{};
             constexpr Register::FieldValue<decltype(intedge)::Type,IntedgeVal::bothEdges> bothEdges{};
         }
-        }
         ///Interrupt flag.
         enum class IntflagVal {
             notPending=0x00000000,     ///<Not pending. The Comparator interrupt is not pending.
@@ -318,7 +297,6 @@ namespace Kvasir {
         namespace IntflagValC{
             constexpr Register::FieldValue<decltype(intflag)::Type,IntflagVal::notPending> notPending{};
             constexpr Register::FieldValue<decltype(intflag)::Type,IntflagVal::pending> pending{};
-        }
         }
         ///Voltage ladder enable for comparator 1.
         enum class VladenVal {
@@ -330,7 +308,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vladen)::Type,VladenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(vladen)::Type,VladenVal::enabled> enabled{};
         }
-        }
         ///Voltage reference select for comparator 1 voltage ladder.
         enum class VladrefVal {
             vrefCmpPin=0x00000000,     ///<VREF_CMP pin.
@@ -340,7 +317,6 @@ namespace Kvasir {
         namespace VladrefValC{
             constexpr Register::FieldValue<decltype(vladref)::Type,VladrefVal::vrefCmpPin> vrefCmpPin{};
             constexpr Register::FieldValue<decltype(vladref)::Type,VladrefVal::vddaPin> vddaPin{};
-        }
         }
         ///Voltage ladder value for comparator 1. The reference voltage Vref depends on the setting of VLADREF (either VDD(3V3) or voltage on pin VREF_CMP). 00000 = Vss. 00001 = 1 x Vref / 31. 00010 = 2 x Vref / 31. ... 11111 = Vref
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> vsel{}; 
@@ -359,7 +335,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(en)::Type,EnVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(en)::Type,EnVal::enabled> enabled{};
         }
-        }
         ///Interrupt enable.
         enum class IntenVal {
             disabled=0x00000000,     ///<Disabled. Interrupts are disabled..
@@ -369,7 +344,6 @@ namespace Kvasir {
         namespace IntenValC{
             constexpr Register::FieldValue<decltype(inten)::Type,IntenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(inten)::Type,IntenVal::enabled> enabled{};
-        }
         }
         ///Comparator status. This bit reflects the comparator output
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> stat{}; 
@@ -395,7 +369,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vm)::Type,VmVal::adc00> adc00{};
             constexpr Register::FieldValue<decltype(vm)::Type,VmVal::adc12> adc12{};
         }
-        }
         ///VP input select.
         enum class VpVal {
             vrefDivider2=0x00000000,     ///<Vref divider 2.
@@ -418,7 +391,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vp)::Type,VpVal::adc00> adc00{};
             constexpr Register::FieldValue<decltype(vp)::Type,VpVal::adc12> adc12{};
         }
-        }
         ///Hysteresis control. When enabled, hysteresis determines the difference required between the comparator inputs before the comparator output switches. The difference must be in the direction opposite of the current comparator output.
         enum class HysVal {
             hysteresisIsTurned=0x00000000,     ///<Hysteresis is turned off, comparator output will change as the input voltages cross.
@@ -433,7 +405,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::hysteresisEq10Mv> hysteresisEq10Mv{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::hysteresisEq15Mv> hysteresisEq15Mv{};
         }
-        }
         ///Selects the polarity of the CMP output for purposes of generating level interrupts.
         enum class IntpolVal {
             notInverted=0x00000000,     ///<Not inverted. The output is used as-is for generating interrupts.
@@ -444,7 +415,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intpol)::Type,IntpolVal::notInverted> notInverted{};
             constexpr Register::FieldValue<decltype(intpol)::Type,IntpolVal::inverted> inverted{};
         }
-        }
         ///Select interrupt type.
         enum class InttypeVal {
             edge=0x00000000,     ///<Edge. Comparator interrupt is edge triggered.
@@ -454,7 +424,6 @@ namespace Kvasir {
         namespace InttypeValC{
             constexpr Register::FieldValue<decltype(inttype)::Type,InttypeVal::edge> edge{};
             constexpr Register::FieldValue<decltype(inttype)::Type,InttypeVal::level> level{};
-        }
         }
         ///Select edge triggered interrupt to be active on either high or low transitions, when INTTYPE = 0.
         enum class IntedgeVal {
@@ -468,7 +437,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intedge)::Type,IntedgeVal::rising> rising{};
             constexpr Register::FieldValue<decltype(intedge)::Type,IntedgeVal::bothEdges> bothEdges{};
         }
-        }
         ///Interrupt flag.
         enum class IntflagVal {
             notPending=0x00000000,     ///<Not pending. The Comparator interrupt is not pending.
@@ -478,7 +446,6 @@ namespace Kvasir {
         namespace IntflagValC{
             constexpr Register::FieldValue<decltype(intflag)::Type,IntflagVal::notPending> notPending{};
             constexpr Register::FieldValue<decltype(intflag)::Type,IntflagVal::pending> pending{};
-        }
         }
         ///Voltage ladder enable for comparator 2.
         enum class VladenVal {
@@ -490,7 +457,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vladen)::Type,VladenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(vladen)::Type,VladenVal::enabled> enabled{};
         }
-        }
         ///Voltage reference select for comparator 2 voltage ladder.
         enum class VladrefVal {
             vrefCmpPin=0x00000000,     ///<VREF_CMP pin.
@@ -500,7 +466,6 @@ namespace Kvasir {
         namespace VladrefValC{
             constexpr Register::FieldValue<decltype(vladref)::Type,VladrefVal::vrefCmpPin> vrefCmpPin{};
             constexpr Register::FieldValue<decltype(vladref)::Type,VladrefVal::vddaPin> vddaPin{};
-        }
         }
         ///Voltage ladder value for comparator 2. The reference voltage Vref depends on the setting of VLADREF (either VDD(3V3) or voltage on pin VREF_CMP). 00000 = Vss. 00001 = 1 x Vref / 31. 00010 = 2 x Vref / 31. ... 11111 = Vref
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> vsel{}; 
@@ -519,7 +484,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(en)::Type,EnVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(en)::Type,EnVal::enabled> enabled{};
         }
-        }
         ///Interrupt enable.
         enum class IntenVal {
             disabled=0x00000000,     ///<Disabled. Interrupts are disabled..
@@ -529,7 +493,6 @@ namespace Kvasir {
         namespace IntenValC{
             constexpr Register::FieldValue<decltype(inten)::Type,IntenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(inten)::Type,IntenVal::enabled> enabled{};
-        }
         }
         ///Comparator status. This bit reflects the comparator output
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> stat{}; 
@@ -555,7 +518,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vm)::Type,VmVal::adc11> adc11{};
             constexpr Register::FieldValue<decltype(vm)::Type,VmVal::adc13> adc13{};
         }
-        }
         ///VP input select.
         enum class VpVal {
             vrefDivider3=0x00000000,     ///<Vref divider 3.
@@ -578,7 +540,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vp)::Type,VpVal::adc11> adc11{};
             constexpr Register::FieldValue<decltype(vp)::Type,VpVal::adc13> adc13{};
         }
-        }
         ///Hysteresis control. When enabled, hysteresis determines the difference required between the comparator inputs before the comparator output switches. The difference must be in the direction opposite of the current comparator output.
         enum class HysVal {
             hysteresisIsTurned=0x00000000,     ///<Hysteresis is turned off, comparator output will change as the input voltages cross.
@@ -593,7 +554,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::hysteresisEq10Mv> hysteresisEq10Mv{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::hysteresisEq15Mv> hysteresisEq15Mv{};
         }
-        }
         ///Selects the polarity of the CMP output for purposes of generating level interrupts.
         enum class IntpolVal {
             notInverted=0x00000000,     ///<Not inverted. The output is used as-is for generating interrupts.
@@ -604,7 +564,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intpol)::Type,IntpolVal::notInverted> notInverted{};
             constexpr Register::FieldValue<decltype(intpol)::Type,IntpolVal::inverted> inverted{};
         }
-        }
         ///Select interrupt type.
         enum class InttypeVal {
             edge=0x00000000,     ///<Edge. Comparator interrupt is edge triggered.
@@ -614,7 +573,6 @@ namespace Kvasir {
         namespace InttypeValC{
             constexpr Register::FieldValue<decltype(inttype)::Type,InttypeVal::edge> edge{};
             constexpr Register::FieldValue<decltype(inttype)::Type,InttypeVal::level> level{};
-        }
         }
         ///Select edge triggered interrupt to be active on either high or low transitions, when INTTYPE = 0.
         enum class IntedgeVal {
@@ -628,7 +586,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intedge)::Type,IntedgeVal::rising> rising{};
             constexpr Register::FieldValue<decltype(intedge)::Type,IntedgeVal::bothEdges> bothEdges{};
         }
-        }
         ///Interrupt flag.
         enum class IntflagVal {
             notPending=0x00000000,     ///<Not pending. The Comparator interrupt is not pending.
@@ -638,7 +595,6 @@ namespace Kvasir {
         namespace IntflagValC{
             constexpr Register::FieldValue<decltype(intflag)::Type,IntflagVal::notPending> notPending{};
             constexpr Register::FieldValue<decltype(intflag)::Type,IntflagVal::pending> pending{};
-        }
         }
         ///Voltage ladder enable for comparator 3.
         enum class VladenVal {
@@ -650,7 +606,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vladen)::Type,VladenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(vladen)::Type,VladenVal::enabled> enabled{};
         }
-        }
         ///Voltage reference select for comparator 3 voltage ladder.
         enum class VladrefVal {
             vrefCmpPin=0x00000000,     ///<VREF_CMP pin.
@@ -660,7 +615,6 @@ namespace Kvasir {
         namespace VladrefValC{
             constexpr Register::FieldValue<decltype(vladref)::Type,VladrefVal::vrefCmpPin> vrefCmpPin{};
             constexpr Register::FieldValue<decltype(vladref)::Type,VladrefVal::vddaPin> vddaPin{};
-        }
         }
         ///Voltage ladder value for comparator 3. The reference voltage Vref depends on the setting of VLADREF (either VDD(3V3) or voltage on pin VREF_CMP). 00000 = Vss. 00001 = 1 x Vref / 31. 00010 = 2 x Vref / 31. ... 11111 = Vref
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> vsel{}; 
@@ -683,7 +637,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
         }
-        }
         ///Select clock divider for comparator clock CMP_PCLK.
         enum class ClkdivVal {
             cmpPclk=0x00000000,     ///<CMP_PCLK.
@@ -703,7 +656,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::cmpPclkdiv16> cmpPclkdiv16{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::cmpPclkdiv32> cmpPclkdiv32{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::cmpPclkdiv64> cmpPclkdiv64{};
-        }
         }
     }
     namespace Nonecmpfiltr1{    ///<Comparator 0 pin filter set-up
@@ -722,7 +674,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
         }
-        }
         ///Select clock divider for comparator clock CMP_PCLK.
         enum class ClkdivVal {
             cmpPclk=0x00000000,     ///<CMP_PCLK.
@@ -742,7 +693,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::cmpPclkdiv16> cmpPclkdiv16{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::cmpPclkdiv32> cmpPclkdiv32{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::cmpPclkdiv64> cmpPclkdiv64{};
-        }
         }
     }
     namespace Nonecmpfiltr2{    ///<Comparator 0 pin filter set-up
@@ -761,7 +711,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
         }
-        }
         ///Select clock divider for comparator clock CMP_PCLK.
         enum class ClkdivVal {
             cmpPclk=0x00000000,     ///<CMP_PCLK.
@@ -781,7 +730,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::cmpPclkdiv16> cmpPclkdiv16{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::cmpPclkdiv32> cmpPclkdiv32{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::cmpPclkdiv64> cmpPclkdiv64{};
-        }
         }
     }
     namespace Nonecmpfiltr3{    ///<Comparator 0 pin filter set-up
@@ -800,7 +748,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCycles> v2ClockCycles{};
             constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCycles> v3ClockCycles{};
         }
-        }
         ///Select clock divider for comparator clock CMP_PCLK.
         enum class ClkdivVal {
             cmpPclk=0x00000000,     ///<CMP_PCLK.
@@ -820,7 +767,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::cmpPclkdiv16> cmpPclkdiv16{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::cmpPclkdiv32> cmpPclkdiv32{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::cmpPclkdiv64> cmpPclkdiv64{};
-        }
         }
     }
 }

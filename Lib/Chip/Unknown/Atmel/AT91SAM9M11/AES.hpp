@@ -29,7 +29,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::autoStart> autoStart{};
             constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::idatar0Start> idatar0Start{};
         }
-        }
         ///Key Size
         enum class KeysizeVal {
             aes128=0x00000000,     ///<AES Key Size is 128 bits
@@ -41,7 +40,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(keysize)::Type,KeysizeVal::aes128> aes128{};
             constexpr Register::FieldValue<decltype(keysize)::Type,KeysizeVal::aes192> aes192{};
             constexpr Register::FieldValue<decltype(keysize)::Type,KeysizeVal::aes256> aes256{};
-        }
         }
         ///Operation Mode
         enum class OpmodVal {
@@ -58,7 +56,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(opmod)::Type,OpmodVal::ofb> ofb{};
             constexpr Register::FieldValue<decltype(opmod)::Type,OpmodVal::cfb> cfb{};
             constexpr Register::FieldValue<decltype(opmod)::Type,OpmodVal::ctr> ctr{};
-        }
         }
         ///Last Output Data Mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> lod{}; 
@@ -78,7 +75,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfbs)::Type,CfbsVal::size16bit> size16bit{};
             constexpr Register::FieldValue<decltype(cfbs)::Type,CfbsVal::size8bit> size8bit{};
         }
-        }
         ///Countermeasure Key
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> ckey{}; 
         ///CounterMeasure Type 1
@@ -91,7 +87,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmtyp1)::Type,Cmtyp1Val::noprotExtxkey> noprotExtxkey{};
             constexpr Register::FieldValue<decltype(cmtyp1)::Type,Cmtyp1Val::protExtkey> protExtkey{};
         }
-        }
         ///CounterMeasure Type 2
         enum class Cmtyp2Val {
             noPause=0x00000000,     ///<Counter-Measure type 2 is disabled
@@ -101,7 +96,6 @@ namespace Kvasir {
         namespace Cmtyp2ValC{
             constexpr Register::FieldValue<decltype(cmtyp2)::Type,Cmtyp2Val::noPause> noPause{};
             constexpr Register::FieldValue<decltype(cmtyp2)::Type,Cmtyp2Val::pause> pause{};
-        }
         }
         ///CounterMeasure Type 3
         enum class Cmtyp3Val {
@@ -113,7 +107,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmtyp3)::Type,Cmtyp3Val::noDummy> noDummy{};
             constexpr Register::FieldValue<decltype(cmtyp3)::Type,Cmtyp3Val::dummy> dummy{};
         }
-        }
         ///CounterMeasure Type 4
         enum class Cmtyp4Val {
             noRestart=0x00000000,     ///<Counter-Measure type 4 is disabled
@@ -124,7 +117,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmtyp4)::Type,Cmtyp4Val::noRestart> noRestart{};
             constexpr Register::FieldValue<decltype(cmtyp4)::Type,Cmtyp4Val::restart> restart{};
         }
-        }
         ///CounterMeasure Type 5
         enum class Cmtyp5Val {
             noAddaccess=0x00000000,     ///<Counter-Measure type 5 is disabled
@@ -134,7 +126,6 @@ namespace Kvasir {
         namespace Cmtyp5ValC{
             constexpr Register::FieldValue<decltype(cmtyp5)::Type,Cmtyp5Val::noAddaccess> noAddaccess{};
             constexpr Register::FieldValue<decltype(cmtyp5)::Type,Cmtyp5Val::addaccess> addaccess{};
-        }
         }
     }
     namespace AesIer{    ///<Interrupt Enable Register
@@ -181,7 +172,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(urat)::Type,UratVal::odrRdSubkgen> odrRdSubkgen{};
             constexpr Register::FieldValue<decltype(urat)::Type,UratVal::mrWrSubkgen> mrWrSubkgen{};
             constexpr Register::FieldValue<decltype(urat)::Type,UratVal::worRdAccess> worRdAccess{};
-        }
         }
     }
     namespace AesKeywr0{    ///<Key Word Register

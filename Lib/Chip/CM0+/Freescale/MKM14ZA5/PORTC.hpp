@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -25,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
         }
-        }
         ///Slew Rate Enable
         enum class SreVal {
             v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
@@ -35,7 +33,6 @@ namespace Kvasir {
         namespace SreValC{
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -59,7 +56,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
         }
-        }
         ///Lock Register
         enum class LkVal {
             v0=0x00000000,     ///<Pin Control Register fields [15:0] are not locked.
@@ -69,7 +65,6 @@ namespace Kvasir {
         namespace LkValC{
             constexpr Register::FieldValue<decltype(lk)::Type,LkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lk)::Type,LkVal::v1> v1{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -95,7 +90,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -105,7 +99,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortcPcr1{    ///<Pin Control Register n
@@ -120,7 +113,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -131,7 +123,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
         }
-        }
         ///Slew Rate Enable
         enum class SreVal {
             v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
@@ -141,7 +132,6 @@ namespace Kvasir {
         namespace SreValC{
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -165,7 +155,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
         }
-        }
         ///Lock Register
         enum class LkVal {
             v0=0x00000000,     ///<Pin Control Register fields [15:0] are not locked.
@@ -175,7 +164,6 @@ namespace Kvasir {
         namespace LkValC{
             constexpr Register::FieldValue<decltype(lk)::Type,LkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lk)::Type,LkVal::v1> v1{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -201,7 +189,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -211,7 +198,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortcPcr2{    ///<Pin Control Register n
@@ -226,7 +212,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -237,7 +222,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
         }
-        }
         ///Slew Rate Enable
         enum class SreVal {
             v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
@@ -247,7 +231,6 @@ namespace Kvasir {
         namespace SreValC{
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -271,7 +254,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
         }
-        }
         ///Lock Register
         enum class LkVal {
             v0=0x00000000,     ///<Pin Control Register fields [15:0] are not locked.
@@ -281,7 +263,6 @@ namespace Kvasir {
         namespace LkValC{
             constexpr Register::FieldValue<decltype(lk)::Type,LkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lk)::Type,LkVal::v1> v1{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -307,7 +288,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -317,7 +297,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortcPcr3{    ///<Pin Control Register n
@@ -332,7 +311,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -343,7 +321,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
         }
-        }
         ///Slew Rate Enable
         enum class SreVal {
             v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
@@ -353,7 +330,6 @@ namespace Kvasir {
         namespace SreValC{
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -377,7 +353,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
         }
-        }
         ///Lock Register
         enum class LkVal {
             v0=0x00000000,     ///<Pin Control Register fields [15:0] are not locked.
@@ -387,7 +362,6 @@ namespace Kvasir {
         namespace LkValC{
             constexpr Register::FieldValue<decltype(lk)::Type,LkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lk)::Type,LkVal::v1> v1{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -413,7 +387,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -423,7 +396,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortcPcr4{    ///<Pin Control Register n
@@ -438,7 +410,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -449,7 +420,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
         }
-        }
         ///Slew Rate Enable
         enum class SreVal {
             v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
@@ -459,7 +429,6 @@ namespace Kvasir {
         namespace SreValC{
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -483,7 +452,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
         }
-        }
         ///Lock Register
         enum class LkVal {
             v0=0x00000000,     ///<Pin Control Register fields [15:0] are not locked.
@@ -493,7 +461,6 @@ namespace Kvasir {
         namespace LkValC{
             constexpr Register::FieldValue<decltype(lk)::Type,LkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lk)::Type,LkVal::v1> v1{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -519,7 +486,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -529,7 +495,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortcPcr5{    ///<Pin Control Register n
@@ -544,7 +509,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -555,7 +519,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
         }
-        }
         ///Slew Rate Enable
         enum class SreVal {
             v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
@@ -565,7 +528,6 @@ namespace Kvasir {
         namespace SreValC{
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -589,7 +551,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
         }
-        }
         ///Lock Register
         enum class LkVal {
             v0=0x00000000,     ///<Pin Control Register fields [15:0] are not locked.
@@ -599,7 +560,6 @@ namespace Kvasir {
         namespace LkValC{
             constexpr Register::FieldValue<decltype(lk)::Type,LkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lk)::Type,LkVal::v1> v1{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -625,7 +585,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -635,7 +594,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortcPcr6{    ///<Pin Control Register n
@@ -650,7 +608,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -661,7 +618,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
         }
-        }
         ///Slew Rate Enable
         enum class SreVal {
             v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
@@ -671,7 +627,6 @@ namespace Kvasir {
         namespace SreValC{
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -695,7 +650,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
         }
-        }
         ///Lock Register
         enum class LkVal {
             v0=0x00000000,     ///<Pin Control Register fields [15:0] are not locked.
@@ -705,7 +659,6 @@ namespace Kvasir {
         namespace LkValC{
             constexpr Register::FieldValue<decltype(lk)::Type,LkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lk)::Type,LkVal::v1> v1{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -731,7 +684,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -741,7 +693,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortcPcr7{    ///<Pin Control Register n
@@ -756,7 +707,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -767,7 +717,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
         }
-        }
         ///Slew Rate Enable
         enum class SreVal {
             v0=0x00000000,     ///<Fast slew rate is configured on the corresponding pin, if the pin is configured as a digital output.
@@ -777,7 +726,6 @@ namespace Kvasir {
         namespace SreValC{
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -801,7 +749,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
         }
-        }
         ///Lock Register
         enum class LkVal {
             v0=0x00000000,     ///<Pin Control Register fields [15:0] are not locked.
@@ -811,7 +758,6 @@ namespace Kvasir {
         namespace LkValC{
             constexpr Register::FieldValue<decltype(lk)::Type,LkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lk)::Type,LkVal::v1> v1{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -837,7 +783,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -847,7 +792,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortcGpclr{    ///<Global Pin Control Low Register

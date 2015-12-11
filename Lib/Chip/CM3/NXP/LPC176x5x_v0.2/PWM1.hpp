@@ -35,7 +35,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::thePwmTimerCounte> thePwmTimerCounte{};
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::theCountersAreDis> theCountersAreDis{};
         }
-        }
         ///Counter Reset
         enum class CrVal {
             thePwmTimerCounte=0x00000001,     ///<The PWM Timer Counter and the PWM Prescale Counter are synchronously reset on the next positive edge of PCLK. The counters remain reset until this bit is returned to zero.
@@ -45,7 +44,6 @@ namespace Kvasir {
         namespace CrValC{
             constexpr Register::FieldValue<decltype(cr)::Type,CrVal::thePwmTimerCounte> thePwmTimerCounte{};
             constexpr Register::FieldValue<decltype(cr)::Type,CrVal::clearReset> clearReset{};
-        }
         }
         ///PWM Enable
         enum class PwmenVal {
@@ -57,7 +55,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmen)::Type,PwmenVal::pwmModeIsEnabled> pwmModeIsEnabled{};
             constexpr Register::FieldValue<decltype(pwmen)::Type,PwmenVal::timerModeIsEnable> timerModeIsEnable{};
         }
-        }
         ///Master Disable (PWM0 only). The two PWMs may be synchronized using the Master Disable control bit. The Master disable bit of the Master PWM (PWM0 module) controls a secondary enable input to both PWMs, as shown in Figure 141.  This bit has no function in the Slave PWM (PWM1).
         enum class MdisVal {
             masterUsePwm0Is=0x00000001,     ///<Master use. PWM0 is the master, and both PWMs are enabled for counting.
@@ -67,7 +64,6 @@ namespace Kvasir {
         namespace MdisValC{
             constexpr Register::FieldValue<decltype(mdis)::Type,MdisVal::masterUsePwm0Is> masterUsePwm0Is{};
             constexpr Register::FieldValue<decltype(mdis)::Type,MdisVal::individualUseThe> individualUseThe{};
-        }
         }
     }
     namespace Nonetc{    ///<Timer Counter. The 32 bit TC is incremented every PR+1 cycles of PCLK. The TC is controlled through the TCR.
@@ -97,7 +93,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmmr0i)::Type,Pwmmr0iVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pwmmr0i)::Type,Pwmmr0iVal::interruptOnPwmmr0> interruptOnPwmmr0{};
         }
-        }
         ///Reset PWM0
         enum class Pwmmr0rVal {
             disabled=0x00000000,     ///<Disabled.
@@ -107,7 +102,6 @@ namespace Kvasir {
         namespace Pwmmr0rValC{
             constexpr Register::FieldValue<decltype(pwmmr0r)::Type,Pwmmr0rVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pwmmr0r)::Type,Pwmmr0rVal::resetOnPwmmr0The> resetOnPwmmr0The{};
-        }
         }
         ///Stop PWM0
         enum class Pwmmr0sVal {
@@ -119,7 +113,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmmr0s)::Type,Pwmmr0sVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pwmmr0s)::Type,Pwmmr0sVal::stopOnPwmmr0The> stopOnPwmmr0The{};
         }
-        }
         ///Interrupt PWM1
         enum class Pwmmr1iVal {
             disabled=0x00000000,     ///<Disabled.
@@ -129,7 +122,6 @@ namespace Kvasir {
         namespace Pwmmr1iValC{
             constexpr Register::FieldValue<decltype(pwmmr1i)::Type,Pwmmr1iVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pwmmr1i)::Type,Pwmmr1iVal::interruptOnPwmmr1> interruptOnPwmmr1{};
-        }
         }
         ///Reset PWM1
         enum class Pwmmr1rVal {
@@ -141,7 +133,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmmr1r)::Type,Pwmmr1rVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pwmmr1r)::Type,Pwmmr1rVal::resetOnPwmmr1The> resetOnPwmmr1The{};
         }
-        }
         ///Stop PWM1
         enum class Pwmmr1sVal {
             disabled=0x00000000,     ///<Disabled
@@ -151,7 +142,6 @@ namespace Kvasir {
         namespace Pwmmr1sValC{
             constexpr Register::FieldValue<decltype(pwmmr1s)::Type,Pwmmr1sVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pwmmr1s)::Type,Pwmmr1sVal::stopOnPwmmr1The> stopOnPwmmr1The{};
-        }
         }
         ///Interrupt PWM0
         enum class Pwmmr2iVal {
@@ -163,7 +153,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmmr2i)::Type,Pwmmr2iVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pwmmr2i)::Type,Pwmmr2iVal::interruptOnPwmmr2> interruptOnPwmmr2{};
         }
-        }
         ///Reset PWM0
         enum class Pwmmr2rVal {
             disabled=0x00000000,     ///<Disabled.
@@ -173,7 +162,6 @@ namespace Kvasir {
         namespace Pwmmr2rValC{
             constexpr Register::FieldValue<decltype(pwmmr2r)::Type,Pwmmr2rVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pwmmr2r)::Type,Pwmmr2rVal::resetOnPwmmr2The> resetOnPwmmr2The{};
-        }
         }
         ///Stop PWM0
         enum class Pwmmr2sVal {
@@ -185,7 +173,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmmr2s)::Type,Pwmmr2sVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pwmmr2s)::Type,Pwmmr2sVal::stopOnPwmmr2The> stopOnPwmmr2The{};
         }
-        }
         ///Interrupt PWM3
         enum class Pwmmr3iVal {
             disabled=0x00000000,     ///<Disabled.
@@ -195,7 +182,6 @@ namespace Kvasir {
         namespace Pwmmr3iValC{
             constexpr Register::FieldValue<decltype(pwmmr3i)::Type,Pwmmr3iVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pwmmr3i)::Type,Pwmmr3iVal::interruptOnPwmmr3> interruptOnPwmmr3{};
-        }
         }
         ///Reset PWM3
         enum class Pwmmr3rVal {
@@ -207,7 +193,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmmr3r)::Type,Pwmmr3rVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pwmmr3r)::Type,Pwmmr3rVal::resetOnPwmmr3The> resetOnPwmmr3The{};
         }
-        }
         ///Stop PWM0
         enum class Pwmmr3sVal {
             disabled=0x00000000,     ///<Disabled
@@ -217,7 +202,6 @@ namespace Kvasir {
         namespace Pwmmr3sValC{
             constexpr Register::FieldValue<decltype(pwmmr3s)::Type,Pwmmr3sVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pwmmr3s)::Type,Pwmmr3sVal::stopOnPwmmr3The> stopOnPwmmr3The{};
-        }
         }
         ///Interrupt PWM4
         enum class Pwmmr4iVal {
@@ -229,7 +213,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmmr4i)::Type,Pwmmr4iVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pwmmr4i)::Type,Pwmmr4iVal::interruptOnPwmmr4> interruptOnPwmmr4{};
         }
-        }
         ///Reset PWM4
         enum class Pwmmr4rVal {
             disabled=0x00000000,     ///<Disabled.
@@ -239,7 +222,6 @@ namespace Kvasir {
         namespace Pwmmr4rValC{
             constexpr Register::FieldValue<decltype(pwmmr4r)::Type,Pwmmr4rVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pwmmr4r)::Type,Pwmmr4rVal::resetOnPwmmr4The> resetOnPwmmr4The{};
-        }
         }
         ///Stop PWM4
         enum class Pwmmr4sVal {
@@ -251,7 +233,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmmr4s)::Type,Pwmmr4sVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pwmmr4s)::Type,Pwmmr4sVal::stopOnPwmmr4The> stopOnPwmmr4The{};
         }
-        }
         ///Interrupt PWM5
         enum class Pwmmr5iVal {
             disabled=0x00000000,     ///<Disabled.
@@ -261,7 +242,6 @@ namespace Kvasir {
         namespace Pwmmr5iValC{
             constexpr Register::FieldValue<decltype(pwmmr5i)::Type,Pwmmr5iVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pwmmr5i)::Type,Pwmmr5iVal::interruptOnPwmmr5> interruptOnPwmmr5{};
-        }
         }
         ///Reset PWM5
         enum class Pwmmr5rVal {
@@ -273,7 +253,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmmr5r)::Type,Pwmmr5rVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pwmmr5r)::Type,Pwmmr5rVal::resetOnPwmmr5The> resetOnPwmmr5The{};
         }
-        }
         ///Stop PWM5
         enum class Pwmmr5sVal {
             disabled=0x00000000,     ///<Disabled
@@ -283,7 +262,6 @@ namespace Kvasir {
         namespace Pwmmr5sValC{
             constexpr Register::FieldValue<decltype(pwmmr5s)::Type,Pwmmr5sVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pwmmr5s)::Type,Pwmmr5sVal::stopOnPwmmr5The> stopOnPwmmr5The{};
-        }
         }
         ///Interrupt PWM6
         enum class Pwmmr6iVal {
@@ -295,7 +273,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmmr6i)::Type,Pwmmr6iVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pwmmr6i)::Type,Pwmmr6iVal::interruptOnPwmmr6> interruptOnPwmmr6{};
         }
-        }
         ///Reset PWM6
         enum class Pwmmr6rVal {
             disabled=0x00000000,     ///<Disabled.
@@ -306,7 +283,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmmr6r)::Type,Pwmmr6rVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pwmmr6r)::Type,Pwmmr6rVal::resetOnPwmmr6The> resetOnPwmmr6The{};
         }
-        }
         ///Stop PWM6
         enum class Pwmmr6sVal {
             disabled=0x00000000,     ///<Disabled
@@ -316,7 +292,6 @@ namespace Kvasir {
         namespace Pwmmr6sValC{
             constexpr Register::FieldValue<decltype(pwmmr6s)::Type,Pwmmr6sVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pwmmr6s)::Type,Pwmmr6sVal::stopOnPwmmr6The> stopOnPwmmr6The{};
-        }
         }
     }
     namespace Nonemr0{    ///<Match Register. Match registers
@@ -359,7 +334,6 @@ output edges.
             constexpr Register::FieldValue<decltype(cap0R)::Type,Cap0rVal::disabledThisFeatu> disabledThisFeatu{};
             constexpr Register::FieldValue<decltype(cap0R)::Type,Cap0rVal::risingEdgeASynch> risingEdgeASynch{};
         }
-        }
         ///Capture on PWMn_CAP0 falling edge
         enum class Cap0fVal {
             disabledThisFeatu=0x00000000,     ///<Disabled. This feature is disabled.
@@ -369,7 +343,6 @@ output edges.
         namespace Cap0fValC{
             constexpr Register::FieldValue<decltype(cap0F)::Type,Cap0fVal::disabledThisFeatu> disabledThisFeatu{};
             constexpr Register::FieldValue<decltype(cap0F)::Type,Cap0fVal::fallingEdgeASync> fallingEdgeASync{};
-        }
         }
         ///Interrupt on PWMn_CAP0 event
         enum class Cap0iVal {
@@ -381,7 +354,6 @@ output edges.
             constexpr Register::FieldValue<decltype(cap0I)::Type,Cap0iVal::disabledThisFeatu> disabledThisFeatu{};
             constexpr Register::FieldValue<decltype(cap0I)::Type,Cap0iVal::interruptACr0Loa> interruptACr0Loa{};
         }
-        }
         ///Capture on PWMn_CAP1 rising edge. Reserved for PWM0.
         enum class Cap1rVal {
             disabledThisFeatu=0x00000000,     ///<Disabled. This feature is disabled.
@@ -391,7 +363,6 @@ output edges.
         namespace Cap1rValC{
             constexpr Register::FieldValue<decltype(cap1R)::Type,Cap1rVal::disabledThisFeatu> disabledThisFeatu{};
             constexpr Register::FieldValue<decltype(cap1R)::Type,Cap1rVal::risingEdgeASynch> risingEdgeASynch{};
-        }
         }
         ///Capture on PWMn_CAP1 falling edge. Reserved for PWM0.
         enum class Cap1fVal {
@@ -403,7 +374,6 @@ output edges.
             constexpr Register::FieldValue<decltype(cap1F)::Type,Cap1fVal::disabledThisFeatu> disabledThisFeatu{};
             constexpr Register::FieldValue<decltype(cap1F)::Type,Cap1fVal::fallingEdgeASync> fallingEdgeASync{};
         }
-        }
         ///Interrupt on PWMn_CAP1 event. Reserved for PWM0.
         enum class Cap1iVal {
             disabledThisFeatu=0x00000000,     ///<Disabled. This feature is disabled.
@@ -413,7 +383,6 @@ output edges.
         namespace Cap1iValC{
             constexpr Register::FieldValue<decltype(cap1I)::Type,Cap1iVal::disabledThisFeatu> disabledThisFeatu{};
             constexpr Register::FieldValue<decltype(cap1I)::Type,Cap1iVal::interruptACr1Loa> interruptACr1Loa{};
-        }
         }
     }
     namespace Nonecr0{    ///<PWM Control Register. Enables PWM outputs and selects either single edge or double edge controlled PWM outputs.
@@ -428,7 +397,6 @@ output edges.
             constexpr Register::FieldValue<decltype(pwmsel2)::Type,Pwmsel2Val::singleEdgeControll> singleEdgeControll{};
             constexpr Register::FieldValue<decltype(pwmsel2)::Type,Pwmsel2Val::doubleEdgeControll> doubleEdgeControll{};
         }
-        }
         ///PWM[3] output edge control.
         enum class Pwmsel3Val {
             singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
@@ -438,7 +406,6 @@ output edges.
         namespace Pwmsel3ValC{
             constexpr Register::FieldValue<decltype(pwmsel3)::Type,Pwmsel3Val::singleEdgeControll> singleEdgeControll{};
             constexpr Register::FieldValue<decltype(pwmsel3)::Type,Pwmsel3Val::doubleEdgeControll> doubleEdgeControll{};
-        }
         }
         ///PWM[4] output edge control.
         enum class Pwmsel4Val {
@@ -450,7 +417,6 @@ output edges.
             constexpr Register::FieldValue<decltype(pwmsel4)::Type,Pwmsel4Val::singleEdgeControll> singleEdgeControll{};
             constexpr Register::FieldValue<decltype(pwmsel4)::Type,Pwmsel4Val::doubleEdgeControll> doubleEdgeControll{};
         }
-        }
         ///PWM[5] output edge control.
         enum class Pwmsel5Val {
             singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
@@ -460,7 +426,6 @@ output edges.
         namespace Pwmsel5ValC{
             constexpr Register::FieldValue<decltype(pwmsel5)::Type,Pwmsel5Val::singleEdgeControll> singleEdgeControll{};
             constexpr Register::FieldValue<decltype(pwmsel5)::Type,Pwmsel5Val::doubleEdgeControll> doubleEdgeControll{};
-        }
         }
         ///PWM[6] output edge control.
         enum class Pwmsel6Val {
@@ -472,7 +437,6 @@ output edges.
             constexpr Register::FieldValue<decltype(pwmsel6)::Type,Pwmsel6Val::singleEdgeControll> singleEdgeControll{};
             constexpr Register::FieldValue<decltype(pwmsel6)::Type,Pwmsel6Val::doubleEdgeControll> doubleEdgeControll{};
         }
-        }
         ///PWM[1] output enable control.
         enum class Pwmena1Val {
             thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
@@ -482,7 +446,6 @@ output edges.
         namespace Pwmena1ValC{
             constexpr Register::FieldValue<decltype(pwmena1)::Type,Pwmena1Val::thePwmOutputIsDi> thePwmOutputIsDi{};
             constexpr Register::FieldValue<decltype(pwmena1)::Type,Pwmena1Val::thePwmOutputIsEn> thePwmOutputIsEn{};
-        }
         }
         ///PWM[2] output enable control.
         enum class Pwmena2Val {
@@ -494,7 +457,6 @@ output edges.
             constexpr Register::FieldValue<decltype(pwmena2)::Type,Pwmena2Val::thePwmOutputIsDi> thePwmOutputIsDi{};
             constexpr Register::FieldValue<decltype(pwmena2)::Type,Pwmena2Val::thePwmOutputIsEn> thePwmOutputIsEn{};
         }
-        }
         ///PWM[3] output enable control.
         enum class Pwmena3Val {
             thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
@@ -504,7 +466,6 @@ output edges.
         namespace Pwmena3ValC{
             constexpr Register::FieldValue<decltype(pwmena3)::Type,Pwmena3Val::thePwmOutputIsDi> thePwmOutputIsDi{};
             constexpr Register::FieldValue<decltype(pwmena3)::Type,Pwmena3Val::thePwmOutputIsEn> thePwmOutputIsEn{};
-        }
         }
         ///PWM[4] output enable control.
         enum class Pwmena4Val {
@@ -516,7 +477,6 @@ output edges.
             constexpr Register::FieldValue<decltype(pwmena4)::Type,Pwmena4Val::thePwmOutputIsDi> thePwmOutputIsDi{};
             constexpr Register::FieldValue<decltype(pwmena4)::Type,Pwmena4Val::thePwmOutputIsEn> thePwmOutputIsEn{};
         }
-        }
         ///PWM[5] output enable control.
         enum class Pwmena5Val {
             thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
@@ -527,7 +487,6 @@ output edges.
             constexpr Register::FieldValue<decltype(pwmena5)::Type,Pwmena5Val::thePwmOutputIsDi> thePwmOutputIsDi{};
             constexpr Register::FieldValue<decltype(pwmena5)::Type,Pwmena5Val::thePwmOutputIsEn> thePwmOutputIsEn{};
         }
-        }
         ///PWM[6] output enable control. See PWMENA1 for details.
         enum class Pwmena6Val {
             thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
@@ -537,7 +496,6 @@ output edges.
         namespace Pwmena6ValC{
             constexpr Register::FieldValue<decltype(pwmena6)::Type,Pwmena6Val::thePwmOutputIsDi> thePwmOutputIsDi{};
             constexpr Register::FieldValue<decltype(pwmena6)::Type,Pwmena6Val::thePwmOutputIsEn> thePwmOutputIsEn{};
-        }
         }
     }
     namespace Nonecr1{    ///<PWM Control Register. Enables PWM outputs and selects either single edge or double edge controlled PWM outputs.
@@ -552,7 +510,6 @@ output edges.
             constexpr Register::FieldValue<decltype(pwmsel2)::Type,Pwmsel2Val::singleEdgeControll> singleEdgeControll{};
             constexpr Register::FieldValue<decltype(pwmsel2)::Type,Pwmsel2Val::doubleEdgeControll> doubleEdgeControll{};
         }
-        }
         ///PWM[3] output edge control.
         enum class Pwmsel3Val {
             singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
@@ -562,7 +519,6 @@ output edges.
         namespace Pwmsel3ValC{
             constexpr Register::FieldValue<decltype(pwmsel3)::Type,Pwmsel3Val::singleEdgeControll> singleEdgeControll{};
             constexpr Register::FieldValue<decltype(pwmsel3)::Type,Pwmsel3Val::doubleEdgeControll> doubleEdgeControll{};
-        }
         }
         ///PWM[4] output edge control.
         enum class Pwmsel4Val {
@@ -574,7 +530,6 @@ output edges.
             constexpr Register::FieldValue<decltype(pwmsel4)::Type,Pwmsel4Val::singleEdgeControll> singleEdgeControll{};
             constexpr Register::FieldValue<decltype(pwmsel4)::Type,Pwmsel4Val::doubleEdgeControll> doubleEdgeControll{};
         }
-        }
         ///PWM[5] output edge control.
         enum class Pwmsel5Val {
             singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
@@ -584,7 +539,6 @@ output edges.
         namespace Pwmsel5ValC{
             constexpr Register::FieldValue<decltype(pwmsel5)::Type,Pwmsel5Val::singleEdgeControll> singleEdgeControll{};
             constexpr Register::FieldValue<decltype(pwmsel5)::Type,Pwmsel5Val::doubleEdgeControll> doubleEdgeControll{};
-        }
         }
         ///PWM[6] output edge control.
         enum class Pwmsel6Val {
@@ -596,7 +550,6 @@ output edges.
             constexpr Register::FieldValue<decltype(pwmsel6)::Type,Pwmsel6Val::singleEdgeControll> singleEdgeControll{};
             constexpr Register::FieldValue<decltype(pwmsel6)::Type,Pwmsel6Val::doubleEdgeControll> doubleEdgeControll{};
         }
-        }
         ///PWM[1] output enable control.
         enum class Pwmena1Val {
             thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
@@ -606,7 +559,6 @@ output edges.
         namespace Pwmena1ValC{
             constexpr Register::FieldValue<decltype(pwmena1)::Type,Pwmena1Val::thePwmOutputIsDi> thePwmOutputIsDi{};
             constexpr Register::FieldValue<decltype(pwmena1)::Type,Pwmena1Val::thePwmOutputIsEn> thePwmOutputIsEn{};
-        }
         }
         ///PWM[2] output enable control.
         enum class Pwmena2Val {
@@ -618,7 +570,6 @@ output edges.
             constexpr Register::FieldValue<decltype(pwmena2)::Type,Pwmena2Val::thePwmOutputIsDi> thePwmOutputIsDi{};
             constexpr Register::FieldValue<decltype(pwmena2)::Type,Pwmena2Val::thePwmOutputIsEn> thePwmOutputIsEn{};
         }
-        }
         ///PWM[3] output enable control.
         enum class Pwmena3Val {
             thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
@@ -628,7 +579,6 @@ output edges.
         namespace Pwmena3ValC{
             constexpr Register::FieldValue<decltype(pwmena3)::Type,Pwmena3Val::thePwmOutputIsDi> thePwmOutputIsDi{};
             constexpr Register::FieldValue<decltype(pwmena3)::Type,Pwmena3Val::thePwmOutputIsEn> thePwmOutputIsEn{};
-        }
         }
         ///PWM[4] output enable control.
         enum class Pwmena4Val {
@@ -640,7 +590,6 @@ output edges.
             constexpr Register::FieldValue<decltype(pwmena4)::Type,Pwmena4Val::thePwmOutputIsDi> thePwmOutputIsDi{};
             constexpr Register::FieldValue<decltype(pwmena4)::Type,Pwmena4Val::thePwmOutputIsEn> thePwmOutputIsEn{};
         }
-        }
         ///PWM[5] output enable control.
         enum class Pwmena5Val {
             thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
@@ -651,7 +600,6 @@ output edges.
             constexpr Register::FieldValue<decltype(pwmena5)::Type,Pwmena5Val::thePwmOutputIsDi> thePwmOutputIsDi{};
             constexpr Register::FieldValue<decltype(pwmena5)::Type,Pwmena5Val::thePwmOutputIsEn> thePwmOutputIsEn{};
         }
-        }
         ///PWM[6] output enable control. See PWMENA1 for details.
         enum class Pwmena6Val {
             thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
@@ -661,7 +609,6 @@ output edges.
         namespace Pwmena6ValC{
             constexpr Register::FieldValue<decltype(pwmena6)::Type,Pwmena6Val::thePwmOutputIsDi> thePwmOutputIsDi{};
             constexpr Register::FieldValue<decltype(pwmena6)::Type,Pwmena6Val::thePwmOutputIsEn> thePwmOutputIsEn{};
-        }
         }
     }
     namespace Nonemr4{    ///<Match Register. Match registers
@@ -697,7 +644,6 @@ output edges.
             constexpr Register::FieldValue<decltype(pwmsel2)::Type,Pwmsel2Val::singleEdgeControll> singleEdgeControll{};
             constexpr Register::FieldValue<decltype(pwmsel2)::Type,Pwmsel2Val::doubleEdgeControll> doubleEdgeControll{};
         }
-        }
         ///PWM[3] output edge control.
         enum class Pwmsel3Val {
             singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
@@ -707,7 +653,6 @@ output edges.
         namespace Pwmsel3ValC{
             constexpr Register::FieldValue<decltype(pwmsel3)::Type,Pwmsel3Val::singleEdgeControll> singleEdgeControll{};
             constexpr Register::FieldValue<decltype(pwmsel3)::Type,Pwmsel3Val::doubleEdgeControll> doubleEdgeControll{};
-        }
         }
         ///PWM[4] output edge control.
         enum class Pwmsel4Val {
@@ -719,7 +664,6 @@ output edges.
             constexpr Register::FieldValue<decltype(pwmsel4)::Type,Pwmsel4Val::singleEdgeControll> singleEdgeControll{};
             constexpr Register::FieldValue<decltype(pwmsel4)::Type,Pwmsel4Val::doubleEdgeControll> doubleEdgeControll{};
         }
-        }
         ///PWM[5] output edge control.
         enum class Pwmsel5Val {
             singleEdgeControll=0x00000000,     ///<Single edge controlled mode is selected.
@@ -729,7 +673,6 @@ output edges.
         namespace Pwmsel5ValC{
             constexpr Register::FieldValue<decltype(pwmsel5)::Type,Pwmsel5Val::singleEdgeControll> singleEdgeControll{};
             constexpr Register::FieldValue<decltype(pwmsel5)::Type,Pwmsel5Val::doubleEdgeControll> doubleEdgeControll{};
-        }
         }
         ///PWM[6] output edge control.
         enum class Pwmsel6Val {
@@ -741,7 +684,6 @@ output edges.
             constexpr Register::FieldValue<decltype(pwmsel6)::Type,Pwmsel6Val::singleEdgeControll> singleEdgeControll{};
             constexpr Register::FieldValue<decltype(pwmsel6)::Type,Pwmsel6Val::doubleEdgeControll> doubleEdgeControll{};
         }
-        }
         ///PWM[1] output enable control.
         enum class Pwmena1Val {
             thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
@@ -751,7 +693,6 @@ output edges.
         namespace Pwmena1ValC{
             constexpr Register::FieldValue<decltype(pwmena1)::Type,Pwmena1Val::thePwmOutputIsDi> thePwmOutputIsDi{};
             constexpr Register::FieldValue<decltype(pwmena1)::Type,Pwmena1Val::thePwmOutputIsEn> thePwmOutputIsEn{};
-        }
         }
         ///PWM[2] output enable control.
         enum class Pwmena2Val {
@@ -763,7 +704,6 @@ output edges.
             constexpr Register::FieldValue<decltype(pwmena2)::Type,Pwmena2Val::thePwmOutputIsDi> thePwmOutputIsDi{};
             constexpr Register::FieldValue<decltype(pwmena2)::Type,Pwmena2Val::thePwmOutputIsEn> thePwmOutputIsEn{};
         }
-        }
         ///PWM[3] output enable control.
         enum class Pwmena3Val {
             thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
@@ -773,7 +713,6 @@ output edges.
         namespace Pwmena3ValC{
             constexpr Register::FieldValue<decltype(pwmena3)::Type,Pwmena3Val::thePwmOutputIsDi> thePwmOutputIsDi{};
             constexpr Register::FieldValue<decltype(pwmena3)::Type,Pwmena3Val::thePwmOutputIsEn> thePwmOutputIsEn{};
-        }
         }
         ///PWM[4] output enable control.
         enum class Pwmena4Val {
@@ -785,7 +724,6 @@ output edges.
             constexpr Register::FieldValue<decltype(pwmena4)::Type,Pwmena4Val::thePwmOutputIsDi> thePwmOutputIsDi{};
             constexpr Register::FieldValue<decltype(pwmena4)::Type,Pwmena4Val::thePwmOutputIsEn> thePwmOutputIsEn{};
         }
-        }
         ///PWM[5] output enable control.
         enum class Pwmena5Val {
             thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
@@ -796,7 +734,6 @@ output edges.
             constexpr Register::FieldValue<decltype(pwmena5)::Type,Pwmena5Val::thePwmOutputIsDi> thePwmOutputIsDi{};
             constexpr Register::FieldValue<decltype(pwmena5)::Type,Pwmena5Val::thePwmOutputIsEn> thePwmOutputIsEn{};
         }
-        }
         ///PWM[6] output enable control. See PWMENA1 for details.
         enum class Pwmena6Val {
             thePwmOutputIsDi=0x00000000,     ///<The PWM output is disabled.
@@ -806,7 +743,6 @@ output edges.
         namespace Pwmena6ValC{
             constexpr Register::FieldValue<decltype(pwmena6)::Type,Pwmena6Val::thePwmOutputIsDi> thePwmOutputIsDi{};
             constexpr Register::FieldValue<decltype(pwmena6)::Type,Pwmena6Val::thePwmOutputIsEn> thePwmOutputIsEn{};
-        }
         }
     }
     namespace Noneler{    ///<Load Enable Register. Enables use of updated PWM match values.
@@ -842,7 +778,6 @@ output edges.
             constexpr Register::FieldValue<decltype(mod)::Type,ModVal::fallingEdgeCounter> fallingEdgeCounter{};
             constexpr Register::FieldValue<decltype(mod)::Type,ModVal::dualEdgeCounterMo> dualEdgeCounterMo{};
         }
-        }
         ///Count Input Select. When bits 1:0 are not 00, these bits select which PWM_CAP pin carries the signal used to increment the TC. Other combinations are reserved.
         enum class CisVal {
             forPwm000EqPwm0=0x00000000,     ///<For PWM0: 00 = PWM0_CAP0 (Other combinations are reserved) For PWM1: 00 = PWM1_CAP0, 01 = PWM1_CAP1 (Other combinations are reserved)
@@ -850,7 +785,6 @@ output edges.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,CisVal> cis{}; 
         namespace CisValC{
             constexpr Register::FieldValue<decltype(cis)::Type,CisVal::forPwm000EqPwm0> forPwm000EqPwm0{};
-        }
         }
     }
 }

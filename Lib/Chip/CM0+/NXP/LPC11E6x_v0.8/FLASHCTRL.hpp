@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flashtim)::Type,FlashtimVal::v1SystemClockFlash> v1SystemClockFlash{};
             constexpr Register::FieldValue<decltype(flashtim)::Type,FlashtimVal::v2SystemClocksFlas> v2SystemClocksFlas{};
         }
-        }
     }
     namespace Nonefmsstart{    ///<Signature start address register
         using Addr = Register::Address<0x4003c020,0xfffe0000,0,unsigned>;

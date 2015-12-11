@@ -49,7 +49,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hfclkstarted)::Type,HfclkstartedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(hfclkstarted)::Type,HfclkstartedVal::set> set{};
         }
-        }
         ///Enable interrupt on LFCLKSTARTED event.
         enum class LfclkstartedVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -61,7 +60,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lfclkstarted)::Type,LfclkstartedVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(lfclkstarted)::Type,LfclkstartedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(lfclkstarted)::Type,LfclkstartedVal::set> set{};
-        }
         }
         ///Enable interrupt on DONE event.
         enum class DoneVal {
@@ -75,7 +73,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(done)::Type,DoneVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(done)::Type,DoneVal::set> set{};
         }
-        }
         ///Enable interrupt on CTTO event.
         enum class CttoVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -87,7 +84,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ctto)::Type,CttoVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ctto)::Type,CttoVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ctto)::Type,CttoVal::set> set{};
-        }
         }
     }
     namespace Noneintenclr{    ///<Interrupt enable clear register.
@@ -104,7 +100,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hfclkstarted)::Type,HfclkstartedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(hfclkstarted)::Type,HfclkstartedVal::clear> clear{};
         }
-        }
         ///Disable interrupt on LFCLKSTARTED event.
         enum class LfclkstartedVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -116,7 +111,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lfclkstarted)::Type,LfclkstartedVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(lfclkstarted)::Type,LfclkstartedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(lfclkstarted)::Type,LfclkstartedVal::clear> clear{};
-        }
         }
         ///Disable interrupt on DONE event.
         enum class DoneVal {
@@ -130,7 +124,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(done)::Type,DoneVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(done)::Type,DoneVal::clear> clear{};
         }
-        }
         ///Disable interrupt on CTTO event.
         enum class CttoVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -142,7 +135,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ctto)::Type,CttoVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ctto)::Type,CttoVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ctto)::Type,CttoVal::clear> clear{};
-        }
         }
     }
     namespace Nonehfclkrun{    ///<Task HFCLKSTART trigger status.
@@ -157,7 +149,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(status)::Type,StatusVal::nottriggered> nottriggered{};
             constexpr Register::FieldValue<decltype(status)::Type,StatusVal::triggered> triggered{};
         }
-        }
     }
     namespace Nonehfclkstat{    ///<High frequency clock status.
         using Addr = Register::Address<0x4000040c,0xfffefffe,0,unsigned>;
@@ -171,7 +162,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src)::Type,SrcVal::rc> rc{};
             constexpr Register::FieldValue<decltype(src)::Type,SrcVal::xtal> xtal{};
         }
-        }
         ///State for the HFCLK.
         enum class StateVal {
             notrunning=0x00000000,     ///<HFCLK clock not running.
@@ -181,7 +171,6 @@ namespace Kvasir {
         namespace StateValC{
             constexpr Register::FieldValue<decltype(state)::Type,StateVal::notrunning> notrunning{};
             constexpr Register::FieldValue<decltype(state)::Type,StateVal::running> running{};
-        }
         }
     }
     namespace Nonelfclkrun{    ///<Task LFCLKSTART triggered status.
@@ -195,7 +184,6 @@ namespace Kvasir {
         namespace StatusValC{
             constexpr Register::FieldValue<decltype(status)::Type,StatusVal::nottriggered> nottriggered{};
             constexpr Register::FieldValue<decltype(status)::Type,StatusVal::triggered> triggered{};
-        }
         }
     }
     namespace Nonelfclkstat{    ///<Low frequency clock status.
@@ -212,7 +200,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src)::Type,SrcVal::xtal> xtal{};
             constexpr Register::FieldValue<decltype(src)::Type,SrcVal::synth> synth{};
         }
-        }
         ///State for the LF clock.
         enum class StateVal {
             notrunning=0x00000000,     ///<LFCLK clock not running.
@@ -222,7 +209,6 @@ namespace Kvasir {
         namespace StateValC{
             constexpr Register::FieldValue<decltype(state)::Type,StateVal::notrunning> notrunning{};
             constexpr Register::FieldValue<decltype(state)::Type,StateVal::running> running{};
-        }
         }
     }
     namespace Nonelfclksrccopy{    ///<Clock source for the LFCLK clock, set when task LKCLKSTART is triggered.
@@ -239,7 +225,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src)::Type,SrcVal::xtal> xtal{};
             constexpr Register::FieldValue<decltype(src)::Type,SrcVal::synth> synth{};
         }
-        }
     }
     namespace Nonelfclksrc{    ///<Clock source for the LFCLK clock.
         using Addr = Register::Address<0x40000518,0xfffffffc,0,unsigned>;
@@ -254,7 +239,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src)::Type,SrcVal::rc> rc{};
             constexpr Register::FieldValue<decltype(src)::Type,SrcVal::xtal> xtal{};
             constexpr Register::FieldValue<decltype(src)::Type,SrcVal::synth> synth{};
-        }
         }
     }
     namespace Nonectiv{    ///<Calibration timer interval.

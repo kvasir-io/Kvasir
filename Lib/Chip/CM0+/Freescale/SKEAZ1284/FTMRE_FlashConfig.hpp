@@ -58,7 +58,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fpls)::Type,FplsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(fpls)::Type,FplsVal::v11> v11{};
         }
-        }
         ///no description available
         enum class FpldisVal {
             v00=0x00000000,     ///<Protection/Unprotection enabled
@@ -68,7 +67,6 @@ namespace Kvasir {
         namespace FpldisValC{
             constexpr Register::FieldValue<decltype(fpldis)::Type,FpldisVal::v00> v00{};
             constexpr Register::FieldValue<decltype(fpldis)::Type,FpldisVal::v01> v01{};
-        }
         }
         ///no description available
         enum class FphsVal {
@@ -84,7 +82,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fphs)::Type,FphsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(fphs)::Type,FphsVal::v11> v11{};
         }
-        }
         ///no description available
         enum class FphdisVal {
             v00=0x00000000,     ///<Protection/Unprotection enabled
@@ -95,7 +92,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fphdis)::Type,FphdisVal::v00> v00{};
             constexpr Register::FieldValue<decltype(fphdis)::Type,FphdisVal::v01> v01{};
         }
-        }
         ///no description available
         enum class FpopenVal {
             v00=0x00000000,     ///<FPHDIS and FPLDIS bits define unprotected address ranges as specified by the corresponding FPHS and FPLS bits FPROT1.1
@@ -105,7 +101,6 @@ namespace Kvasir {
         namespace FpopenValC{
             constexpr Register::FieldValue<decltype(fpopen)::Type,FpopenVal::v00> v00{};
             constexpr Register::FieldValue<decltype(fpopen)::Type,FpopenVal::v01> v01{};
-        }
         }
     }
     namespace NvFsec{    ///<Non-volatile Flash Security Register
@@ -120,7 +115,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sec)::Type,SecVal::v10> v10{};
             constexpr Register::FieldValue<decltype(sec)::Type,SecVal::v11> v11{};
         }
-        }
         ///Backdoor Key Security Enable
         enum class KeyenVal {
             v10=0x00000002,     ///<Backdoor key access enabled
@@ -130,7 +124,6 @@ namespace Kvasir {
         namespace KeyenValC{
             constexpr Register::FieldValue<decltype(keyen)::Type,KeyenVal::v10> v10{};
             constexpr Register::FieldValue<decltype(keyen)::Type,KeyenVal::v11> v11{};
-        }
         }
     }
     namespace NvFopt{    ///<Non-volatile Flash Option Register

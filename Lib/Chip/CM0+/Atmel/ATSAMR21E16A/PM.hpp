@@ -60,7 +60,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(apbadiv)::Type,ApbadivVal::div64> div64{};
             constexpr Register::FieldValue<decltype(apbadiv)::Type,ApbadivVal::div128> div128{};
         }
-        }
     }
     namespace PmApbbmask{    ///<APBB Mask
         using Addr = Register::Address<0x4000041c,0xffffffc0,0,unsigned>;
@@ -100,7 +99,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(apbbdiv)::Type,ApbbdivVal::div32> div32{};
             constexpr Register::FieldValue<decltype(apbbdiv)::Type,ApbbdivVal::div64> div64{};
             constexpr Register::FieldValue<decltype(apbbdiv)::Type,ApbbdivVal::div128> div128{};
-        }
         }
     }
     namespace PmApbcmask{    ///<APBC Mask
@@ -170,7 +168,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(apbcdiv)::Type,ApbcdivVal::div64> div64{};
             constexpr Register::FieldValue<decltype(apbcdiv)::Type,ApbcdivVal::div128> div128{};
         }
-        }
     }
     namespace PmCpusel{    ///<CPU Clock Select
         using Addr = Register::Address<0x40000408,0xfffffff8,0,unsigned char>;
@@ -195,7 +192,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpudiv)::Type,CpudivVal::div32> div32{};
             constexpr Register::FieldValue<decltype(cpudiv)::Type,CpudivVal::div64> div64{};
             constexpr Register::FieldValue<decltype(cpudiv)::Type,CpudivVal::div128> div128{};
-        }
         }
     }
     namespace PmCtrl{    ///<Control
@@ -254,7 +250,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(idle)::Type,IdleVal::cpu> cpu{};
             constexpr Register::FieldValue<decltype(idle)::Type,IdleVal::ahb> ahb{};
             constexpr Register::FieldValue<decltype(idle)::Type,IdleVal::apb> apb{};
-        }
         }
     }
 }

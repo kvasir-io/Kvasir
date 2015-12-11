@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyf)::Type,BusyfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(busyf)::Type,BusyfVal::set> set{};
         }
-        }
         ///Acknowledge. 
         enum class AckVal {
             notSet=0x00000000,     ///<Read: ACK has not been received. Write: Do not send an ACK.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace AckValC{
             constexpr Register::FieldValue<decltype(ack)::Type,AckVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(ack)::Type,AckVal::set> set{};
-        }
         }
         ///Arbitration Lost Flag. 
         enum class ArblfVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(arblf)::Type,ArblfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(arblf)::Type,ArblfVal::set> set{};
         }
-        }
         ///Acknowledge Request Flag. 
         enum class AckrqfVal {
             notSet=0x00000000,     ///<ACK has not been requested.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace AckrqfValC{
             constexpr Register::FieldValue<decltype(ackrqf)::Type,AckrqfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(ackrqf)::Type,AckrqfVal::set> set{};
-        }
         }
         ///Stop. 
         enum class StoVal {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sto)::Type,StoVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(sto)::Type,StoVal::set> set{};
         }
-        }
         ///Start. 
         enum class StaVal {
             notSet=0x00000000,     ///<Read: A start is not pending and a repeat start has not been detected. Write: Clear the STA bit. 
@@ -68,7 +63,6 @@ namespace Kvasir {
         namespace StaValC{
             constexpr Register::FieldValue<decltype(sta)::Type,StaVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(sta)::Type,StaVal::set> set{};
-        }
         }
         ///Transmit Mode Flag. 
         enum class TxmdfVal {
@@ -80,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txmdf)::Type,TxmdfVal::receive> receive{};
             constexpr Register::FieldValue<decltype(txmdf)::Type,TxmdfVal::transmit> transmit{};
         }
-        }
         ///Master/Slave Mode Flag. 
         enum class MsmdfVal {
             slave=0x00000000,     ///<Module is operating in Slave mode.
@@ -90,7 +83,6 @@ namespace Kvasir {
         namespace MsmdfValC{
             constexpr Register::FieldValue<decltype(msmdf)::Type,MsmdfVal::slave> slave{};
             constexpr Register::FieldValue<decltype(msmdf)::Type,MsmdfVal::master> master{};
-        }
         }
         ///Stop Interrupt Flag. 
         enum class StoiVal {
@@ -102,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stoi)::Type,StoiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(stoi)::Type,StoiVal::set> set{};
         }
-        }
         ///Acknowledge Interrupt Flag. 
         enum class AckiVal {
             notSet=0x00000000,     ///<Read: An acknowledge interrupt has not occurred. Write: Clear the acknowledge interrupt (ACKI).
@@ -112,7 +103,6 @@ namespace Kvasir {
         namespace AckiValC{
             constexpr Register::FieldValue<decltype(acki)::Type,AckiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(acki)::Type,AckiVal::set> set{};
-        }
         }
         ///Receive Done Interrupt Flag. 
         enum class RxiVal {
@@ -124,7 +114,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxi)::Type,RxiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rxi)::Type,RxiVal::set> set{};
         }
-        }
         ///Transmit Done Interrupt Flag. 
         enum class TxiVal {
             notSet=0x00000000,     ///<Read: A transmit done interrupt has not occurred. Write: Clear the transmit done interrupt (TXI).
@@ -134,7 +123,6 @@ namespace Kvasir {
         namespace TxiValC{
             constexpr Register::FieldValue<decltype(txi)::Type,TxiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(txi)::Type,TxiVal::set> set{};
-        }
         }
         ///Start Interrupt Flag. 
         enum class StaiVal {
@@ -146,7 +134,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stai)::Type,StaiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(stai)::Type,StaiVal::set> set{};
         }
-        }
         ///Arbitration Lost Interrupt Flag. 
         enum class ArbliVal {
             notSet=0x00000000,     ///<Read: An arbitration lost interrupt has not occurred. Write: Clear the arbitration lost interrupt (ARBLI).
@@ -156,7 +143,6 @@ namespace Kvasir {
         namespace ArbliValC{
             constexpr Register::FieldValue<decltype(arbli)::Type,ArbliVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(arbli)::Type,ArbliVal::set> set{};
-        }
         }
         ///I2C Timer Byte 0 Interrupt Flag. 
         enum class T0iVal {
@@ -168,7 +154,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(t0i)::Type,T0iVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(t0i)::Type,T0iVal::set> set{};
         }
-        }
         ///I2C Timer Byte 1 Interrupt Flag. 
         enum class T1iVal {
             notSet=0x00000000,     ///<Read: No interrupt occurred. Write: Clear the I2C Timer Byte 1 interrupt (T1I).
@@ -178,7 +163,6 @@ namespace Kvasir {
         namespace T1iValC{
             constexpr Register::FieldValue<decltype(t1i)::Type,T1iVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(t1i)::Type,T1iVal::set> set{};
-        }
         }
         ///I2C Timer Byte 2 Interrupt Flag. 
         enum class T2iVal {
@@ -190,7 +174,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(t2i)::Type,T2iVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(t2i)::Type,T2iVal::set> set{};
         }
-        }
         ///I2C Timer Byte 3 Interrupt Flag. 
         enum class T3iVal {
             notSet=0x00000000,     ///<Read: A I2C Timer Byte 3 interrupt or SCL low timeout has not occurred. Write: Clear the I2C Timer Byte 3 interrupt (T3I).
@@ -200,7 +183,6 @@ namespace Kvasir {
         namespace T3iValC{
             constexpr Register::FieldValue<decltype(t3i)::Type,T3iVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(t3i)::Type,T3iVal::set> set{};
-        }
         }
         ///Receive Arm. 
         enum class RxarmVal {
@@ -212,7 +194,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxarm)::Type,RxarmVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rxarm)::Type,RxarmVal::enabled> enabled{};
         }
-        }
         ///Transmit Arm. 
         enum class TxarmVal {
             disabled=0x00000000,     ///<Disable data and address transmission.
@@ -222,7 +203,6 @@ namespace Kvasir {
         namespace TxarmValC{
             constexpr Register::FieldValue<decltype(txarm)::Type,TxarmVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(txarm)::Type,TxarmVal::enabled> enabled{};
-        }
         }
         ///Slave Address Type Flag. 
         enum class SlvafVal {
@@ -234,7 +214,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slvaf)::Type,SlvafVal::slaveAddress> slaveAddress{};
             constexpr Register::FieldValue<decltype(slvaf)::Type,SlvafVal::generalCall> generalCall{};
         }
-        }
         ///Auto Transmit or Receive Enable. 
         enum class AtxrxenVal {
             disabled=0x00000000,     ///<Do not automatically switch to transmit or receive mode after a Start.
@@ -244,7 +223,6 @@ namespace Kvasir {
         namespace AtxrxenValC{
             constexpr Register::FieldValue<decltype(atxrxen)::Type,AtxrxenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(atxrxen)::Type,AtxrxenVal::enabled> enabled{};
-        }
         }
         ///Filter Mode. 
         enum class FmdVal {
@@ -256,7 +234,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fmd)::Type,FmdVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(fmd)::Type,FmdVal::enabled> enabled{};
         }
-        }
         ///I2C Debug Mode. 
         enum class DbgmdVal {
             run=0x00000000,     ///<The I2C module will continue to operate while the core is halted in debug mode.
@@ -266,7 +243,6 @@ namespace Kvasir {
         namespace DbgmdValC{
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::run> run{};
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::halt> halt{};
-        }
         }
         ///Slave Mode Inhibit. 
         enum class SminhVal {
@@ -278,7 +254,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sminh)::Type,SminhVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(sminh)::Type,SminhVal::active> active{};
         }
-        }
         ///Auto Acknowledge Enable . 
         enum class HackenVal {
             disabled=0x00000000,     ///<Disable automatic hardware acknowledge.
@@ -288,7 +263,6 @@ namespace Kvasir {
         namespace HackenValC{
             constexpr Register::FieldValue<decltype(hacken)::Type,HackenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hacken)::Type,HackenVal::enabled> enabled{};
-        }
         }
         ///Slave Address Mode. 
         enum class SlvamdVal {
@@ -300,7 +274,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slvamd)::Type,SlvamdVal::v7bit> v7bit{};
             constexpr Register::FieldValue<decltype(slvamd)::Type,SlvamdVal::v10bit> v10bit{};
         }
-        }
         ///Last Byte Acknowledge Enable. 
         enum class LbackenVal {
             disabled=0x00000000,     ///<NACK after the last byte is received.
@@ -310,7 +283,6 @@ namespace Kvasir {
         namespace LbackenValC{
             constexpr Register::FieldValue<decltype(lbacken)::Type,LbackenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(lbacken)::Type,LbackenVal::enabled> enabled{};
-        }
         }
         ///General Call Address Enable. 
         enum class GcenVal {
@@ -322,7 +294,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gcen)::Type,GcenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(gcen)::Type,GcenVal::enabled> enabled{};
         }
-        }
         ///Module Soft Reset. 
         enum class ResetVal {
             inactive=0x00000000,     ///<I2C module is not in soft reset.
@@ -333,7 +304,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(reset)::Type,ResetVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(reset)::Type,ResetVal::active> active{};
         }
-        }
         ///I2C Enable. 
         enum class I2cenVal {
             disabled=0x00000000,     ///<Disable the I2C module.
@@ -343,7 +313,6 @@ namespace Kvasir {
         namespace I2cenValC{
             constexpr Register::FieldValue<decltype(i2cen)::Type,I2cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(i2cen)::Type,I2cenVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneconfig{    ///<Module Configuration
@@ -360,7 +329,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stoien)::Type,StoienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(stoien)::Type,StoienVal::enabled> enabled{};
         }
-        }
         ///Acknowledge Interrupt Enable. 
         enum class AckienVal {
             disabled=0x00000000,     ///<Disable the acknowledge interrupt.
@@ -370,7 +338,6 @@ namespace Kvasir {
         namespace AckienValC{
             constexpr Register::FieldValue<decltype(ackien)::Type,AckienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ackien)::Type,AckienVal::enabled> enabled{};
-        }
         }
         ///Receive Done Interrupt Enable. 
         enum class RxienVal {
@@ -382,7 +349,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxien)::Type,RxienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rxien)::Type,RxienVal::enabled> enabled{};
         }
-        }
         ///Transmit Done Interrupt Enable. 
         enum class TxienVal {
             disabled=0x00000000,     ///<Disable the transmit done interrupt.
@@ -392,7 +358,6 @@ namespace Kvasir {
         namespace TxienValC{
             constexpr Register::FieldValue<decltype(txien)::Type,TxienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(txien)::Type,TxienVal::enabled> enabled{};
-        }
         }
         ///Start Interrupt Enable. 
         enum class StaienVal {
@@ -404,7 +369,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(staien)::Type,StaienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(staien)::Type,StaienVal::enabled> enabled{};
         }
-        }
         ///Arbitration Lost Interrupt Enable. 
         enum class ArblienVal {
             disabled=0x00000000,     ///<Disable the arbitration lost interrupt.
@@ -414,7 +378,6 @@ namespace Kvasir {
         namespace ArblienValC{
             constexpr Register::FieldValue<decltype(arblien)::Type,ArblienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(arblien)::Type,ArblienVal::enabled> enabled{};
-        }
         }
         ///I2C Timer Byte 0 Interrupt Enable. 
         enum class T0ienVal {
@@ -426,7 +389,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(t0ien)::Type,T0ienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(t0ien)::Type,T0ienVal::enabled> enabled{};
         }
-        }
         ///I2C Timer Byte 1 Interrupt Enable. 
         enum class T1ienVal {
             disabled=0x00000000,     ///<Disable the I2C Timer Byte 1 interrupt.
@@ -436,7 +398,6 @@ namespace Kvasir {
         namespace T1ienValC{
             constexpr Register::FieldValue<decltype(t1ien)::Type,T1ienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(t1ien)::Type,T1ienVal::enabled> enabled{};
-        }
         }
         ///I2C Timer Byte 2 Interrupt Enable. 
         enum class T2ienVal {
@@ -448,7 +409,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(t2ien)::Type,T2ienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(t2ien)::Type,T2ienVal::enabled> enabled{};
         }
-        }
         ///I2C Timer Byte 3 Interrupt Enable. 
         enum class T3ienVal {
             disabled=0x00000000,     ///<Disable the I2C Timer Byte 3 and SCL low timeout interrupt.
@@ -458,7 +418,6 @@ namespace Kvasir {
         namespace T3ienValC{
             constexpr Register::FieldValue<decltype(t3ien)::Type,T3ienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(t3ien)::Type,T3ienVal::enabled> enabled{};
-        }
         }
         ///Transfer Byte Count. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,unsigned> bc{}; 
@@ -474,7 +433,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(t0run)::Type,T0runVal::stop> stop{};
             constexpr Register::FieldValue<decltype(t0run)::Type,T0runVal::start> start{};
         }
-        }
         ///I2C Timer Byte 1 Run. 
         enum class T1runVal {
             stop=0x00000000,     ///<Stop Timer Byte 1.
@@ -484,7 +442,6 @@ namespace Kvasir {
         namespace T1runValC{
             constexpr Register::FieldValue<decltype(t1run)::Type,T1runVal::stop> stop{};
             constexpr Register::FieldValue<decltype(t1run)::Type,T1runVal::start> start{};
-        }
         }
         ///I2C Timer Byte 2 Run. 
         enum class T2runVal {
@@ -496,7 +453,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(t2run)::Type,T2runVal::stop> stop{};
             constexpr Register::FieldValue<decltype(t2run)::Type,T2runVal::start> start{};
         }
-        }
         ///I2C Timer Byte 3 Run. 
         enum class T3runVal {
             stop=0x00000000,     ///<Stop Timer Byte 3.
@@ -506,7 +462,6 @@ namespace Kvasir {
         namespace T3runValC{
             constexpr Register::FieldValue<decltype(t3run)::Type,T3runVal::stop> stop{};
             constexpr Register::FieldValue<decltype(t3run)::Type,T3runVal::start> start{};
-        }
         }
         ///I2C Timer Mode. 
         enum class TmdVal {
@@ -522,7 +477,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tmd)::Type,TmdVal::mode2> mode2{};
             constexpr Register::FieldValue<decltype(tmd)::Type,TmdVal::mode3> mode3{};
         }
-        }
         ///I2C Timer Enable. 
         enum class TimerenVal {
             disabled=0x00000000,     ///<Disable I2C Timer.
@@ -532,7 +486,6 @@ namespace Kvasir {
         namespace TimerenValC{
             constexpr Register::FieldValue<decltype(timeren)::Type,TimerenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(timeren)::Type,TimerenVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonesaddress{    ///<Slave Address

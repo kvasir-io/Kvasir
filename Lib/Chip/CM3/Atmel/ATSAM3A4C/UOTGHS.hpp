@@ -26,7 +26,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(spdconf)::Type,SpdconfVal::highSpeed> highSpeed{};
             constexpr Register::FieldValue<decltype(spdconf)::Type,SpdconfVal::forcedFs> forcedFs{};
         }
-        }
         ///Low-Speed Mode Force
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> ls{}; 
         ///Test mode J
@@ -344,7 +343,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epbk)::Type,EpbkVal::v2Bank> v2Bank{};
             constexpr Register::FieldValue<decltype(epbk)::Type,EpbkVal::v3Bank> v3Bank{};
         }
-        }
         ///Endpoint Size
         enum class EpsizeVal {
             v8Byte=0x00000000,     ///<8 bytes
@@ -367,7 +365,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epsize)::Type,EpsizeVal::v512Byte> v512Byte{};
             constexpr Register::FieldValue<decltype(epsize)::Type,EpsizeVal::v1024Byte> v1024Byte{};
         }
-        }
         ///Endpoint Direction
         enum class EpdirVal {
             out=0x00000000,     ///<The endpoint direction is OUT.
@@ -377,7 +374,6 @@ namespace Kvasir {
         namespace EpdirValC{
             constexpr Register::FieldValue<decltype(epdir)::Type,EpdirVal::out> out{};
             constexpr Register::FieldValue<decltype(epdir)::Type,EpdirVal::in> in{};
-        }
         }
         ///Automatic Switch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> autosw{}; 
@@ -395,7 +391,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::blk> blk{};
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::intrpt> intrpt{};
         }
-        }
         ///Number of transaction per microframe for isochronous endpoint
         enum class NbtransVal {
             v0Trans=0x00000000,     ///<reserved to endpoint that does not have the high-bandwidth isochronous capability.
@@ -409,7 +404,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v1Trans> v1Trans{};
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v2Trans> v2Trans{};
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v3Trans> v3Trans{};
-        }
         }
     }
     namespace UotghsDeveptcfg1{    ///<Device Endpoint Configuration Register (n = 0)
@@ -428,7 +422,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epbk)::Type,EpbkVal::v2Bank> v2Bank{};
             constexpr Register::FieldValue<decltype(epbk)::Type,EpbkVal::v3Bank> v3Bank{};
         }
-        }
         ///Endpoint Size
         enum class EpsizeVal {
             v8Byte=0x00000000,     ///<8 bytes
@@ -451,7 +444,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epsize)::Type,EpsizeVal::v512Byte> v512Byte{};
             constexpr Register::FieldValue<decltype(epsize)::Type,EpsizeVal::v1024Byte> v1024Byte{};
         }
-        }
         ///Endpoint Direction
         enum class EpdirVal {
             out=0x00000000,     ///<The endpoint direction is OUT.
@@ -461,7 +453,6 @@ namespace Kvasir {
         namespace EpdirValC{
             constexpr Register::FieldValue<decltype(epdir)::Type,EpdirVal::out> out{};
             constexpr Register::FieldValue<decltype(epdir)::Type,EpdirVal::in> in{};
-        }
         }
         ///Automatic Switch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> autosw{}; 
@@ -479,7 +470,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::blk> blk{};
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::intrpt> intrpt{};
         }
-        }
         ///Number of transaction per microframe for isochronous endpoint
         enum class NbtransVal {
             v0Trans=0x00000000,     ///<reserved to endpoint that does not have the high-bandwidth isochronous capability.
@@ -493,7 +483,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v1Trans> v1Trans{};
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v2Trans> v2Trans{};
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v3Trans> v3Trans{};
-        }
         }
     }
     namespace UotghsDeveptcfg2{    ///<Device Endpoint Configuration Register (n = 0)
@@ -512,7 +501,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epbk)::Type,EpbkVal::v2Bank> v2Bank{};
             constexpr Register::FieldValue<decltype(epbk)::Type,EpbkVal::v3Bank> v3Bank{};
         }
-        }
         ///Endpoint Size
         enum class EpsizeVal {
             v8Byte=0x00000000,     ///<8 bytes
@@ -535,7 +523,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epsize)::Type,EpsizeVal::v512Byte> v512Byte{};
             constexpr Register::FieldValue<decltype(epsize)::Type,EpsizeVal::v1024Byte> v1024Byte{};
         }
-        }
         ///Endpoint Direction
         enum class EpdirVal {
             out=0x00000000,     ///<The endpoint direction is OUT.
@@ -545,7 +532,6 @@ namespace Kvasir {
         namespace EpdirValC{
             constexpr Register::FieldValue<decltype(epdir)::Type,EpdirVal::out> out{};
             constexpr Register::FieldValue<decltype(epdir)::Type,EpdirVal::in> in{};
-        }
         }
         ///Automatic Switch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> autosw{}; 
@@ -563,7 +549,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::blk> blk{};
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::intrpt> intrpt{};
         }
-        }
         ///Number of transaction per microframe for isochronous endpoint
         enum class NbtransVal {
             v0Trans=0x00000000,     ///<reserved to endpoint that does not have the high-bandwidth isochronous capability.
@@ -577,7 +562,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v1Trans> v1Trans{};
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v2Trans> v2Trans{};
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v3Trans> v3Trans{};
-        }
         }
     }
     namespace UotghsDeveptcfg3{    ///<Device Endpoint Configuration Register (n = 0)
@@ -596,7 +580,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epbk)::Type,EpbkVal::v2Bank> v2Bank{};
             constexpr Register::FieldValue<decltype(epbk)::Type,EpbkVal::v3Bank> v3Bank{};
         }
-        }
         ///Endpoint Size
         enum class EpsizeVal {
             v8Byte=0x00000000,     ///<8 bytes
@@ -619,7 +602,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epsize)::Type,EpsizeVal::v512Byte> v512Byte{};
             constexpr Register::FieldValue<decltype(epsize)::Type,EpsizeVal::v1024Byte> v1024Byte{};
         }
-        }
         ///Endpoint Direction
         enum class EpdirVal {
             out=0x00000000,     ///<The endpoint direction is OUT.
@@ -629,7 +611,6 @@ namespace Kvasir {
         namespace EpdirValC{
             constexpr Register::FieldValue<decltype(epdir)::Type,EpdirVal::out> out{};
             constexpr Register::FieldValue<decltype(epdir)::Type,EpdirVal::in> in{};
-        }
         }
         ///Automatic Switch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> autosw{}; 
@@ -647,7 +628,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::blk> blk{};
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::intrpt> intrpt{};
         }
-        }
         ///Number of transaction per microframe for isochronous endpoint
         enum class NbtransVal {
             v0Trans=0x00000000,     ///<reserved to endpoint that does not have the high-bandwidth isochronous capability.
@@ -661,7 +641,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v1Trans> v1Trans{};
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v2Trans> v2Trans{};
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v3Trans> v3Trans{};
-        }
         }
     }
     namespace UotghsDeveptcfg4{    ///<Device Endpoint Configuration Register (n = 0)
@@ -680,7 +659,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epbk)::Type,EpbkVal::v2Bank> v2Bank{};
             constexpr Register::FieldValue<decltype(epbk)::Type,EpbkVal::v3Bank> v3Bank{};
         }
-        }
         ///Endpoint Size
         enum class EpsizeVal {
             v8Byte=0x00000000,     ///<8 bytes
@@ -703,7 +681,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epsize)::Type,EpsizeVal::v512Byte> v512Byte{};
             constexpr Register::FieldValue<decltype(epsize)::Type,EpsizeVal::v1024Byte> v1024Byte{};
         }
-        }
         ///Endpoint Direction
         enum class EpdirVal {
             out=0x00000000,     ///<The endpoint direction is OUT.
@@ -713,7 +690,6 @@ namespace Kvasir {
         namespace EpdirValC{
             constexpr Register::FieldValue<decltype(epdir)::Type,EpdirVal::out> out{};
             constexpr Register::FieldValue<decltype(epdir)::Type,EpdirVal::in> in{};
-        }
         }
         ///Automatic Switch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> autosw{}; 
@@ -731,7 +707,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::blk> blk{};
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::intrpt> intrpt{};
         }
-        }
         ///Number of transaction per microframe for isochronous endpoint
         enum class NbtransVal {
             v0Trans=0x00000000,     ///<reserved to endpoint that does not have the high-bandwidth isochronous capability.
@@ -745,7 +720,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v1Trans> v1Trans{};
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v2Trans> v2Trans{};
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v3Trans> v3Trans{};
-        }
         }
     }
     namespace UotghsDeveptcfg5{    ///<Device Endpoint Configuration Register (n = 0)
@@ -764,7 +738,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epbk)::Type,EpbkVal::v2Bank> v2Bank{};
             constexpr Register::FieldValue<decltype(epbk)::Type,EpbkVal::v3Bank> v3Bank{};
         }
-        }
         ///Endpoint Size
         enum class EpsizeVal {
             v8Byte=0x00000000,     ///<8 bytes
@@ -787,7 +760,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epsize)::Type,EpsizeVal::v512Byte> v512Byte{};
             constexpr Register::FieldValue<decltype(epsize)::Type,EpsizeVal::v1024Byte> v1024Byte{};
         }
-        }
         ///Endpoint Direction
         enum class EpdirVal {
             out=0x00000000,     ///<The endpoint direction is OUT.
@@ -797,7 +769,6 @@ namespace Kvasir {
         namespace EpdirValC{
             constexpr Register::FieldValue<decltype(epdir)::Type,EpdirVal::out> out{};
             constexpr Register::FieldValue<decltype(epdir)::Type,EpdirVal::in> in{};
-        }
         }
         ///Automatic Switch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> autosw{}; 
@@ -815,7 +786,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::blk> blk{};
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::intrpt> intrpt{};
         }
-        }
         ///Number of transaction per microframe for isochronous endpoint
         enum class NbtransVal {
             v0Trans=0x00000000,     ///<reserved to endpoint that does not have the high-bandwidth isochronous capability.
@@ -829,7 +799,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v1Trans> v1Trans{};
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v2Trans> v2Trans{};
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v3Trans> v3Trans{};
-        }
         }
     }
     namespace UotghsDeveptcfg6{    ///<Device Endpoint Configuration Register (n = 0)
@@ -848,7 +817,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epbk)::Type,EpbkVal::v2Bank> v2Bank{};
             constexpr Register::FieldValue<decltype(epbk)::Type,EpbkVal::v3Bank> v3Bank{};
         }
-        }
         ///Endpoint Size
         enum class EpsizeVal {
             v8Byte=0x00000000,     ///<8 bytes
@@ -871,7 +839,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epsize)::Type,EpsizeVal::v512Byte> v512Byte{};
             constexpr Register::FieldValue<decltype(epsize)::Type,EpsizeVal::v1024Byte> v1024Byte{};
         }
-        }
         ///Endpoint Direction
         enum class EpdirVal {
             out=0x00000000,     ///<The endpoint direction is OUT.
@@ -881,7 +848,6 @@ namespace Kvasir {
         namespace EpdirValC{
             constexpr Register::FieldValue<decltype(epdir)::Type,EpdirVal::out> out{};
             constexpr Register::FieldValue<decltype(epdir)::Type,EpdirVal::in> in{};
-        }
         }
         ///Automatic Switch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> autosw{}; 
@@ -899,7 +865,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::blk> blk{};
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::intrpt> intrpt{};
         }
-        }
         ///Number of transaction per microframe for isochronous endpoint
         enum class NbtransVal {
             v0Trans=0x00000000,     ///<reserved to endpoint that does not have the high-bandwidth isochronous capability.
@@ -913,7 +878,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v1Trans> v1Trans{};
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v2Trans> v2Trans{};
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v3Trans> v3Trans{};
-        }
         }
     }
     namespace UotghsDeveptcfg7{    ///<Device Endpoint Configuration Register (n = 0)
@@ -932,7 +896,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epbk)::Type,EpbkVal::v2Bank> v2Bank{};
             constexpr Register::FieldValue<decltype(epbk)::Type,EpbkVal::v3Bank> v3Bank{};
         }
-        }
         ///Endpoint Size
         enum class EpsizeVal {
             v8Byte=0x00000000,     ///<8 bytes
@@ -955,7 +918,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epsize)::Type,EpsizeVal::v512Byte> v512Byte{};
             constexpr Register::FieldValue<decltype(epsize)::Type,EpsizeVal::v1024Byte> v1024Byte{};
         }
-        }
         ///Endpoint Direction
         enum class EpdirVal {
             out=0x00000000,     ///<The endpoint direction is OUT.
@@ -965,7 +927,6 @@ namespace Kvasir {
         namespace EpdirValC{
             constexpr Register::FieldValue<decltype(epdir)::Type,EpdirVal::out> out{};
             constexpr Register::FieldValue<decltype(epdir)::Type,EpdirVal::in> in{};
-        }
         }
         ///Automatic Switch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> autosw{}; 
@@ -983,7 +944,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::blk> blk{};
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::intrpt> intrpt{};
         }
-        }
         ///Number of transaction per microframe for isochronous endpoint
         enum class NbtransVal {
             v0Trans=0x00000000,     ///<reserved to endpoint that does not have the high-bandwidth isochronous capability.
@@ -997,7 +957,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v1Trans> v1Trans{};
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v2Trans> v2Trans{};
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v3Trans> v3Trans{};
-        }
         }
     }
     namespace UotghsDeveptcfg8{    ///<Device Endpoint Configuration Register (n = 0)
@@ -1016,7 +975,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epbk)::Type,EpbkVal::v2Bank> v2Bank{};
             constexpr Register::FieldValue<decltype(epbk)::Type,EpbkVal::v3Bank> v3Bank{};
         }
-        }
         ///Endpoint Size
         enum class EpsizeVal {
             v8Byte=0x00000000,     ///<8 bytes
@@ -1039,7 +997,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epsize)::Type,EpsizeVal::v512Byte> v512Byte{};
             constexpr Register::FieldValue<decltype(epsize)::Type,EpsizeVal::v1024Byte> v1024Byte{};
         }
-        }
         ///Endpoint Direction
         enum class EpdirVal {
             out=0x00000000,     ///<The endpoint direction is OUT.
@@ -1049,7 +1006,6 @@ namespace Kvasir {
         namespace EpdirValC{
             constexpr Register::FieldValue<decltype(epdir)::Type,EpdirVal::out> out{};
             constexpr Register::FieldValue<decltype(epdir)::Type,EpdirVal::in> in{};
-        }
         }
         ///Automatic Switch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> autosw{}; 
@@ -1067,7 +1023,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::blk> blk{};
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::intrpt> intrpt{};
         }
-        }
         ///Number of transaction per microframe for isochronous endpoint
         enum class NbtransVal {
             v0Trans=0x00000000,     ///<reserved to endpoint that does not have the high-bandwidth isochronous capability.
@@ -1081,7 +1036,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v1Trans> v1Trans{};
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v2Trans> v2Trans{};
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v3Trans> v3Trans{};
-        }
         }
     }
     namespace UotghsDeveptcfg9{    ///<Device Endpoint Configuration Register (n = 0)
@@ -1100,7 +1054,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epbk)::Type,EpbkVal::v2Bank> v2Bank{};
             constexpr Register::FieldValue<decltype(epbk)::Type,EpbkVal::v3Bank> v3Bank{};
         }
-        }
         ///Endpoint Size
         enum class EpsizeVal {
             v8Byte=0x00000000,     ///<8 bytes
@@ -1123,7 +1076,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epsize)::Type,EpsizeVal::v512Byte> v512Byte{};
             constexpr Register::FieldValue<decltype(epsize)::Type,EpsizeVal::v1024Byte> v1024Byte{};
         }
-        }
         ///Endpoint Direction
         enum class EpdirVal {
             out=0x00000000,     ///<The endpoint direction is OUT.
@@ -1133,7 +1085,6 @@ namespace Kvasir {
         namespace EpdirValC{
             constexpr Register::FieldValue<decltype(epdir)::Type,EpdirVal::out> out{};
             constexpr Register::FieldValue<decltype(epdir)::Type,EpdirVal::in> in{};
-        }
         }
         ///Automatic Switch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> autosw{}; 
@@ -1151,7 +1102,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::blk> blk{};
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::intrpt> intrpt{};
         }
-        }
         ///Number of transaction per microframe for isochronous endpoint
         enum class NbtransVal {
             v0Trans=0x00000000,     ///<reserved to endpoint that does not have the high-bandwidth isochronous capability.
@@ -1165,7 +1115,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v1Trans> v1Trans{};
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v2Trans> v2Trans{};
             constexpr Register::FieldValue<decltype(nbtrans)::Type,NbtransVal::v3Trans> v3Trans{};
-        }
         }
     }
     namespace UotghsDeveptisr0{    ///<Device Endpoint Status Register (n = 0)
@@ -1200,7 +1149,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data2> data2{};
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::mdata> mdata{};
         }
-        }
         ///Number of Busy Banks
         enum class NbusybkVal {
             v0Busy=0x00000000,     ///<0 busy bank (all banks free)
@@ -1215,7 +1163,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v2Busy> v2Busy{};
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v3Busy> v3Busy{};
         }
-        }
         ///Current Bank
         enum class CurrbkVal {
             bank0=0x00000000,     ///<Current bank is bank0
@@ -1227,7 +1174,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank0> bank0{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank2> bank2{};
-        }
         }
         ///Read-write Allowed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rwall{}; 
@@ -1270,7 +1216,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data2> data2{};
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::mdata> mdata{};
         }
-        }
         ///Number of Busy Banks
         enum class NbusybkVal {
             v0Busy=0x00000000,     ///<0 busy bank (all banks free)
@@ -1285,7 +1230,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v2Busy> v2Busy{};
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v3Busy> v3Busy{};
         }
-        }
         ///Current Bank
         enum class CurrbkVal {
             bank0=0x00000000,     ///<Current bank is bank0
@@ -1297,7 +1241,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank0> bank0{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank2> bank2{};
-        }
         }
         ///Read-write Allowed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rwall{}; 
@@ -1340,7 +1283,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data2> data2{};
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::mdata> mdata{};
         }
-        }
         ///Number of Busy Banks
         enum class NbusybkVal {
             v0Busy=0x00000000,     ///<0 busy bank (all banks free)
@@ -1355,7 +1297,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v2Busy> v2Busy{};
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v3Busy> v3Busy{};
         }
-        }
         ///Current Bank
         enum class CurrbkVal {
             bank0=0x00000000,     ///<Current bank is bank0
@@ -1367,7 +1308,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank0> bank0{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank2> bank2{};
-        }
         }
         ///Read-write Allowed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rwall{}; 
@@ -1410,7 +1350,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data2> data2{};
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::mdata> mdata{};
         }
-        }
         ///Number of Busy Banks
         enum class NbusybkVal {
             v0Busy=0x00000000,     ///<0 busy bank (all banks free)
@@ -1425,7 +1364,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v2Busy> v2Busy{};
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v3Busy> v3Busy{};
         }
-        }
         ///Current Bank
         enum class CurrbkVal {
             bank0=0x00000000,     ///<Current bank is bank0
@@ -1437,7 +1375,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank0> bank0{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank2> bank2{};
-        }
         }
         ///Read-write Allowed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rwall{}; 
@@ -1480,7 +1417,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data2> data2{};
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::mdata> mdata{};
         }
-        }
         ///Number of Busy Banks
         enum class NbusybkVal {
             v0Busy=0x00000000,     ///<0 busy bank (all banks free)
@@ -1495,7 +1431,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v2Busy> v2Busy{};
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v3Busy> v3Busy{};
         }
-        }
         ///Current Bank
         enum class CurrbkVal {
             bank0=0x00000000,     ///<Current bank is bank0
@@ -1507,7 +1442,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank0> bank0{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank2> bank2{};
-        }
         }
         ///Read-write Allowed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rwall{}; 
@@ -1550,7 +1484,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data2> data2{};
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::mdata> mdata{};
         }
-        }
         ///Number of Busy Banks
         enum class NbusybkVal {
             v0Busy=0x00000000,     ///<0 busy bank (all banks free)
@@ -1565,7 +1498,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v2Busy> v2Busy{};
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v3Busy> v3Busy{};
         }
-        }
         ///Current Bank
         enum class CurrbkVal {
             bank0=0x00000000,     ///<Current bank is bank0
@@ -1577,7 +1509,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank0> bank0{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank2> bank2{};
-        }
         }
         ///Read-write Allowed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rwall{}; 
@@ -1620,7 +1551,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data2> data2{};
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::mdata> mdata{};
         }
-        }
         ///Number of Busy Banks
         enum class NbusybkVal {
             v0Busy=0x00000000,     ///<0 busy bank (all banks free)
@@ -1635,7 +1565,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v2Busy> v2Busy{};
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v3Busy> v3Busy{};
         }
-        }
         ///Current Bank
         enum class CurrbkVal {
             bank0=0x00000000,     ///<Current bank is bank0
@@ -1647,7 +1576,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank0> bank0{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank2> bank2{};
-        }
         }
         ///Read-write Allowed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rwall{}; 
@@ -1690,7 +1618,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data2> data2{};
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::mdata> mdata{};
         }
-        }
         ///Number of Busy Banks
         enum class NbusybkVal {
             v0Busy=0x00000000,     ///<0 busy bank (all banks free)
@@ -1705,7 +1632,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v2Busy> v2Busy{};
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v3Busy> v3Busy{};
         }
-        }
         ///Current Bank
         enum class CurrbkVal {
             bank0=0x00000000,     ///<Current bank is bank0
@@ -1717,7 +1643,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank0> bank0{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank2> bank2{};
-        }
         }
         ///Read-write Allowed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rwall{}; 
@@ -1760,7 +1685,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data2> data2{};
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::mdata> mdata{};
         }
-        }
         ///Number of Busy Banks
         enum class NbusybkVal {
             v0Busy=0x00000000,     ///<0 busy bank (all banks free)
@@ -1775,7 +1699,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v2Busy> v2Busy{};
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v3Busy> v3Busy{};
         }
-        }
         ///Current Bank
         enum class CurrbkVal {
             bank0=0x00000000,     ///<Current bank is bank0
@@ -1787,7 +1710,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank0> bank0{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank2> bank2{};
-        }
         }
         ///Read-write Allowed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rwall{}; 
@@ -1830,7 +1752,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data2> data2{};
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::mdata> mdata{};
         }
-        }
         ///Number of Busy Banks
         enum class NbusybkVal {
             v0Busy=0x00000000,     ///<0 busy bank (all banks free)
@@ -1845,7 +1766,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v2Busy> v2Busy{};
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v3Busy> v3Busy{};
         }
-        }
         ///Current Bank
         enum class CurrbkVal {
             bank0=0x00000000,     ///<Current bank is bank0
@@ -1857,7 +1777,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank0> bank0{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank2> bank2{};
-        }
         }
         ///Read-write Allowed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rwall{}; 
@@ -1900,7 +1819,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data2> data2{};
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::mdata> mdata{};
         }
-        }
         ///High-bandwidth isochronous OUT endpoint transaction error Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> errortrans{}; 
         ///Number of Busy Banks
@@ -1917,7 +1835,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v2Busy> v2Busy{};
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v3Busy> v3Busy{};
         }
-        }
         ///Current Bank
         enum class CurrbkVal {
             bank0=0x00000000,     ///<Current bank is bank0
@@ -1929,7 +1846,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank0> bank0{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank2> bank2{};
-        }
         }
         ///Read-write Allowed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rwall{}; 
@@ -3775,7 +3691,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(spdconf)::Type,SpdconfVal::highSpeed> highSpeed{};
             constexpr Register::FieldValue<decltype(spdconf)::Type,SpdconfVal::forcedFs> forcedFs{};
         }
-        }
     }
     namespace UotghsHstisr{    ///<Host Global Interrupt Status Register
         using Addr = Register::Address<0x400ac404,0x81fc0080,0,unsigned>;
@@ -4112,7 +4027,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pbk)::Type,PbkVal::v2Bank> v2Bank{};
             constexpr Register::FieldValue<decltype(pbk)::Type,PbkVal::v3Bank> v3Bank{};
         }
-        }
         ///Pipe Size
         enum class PsizeVal {
             v8Byte=0x00000000,     ///<8 bytes
@@ -4135,7 +4049,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psize)::Type,PsizeVal::v512Byte> v512Byte{};
             constexpr Register::FieldValue<decltype(psize)::Type,PsizeVal::v1024Byte> v1024Byte{};
         }
-        }
         ///Pipe Token
         enum class PtokenVal {
             setup=0x00000000,     ///<SETUP
@@ -4147,7 +4060,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::setup> setup{};
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::in> in{};
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::out> out{};
-        }
         }
         ///Automatic Switch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> autosw{}; 
@@ -4164,7 +4076,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::iso> iso{};
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::blk> blk{};
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::intrpt> intrpt{};
-        }
         }
         ///Pipe Endpoint Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> pepnum{}; 
@@ -4187,7 +4098,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pbk)::Type,PbkVal::v2Bank> v2Bank{};
             constexpr Register::FieldValue<decltype(pbk)::Type,PbkVal::v3Bank> v3Bank{};
         }
-        }
         ///Pipe Size
         enum class PsizeVal {
             v8Byte=0x00000000,     ///<8 bytes
@@ -4210,7 +4120,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psize)::Type,PsizeVal::v512Byte> v512Byte{};
             constexpr Register::FieldValue<decltype(psize)::Type,PsizeVal::v1024Byte> v1024Byte{};
         }
-        }
         ///Pipe Token
         enum class PtokenVal {
             setup=0x00000000,     ///<SETUP
@@ -4222,7 +4131,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::setup> setup{};
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::in> in{};
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::out> out{};
-        }
         }
         ///Automatic Switch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> autosw{}; 
@@ -4239,7 +4147,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::iso> iso{};
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::blk> blk{};
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::intrpt> intrpt{};
-        }
         }
         ///Pipe Endpoint Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> pepnum{}; 
@@ -4262,7 +4169,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pbk)::Type,PbkVal::v2Bank> v2Bank{};
             constexpr Register::FieldValue<decltype(pbk)::Type,PbkVal::v3Bank> v3Bank{};
         }
-        }
         ///Pipe Size
         enum class PsizeVal {
             v8Byte=0x00000000,     ///<8 bytes
@@ -4285,7 +4191,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psize)::Type,PsizeVal::v512Byte> v512Byte{};
             constexpr Register::FieldValue<decltype(psize)::Type,PsizeVal::v1024Byte> v1024Byte{};
         }
-        }
         ///Pipe Token
         enum class PtokenVal {
             setup=0x00000000,     ///<SETUP
@@ -4297,7 +4202,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::setup> setup{};
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::in> in{};
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::out> out{};
-        }
         }
         ///Automatic Switch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> autosw{}; 
@@ -4314,7 +4218,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::iso> iso{};
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::blk> blk{};
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::intrpt> intrpt{};
-        }
         }
         ///Pipe Endpoint Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> pepnum{}; 
@@ -4337,7 +4240,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pbk)::Type,PbkVal::v2Bank> v2Bank{};
             constexpr Register::FieldValue<decltype(pbk)::Type,PbkVal::v3Bank> v3Bank{};
         }
-        }
         ///Pipe Size
         enum class PsizeVal {
             v8Byte=0x00000000,     ///<8 bytes
@@ -4360,7 +4262,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psize)::Type,PsizeVal::v512Byte> v512Byte{};
             constexpr Register::FieldValue<decltype(psize)::Type,PsizeVal::v1024Byte> v1024Byte{};
         }
-        }
         ///Pipe Token
         enum class PtokenVal {
             setup=0x00000000,     ///<SETUP
@@ -4372,7 +4273,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::setup> setup{};
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::in> in{};
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::out> out{};
-        }
         }
         ///Automatic Switch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> autosw{}; 
@@ -4389,7 +4289,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::iso> iso{};
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::blk> blk{};
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::intrpt> intrpt{};
-        }
         }
         ///Pipe Endpoint Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> pepnum{}; 
@@ -4412,7 +4311,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pbk)::Type,PbkVal::v2Bank> v2Bank{};
             constexpr Register::FieldValue<decltype(pbk)::Type,PbkVal::v3Bank> v3Bank{};
         }
-        }
         ///Pipe Size
         enum class PsizeVal {
             v8Byte=0x00000000,     ///<8 bytes
@@ -4435,7 +4333,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psize)::Type,PsizeVal::v512Byte> v512Byte{};
             constexpr Register::FieldValue<decltype(psize)::Type,PsizeVal::v1024Byte> v1024Byte{};
         }
-        }
         ///Pipe Token
         enum class PtokenVal {
             setup=0x00000000,     ///<SETUP
@@ -4447,7 +4344,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::setup> setup{};
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::in> in{};
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::out> out{};
-        }
         }
         ///Automatic Switch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> autosw{}; 
@@ -4464,7 +4360,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::iso> iso{};
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::blk> blk{};
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::intrpt> intrpt{};
-        }
         }
         ///Pipe Endpoint Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> pepnum{}; 
@@ -4487,7 +4382,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pbk)::Type,PbkVal::v2Bank> v2Bank{};
             constexpr Register::FieldValue<decltype(pbk)::Type,PbkVal::v3Bank> v3Bank{};
         }
-        }
         ///Pipe Size
         enum class PsizeVal {
             v8Byte=0x00000000,     ///<8 bytes
@@ -4510,7 +4404,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psize)::Type,PsizeVal::v512Byte> v512Byte{};
             constexpr Register::FieldValue<decltype(psize)::Type,PsizeVal::v1024Byte> v1024Byte{};
         }
-        }
         ///Pipe Token
         enum class PtokenVal {
             setup=0x00000000,     ///<SETUP
@@ -4522,7 +4415,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::setup> setup{};
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::in> in{};
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::out> out{};
-        }
         }
         ///Automatic Switch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> autosw{}; 
@@ -4539,7 +4431,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::iso> iso{};
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::blk> blk{};
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::intrpt> intrpt{};
-        }
         }
         ///Pipe Endpoint Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> pepnum{}; 
@@ -4562,7 +4453,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pbk)::Type,PbkVal::v2Bank> v2Bank{};
             constexpr Register::FieldValue<decltype(pbk)::Type,PbkVal::v3Bank> v3Bank{};
         }
-        }
         ///Pipe Size
         enum class PsizeVal {
             v8Byte=0x00000000,     ///<8 bytes
@@ -4585,7 +4475,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psize)::Type,PsizeVal::v512Byte> v512Byte{};
             constexpr Register::FieldValue<decltype(psize)::Type,PsizeVal::v1024Byte> v1024Byte{};
         }
-        }
         ///Pipe Token
         enum class PtokenVal {
             setup=0x00000000,     ///<SETUP
@@ -4597,7 +4486,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::setup> setup{};
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::in> in{};
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::out> out{};
-        }
         }
         ///Automatic Switch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> autosw{}; 
@@ -4614,7 +4502,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::iso> iso{};
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::blk> blk{};
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::intrpt> intrpt{};
-        }
         }
         ///Pipe Endpoint Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> pepnum{}; 
@@ -4637,7 +4524,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pbk)::Type,PbkVal::v2Bank> v2Bank{};
             constexpr Register::FieldValue<decltype(pbk)::Type,PbkVal::v3Bank> v3Bank{};
         }
-        }
         ///Pipe Size
         enum class PsizeVal {
             v8Byte=0x00000000,     ///<8 bytes
@@ -4660,7 +4546,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psize)::Type,PsizeVal::v512Byte> v512Byte{};
             constexpr Register::FieldValue<decltype(psize)::Type,PsizeVal::v1024Byte> v1024Byte{};
         }
-        }
         ///Pipe Token
         enum class PtokenVal {
             setup=0x00000000,     ///<SETUP
@@ -4672,7 +4557,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::setup> setup{};
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::in> in{};
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::out> out{};
-        }
         }
         ///Automatic Switch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> autosw{}; 
@@ -4689,7 +4573,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::iso> iso{};
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::blk> blk{};
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::intrpt> intrpt{};
-        }
         }
         ///Pipe Endpoint Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> pepnum{}; 
@@ -4712,7 +4595,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pbk)::Type,PbkVal::v2Bank> v2Bank{};
             constexpr Register::FieldValue<decltype(pbk)::Type,PbkVal::v3Bank> v3Bank{};
         }
-        }
         ///Pipe Size
         enum class PsizeVal {
             v8Byte=0x00000000,     ///<8 bytes
@@ -4735,7 +4617,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psize)::Type,PsizeVal::v512Byte> v512Byte{};
             constexpr Register::FieldValue<decltype(psize)::Type,PsizeVal::v1024Byte> v1024Byte{};
         }
-        }
         ///Pipe Token
         enum class PtokenVal {
             setup=0x00000000,     ///<SETUP
@@ -4747,7 +4628,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::setup> setup{};
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::in> in{};
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::out> out{};
-        }
         }
         ///Automatic Switch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> autosw{}; 
@@ -4764,7 +4644,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::iso> iso{};
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::blk> blk{};
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::intrpt> intrpt{};
-        }
         }
         ///Pipe Endpoint Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> pepnum{}; 
@@ -4787,7 +4666,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pbk)::Type,PbkVal::v2Bank> v2Bank{};
             constexpr Register::FieldValue<decltype(pbk)::Type,PbkVal::v3Bank> v3Bank{};
         }
-        }
         ///Pipe Size
         enum class PsizeVal {
             v8Byte=0x00000000,     ///<8 bytes
@@ -4810,7 +4688,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psize)::Type,PsizeVal::v512Byte> v512Byte{};
             constexpr Register::FieldValue<decltype(psize)::Type,PsizeVal::v1024Byte> v1024Byte{};
         }
-        }
         ///Pipe Token
         enum class PtokenVal {
             setup=0x00000000,     ///<SETUP
@@ -4822,7 +4699,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::setup> setup{};
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::in> in{};
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::out> out{};
-        }
         }
         ///Automatic Switch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> autosw{}; 
@@ -4839,7 +4715,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::iso> iso{};
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::blk> blk{};
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::intrpt> intrpt{};
-        }
         }
         ///Pipe Endpoint Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> pepnum{}; 
@@ -4862,7 +4737,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pbk)::Type,PbkVal::v2Bank> v2Bank{};
             constexpr Register::FieldValue<decltype(pbk)::Type,PbkVal::v3Bank> v3Bank{};
         }
-        }
         ///Pipe Size
         enum class PsizeVal {
             v8Byte=0x00000000,     ///<8 bytes
@@ -4885,7 +4759,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psize)::Type,PsizeVal::v512Byte> v512Byte{};
             constexpr Register::FieldValue<decltype(psize)::Type,PsizeVal::v1024Byte> v1024Byte{};
         }
-        }
         ///Pipe Token
         enum class PtokenVal {
             setup=0x00000000,     ///<SETUP
@@ -4898,7 +4771,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::in> in{};
             constexpr Register::FieldValue<decltype(ptoken)::Type,PtokenVal::out> out{};
         }
-        }
         ///Automatic Switch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> autosw{}; 
         ///Pipe Type
@@ -4910,7 +4782,6 @@ namespace Kvasir {
         namespace PtypeValC{
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::ctrl> ctrl{};
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::blk> blk{};
-        }
         }
         ///Pipe Endpoint Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> pepnum{}; 
@@ -4947,7 +4818,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data0> data0{};
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data1> data1{};
         }
-        }
         ///Number of Busy Banks
         enum class NbusybkVal {
             v0Busy=0x00000000,     ///<0 busy bank (all banks free)
@@ -4962,7 +4832,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v2Busy> v2Busy{};
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v3Busy> v3Busy{};
         }
-        }
         ///Current Bank
         enum class CurrbkVal {
             bank0=0x00000000,     ///<Current bank is bank0
@@ -4974,7 +4843,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank0> bank0{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank2> bank2{};
-        }
         }
         ///Read-write Allowed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rwall{}; 
@@ -5011,7 +4879,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data0> data0{};
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data1> data1{};
         }
-        }
         ///Number of Busy Banks
         enum class NbusybkVal {
             v0Busy=0x00000000,     ///<0 busy bank (all banks free)
@@ -5026,7 +4893,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v2Busy> v2Busy{};
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v3Busy> v3Busy{};
         }
-        }
         ///Current Bank
         enum class CurrbkVal {
             bank0=0x00000000,     ///<Current bank is bank0
@@ -5038,7 +4904,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank0> bank0{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank2> bank2{};
-        }
         }
         ///Read-write Allowed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rwall{}; 
@@ -5075,7 +4940,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data0> data0{};
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data1> data1{};
         }
-        }
         ///Number of Busy Banks
         enum class NbusybkVal {
             v0Busy=0x00000000,     ///<0 busy bank (all banks free)
@@ -5090,7 +4954,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v2Busy> v2Busy{};
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v3Busy> v3Busy{};
         }
-        }
         ///Current Bank
         enum class CurrbkVal {
             bank0=0x00000000,     ///<Current bank is bank0
@@ -5102,7 +4965,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank0> bank0{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank2> bank2{};
-        }
         }
         ///Read-write Allowed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rwall{}; 
@@ -5139,7 +5001,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data0> data0{};
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data1> data1{};
         }
-        }
         ///Number of Busy Banks
         enum class NbusybkVal {
             v0Busy=0x00000000,     ///<0 busy bank (all banks free)
@@ -5154,7 +5015,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v2Busy> v2Busy{};
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v3Busy> v3Busy{};
         }
-        }
         ///Current Bank
         enum class CurrbkVal {
             bank0=0x00000000,     ///<Current bank is bank0
@@ -5166,7 +5026,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank0> bank0{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank2> bank2{};
-        }
         }
         ///Read-write Allowed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rwall{}; 
@@ -5203,7 +5062,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data0> data0{};
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data1> data1{};
         }
-        }
         ///Number of Busy Banks
         enum class NbusybkVal {
             v0Busy=0x00000000,     ///<0 busy bank (all banks free)
@@ -5218,7 +5076,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v2Busy> v2Busy{};
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v3Busy> v3Busy{};
         }
-        }
         ///Current Bank
         enum class CurrbkVal {
             bank0=0x00000000,     ///<Current bank is bank0
@@ -5230,7 +5087,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank0> bank0{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank2> bank2{};
-        }
         }
         ///Read-write Allowed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rwall{}; 
@@ -5267,7 +5123,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data0> data0{};
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data1> data1{};
         }
-        }
         ///Number of Busy Banks
         enum class NbusybkVal {
             v0Busy=0x00000000,     ///<0 busy bank (all banks free)
@@ -5282,7 +5137,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v2Busy> v2Busy{};
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v3Busy> v3Busy{};
         }
-        }
         ///Current Bank
         enum class CurrbkVal {
             bank0=0x00000000,     ///<Current bank is bank0
@@ -5294,7 +5148,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank0> bank0{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank2> bank2{};
-        }
         }
         ///Read-write Allowed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rwall{}; 
@@ -5331,7 +5184,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data0> data0{};
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data1> data1{};
         }
-        }
         ///Number of Busy Banks
         enum class NbusybkVal {
             v0Busy=0x00000000,     ///<0 busy bank (all banks free)
@@ -5346,7 +5198,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v2Busy> v2Busy{};
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v3Busy> v3Busy{};
         }
-        }
         ///Current Bank
         enum class CurrbkVal {
             bank0=0x00000000,     ///<Current bank is bank0
@@ -5358,7 +5209,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank0> bank0{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank2> bank2{};
-        }
         }
         ///Read-write Allowed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rwall{}; 
@@ -5395,7 +5245,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data0> data0{};
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data1> data1{};
         }
-        }
         ///Number of Busy Banks
         enum class NbusybkVal {
             v0Busy=0x00000000,     ///<0 busy bank (all banks free)
@@ -5410,7 +5259,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v2Busy> v2Busy{};
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v3Busy> v3Busy{};
         }
-        }
         ///Current Bank
         enum class CurrbkVal {
             bank0=0x00000000,     ///<Current bank is bank0
@@ -5422,7 +5270,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank0> bank0{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank2> bank2{};
-        }
         }
         ///Read-write Allowed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rwall{}; 
@@ -5459,7 +5306,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data0> data0{};
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data1> data1{};
         }
-        }
         ///Number of Busy Banks
         enum class NbusybkVal {
             v0Busy=0x00000000,     ///<0 busy bank (all banks free)
@@ -5474,7 +5320,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v2Busy> v2Busy{};
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v3Busy> v3Busy{};
         }
-        }
         ///Current Bank
         enum class CurrbkVal {
             bank0=0x00000000,     ///<Current bank is bank0
@@ -5486,7 +5331,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank0> bank0{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank2> bank2{};
-        }
         }
         ///Read-write Allowed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rwall{}; 
@@ -5523,7 +5367,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data0> data0{};
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data1> data1{};
         }
-        }
         ///Number of Busy Banks
         enum class NbusybkVal {
             v0Busy=0x00000000,     ///<0 busy bank (all banks free)
@@ -5538,7 +5381,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v2Busy> v2Busy{};
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v3Busy> v3Busy{};
         }
-        }
         ///Current Bank
         enum class CurrbkVal {
             bank0=0x00000000,     ///<Current bank is bank0
@@ -5550,7 +5392,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank0> bank0{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank2> bank2{};
-        }
         }
         ///Read-write Allowed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rwall{}; 
@@ -5587,7 +5428,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data0> data0{};
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data1> data1{};
         }
-        }
         ///Number of Busy Banks
         enum class NbusybkVal {
             v0Busy=0x00000000,     ///<0 busy bank (all banks free)
@@ -5602,7 +5442,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v2Busy> v2Busy{};
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v3Busy> v3Busy{};
         }
-        }
         ///Current Bank
         enum class CurrbkVal {
             bank0=0x00000000,     ///<Current bank is bank0
@@ -5614,7 +5453,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank0> bank0{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank2> bank2{};
-        }
         }
         ///Read-write Allowed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rwall{}; 
@@ -5651,7 +5489,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data0> data0{};
             constexpr Register::FieldValue<decltype(dtseq)::Type,DtseqVal::data1> data1{};
         }
-        }
         ///Number of Busy Banks
         enum class NbusybkVal {
             v0Busy=0x00000000,     ///<0 busy bank (all banks free)
@@ -5666,7 +5503,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v2Busy> v2Busy{};
             constexpr Register::FieldValue<decltype(nbusybk)::Type,NbusybkVal::v3Busy> v3Busy{};
         }
-        }
         ///Current Bank
         enum class CurrbkVal {
             bank0=0x00000000,     ///<Current bank is bank0
@@ -5678,7 +5514,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank0> bank0{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank1> bank1{};
             constexpr Register::FieldValue<decltype(currbk)::Type,CurrbkVal::bank2> bank2{};
-        }
         }
         ///Read-write Allowed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rwall{}; 
@@ -7731,7 +7566,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(uide)::Type,UideVal::uimod> uimod{};
             constexpr Register::FieldValue<decltype(uide)::Type,UideVal::uotgid> uotgid{};
         }
-        }
         ///UOTGHS Mode
         enum class UimodVal {
             host=0x00000000,     ///<The module is in USB host mode.
@@ -7741,7 +7575,6 @@ namespace Kvasir {
         namespace UimodValC{
             constexpr Register::FieldValue<decltype(uimod)::Type,UimodVal::host> host{};
             constexpr Register::FieldValue<decltype(uimod)::Type,UimodVal::device> device{};
-        }
         }
     }
     namespace UotghsSr{    ///<General Status Register
@@ -7779,7 +7612,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(speed)::Type,SpeedVal::fullSpeed> fullSpeed{};
             constexpr Register::FieldValue<decltype(speed)::Type,SpeedVal::highSpeed> highSpeed{};
             constexpr Register::FieldValue<decltype(speed)::Type,SpeedVal::lowSpeed> lowSpeed{};
-        }
         }
         ///UTMI Clock Usable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> clkusable{}; 
@@ -7865,7 +7697,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drdstate)::Type,DrdstateVal::bWaitAcon> bWaitAcon{};
             constexpr Register::FieldValue<decltype(drdstate)::Type,DrdstateVal::bHost> bHost{};
             constexpr Register::FieldValue<decltype(drdstate)::Type,DrdstateVal::bSrpInit> bSrpInit{};
-        }
         }
     }
 }

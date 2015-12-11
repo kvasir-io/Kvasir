@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(run0)::Type,Run0Val::stop> stop{};
             constexpr Register::FieldValue<decltype(run0)::Type,Run0Val::run> run{};
         }
-        }
         ///Edge/center aligned operation for channel 0.
         enum class Center0Val {
             edgeAligned=0x00000000,     ///<Edge-aligned.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace Center0ValC{
             constexpr Register::FieldValue<decltype(center0)::Type,Center0Val::edgeAligned> edgeAligned{};
             constexpr Register::FieldValue<decltype(center0)::Type,Center0Val::centerAligned> centerAligned{};
-        }
         }
         ///Selects polarity of the MCOA0 and MCOB0 pins.
         enum class Pola0Val {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pola0)::Type,Pola0Val::passiveStateIsLow> passiveStateIsLow{};
             constexpr Register::FieldValue<decltype(pola0)::Type,Pola0Val::passiveStateIsHig> passiveStateIsHig{};
         }
-        }
         ///Controls the dead-time feature for channel 0.
         enum class Dte0Val {
             deadTimeDisabled=0x00000000,     ///<Dead-time disabled.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace Dte0ValC{
             constexpr Register::FieldValue<decltype(dte0)::Type,Dte0Val::deadTimeDisabled> deadTimeDisabled{};
             constexpr Register::FieldValue<decltype(dte0)::Type,Dte0Val::deadTimeEnabled> deadTimeEnabled{};
-        }
         }
         ///Enable/disable updates of functional registers for channel 0 (see Section 24.8.2).
         enum class Disup0Val {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(disup0)::Type,Disup0Val::update> update{};
             constexpr Register::FieldValue<decltype(disup0)::Type,Disup0Val::noupdate> noupdate{};
         }
-        }
         ///Stops/starts timer channel 1.
         enum class Run1Val {
             stop=0x00000000,     ///<Stop.
@@ -68,7 +63,6 @@ namespace Kvasir {
         namespace Run1ValC{
             constexpr Register::FieldValue<decltype(run1)::Type,Run1Val::stop> stop{};
             constexpr Register::FieldValue<decltype(run1)::Type,Run1Val::run> run{};
-        }
         }
         ///Edge/center aligned operation for channel 1.
         enum class Center1Val {
@@ -80,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(center1)::Type,Center1Val::edgeAligned> edgeAligned{};
             constexpr Register::FieldValue<decltype(center1)::Type,Center1Val::centerAligned> centerAligned{};
         }
-        }
         ///Selects polarity of the MCOA1 and MCOB1 pins.
         enum class Pola1Val {
             passiveStateIsLow=0x00000000,     ///<Passive state is LOW, active state is HIGH.
@@ -90,7 +83,6 @@ namespace Kvasir {
         namespace Pola1ValC{
             constexpr Register::FieldValue<decltype(pola1)::Type,Pola1Val::passiveStateIsLow> passiveStateIsLow{};
             constexpr Register::FieldValue<decltype(pola1)::Type,Pola1Val::passiveStateIsHig> passiveStateIsHig{};
-        }
         }
         ///Controls the dead-time feature for channel 1.
         enum class Dte1Val {
@@ -102,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dte1)::Type,Dte1Val::deadTimeDisabled> deadTimeDisabled{};
             constexpr Register::FieldValue<decltype(dte1)::Type,Dte1Val::deadTimeEnabled> deadTimeEnabled{};
         }
-        }
         ///Enable/disable updates of functional registers for channel 1 (see Section 24.8.2).
         enum class Disup1Val {
             update=0x00000000,     ///<Functional registers are updated from the write registers at the end of each PWM cycle.
@@ -112,7 +103,6 @@ namespace Kvasir {
         namespace Disup1ValC{
             constexpr Register::FieldValue<decltype(disup1)::Type,Disup1Val::update> update{};
             constexpr Register::FieldValue<decltype(disup1)::Type,Disup1Val::noupdate> noupdate{};
-        }
         }
         ///Stops/starts timer channel 2.
         enum class Run2Val {
@@ -124,7 +114,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(run2)::Type,Run2Val::stop> stop{};
             constexpr Register::FieldValue<decltype(run2)::Type,Run2Val::run> run{};
         }
-        }
         ///Edge/center aligned operation for channel 2.
         enum class Center2Val {
             edgeAligned=0x00000000,     ///<Edge-aligned.
@@ -134,7 +123,6 @@ namespace Kvasir {
         namespace Center2ValC{
             constexpr Register::FieldValue<decltype(center2)::Type,Center2Val::edgeAligned> edgeAligned{};
             constexpr Register::FieldValue<decltype(center2)::Type,Center2Val::centerAligned> centerAligned{};
-        }
         }
         ///Selects polarity of the MCOA2 and MCOB2 pins.
         enum class Pola2Val {
@@ -146,7 +134,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pola2)::Type,Pola2Val::passiveStateIsLow> passiveStateIsLow{};
             constexpr Register::FieldValue<decltype(pola2)::Type,Pola2Val::passiveStateIsHig> passiveStateIsHig{};
         }
-        }
         ///Controls the dead-time feature for channel 1.
         enum class Dte2Val {
             deadTimeDisabled=0x00000000,     ///<Dead-time disabled.
@@ -156,7 +143,6 @@ namespace Kvasir {
         namespace Dte2ValC{
             constexpr Register::FieldValue<decltype(dte2)::Type,Dte2Val::deadTimeDisabled> deadTimeDisabled{};
             constexpr Register::FieldValue<decltype(dte2)::Type,Dte2Val::deadTimeEnabled> deadTimeEnabled{};
-        }
         }
         ///Enable/disable updates of functional registers for channel 2 (see Section 24.8.2).
         enum class Disup2Val {
@@ -168,7 +154,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(disup2)::Type,Disup2Val::update> update{};
             constexpr Register::FieldValue<decltype(disup2)::Type,Disup2Val::noupdate> noupdate{};
         }
-        }
         ///Controls the polarity of the MCOB outputs for all 3 channels. This bit is typically set to 1 only in 3-phase DC mode.
         enum class InvbdcVal {
             opposite=0x00000000,     ///<The MCOB outputs have opposite polarity from the MCOA outputs (aside from dead time).
@@ -178,7 +163,6 @@ namespace Kvasir {
         namespace InvbdcValC{
             constexpr Register::FieldValue<decltype(invbdc)::Type,InvbdcVal::opposite> opposite{};
             constexpr Register::FieldValue<decltype(invbdc)::Type,InvbdcVal::same> same{};
-        }
         }
         ///3-phase AC mode select (see Section 24.8.7).
         enum class AcmodeVal {
@@ -190,7 +174,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acmode)::Type,AcmodeVal::v3PhaseAcModeOff> v3PhaseAcModeOff{};
             constexpr Register::FieldValue<decltype(acmode)::Type,AcmodeVal::v3PhaseAcModeOn> v3PhaseAcModeOn{};
         }
-        }
         ///3-phase DC mode select (see Section 24.8.6).
         enum class DcmodeVal {
             v3PhaseDcModeOff=0x00000000,     ///<3-phase DC mode off: PWM channels are independent (unless bit ACMODE = 1)
@@ -200,7 +183,6 @@ namespace Kvasir {
         namespace DcmodeValC{
             constexpr Register::FieldValue<decltype(dcmode)::Type,DcmodeVal::v3PhaseDcModeOff> v3PhaseDcModeOff{};
             constexpr Register::FieldValue<decltype(dcmode)::Type,DcmodeVal::v3PhaseDcModeOn> v3PhaseDcModeOn{};
-        }
         }
     }
     namespace NoneconSet{    ///<PWM Control set address
@@ -500,7 +482,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ccpa0)::Type,Ccpa0Val::mcoa0Passive> mcoa0Passive{};
             constexpr Register::FieldValue<decltype(ccpa0)::Type,Ccpa0Val::internalMcoa0> internalMcoa0{};
         }
-        }
         ///Communication pattern output B, channel 0.
         enum class Ccpb0Val {
             mcob0Passive=0x00000000,     ///<MCOB0 passive.
@@ -510,7 +491,6 @@ namespace Kvasir {
         namespace Ccpb0ValC{
             constexpr Register::FieldValue<decltype(ccpb0)::Type,Ccpb0Val::mcob0Passive> mcob0Passive{};
             constexpr Register::FieldValue<decltype(ccpb0)::Type,Ccpb0Val::mcob0TracksInterna> mcob0TracksInterna{};
-        }
         }
         ///Communication pattern output A, channel 1.
         enum class Ccpa1Val {
@@ -522,7 +502,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ccpa1)::Type,Ccpa1Val::mcoa1Passive> mcoa1Passive{};
             constexpr Register::FieldValue<decltype(ccpa1)::Type,Ccpa1Val::mcoa1TracksInterna> mcoa1TracksInterna{};
         }
-        }
         ///Communication pattern output B, channel 1.
         enum class Ccpb1Val {
             mcob1Passive=0x00000000,     ///<MCOB1 passive.
@@ -532,7 +511,6 @@ namespace Kvasir {
         namespace Ccpb1ValC{
             constexpr Register::FieldValue<decltype(ccpb1)::Type,Ccpb1Val::mcob1Passive> mcob1Passive{};
             constexpr Register::FieldValue<decltype(ccpb1)::Type,Ccpb1Val::mcob1TracksInterna> mcob1TracksInterna{};
-        }
         }
         ///Communication pattern output A, channel 2.
         enum class Ccpa2Val {
@@ -544,7 +522,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ccpa2)::Type,Ccpa2Val::mcoa2Passive> mcoa2Passive{};
             constexpr Register::FieldValue<decltype(ccpa2)::Type,Ccpa2Val::mcoa2TracksInterna> mcoa2TracksInterna{};
         }
-        }
         ///Communication pattern output B, channel 2.
         enum class Ccpb2Val {
             mcob2Passive=0x00000000,     ///<MCOB2 passive.
@@ -554,7 +531,6 @@ namespace Kvasir {
         namespace Ccpb2ValC{
             constexpr Register::FieldValue<decltype(ccpb2)::Type,Ccpb2Val::mcob2Passive> mcob2Passive{};
             constexpr Register::FieldValue<decltype(ccpb2)::Type,Ccpb2Val::mcob2TracksInterna> mcob2TracksInterna{};
-        }
         }
     }
     namespace Nonecap0{    ///<Capture register
@@ -584,7 +560,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ilim0)::Type,Ilim0Val::interruptDisabled> interruptDisabled{};
             constexpr Register::FieldValue<decltype(ilim0)::Type,Ilim0Val::interruptEnabled> interruptEnabled{};
         }
-        }
         ///Match interrupt for channel 0.
         enum class Imat0Val {
             interruptDisabled=0x00000000,     ///<Interrupt disabled.
@@ -594,7 +569,6 @@ namespace Kvasir {
         namespace Imat0ValC{
             constexpr Register::FieldValue<decltype(imat0)::Type,Imat0Val::interruptDisabled> interruptDisabled{};
             constexpr Register::FieldValue<decltype(imat0)::Type,Imat0Val::interruptEnabled> interruptEnabled{};
-        }
         }
         ///Capture interrupt for channel 0.
         enum class Icap0Val {
@@ -606,7 +580,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(icap0)::Type,Icap0Val::interruptDisabled> interruptDisabled{};
             constexpr Register::FieldValue<decltype(icap0)::Type,Icap0Val::interruptEnabled> interruptEnabled{};
         }
-        }
         ///Limit interrupt for channel 1.
         enum class Ilim1Val {
             interruptDisabled=0x00000000,     ///<Interrupt disabled.
@@ -616,7 +589,6 @@ namespace Kvasir {
         namespace Ilim1ValC{
             constexpr Register::FieldValue<decltype(ilim1)::Type,Ilim1Val::interruptDisabled> interruptDisabled{};
             constexpr Register::FieldValue<decltype(ilim1)::Type,Ilim1Val::interruptEnabled> interruptEnabled{};
-        }
         }
         ///Match interrupt for channel 1.
         enum class Imat1Val {
@@ -628,7 +600,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(imat1)::Type,Imat1Val::interruptDisabled> interruptDisabled{};
             constexpr Register::FieldValue<decltype(imat1)::Type,Imat1Val::interruptEnabled> interruptEnabled{};
         }
-        }
         ///Capture interrupt for channel 1.
         enum class Icap1Val {
             interruptDisabled=0x00000000,     ///<Interrupt disabled.
@@ -638,7 +609,6 @@ namespace Kvasir {
         namespace Icap1ValC{
             constexpr Register::FieldValue<decltype(icap1)::Type,Icap1Val::interruptDisabled> interruptDisabled{};
             constexpr Register::FieldValue<decltype(icap1)::Type,Icap1Val::interruptEnabled> interruptEnabled{};
-        }
         }
         ///Limit interrupt for channel 2.
         enum class Ilim2Val {
@@ -650,7 +620,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ilim2)::Type,Ilim2Val::interruptDisabled> interruptDisabled{};
             constexpr Register::FieldValue<decltype(ilim2)::Type,Ilim2Val::interruptEnabled> interruptEnabled{};
         }
-        }
         ///Match interrupt for channel 2.
         enum class Imat2Val {
             interruptDisabled=0x00000000,     ///<Interrupt disabled.
@@ -660,7 +629,6 @@ namespace Kvasir {
         namespace Imat2ValC{
             constexpr Register::FieldValue<decltype(imat2)::Type,Imat2Val::interruptDisabled> interruptDisabled{};
             constexpr Register::FieldValue<decltype(imat2)::Type,Imat2Val::interruptEnabled> interruptEnabled{};
-        }
         }
         ///Capture interrupt for channel 2.
         enum class Icap2Val {
@@ -672,7 +640,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(icap2)::Type,Icap2Val::interruptDisabled> interruptDisabled{};
             constexpr Register::FieldValue<decltype(icap2)::Type,Icap2Val::interruptEnabled> interruptEnabled{};
         }
-        }
         ///Fast abort interrupt.
         enum class AbortVal {
             interruptDisabled=0x00000000,     ///<Interrupt disabled.
@@ -682,7 +649,6 @@ namespace Kvasir {
         namespace AbortValC{
             constexpr Register::FieldValue<decltype(abort)::Type,AbortVal::interruptDisabled> interruptDisabled{};
             constexpr Register::FieldValue<decltype(abort)::Type,AbortVal::interruptEnabled> interruptEnabled{};
-        }
         }
     }
     namespace NoneintenSet{    ///<Interrupt Enable set address
@@ -743,7 +709,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ilim0F)::Type,Ilim0fVal::thisInterruptSourc> thisInterruptSourc{};
             constexpr Register::FieldValue<decltype(ilim0F)::Type,Ilim0fVal::ifTheCorresponding> ifTheCorresponding{};
         }
-        }
         ///Match interrupt flag for channel 0.
         enum class Imat0fVal {
             thisInterruptSourc=0x00000000,     ///<This interrupt source is not contributing to the MCPWM interrupt request.
@@ -753,7 +718,6 @@ namespace Kvasir {
         namespace Imat0fValC{
             constexpr Register::FieldValue<decltype(imat0F)::Type,Imat0fVal::thisInterruptSourc> thisInterruptSourc{};
             constexpr Register::FieldValue<decltype(imat0F)::Type,Imat0fVal::ifTheCorresponding> ifTheCorresponding{};
-        }
         }
         ///Capture interrupt flag for channel 0.
         enum class Icap0fVal {
@@ -765,7 +729,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(icap0F)::Type,Icap0fVal::thisInterruptSourc> thisInterruptSourc{};
             constexpr Register::FieldValue<decltype(icap0F)::Type,Icap0fVal::ifTheCorresponding> ifTheCorresponding{};
         }
-        }
         ///Limit interrupt flag for channel 1.
         enum class Ilim1fVal {
             thisInterruptSourc=0x00000000,     ///<This interrupt source is not contributing to the MCPWM interrupt request.
@@ -775,7 +738,6 @@ namespace Kvasir {
         namespace Ilim1fValC{
             constexpr Register::FieldValue<decltype(ilim1F)::Type,Ilim1fVal::thisInterruptSourc> thisInterruptSourc{};
             constexpr Register::FieldValue<decltype(ilim1F)::Type,Ilim1fVal::ifTheCorresponding> ifTheCorresponding{};
-        }
         }
         ///Match interrupt flag for channel 1.
         enum class Imat1fVal {
@@ -787,7 +749,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(imat1F)::Type,Imat1fVal::thisInterruptSourc> thisInterruptSourc{};
             constexpr Register::FieldValue<decltype(imat1F)::Type,Imat1fVal::ifTheCorresponding> ifTheCorresponding{};
         }
-        }
         ///Capture interrupt flag for channel 1.
         enum class Icap1fVal {
             thisInterruptSourc=0x00000000,     ///<This interrupt source is not contributing to the MCPWM interrupt request.
@@ -797,7 +758,6 @@ namespace Kvasir {
         namespace Icap1fValC{
             constexpr Register::FieldValue<decltype(icap1F)::Type,Icap1fVal::thisInterruptSourc> thisInterruptSourc{};
             constexpr Register::FieldValue<decltype(icap1F)::Type,Icap1fVal::ifTheCorresponding> ifTheCorresponding{};
-        }
         }
         ///Limit interrupt flag for channel 2.
         enum class Ilim2fVal {
@@ -809,7 +769,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ilim2F)::Type,Ilim2fVal::thisInterruptSourc> thisInterruptSourc{};
             constexpr Register::FieldValue<decltype(ilim2F)::Type,Ilim2fVal::ifTheCorresponding> ifTheCorresponding{};
         }
-        }
         ///Match interrupt flag for channel 2.
         enum class Imat2fVal {
             thisInterruptSourc=0x00000000,     ///<This interrupt source is not contributing to the MCPWM interrupt request.
@@ -819,7 +778,6 @@ namespace Kvasir {
         namespace Imat2fValC{
             constexpr Register::FieldValue<decltype(imat2F)::Type,Imat2fVal::thisInterruptSourc> thisInterruptSourc{};
             constexpr Register::FieldValue<decltype(imat2F)::Type,Imat2fVal::ifTheCorresponding> ifTheCorresponding{};
-        }
         }
         ///Capture interrupt flag for channel 2.
         enum class Icap2fVal {
@@ -831,7 +789,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(icap2F)::Type,Icap2fVal::thisInterruptSourc> thisInterruptSourc{};
             constexpr Register::FieldValue<decltype(icap2F)::Type,Icap2fVal::ifTheCorresponding> ifTheCorresponding{};
         }
-        }
         ///Fast abort interrupt flag.
         enum class AbortfVal {
             thisInterruptSourc=0x00000000,     ///<This interrupt source is not contributing to the MCPWM interrupt request.
@@ -841,7 +798,6 @@ namespace Kvasir {
         namespace AbortfValC{
             constexpr Register::FieldValue<decltype(abortF)::Type,AbortfVal::thisInterruptSourc> thisInterruptSourc{};
             constexpr Register::FieldValue<decltype(abortF)::Type,AbortfVal::ifTheCorresponding> ifTheCorresponding{};
-        }
         }
     }
     namespace NoneintfSet{    ///<Interrupt flags set address
@@ -902,7 +858,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tc0mci0Re)::Type,Tc0mci0reVal::aRisingEdgeOnMci> aRisingEdgeOnMci{};
             constexpr Register::FieldValue<decltype(tc0mci0Re)::Type,Tc0mci0reVal::ifMode0Is1Count> ifMode0Is1Count{};
         }
-        }
         ///Counter 0 falling edge mode, channel 0.
         enum class Tc0mci0feVal {
             aFallingEdgeOnMc=0x00000000,     ///<A falling edge on MCI0 does not affect counter 0.
@@ -912,7 +867,6 @@ namespace Kvasir {
         namespace Tc0mci0feValC{
             constexpr Register::FieldValue<decltype(tc0mci0Fe)::Type,Tc0mci0feVal::aFallingEdgeOnMc> aFallingEdgeOnMc{};
             constexpr Register::FieldValue<decltype(tc0mci0Fe)::Type,Tc0mci0feVal::ifMode0Is1Count> ifMode0Is1Count{};
-        }
         }
         ///Counter 0 rising edge mode, channel 1.
         enum class Tc0mci1reVal {
@@ -924,7 +878,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tc0mci1Re)::Type,Tc0mci1reVal::aRisingEdgeOnMci> aRisingEdgeOnMci{};
             constexpr Register::FieldValue<decltype(tc0mci1Re)::Type,Tc0mci1reVal::ifMode0Is1Count> ifMode0Is1Count{};
         }
-        }
         ///Counter 0 falling edge mode, channel 1.
         enum class Tc0mci1feVal {
             aFallingEdgeOnMc=0x00000000,     ///<A falling edge on MCI1 does not affect counter 0.
@@ -934,7 +887,6 @@ namespace Kvasir {
         namespace Tc0mci1feValC{
             constexpr Register::FieldValue<decltype(tc0mci1Fe)::Type,Tc0mci1feVal::aFallingEdgeOnMc> aFallingEdgeOnMc{};
             constexpr Register::FieldValue<decltype(tc0mci1Fe)::Type,Tc0mci1feVal::ifMode0Is1Count> ifMode0Is1Count{};
-        }
         }
         ///Counter 0 rising edge mode, channel 2.
         enum class Tc0mci2reVal {
@@ -946,7 +898,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tc0mci2Re)::Type,Tc0mci2reVal::aRisingEdgeOnMci> aRisingEdgeOnMci{};
             constexpr Register::FieldValue<decltype(tc0mci2Re)::Type,Tc0mci2reVal::ifMode0Is1Count> ifMode0Is1Count{};
         }
-        }
         ///Counter 0 falling edge mode, channel 2.
         enum class Tc0mci2feVal {
             aFallingEdgeOnMc=0x00000000,     ///<A falling edge on MCI0 does not affect counter 0.
@@ -956,7 +907,6 @@ namespace Kvasir {
         namespace Tc0mci2feValC{
             constexpr Register::FieldValue<decltype(tc0mci2Fe)::Type,Tc0mci2feVal::aFallingEdgeOnMc> aFallingEdgeOnMc{};
             constexpr Register::FieldValue<decltype(tc0mci2Fe)::Type,Tc0mci2feVal::ifMode0Is1Count> ifMode0Is1Count{};
-        }
         }
         ///Counter 1 rising edge mode, channel 0.
         enum class Tc1mci0reVal {
@@ -968,7 +918,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tc1mci0Re)::Type,Tc1mci0reVal::aRisingEdgeOnMci> aRisingEdgeOnMci{};
             constexpr Register::FieldValue<decltype(tc1mci0Re)::Type,Tc1mci0reVal::ifMode1Is1Count> ifMode1Is1Count{};
         }
-        }
         ///Counter 1 falling edge mode, channel 0.
         enum class Tc1mci0feVal {
             aFallingEdgeOnMc=0x00000000,     ///<A falling edge on MCI0 does not affect counter 1.
@@ -978,7 +927,6 @@ namespace Kvasir {
         namespace Tc1mci0feValC{
             constexpr Register::FieldValue<decltype(tc1mci0Fe)::Type,Tc1mci0feVal::aFallingEdgeOnMc> aFallingEdgeOnMc{};
             constexpr Register::FieldValue<decltype(tc1mci0Fe)::Type,Tc1mci0feVal::ifMode1Is1Count> ifMode1Is1Count{};
-        }
         }
         ///Counter 1 rising edge mode, channel 1.
         enum class Tc1mci1reVal {
@@ -990,7 +938,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tc1mci1Re)::Type,Tc1mci1reVal::aRisingEdgeOnMci> aRisingEdgeOnMci{};
             constexpr Register::FieldValue<decltype(tc1mci1Re)::Type,Tc1mci1reVal::ifMode1Is1Count> ifMode1Is1Count{};
         }
-        }
         ///Counter 1 falling edge mode, channel 1.
         enum class Tc1mci1feVal {
             aFallingEdgeOnMc=0x00000000,     ///<A falling edge on MCI0 does not affect counter 1.
@@ -1000,7 +947,6 @@ namespace Kvasir {
         namespace Tc1mci1feValC{
             constexpr Register::FieldValue<decltype(tc1mci1Fe)::Type,Tc1mci1feVal::aFallingEdgeOnMc> aFallingEdgeOnMc{};
             constexpr Register::FieldValue<decltype(tc1mci1Fe)::Type,Tc1mci1feVal::ifMode1Is1Count> ifMode1Is1Count{};
-        }
         }
         ///Counter 1 rising edge mode, channel 2.
         enum class Tc1mci2reVal {
@@ -1012,7 +958,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tc1mci2Re)::Type,Tc1mci2reVal::aRisingEdgeOnMci> aRisingEdgeOnMci{};
             constexpr Register::FieldValue<decltype(tc1mci2Re)::Type,Tc1mci2reVal::ifMode1Is1Count> ifMode1Is1Count{};
         }
-        }
         ///Counter 1 falling edge mode, channel 2.
         enum class Tc1mci2feVal {
             aFallingEdgeOnMc=0x00000000,     ///<A falling edge on MCI2 does not affect counter 1.
@@ -1022,7 +967,6 @@ namespace Kvasir {
         namespace Tc1mci2feValC{
             constexpr Register::FieldValue<decltype(tc1mci2Fe)::Type,Tc1mci2feVal::aFallingEdgeOnMc> aFallingEdgeOnMc{};
             constexpr Register::FieldValue<decltype(tc1mci2Fe)::Type,Tc1mci2feVal::ifMode1Is1Count> ifMode1Is1Count{};
-        }
         }
         ///Counter 2 rising edge mode, channel 0.
         enum class Tc2mci0reVal {
@@ -1034,7 +978,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tc2mci0Re)::Type,Tc2mci0reVal::aRisingEdgeOnMci> aRisingEdgeOnMci{};
             constexpr Register::FieldValue<decltype(tc2mci0Re)::Type,Tc2mci0reVal::ifMode2Is1Count> ifMode2Is1Count{};
         }
-        }
         ///Counter 2 falling edge mode, channel 0.
         enum class Tc2mci0feVal {
             aFallingEdgeOnMc=0x00000000,     ///<A falling edge on MCI0 does not affect counter 2.
@@ -1044,7 +987,6 @@ namespace Kvasir {
         namespace Tc2mci0feValC{
             constexpr Register::FieldValue<decltype(tc2mci0Fe)::Type,Tc2mci0feVal::aFallingEdgeOnMc> aFallingEdgeOnMc{};
             constexpr Register::FieldValue<decltype(tc2mci0Fe)::Type,Tc2mci0feVal::ifMode2Is1Count> ifMode2Is1Count{};
-        }
         }
         ///Counter 2 rising edge mode, channel 1.
         enum class Tc2mci1reVal {
@@ -1056,7 +998,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tc2mci1Re)::Type,Tc2mci1reVal::aRisingEdgeOnMci> aRisingEdgeOnMci{};
             constexpr Register::FieldValue<decltype(tc2mci1Re)::Type,Tc2mci1reVal::ifMode2Is1Count> ifMode2Is1Count{};
         }
-        }
         ///Counter 2 falling edge mode, channel 1.
         enum class Tc2mci1feVal {
             aFallingEdgeOnMc=0x00000000,     ///<A falling edge on MCI1 does not affect counter 2.
@@ -1066,7 +1007,6 @@ namespace Kvasir {
         namespace Tc2mci1feValC{
             constexpr Register::FieldValue<decltype(tc2mci1Fe)::Type,Tc2mci1feVal::aFallingEdgeOnMc> aFallingEdgeOnMc{};
             constexpr Register::FieldValue<decltype(tc2mci1Fe)::Type,Tc2mci1feVal::ifMode2Is1Count> ifMode2Is1Count{};
-        }
         }
         ///Counter 2 rising edge mode, channel 2.
         enum class Tc2mci2reVal {
@@ -1078,7 +1018,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tc2mci2Re)::Type,Tc2mci2reVal::aRisingEdgeOnMci> aRisingEdgeOnMci{};
             constexpr Register::FieldValue<decltype(tc2mci2Re)::Type,Tc2mci2reVal::ifMode2Is1Count> ifMode2Is1Count{};
         }
-        }
         ///Counter 2 falling edge mode, channel 2.
         enum class Tc2mci2feVal {
             aFallingEdgeOnMc=0x00000000,     ///<A falling edge on MCI2 does not affect counter 2.
@@ -1088,7 +1027,6 @@ namespace Kvasir {
         namespace Tc2mci2feValC{
             constexpr Register::FieldValue<decltype(tc2mci2Fe)::Type,Tc2mci2feVal::aFallingEdgeOnMc> aFallingEdgeOnMc{};
             constexpr Register::FieldValue<decltype(tc2mci2Fe)::Type,Tc2mci2feVal::ifMode2Is1Count> ifMode2Is1Count{};
-        }
         }
         ///Channel 0 counter/timer mode.
         enum class Cntr0Val {
@@ -1100,7 +1038,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cntr0)::Type,Cntr0Val::channel0IsInTime> channel0IsInTime{};
             constexpr Register::FieldValue<decltype(cntr0)::Type,Cntr0Val::channel0IsInCoun> channel0IsInCoun{};
         }
-        }
         ///Channel 1 counter/timer mode.
         enum class Cntr1Val {
             channel1IsInTime=0x00000000,     ///<Channel 1 is in timer mode.
@@ -1111,7 +1048,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cntr1)::Type,Cntr1Val::channel1IsInTime> channel1IsInTime{};
             constexpr Register::FieldValue<decltype(cntr1)::Type,Cntr1Val::channel1IsInCoun> channel1IsInCoun{};
         }
-        }
         ///Channel 2 counter/timer mode.
         enum class Cntr2Val {
             channel2IsInTime=0x00000000,     ///<Channel 2 is in timer mode.
@@ -1121,7 +1057,6 @@ namespace Kvasir {
         namespace Cntr2ValC{
             constexpr Register::FieldValue<decltype(cntr2)::Type,Cntr2Val::channel2IsInTime> channel2IsInTime{};
             constexpr Register::FieldValue<decltype(cntr2)::Type,Cntr2Val::channel2IsInCoun> channel2IsInCoun{};
-        }
         }
     }
     namespace NonecntconSet{    ///<Count Control set address

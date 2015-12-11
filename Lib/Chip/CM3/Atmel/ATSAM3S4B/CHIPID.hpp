@@ -26,7 +26,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eproc)::Type,EprocVal::ca5> ca5{};
             constexpr Register::FieldValue<decltype(eproc)::Type,EprocVal::cm4> cm4{};
         }
-        }
         ///Nonvolatile Program Memory Size
         enum class NvpsizVal {
             none=0x00000000,     ///<None
@@ -53,7 +52,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nvpsiz)::Type,NvpsizVal::v1024k> v1024k{};
             constexpr Register::FieldValue<decltype(nvpsiz)::Type,NvpsizVal::v2048k> v2048k{};
         }
-        }
         ///Second Nonvolatile Program Memory Size
         enum class Nvpsiz2Val {
             none=0x00000000,     ///<None
@@ -79,7 +77,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::v512k> v512k{};
             constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::v1024k> v1024k{};
             constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::v2048k> v2048k{};
-        }
         }
         ///Internal SRAM Size
         enum class SramsizVal {
@@ -118,7 +115,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v256k> v256k{};
             constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v96k> v96k{};
             constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v512k> v512k{};
-        }
         }
         ///Architecture Identifier
         enum class ArchVal {
@@ -210,7 +206,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::sam5a> sam5a{};
             constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at75cxx> at75cxx{};
         }
-        }
         ///Nonvolatile Program Memory Type
         enum class NvptypVal {
             rom=0x00000000,     ///<ROM
@@ -226,7 +221,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nvptyp)::Type,NvptypVal::flash> flash{};
             constexpr Register::FieldValue<decltype(nvptyp)::Type,NvptypVal::romFlash> romFlash{};
             constexpr Register::FieldValue<decltype(nvptyp)::Type,NvptypVal::sram> sram{};
-        }
         }
         ///Extension Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ext{}; 

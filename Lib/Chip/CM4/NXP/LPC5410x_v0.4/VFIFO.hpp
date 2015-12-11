@@ -1299,7 +1299,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txssel0N)::Type,Txssel0nVal::asserted> asserted{};
             constexpr Register::FieldValue<decltype(txssel0N)::Type,Txssel0nVal::notAsserted> notAsserted{};
         }
-        }
         ///Transmit Slave Select. This field asserts SSEL1 in master
 								mode. The output on the pin is active LOW by default. The active
 								state of the SSEL1 pin is configured by bits in the CFG
@@ -1312,7 +1311,6 @@ namespace Kvasir {
         namespace Txssel1nValC{
             constexpr Register::FieldValue<decltype(txssel1N)::Type,Txssel1nVal::asserted> asserted{};
             constexpr Register::FieldValue<decltype(txssel1N)::Type,Txssel1nVal::notAsserted> notAsserted{};
-        }
         }
         ///Transmit Slave Select. This field asserts SSEL2 in master
 								mode. The output on the pin is active LOW by default. The active
@@ -1327,7 +1325,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txssel2N)::Type,Txssel2nVal::asserted> asserted{};
             constexpr Register::FieldValue<decltype(txssel2N)::Type,Txssel2nVal::notAsserted> notAsserted{};
         }
-        }
         ///Transmit Slave Select. This field asserts SSEL3 in master
 								mode. The output on the pin is active LOW by default. The active
 								state of the SSEL3 pin is configured by bits in the CFG
@@ -1340,7 +1337,6 @@ namespace Kvasir {
         namespace Txssel3nValC{
             constexpr Register::FieldValue<decltype(txssel3N)::Type,Txssel3nVal::asserted> asserted{};
             constexpr Register::FieldValue<decltype(txssel3N)::Type,Txssel3nVal::notAsserted> notAsserted{};
-        }
         }
         ///End of Transfer. The asserted SSEL will be deasserted at
 								the end of a transfer, and remain so for at least the time specified
@@ -1357,7 +1353,6 @@ namespace Kvasir {
         namespace EotValC{
             constexpr Register::FieldValue<decltype(eot)::Type,EotVal::notDeasserted> notDeasserted{};
             constexpr Register::FieldValue<decltype(eot)::Type,EotVal::deasserted> deasserted{};
-        }
         }
         ///End of Frame. Between frames, a delay may be inserted, as
 								defined by the FRAME_DELAY value in the DLY register. The end of a
@@ -1376,7 +1371,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eof)::Type,EofVal::dataNotEof> dataNotEof{};
             constexpr Register::FieldValue<decltype(eof)::Type,EofVal::dataEof> dataEof{};
         }
-        }
         ///Receive Ignore. This allows data to be transmitted using
 								the SPI without the need to read unneeded data from the receiver to
 								simplify the transmit process and can be used with the
@@ -1394,7 +1388,6 @@ namespace Kvasir {
         namespace RxignoreValC{
             constexpr Register::FieldValue<decltype(rxignore)::Type,RxignoreVal::readReceivedData> readReceivedData{};
             constexpr Register::FieldValue<decltype(rxignore)::Type,RxignoreVal::ignoreReceivedData> ignoreReceivedData{};
-        }
         }
         ///Data Length. Specifies the data length from 1 to 16 bits.
 								Note that transfer lengths greater than 16 bits are supported by
@@ -1423,7 +1416,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txssel0N)::Type,Txssel0nVal::asserted> asserted{};
             constexpr Register::FieldValue<decltype(txssel0N)::Type,Txssel0nVal::notAsserted> notAsserted{};
         }
-        }
         ///Transmit Slave Select. This field asserts SSEL1 in master
 								mode. The output on the pin is active LOW by default. The active
 								state of the SSEL1 pin is configured by bits in the CFG
@@ -1436,7 +1428,6 @@ namespace Kvasir {
         namespace Txssel1nValC{
             constexpr Register::FieldValue<decltype(txssel1N)::Type,Txssel1nVal::asserted> asserted{};
             constexpr Register::FieldValue<decltype(txssel1N)::Type,Txssel1nVal::notAsserted> notAsserted{};
-        }
         }
         ///Transmit Slave Select. This field asserts SSEL2 in master
 								mode. The output on the pin is active LOW by default. The active
@@ -1451,7 +1442,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txssel2N)::Type,Txssel2nVal::asserted> asserted{};
             constexpr Register::FieldValue<decltype(txssel2N)::Type,Txssel2nVal::notAsserted> notAsserted{};
         }
-        }
         ///Transmit Slave Select. This field asserts SSEL3 in master
 								mode. The output on the pin is active LOW by default. The active
 								state of the SSEL3 pin is configured by bits in the CFG
@@ -1464,7 +1454,6 @@ namespace Kvasir {
         namespace Txssel3nValC{
             constexpr Register::FieldValue<decltype(txssel3N)::Type,Txssel3nVal::asserted> asserted{};
             constexpr Register::FieldValue<decltype(txssel3N)::Type,Txssel3nVal::notAsserted> notAsserted{};
-        }
         }
         ///End of Transfer. The asserted SSEL will be deasserted at
 								the end of a transfer, and remain so for at least the time specified
@@ -1481,7 +1470,6 @@ namespace Kvasir {
         namespace EotValC{
             constexpr Register::FieldValue<decltype(eot)::Type,EotVal::notDeasserted> notDeasserted{};
             constexpr Register::FieldValue<decltype(eot)::Type,EotVal::deasserted> deasserted{};
-        }
         }
         ///End of Frame. Between frames, a delay may be inserted, as
 								defined by the FRAME_DELAY value in the DLY register. The end of a
@@ -1500,7 +1488,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eof)::Type,EofVal::dataNotEof> dataNotEof{};
             constexpr Register::FieldValue<decltype(eof)::Type,EofVal::dataEof> dataEof{};
         }
-        }
         ///Receive Ignore. This allows data to be transmitted using
 								the SPI without the need to read unneeded data from the receiver to
 								simplify the transmit process and can be used with the
@@ -1518,7 +1505,6 @@ namespace Kvasir {
         namespace RxignoreValC{
             constexpr Register::FieldValue<decltype(rxignore)::Type,RxignoreVal::readReceivedData> readReceivedData{};
             constexpr Register::FieldValue<decltype(rxignore)::Type,RxignoreVal::ignoreReceivedData> ignoreReceivedData{};
-        }
         }
         ///Data Length. Specifies the data length from 1 to 16 bits.
 								Note that transfer lengths greater than 16 bits are supported by

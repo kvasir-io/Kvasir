@@ -18,7 +18,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bodrstlev)::Type,BodrstlevVal::level22> level22{};
             constexpr Register::FieldValue<decltype(bodrstlev)::Type,BodrstlevVal::level32> level32{};
         }
-        }
         ///BOD interrupt level
         enum class BodintvalVal {
             level02=0x00000000,     ///<Level 0: 2.05 V
@@ -33,7 +32,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bodintval)::Type,BodintvalVal::level22> level22{};
             constexpr Register::FieldValue<decltype(bodintval)::Type,BodintvalVal::level33> level33{};
         }
-        }
         ///BOD reset enable
         enum class BodrstenaVal {
             disableResetFuncti=0x00000000,     ///<Disable reset function.
@@ -43,7 +41,6 @@ namespace Kvasir {
         namespace BodrstenaValC{
             constexpr Register::FieldValue<decltype(bodrstena)::Type,BodrstenaVal::disableResetFuncti> disableResetFuncti{};
             constexpr Register::FieldValue<decltype(bodrstena)::Type,BodrstenaVal::enableResetFunctio> enableResetFunctio{};
-        }
         }
     }
 }

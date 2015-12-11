@@ -36,7 +36,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rettobase)::Type,RettobaseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rettobase)::Type,RettobaseVal::v1> v1{};
         }
-        }
         ///Exception number of the highest priority pending enabled exception
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,12),Register::ReadWriteAccess,unsigned> vectpending{}; 
         ///no description available
@@ -51,7 +50,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(isrpreempt)::Type,IsrpreemptVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isrpreempt)::Type,IsrpreemptVal::v1> v1{};
         }
-        }
         ///no description available
         enum class PendstclrVal {
             v0=0x00000000,     ///<no effect
@@ -61,7 +59,6 @@ namespace Kvasir {
         namespace PendstclrValC{
             constexpr Register::FieldValue<decltype(pendstclr)::Type,PendstclrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pendstclr)::Type,PendstclrVal::v1> v1{};
-        }
         }
         ///no description available
         enum class PendstsetVal {
@@ -73,7 +70,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pendstset)::Type,PendstsetVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pendstset)::Type,PendstsetVal::v1> v1{};
         }
-        }
         ///no description available
         enum class PendsvclrVal {
             v0=0x00000000,     ///<no effect
@@ -83,7 +79,6 @@ namespace Kvasir {
         namespace PendsvclrValC{
             constexpr Register::FieldValue<decltype(pendsvclr)::Type,PendsvclrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pendsvclr)::Type,PendsvclrVal::v1> v1{};
-        }
         }
         ///no description available
         enum class PendsvsetVal {
@@ -95,7 +90,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pendsvset)::Type,PendsvsetVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pendsvset)::Type,PendsvsetVal::v1> v1{};
         }
-        }
         ///no description available
         enum class NmipendsetVal {
             v0=0x00000000,     ///<write: no effect; read: NMI exception is not pending
@@ -105,7 +99,6 @@ namespace Kvasir {
         namespace NmipendsetValC{
             constexpr Register::FieldValue<decltype(nmipendset)::Type,NmipendsetVal::v0> v0{};
             constexpr Register::FieldValue<decltype(nmipendset)::Type,NmipendsetVal::v1> v1{};
-        }
         }
     }
     namespace ScbVtor{    ///<Vector Table Offset Register
@@ -129,7 +122,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sysresetreq)::Type,SysresetreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sysresetreq)::Type,SysresetreqVal::v1> v1{};
         }
-        }
         ///Interrupt priority grouping field. This field determines the split of group priority from subpriority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> prigroup{}; 
         ///no description available
@@ -141,7 +133,6 @@ namespace Kvasir {
         namespace EndiannessValC{
             constexpr Register::FieldValue<decltype(endianness)::Type,EndiannessVal::v0> v0{};
             constexpr Register::FieldValue<decltype(endianness)::Type,EndiannessVal::v1> v1{};
-        }
         }
         ///Register key
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> vectkey{}; 
@@ -158,7 +149,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sleeponexit)::Type,SleeponexitVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sleeponexit)::Type,SleeponexitVal::v1> v1{};
         }
-        }
         ///no description available
         enum class SleepdeepVal {
             v0=0x00000000,     ///<sleep
@@ -169,7 +159,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sleepdeep)::Type,SleepdeepVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sleepdeep)::Type,SleepdeepVal::v1> v1{};
         }
-        }
         ///no description available
         enum class SevonpendVal {
             v0=0x00000000,     ///<only enabled interrupts or events can wakeup the processor, disabled interrupts are excluded
@@ -179,7 +168,6 @@ namespace Kvasir {
         namespace SevonpendValC{
             constexpr Register::FieldValue<decltype(sevonpend)::Type,SevonpendVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sevonpend)::Type,SevonpendVal::v1> v1{};
-        }
         }
     }
     namespace ScbCcr{    ///<Configuration and Control Register
@@ -194,7 +182,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nonbasethrdena)::Type,NonbasethrdenaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(nonbasethrdena)::Type,NonbasethrdenaVal::v1> v1{};
         }
-        }
         ///Enables unprivileged software access to the STIR
         enum class UsersetmpendVal {
             v0=0x00000000,     ///<disable
@@ -204,7 +191,6 @@ namespace Kvasir {
         namespace UsersetmpendValC{
             constexpr Register::FieldValue<decltype(usersetmpend)::Type,UsersetmpendVal::v0> v0{};
             constexpr Register::FieldValue<decltype(usersetmpend)::Type,UsersetmpendVal::v1> v1{};
-        }
         }
         ///Enables unaligned access traps
         enum class UnaligntrpVal {
@@ -216,7 +202,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(unalignTrp)::Type,UnaligntrpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(unalignTrp)::Type,UnaligntrpVal::v1> v1{};
         }
-        }
         ///Enables faulting or halting when the processor executes an SDIV or UDIV instruction with a divisor of 0
         enum class Div0trpVal {
             v0=0x00000000,     ///<do not trap divide by 0
@@ -226,7 +211,6 @@ namespace Kvasir {
         namespace Div0trpValC{
             constexpr Register::FieldValue<decltype(div0Trp)::Type,Div0trpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(div0Trp)::Type,Div0trpVal::v1> v1{};
-        }
         }
         ///Enables handlers with priority -1 or -2 to ignore data BusFaults caused by load and store instructions.
         enum class BfhfnmignVal {
@@ -238,7 +222,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bfhfnmign)::Type,BfhfnmignVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bfhfnmign)::Type,BfhfnmignVal::v1> v1{};
         }
-        }
         ///Indicates stack alignment on exception entry
         enum class StkalignVal {
             v0=0x00000000,     ///<4-byte aligned
@@ -248,7 +231,6 @@ namespace Kvasir {
         namespace StkalignValC{
             constexpr Register::FieldValue<decltype(stkalign)::Type,StkalignVal::v0> v0{};
             constexpr Register::FieldValue<decltype(stkalign)::Type,StkalignVal::v1> v1{};
-        }
         }
     }
     namespace ScbShpr1{    ///<System Handler Priority Register 1
@@ -284,7 +266,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(memfaultact)::Type,MemfaultactVal::v0> v0{};
             constexpr Register::FieldValue<decltype(memfaultact)::Type,MemfaultactVal::v1> v1{};
         }
-        }
         ///no description available
         enum class BusfaultactVal {
             v0=0x00000000,     ///<exception is not active
@@ -294,7 +275,6 @@ namespace Kvasir {
         namespace BusfaultactValC{
             constexpr Register::FieldValue<decltype(busfaultact)::Type,BusfaultactVal::v0> v0{};
             constexpr Register::FieldValue<decltype(busfaultact)::Type,BusfaultactVal::v1> v1{};
-        }
         }
         ///no description available
         enum class UsgfaultactVal {
@@ -306,7 +286,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usgfaultact)::Type,UsgfaultactVal::v0> v0{};
             constexpr Register::FieldValue<decltype(usgfaultact)::Type,UsgfaultactVal::v1> v1{};
         }
-        }
         ///no description available
         enum class SvcallactVal {
             v0=0x00000000,     ///<exception is not active
@@ -316,7 +295,6 @@ namespace Kvasir {
         namespace SvcallactValC{
             constexpr Register::FieldValue<decltype(svcallact)::Type,SvcallactVal::v0> v0{};
             constexpr Register::FieldValue<decltype(svcallact)::Type,SvcallactVal::v1> v1{};
-        }
         }
         ///no description available
         enum class MonitoractVal {
@@ -328,7 +306,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(monitoract)::Type,MonitoractVal::v0> v0{};
             constexpr Register::FieldValue<decltype(monitoract)::Type,MonitoractVal::v1> v1{};
         }
-        }
         ///no description available
         enum class PendsvactVal {
             v0=0x00000000,     ///<exception is not active
@@ -338,7 +315,6 @@ namespace Kvasir {
         namespace PendsvactValC{
             constexpr Register::FieldValue<decltype(pendsvact)::Type,PendsvactVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pendsvact)::Type,PendsvactVal::v1> v1{};
-        }
         }
         ///no description available
         enum class SystickactVal {
@@ -350,7 +326,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(systickact)::Type,SystickactVal::v0> v0{};
             constexpr Register::FieldValue<decltype(systickact)::Type,SystickactVal::v1> v1{};
         }
-        }
         ///no description available
         enum class UsgfaultpendedVal {
             v0=0x00000000,     ///<exception is not pending
@@ -360,7 +335,6 @@ namespace Kvasir {
         namespace UsgfaultpendedValC{
             constexpr Register::FieldValue<decltype(usgfaultpended)::Type,UsgfaultpendedVal::v0> v0{};
             constexpr Register::FieldValue<decltype(usgfaultpended)::Type,UsgfaultpendedVal::v1> v1{};
-        }
         }
         ///no description available
         enum class MemfaultpendedVal {
@@ -372,7 +346,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(memfaultpended)::Type,MemfaultpendedVal::v0> v0{};
             constexpr Register::FieldValue<decltype(memfaultpended)::Type,MemfaultpendedVal::v1> v1{};
         }
-        }
         ///no description available
         enum class BusfaultpendedVal {
             v0=0x00000000,     ///<exception is not pending
@@ -382,7 +355,6 @@ namespace Kvasir {
         namespace BusfaultpendedValC{
             constexpr Register::FieldValue<decltype(busfaultpended)::Type,BusfaultpendedVal::v0> v0{};
             constexpr Register::FieldValue<decltype(busfaultpended)::Type,BusfaultpendedVal::v1> v1{};
-        }
         }
         ///no description available
         enum class SvcallpendedVal {
@@ -394,7 +366,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(svcallpended)::Type,SvcallpendedVal::v0> v0{};
             constexpr Register::FieldValue<decltype(svcallpended)::Type,SvcallpendedVal::v1> v1{};
         }
-        }
         ///no description available
         enum class MemfaultenaVal {
             v0=0x00000000,     ///<disable the exception
@@ -404,7 +375,6 @@ namespace Kvasir {
         namespace MemfaultenaValC{
             constexpr Register::FieldValue<decltype(memfaultena)::Type,MemfaultenaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(memfaultena)::Type,MemfaultenaVal::v1> v1{};
-        }
         }
         ///no description available
         enum class BusfaultenaVal {
@@ -416,7 +386,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busfaultena)::Type,BusfaultenaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(busfaultena)::Type,BusfaultenaVal::v1> v1{};
         }
-        }
         ///no description available
         enum class UsgfaultenaVal {
             v0=0x00000000,     ///<disable the exception
@@ -426,7 +395,6 @@ namespace Kvasir {
         namespace UsgfaultenaValC{
             constexpr Register::FieldValue<decltype(usgfaultena)::Type,UsgfaultenaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(usgfaultena)::Type,UsgfaultenaVal::v1> v1{};
-        }
         }
     }
     namespace ScbCfsr{    ///<Configurable Fault Status Registers
@@ -441,7 +409,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iaccviol)::Type,IaccviolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(iaccviol)::Type,IaccviolVal::v1> v1{};
         }
-        }
         ///no description available
         enum class DaccviolVal {
             v0=0x00000000,     ///<no data access violation fault
@@ -451,7 +418,6 @@ namespace Kvasir {
         namespace DaccviolValC{
             constexpr Register::FieldValue<decltype(daccviol)::Type,DaccviolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(daccviol)::Type,DaccviolVal::v1> v1{};
-        }
         }
         ///no description available
         enum class MunstkerrVal {
@@ -463,7 +429,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(munstkerr)::Type,MunstkerrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(munstkerr)::Type,MunstkerrVal::v1> v1{};
         }
-        }
         ///no description available
         enum class MstkerrVal {
             v0=0x00000000,     ///<no stacking fault
@@ -473,7 +438,6 @@ namespace Kvasir {
         namespace MstkerrValC{
             constexpr Register::FieldValue<decltype(mstkerr)::Type,MstkerrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(mstkerr)::Type,MstkerrVal::v1> v1{};
-        }
         }
         ///no description available
         enum class MlsperrVal {
@@ -485,7 +449,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mlsperr)::Type,MlsperrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(mlsperr)::Type,MlsperrVal::v1> v1{};
         }
-        }
         ///no description available
         enum class MmarvalidVal {
             v0=0x00000000,     ///<value in MMAR is not a valid fault address
@@ -495,7 +458,6 @@ namespace Kvasir {
         namespace MmarvalidValC{
             constexpr Register::FieldValue<decltype(mmarvalid)::Type,MmarvalidVal::v0> v0{};
             constexpr Register::FieldValue<decltype(mmarvalid)::Type,MmarvalidVal::v1> v1{};
-        }
         }
         ///no description available
         enum class IbuserrVal {
@@ -507,7 +469,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ibuserr)::Type,IbuserrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ibuserr)::Type,IbuserrVal::v1> v1{};
         }
-        }
         ///no description available
         enum class PreciserrVal {
             v0=0x00000000,     ///<no precise data bus error
@@ -517,7 +478,6 @@ namespace Kvasir {
         namespace PreciserrValC{
             constexpr Register::FieldValue<decltype(preciserr)::Type,PreciserrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(preciserr)::Type,PreciserrVal::v1> v1{};
-        }
         }
         ///no description available
         enum class ImpreciserrVal {
@@ -529,7 +489,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(impreciserr)::Type,ImpreciserrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(impreciserr)::Type,ImpreciserrVal::v1> v1{};
         }
-        }
         ///no description available
         enum class UnstkerrVal {
             v0=0x00000000,     ///<no unstacking fault
@@ -539,7 +498,6 @@ namespace Kvasir {
         namespace UnstkerrValC{
             constexpr Register::FieldValue<decltype(unstkerr)::Type,UnstkerrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(unstkerr)::Type,UnstkerrVal::v1> v1{};
-        }
         }
         ///no description available
         enum class StkerrVal {
@@ -551,7 +509,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stkerr)::Type,StkerrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(stkerr)::Type,StkerrVal::v1> v1{};
         }
-        }
         ///no description available
         enum class LsperrVal {
             v0=0x00000000,     ///<No bus fault occurred during floating-point lazy state preservation
@@ -561,7 +518,6 @@ namespace Kvasir {
         namespace LsperrValC{
             constexpr Register::FieldValue<decltype(lsperr)::Type,LsperrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lsperr)::Type,LsperrVal::v1> v1{};
-        }
         }
         ///no description available
         enum class BfarvalidVal {
@@ -573,7 +529,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bfarvalid)::Type,BfarvalidVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bfarvalid)::Type,BfarvalidVal::v1> v1{};
         }
-        }
         ///no description available
         enum class UndefinstrVal {
             v0=0x00000000,     ///<no undefined instruction UsageFault
@@ -583,7 +538,6 @@ namespace Kvasir {
         namespace UndefinstrValC{
             constexpr Register::FieldValue<decltype(undefinstr)::Type,UndefinstrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(undefinstr)::Type,UndefinstrVal::v1> v1{};
-        }
         }
         ///no description available
         enum class InvstateVal {
@@ -595,7 +549,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invstate)::Type,InvstateVal::v0> v0{};
             constexpr Register::FieldValue<decltype(invstate)::Type,InvstateVal::v1> v1{};
         }
-        }
         ///no description available
         enum class InvpcVal {
             v0=0x00000000,     ///<no invalid PC load UsageFault
@@ -605,7 +558,6 @@ namespace Kvasir {
         namespace InvpcValC{
             constexpr Register::FieldValue<decltype(invpc)::Type,InvpcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(invpc)::Type,InvpcVal::v1> v1{};
-        }
         }
         ///no description available
         enum class NocpVal {
@@ -617,7 +569,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nocp)::Type,NocpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(nocp)::Type,NocpVal::v1> v1{};
         }
-        }
         ///no description available
         enum class UnalignedVal {
             v0=0x00000000,     ///<no unaligned access fault, or unaligned access trapping not enabled
@@ -628,7 +579,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(unaligned)::Type,UnalignedVal::v0> v0{};
             constexpr Register::FieldValue<decltype(unaligned)::Type,UnalignedVal::v1> v1{};
         }
-        }
         ///no description available
         enum class DivbyzeroVal {
             v0=0x00000000,     ///<no divide by zero fault, or divide by zero trapping not enabled
@@ -638,7 +588,6 @@ namespace Kvasir {
         namespace DivbyzeroValC{
             constexpr Register::FieldValue<decltype(divbyzero)::Type,DivbyzeroVal::v0> v0{};
             constexpr Register::FieldValue<decltype(divbyzero)::Type,DivbyzeroVal::v1> v1{};
-        }
         }
     }
     namespace ScbHfsr{    ///<HardFault Status register
@@ -653,7 +602,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vecttbl)::Type,VecttblVal::v0> v0{};
             constexpr Register::FieldValue<decltype(vecttbl)::Type,VecttblVal::v1> v1{};
         }
-        }
         ///no description available
         enum class ForcedVal {
             v0=0x00000000,     ///<no forced HardFault
@@ -663,7 +611,6 @@ namespace Kvasir {
         namespace ForcedValC{
             constexpr Register::FieldValue<decltype(forced)::Type,ForcedVal::v0> v0{};
             constexpr Register::FieldValue<decltype(forced)::Type,ForcedVal::v1> v1{};
-        }
         }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> debugevt{}; 
@@ -680,7 +627,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(halted)::Type,HaltedVal::v0> v0{};
             constexpr Register::FieldValue<decltype(halted)::Type,HaltedVal::v1> v1{};
         }
-        }
         ///no description available
         enum class BkptVal {
             v0=0x00000000,     ///<No current breakpoint debug event
@@ -690,7 +636,6 @@ namespace Kvasir {
         namespace BkptValC{
             constexpr Register::FieldValue<decltype(bkpt)::Type,BkptVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bkpt)::Type,BkptVal::v1> v1{};
-        }
         }
         ///no description available
         enum class DwttrapVal {
@@ -702,7 +647,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dwttrap)::Type,DwttrapVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dwttrap)::Type,DwttrapVal::v1> v1{};
         }
-        }
         ///no description available
         enum class VcatchVal {
             v0=0x00000000,     ///<No Vector catch triggered
@@ -713,7 +657,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vcatch)::Type,VcatchVal::v0> v0{};
             constexpr Register::FieldValue<decltype(vcatch)::Type,VcatchVal::v1> v1{};
         }
-        }
         ///no description available
         enum class ExternalVal {
             v0=0x00000000,     ///<No EDBGRQ debug event
@@ -723,7 +666,6 @@ namespace Kvasir {
         namespace ExternalValC{
             constexpr Register::FieldValue<decltype(external)::Type,ExternalVal::v0> v0{};
             constexpr Register::FieldValue<decltype(external)::Type,ExternalVal::v1> v1{};
-        }
         }
     }
     namespace ScbMmfar{    ///<MemManage Address Register

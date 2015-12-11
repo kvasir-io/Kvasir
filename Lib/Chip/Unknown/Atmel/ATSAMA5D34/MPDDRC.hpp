@@ -26,7 +26,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::deepCmd> deepCmd{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::lpddr2Cmd> lpddr2Cmd{};
         }
-        }
         ///Mode Register Select LPDDR2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> mrs{}; 
     }
@@ -57,7 +56,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nc)::Type,NcVal::col11> col11{};
             constexpr Register::FieldValue<decltype(nc)::Type,NcVal::col12> col12{};
         }
-        }
         ///Number of Row Bits
         enum class NrVal {
             row11=0x00000000,     ///<11 row bits
@@ -71,7 +69,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nr)::Type,NrVal::row12> row12{};
             constexpr Register::FieldValue<decltype(nr)::Type,NrVal::row13> row13{};
             constexpr Register::FieldValue<decltype(nr)::Type,NrVal::row14> row14{};
-        }
         }
         ///CAS Latency
         enum class CasVal {
@@ -89,7 +86,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::ddrCas5> ddrCas5{};
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::ddrCas6> ddrCas6{};
         }
-        }
         ///Reset DLL
         enum class DllVal {
             resetDisabled=0x00000000,     ///<Disable DLL reset.
@@ -99,7 +95,6 @@ namespace Kvasir {
         namespace DllValC{
             constexpr Register::FieldValue<decltype(dll)::Type,DllVal::resetDisabled> resetDisabled{};
             constexpr Register::FieldValue<decltype(dll)::Type,DllVal::resetEnabled> resetEnabled{};
-        }
         }
         ///Output Driver Impedance Control (Drive Strength)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> dicDs{}; 
@@ -119,7 +114,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(zq)::Type,ZqVal::short> short{};
             constexpr Register::FieldValue<decltype(zq)::Type,ZqVal::reset> reset{};
         }
-        }
         ///Off-chip Driver
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> ocd{}; 
         ///Mask Data is Shared
@@ -132,7 +126,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dqms)::Type,DqmsVal::notShared> notShared{};
             constexpr Register::FieldValue<decltype(dqms)::Type,DqmsVal::shared> shared{};
         }
-        }
         ///Enable Read Measure
         enum class EnrdmVal {
             off=0x00000000,     ///<DQS/DDR_DATA phase error correction is disabled.
@@ -142,7 +135,6 @@ namespace Kvasir {
         namespace EnrdmValC{
             constexpr Register::FieldValue<decltype(enrdm)::Type,EnrdmVal::off> off{};
             constexpr Register::FieldValue<decltype(enrdm)::Type,EnrdmVal::on> on{};
-        }
         }
         ///Number of Banks.
         enum class NbVal {
@@ -154,7 +146,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nb)::Type,NbVal::v4> v4{};
             constexpr Register::FieldValue<decltype(nb)::Type,NbVal::v8> v8{};
         }
-        }
         ///Not DQS:
         enum class NdqsVal {
             enabled=0x00000000,     ///<Not DQS is enabled.
@@ -164,7 +155,6 @@ namespace Kvasir {
         namespace NdqsValC{
             constexpr Register::FieldValue<decltype(ndqs)::Type,NdqsVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ndqs)::Type,NdqsVal::disabled> disabled{};
-        }
         }
         ///Type of Decoding
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> decod{}; 
@@ -177,7 +167,6 @@ namespace Kvasir {
         namespace UnalValC{
             constexpr Register::FieldValue<decltype(unal)::Type,UnalVal::unsupported> unsupported{};
             constexpr Register::FieldValue<decltype(unal)::Type,UnalVal::supported> supported{};
-        }
         }
     }
     namespace MpddrcTpr0{    ///<MPDDRC Timing Parameter 0 Register
@@ -241,7 +230,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lpcb)::Type,LpcbVal::powerdown> powerdown{};
             constexpr Register::FieldValue<decltype(lpcb)::Type,LpcbVal::deepPwd> deepPwd{};
         }
-        }
         ///Clock Frozen Command Bit
         enum class ClkfrVal {
             disabled=0x00000000,     ///<Clock(s) is/are not frozen.
@@ -252,7 +240,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkFr)::Type,ClkfrVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(clkFr)::Type,ClkfrVal::enabled> enabled{};
         }
-        }
         ///LPDDR2 Power Off Bit
         enum class Lpddr2pwoffVal {
             disabled=0x00000000,     ///<No power off sequence applied to LPDDR2.
@@ -262,7 +249,6 @@ namespace Kvasir {
         namespace Lpddr2pwoffValC{
             constexpr Register::FieldValue<decltype(lpddr2Pwoff)::Type,Lpddr2pwoffVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(lpddr2Pwoff)::Type,Lpddr2pwoffVal::enabled> enabled{};
-        }
         }
         ///Partial Array Self Refresh
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> pasr{}; 
@@ -280,7 +266,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timeout)::Type,TimeoutVal::v64> v64{};
             constexpr Register::FieldValue<decltype(timeout)::Type,TimeoutVal::v128> v128{};
         }
-        }
         ///Active Power Down Exit Time
         enum class ApdeVal {
             fast=0x00000000,     ///<Fast Exit.
@@ -291,7 +276,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(apde)::Type,ApdeVal::fast> fast{};
             constexpr Register::FieldValue<decltype(apde)::Type,ApdeVal::slow> slow{};
         }
-        }
         ///Update Load Mode Register and Extended Mode Register
         enum class UpdmrVal {
             disabled=0x00000000,     ///<Update is disabled.
@@ -299,7 +283,6 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,UpdmrVal> updMr{}; 
         namespace UpdmrValC{
             constexpr Register::FieldValue<decltype(updMr)::Type,UpdmrVal::disabled> disabled{};
-        }
         }
     }
     namespace MpddrcMd{    ///<MPDDRC Memory Device Register
@@ -315,7 +298,6 @@ namespace Kvasir {
         namespace DbwValC{
             constexpr Register::FieldValue<decltype(dbw)::Type,DbwVal::dbw32Bits> dbw32Bits{};
             constexpr Register::FieldValue<decltype(dbw)::Type,DbwVal::dbw16Bits> dbw16Bits{};
-        }
         }
     }
     namespace MpddrcHs{    ///<MPDDRC High Speed Register
@@ -364,7 +346,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rdiv)::Type,RdivVal::rzq80Rzq667> rzq80Rzq667{};
             constexpr Register::FieldValue<decltype(rdiv)::Type,RdivVal::rzq120Rzq100> rzq120Rzq100{};
         }
-        }
         ///IO Calibration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> tzqio{}; 
         ///Number of Transistor P
@@ -394,7 +375,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v16> v16{};
             constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v32> v32{};
         }
-        }
         ///Prefetch Threshold
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> pfchThresh{}; 
     }
@@ -419,7 +399,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v8> v8{};
             constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v16> v16{};
             constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v32> v32{};
-        }
         }
         ///Prefetch Threshold
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> pfchThresh{}; 
@@ -446,7 +425,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v16> v16{};
             constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v32> v32{};
         }
-        }
         ///Prefetch Threshold
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> pfchThresh{}; 
     }
@@ -471,7 +449,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v8> v8{};
             constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v16> v16{};
             constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v32> v32{};
-        }
         }
         ///Prefetch Threshold
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> pfchThresh{}; 

@@ -113,7 +113,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acmpI1En)::Type,Acmpi1enVal::enableAcmpI1This> enableAcmpI1This{};
             constexpr Register::FieldValue<decltype(acmpI1En)::Type,Acmpi1enVal::disableAcmpI1Gpi> disableAcmpI1Gpi{};
         }
-        }
         ///Enables fixed-pin function. Writing a 1 deselects the function and any movable function can be assigned to this pin. By default the fixed-pin function is deselected and GPIO is assigned to this pin. Functions CLKIN and ACMP_I2 are connected to the same pin PIO0_1. To use ACMP_I2, disable the CLKIN function in bit 7 of this register and enable ACMP_I2.
         enum class Acmpi2enVal {
             enableAcmpI2This=0x00000000,     ///<Enable ACMP_I2. This function is enabled on pin PIO0_1.
@@ -123,7 +122,6 @@ namespace Kvasir {
         namespace Acmpi2enValC{
             constexpr Register::FieldValue<decltype(acmpI2En)::Type,Acmpi2enVal::enableAcmpI2This> enableAcmpI2This{};
             constexpr Register::FieldValue<decltype(acmpI2En)::Type,Acmpi2enVal::disableAcmpI2Gpi> disableAcmpI2Gpi{};
-        }
         }
         ///Enables fixed-pin function. Writing a 1 deselects the function and any movable function can be assigned to this pin. This function is selected by default.
         enum class SwclkenVal {
@@ -135,7 +133,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swclkEn)::Type,SwclkenVal::enableSwclkThisF> enableSwclkThisF{};
             constexpr Register::FieldValue<decltype(swclkEn)::Type,SwclkenVal::disableSwclkGpio> disableSwclkGpio{};
         }
-        }
         ///Enables fixed-pin function. Writing a 1 deselects the function and any movable function can be assigned to this pin. This function is selected by default.
         enum class SwdioenVal {
             enableSwdioThisF=0x00000000,     ///<Enable SWDIO. This function is enabled on pin PIO0_2.
@@ -145,7 +142,6 @@ namespace Kvasir {
         namespace SwdioenValC{
             constexpr Register::FieldValue<decltype(swdioEn)::Type,SwdioenVal::enableSwdioThisF> enableSwdioThisF{};
             constexpr Register::FieldValue<decltype(swdioEn)::Type,SwdioenVal::disableSwdioGpio> disableSwdioGpio{};
-        }
         }
         ///Enables fixed-pin function. Writing a 1 deselects the function and any movable function can be assigned to this pin. By default the fixed--pin function is deselected and GPIO is assigned to this pin.
         enum class XtalinenVal {
@@ -157,7 +153,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(xtalinEn)::Type,XtalinenVal::enableXtalinThis> enableXtalinThis{};
             constexpr Register::FieldValue<decltype(xtalinEn)::Type,XtalinenVal::disableXtalinGpio> disableXtalinGpio{};
         }
-        }
         ///Enables fixed-pin function. Writing a 1 deselects the function and any movable function can be assigned to this pin. By default the fixed--pin function is deselected and GPIO is assigned to this pin.
         enum class XtaloutenVal {
             enableXtaloutThis=0x00000000,     ///<Enable XTALOUT. This function is enabled on pin PIO0_9.
@@ -167,7 +162,6 @@ namespace Kvasir {
         namespace XtaloutenValC{
             constexpr Register::FieldValue<decltype(xtaloutEn)::Type,XtaloutenVal::enableXtaloutThis> enableXtaloutThis{};
             constexpr Register::FieldValue<decltype(xtaloutEn)::Type,XtaloutenVal::disableXtaloutGpi> disableXtaloutGpi{};
-        }
         }
         ///Enables fixed-pin function. Writing a 1 deselects the function and any movable function can be assigned to this pin. This function is selected by default.
         enum class ResetenVal {
@@ -179,7 +173,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(resetEn)::Type,ResetenVal::enableResetThisF> enableResetThisF{};
             constexpr Register::FieldValue<decltype(resetEn)::Type,ResetenVal::disableResetGpio> disableResetGpio{};
         }
-        }
         ///Enables fixed-pin function. Writing a 1 deselects the function and any movable function can be assigned to this pin. By default the fixed-pin function is deselected and GPIO is assigned to this pin. Functions CLKIN and ACMP_I2 are connected to the same pin PIO0_1. To use CLKIN, disable ACMP_I2 in bit 1 of this register and enable CLKIN.
         enum class ClkinVal {
             enableClkinThisF=0x00000000,     ///<Enable CLKIN. This function is enabled on pin PIO0_1.
@@ -190,7 +183,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkin)::Type,ClkinVal::enableClkinThisF> enableClkinThisF{};
             constexpr Register::FieldValue<decltype(clkin)::Type,ClkinVal::disableClkinGpio> disableClkinGpio{};
         }
-        }
         ///Enables fixed-pin function. Writing a 1 deselects the function and any movable function can be assigned to this pin. By default the fixed--pin function is deselected and GPIO is assigned to this pin.
         enum class VddcmpVal {
             enableVddcmpThis=0x00000000,     ///<Enable VDDCMP. This function is enabled on pin PIO0_6.
@@ -200,7 +192,6 @@ namespace Kvasir {
         namespace VddcmpValC{
             constexpr Register::FieldValue<decltype(vddcmp)::Type,VddcmpVal::enableVddcmpThis> enableVddcmpThis{};
             constexpr Register::FieldValue<decltype(vddcmp)::Type,VddcmpVal::disableVddcmpGpio> disableVddcmpGpio{};
-        }
         }
     }
 }

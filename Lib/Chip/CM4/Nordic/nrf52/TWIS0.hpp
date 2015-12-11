@@ -47,7 +47,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(writeSuspend)::Type,WritesuspendVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(writeSuspend)::Type,WritesuspendVal::enabled> enabled{};
         }
-        }
         ///Shortcut between EVENTS_READ event and TASKS_SUSPEND task
         enum class ReadsuspendVal {
             disabled=0x00000000,     ///<Disable shortcut
@@ -57,7 +56,6 @@ namespace Kvasir {
         namespace ReadsuspendValC{
             constexpr Register::FieldValue<decltype(readSuspend)::Type,ReadsuspendVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(readSuspend)::Type,ReadsuspendVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneinten{    ///<Enable or disable interrupt
@@ -72,7 +70,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::enabled> enabled{};
         }
-        }
         ///Enable or disable interrupt on EVENTS_ERROR event
         enum class ErrorVal {
             disabled=0x00000000,     ///<Disable
@@ -82,7 +79,6 @@ namespace Kvasir {
         namespace ErrorValC{
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::enabled> enabled{};
-        }
         }
         ///Enable or disable interrupt on EVENTS_RXSTARTED event
         enum class RxstartedVal {
@@ -94,7 +90,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxstarted)::Type,RxstartedVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rxstarted)::Type,RxstartedVal::enabled> enabled{};
         }
-        }
         ///Enable or disable interrupt on EVENTS_TXSTARTED event
         enum class TxstartedVal {
             disabled=0x00000000,     ///<Disable
@@ -104,7 +99,6 @@ namespace Kvasir {
         namespace TxstartedValC{
             constexpr Register::FieldValue<decltype(txstarted)::Type,TxstartedVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(txstarted)::Type,TxstartedVal::enabled> enabled{};
-        }
         }
         ///Enable or disable interrupt on EVENTS_WRITE event
         enum class WriteVal {
@@ -116,7 +110,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(write)::Type,WriteVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(write)::Type,WriteVal::enabled> enabled{};
         }
-        }
         ///Enable or disable interrupt on EVENTS_READ event
         enum class ReadVal {
             disabled=0x00000000,     ///<Disable
@@ -126,7 +119,6 @@ namespace Kvasir {
         namespace ReadValC{
             constexpr Register::FieldValue<decltype(read)::Type,ReadVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(read)::Type,ReadVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneintenset{    ///<Enable interrupt
@@ -143,7 +135,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_ERROR event
         enum class ErrorVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -155,7 +146,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::set> set{};
-        }
         }
         ///Write '1' to Enable interrupt on EVENTS_RXSTARTED event
         enum class RxstartedVal {
@@ -169,7 +159,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxstarted)::Type,RxstartedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(rxstarted)::Type,RxstartedVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_TXSTARTED event
         enum class TxstartedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -181,7 +170,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txstarted)::Type,TxstartedVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(txstarted)::Type,TxstartedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(txstarted)::Type,TxstartedVal::set> set{};
-        }
         }
         ///Write '1' to Enable interrupt on EVENTS_WRITE event
         enum class WriteVal {
@@ -195,7 +183,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(write)::Type,WriteVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(write)::Type,WriteVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_READ event
         enum class ReadVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -207,7 +194,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(read)::Type,ReadVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(read)::Type,ReadVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(read)::Type,ReadVal::set> set{};
-        }
         }
     }
     namespace Noneintenclr{    ///<Disable interrupt
@@ -224,7 +210,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_ERROR event
         enum class ErrorVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -236,7 +221,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_RXSTARTED event
         enum class RxstartedVal {
@@ -250,7 +234,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxstarted)::Type,RxstartedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(rxstarted)::Type,RxstartedVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_TXSTARTED event
         enum class TxstartedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -262,7 +245,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txstarted)::Type,TxstartedVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(txstarted)::Type,TxstartedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(txstarted)::Type,TxstartedVal::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_WRITE event
         enum class WriteVal {
@@ -276,7 +258,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(write)::Type,WriteVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(write)::Type,WriteVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_READ event
         enum class ReadVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -288,7 +269,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(read)::Type,ReadVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(read)::Type,ReadVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(read)::Type,ReadVal::clear> clear{};
-        }
         }
     }
     namespace Noneerrorsrc{    ///<Error source
@@ -303,7 +283,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(overflow)::Type,OverflowVal::notdetected> notdetected{};
             constexpr Register::FieldValue<decltype(overflow)::Type,OverflowVal::detected> detected{};
         }
-        }
         ///NACK sent after receiving a data byte
         enum class DnackVal {
             notreceived=0x00000000,     ///<Error did not occur
@@ -314,7 +293,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dnack)::Type,DnackVal::notreceived> notreceived{};
             constexpr Register::FieldValue<decltype(dnack)::Type,DnackVal::received> received{};
         }
-        }
         ///TX buffer over-read detected, and prevented
         enum class OverreadVal {
             notdetected=0x00000000,     ///<Error did not occur
@@ -324,7 +302,6 @@ namespace Kvasir {
         namespace OverreadValC{
             constexpr Register::FieldValue<decltype(overread)::Type,OverreadVal::notdetected> notdetected{};
             constexpr Register::FieldValue<decltype(overread)::Type,OverreadVal::detected> detected{};
-        }
         }
     }
     namespace Nonematch{    ///<Status register indicating which address had a match
@@ -359,7 +336,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(address0)::Type,Address0Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(address0)::Type,Address0Val::enabled> enabled{};
         }
-        }
         ///Enable or disable address matching on ADDRESS[1]
         enum class Address1Val {
             disabled=0x00000000,     ///<Disabled
@@ -369,7 +345,6 @@ namespace Kvasir {
         namespace Address1ValC{
             constexpr Register::FieldValue<decltype(address1)::Type,Address1Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(address1)::Type,Address1Val::enabled> enabled{};
-        }
         }
     }
     namespace Noneorc{    ///<Over-read character. Character sent out in case of an over-read of the transmit buffer.

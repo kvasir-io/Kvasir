@@ -18,7 +18,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(efcan)::Type,EfcanVal::softwareMustReadA> softwareMustReadA{};
             constexpr Register::FieldValue<decltype(efcan)::Type,EfcanVal::theAcceptanceFilte> theAcceptanceFilte{};
         }
-        }
     }
     namespace NonesffSa{    ///<Standard Frame Individual Start Address Register
         using Addr = Register::Address<0x4003c004,0xfffff803,0,unsigned>;

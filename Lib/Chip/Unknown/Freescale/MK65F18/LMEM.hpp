@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(encache)::Type,EncacheVal::v0> v0{};
             constexpr Register::FieldValue<decltype(encache)::Type,EncacheVal::v1> v1{};
         }
-        }
         ///Enable Write Buffer
         enum class EnwrbufVal {
             v0=0x00000000,     ///<Write buffer disabled
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace EnwrbufValC{
             constexpr Register::FieldValue<decltype(enwrbuf)::Type,EnwrbufVal::v0> v0{};
             constexpr Register::FieldValue<decltype(enwrbuf)::Type,EnwrbufVal::v1> v1{};
-        }
         }
         ///Forces all cacheable spaces to write through
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pccr2{}; 
@@ -40,7 +38,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invw0)::Type,Invw0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(invw0)::Type,Invw0Val::v1> v1{};
         }
-        }
         ///Push Way 0
         enum class Pushw0Val {
             v0=0x00000000,     ///<No operation
@@ -50,7 +47,6 @@ namespace Kvasir {
         namespace Pushw0ValC{
             constexpr Register::FieldValue<decltype(pushw0)::Type,Pushw0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pushw0)::Type,Pushw0Val::v1> v1{};
-        }
         }
         ///Invalidate Way 1
         enum class Invw1Val {
@@ -62,7 +58,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invw1)::Type,Invw1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(invw1)::Type,Invw1Val::v1> v1{};
         }
-        }
         ///Push Way 1
         enum class Pushw1Val {
             v0=0x00000000,     ///<No operation
@@ -73,7 +68,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pushw1)::Type,Pushw1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pushw1)::Type,Pushw1Val::v1> v1{};
         }
-        }
         ///Initiate Cache Command
         enum class GoVal {
             v0=0x00000000,     ///<Write: no effect. Read: no cache command active.
@@ -83,7 +77,6 @@ namespace Kvasir {
         namespace GoValC{
             constexpr Register::FieldValue<decltype(go)::Type,GoVal::v0> v0{};
             constexpr Register::FieldValue<decltype(go)::Type,GoVal::v1> v1{};
-        }
         }
     }
     namespace LmemPcclcr{    ///<Cache line control register
@@ -98,7 +91,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lgo)::Type,LgoVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lgo)::Type,LgoVal::v1> v1{};
         }
-        }
         ///Cache address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,2),Register::ReadWriteAccess,unsigned> cacheaddr{}; 
         ///Way select
@@ -111,7 +103,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wsel)::Type,WselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wsel)::Type,WselVal::v1> v1{};
         }
-        }
         ///Tag/Data Select
         enum class TdselVal {
             v0=0x00000000,     ///<Data
@@ -121,7 +112,6 @@ namespace Kvasir {
         namespace TdselValC{
             constexpr Register::FieldValue<decltype(tdsel)::Type,TdselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tdsel)::Type,TdselVal::v1> v1{};
-        }
         }
         ///Line Command Initial Valid Bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> lcivb{}; 
@@ -143,7 +133,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lcmd)::Type,LcmdVal::v10> v10{};
             constexpr Register::FieldValue<decltype(lcmd)::Type,LcmdVal::v11> v11{};
         }
-        }
         ///Line Address Select
         enum class LadselVal {
             v0=0x00000000,     ///<Cache address
@@ -154,7 +143,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ladsel)::Type,LadselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ladsel)::Type,LadselVal::v1> v1{};
         }
-        }
         ///Line access type
         enum class LaccVal {
             v0=0x00000000,     ///<Read
@@ -164,7 +152,6 @@ namespace Kvasir {
         namespace LaccValC{
             constexpr Register::FieldValue<decltype(lacc)::Type,LaccVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lacc)::Type,LaccVal::v1> v1{};
-        }
         }
     }
     namespace LmemPccsar{    ///<Cache search address register
@@ -178,7 +165,6 @@ namespace Kvasir {
         namespace LgoValC{
             constexpr Register::FieldValue<decltype(lgo)::Type,LgoVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lgo)::Type,LgoVal::v1> v1{};
-        }
         }
         ///Physical Address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> phyaddr{}; 
@@ -204,7 +190,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(r15)::Type,R15Val::v10> v10{};
             constexpr Register::FieldValue<decltype(r15)::Type,R15Val::v11> v11{};
         }
-        }
         ///Region 14 mode
         enum class R14Val {
             v00=0x00000000,     ///<Non-cacheable
@@ -218,7 +203,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(r14)::Type,R14Val::v01> v01{};
             constexpr Register::FieldValue<decltype(r14)::Type,R14Val::v10> v10{};
             constexpr Register::FieldValue<decltype(r14)::Type,R14Val::v11> v11{};
-        }
         }
         ///Region 13 mode
         enum class R13Val {
@@ -234,7 +218,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(r13)::Type,R13Val::v10> v10{};
             constexpr Register::FieldValue<decltype(r13)::Type,R13Val::v11> v11{};
         }
-        }
         ///Region 12 mode
         enum class R12Val {
             v00=0x00000000,     ///<Non-cacheable
@@ -248,7 +231,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(r12)::Type,R12Val::v01> v01{};
             constexpr Register::FieldValue<decltype(r12)::Type,R12Val::v10> v10{};
             constexpr Register::FieldValue<decltype(r12)::Type,R12Val::v11> v11{};
-        }
         }
         ///Region 11 mode
         enum class R11Val {
@@ -264,7 +246,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(r11)::Type,R11Val::v10> v10{};
             constexpr Register::FieldValue<decltype(r11)::Type,R11Val::v11> v11{};
         }
-        }
         ///Region 10 mode
         enum class R10Val {
             v00=0x00000000,     ///<Non-cacheable
@@ -278,7 +259,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(r10)::Type,R10Val::v01> v01{};
             constexpr Register::FieldValue<decltype(r10)::Type,R10Val::v10> v10{};
             constexpr Register::FieldValue<decltype(r10)::Type,R10Val::v11> v11{};
-        }
         }
         ///Region 9 mode
         enum class R9Val {
@@ -294,7 +274,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(r9)::Type,R9Val::v10> v10{};
             constexpr Register::FieldValue<decltype(r9)::Type,R9Val::v11> v11{};
         }
-        }
         ///Region 8 mode
         enum class R8Val {
             v00=0x00000000,     ///<Non-cacheable
@@ -308,7 +287,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(r8)::Type,R8Val::v01> v01{};
             constexpr Register::FieldValue<decltype(r8)::Type,R8Val::v10> v10{};
             constexpr Register::FieldValue<decltype(r8)::Type,R8Val::v11> v11{};
-        }
         }
         ///Region 7 mode
         enum class R7Val {
@@ -324,7 +302,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(r7)::Type,R7Val::v10> v10{};
             constexpr Register::FieldValue<decltype(r7)::Type,R7Val::v11> v11{};
         }
-        }
         ///Region 6 mode
         enum class R6Val {
             v00=0x00000000,     ///<Non-cacheable
@@ -338,7 +315,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(r6)::Type,R6Val::v01> v01{};
             constexpr Register::FieldValue<decltype(r6)::Type,R6Val::v10> v10{};
             constexpr Register::FieldValue<decltype(r6)::Type,R6Val::v11> v11{};
-        }
         }
         ///Region 5 mode
         enum class R5Val {
@@ -354,7 +330,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(r5)::Type,R5Val::v10> v10{};
             constexpr Register::FieldValue<decltype(r5)::Type,R5Val::v11> v11{};
         }
-        }
         ///Region 4 mode
         enum class R4Val {
             v00=0x00000000,     ///<Non-cacheable
@@ -368,7 +343,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(r4)::Type,R4Val::v01> v01{};
             constexpr Register::FieldValue<decltype(r4)::Type,R4Val::v10> v10{};
             constexpr Register::FieldValue<decltype(r4)::Type,R4Val::v11> v11{};
-        }
         }
         ///Region 3 mode
         enum class R3Val {
@@ -384,7 +358,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(r3)::Type,R3Val::v10> v10{};
             constexpr Register::FieldValue<decltype(r3)::Type,R3Val::v11> v11{};
         }
-        }
         ///Region 2 mode
         enum class R2Val {
             v00=0x00000000,     ///<Non-cacheable
@@ -398,7 +371,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(r2)::Type,R2Val::v01> v01{};
             constexpr Register::FieldValue<decltype(r2)::Type,R2Val::v10> v10{};
             constexpr Register::FieldValue<decltype(r2)::Type,R2Val::v11> v11{};
-        }
         }
         ///Region 1 mode
         enum class R1Val {
@@ -414,7 +386,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(r1)::Type,R1Val::v10> v10{};
             constexpr Register::FieldValue<decltype(r1)::Type,R1Val::v11> v11{};
         }
-        }
         ///Region 0 mode
         enum class R0Val {
             v00=0x00000000,     ///<Non-cacheable
@@ -428,7 +399,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(r0)::Type,R0Val::v01> v01{};
             constexpr Register::FieldValue<decltype(r0)::Type,R0Val::v10> v10{};
             constexpr Register::FieldValue<decltype(r0)::Type,R0Val::v11> v11{};
-        }
         }
     }
 }

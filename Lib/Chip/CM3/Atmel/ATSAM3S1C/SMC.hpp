@@ -49,7 +49,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(exnwMode)::Type,ExnwmodeVal::frozen> frozen{};
             constexpr Register::FieldValue<decltype(exnwMode)::Type,ExnwmodeVal::ready> ready{};
         }
-        }
         ///Data Float Time
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> tdfCycles{}; 
         ///TDF Optimization
@@ -69,7 +68,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v8Byte> v8Byte{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v16Byte> v16Byte{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v32Byte> v32Byte{};
-        }
         }
     }
     namespace SmcSetup1{    ///<SMC Setup Register (CS_number = 1)
@@ -119,7 +117,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(exnwMode)::Type,ExnwmodeVal::frozen> frozen{};
             constexpr Register::FieldValue<decltype(exnwMode)::Type,ExnwmodeVal::ready> ready{};
         }
-        }
         ///Data Float Time
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> tdfCycles{}; 
         ///TDF Optimization
@@ -139,7 +136,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v8Byte> v8Byte{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v16Byte> v16Byte{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v32Byte> v32Byte{};
-        }
         }
     }
     namespace SmcSetup2{    ///<SMC Setup Register (CS_number = 2)
@@ -189,7 +185,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(exnwMode)::Type,ExnwmodeVal::frozen> frozen{};
             constexpr Register::FieldValue<decltype(exnwMode)::Type,ExnwmodeVal::ready> ready{};
         }
-        }
         ///Data Float Time
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> tdfCycles{}; 
         ///TDF Optimization
@@ -209,7 +204,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v8Byte> v8Byte{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v16Byte> v16Byte{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v32Byte> v32Byte{};
-        }
         }
     }
     namespace SmcSetup3{    ///<SMC Setup Register (CS_number = 3)
@@ -259,7 +253,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(exnwMode)::Type,ExnwmodeVal::frozen> frozen{};
             constexpr Register::FieldValue<decltype(exnwMode)::Type,ExnwmodeVal::ready> ready{};
         }
-        }
         ///Data Float Time
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> tdfCycles{}; 
         ///TDF Optimization
@@ -279,7 +272,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v8Byte> v8Byte{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v16Byte> v16Byte{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v32Byte> v32Byte{};
-        }
         }
     }
     namespace SmcOcms{    ///<SMC OCMS MODE Register

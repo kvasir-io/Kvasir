@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frz)::Type,FrzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frz)::Type,FrzVal::v1> v1{};
         }
-        }
         ///Module Disable
         enum class MdisVal {
             v0=0x00000000,     ///<Clock for PIT Timers is enabled.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace MdisValC{
             constexpr Register::FieldValue<decltype(mdis)::Type,MdisVal::v0> v0{};
             constexpr Register::FieldValue<decltype(mdis)::Type,MdisVal::v1> v1{};
-        }
         }
     }
     namespace PitLdval0{    ///<Timer Load Value Register
@@ -79,7 +77,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v1> v1{};
         }
-        }
         ///Timer Interrupt Enable Bit.
         enum class TieVal {
             v0=0x00000000,     ///<Interrupt requests from Timer n are disabled.
@@ -89,7 +86,6 @@ namespace Kvasir {
         namespace TieValC{
             constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v1> v1{};
-        }
         }
     }
     namespace PitTctrl1{    ///<Timer Control Register
@@ -104,7 +100,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v1> v1{};
         }
-        }
         ///Timer Interrupt Enable Bit.
         enum class TieVal {
             v0=0x00000000,     ///<Interrupt requests from Timer n are disabled.
@@ -114,7 +109,6 @@ namespace Kvasir {
         namespace TieValC{
             constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v1> v1{};
-        }
         }
     }
     namespace PitTctrl2{    ///<Timer Control Register
@@ -129,7 +123,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v1> v1{};
         }
-        }
         ///Timer Interrupt Enable Bit.
         enum class TieVal {
             v0=0x00000000,     ///<Interrupt requests from Timer n are disabled.
@@ -139,7 +132,6 @@ namespace Kvasir {
         namespace TieValC{
             constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v1> v1{};
-        }
         }
     }
     namespace PitTctrl3{    ///<Timer Control Register
@@ -154,7 +146,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v1> v1{};
         }
-        }
         ///Timer Interrupt Enable Bit.
         enum class TieVal {
             v0=0x00000000,     ///<Interrupt requests from Timer n are disabled.
@@ -164,7 +155,6 @@ namespace Kvasir {
         namespace TieValC{
             constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v1> v1{};
-        }
         }
     }
     namespace PitTflg0{    ///<Timer Flag Register
@@ -179,7 +169,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v1> v1{};
         }
-        }
     }
     namespace PitTflg1{    ///<Timer Flag Register
         using Addr = Register::Address<0x4003711c,0xfffffffe,0,unsigned>;
@@ -192,7 +181,6 @@ namespace Kvasir {
         namespace TifValC{
             constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v1> v1{};
-        }
         }
     }
     namespace PitTflg2{    ///<Timer Flag Register
@@ -207,7 +195,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v1> v1{};
         }
-        }
     }
     namespace PitTflg3{    ///<Timer Flag Register
         using Addr = Register::Address<0x4003713c,0xfffffffe,0,unsigned>;
@@ -220,7 +207,6 @@ namespace Kvasir {
         namespace TifValC{
             constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v1> v1{};
-        }
         }
     }
 }

@@ -23,7 +23,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dualbuff)::Type,DualbuffVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(dualbuff)::Type,DualbuffVal::active> active{};
         }
-        }
         ///Processing Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> procdly{}; 
         ///Start Mode
@@ -38,7 +37,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::autoStart> autoStart{};
             constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::idatar0Start> idatar0Start{};
         }
-        }
         ///Key Size
         enum class KeysizeVal {
             aes128=0x00000000,     ///<AES Key Size is 128 bits
@@ -50,7 +48,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(keysize)::Type,KeysizeVal::aes128> aes128{};
             constexpr Register::FieldValue<decltype(keysize)::Type,KeysizeVal::aes192> aes192{};
             constexpr Register::FieldValue<decltype(keysize)::Type,KeysizeVal::aes256> aes256{};
-        }
         }
         ///Operation Mode
         enum class OpmodVal {
@@ -67,7 +64,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(opmod)::Type,OpmodVal::ofb> ofb{};
             constexpr Register::FieldValue<decltype(opmod)::Type,OpmodVal::cfb> cfb{};
             constexpr Register::FieldValue<decltype(opmod)::Type,OpmodVal::ctr> ctr{};
-        }
         }
         ///Last Output Data Mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> lod{}; 
@@ -86,7 +82,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfbs)::Type,CfbsVal::size32bit> size32bit{};
             constexpr Register::FieldValue<decltype(cfbs)::Type,CfbsVal::size16bit> size16bit{};
             constexpr Register::FieldValue<decltype(cfbs)::Type,CfbsVal::size8bit> size8bit{};
-        }
         }
         ///Key
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> ckey{}; 
@@ -135,7 +130,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(urat)::Type,UratVal::odrRdSubkgen> odrRdSubkgen{};
             constexpr Register::FieldValue<decltype(urat)::Type,UratVal::mrWrSubkgen> mrWrSubkgen{};
             constexpr Register::FieldValue<decltype(urat)::Type,UratVal::worRdAccess> worRdAccess{};
-        }
         }
     }
     namespace AesKeywr0{    ///<Key Word Register

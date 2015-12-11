@@ -21,7 +21,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(llmtf)::Type,LlmtfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(llmtf)::Type,LlmtfVal::set> set{};
         }
-        }
         ///CAL Saturation (High) Flag. 
         enum class HlmtfVal {
             notSet=0x00000000,     ///<DCO period is not saturated high.
@@ -31,7 +30,6 @@ namespace Kvasir {
         namespace HlmtfValC{
             constexpr Register::FieldValue<decltype(hlmtf)::Type,HlmtfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(hlmtf)::Type,HlmtfVal::set> set{};
-        }
         }
         ///Phase-Lock and Frequency-Lock Locked Interrupt Flag. 
         enum class LckiVal {
@@ -43,7 +41,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lcki)::Type,LckiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(lcki)::Type,LckiVal::set> set{};
         }
-        }
         ///Limit Interrupt Enable. 
         enum class LmtienVal {
             disabled=0x00000000,     ///<Saturation (high and low) interrupt disabled.
@@ -53,7 +50,6 @@ namespace Kvasir {
         namespace LmtienValC{
             constexpr Register::FieldValue<decltype(lmtien)::Type,LmtienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(lmtien)::Type,LmtienVal::enabled> enabled{};
-        }
         }
         ///Locked Interrupt Enable. 
         enum class LckienVal {
@@ -65,7 +61,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lckien)::Type,LckienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(lckien)::Type,LckienVal::enabled> enabled{};
         }
-        }
         ///Lock Interrupt Polarity. 
         enum class LckpolVal {
             activeLow=0x00000000,     ///<The lock state PLL interrupt will occur when LCKI is 0.
@@ -75,7 +70,6 @@ namespace Kvasir {
         namespace LckpolValC{
             constexpr Register::FieldValue<decltype(lckpol)::Type,LckpolVal::activeLow> activeLow{};
             constexpr Register::FieldValue<decltype(lckpol)::Type,LckpolVal::activeHigh> activeHigh{};
-        }
         }
         ///Reference Clock Selection Control. 
         enum class RefselVal {
@@ -91,7 +85,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::extosc0> extosc0{};
             constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::usbosc0> usbosc0{};
         }
-        }
         ///Lock Threshold Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,unsigned> lockth{}; 
         ///DCO Output Updates Stall. 
@@ -104,7 +97,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stall)::Type,StallVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(stall)::Type,StallVal::enabled> enabled{};
         }
-        }
         ///Dithering Enable. 
         enum class DithenVal {
             disabled=0x00000000,     ///<Automatic DCO output dithering disabled.
@@ -115,7 +107,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dithen)::Type,DithenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dithen)::Type,DithenVal::enabled> enabled{};
         }
-        }
         ///Edge Lock Select. 
         enum class EdgselVal {
             fallingEdge=0x00000000,     ///<Lock DCO output frequency to the falling edge of the reference frequency.
@@ -125,7 +116,6 @@ namespace Kvasir {
         namespace EdgselValC{
             constexpr Register::FieldValue<decltype(edgsel)::Type,EdgselVal::fallingEdge> fallingEdge{};
             constexpr Register::FieldValue<decltype(edgsel)::Type,EdgselVal::risingEdge> risingEdge{};
-        }
         }
         ///PLL Output Mode. 
         enum class OutmdVal {
@@ -140,7 +130,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(outmd)::Type,OutmdVal::dco> dco{};
             constexpr Register::FieldValue<decltype(outmd)::Type,OutmdVal::fll> fll{};
             constexpr Register::FieldValue<decltype(outmd)::Type,OutmdVal::pll> pll{};
-        }
         }
     }
     namespace Nonesspr{    ///<Spectrum Spreading Control
@@ -162,7 +151,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssamp)::Type,SsampVal::setting3> setting3{};
             constexpr Register::FieldValue<decltype(ssamp)::Type,SsampVal::setting4> setting4{};
             constexpr Register::FieldValue<decltype(ssamp)::Type,SsampVal::setting5> setting5{};
-        }
         }
         ///Spectrum Spreading Update Interval. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> ssuinv{}; 
@@ -188,7 +176,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(range)::Type,RangeVal::range2> range2{};
             constexpr Register::FieldValue<decltype(range)::Type,RangeVal::range3> range3{};
             constexpr Register::FieldValue<decltype(range)::Type,RangeVal::range4> range4{};
-        }
         }
     }
 }

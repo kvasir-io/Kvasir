@@ -18,7 +18,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sleepflag)::Type,SleepflagVal::activeMode> activeMode{};
             constexpr Register::FieldValue<decltype(sleepflag)::Type,SleepflagVal::lowPowerMode> lowPowerMode{};
         }
-        }
         ///Deep power-down flag
         enum class DpdflagVal {
             notDeepPowerDown=0x00000000,     ///<Not Deep power-down. Read: Deep power-down mode not entered. Write: No effect.
@@ -28,7 +27,6 @@ namespace Kvasir {
         namespace DpdflagValC{
             constexpr Register::FieldValue<decltype(dpdflag)::Type,DpdflagVal::notDeepPowerDown> notDeepPowerDown{};
             constexpr Register::FieldValue<decltype(dpdflag)::Type,DpdflagVal::deepPowerDown> deepPowerDown{};
-        }
         }
     }
     namespace Nonegpreg0{    ///<General purpose register 0
@@ -63,7 +61,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wakeuphys)::Type,WakeuphysVal::disableHysteresisF> disableHysteresisF{};
             constexpr Register::FieldValue<decltype(wakeuphys)::Type,WakeuphysVal::enable> enable{};
         }
-        }
         ///WAKEUP pin disable. Setting this bit disables the wake-up pin, so it can be used for other purposes. Never set this bit if you intend to use a pin to wake up the part from Deep power-down mode. You can only disable the wake-up pin if the RTC wake-up timer is enabled and configured. Setting this bit is not necessary if Deep power-down mode is not used.
         enum class WakepaddisableVal {
             enable=0x00000000,     ///<Enable. The wake-up function is enabled on pin PIO0_16.
@@ -73,7 +70,6 @@ namespace Kvasir {
         namespace WakepaddisableValC{
             constexpr Register::FieldValue<decltype(wakepadDisable)::Type,WakepaddisableVal::enable> enable{};
             constexpr Register::FieldValue<decltype(wakepadDisable)::Type,WakepaddisableVal::disable> disable{};
-        }
         }
         ///Data retained during Deep power-down mode.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,12),Register::ReadWriteAccess,unsigned> gpdata{}; 

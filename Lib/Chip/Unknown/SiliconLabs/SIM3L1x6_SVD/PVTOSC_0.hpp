@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(digoscen)::Type,DigoscenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(digoscen)::Type,DigoscenVal::enabled> enabled{};
         }
-        }
         ///Memory LDO Oscillator Enable. 
         enum class MemoscenVal {
             disabled=0x00000000,     ///<Disable the memory LDO PVT oscillator.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace MemoscenValC{
             constexpr Register::FieldValue<decltype(memoscen)::Type,MemoscenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(memoscen)::Type,MemoscenVal::enabled> enabled{};
-        }
         }
         ///Digital LDO Oscillator Mode. 
         enum class DigoscmdVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(digoscmd)::Type,DigoscmdVal::fast> fast{};
             constexpr Register::FieldValue<decltype(digoscmd)::Type,DigoscmdVal::slow> slow{};
         }
-        }
         ///High Voltage Oscillator Mode. 
         enum class MemoscmdVal {
             fast=0x00000000,     ///<Select fast mode for the memory LDO PVT oscillator.
@@ -47,7 +44,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(memoscmd)::Type,MemoscmdVal::fast> fast{};
             constexpr Register::FieldValue<decltype(memoscmd)::Type,MemoscmdVal::slow> slow{};
         }
-        }
         ///Clock Select. 
         enum class ClkselVal {
             oscillators=0x00000000,     ///<Select the digital and memory oscillators as the inputs to the clock dividers.
@@ -57,7 +53,6 @@ namespace Kvasir {
         namespace ClkselValC{
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::oscillators> oscillators{};
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::ahb> ahb{};
-        }
         }
     }
 }

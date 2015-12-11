@@ -18,7 +18,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmd)::Type,CmdVal::fallingEdge> fallingEdge{};
             constexpr Register::FieldValue<decltype(cmd)::Type,CmdVal::anyEdge> anyEdge{};
         }
-        }
         ///External Trigger Source Select. 
         enum class ExtselVal {
             lptnt0=0x00000000,     ///<Select external trigger LPTnT0 (PB3.2).
@@ -57,7 +56,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(extsel)::Type,ExtselVal::lptnt14> lptnt14{};
             constexpr Register::FieldValue<decltype(extsel)::Type,ExtselVal::lptnt15> lptnt15{};
         }
-        }
         ///Timer Set. 
         enum class TmrsetVal {
             set=0x00000001,     ///<Writing a 1 to TMRSET initiates a copy of the value from the DATA register into the internal timer register. This field is automatically cleared by hardware when the copy is complete and does not need to be cleared by software.
@@ -65,7 +63,6 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,TmrsetVal> tmrset{}; 
         namespace TmrsetValC{
             constexpr Register::FieldValue<decltype(tmrset)::Type,TmrsetVal::set> set{};
-        }
         }
         ///Timer Capture. 
         enum class TmrcapVal {
@@ -75,7 +72,6 @@ namespace Kvasir {
         namespace TmrcapValC{
             constexpr Register::FieldValue<decltype(tmrcap)::Type,TmrcapVal::set> set{};
         }
-        }
         ///Timer Comparator Set. 
         enum class CmpsetVal {
             set=0x00000001,     ///<Writing a 1 to CMPSET initiates a copy of the value in DATA into the internal timer comparator register. This field is automatically cleared by hardware when the copy is complete and does not need to be cleared by software.
@@ -84,7 +80,6 @@ namespace Kvasir {
         namespace CmpsetValC{
             constexpr Register::FieldValue<decltype(cmpset)::Type,CmpsetVal::set> set{};
         }
-        }
         ///Timer Comparator Capture. 
         enum class CmpcapVal {
             set=0x00000001,     ///<Writing a 1 to CMPCAP initiates a read of the internal comparator register into the DATA register. This field is automatically cleared by hardware when the operation completes and does not need to be cleared by software.
@@ -92,7 +87,6 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,CmpcapVal> cmpcap{}; 
         namespace CmpcapValC{
             constexpr Register::FieldValue<decltype(cmpcap)::Type,CmpcapVal::set> set{};
-        }
         }
         ///Timer Overflow Interrupt Enable. 
         enum class OvfienVal {
@@ -104,7 +98,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ovfien)::Type,OvfienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ovfien)::Type,OvfienVal::enabled> enabled{};
         }
-        }
         ///Timer Compare Event Interrupt Enable. 
         enum class CmpienVal {
             disabled=0x00000000,     ///<Disable the timer compare event interrupt.
@@ -114,7 +107,6 @@ namespace Kvasir {
         namespace CmpienValC{
             constexpr Register::FieldValue<decltype(cmpien)::Type,CmpienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmpien)::Type,CmpienVal::enabled> enabled{};
-        }
         }
         ///Timer Overflow Toggle Mode. 
         enum class OvftmdVal {
@@ -126,7 +118,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ovftmd)::Type,OvftmdVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ovftmd)::Type,OvftmdVal::enabled> enabled{};
         }
-        }
         ///Timer Compare Event Toggle Mode . 
         enum class CmptmdVal {
             disabled=0x00000000,     ///<Timer compare events do not toggle the Low Power Timer output.
@@ -136,7 +127,6 @@ namespace Kvasir {
         namespace CmptmdValC{
             constexpr Register::FieldValue<decltype(cmptmd)::Type,CmptmdVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmptmd)::Type,CmptmdVal::enabled> enabled{};
-        }
         }
         ///Timer Compare Event Reset Enable. 
         enum class CmprstenVal {
@@ -148,7 +138,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmprsten)::Type,CmprstenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmprsten)::Type,CmprstenVal::enabled> enabled{};
         }
-        }
         ///Low Power Timer Debug Mode. 
         enum class DbgmdVal {
             run=0x00000000,     ///<The Low Power Timer module will continue to operate while the core is halted in debug mode.
@@ -159,7 +148,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::run> run{};
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::halt> halt{};
         }
-        }
         ///Timer Run Control and Compare Threshold Enable. 
         enum class RunVal {
             stop=0x00000000,     ///<Stop the timer and disable the compare threshold.
@@ -169,7 +157,6 @@ namespace Kvasir {
         namespace RunValC{
             constexpr Register::FieldValue<decltype(run)::Type,RunVal::stop> stop{};
             constexpr Register::FieldValue<decltype(run)::Type,RunVal::start> start{};
-        }
         }
     }
     namespace Nonedata{    ///<Timer and Comparator Data
@@ -189,7 +176,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ovfi)::Type,OvfiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(ovfi)::Type,OvfiVal::set> set{};
         }
-        }
         ///Timer Compare Event Interrupt Flag. 
         enum class CmpiVal {
             notSet=0x00000000,     ///<A timer compare event has not occurred.
@@ -199,7 +185,6 @@ namespace Kvasir {
         namespace CmpiValC{
             constexpr Register::FieldValue<decltype(cmpi)::Type,CmpiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(cmpi)::Type,CmpiVal::set> set{};
-        }
         }
     }
 }

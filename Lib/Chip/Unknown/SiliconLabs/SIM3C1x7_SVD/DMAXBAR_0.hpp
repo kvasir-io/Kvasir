@@ -32,7 +32,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0sel)::Type,Ch0selVal::timer1l> timer1l{};
             constexpr Register::FieldValue<decltype(ch0sel)::Type,Ch0selVal::timer1h> timer1h{};
         }
-        }
         ///DMA Channel 1 Peripheral Select. 
         enum class Ch1selVal {
             spi0Rx=0x00000001,     ///<Service SPI0 RX data requests.
@@ -63,7 +62,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch1sel)::Type,Ch1selVal::timer1l> timer1l{};
             constexpr Register::FieldValue<decltype(ch1sel)::Type,Ch1selVal::timer1h> timer1h{};
         }
-        }
         ///DMA Channel 2 Peripheral Select. 
         enum class Ch2selVal {
             spi0Tx=0x00000001,     ///<Service SPI0 TX data requests.
@@ -90,7 +88,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2sel)::Type,Ch2selVal::dma0t1Rise> dma0t1Rise{};
             constexpr Register::FieldValue<decltype(ch2sel)::Type,Ch2selVal::dma0t1Fall> dma0t1Fall{};
         }
-        }
         ///DMA Channel 3 Peripheral Select. 
         enum class Ch3selVal {
             saradc1=0x00000001,     ///<Service SARADC1 data requests.
@@ -114,7 +111,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch3sel)::Type,Ch3selVal::dma0t1Rise> dma0t1Rise{};
             constexpr Register::FieldValue<decltype(ch3sel)::Type,Ch3selVal::dma0t1Fall> dma0t1Fall{};
             constexpr Register::FieldValue<decltype(ch3sel)::Type,Ch3selVal::timer1h> timer1h{};
-        }
         }
         ///DMA Channel 4 Peripheral Select. 
         enum class Ch4selVal {
@@ -142,7 +138,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4sel)::Type,Ch4selVal::dma0t1Fall> dma0t1Fall{};
             constexpr Register::FieldValue<decltype(ch4sel)::Type,Ch4selVal::timer0h> timer0h{};
         }
-        }
         ///DMA Channel 5 Peripheral Select. 
         enum class Ch5selVal {
             aes0Tx=0x00000001,     ///<Service AES0 TX data requests.
@@ -164,7 +159,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch5sel)::Type,Ch5selVal::dma0t0Fall> dma0t0Fall{};
             constexpr Register::FieldValue<decltype(ch5sel)::Type,Ch5selVal::dma0t1Rise> dma0t1Rise{};
             constexpr Register::FieldValue<decltype(ch5sel)::Type,Ch5selVal::dma0t1Fall> dma0t1Fall{};
-        }
         }
         ///DMA Channel 6 Peripheral Select. 
         enum class Ch6selVal {
@@ -189,7 +183,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch6sel)::Type,Ch6selVal::dma0t1Rise> dma0t1Rise{};
             constexpr Register::FieldValue<decltype(ch6sel)::Type,Ch6selVal::dma0t1Fall> dma0t1Fall{};
             constexpr Register::FieldValue<decltype(ch6sel)::Type,Ch6selVal::timer0h> timer0h{};
-        }
         }
         ///DMA Channel 7 Peripheral Select. 
         enum class Ch7selVal {
@@ -217,7 +210,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch7sel)::Type,Ch7selVal::timer1l> timer1l{};
             constexpr Register::FieldValue<decltype(ch7sel)::Type,Ch7selVal::timer1h> timer1h{};
         }
-        }
     }
     namespace Nonedmaxbar1{    ///<Channel 8-15 Trigger Select
         using Addr = Register::Address<0x40037010,0x00000000,0,unsigned>;
@@ -243,7 +235,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch8sel)::Type,Ch8selVal::dma0t1Rise> dma0t1Rise{};
             constexpr Register::FieldValue<decltype(ch8sel)::Type,Ch8selVal::dma0t1Fall> dma0t1Fall{};
         }
-        }
         ///DMA Channel 9 Peripheral Select. 
         enum class Ch9selVal {
             usart1Tx=0x00000001,     ///<Service USART1 TX data requests.
@@ -266,7 +257,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch9sel)::Type,Ch9selVal::dma0t1Fall> dma0t1Fall{};
             constexpr Register::FieldValue<decltype(ch9sel)::Type,Ch9selVal::timer0h> timer0h{};
         }
-        }
         ///DMA Channel 10 Peripheral Select. 
         enum class Ch10selVal {
             aes0Tx=0x00000001,     ///<Service AES0 TX data requests.
@@ -288,7 +278,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch10sel)::Type,Ch10selVal::dma0t1Rise> dma0t1Rise{};
             constexpr Register::FieldValue<decltype(ch10sel)::Type,Ch10selVal::dma0t1Fall> dma0t1Fall{};
             constexpr Register::FieldValue<decltype(ch10sel)::Type,Ch10selVal::timer1h> timer1h{};
-        }
         }
         ///DMA Channel 11 Peripheral Select. 
         enum class Ch11selVal {
@@ -315,7 +304,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch11sel)::Type,Ch11selVal::dma0t1Rise> dma0t1Rise{};
             constexpr Register::FieldValue<decltype(ch11sel)::Type,Ch11selVal::dma0t1Fall> dma0t1Fall{};
             constexpr Register::FieldValue<decltype(ch11sel)::Type,Ch11selVal::timer0h> timer0h{};
-        }
         }
         ///DMA Channel 12 Peripheral Select. 
         enum class Ch12selVal {
@@ -347,7 +335,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch12sel)::Type,Ch12selVal::timer1l> timer1l{};
             constexpr Register::FieldValue<decltype(ch12sel)::Type,Ch12selVal::timer1h> timer1h{};
         }
-        }
         ///DMA Channel 13 Peripheral Select. 
         enum class Ch13selVal {
             spi0Rx=0x00000001,     ///<Service SPI0 RX data requests.
@@ -371,7 +358,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch13sel)::Type,Ch13selVal::dma0t1Rise> dma0t1Rise{};
             constexpr Register::FieldValue<decltype(ch13sel)::Type,Ch13selVal::dma0t1Fall> dma0t1Fall{};
             constexpr Register::FieldValue<decltype(ch13sel)::Type,Ch13selVal::timer0h> timer0h{};
-        }
         }
         ///DMA Channel 14 Peripheral Select. 
         enum class Ch14selVal {
@@ -399,7 +385,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch14sel)::Type,Ch14selVal::timer0l> timer0l{};
             constexpr Register::FieldValue<decltype(ch14sel)::Type,Ch14selVal::timer1l> timer1l{};
         }
-        }
         ///DMA Channel 15 Peripheral Select. 
         enum class Ch15selVal {
             saradc1=0x00000001,     ///<Service SARADC1 data requests.
@@ -423,7 +408,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch15sel)::Type,Ch15selVal::dma0t1Fall> dma0t1Fall{};
             constexpr Register::FieldValue<decltype(ch15sel)::Type,Ch15selVal::timer0h> timer0h{};
             constexpr Register::FieldValue<decltype(ch15sel)::Type,Ch15selVal::timer1h> timer1h{};
-        }
         }
     }
 }

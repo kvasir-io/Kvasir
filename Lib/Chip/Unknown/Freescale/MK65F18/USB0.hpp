@@ -49,7 +49,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(avbusen)::Type,AvbusenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(avbusen)::Type,AvbusenVal::v1> v1{};
         }
-        }
         ///B Session END Interrupt Enable
         enum class BsessenVal {
             v0=0x00000000,     ///<Disables the B_SESS_CHG interrupt.
@@ -59,7 +58,6 @@ namespace Kvasir {
         namespace BsessenValC{
             constexpr Register::FieldValue<decltype(bsessen)::Type,BsessenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bsessen)::Type,BsessenVal::v1> v1{};
-        }
         }
         ///Session Valid Interrupt Enable
         enum class SessvldenVal {
@@ -71,7 +69,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sessvlden)::Type,SessvldenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sessvlden)::Type,SessvldenVal::v1> v1{};
         }
-        }
         ///Line State Change Interrupt Enable
         enum class LinestateenVal {
             v0=0x00000000,     ///<Disables the LINE_STAT_CHG interrupt.
@@ -81,7 +78,6 @@ namespace Kvasir {
         namespace LinestateenValC{
             constexpr Register::FieldValue<decltype(linestateen)::Type,LinestateenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(linestateen)::Type,LinestateenVal::v1> v1{};
-        }
         }
         ///One Millisecond Interrupt Enable
         enum class OnemsecenVal {
@@ -93,7 +89,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(onemsecen)::Type,OnemsecenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(onemsecen)::Type,OnemsecenVal::v1> v1{};
         }
-        }
         ///ID Interrupt Enable
         enum class IdenVal {
             v0=0x00000000,     ///<The ID interrupt is disabled
@@ -103,7 +98,6 @@ namespace Kvasir {
         namespace IdenValC{
             constexpr Register::FieldValue<decltype(iden)::Type,IdenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(iden)::Type,IdenVal::v1> v1{};
-        }
         }
     }
     namespace Usb0Otgstat{    ///<OTG Status register
@@ -118,7 +112,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(avbusvld)::Type,AvbusvldVal::v0> v0{};
             constexpr Register::FieldValue<decltype(avbusvld)::Type,AvbusvldVal::v1> v1{};
         }
-        }
         ///B Session End
         enum class BsessendVal {
             v0=0x00000000,     ///<The VBUS voltage is above the B session end threshold.
@@ -128,7 +121,6 @@ namespace Kvasir {
         namespace BsessendValC{
             constexpr Register::FieldValue<decltype(bsessend)::Type,BsessendVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bsessend)::Type,BsessendVal::v1> v1{};
-        }
         }
         ///Session Valid
         enum class SessvldVal {
@@ -140,7 +132,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sessVld)::Type,SessvldVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sessVld)::Type,SessvldVal::v1> v1{};
         }
-        }
         ///no description available
         enum class LinestatestableVal {
             v0=0x00000000,     ///<The LINE_STAT_CHG bit is not yet stable.
@@ -150,7 +141,6 @@ namespace Kvasir {
         namespace LinestatestableValC{
             constexpr Register::FieldValue<decltype(linestatestable)::Type,LinestatestableVal::v0> v0{};
             constexpr Register::FieldValue<decltype(linestatestable)::Type,LinestatestableVal::v1> v1{};
-        }
         }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> onemsecen{}; 
@@ -163,7 +153,6 @@ namespace Kvasir {
         namespace IdValC{
             constexpr Register::FieldValue<decltype(id)::Type,IdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(id)::Type,IdVal::v1> v1{};
-        }
         }
     }
     namespace Usb0Otgctl{    ///<OTG Control register
@@ -178,7 +167,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(otgen)::Type,OtgenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(otgen)::Type,OtgenVal::v1> v1{};
         }
-        }
         ///D- Data Line pull-down resistor enable
         enum class DmlowVal {
             v0=0x00000000,     ///<D- pulldown resistor is not enabled.
@@ -188,7 +176,6 @@ namespace Kvasir {
         namespace DmlowValC{
             constexpr Register::FieldValue<decltype(dmlow)::Type,DmlowVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmlow)::Type,DmlowVal::v1> v1{};
-        }
         }
         ///D+ Data Line pull-down resistor enable
         enum class DplowVal {
@@ -200,7 +187,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dplow)::Type,DplowVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dplow)::Type,DplowVal::v1> v1{};
         }
-        }
         ///D+ Data Line pullup resistor enable
         enum class DphighVal {
             v0=0x00000000,     ///<D+ pullup resistor is not enabled
@@ -210,7 +196,6 @@ namespace Kvasir {
         namespace DphighValC{
             constexpr Register::FieldValue<decltype(dphigh)::Type,DphighVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dphigh)::Type,DphighVal::v1> v1{};
-        }
         }
     }
     namespace Usb0Istat{    ///<Interrupt Status register
@@ -237,7 +222,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(attach)::Type,AttachVal::v0> v0{};
             constexpr Register::FieldValue<decltype(attach)::Type,AttachVal::v1> v1{};
         }
-        }
         ///Stall Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> stall{}; 
     }
@@ -253,7 +237,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usbrsten)::Type,UsbrstenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(usbrsten)::Type,UsbrstenVal::v1> v1{};
         }
-        }
         ///ERROR Interrupt Enable
         enum class ErrorenVal {
             v0=0x00000000,     ///<Disables the ERROR interrupt.
@@ -263,7 +246,6 @@ namespace Kvasir {
         namespace ErrorenValC{
             constexpr Register::FieldValue<decltype(erroren)::Type,ErrorenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(erroren)::Type,ErrorenVal::v1> v1{};
-        }
         }
         ///SOFTOK Interrupt Enable
         enum class SoftokenVal {
@@ -275,7 +257,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(softoken)::Type,SoftokenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(softoken)::Type,SoftokenVal::v1> v1{};
         }
-        }
         ///TOKDNE Interrupt Enable
         enum class TokdneenVal {
             v0=0x00000000,     ///<Disables the TOKDNE interrupt.
@@ -285,7 +266,6 @@ namespace Kvasir {
         namespace TokdneenValC{
             constexpr Register::FieldValue<decltype(tokdneen)::Type,TokdneenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tokdneen)::Type,TokdneenVal::v1> v1{};
-        }
         }
         ///SLEEP Interrupt Enable
         enum class SleepenVal {
@@ -297,7 +277,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sleepen)::Type,SleepenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sleepen)::Type,SleepenVal::v1> v1{};
         }
-        }
         ///RESUME Interrupt Enable
         enum class ResumeenVal {
             v0=0x00000000,     ///<Disables the RESUME interrupt.
@@ -307,7 +286,6 @@ namespace Kvasir {
         namespace ResumeenValC{
             constexpr Register::FieldValue<decltype(resumeen)::Type,ResumeenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(resumeen)::Type,ResumeenVal::v1> v1{};
-        }
         }
         ///ATTACH Interrupt Enable
         enum class AttachenVal {
@@ -319,7 +297,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(attachen)::Type,AttachenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(attachen)::Type,AttachenVal::v1> v1{};
         }
-        }
         ///STALL Interrupt Enable
         enum class StallenVal {
             v0=0x00000000,     ///<Diasbles the STALL interrupt.
@@ -329,7 +306,6 @@ namespace Kvasir {
         namespace StallenValC{
             constexpr Register::FieldValue<decltype(stallen)::Type,StallenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(stallen)::Type,StallenVal::v1> v1{};
-        }
         }
     }
     namespace Usb0Errstat{    ///<Error Interrupt Status register
@@ -361,7 +337,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(piderren)::Type,PiderrenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(piderren)::Type,PiderrenVal::v1> v1{};
         }
-        }
         ///CRC5/EOF Interrupt Enable
         enum class Crc5eofenVal {
             v0=0x00000000,     ///<Disables the CRC5/EOF interrupt.
@@ -371,7 +346,6 @@ namespace Kvasir {
         namespace Crc5eofenValC{
             constexpr Register::FieldValue<decltype(crc5eofen)::Type,Crc5eofenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(crc5eofen)::Type,Crc5eofenVal::v1> v1{};
-        }
         }
         ///CRC16 Interrupt Enable
         enum class Crc16enVal {
@@ -383,7 +357,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(crc16en)::Type,Crc16enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(crc16en)::Type,Crc16enVal::v1> v1{};
         }
-        }
         ///DFN8 Interrupt Enable
         enum class Dfn8enVal {
             v0=0x00000000,     ///<Disables the DFN8 interrupt.
@@ -393,7 +366,6 @@ namespace Kvasir {
         namespace Dfn8enValC{
             constexpr Register::FieldValue<decltype(dfn8en)::Type,Dfn8enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dfn8en)::Type,Dfn8enVal::v1> v1{};
-        }
         }
         ///BTOERR Interrupt Enable
         enum class BtoerrenVal {
@@ -405,7 +377,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(btoerren)::Type,BtoerrenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(btoerren)::Type,BtoerrenVal::v1> v1{};
         }
-        }
         ///DMAERR Interrupt Enable
         enum class DmaerrenVal {
             v0=0x00000000,     ///<Disables the DMAERR interrupt.
@@ -416,7 +387,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmaerren)::Type,DmaerrenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmaerren)::Type,DmaerrenVal::v1> v1{};
         }
-        }
         ///BTSERR Interrupt Enable
         enum class BtserrenVal {
             v0=0x00000000,     ///<Disables the BTSERR interrupt.
@@ -426,7 +396,6 @@ namespace Kvasir {
         namespace BtserrenValC{
             constexpr Register::FieldValue<decltype(btserren)::Type,BtserrenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(btserren)::Type,BtserrenVal::v1> v1{};
-        }
         }
     }
     namespace Usb0Stat{    ///<Status register
@@ -443,7 +412,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tx)::Type,TxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tx)::Type,TxVal::v1> v1{};
         }
-        }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> endp{}; 
     }
@@ -458,7 +426,6 @@ namespace Kvasir {
         namespace UsbensofenValC{
             constexpr Register::FieldValue<decltype(usbensofen)::Type,UsbensofenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(usbensofen)::Type,UsbensofenVal::v1> v1{};
-        }
         }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> oddrst{}; 
@@ -543,7 +510,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v1> v1{};
         }
-        }
     }
     namespace Usb0Endpt1{    ///<Endpoint Control register
         using Addr = Register::Address<0x400720c4,0xffffff20,0,unsigned char>;
@@ -568,7 +534,6 @@ namespace Kvasir {
         namespace HostwohubValC{
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v1> v1{};
-        }
         }
     }
     namespace Usb0Endpt2{    ///<Endpoint Control register
@@ -595,7 +560,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v1> v1{};
         }
-        }
     }
     namespace Usb0Endpt3{    ///<Endpoint Control register
         using Addr = Register::Address<0x400720cc,0xffffff20,0,unsigned char>;
@@ -620,7 +584,6 @@ namespace Kvasir {
         namespace HostwohubValC{
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v1> v1{};
-        }
         }
     }
     namespace Usb0Endpt4{    ///<Endpoint Control register
@@ -647,7 +610,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v1> v1{};
         }
-        }
     }
     namespace Usb0Endpt5{    ///<Endpoint Control register
         using Addr = Register::Address<0x400720d4,0xffffff20,0,unsigned char>;
@@ -672,7 +634,6 @@ namespace Kvasir {
         namespace HostwohubValC{
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v1> v1{};
-        }
         }
     }
     namespace Usb0Endpt6{    ///<Endpoint Control register
@@ -699,7 +660,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v1> v1{};
         }
-        }
     }
     namespace Usb0Endpt7{    ///<Endpoint Control register
         using Addr = Register::Address<0x400720dc,0xffffff20,0,unsigned char>;
@@ -724,7 +684,6 @@ namespace Kvasir {
         namespace HostwohubValC{
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v1> v1{};
-        }
         }
     }
     namespace Usb0Endpt8{    ///<Endpoint Control register
@@ -751,7 +710,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v1> v1{};
         }
-        }
     }
     namespace Usb0Endpt9{    ///<Endpoint Control register
         using Addr = Register::Address<0x400720e4,0xffffff20,0,unsigned char>;
@@ -776,7 +734,6 @@ namespace Kvasir {
         namespace HostwohubValC{
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v1> v1{};
-        }
         }
     }
     namespace Usb0Endpt10{    ///<Endpoint Control register
@@ -803,7 +760,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v1> v1{};
         }
-        }
     }
     namespace Usb0Endpt11{    ///<Endpoint Control register
         using Addr = Register::Address<0x400720ec,0xffffff20,0,unsigned char>;
@@ -828,7 +784,6 @@ namespace Kvasir {
         namespace HostwohubValC{
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v1> v1{};
-        }
         }
     }
     namespace Usb0Endpt12{    ///<Endpoint Control register
@@ -855,7 +810,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v1> v1{};
         }
-        }
     }
     namespace Usb0Endpt13{    ///<Endpoint Control register
         using Addr = Register::Address<0x400720f4,0xffffff20,0,unsigned char>;
@@ -880,7 +834,6 @@ namespace Kvasir {
         namespace HostwohubValC{
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v1> v1{};
-        }
         }
     }
     namespace Usb0Endpt14{    ///<Endpoint Control register
@@ -907,7 +860,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v1> v1{};
         }
-        }
     }
     namespace Usb0Endpt15{    ///<Endpoint Control register
         using Addr = Register::Address<0x400720fc,0xffffff20,0,unsigned char>;
@@ -933,7 +885,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hostwohub)::Type,HostwohubVal::v1> v1{};
         }
-        }
     }
     namespace Usb0Usbctrl{    ///<USB Control register
         using Addr = Register::Address<0x40072100,0xffffff3f,0,unsigned char>;
@@ -947,7 +898,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pde)::Type,PdeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pde)::Type,PdeVal::v1> v1{};
         }
-        }
         ///no description available
         enum class SuspVal {
             v0=0x00000000,     ///<USB transceiver is not in suspend state.
@@ -957,7 +907,6 @@ namespace Kvasir {
         namespace SuspValC{
             constexpr Register::FieldValue<decltype(susp)::Type,SuspVal::v0> v0{};
             constexpr Register::FieldValue<decltype(susp)::Type,SuspVal::v1> v1{};
-        }
         }
     }
     namespace Usb0Observe{    ///<USB OTG Observe register
@@ -972,7 +921,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmpd)::Type,DmpdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmpd)::Type,DmpdVal::v1> v1{};
         }
-        }
         ///no description available
         enum class DppdVal {
             v0=0x00000000,     ///<D+ pulldown disabled.
@@ -983,7 +931,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dppd)::Type,DppdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dppd)::Type,DppdVal::v1> v1{};
         }
-        }
         ///no description available
         enum class DppuVal {
             v0=0x00000000,     ///<D+ pullup disabled.
@@ -993,7 +940,6 @@ namespace Kvasir {
         namespace DppuValC{
             constexpr Register::FieldValue<decltype(dppu)::Type,DppuVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dppu)::Type,DppuVal::v1> v1{};
-        }
         }
     }
     namespace Usb0Control{    ///<USB OTG Control register
@@ -1008,7 +954,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dppullupnonotg)::Type,DppullupnonotgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dppullupnonotg)::Type,DppullupnonotgVal::v1> v1{};
         }
-        }
     }
     namespace Usb0Usbtrc0{    ///<USB Transceiver Control register 0
         using Addr = Register::Address<0x4007210c,0xffffff58,0,unsigned char>;
@@ -1022,7 +967,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usbResumeInt)::Type,UsbresumeintVal::v0> v0{};
             constexpr Register::FieldValue<decltype(usbResumeInt)::Type,UsbresumeintVal::v1> v1{};
         }
-        }
         ///Synchronous USB Interrupt Detect
         enum class SyncdetVal {
             v0=0x00000000,     ///<Synchronous interrupt has not been detected.
@@ -1032,7 +976,6 @@ namespace Kvasir {
         namespace SyncdetValC{
             constexpr Register::FieldValue<decltype(syncDet)::Type,SyncdetVal::v0> v0{};
             constexpr Register::FieldValue<decltype(syncDet)::Type,SyncdetVal::v1> v1{};
-        }
         }
         ///Combined USB Clock Recovery interrupt status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> usbClkRecoveryInt{}; 
@@ -1046,7 +989,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usbresmen)::Type,UsbresmenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(usbresmen)::Type,UsbresmenVal::v1> v1{};
         }
-        }
         ///USB Reset
         enum class UsbresetVal {
             v0=0x00000000,     ///<Normal USB module operation.
@@ -1056,7 +998,6 @@ namespace Kvasir {
         namespace UsbresetValC{
             constexpr Register::FieldValue<decltype(usbreset)::Type,UsbresetVal::v0> v0{};
             constexpr Register::FieldValue<decltype(usbreset)::Type,UsbresetVal::v1> v1{};
-        }
         }
     }
     namespace Usb0Usbfrmadjust{    ///<Frame Adjust Register
@@ -1076,7 +1017,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(restartIfrtrimEn)::Type,RestartifrtrimenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(restartIfrtrimEn)::Type,RestartifrtrimenVal::v1> v1{};
         }
-        }
         ///Reset/resume to rough phase enable
         enum class ResetresumeroughenVal {
             v0=0x00000000,     ///<Always works in tracking phase after the 1st time rough to track transition (default)
@@ -1087,7 +1027,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(resetResumeRoughEn)::Type,ResetresumeroughenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(resetResumeRoughEn)::Type,ResetresumeroughenVal::v1> v1{};
         }
-        }
         ///Crystal-less USB enable
         enum class ClockrecoverenVal {
             v0=0x00000000,     ///<Disable clock recovery block (default)
@@ -1097,7 +1036,6 @@ namespace Kvasir {
         namespace ClockrecoverenValC{
             constexpr Register::FieldValue<decltype(clockRecoverEn)::Type,ClockrecoverenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(clockRecoverEn)::Type,ClockrecoverenVal::v1> v1{};
-        }
         }
     }
     namespace Usb0ClkRecoverIrcEn{    ///<IRC48M oscillator enable register
@@ -1112,7 +1050,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(regEn)::Type,RegenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(regEn)::Type,RegenVal::v1> v1{};
         }
-        }
         ///IRC48M enable
         enum class IrcenVal {
             v0=0x00000000,     ///<Disable the IRC48M module (default)
@@ -1122,7 +1059,6 @@ namespace Kvasir {
         namespace IrcenValC{
             constexpr Register::FieldValue<decltype(ircEn)::Type,IrcenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ircEn)::Type,IrcenVal::v1> v1{};
-        }
         }
     }
     namespace Usb0ClkRecoverIntEn{    ///<Clock recovery combined interrupt enable
@@ -1137,7 +1073,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ovfErrorEn)::Type,OvferrorenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ovfErrorEn)::Type,OvferrorenVal::v1> v1{};
         }
-        }
     }
     namespace Usb0ClkRecoverIntStatus{    ///<Clock recovery separated interrupt status
         using Addr = Register::Address<0x4007215c,0xffffffef,0,unsigned char>;
@@ -1150,7 +1085,6 @@ namespace Kvasir {
         namespace OvferrorValC{
             constexpr Register::FieldValue<decltype(ovfError)::Type,OvferrorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ovfError)::Type,OvferrorVal::v1> v1{};
-        }
         }
     }
 }

@@ -71,7 +71,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txb)::Type,TxbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txb)::Type,TxbVal::v1> v1{};
         }
-        }
         ///TXF Interrupt Mask
         enum class TxfVal {
             v0=0x00000000,     ///<The corresponding interrupt source is masked.
@@ -81,7 +80,6 @@ namespace Kvasir {
         namespace TxfValC{
             constexpr Register::FieldValue<decltype(txf)::Type,TxfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txf)::Type,TxfVal::v1> v1{};
-        }
         }
         ///GRA Interrupt Mask
         enum class GraVal {
@@ -93,7 +91,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gra)::Type,GraVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gra)::Type,GraVal::v1> v1{};
         }
-        }
         ///BABT Interrupt Mask
         enum class BabtVal {
             v0=0x00000000,     ///<The corresponding interrupt source is masked.
@@ -104,7 +101,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(babt)::Type,BabtVal::v0> v0{};
             constexpr Register::FieldValue<decltype(babt)::Type,BabtVal::v1> v1{};
         }
-        }
         ///BABR Interrupt Mask
         enum class BabrVal {
             v0=0x00000000,     ///<The corresponding interrupt source is masked.
@@ -114,7 +110,6 @@ namespace Kvasir {
         namespace BabrValC{
             constexpr Register::FieldValue<decltype(babr)::Type,BabrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(babr)::Type,BabrVal::v1> v1{};
-        }
         }
     }
     namespace EnetRdar{    ///<Receive Descriptor Active Register
@@ -141,7 +136,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(etheren)::Type,EtherenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(etheren)::Type,EtherenVal::v1> v1{};
         }
-        }
         ///Magic Packet Detection Enable
         enum class MagicenVal {
             v0=0x00000000,     ///<Magic detection logic disabled.
@@ -151,7 +145,6 @@ namespace Kvasir {
         namespace MagicenValC{
             constexpr Register::FieldValue<decltype(magicen)::Type,MagicenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(magicen)::Type,MagicenVal::v1> v1{};
-        }
         }
         ///Sleep Mode Enable
         enum class SleepVal {
@@ -163,7 +156,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sleep)::Type,SleepVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sleep)::Type,SleepVal::v1> v1{};
         }
-        }
         ///EN1588 Enable
         enum class En1588Val {
             v0=0x00000000,     ///<Legacy FEC buffer descriptors and functions enabled.
@@ -174,7 +166,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(en1588)::Type,En1588Val::v0> v0{};
             constexpr Register::FieldValue<decltype(en1588)::Type,En1588Val::v1> v1{};
         }
-        }
         ///Debug Enable
         enum class DbgenVal {
             v0=0x00000000,     ///<MAC continues operation in debug mode.
@@ -184,7 +175,6 @@ namespace Kvasir {
         namespace DbgenValC{
             constexpr Register::FieldValue<decltype(dbgen)::Type,DbgenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dbgen)::Type,DbgenVal::v1> v1{};
-        }
         }
         ///STOPEN Signal Control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> stopen{}; 
@@ -197,7 +187,6 @@ namespace Kvasir {
         namespace DbswpValC{
             constexpr Register::FieldValue<decltype(dbswp)::Type,DbswpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dbswp)::Type,DbswpVal::v1> v1{};
-        }
         }
     }
     namespace EnetMmfr{    ///<MII Management Frame Register
@@ -224,7 +213,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(op)::Type,OpVal::v10> v10{};
             constexpr Register::FieldValue<decltype(op)::Type,OpVal::v11> v11{};
         }
-        }
         ///Start Of Frame Delimiter
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> st{}; 
     }
@@ -241,7 +229,6 @@ namespace Kvasir {
         namespace DispreValC{
             constexpr Register::FieldValue<decltype(disPre)::Type,DispreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(disPre)::Type,DispreVal::v1> v1{};
-        }
         }
         ///Hold time On MDIO Output
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> holdtime{}; 
@@ -267,7 +254,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(loop)::Type,LoopVal::v0> v0{};
             constexpr Register::FieldValue<decltype(loop)::Type,LoopVal::v1> v1{};
         }
-        }
         ///Disable Receive On Transmit
         enum class DrtVal {
             v0=0x00000000,     ///<Receive path operates independently of transmit. Used for full-duplex or to monitor transmit activity in half-duplex mode.
@@ -278,7 +264,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drt)::Type,DrtVal::v0> v0{};
             constexpr Register::FieldValue<decltype(drt)::Type,DrtVal::v1> v1{};
         }
-        }
         ///Media Independent Interface Mode
         enum class MiimodeVal {
             v1=0x00000001,     ///<MII or RMII mode, as indicated by the RMII_MODE field.
@@ -286,7 +271,6 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,MiimodeVal> miiMode{}; 
         namespace MiimodeValC{
             constexpr Register::FieldValue<decltype(miiMode)::Type,MiimodeVal::v1> v1{};
-        }
         }
         ///Promiscuous Mode
         enum class PromVal {
@@ -297,7 +281,6 @@ namespace Kvasir {
         namespace PromValC{
             constexpr Register::FieldValue<decltype(prom)::Type,PromVal::v0> v0{};
             constexpr Register::FieldValue<decltype(prom)::Type,PromVal::v1> v1{};
-        }
         }
         ///Broadcast Frame Reject
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> bcRej{}; 
@@ -313,7 +296,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rmiiMode)::Type,RmiimodeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rmiiMode)::Type,RmiimodeVal::v1> v1{};
         }
-        }
         ///no description available
         enum class Rmii10tVal {
             v0=0x00000000,     ///<100 Mbps operation.
@@ -323,7 +305,6 @@ namespace Kvasir {
         namespace Rmii10tValC{
             constexpr Register::FieldValue<decltype(rmii10t)::Type,Rmii10tVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rmii10t)::Type,Rmii10tVal::v1> v1{};
-        }
         }
         ///Enable Frame Padding Remove On Receive
         enum class PadenVal {
@@ -335,7 +316,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(paden)::Type,PadenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(paden)::Type,PadenVal::v1> v1{};
         }
-        }
         ///Terminate/Forward Pause Frames
         enum class PaufwdVal {
             v0=0x00000000,     ///<Pause frames are terminated and discarded in the MAC.
@@ -345,7 +325,6 @@ namespace Kvasir {
         namespace PaufwdValC{
             constexpr Register::FieldValue<decltype(paufwd)::Type,PaufwdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(paufwd)::Type,PaufwdVal::v1> v1{};
-        }
         }
         ///Terminate/Forward Received CRC
         enum class CrcfwdVal {
@@ -357,7 +336,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(crcfwd)::Type,CrcfwdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(crcfwd)::Type,CrcfwdVal::v1> v1{};
         }
-        }
         ///MAC Control Frame Enable
         enum class CfenVal {
             v0=0x00000000,     ///<MAC control frames with any opcode other than 0x0001 (pause frame) are accepted and forwarded to the client interface.
@@ -367,7 +345,6 @@ namespace Kvasir {
         namespace CfenValC{
             constexpr Register::FieldValue<decltype(cfen)::Type,CfenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cfen)::Type,CfenVal::v1> v1{};
-        }
         }
         ///Maximum Frame Length
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,16),Register::ReadWriteAccess,unsigned> maxFl{}; 
@@ -380,7 +357,6 @@ namespace Kvasir {
         namespace NlcValC{
             constexpr Register::FieldValue<decltype(nlc)::Type,NlcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(nlc)::Type,NlcVal::v1> v1{};
-        }
         }
         ///Graceful Receive Stopped
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> grs{}; 
@@ -401,7 +377,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tfcPause)::Type,TfcpauseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tfcPause)::Type,TfcpauseVal::v1> v1{};
         }
-        }
         ///Receive Frame Control Pause
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rfcPause{}; 
         ///Source MAC Address Select On Transmit
@@ -416,7 +391,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(addins)::Type,AddinsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(addins)::Type,AddinsVal::v1> v1{};
         }
-        }
         ///Forward Frame From Application With CRC
         enum class CrcfwdVal {
             v0=0x00000000,     ///<TxBD[TC] controls whether the frame has a CRC from the application.
@@ -426,7 +400,6 @@ namespace Kvasir {
         namespace CrcfwdValC{
             constexpr Register::FieldValue<decltype(crcfwd)::Type,CrcfwdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(crcfwd)::Type,CrcfwdVal::v1> v1{};
-        }
         }
     }
     namespace EnetPalr{    ///<Physical Address Lower Register
@@ -488,7 +461,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tfwr)::Type,TfwrVal::v111110> v111110{};
             constexpr Register::FieldValue<decltype(tfwr)::Type,TfwrVal::v111111> v111111{};
         }
-        }
         ///Store And Forward Enable
         enum class StrfwdVal {
             v0=0x00000000,     ///<Reset. The transmission start threshold is programmed in TFWR[TFWR].
@@ -498,7 +470,6 @@ namespace Kvasir {
         namespace StrfwdValC{
             constexpr Register::FieldValue<decltype(strfwd)::Type,StrfwdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(strfwd)::Type,StrfwdVal::v1> v1{};
-        }
         }
     }
     namespace EnetRdsr{    ///<Receive Descriptor Ring Start Register
@@ -575,7 +546,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(shift16)::Type,Shift16Val::v0> v0{};
             constexpr Register::FieldValue<decltype(shift16)::Type,Shift16Val::v1> v1{};
         }
-        }
         ///no description available
         enum class IpchkVal {
             v0=0x00000000,     ///<Checksum is not inserted.
@@ -586,7 +556,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ipchk)::Type,IpchkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ipchk)::Type,IpchkVal::v1> v1{};
         }
-        }
         ///no description available
         enum class ProchkVal {
             v0=0x00000000,     ///<Checksum not inserted.
@@ -596,7 +565,6 @@ namespace Kvasir {
         namespace ProchkValC{
             constexpr Register::FieldValue<decltype(prochk)::Type,ProchkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(prochk)::Type,ProchkVal::v1> v1{};
-        }
         }
     }
     namespace EnetRacc{    ///<Receive Accelerator Function Configuration
@@ -611,7 +579,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(padrem)::Type,PadremVal::v0> v0{};
             constexpr Register::FieldValue<decltype(padrem)::Type,PadremVal::v1> v1{};
         }
-        }
         ///Enable Discard Of Frames With Wrong IPv4 Header Checksum
         enum class IpdisVal {
             v0=0x00000000,     ///<Frames with wrong IPv4 header checksum are not discarded.
@@ -621,7 +588,6 @@ namespace Kvasir {
         namespace IpdisValC{
             constexpr Register::FieldValue<decltype(ipdis)::Type,IpdisVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ipdis)::Type,IpdisVal::v1> v1{};
-        }
         }
         ///Enable Discard Of Frames With Wrong Protocol Checksum
         enum class ProdisVal {
@@ -633,7 +599,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prodis)::Type,ProdisVal::v0> v0{};
             constexpr Register::FieldValue<decltype(prodis)::Type,ProdisVal::v1> v1{};
         }
-        }
         ///Enable Discard Of Frames With MAC Layer Errors
         enum class LinedisVal {
             v0=0x00000000,     ///<Frames with errors are not discarded.
@@ -644,7 +609,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(linedis)::Type,LinedisVal::v0> v0{};
             constexpr Register::FieldValue<decltype(linedis)::Type,LinedisVal::v1> v1{};
         }
-        }
         ///RX FIFO Shift-16
         enum class Shift16Val {
             v0=0x00000000,     ///<Disabled.
@@ -654,7 +618,6 @@ namespace Kvasir {
         namespace Shift16ValC{
             constexpr Register::FieldValue<decltype(shift16)::Type,Shift16Val::v0> v0{};
             constexpr Register::FieldValue<decltype(shift16)::Type,Shift16Val::v1> v1{};
-        }
         }
     }
     namespace EnetRmonTPackets{    ///<Tx Packet Count Statistic Register
@@ -919,7 +882,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(en)::Type,EnVal::v0> v0{};
             constexpr Register::FieldValue<decltype(en)::Type,EnVal::v1> v1{};
         }
-        }
         ///Enable One-Shot Offset Event
         enum class OffenVal {
             v0=0x00000000,     ///<Disable.
@@ -929,7 +891,6 @@ namespace Kvasir {
         namespace OffenValC{
             constexpr Register::FieldValue<decltype(offen)::Type,OffenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(offen)::Type,OffenVal::v1> v1{};
-        }
         }
         ///Reset Timer On Offset Event
         enum class OffrstVal {
@@ -941,7 +902,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(offrst)::Type,OffrstVal::v0> v0{};
             constexpr Register::FieldValue<decltype(offrst)::Type,OffrstVal::v1> v1{};
         }
-        }
         ///Enable Periodical Event
         enum class PerenVal {
             v0=0x00000000,     ///<Disable.
@@ -952,7 +912,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(peren)::Type,PerenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(peren)::Type,PerenVal::v1> v1{};
         }
-        }
         ///no description available
         enum class PinperVal {
             v0=0x00000000,     ///<Disable.
@@ -962,7 +921,6 @@ namespace Kvasir {
         namespace PinperValC{
             constexpr Register::FieldValue<decltype(pinper)::Type,PinperVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pinper)::Type,PinperVal::v1> v1{};
-        }
         }
         ///Reset Timer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> restart{}; 
@@ -976,7 +934,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(capture)::Type,CaptureVal::v0> v0{};
             constexpr Register::FieldValue<decltype(capture)::Type,CaptureVal::v1> v1{};
         }
-        }
         ///Enable Timer Slave Mode
         enum class SlaveVal {
             v0=0x00000000,     ///<The timer is active and all configuration fields in this register are relevant.
@@ -986,7 +943,6 @@ namespace Kvasir {
         namespace SlaveValC{
             constexpr Register::FieldValue<decltype(slave)::Type,SlaveVal::v0> v0{};
             constexpr Register::FieldValue<decltype(slave)::Type,SlaveVal::v1> v1{};
-        }
         }
     }
     namespace EnetAtvr{    ///<Timer Value Register
@@ -1033,7 +989,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tf0)::Type,Tf0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tf0)::Type,Tf0Val::v1> v1{};
         }
-        }
         ///Copy Of Timer Flag For Channel 1
         enum class Tf1Val {
             v0=0x00000000,     ///<Timer Flag for Channel 1 is clear
@@ -1043,7 +998,6 @@ namespace Kvasir {
         namespace Tf1ValC{
             constexpr Register::FieldValue<decltype(tf1)::Type,Tf1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tf1)::Type,Tf1Val::v1> v1{};
-        }
         }
         ///Copy Of Timer Flag For Channel 2
         enum class Tf2Val {
@@ -1055,7 +1009,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tf2)::Type,Tf2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tf2)::Type,Tf2Val::v1> v1{};
         }
-        }
         ///Copy Of Timer Flag For Channel 3
         enum class Tf3Val {
             v0=0x00000000,     ///<Timer Flag for Channel 3 is clear
@@ -1065,7 +1018,6 @@ namespace Kvasir {
         namespace Tf3ValC{
             constexpr Register::FieldValue<decltype(tf3)::Type,Tf3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tf3)::Type,Tf3Val::v1> v1{};
-        }
         }
     }
     namespace EnetTcsr0{    ///<Timer Control Status Register
@@ -1080,7 +1032,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tdre)::Type,TdreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tdre)::Type,TdreVal::v1> v1{};
         }
-        }
         ///Timer Mode
         enum class TmodeVal {
             v0000=0x00000000,     ///<Timer Channel is disabled.
@@ -1111,7 +1062,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tmode)::Type,TmodeVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(tmode)::Type,TmodeVal::v1111> v1111{};
         }
-        }
         ///Timer Interrupt Enable
         enum class TieVal {
             v0=0x00000000,     ///<Interrupt is disabled
@@ -1122,7 +1072,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v1> v1{};
         }
-        }
         ///Timer Flag
         enum class TfVal {
             v0=0x00000000,     ///<Input Capture or Output Compare has not occurred
@@ -1132,7 +1081,6 @@ namespace Kvasir {
         namespace TfValC{
             constexpr Register::FieldValue<decltype(tf)::Type,TfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tf)::Type,TfVal::v1> v1{};
-        }
         }
     }
     namespace EnetTcsr1{    ///<Timer Control Status Register
@@ -1147,7 +1095,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tdre)::Type,TdreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tdre)::Type,TdreVal::v1> v1{};
         }
-        }
         ///Timer Mode
         enum class TmodeVal {
             v0000=0x00000000,     ///<Timer Channel is disabled.
@@ -1178,7 +1125,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tmode)::Type,TmodeVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(tmode)::Type,TmodeVal::v1111> v1111{};
         }
-        }
         ///Timer Interrupt Enable
         enum class TieVal {
             v0=0x00000000,     ///<Interrupt is disabled
@@ -1189,7 +1135,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v1> v1{};
         }
-        }
         ///Timer Flag
         enum class TfVal {
             v0=0x00000000,     ///<Input Capture or Output Compare has not occurred
@@ -1199,7 +1144,6 @@ namespace Kvasir {
         namespace TfValC{
             constexpr Register::FieldValue<decltype(tf)::Type,TfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tf)::Type,TfVal::v1> v1{};
-        }
         }
     }
     namespace EnetTcsr2{    ///<Timer Control Status Register
@@ -1214,7 +1158,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tdre)::Type,TdreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tdre)::Type,TdreVal::v1> v1{};
         }
-        }
         ///Timer Mode
         enum class TmodeVal {
             v0000=0x00000000,     ///<Timer Channel is disabled.
@@ -1245,7 +1188,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tmode)::Type,TmodeVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(tmode)::Type,TmodeVal::v1111> v1111{};
         }
-        }
         ///Timer Interrupt Enable
         enum class TieVal {
             v0=0x00000000,     ///<Interrupt is disabled
@@ -1256,7 +1198,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v1> v1{};
         }
-        }
         ///Timer Flag
         enum class TfVal {
             v0=0x00000000,     ///<Input Capture or Output Compare has not occurred
@@ -1266,7 +1207,6 @@ namespace Kvasir {
         namespace TfValC{
             constexpr Register::FieldValue<decltype(tf)::Type,TfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tf)::Type,TfVal::v1> v1{};
-        }
         }
     }
     namespace EnetTcsr3{    ///<Timer Control Status Register
@@ -1281,7 +1221,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tdre)::Type,TdreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tdre)::Type,TdreVal::v1> v1{};
         }
-        }
         ///Timer Mode
         enum class TmodeVal {
             v0000=0x00000000,     ///<Timer Channel is disabled.
@@ -1312,7 +1251,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tmode)::Type,TmodeVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(tmode)::Type,TmodeVal::v1111> v1111{};
         }
-        }
         ///Timer Interrupt Enable
         enum class TieVal {
             v0=0x00000000,     ///<Interrupt is disabled
@@ -1323,7 +1261,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v1> v1{};
         }
-        }
         ///Timer Flag
         enum class TfVal {
             v0=0x00000000,     ///<Input Capture or Output Compare has not occurred
@@ -1333,7 +1270,6 @@ namespace Kvasir {
         namespace TfValC{
             constexpr Register::FieldValue<decltype(tf)::Type,TfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tf)::Type,TfVal::v1> v1{};
-        }
         }
     }
     namespace EnetTccr0{    ///<Timer Compare Capture Register

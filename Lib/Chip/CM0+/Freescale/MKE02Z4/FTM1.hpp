@@ -26,7 +26,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v111> v111{};
         }
-        }
         ///Clock Source Selection
         enum class ClksVal {
             v00=0x00000000,     ///<No clock selected. This in effect disables the FTM counter.
@@ -41,7 +40,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v10> v10{};
             constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v11> v11{};
         }
-        }
         ///Center-Aligned PWM Select
         enum class CpwmsVal {
             v0=0x00000000,     ///<FTM counter operates in Up Counting mode.
@@ -51,7 +49,6 @@ namespace Kvasir {
         namespace CpwmsValC{
             constexpr Register::FieldValue<decltype(cpwms)::Type,CpwmsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cpwms)::Type,CpwmsVal::v1> v1{};
-        }
         }
         ///Timer Overflow Interrupt Enable
         enum class ToieVal {
@@ -63,7 +60,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(toie)::Type,ToieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(toie)::Type,ToieVal::v1> v1{};
         }
-        }
         ///Timer Overflow Flag
         enum class TofVal {
             v0=0x00000000,     ///<FTM counter has not overflowed.
@@ -73,7 +69,6 @@ namespace Kvasir {
         namespace TofValC{
             constexpr Register::FieldValue<decltype(tof)::Type,TofVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tof)::Type,TofVal::v1> v1{};
-        }
         }
     }
     namespace Ftm1Cnt{    ///<Counter
@@ -106,7 +101,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
         }
-        }
         ///Channel Flag
         enum class ChfVal {
             v0=0x00000000,     ///<No channel event has occurred.
@@ -116,7 +110,6 @@ namespace Kvasir {
         namespace ChfValC{
             constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
-        }
         }
     }
     namespace Ftm1C1sc{    ///<Channel (n) Status And Control
@@ -139,7 +132,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
         }
-        }
         ///Channel Flag
         enum class ChfVal {
             v0=0x00000000,     ///<No channel event has occurred.
@@ -149,7 +141,6 @@ namespace Kvasir {
         namespace ChfValC{
             constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
-        }
         }
     }
     namespace Ftm1C0v{    ///<Channel (n) Value

@@ -22,7 +22,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in0range)::Type,In0rangeVal::v2Ma> v2Ma{};
             constexpr Register::FieldValue<decltype(in0range)::Type,In0rangeVal::v1Ma> v1Ma{};
         }
-        }
         ///Input 1 Range. 
         enum class In1rangeVal {
             v6Ma=0x00000000,     ///<Input range is 0-6 mA.
@@ -41,7 +40,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in1range)::Type,In1rangeVal::v2Ma> v2Ma{};
             constexpr Register::FieldValue<decltype(in1range)::Type,In1rangeVal::v1Ma> v1Ma{};
         }
-        }
         ///Converter 0 Enable. 
         enum class C0enVal {
             disabled=0x00000000,     ///<Disable IVC channel 0.
@@ -52,7 +50,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(c0en)::Type,C0enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(c0en)::Type,C0enVal::enabled> enabled{};
         }
-        }
         ///Converter 1 Enable. 
         enum class C1enVal {
             disabled=0x00000000,     ///<Disable IVC channel 1.
@@ -62,7 +59,6 @@ namespace Kvasir {
         namespace C1enValC{
             constexpr Register::FieldValue<decltype(c1en)::Type,C1enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(c1en)::Type,C1enVal::enabled> enabled{};
-        }
         }
     }
 }

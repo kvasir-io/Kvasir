@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frz)::Type,FrzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frz)::Type,FrzVal::v1> v1{};
         }
-        }
         ///Module Disable - (PIT section)
         enum class MdisVal {
             v0=0x00000000,     ///<Clock for standard PIT timers is enabled.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace MdisValC{
             constexpr Register::FieldValue<decltype(mdis)::Type,MdisVal::v0> v0{};
             constexpr Register::FieldValue<decltype(mdis)::Type,MdisVal::v1> v1{};
-        }
         }
     }
     namespace PitLtmr64h{    ///<PIT Upper Lifetime Timer Register
@@ -69,7 +67,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v1> v1{};
         }
-        }
         ///Timer Interrupt Enable
         enum class TieVal {
             v0=0x00000000,     ///<Interrupt requests from Timer n are disabled.
@@ -80,7 +77,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v1> v1{};
         }
-        }
         ///Chain Mode
         enum class ChnVal {
             v0=0x00000000,     ///<Timer is not chained.
@@ -90,7 +86,6 @@ namespace Kvasir {
         namespace ChnValC{
             constexpr Register::FieldValue<decltype(chn)::Type,ChnVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chn)::Type,ChnVal::v1> v1{};
-        }
         }
     }
     namespace PitTctrl1{    ///<Timer Control Register
@@ -105,7 +100,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v1> v1{};
         }
-        }
         ///Timer Interrupt Enable
         enum class TieVal {
             v0=0x00000000,     ///<Interrupt requests from Timer n are disabled.
@@ -116,7 +110,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v1> v1{};
         }
-        }
         ///Chain Mode
         enum class ChnVal {
             v0=0x00000000,     ///<Timer is not chained.
@@ -126,7 +119,6 @@ namespace Kvasir {
         namespace ChnValC{
             constexpr Register::FieldValue<decltype(chn)::Type,ChnVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chn)::Type,ChnVal::v1> v1{};
-        }
         }
     }
     namespace PitTflg0{    ///<Timer Flag Register
@@ -141,7 +133,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v1> v1{};
         }
-        }
     }
     namespace PitTflg1{    ///<Timer Flag Register
         using Addr = Register::Address<0x4003711c,0xfffffffe,0,unsigned>;
@@ -154,7 +145,6 @@ namespace Kvasir {
         namespace TifValC{
             constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v1> v1{};
-        }
         }
     }
 }

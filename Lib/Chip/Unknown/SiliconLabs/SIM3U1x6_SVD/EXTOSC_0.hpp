@@ -26,7 +26,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(freqcn)::Type,FreqcnVal::range6> range6{};
             constexpr Register::FieldValue<decltype(freqcn)::Type,FreqcnVal::range7> range7{};
         }
-        }
         ///Oscillator Valid Flag. 
         enum class OscvldfVal {
             notSet=0x00000000,     ///<The external oscillator is unused or not yet stable.
@@ -36,7 +35,6 @@ namespace Kvasir {
         namespace OscvldfValC{
             constexpr Register::FieldValue<decltype(oscvldf)::Type,OscvldfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(oscvldf)::Type,OscvldfVal::set> set{};
-        }
         }
         ///Oscillator Mode. 
         enum class OscmdVal {
@@ -57,7 +55,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oscmd)::Type,OscmdVal::c> c{};
             constexpr Register::FieldValue<decltype(oscmd)::Type,OscmdVal::xtal> xtal{};
             constexpr Register::FieldValue<decltype(oscmd)::Type,OscmdVal::xtaldiv2> xtaldiv2{};
-        }
         }
     }
 }

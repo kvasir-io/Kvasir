@@ -22,7 +22,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timevsel)::Type,TimevselVal::midnight> midnight{};
             constexpr Register::FieldValue<decltype(timevsel)::Type,TimevselVal::noon> noon{};
         }
-        }
         ///Calendar Event Selection
         enum class CalevselVal {
             week=0x00000000,     ///<Week change (every Monday at time 00:00:00)
@@ -34,7 +33,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(calevsel)::Type,CalevselVal::week> week{};
             constexpr Register::FieldValue<decltype(calevsel)::Type,CalevselVal::month> month{};
             constexpr Register::FieldValue<decltype(calevsel)::Type,CalevselVal::year> year{};
-        }
         }
     }
     namespace RtcMr{    ///<Mode Register
@@ -71,7 +69,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(out0)::Type,Out0Val::alarmFlag> alarmFlag{};
             constexpr Register::FieldValue<decltype(out0)::Type,Out0Val::progPulse> progPulse{};
         }
-        }
         ///RTCOUT1 Output Source Selection
         enum class Out1Val {
             noWave=0x00000000,     ///<no waveform, stuck at '0'
@@ -93,7 +90,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(out1)::Type,Out1Val::alarmToggle> alarmToggle{};
             constexpr Register::FieldValue<decltype(out1)::Type,Out1Val::alarmFlag> alarmFlag{};
             constexpr Register::FieldValue<decltype(out1)::Type,Out1Val::progPulse> progPulse{};
-        }
         }
         ///High Duration of the Output Pulse
         enum class ThighVal {
@@ -117,7 +113,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(thigh)::Type,ThighVal::h30us> h30us{};
             constexpr Register::FieldValue<decltype(thigh)::Type,ThighVal::h15us> h15us{};
         }
-        }
         ///Period of the Output Pulse
         enum class TperiodVal {
             p1s=0x00000000,     ///<1 second
@@ -131,7 +126,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tperiod)::Type,TperiodVal::p500ms> p500ms{};
             constexpr Register::FieldValue<decltype(tperiod)::Type,TperiodVal::p250ms> p250ms{};
             constexpr Register::FieldValue<decltype(tperiod)::Type,TperiodVal::p125ms> p125ms{};
-        }
         }
     }
     namespace RtcTimr{    ///<Time Register
@@ -198,7 +192,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ackupd)::Type,AckupdVal::freerun> freerun{};
             constexpr Register::FieldValue<decltype(ackupd)::Type,AckupdVal::update> update{};
         }
-        }
         ///Alarm Flag
         enum class AlarmVal {
             noAlarmevent=0x00000000,     ///<No alarm matching condition occurred.
@@ -208,7 +201,6 @@ namespace Kvasir {
         namespace AlarmValC{
             constexpr Register::FieldValue<decltype(alarm)::Type,AlarmVal::noAlarmevent> noAlarmevent{};
             constexpr Register::FieldValue<decltype(alarm)::Type,AlarmVal::alarmevent> alarmevent{};
-        }
         }
         ///Second Event
         enum class SecVal {
@@ -220,7 +212,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sec)::Type,SecVal::noSecevent> noSecevent{};
             constexpr Register::FieldValue<decltype(sec)::Type,SecVal::secevent> secevent{};
         }
-        }
         ///Time Event
         enum class TimevVal {
             noTimevent=0x00000000,     ///<No time event has occurred since the last clear.
@@ -230,7 +221,6 @@ namespace Kvasir {
         namespace TimevValC{
             constexpr Register::FieldValue<decltype(timev)::Type,TimevVal::noTimevent> noTimevent{};
             constexpr Register::FieldValue<decltype(timev)::Type,TimevVal::timevent> timevent{};
-        }
         }
         ///Calendar Event
         enum class CalevVal {
@@ -242,7 +232,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(calev)::Type,CalevVal::noCalevent> noCalevent{};
             constexpr Register::FieldValue<decltype(calev)::Type,CalevVal::calevent> calevent{};
         }
-        }
         ///Time and/or Date Free Running Error
         enum class TderrVal {
             correct=0x00000000,     ///<The internal free running counters are carrying valid values since the last read of RTC_SR.
@@ -252,7 +241,6 @@ namespace Kvasir {
         namespace TderrValC{
             constexpr Register::FieldValue<decltype(tderr)::Type,TderrVal::correct> correct{};
             constexpr Register::FieldValue<decltype(tderr)::Type,TderrVal::errTimedate> errTimedate{};
-        }
         }
     }
     namespace RtcSccr{    ///<Status Clear Command Register

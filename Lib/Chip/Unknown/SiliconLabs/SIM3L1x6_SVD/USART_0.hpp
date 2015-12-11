@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rstrten)::Type,RstrtenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rstrten)::Type,RstrtenVal::enabled> enabled{};
         }
-        }
         ///Receiver Parity Enable. 
         enum class RparenVal {
             disabled=0x00000000,     ///<Do not expect a parity bit during receptions.
@@ -25,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rparen)::Type,RparenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rparen)::Type,RparenVal::enabled> enabled{};
         }
-        }
         ///Receiver Stop Enable. 
         enum class RstpenVal {
             disabled=0x00000000,     ///<Do not expect stop bits during receptions.
@@ -35,7 +33,6 @@ namespace Kvasir {
         namespace RstpenValC{
             constexpr Register::FieldValue<decltype(rstpen)::Type,RstpenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rstpen)::Type,RstpenVal::enabled> enabled{};
-        }
         }
         ///Receiver Stop Mode. 
         enum class RstpmdVal {
@@ -51,7 +48,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rstpmd)::Type,RstpmdVal::v1p5Stop> v1p5Stop{};
             constexpr Register::FieldValue<decltype(rstpmd)::Type,RstpmdVal::v2Stop> v2Stop{};
         }
-        }
         ///Receiver Parity Mode. 
         enum class RparmdVal {
             odd=0x00000000,     ///<Odd Parity.
@@ -65,7 +61,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rparmd)::Type,RparmdVal::even> even{};
             constexpr Register::FieldValue<decltype(rparmd)::Type,RparmdVal::mark> mark{};
             constexpr Register::FieldValue<decltype(rparmd)::Type,RparmdVal::space> space{};
-        }
         }
         ///Receiver Data Length. 
         enum class RdatlnVal {
@@ -85,7 +80,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rdatln)::Type,RdatlnVal::v9BitsStored> v9BitsStored{};
             constexpr Register::FieldValue<decltype(rdatln)::Type,RdatlnVal::v9BitsMatch> v9BitsMatch{};
         }
-        }
         ///Receiver Smartcard Parity Response Enable. 
         enum class RscenVal {
             disabled=0x00000000,     ///<The receiver does not send a Smartcard parity error response.
@@ -95,7 +89,6 @@ namespace Kvasir {
         namespace RscenValC{
             constexpr Register::FieldValue<decltype(rscen)::Type,RscenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rscen)::Type,RscenVal::enabled> enabled{};
-        }
         }
         ///Receiver IrDA Enable. 
         enum class RirdaenVal {
@@ -107,7 +100,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rirdaen)::Type,RirdaenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rirdaen)::Type,RirdaenVal::enabled> enabled{};
         }
-        }
         ///Receiver Invert Enable. 
         enum class RinvenVal {
             disabled=0x00000000,     ///<Do not invert the RX pin signals (the RX idle state is high).
@@ -117,7 +109,6 @@ namespace Kvasir {
         namespace RinvenValC{
             constexpr Register::FieldValue<decltype(rinven)::Type,RinvenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rinven)::Type,RinvenVal::enabled> enabled{};
-        }
         }
         ///Receiver Synchronous Mode Enable. 
         enum class RsyncenVal {
@@ -129,7 +120,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rsyncen)::Type,RsyncenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rsyncen)::Type,RsyncenVal::enabled> enabled{};
         }
-        }
         ///Transmitter Start Enable. 
         enum class TstrtenVal {
             disabled=0x00000000,     ///<Do not generate a start bit during transmissions.
@@ -139,7 +129,6 @@ namespace Kvasir {
         namespace TstrtenValC{
             constexpr Register::FieldValue<decltype(tstrten)::Type,TstrtenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(tstrten)::Type,TstrtenVal::enabled> enabled{};
-        }
         }
         ///Transmitter Parity Enable. 
         enum class TparenVal {
@@ -151,7 +140,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tparen)::Type,TparenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(tparen)::Type,TparenVal::enabled> enabled{};
         }
-        }
         ///Transmitter Stop Enable. 
         enum class TstpenVal {
             disabled=0x00000000,     ///<Do not send stop bits during transmissions.
@@ -161,7 +149,6 @@ namespace Kvasir {
         namespace TstpenValC{
             constexpr Register::FieldValue<decltype(tstpen)::Type,TstpenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(tstpen)::Type,TstpenVal::enabled> enabled{};
-        }
         }
         ///Transmitter Stop Mode. 
         enum class TstpmdVal {
@@ -177,7 +164,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tstpmd)::Type,TstpmdVal::v1p5Stop> v1p5Stop{};
             constexpr Register::FieldValue<decltype(tstpmd)::Type,TstpmdVal::v2Stop> v2Stop{};
         }
-        }
         ///Transmitter Parity Mode. 
         enum class TparmdVal {
             odd=0x00000000,     ///<Odd Parity.
@@ -191,7 +177,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tparmd)::Type,TparmdVal::even> even{};
             constexpr Register::FieldValue<decltype(tparmd)::Type,TparmdVal::mark> mark{};
             constexpr Register::FieldValue<decltype(tparmd)::Type,TparmdVal::space> space{};
-        }
         }
         ///Transmitter Data Length. 
         enum class TdatlnVal {
@@ -211,7 +196,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tdatln)::Type,TdatlnVal::v9BitsFifo> v9BitsFifo{};
             constexpr Register::FieldValue<decltype(tdatln)::Type,TdatlnVal::v9BitsTbit> v9BitsTbit{};
         }
-        }
         ///Transmitter Smartcard Parity Response Enable. 
         enum class TscenVal {
             disabled=0x00000000,     ///<The transmitter does not check for a Smartcard parity error response.
@@ -221,7 +205,6 @@ namespace Kvasir {
         namespace TscenValC{
             constexpr Register::FieldValue<decltype(tscen)::Type,TscenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(tscen)::Type,TscenVal::enabled> enabled{};
-        }
         }
         ///Transmitter IrDA Enable. 
         enum class TirdaenVal {
@@ -233,7 +216,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tirdaen)::Type,TirdaenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(tirdaen)::Type,TirdaenVal::enabled> enabled{};
         }
-        }
         ///Transmitter Invert Enable. 
         enum class TinvenVal {
             disabled=0x00000000,     ///<Do not invert the TX pin signals (the TX idle state is high).
@@ -244,7 +226,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tinven)::Type,TinvenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(tinven)::Type,TinvenVal::enabled> enabled{};
         }
-        }
         ///Transmitter Synchronous Mode Enable. 
         enum class TsyncenVal {
             disabled=0x00000000,     ///<The transmitter operates in asynchronous mode.
@@ -254,7 +235,6 @@ namespace Kvasir {
         namespace TsyncenValC{
             constexpr Register::FieldValue<decltype(tsyncen)::Type,TsyncenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(tsyncen)::Type,TsyncenVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonemode{    ///<Module Mode Select
@@ -268,7 +248,6 @@ namespace Kvasir {
         namespace DbgmdValC{
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::run> run{};
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::halt> halt{};
-        }
         }
         ///Loop Back Mode. 
         enum class LbmdVal {
@@ -284,7 +263,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lbmd)::Type,LbmdVal::txonly> txonly{};
             constexpr Register::FieldValue<decltype(lbmd)::Type,LbmdVal::both> both{};
         }
-        }
         ///Stop State Clock Control. 
         enum class StpstclkVal {
             disabled=0x00000000,     ///<When the USART is a clock master, the clock is not generated during stop bits.
@@ -294,7 +272,6 @@ namespace Kvasir {
         namespace StpstclkValC{
             constexpr Register::FieldValue<decltype(stpstclk)::Type,StpstclkVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(stpstclk)::Type,StpstclkVal::enabled> enabled{};
-        }
         }
         ///Start State Clock Control. 
         enum class StrtstclkVal {
@@ -306,7 +283,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(strtstclk)::Type,StrtstclkVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(strtstclk)::Type,StrtstclkVal::enabled> enabled{};
         }
-        }
         ///Idle Clock Control. 
         enum class IstclkVal {
             disabled=0x00000000,     ///<When the USART is a clock master, the clock is held idle between transmissions.
@@ -316,7 +292,6 @@ namespace Kvasir {
         namespace IstclkValC{
             constexpr Register::FieldValue<decltype(istclk)::Type,IstclkVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(istclk)::Type,IstclkVal::enabled> enabled{};
-        }
         }
         ///Duplex Mode. 
         enum class DuplexmdVal {
@@ -328,7 +303,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(duplexmd)::Type,DuplexmdVal::fullDuplex> fullDuplex{};
             constexpr Register::FieldValue<decltype(duplexmd)::Type,DuplexmdVal::halfDuplex> halfDuplex{};
         }
-        }
         ///Clock Idle State. 
         enum class ClkidleVal {
             idleLow=0x00000000,     ///<The synchronous clock is low when idle.
@@ -338,7 +312,6 @@ namespace Kvasir {
         namespace ClkidleValC{
             constexpr Register::FieldValue<decltype(clkidle)::Type,ClkidleVal::idleLow> idleLow{};
             constexpr Register::FieldValue<decltype(clkidle)::Type,ClkidleVal::idleHigh> idleHigh{};
-        }
         }
         ///Clock Edge Select. 
         enum class ClkeselVal {
@@ -350,7 +323,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkesel)::Type,ClkeselVal::falling> falling{};
             constexpr Register::FieldValue<decltype(clkesel)::Type,ClkeselVal::rising> rising{};
         }
-        }
         ///Idle TX/UCLK Tristate Enable. 
         enum class ItsenVal {
             disabled=0x00000000,     ///<The TX and UCLK (if in synchronous master mode) pins are always an output in this mode, even when idle.
@@ -361,7 +333,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(itsen)::Type,ItsenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(itsen)::Type,ItsenVal::enabled> enabled{};
         }
-        }
         ///Operational Mode. 
         enum class OpmdVal {
             slave=0x00000000,     ///<The USART operates as a slave.
@@ -371,7 +342,6 @@ namespace Kvasir {
         namespace OpmdValC{
             constexpr Register::FieldValue<decltype(opmd)::Type,OpmdVal::slave> slave{};
             constexpr Register::FieldValue<decltype(opmd)::Type,OpmdVal::master> master{};
-        }
         }
     }
     namespace Noneflowcn{    ///<Flow Control
@@ -386,7 +356,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rts)::Type,RtsVal::low> low{};
             constexpr Register::FieldValue<decltype(rts)::Type,RtsVal::high> high{};
         }
-        }
         ///RX Pin Status. 
         enum class RxVal {
             low=0x00000000,     ///<RX pin (after optional inversion) is low.
@@ -396,7 +365,6 @@ namespace Kvasir {
         namespace RxValC{
             constexpr Register::FieldValue<decltype(rx)::Type,RxVal::low> low{};
             constexpr Register::FieldValue<decltype(rx)::Type,RxVal::high> high{};
-        }
         }
         ///RTS Invert Enable. 
         enum class RtsinvenVal {
@@ -408,7 +376,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rtsinven)::Type,RtsinvenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rtsinven)::Type,RtsinvenVal::enabled> enabled{};
         }
-        }
         ///RTS Threshold Control. 
         enum class RtsthVal {
             full=0x00000000,     ///<RTS is de-asserted when the receive FIFO and shift register are full and no more incoming data can be stored.
@@ -418,7 +385,6 @@ namespace Kvasir {
         namespace RtsthValC{
             constexpr Register::FieldValue<decltype(rtsth)::Type,RtsthVal::full> full{};
             constexpr Register::FieldValue<decltype(rtsth)::Type,RtsthVal::oneByteFree> oneByteFree{};
-        }
         }
         ///RTS Enable. 
         enum class RtsenVal {
@@ -430,7 +396,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rtsen)::Type,RtsenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rtsen)::Type,RtsenVal::enabled> enabled{};
         }
-        }
         ///TX Output Enable. 
         enum class TxoenVal {
             disabled=0x00000000,     ///<The pin assigned to TX is tri-stated, regardless of other settings.
@@ -440,7 +405,6 @@ namespace Kvasir {
         namespace TxoenValC{
             constexpr Register::FieldValue<decltype(txoen)::Type,TxoenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(txoen)::Type,TxoenVal::enabled> enabled{};
-        }
         }
         ///CTS State. 
         enum class CtsVal {
@@ -452,7 +416,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cts)::Type,CtsVal::low> low{};
             constexpr Register::FieldValue<decltype(cts)::Type,CtsVal::high> high{};
         }
-        }
         ///TX State. 
         enum class TxVal {
             low=0x00000000,     ///<The TX pin (before optional inversion) is low.
@@ -462,7 +425,6 @@ namespace Kvasir {
         namespace TxValC{
             constexpr Register::FieldValue<decltype(tx)::Type,TxVal::low> low{};
             constexpr Register::FieldValue<decltype(tx)::Type,TxVal::high> high{};
-        }
         }
         ///UCLK State. 
         enum class UclkVal {
@@ -474,7 +436,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(uclk)::Type,UclkVal::low> low{};
             constexpr Register::FieldValue<decltype(uclk)::Type,UclkVal::high> high{};
         }
-        }
         ///CTS Invert Enable. 
         enum class CtsinvenVal {
             disabled=0x00000000,     ///<The USART does not invert CTS.
@@ -485,7 +446,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ctsinven)::Type,CtsinvenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ctsinven)::Type,CtsinvenVal::enabled> enabled{};
         }
-        }
         ///CTS Enable. 
         enum class CtsenVal {
             disabled=0x00000000,     ///<The CTS pin state does not affect transmissions.
@@ -495,7 +455,6 @@ namespace Kvasir {
         namespace CtsenValC{
             constexpr Register::FieldValue<decltype(ctsen)::Type,CtsenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ctsen)::Type,CtsenVal::enabled> enabled{};
-        }
         }
         ///Transmit IrDA Pulse Width. 
         enum class TirdapwVal {
@@ -511,7 +470,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tirdapw)::Type,TirdapwVal::v316th> v316th{};
             constexpr Register::FieldValue<decltype(tirdapw)::Type,TirdapwVal::v14th> v14th{};
         }
-        }
     }
     namespace Nonecontrol{    ///<Module Control
         using Addr = Register::Address<0x40000030,0x27000090,0,unsigned>;
@@ -525,7 +483,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rfrmeri)::Type,RfrmeriVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rfrmeri)::Type,RfrmeriVal::set> set{};
         }
-        }
         ///Receive Parity Error Interrupt Flag. 
         enum class RpareriVal {
             notSet=0x00000000,     ///<Read: An invalid parity bit has not been received since RPARERI was last cleared. Write: Clear the interrupt.
@@ -535,7 +492,6 @@ namespace Kvasir {
         namespace RpareriValC{
             constexpr Register::FieldValue<decltype(rpareri)::Type,RpareriVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rpareri)::Type,RpareriVal::set> set{};
-        }
         }
         ///Receive Overrun Error Interrupt Flag. 
         enum class RoreiVal {
@@ -547,7 +503,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rorei)::Type,RoreiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rorei)::Type,RoreiVal::set> set{};
         }
-        }
         ///Receive Data Request Interrupt Flag. 
         enum class RdreqiVal {
             notSet=0x00000000,     ///<Fewer than RFTH FIFO entries are filled with data.
@@ -557,7 +512,6 @@ namespace Kvasir {
         namespace RdreqiValC{
             constexpr Register::FieldValue<decltype(rdreqi)::Type,RdreqiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rdreqi)::Type,RdreqiVal::set> set{};
-        }
         }
         ///Receive Error Interrupt Enable. 
         enum class RerienVal {
@@ -569,7 +523,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rerien)::Type,RerienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rerien)::Type,RerienVal::enabled> enabled{};
         }
-        }
         ///Receive Data Request Interrupt Enable. 
         enum class RdreqienVal {
             disabled=0x00000000,     ///<Disable the read data request interrupt.
@@ -579,7 +532,6 @@ namespace Kvasir {
         namespace RdreqienValC{
             constexpr Register::FieldValue<decltype(rdreqien)::Type,RdreqienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rdreqien)::Type,RdreqienVal::enabled> enabled{};
-        }
         }
         ///Match Mode. 
         enum class MatmdVal {
@@ -595,7 +547,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(matmd)::Type,MatmdVal::frame> frame{};
             constexpr Register::FieldValue<decltype(matmd)::Type,MatmdVal::store> store{};
         }
-        }
         ///Receiver Auto-Baud Enable. 
         enum class RabdenVal {
             disabled=0x00000000,     ///<Disable receiver auto-baud.
@@ -605,7 +556,6 @@ namespace Kvasir {
         namespace RabdenValC{
             constexpr Register::FieldValue<decltype(rabden)::Type,RabdenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rabden)::Type,RabdenVal::enabled> enabled{};
-        }
         }
         ///Receiver Busy Flag. 
         enum class RbusyfVal {
@@ -617,7 +567,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rbusyf)::Type,RbusyfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rbusyf)::Type,RbusyfVal::set> set{};
         }
-        }
         ///Last Receive Bit. 
         enum class RbitVal {
             notSet=0x00000000,     ///<None
@@ -627,7 +576,6 @@ namespace Kvasir {
         namespace RbitValC{
             constexpr Register::FieldValue<decltype(rbit)::Type,RbitVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rbit)::Type,RbitVal::set> set{};
-        }
         }
         ///Receiver One-Shot Enable. 
         enum class RosenVal {
@@ -639,7 +587,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rosen)::Type,RosenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rosen)::Type,RosenVal::enabled> enabled{};
         }
-        }
         ///Receiver Inhibit. 
         enum class RinhVal {
             inactive=0x00000000,     ///<The receiver operates normally.
@@ -649,7 +596,6 @@ namespace Kvasir {
         namespace RinhValC{
             constexpr Register::FieldValue<decltype(rinh)::Type,RinhVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(rinh)::Type,RinhVal::active> active{};
-        }
         }
         ///Receiver Enable. 
         enum class RenVal {
@@ -661,7 +607,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ren)::Type,RenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ren)::Type,RenVal::enabled> enabled{};
         }
-        }
         ///Smartcard Parity Error Interrupt Flag. 
         enum class TsceriVal {
             notSet=0x00000000,     ///<Read: A Smartcard parity error has not occurred since TSCERI was last cleared. Write: Clear the interrupt.
@@ -671,7 +616,6 @@ namespace Kvasir {
         namespace TsceriValC{
             constexpr Register::FieldValue<decltype(tsceri)::Type,TsceriVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(tsceri)::Type,TsceriVal::set> set{};
-        }
         }
         ///Transmit Underrun Error Interrupt Flag. 
         enum class TureiVal {
@@ -683,7 +627,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(turei)::Type,TureiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(turei)::Type,TureiVal::set> set{};
         }
-        }
         ///Transmit Data Request Interrupt Flag. 
         enum class TdreqiVal {
             notSet=0x00000000,     ///<The transmitter is not requesting more FIFO data.
@@ -693,7 +636,6 @@ namespace Kvasir {
         namespace TdreqiValC{
             constexpr Register::FieldValue<decltype(tdreqi)::Type,TdreqiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(tdreqi)::Type,TdreqiVal::set> set{};
-        }
         }
         ///Transmit Complete Interrupt Flag. 
         enum class TcptiVal {
@@ -705,7 +647,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tcpti)::Type,TcptiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(tcpti)::Type,TcptiVal::set> set{};
         }
-        }
         ///Transmit Complete Threshold. 
         enum class TcptthVal {
             setOnTx=0x00000000,     ///<The TCPTI flag is set after each data transmission.
@@ -715,7 +656,6 @@ namespace Kvasir {
         namespace TcptthValC{
             constexpr Register::FieldValue<decltype(tcptth)::Type,TcptthVal::setOnTx> setOnTx{};
             constexpr Register::FieldValue<decltype(tcptth)::Type,TcptthVal::setOnEmpty> setOnEmpty{};
-        }
         }
         ///Transmit Error Interrupt Enable. 
         enum class TerienVal {
@@ -727,7 +667,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(terien)::Type,TerienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(terien)::Type,TerienVal::enabled> enabled{};
         }
-        }
         ///Transmit Data Request Interrupt Enable. 
         enum class TdreqienVal {
             disabled=0x00000000,     ///<Disable the transmit data request interrupt.
@@ -737,7 +676,6 @@ namespace Kvasir {
         namespace TdreqienValC{
             constexpr Register::FieldValue<decltype(tdreqien)::Type,TdreqienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(tdreqien)::Type,TdreqienVal::enabled> enabled{};
-        }
         }
         ///Transmit Complete Interrupt Enable. 
         enum class TcptienVal {
@@ -749,7 +687,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tcptien)::Type,TcptienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(tcptien)::Type,TcptienVal::enabled> enabled{};
         }
-        }
         ///Transmitter Busy Flag. 
         enum class TbusyfVal {
             notSet=0x00000000,     ///<The USART transmitter is idle.
@@ -759,7 +696,6 @@ namespace Kvasir {
         namespace TbusyfValC{
             constexpr Register::FieldValue<decltype(tbusyf)::Type,TbusyfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(tbusyf)::Type,TbusyfVal::set> set{};
-        }
         }
         ///Last Transmit Bit. 
         enum class TbitVal {
@@ -771,7 +707,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tbit)::Type,TbitVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(tbit)::Type,TbitVal::set> set{};
         }
-        }
         ///Transmit Inhibit. 
         enum class TinhVal {
             inactive=0x00000000,     ///<The transmitter operates normally.
@@ -782,7 +717,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tinh)::Type,TinhVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(tinh)::Type,TinhVal::active> active{};
         }
-        }
         ///Transmitter Enable. 
         enum class TenVal {
             disabled=0x00000000,     ///<Disable the transmitter. When cleared, the transmitter immediately aborts any active transmission. Clearing this bit does not automatically flush the transmit FIFO.
@@ -792,7 +726,6 @@ namespace Kvasir {
         namespace TenValC{
             constexpr Register::FieldValue<decltype(ten)::Type,TenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ten)::Type,TenVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneipdelay{    ///<Inter-Packet Delay
@@ -825,7 +758,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rfth)::Type,RfthVal::three> three{};
             constexpr Register::FieldValue<decltype(rfth)::Type,RfthVal::four> four{};
         }
-        }
         ///Receiver DMA Enable. 
         enum class RdmaenVal {
             disabled=0x00000000,     ///<Disable receive FIFO DMA requests.
@@ -836,7 +768,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rdmaen)::Type,RdmaenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rdmaen)::Type,RdmaenVal::enabled> enabled{};
         }
-        }
         ///Receive FIFO Flush. 
         enum class RfifoflVal {
             set=0x00000001,     ///<Flush the contents of the receive FIFO and any data in the receive shift register.
@@ -844,7 +775,6 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,RfifoflVal> rfifofl{}; 
         namespace RfifoflValC{
             constexpr Register::FieldValue<decltype(rfifofl)::Type,RfifoflVal::set> set{};
-        }
         }
         ///Receive FIFO Error Interrupt Flag. 
         enum class RferiVal {
@@ -856,7 +786,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rferi)::Type,RferiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rferi)::Type,RferiVal::set> set{};
         }
-        }
         ///Receive Shift Register Full Flag. 
         enum class RsrfullfVal {
             notSet=0x00000000,     ///<The receive data shift register is not full.
@@ -866,7 +795,6 @@ namespace Kvasir {
         namespace RsrfullfValC{
             constexpr Register::FieldValue<decltype(rsrfullf)::Type,RsrfullfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rsrfullf)::Type,RsrfullfVal::set> set{};
-        }
         }
         ///Transmit FIFO Count. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> tcnt{}; 
@@ -884,7 +812,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tfth)::Type,TfthVal::three> three{};
             constexpr Register::FieldValue<decltype(tfth)::Type,TfthVal::four> four{};
         }
-        }
         ///Transmitter DMA Enable. 
         enum class TdmaenVal {
             disabled=0x00000000,     ///<Disable transmit FIFO DMA requests.
@@ -895,7 +822,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tdmaen)::Type,TdmaenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(tdmaen)::Type,TdmaenVal::enabled> enabled{};
         }
-        }
         ///Transmit FIFO Flush. 
         enum class TfifoflVal {
             set=0x00000001,     ///<Flush the contents of the transmit FIFO. If data is pending in the transmit shift register but a transmit has not begun, the shift register is also flushed.
@@ -903,7 +829,6 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,TfifoflVal> tfifofl{}; 
         namespace TfifoflValC{
             constexpr Register::FieldValue<decltype(tfifofl)::Type,TfifoflVal::set> set{};
-        }
         }
         ///Transmit FIFO Error Interrupt Flag. 
         enum class TferiVal {
@@ -915,7 +840,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tferi)::Type,TferiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(tferi)::Type,TferiVal::set> set{};
         }
-        }
         ///Transmit Shift Register Full Flag. 
         enum class TsrfullfVal {
             notSet=0x00000000,     ///<The transmit shift register is not full.
@@ -925,7 +849,6 @@ namespace Kvasir {
         namespace TsrfullfValC{
             constexpr Register::FieldValue<decltype(tsrfullf)::Type,TsrfullfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(tsrfullf)::Type,TsrfullfVal::set> set{};
-        }
         }
     }
     namespace Nonedata{    ///<FIFO Input/Output Data

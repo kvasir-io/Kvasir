@@ -24,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ahbsel)::Type,AhbselVal::pll0osc> pll0osc{};
             constexpr Register::FieldValue<decltype(ahbsel)::Type,AhbselVal::lposc0Div> lposc0Div{};
         }
-        }
         ///AHB Clock Divider. 
         enum class AhbdivVal {
             div1=0x00000000,     ///<AHB clock divided by 1.
@@ -47,7 +46,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ahbdiv)::Type,AhbdivVal::div64> div64{};
             constexpr Register::FieldValue<decltype(ahbdiv)::Type,AhbdivVal::div128> div128{};
         }
-        }
         ///APB Clock Divider. 
         enum class ApbdivVal {
             div1=0x00000000,     ///<APB clock is the same as the AHB clock (divided by 1).
@@ -57,7 +55,6 @@ namespace Kvasir {
         namespace ApbdivValC{
             constexpr Register::FieldValue<decltype(apbdiv)::Type,ApbdivVal::div1> div1{};
             constexpr Register::FieldValue<decltype(apbdiv)::Type,ApbdivVal::div2> div2{};
-        }
         }
         ///External Clock Edge Select. 
         enum class ExteselVal {
@@ -69,7 +66,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(extesel)::Type,ExteselVal::bothEdges> bothEdges{};
             constexpr Register::FieldValue<decltype(extesel)::Type,ExteselVal::risingOnly> risingOnly{};
         }
-        }
         ///Oscillators Busy Flag. 
         enum class ObusyfVal {
             notSet=0x00000000,     ///<AHB and APB oscillators are not busy.
@@ -79,7 +75,6 @@ namespace Kvasir {
         namespace ObusyfValC{
             constexpr Register::FieldValue<decltype(obusyf)::Type,ObusyfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(obusyf)::Type,ObusyfVal::set> set{};
-        }
         }
     }
     namespace Noneahbclkg{    ///<AHB Clock Gate
@@ -94,7 +89,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ramcen)::Type,RamcenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ramcen)::Type,RamcenVal::enabled> enabled{};
         }
-        }
         ///DMA Controller Clock Enable. 
         enum class DmacenVal {
             disabled=0x00000000,     ///<Disable the AHB clock to the DMA Controller (default).
@@ -104,7 +98,6 @@ namespace Kvasir {
         namespace DmacenValC{
             constexpr Register::FieldValue<decltype(dmacen)::Type,DmacenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dmacen)::Type,DmacenVal::enabled> enabled{};
-        }
         }
         ///Flash Clock Enable. 
         enum class FlashcenVal {
@@ -116,7 +109,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flashcen)::Type,FlashcenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(flashcen)::Type,FlashcenVal::enabled> enabled{};
         }
-        }
         ///EMIF Clock Enable. 
         enum class Emif0cenVal {
             disabled=0x00000000,     ///<Disable the AHB clock to the External Memory Interface (EMIF) (default).
@@ -127,7 +119,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(emif0cen)::Type,Emif0cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(emif0cen)::Type,Emif0cenVal::enabled> enabled{};
         }
-        }
         ///USB0 Buffer Clock Enable. 
         enum class Usb0bcenVal {
             disabled=0x00000000,     ///<Disable the AHB clock to the USB0 Buffer (default).
@@ -137,7 +128,6 @@ namespace Kvasir {
         namespace Usb0bcenValC{
             constexpr Register::FieldValue<decltype(usb0bcen)::Type,Usb0bcenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(usb0bcen)::Type,Usb0bcenVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneapbclkg0{    ///<APB Clock Gate 0
@@ -152,7 +142,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pll0cen)::Type,Pll0cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pll0cen)::Type,Pll0cenVal::enabled> enabled{};
         }
-        }
         ///Port Bank Module Clock Enable. 
         enum class Pb0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the Port Bank Modules (default).
@@ -162,7 +151,6 @@ namespace Kvasir {
         namespace Pb0cenValC{
             constexpr Register::FieldValue<decltype(pb0cen)::Type,Pb0cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pb0cen)::Type,Pb0cenVal::enabled> enabled{};
-        }
         }
         ///USART0 Module Clock Enable. 
         enum class Usart0cenVal {
@@ -174,7 +162,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usart0cen)::Type,Usart0cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(usart0cen)::Type,Usart0cenVal::enabled> enabled{};
         }
-        }
         ///USART1 Module Clock Enable. 
         enum class Usart1cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the USART1 Module (default).
@@ -184,7 +171,6 @@ namespace Kvasir {
         namespace Usart1cenValC{
             constexpr Register::FieldValue<decltype(usart1cen)::Type,Usart1cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(usart1cen)::Type,Usart1cenVal::enabled> enabled{};
-        }
         }
         ///UART0 Module Clock Enable. 
         enum class Uart0cenVal {
@@ -196,7 +182,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(uart0cen)::Type,Uart0cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(uart0cen)::Type,Uart0cenVal::enabled> enabled{};
         }
-        }
         ///UART1 Module Clock Enable. 
         enum class Uart1cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the UART1 Module (default).
@@ -206,7 +191,6 @@ namespace Kvasir {
         namespace Uart1cenValC{
             constexpr Register::FieldValue<decltype(uart1cen)::Type,Uart1cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(uart1cen)::Type,Uart1cenVal::enabled> enabled{};
-        }
         }
         ///SPI0 Module Clock Enable. 
         enum class Spi0cenVal {
@@ -218,7 +202,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(spi0cen)::Type,Spi0cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(spi0cen)::Type,Spi0cenVal::enabled> enabled{};
         }
-        }
         ///SPI1 Module Clock Enable. 
         enum class Spi1cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the SPI1 Module (default).
@@ -228,7 +211,6 @@ namespace Kvasir {
         namespace Spi1cenValC{
             constexpr Register::FieldValue<decltype(spi1cen)::Type,Spi1cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(spi1cen)::Type,Spi1cenVal::enabled> enabled{};
-        }
         }
         ///SPI2 Module Clock Enable. 
         enum class Spi2cenVal {
@@ -240,7 +222,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(spi2cen)::Type,Spi2cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(spi2cen)::Type,Spi2cenVal::enabled> enabled{};
         }
-        }
         ///I2C0 Module Clock Enable. 
         enum class I2c0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the I2C0 Module (default).
@@ -250,7 +231,6 @@ namespace Kvasir {
         namespace I2c0cenValC{
             constexpr Register::FieldValue<decltype(i2c0cen)::Type,I2c0cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(i2c0cen)::Type,I2c0cenVal::enabled> enabled{};
-        }
         }
         ///I2C1 Module Clock Enable. 
         enum class I2c1cenVal {
@@ -262,7 +242,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2c1cen)::Type,I2c1cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(i2c1cen)::Type,I2c1cenVal::enabled> enabled{};
         }
-        }
         ///EPCA0 Module Clock Enable. 
         enum class Epca0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the EPCA0 Module (default).
@@ -272,7 +251,6 @@ namespace Kvasir {
         namespace Epca0cenValC{
             constexpr Register::FieldValue<decltype(epca0cen)::Type,Epca0cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(epca0cen)::Type,Epca0cenVal::enabled> enabled{};
-        }
         }
         ///PCA0 Module Clock Enable. 
         enum class Pca0cenVal {
@@ -284,7 +262,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pca0cen)::Type,Pca0cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pca0cen)::Type,Pca0cenVal::enabled> enabled{};
         }
-        }
         ///PCA1 Module Clock Enable. 
         enum class Pca1cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the PCA1 Module (default).
@@ -294,7 +271,6 @@ namespace Kvasir {
         namespace Pca1cenValC{
             constexpr Register::FieldValue<decltype(pca1cen)::Type,Pca1cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pca1cen)::Type,Pca1cenVal::enabled> enabled{};
-        }
         }
         ///SSG0 Module Clock Enable. 
         enum class Ssg0cenVal {
@@ -306,7 +282,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssg0cen)::Type,Ssg0cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ssg0cen)::Type,Ssg0cenVal::enabled> enabled{};
         }
-        }
         ///TIMER0 Module Clock Enable. 
         enum class Timer0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the TIMER0 Module (default).
@@ -316,7 +291,6 @@ namespace Kvasir {
         namespace Timer0cenValC{
             constexpr Register::FieldValue<decltype(timer0cen)::Type,Timer0cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(timer0cen)::Type,Timer0cenVal::enabled> enabled{};
-        }
         }
         ///TIMER1 Module Clock Enable. 
         enum class Timer1cenVal {
@@ -328,7 +302,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timer1cen)::Type,Timer1cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(timer1cen)::Type,Timer1cenVal::enabled> enabled{};
         }
-        }
         ///SARADC0 Module Clock Enable. 
         enum class Adc0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the SARADC0 Module (default).
@@ -338,7 +311,6 @@ namespace Kvasir {
         namespace Adc0cenValC{
             constexpr Register::FieldValue<decltype(adc0cen)::Type,Adc0cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(adc0cen)::Type,Adc0cenVal::enabled> enabled{};
-        }
         }
         ///SARADC1 Module Clock Enable. 
         enum class Adc1cenVal {
@@ -350,7 +322,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adc1cen)::Type,Adc1cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(adc1cen)::Type,Adc1cenVal::enabled> enabled{};
         }
-        }
         ///Comparator 0 Module Clock Enable. 
         enum class Cmp0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the Comparator 0 Module (default).
@@ -360,7 +331,6 @@ namespace Kvasir {
         namespace Cmp0cenValC{
             constexpr Register::FieldValue<decltype(cmp0cen)::Type,Cmp0cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmp0cen)::Type,Cmp0cenVal::enabled> enabled{};
-        }
         }
         ///Comparator 1 Module Clock Enable. 
         enum class Cmp1cenVal {
@@ -372,7 +342,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp1cen)::Type,Cmp1cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmp1cen)::Type,Cmp1cenVal::enabled> enabled{};
         }
-        }
         ///Capacitive Sensing (CAPSENSE0) Module Clock Enable. 
         enum class Cs0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the CAPSENSE0 Module (default).
@@ -382,7 +351,6 @@ namespace Kvasir {
         namespace Cs0cenValC{
             constexpr Register::FieldValue<decltype(cs0cen)::Type,Cs0cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cs0cen)::Type,Cs0cenVal::enabled> enabled{};
-        }
         }
         ///AES0 Module Clock Enable. 
         enum class Aes0cenVal {
@@ -394,7 +362,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aes0cen)::Type,Aes0cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(aes0cen)::Type,Aes0cenVal::enabled> enabled{};
         }
-        }
         ///CRC0 Module Clock Enable. 
         enum class Crc0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the CRC0 Module (default).
@@ -404,7 +371,6 @@ namespace Kvasir {
         namespace Crc0cenValC{
             constexpr Register::FieldValue<decltype(crc0cen)::Type,Crc0cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(crc0cen)::Type,Crc0cenVal::enabled> enabled{};
-        }
         }
         ///IDAC0 Module Clock Enable. 
         enum class Idac0cenVal {
@@ -416,7 +382,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(idac0cen)::Type,Idac0cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(idac0cen)::Type,Idac0cenVal::enabled> enabled{};
         }
-        }
         ///IDAC1 Module Clock Enable. 
         enum class Idac1cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the IDAC1 Module (default).
@@ -426,7 +391,6 @@ namespace Kvasir {
         namespace Idac1cenValC{
             constexpr Register::FieldValue<decltype(idac1cen)::Type,Idac1cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(idac1cen)::Type,Idac1cenVal::enabled> enabled{};
-        }
         }
         ///Low Power Timer (LPTIMER0) Module Clock Enable. 
         enum class Lpt0cenVal {
@@ -438,7 +402,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lpt0cen)::Type,Lpt0cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(lpt0cen)::Type,Lpt0cenVal::enabled> enabled{};
         }
-        }
         ///I2S0 Module Clock Enable. 
         enum class I2s0cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the I2S0 Module (default).
@@ -448,7 +411,6 @@ namespace Kvasir {
         namespace I2s0cenValC{
             constexpr Register::FieldValue<decltype(i2s0cen)::Type,I2s0cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(i2s0cen)::Type,I2s0cenVal::enabled> enabled{};
-        }
         }
         ///USB0 Module Clock Enable. 
         enum class Usb0cenVal {
@@ -460,7 +422,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usb0cen)::Type,Usb0cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(usb0cen)::Type,Usb0cenVal::enabled> enabled{};
         }
-        }
         ///External Regulator Clock Enable. 
         enum class EvregcenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the External Regulator Module (EXTVREG0) (default).
@@ -471,7 +432,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(evregcen)::Type,EvregcenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(evregcen)::Type,EvregcenVal::enabled> enabled{};
         }
-        }
         ///Flash Controller Clock Enable. 
         enum class FlctrlcenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the Flash Controller Module (FLASHCTRL0) (default).
@@ -481,7 +441,6 @@ namespace Kvasir {
         namespace FlctrlcenValC{
             constexpr Register::FieldValue<decltype(flctrlcen)::Type,FlctrlcenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(flctrlcen)::Type,FlctrlcenVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneapbclkg1{    ///<APB Clock Gate 1
@@ -496,7 +455,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(misc0cen)::Type,Misc0cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(misc0cen)::Type,Misc0cenVal::enabled> enabled{};
         }
-        }
         ///Miscellaneous 1 Clock Enable. 
         enum class Misc1cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the  Watchdog Timer (WDTIMER0), EMIF0, and DMA Crossbar (DMAXBAR0) modules.
@@ -507,7 +465,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(misc1cen)::Type,Misc1cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(misc1cen)::Type,Misc1cenVal::enabled> enabled{};
         }
-        }
         ///Miscellaneous 2 Clock Enable. 
         enum class Misc2cenVal {
             disabled=0x00000000,     ///<Disable the APB clock to the  OSCVLDF flag in the EXTOSC module (default).
@@ -517,7 +474,6 @@ namespace Kvasir {
         namespace Misc2cenValC{
             constexpr Register::FieldValue<decltype(misc2cen)::Type,Misc2cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(misc2cen)::Type,Misc2cenVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonepm3cn{    ///<Power Mode 3 Clock Control
@@ -542,7 +498,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pm3csel)::Type,Pm3cselVal::pll0osc> pll0osc{};
             constexpr Register::FieldValue<decltype(pm3csel)::Type,Pm3cselVal::lposc0Div> lposc0Div{};
         }
-        }
         ///Power Mode 3 Fast-Wake Clock Enable. 
         enum class Pm3cenVal {
             disabled=0x00000000,     ///<Disable the core clock when in Power Mode 3.
@@ -552,7 +507,6 @@ namespace Kvasir {
         namespace Pm3cenValC{
             constexpr Register::FieldValue<decltype(pm3cen)::Type,Pm3cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pm3cen)::Type,Pm3cenVal::enabled> enabled{};
-        }
         }
     }
 }

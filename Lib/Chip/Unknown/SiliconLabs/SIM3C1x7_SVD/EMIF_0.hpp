@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(if0en)::Type,If0enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(if0en)::Type,If0enVal::enabled> enabled{};
         }
-        }
         ///Interface 1 Enable. 
         enum class If1enVal {
             disabled=0x00000000,     ///<Disable interface 1.
@@ -25,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(if1en)::Type,If1enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(if1en)::Type,If1enVal::enabled> enabled{};
         }
-        }
         ///OFF Output State Enable. 
         enum class OffstenVal {
             disabled=0x00000000,     ///<EMIF will not enter the off state after 4 idle cycles.
@@ -35,7 +33,6 @@ namespace Kvasir {
         namespace OffstenValC{
             constexpr Register::FieldValue<decltype(offsten)::Type,OffstenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(offsten)::Type,OffstenVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonestatus{    ///<Module Status
@@ -50,7 +47,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(offsts)::Type,OffstsVal::on> on{};
             constexpr Register::FieldValue<decltype(offsts)::Type,OffstsVal::off> off{};
         }
-        }
         ///EMIF IDLE Status. 
         enum class IdlestsVal {
             notIdle=0x00000000,     ///<The EMIF has not been idle for four cycles.
@@ -60,7 +56,6 @@ namespace Kvasir {
         namespace IdlestsValC{
             constexpr Register::FieldValue<decltype(idlests)::Type,IdlestsVal::notIdle> notIdle{};
             constexpr Register::FieldValue<decltype(idlests)::Type,IdlestsVal::idle> idle{};
-        }
         }
     }
     namespace Noneconfig0{    ///<Interface Configuration
@@ -75,7 +70,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(buswidth)::Type,BuswidthVal::v8bit> v8bit{};
             constexpr Register::FieldValue<decltype(buswidth)::Type,BuswidthVal::v16bit> v16bit{};
         }
-        }
         ///Interface Mux Mode. 
         enum class MuxmdVal {
             nonmuxed=0x00000000,     ///<The interface operates in non-multiplexed mode.
@@ -85,7 +79,6 @@ namespace Kvasir {
         namespace MuxmdValC{
             constexpr Register::FieldValue<decltype(muxmd)::Type,MuxmdVal::nonmuxed> nonmuxed{};
             constexpr Register::FieldValue<decltype(muxmd)::Type,MuxmdVal::muxed> muxed{};
-        }
         }
         ///Interface Automatic Address Shift Enable. 
         enum class AsenVal {
@@ -97,7 +90,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(asen)::Type,AsenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(asen)::Type,AsenVal::enabled> enabled{};
         }
-        }
         ///Interface Read Only Enable. 
         enum class RoenVal {
             disabled=0x00000000,     ///<The interface supports reads and writes.
@@ -107,7 +99,6 @@ namespace Kvasir {
         namespace RoenValC{
             constexpr Register::FieldValue<decltype(roen)::Type,RoenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(roen)::Type,RoenVal::enabled> enabled{};
-        }
         }
         ///Write Data Hold State Inhibit. 
         enum class WdhinhVal {
@@ -119,7 +110,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wdhinh)::Type,WdhinhVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(wdhinh)::Type,WdhinhVal::active> active{};
         }
-        }
         ///Output Enable Delay. 
         enum class DelayoeVal {
             disabled=0x00000000,     ///<The output enable signal (/OE) is not delayed.
@@ -130,7 +120,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(delayoe)::Type,DelayoeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(delayoe)::Type,DelayoeVal::enabled> enabled{};
         }
-        }
         ///Keep Last Read Enable. 
         enum class KlrenVal {
             disabled=0x00000000,     ///<The bus is driven to the idle state between active requests.
@@ -140,7 +129,6 @@ namespace Kvasir {
         namespace KlrenValC{
             constexpr Register::FieldValue<decltype(klren)::Type,KlrenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(klren)::Type,KlrenVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneifrt0{    ///<Interface Read Timing
@@ -177,7 +165,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(csras)::Type,CsrasVal::low> low{};
             constexpr Register::FieldValue<decltype(csras)::Type,CsrasVal::high> high{};
         }
-        }
         ///Chip Select Read Address Hold State. 
         enum class CsrahVal {
             low=0x00000000,     ///<Set chip select (CSx) to low during the read address hold state.
@@ -187,7 +174,6 @@ namespace Kvasir {
         namespace CsrahValC{
             constexpr Register::FieldValue<decltype(csrah)::Type,CsrahVal::low> low{};
             constexpr Register::FieldValue<decltype(csrah)::Type,CsrahVal::high> high{};
-        }
         }
         ///Chip Select Read Data Wait State. 
         enum class CsrdwVal {
@@ -199,7 +185,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(csrdw)::Type,CsrdwVal::low> low{};
             constexpr Register::FieldValue<decltype(csrdw)::Type,CsrdwVal::high> high{};
         }
-        }
         ///Chip Select Read Data Hold State. 
         enum class CsrdhVal {
             low=0x00000000,     ///<Set chip select (CSx) to low during the read data hold state.
@@ -209,7 +194,6 @@ namespace Kvasir {
         namespace CsrdhValC{
             constexpr Register::FieldValue<decltype(csrdh)::Type,CsrdhVal::low> low{};
             constexpr Register::FieldValue<decltype(csrdh)::Type,CsrdhVal::high> high{};
-        }
         }
         ///Output Enable Read Address Setup State. 
         enum class OerasVal {
@@ -221,7 +205,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oeras)::Type,OerasVal::low> low{};
             constexpr Register::FieldValue<decltype(oeras)::Type,OerasVal::high> high{};
         }
-        }
         ///Output Enable Read Address Hold State. 
         enum class OerahVal {
             low=0x00000000,     ///<Set output enable (/OE) to low during the read address hold state.
@@ -231,7 +214,6 @@ namespace Kvasir {
         namespace OerahValC{
             constexpr Register::FieldValue<decltype(oerah)::Type,OerahVal::low> low{};
             constexpr Register::FieldValue<decltype(oerah)::Type,OerahVal::high> high{};
-        }
         }
         ///Output Enable Read Data Wait State. 
         enum class OerdwVal {
@@ -243,7 +225,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oerdw)::Type,OerdwVal::low> low{};
             constexpr Register::FieldValue<decltype(oerdw)::Type,OerdwVal::high> high{};
         }
-        }
         ///Output Enable Read Data Hold State. 
         enum class OerdhVal {
             low=0x00000000,     ///<Set output enable (/OE) to low during the read data hold state.
@@ -253,7 +234,6 @@ namespace Kvasir {
         namespace OerdhValC{
             constexpr Register::FieldValue<decltype(oerdh)::Type,OerdhVal::low> low{};
             constexpr Register::FieldValue<decltype(oerdh)::Type,OerdhVal::high> high{};
-        }
         }
         ///Write Signal Read Address Setup State. 
         enum class WrrasVal {
@@ -265,7 +245,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wrras)::Type,WrrasVal::low> low{};
             constexpr Register::FieldValue<decltype(wrras)::Type,WrrasVal::high> high{};
         }
-        }
         ///Write Signal Read Address Hold State. 
         enum class WrrahVal {
             low=0x00000000,     ///<Set write signal (/WR) to low during the read address hold state.
@@ -275,7 +254,6 @@ namespace Kvasir {
         namespace WrrahValC{
             constexpr Register::FieldValue<decltype(wrrah)::Type,WrrahVal::low> low{};
             constexpr Register::FieldValue<decltype(wrrah)::Type,WrrahVal::high> high{};
-        }
         }
         ///Write Signal Read Data Wait State. 
         enum class WrrdwVal {
@@ -287,7 +265,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wrrdw)::Type,WrrdwVal::low> low{};
             constexpr Register::FieldValue<decltype(wrrdw)::Type,WrrdwVal::high> high{};
         }
-        }
         ///Write Signal Read Data Hold State. 
         enum class WrrdhVal {
             low=0x00000000,     ///<Set write signal (/WR) to low during the read data hold state.
@@ -297,7 +274,6 @@ namespace Kvasir {
         namespace WrrdhValC{
             constexpr Register::FieldValue<decltype(wrrdh)::Type,WrrdhVal::low> low{};
             constexpr Register::FieldValue<decltype(wrrdh)::Type,WrrdhVal::high> high{};
-        }
         }
         ///Address Latch Enable Read Address Setup State. 
         enum class AlerasVal {
@@ -309,7 +285,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aleras)::Type,AlerasVal::low> low{};
             constexpr Register::FieldValue<decltype(aleras)::Type,AlerasVal::high> high{};
         }
-        }
         ///Address Latch Enable Read Address Hold State. 
         enum class AlerahVal {
             low=0x00000000,     ///<Set address latch enable (ALEm) to low during the read address hold state.
@@ -319,7 +294,6 @@ namespace Kvasir {
         namespace AlerahValC{
             constexpr Register::FieldValue<decltype(alerah)::Type,AlerahVal::low> low{};
             constexpr Register::FieldValue<decltype(alerah)::Type,AlerahVal::high> high{};
-        }
         }
         ///Address Latch Enable Read Data Wait State. 
         enum class AlerdwVal {
@@ -331,7 +305,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(alerdw)::Type,AlerdwVal::low> low{};
             constexpr Register::FieldValue<decltype(alerdw)::Type,AlerdwVal::high> high{};
         }
-        }
         ///Address Latch Enable Read Data Hold State. 
         enum class AlerdhVal {
             low=0x00000000,     ///<Set address latch enable (ALEm) to low during the read data hold state.
@@ -341,7 +314,6 @@ namespace Kvasir {
         namespace AlerdhValC{
             constexpr Register::FieldValue<decltype(alerdh)::Type,AlerdhVal::low> low{};
             constexpr Register::FieldValue<decltype(alerdh)::Type,AlerdhVal::high> high{};
-        }
         }
     }
     namespace Noneifwcst0{    ///<Interface Write Control States
@@ -356,7 +328,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cswas)::Type,CswasVal::low> low{};
             constexpr Register::FieldValue<decltype(cswas)::Type,CswasVal::high> high{};
         }
-        }
         ///Chip Select Write Address Hold State. 
         enum class CswahVal {
             low=0x00000000,     ///<Set chip select (CSx) to low during the write address hold state.
@@ -366,7 +337,6 @@ namespace Kvasir {
         namespace CswahValC{
             constexpr Register::FieldValue<decltype(cswah)::Type,CswahVal::low> low{};
             constexpr Register::FieldValue<decltype(cswah)::Type,CswahVal::high> high{};
-        }
         }
         ///Chip Select Write Data Wait State. 
         enum class CswdwVal {
@@ -378,7 +348,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cswdw)::Type,CswdwVal::low> low{};
             constexpr Register::FieldValue<decltype(cswdw)::Type,CswdwVal::high> high{};
         }
-        }
         ///Chip Select Write Data Hold State. 
         enum class CswdhVal {
             low=0x00000000,     ///<Set chip select (CSx) to low during the write data hold state.
@@ -388,7 +357,6 @@ namespace Kvasir {
         namespace CswdhValC{
             constexpr Register::FieldValue<decltype(cswdh)::Type,CswdhVal::low> low{};
             constexpr Register::FieldValue<decltype(cswdh)::Type,CswdhVal::high> high{};
-        }
         }
         ///Output Enable Write Address Setup State. 
         enum class OewasVal {
@@ -400,7 +368,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oewas)::Type,OewasVal::low> low{};
             constexpr Register::FieldValue<decltype(oewas)::Type,OewasVal::high> high{};
         }
-        }
         ///Output Enable Write Address Hold State. 
         enum class OewahVal {
             low=0x00000000,     ///<Set output enable (/OE) to low during the write address hold state.
@@ -410,7 +377,6 @@ namespace Kvasir {
         namespace OewahValC{
             constexpr Register::FieldValue<decltype(oewah)::Type,OewahVal::low> low{};
             constexpr Register::FieldValue<decltype(oewah)::Type,OewahVal::high> high{};
-        }
         }
         ///Output Enable Write Data Wait State. 
         enum class OewdwVal {
@@ -422,7 +388,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oewdw)::Type,OewdwVal::low> low{};
             constexpr Register::FieldValue<decltype(oewdw)::Type,OewdwVal::high> high{};
         }
-        }
         ///Output Enable Write Data Hold State. 
         enum class OewdhVal {
             low=0x00000000,     ///<Set output enable (/OE) to low during the write data hold state.
@@ -432,7 +397,6 @@ namespace Kvasir {
         namespace OewdhValC{
             constexpr Register::FieldValue<decltype(oewdh)::Type,OewdhVal::low> low{};
             constexpr Register::FieldValue<decltype(oewdh)::Type,OewdhVal::high> high{};
-        }
         }
         ///Write Signal Write Address Setup State. 
         enum class WrwasVal {
@@ -444,7 +408,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wrwas)::Type,WrwasVal::low> low{};
             constexpr Register::FieldValue<decltype(wrwas)::Type,WrwasVal::high> high{};
         }
-        }
         ///Write Signal Write Address Hold State. 
         enum class WrwahVal {
             low=0x00000000,     ///<Set write signal (/WR) to low during the write address hold state.
@@ -454,7 +417,6 @@ namespace Kvasir {
         namespace WrwahValC{
             constexpr Register::FieldValue<decltype(wrwah)::Type,WrwahVal::low> low{};
             constexpr Register::FieldValue<decltype(wrwah)::Type,WrwahVal::high> high{};
-        }
         }
         ///Write Signal Write Data Wait State. 
         enum class WrwdwVal {
@@ -466,7 +428,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wrwdw)::Type,WrwdwVal::low> low{};
             constexpr Register::FieldValue<decltype(wrwdw)::Type,WrwdwVal::high> high{};
         }
-        }
         ///Write Signal Write Data Hold State. 
         enum class WrwdhVal {
             low=0x00000000,     ///<Set write signal (/WR) to low during the write data hold state.
@@ -476,7 +437,6 @@ namespace Kvasir {
         namespace WrwdhValC{
             constexpr Register::FieldValue<decltype(wrwdh)::Type,WrwdhVal::low> low{};
             constexpr Register::FieldValue<decltype(wrwdh)::Type,WrwdhVal::high> high{};
-        }
         }
         ///Address Latch Enable Write Address Setup State. 
         enum class AlewasVal {
@@ -488,7 +448,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(alewas)::Type,AlewasVal::low> low{};
             constexpr Register::FieldValue<decltype(alewas)::Type,AlewasVal::high> high{};
         }
-        }
         ///Address Latch Enable Write Address Hold State. 
         enum class AlewahVal {
             low=0x00000000,     ///<Set address latch enable (ALEm) to low during the write address hold state.
@@ -498,7 +457,6 @@ namespace Kvasir {
         namespace AlewahValC{
             constexpr Register::FieldValue<decltype(alewah)::Type,AlewahVal::low> low{};
             constexpr Register::FieldValue<decltype(alewah)::Type,AlewahVal::high> high{};
-        }
         }
         ///Address Latch Enable Write Data Wait State. 
         enum class AlewdwVal {
@@ -510,7 +468,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(alewdw)::Type,AlewdwVal::low> low{};
             constexpr Register::FieldValue<decltype(alewdw)::Type,AlewdwVal::high> high{};
         }
-        }
         ///Address Latch Enable Write Data Hold State. 
         enum class AlewdhVal {
             low=0x00000000,     ///<Set address latch enable (ALEm) to low during the write data hold state.
@@ -520,7 +477,6 @@ namespace Kvasir {
         namespace AlewdhValC{
             constexpr Register::FieldValue<decltype(alewdh)::Type,AlewdhVal::low> low{};
             constexpr Register::FieldValue<decltype(alewdh)::Type,AlewdhVal::high> high{};
-        }
         }
     }
     namespace Noneconfig1{    ///<Interface Configuration
@@ -535,7 +491,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(buswidth)::Type,BuswidthVal::v8bit> v8bit{};
             constexpr Register::FieldValue<decltype(buswidth)::Type,BuswidthVal::v16bit> v16bit{};
         }
-        }
         ///Interface Mux Mode. 
         enum class MuxmdVal {
             nonmuxed=0x00000000,     ///<The interface operates in non-multiplexed mode.
@@ -545,7 +500,6 @@ namespace Kvasir {
         namespace MuxmdValC{
             constexpr Register::FieldValue<decltype(muxmd)::Type,MuxmdVal::nonmuxed> nonmuxed{};
             constexpr Register::FieldValue<decltype(muxmd)::Type,MuxmdVal::muxed> muxed{};
-        }
         }
         ///Interface Automatic Address Shift Enable. 
         enum class AsenVal {
@@ -557,7 +511,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(asen)::Type,AsenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(asen)::Type,AsenVal::enabled> enabled{};
         }
-        }
         ///Interface Read Only Enable. 
         enum class RoenVal {
             disabled=0x00000000,     ///<The interface supports reads and writes.
@@ -567,7 +520,6 @@ namespace Kvasir {
         namespace RoenValC{
             constexpr Register::FieldValue<decltype(roen)::Type,RoenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(roen)::Type,RoenVal::enabled> enabled{};
-        }
         }
         ///Write Data Hold State Inhibit. 
         enum class WdhinhVal {
@@ -579,7 +531,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wdhinh)::Type,WdhinhVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(wdhinh)::Type,WdhinhVal::active> active{};
         }
-        }
         ///Output Enable Delay. 
         enum class DelayoeVal {
             disabled=0x00000000,     ///<The output enable signal (/OE) is not delayed.
@@ -590,7 +541,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(delayoe)::Type,DelayoeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(delayoe)::Type,DelayoeVal::enabled> enabled{};
         }
-        }
         ///Keep Last Read Enable. 
         enum class KlrenVal {
             disabled=0x00000000,     ///<The bus is driven to the idle state between active requests.
@@ -600,7 +550,6 @@ namespace Kvasir {
         namespace KlrenValC{
             constexpr Register::FieldValue<decltype(klren)::Type,KlrenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(klren)::Type,KlrenVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneifrt1{    ///<Interface Read Timing
@@ -637,7 +586,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(csras)::Type,CsrasVal::low> low{};
             constexpr Register::FieldValue<decltype(csras)::Type,CsrasVal::high> high{};
         }
-        }
         ///Chip Select Read Address Hold State. 
         enum class CsrahVal {
             low=0x00000000,     ///<Set chip select (CSx) to low during the read address hold state.
@@ -647,7 +595,6 @@ namespace Kvasir {
         namespace CsrahValC{
             constexpr Register::FieldValue<decltype(csrah)::Type,CsrahVal::low> low{};
             constexpr Register::FieldValue<decltype(csrah)::Type,CsrahVal::high> high{};
-        }
         }
         ///Chip Select Read Data Wait State. 
         enum class CsrdwVal {
@@ -659,7 +606,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(csrdw)::Type,CsrdwVal::low> low{};
             constexpr Register::FieldValue<decltype(csrdw)::Type,CsrdwVal::high> high{};
         }
-        }
         ///Chip Select Read Data Hold State. 
         enum class CsrdhVal {
             low=0x00000000,     ///<Set chip select (CSx) to low during the read data hold state.
@@ -669,7 +615,6 @@ namespace Kvasir {
         namespace CsrdhValC{
             constexpr Register::FieldValue<decltype(csrdh)::Type,CsrdhVal::low> low{};
             constexpr Register::FieldValue<decltype(csrdh)::Type,CsrdhVal::high> high{};
-        }
         }
         ///Output Enable Read Address Setup State. 
         enum class OerasVal {
@@ -681,7 +626,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oeras)::Type,OerasVal::low> low{};
             constexpr Register::FieldValue<decltype(oeras)::Type,OerasVal::high> high{};
         }
-        }
         ///Output Enable Read Address Hold State. 
         enum class OerahVal {
             low=0x00000000,     ///<Set output enable (/OE) to low during the read address hold state.
@@ -691,7 +635,6 @@ namespace Kvasir {
         namespace OerahValC{
             constexpr Register::FieldValue<decltype(oerah)::Type,OerahVal::low> low{};
             constexpr Register::FieldValue<decltype(oerah)::Type,OerahVal::high> high{};
-        }
         }
         ///Output Enable Read Data Wait State. 
         enum class OerdwVal {
@@ -703,7 +646,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oerdw)::Type,OerdwVal::low> low{};
             constexpr Register::FieldValue<decltype(oerdw)::Type,OerdwVal::high> high{};
         }
-        }
         ///Output Enable Read Data Hold State. 
         enum class OerdhVal {
             low=0x00000000,     ///<Set output enable (/OE) to low during the read data hold state.
@@ -713,7 +655,6 @@ namespace Kvasir {
         namespace OerdhValC{
             constexpr Register::FieldValue<decltype(oerdh)::Type,OerdhVal::low> low{};
             constexpr Register::FieldValue<decltype(oerdh)::Type,OerdhVal::high> high{};
-        }
         }
         ///Write Signal Read Address Setup State. 
         enum class WrrasVal {
@@ -725,7 +666,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wrras)::Type,WrrasVal::low> low{};
             constexpr Register::FieldValue<decltype(wrras)::Type,WrrasVal::high> high{};
         }
-        }
         ///Write Signal Read Address Hold State. 
         enum class WrrahVal {
             low=0x00000000,     ///<Set write signal (/WR) to low during the read address hold state.
@@ -735,7 +675,6 @@ namespace Kvasir {
         namespace WrrahValC{
             constexpr Register::FieldValue<decltype(wrrah)::Type,WrrahVal::low> low{};
             constexpr Register::FieldValue<decltype(wrrah)::Type,WrrahVal::high> high{};
-        }
         }
         ///Write Signal Read Data Wait State. 
         enum class WrrdwVal {
@@ -747,7 +686,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wrrdw)::Type,WrrdwVal::low> low{};
             constexpr Register::FieldValue<decltype(wrrdw)::Type,WrrdwVal::high> high{};
         }
-        }
         ///Write Signal Read Data Hold State. 
         enum class WrrdhVal {
             low=0x00000000,     ///<Set write signal (/WR) to low during the read data hold state.
@@ -757,7 +695,6 @@ namespace Kvasir {
         namespace WrrdhValC{
             constexpr Register::FieldValue<decltype(wrrdh)::Type,WrrdhVal::low> low{};
             constexpr Register::FieldValue<decltype(wrrdh)::Type,WrrdhVal::high> high{};
-        }
         }
         ///Address Latch Enable Read Address Setup State. 
         enum class AlerasVal {
@@ -769,7 +706,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aleras)::Type,AlerasVal::low> low{};
             constexpr Register::FieldValue<decltype(aleras)::Type,AlerasVal::high> high{};
         }
-        }
         ///Address Latch Enable Read Address Hold State. 
         enum class AlerahVal {
             low=0x00000000,     ///<Set address latch enable (ALEm) to low during the read address hold state.
@@ -779,7 +715,6 @@ namespace Kvasir {
         namespace AlerahValC{
             constexpr Register::FieldValue<decltype(alerah)::Type,AlerahVal::low> low{};
             constexpr Register::FieldValue<decltype(alerah)::Type,AlerahVal::high> high{};
-        }
         }
         ///Address Latch Enable Read Data Wait State. 
         enum class AlerdwVal {
@@ -791,7 +726,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(alerdw)::Type,AlerdwVal::low> low{};
             constexpr Register::FieldValue<decltype(alerdw)::Type,AlerdwVal::high> high{};
         }
-        }
         ///Address Latch Enable Read Data Hold State. 
         enum class AlerdhVal {
             low=0x00000000,     ///<Set address latch enable (ALEm) to low during the read data hold state.
@@ -801,7 +735,6 @@ namespace Kvasir {
         namespace AlerdhValC{
             constexpr Register::FieldValue<decltype(alerdh)::Type,AlerdhVal::low> low{};
             constexpr Register::FieldValue<decltype(alerdh)::Type,AlerdhVal::high> high{};
-        }
         }
     }
     namespace Noneifwcst1{    ///<Interface Write Control States
@@ -816,7 +749,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cswas)::Type,CswasVal::low> low{};
             constexpr Register::FieldValue<decltype(cswas)::Type,CswasVal::high> high{};
         }
-        }
         ///Chip Select Write Address Hold State. 
         enum class CswahVal {
             low=0x00000000,     ///<Set chip select (CSx) to low during the write address hold state.
@@ -826,7 +758,6 @@ namespace Kvasir {
         namespace CswahValC{
             constexpr Register::FieldValue<decltype(cswah)::Type,CswahVal::low> low{};
             constexpr Register::FieldValue<decltype(cswah)::Type,CswahVal::high> high{};
-        }
         }
         ///Chip Select Write Data Wait State. 
         enum class CswdwVal {
@@ -838,7 +769,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cswdw)::Type,CswdwVal::low> low{};
             constexpr Register::FieldValue<decltype(cswdw)::Type,CswdwVal::high> high{};
         }
-        }
         ///Chip Select Write Data Hold State. 
         enum class CswdhVal {
             low=0x00000000,     ///<Set chip select (CSx) to low during the write data hold state.
@@ -848,7 +778,6 @@ namespace Kvasir {
         namespace CswdhValC{
             constexpr Register::FieldValue<decltype(cswdh)::Type,CswdhVal::low> low{};
             constexpr Register::FieldValue<decltype(cswdh)::Type,CswdhVal::high> high{};
-        }
         }
         ///Output Enable Write Address Setup State. 
         enum class OewasVal {
@@ -860,7 +789,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oewas)::Type,OewasVal::low> low{};
             constexpr Register::FieldValue<decltype(oewas)::Type,OewasVal::high> high{};
         }
-        }
         ///Output Enable Write Address Hold State. 
         enum class OewahVal {
             low=0x00000000,     ///<Set output enable (/OE) to low during the write address hold state.
@@ -870,7 +798,6 @@ namespace Kvasir {
         namespace OewahValC{
             constexpr Register::FieldValue<decltype(oewah)::Type,OewahVal::low> low{};
             constexpr Register::FieldValue<decltype(oewah)::Type,OewahVal::high> high{};
-        }
         }
         ///Output Enable Write Data Wait State. 
         enum class OewdwVal {
@@ -882,7 +809,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oewdw)::Type,OewdwVal::low> low{};
             constexpr Register::FieldValue<decltype(oewdw)::Type,OewdwVal::high> high{};
         }
-        }
         ///Output Enable Write Data Hold State. 
         enum class OewdhVal {
             low=0x00000000,     ///<Set output enable (/OE) to low during the write data hold state.
@@ -892,7 +818,6 @@ namespace Kvasir {
         namespace OewdhValC{
             constexpr Register::FieldValue<decltype(oewdh)::Type,OewdhVal::low> low{};
             constexpr Register::FieldValue<decltype(oewdh)::Type,OewdhVal::high> high{};
-        }
         }
         ///Write Signal Write Address Setup State. 
         enum class WrwasVal {
@@ -904,7 +829,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wrwas)::Type,WrwasVal::low> low{};
             constexpr Register::FieldValue<decltype(wrwas)::Type,WrwasVal::high> high{};
         }
-        }
         ///Write Signal Write Address Hold State. 
         enum class WrwahVal {
             low=0x00000000,     ///<Set write signal (/WR) to low during the write address hold state.
@@ -914,7 +838,6 @@ namespace Kvasir {
         namespace WrwahValC{
             constexpr Register::FieldValue<decltype(wrwah)::Type,WrwahVal::low> low{};
             constexpr Register::FieldValue<decltype(wrwah)::Type,WrwahVal::high> high{};
-        }
         }
         ///Write Signal Write Data Wait State. 
         enum class WrwdwVal {
@@ -926,7 +849,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wrwdw)::Type,WrwdwVal::low> low{};
             constexpr Register::FieldValue<decltype(wrwdw)::Type,WrwdwVal::high> high{};
         }
-        }
         ///Write Signal Write Data Hold State. 
         enum class WrwdhVal {
             low=0x00000000,     ///<Set write signal (/WR) to low during the write data hold state.
@@ -936,7 +858,6 @@ namespace Kvasir {
         namespace WrwdhValC{
             constexpr Register::FieldValue<decltype(wrwdh)::Type,WrwdhVal::low> low{};
             constexpr Register::FieldValue<decltype(wrwdh)::Type,WrwdhVal::high> high{};
-        }
         }
         ///Address Latch Enable Write Address Setup State. 
         enum class AlewasVal {
@@ -948,7 +869,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(alewas)::Type,AlewasVal::low> low{};
             constexpr Register::FieldValue<decltype(alewas)::Type,AlewasVal::high> high{};
         }
-        }
         ///Address Latch Enable Write Address Hold State. 
         enum class AlewahVal {
             low=0x00000000,     ///<Set address latch enable (ALEm) to low during the write address hold state.
@@ -958,7 +878,6 @@ namespace Kvasir {
         namespace AlewahValC{
             constexpr Register::FieldValue<decltype(alewah)::Type,AlewahVal::low> low{};
             constexpr Register::FieldValue<decltype(alewah)::Type,AlewahVal::high> high{};
-        }
         }
         ///Address Latch Enable Write Data Wait State. 
         enum class AlewdwVal {
@@ -970,7 +889,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(alewdw)::Type,AlewdwVal::low> low{};
             constexpr Register::FieldValue<decltype(alewdw)::Type,AlewdwVal::high> high{};
         }
-        }
         ///Address Latch Enable Write Data Hold State. 
         enum class AlewdhVal {
             low=0x00000000,     ///<Set address latch enable (ALEm) to low during the write data hold state.
@@ -980,7 +898,6 @@ namespace Kvasir {
         namespace AlewdhValC{
             constexpr Register::FieldValue<decltype(alewdh)::Type,AlewdhVal::low> low{};
             constexpr Register::FieldValue<decltype(alewdh)::Type,AlewdhVal::high> high{};
-        }
         }
     }
 }

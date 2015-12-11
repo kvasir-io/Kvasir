@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oscinit)::Type,OscinitVal::v0> v0{};
             constexpr Register::FieldValue<decltype(oscinit)::Type,OscinitVal::v1> v1{};
         }
-        }
         ///High Gain Oscillator Select
         enum class HgoVal {
             v0=0x00000000,     ///<Low power mode.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace HgoValC{
             constexpr Register::FieldValue<decltype(hgo)::Type,HgoVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hgo)::Type,HgoVal::v1> v1{};
-        }
         }
         ///OSC Output Select
         enum class OscosVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oscos)::Type,OscosVal::v0> v0{};
             constexpr Register::FieldValue<decltype(oscos)::Type,OscosVal::v1> v1{};
         }
-        }
         ///OSC Enable in Stop mode
         enum class OscstenVal {
             v0=0x00000000,     ///<OSC clock is disabled in stop.
@@ -47,7 +44,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oscsten)::Type,OscstenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(oscsten)::Type,OscstenVal::v1> v1{};
         }
-        }
         ///OSC Enable
         enum class OscenVal {
             v0=0x00000000,     ///<OSC module disabled.
@@ -57,7 +53,6 @@ namespace Kvasir {
         namespace OscenValC{
             constexpr Register::FieldValue<decltype(oscen)::Type,OscenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(oscen)::Type,OscenVal::v1> v1{};
-        }
         }
     }
 }

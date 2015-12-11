@@ -24,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
         }
-        }
         ///Selects the data size for the USART.
         enum class DatalenVal {
             v7BitDataLength=0x00000000,     ///<7 bit Data length.
@@ -38,7 +37,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(datalen)::Type,DatalenVal::v7BitDataLength> v7BitDataLength{};
             constexpr Register::FieldValue<decltype(datalen)::Type,DatalenVal::v8BitDataLength> v8BitDataLength{};
             constexpr Register::FieldValue<decltype(datalen)::Type,DatalenVal::v9BitDataLength> v9BitDataLength{};
-        }
         }
         ///Selects what type of parity is used by the
 								USART.
@@ -59,7 +57,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(paritysel)::Type,ParityselVal::evenParity> evenParity{};
             constexpr Register::FieldValue<decltype(paritysel)::Type,ParityselVal::oddParity> oddParity{};
         }
-        }
         ///Number of stop bits appended to transmitted data. Only a
 								single stop bit is required for received data.
         enum class StoplenVal {
@@ -71,7 +68,6 @@ namespace Kvasir {
         namespace StoplenValC{
             constexpr Register::FieldValue<decltype(stoplen)::Type,StoplenVal::v1StopBit> v1StopBit{};
             constexpr Register::FieldValue<decltype(stoplen)::Type,StoplenVal::v2StopBits> v2StopBits{};
-        }
         }
         ///Selects standard or 32 kHz clocking mode.
         enum class Mode32kVal {
@@ -86,7 +82,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode32k)::Type,Mode32kVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(mode32k)::Type,Mode32kVal::enabled> enabled{};
         }
-        }
         ///LIN break mode enable.
         enum class LinmodeVal {
             disabled=0x00000000,     ///<Disabled. Break detect and generate is configured
@@ -98,7 +93,6 @@ namespace Kvasir {
         namespace LinmodeValC{
             constexpr Register::FieldValue<decltype(linmode)::Type,LinmodeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(linmode)::Type,LinmodeVal::enabled> enabled{};
-        }
         }
         ///CTS Enable. Determines whether CTS is used for flow
 								control. CTS can be from the input pin, or from the USART's own RTS
@@ -115,7 +109,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ctsen)::Type,CtsenVal::noFlowControl> noFlowControl{};
             constexpr Register::FieldValue<decltype(ctsen)::Type,CtsenVal::flowControlEnabled> flowControlEnabled{};
         }
-        }
         ///Selects synchronous or asynchronous
 								operation.
         enum class SyncenVal {
@@ -126,7 +119,6 @@ namespace Kvasir {
         namespace SyncenValC{
             constexpr Register::FieldValue<decltype(syncen)::Type,SyncenVal::asynchronousMode> asynchronousMode{};
             constexpr Register::FieldValue<decltype(syncen)::Type,SyncenVal::synchronousMode> synchronousMode{};
-        }
         }
         ///Selects the clock polarity and sampling edge of received
 								data in synchronous mode.
@@ -141,7 +133,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkpol)::Type,ClkpolVal::fallingEdge> fallingEdge{};
             constexpr Register::FieldValue<decltype(clkpol)::Type,ClkpolVal::risingEdge> risingEdge{};
         }
-        }
         ///Synchronous mode Master select.
         enum class SyncmstVal {
             slave=0x00000000,     ///<Slave. When synchronous mode is enabled, the USART
@@ -153,7 +144,6 @@ namespace Kvasir {
         namespace SyncmstValC{
             constexpr Register::FieldValue<decltype(syncmst)::Type,SyncmstVal::slave> slave{};
             constexpr Register::FieldValue<decltype(syncmst)::Type,SyncmstVal::master> master{};
-        }
         }
         ///Selects data loopback mode.
         enum class LoopVal {
@@ -172,7 +162,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(loop)::Type,LoopVal::normalOperation> normalOperation{};
             constexpr Register::FieldValue<decltype(loop)::Type,LoopVal::loopbackMode> loopbackMode{};
         }
-        }
         ///I/O output mode.
         enum class IomodeVal {
             standard=0x00000000,     ///<Standard. USART output and input operate in
@@ -184,7 +173,6 @@ namespace Kvasir {
         namespace IomodeValC{
             constexpr Register::FieldValue<decltype(iomode)::Type,IomodeVal::standard> standard{};
             constexpr Register::FieldValue<decltype(iomode)::Type,IomodeVal::irda> irda{};
-        }
         }
         ///Output Enable Turnaround time enable for RS-485
 								operation.
@@ -203,7 +191,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oeta)::Type,OetaVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(oeta)::Type,OetaVal::enabled> enabled{};
         }
-        }
         ///Automatic Address matching enable.
         enum class AutoaddrVal {
             disabled=0x00000000,     ///<Disabled. When addressing is enabled by ADDRDET,
@@ -219,7 +206,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoaddr)::Type,AutoaddrVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(autoaddr)::Type,AutoaddrVal::enabled> enabled{};
         }
-        }
         ///Output Enable Select.
         enum class OeselVal {
             standard=0x00000000,     ///<Standard. The RTS signal is used as the standard
@@ -233,7 +219,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oesel)::Type,OeselVal::standard> standard{};
             constexpr Register::FieldValue<decltype(oesel)::Type,OeselVal::rs485> rs485{};
         }
-        }
         ///Output Enable Polarity.
         enum class OepolVal {
             low=0x00000000,     ///<Low. If selected by OESEL, the output enable is
@@ -245,7 +230,6 @@ namespace Kvasir {
         namespace OepolValC{
             constexpr Register::FieldValue<decltype(oepol)::Type,OepolVal::low> low{};
             constexpr Register::FieldValue<decltype(oepol)::Type,OepolVal::high> high{};
-        }
         }
         ///Receive data polarity.
         enum class RxpolVal {
@@ -263,7 +247,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxpol)::Type,RxpolVal::standard> standard{};
             constexpr Register::FieldValue<decltype(rxpol)::Type,RxpolVal::inverted> inverted{};
         }
-        }
         ///Transmit data polarity.
         enum class TxpolVal {
             standard=0x00000000,     ///<Standard. The TX signal is sent out without change.
@@ -278,7 +261,6 @@ namespace Kvasir {
         namespace TxpolValC{
             constexpr Register::FieldValue<decltype(txpol)::Type,TxpolVal::standard> standard{};
             constexpr Register::FieldValue<decltype(txpol)::Type,TxpolVal::inverted> inverted{};
-        }
         }
     }
     namespace Nonectl{    ///<USART Control register. USART control settings that are more likely
@@ -300,7 +282,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txbrken)::Type,TxbrkenVal::normalOperation> normalOperation{};
             constexpr Register::FieldValue<decltype(txbrken)::Type,TxbrkenVal::continuousBreak> continuousBreak{};
         }
-        }
         ///Enable address detect mode.
         enum class AddrdetVal {
             disabled=0x00000000,     ///<Disabled. The USART presents all incoming
@@ -319,7 +300,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(addrdet)::Type,AddrdetVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(addrdet)::Type,AddrdetVal::enabled> enabled{};
         }
-        }
         ///Transmit Disable.
         enum class TxdisVal {
             notDisabled=0x00000000,     ///<Not disabled. USART transmitter is not
@@ -333,7 +313,6 @@ namespace Kvasir {
         namespace TxdisValC{
             constexpr Register::FieldValue<decltype(txdis)::Type,TxdisVal::notDisabled> notDisabled{};
             constexpr Register::FieldValue<decltype(txdis)::Type,TxdisVal::disabled> disabled{};
-        }
         }
         ///Continuous Clock generation. By default, SCLK is only
 								output while data is being transmitted in synchronous
@@ -352,7 +331,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cc)::Type,CcVal::clockOnCharacter> clockOnCharacter{};
             constexpr Register::FieldValue<decltype(cc)::Type,CcVal::continuousClock> continuousClock{};
         }
-        }
         ///Clear Continuous Clock.
         enum class ClrcconrxVal {
             noEffect=0x00000000,     ///<No effect. No effect on the CC bit.
@@ -364,7 +342,6 @@ namespace Kvasir {
         namespace ClrcconrxValC{
             constexpr Register::FieldValue<decltype(clrcconrx)::Type,ClrcconrxVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(clrcconrx)::Type,ClrcconrxVal::autoClear> autoClear{};
-        }
         }
         ///Autobaud enable.
         enum class AutobaudVal {
@@ -381,7 +358,6 @@ namespace Kvasir {
         namespace AutobaudValC{
             constexpr Register::FieldValue<decltype(autobaud)::Type,AutobaudVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(autobaud)::Type,AutobaudVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonestat{    ///<USART Status register. The complete status value can be read here.

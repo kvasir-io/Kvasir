@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(jtag)::Type,JtagVal::v0> v0{};
             constexpr Register::FieldValue<decltype(jtag)::Type,JtagVal::v1> v1{};
         }
-        }
         ///Core Lock-up
         enum class LockupVal {
             v0=0x00000000,     ///<Reset not caused by core LOCKUP event
@@ -25,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lockup)::Type,LockupVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lockup)::Type,LockupVal::v1> v1{};
         }
-        }
         ///Software
         enum class SwVal {
             v0=0x00000000,     ///<Reset not caused by software setting of SYSRESETREQ bit
@@ -35,7 +33,6 @@ namespace Kvasir {
         namespace SwValC{
             constexpr Register::FieldValue<decltype(sw)::Type,SwVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sw)::Type,SwVal::v1> v1{};
-        }
         }
     }
     namespace McSrsl{    ///<System Reset Status Register Low
@@ -50,7 +47,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::v1> v1{};
         }
-        }
         ///Low-voltage detect reset
         enum class LvdVal {
             v0=0x00000000,     ///<Reset not caused by LVD trip or POR
@@ -60,7 +56,6 @@ namespace Kvasir {
         namespace LvdValC{
             constexpr Register::FieldValue<decltype(lvd)::Type,LvdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lvd)::Type,LvdVal::v1> v1{};
-        }
         }
         ///Loss-of-clock reset
         enum class LocVal {
@@ -72,7 +67,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(loc)::Type,LocVal::v0> v0{};
             constexpr Register::FieldValue<decltype(loc)::Type,LocVal::v1> v1{};
         }
-        }
         ///Computer Operating Properly (COP) Watchdog
         enum class CopVal {
             v0=0x00000000,     ///<Reset not caused by COP timeout
@@ -82,7 +76,6 @@ namespace Kvasir {
         namespace CopValC{
             constexpr Register::FieldValue<decltype(cop)::Type,CopVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cop)::Type,CopVal::v1> v1{};
-        }
         }
         ///External reset pin
         enum class PinVal {
@@ -94,7 +87,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin)::Type,PinVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pin)::Type,PinVal::v1> v1{};
         }
-        }
         ///Power-on reset
         enum class PorVal {
             v0=0x00000000,     ///<Reset not caused by POR
@@ -104,7 +96,6 @@ namespace Kvasir {
         namespace PorValC{
             constexpr Register::FieldValue<decltype(por)::Type,PorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(por)::Type,PorVal::v1> v1{};
-        }
         }
     }
     namespace McPmprot{    ///<Power Mode Protection Register
@@ -119,7 +110,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(avlls1)::Type,Avlls1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(avlls1)::Type,Avlls1Val::v1> v1{};
         }
-        }
         ///Allow very low leakage stop 2 mode
         enum class Avlls2Val {
             v0=0x00000000,     ///<VLLS2 is not allowed
@@ -129,7 +119,6 @@ namespace Kvasir {
         namespace Avlls2ValC{
             constexpr Register::FieldValue<decltype(avlls2)::Type,Avlls2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(avlls2)::Type,Avlls2Val::v1> v1{};
-        }
         }
         ///Allow Very Low Leakage Stop 3 Mode
         enum class Avlls3Val {
@@ -141,7 +130,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(avlls3)::Type,Avlls3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(avlls3)::Type,Avlls3Val::v1> v1{};
         }
-        }
         ///Allow low leakage stop mode
         enum class AllsVal {
             v0=0x00000000,     ///<LLS is not allowed
@@ -152,7 +140,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(alls)::Type,AllsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(alls)::Type,AllsVal::v1> v1{};
         }
-        }
         ///Allow very low power modes
         enum class AvlpVal {
             v0=0x00000000,     ///<VLPR, VLPW, and VLPS are not allowed
@@ -162,7 +149,6 @@ namespace Kvasir {
         namespace AvlpValC{
             constexpr Register::FieldValue<decltype(avlp)::Type,AvlpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(avlp)::Type,AvlpVal::v1> v1{};
-        }
         }
     }
     namespace McPmctrl{    ///<Power Mode Control Register
@@ -185,7 +171,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lpllsm)::Type,LpllsmVal::v110> v110{};
             constexpr Register::FieldValue<decltype(lpllsm)::Type,LpllsmVal::v111> v111{};
         }
-        }
         ///Run Mode Enable
         enum class RunmVal {
             v00=0x00000000,     ///<Normal run mode
@@ -196,7 +181,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(runm)::Type,RunmVal::v00> v00{};
             constexpr Register::FieldValue<decltype(runm)::Type,RunmVal::v10> v10{};
         }
-        }
         ///Low Power Wake Up on Interrupt
         enum class LpwuiVal {
             v0=0x00000000,     ///<The voltage regulator remains in stop regulation on an interrupt
@@ -206,7 +190,6 @@ namespace Kvasir {
         namespace LpwuiValC{
             constexpr Register::FieldValue<decltype(lpwui)::Type,LpwuiVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lpwui)::Type,LpwuiVal::v1> v1{};
-        }
         }
     }
 }

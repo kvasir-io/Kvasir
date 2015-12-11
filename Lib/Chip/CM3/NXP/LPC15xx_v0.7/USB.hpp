@@ -20,7 +20,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pllOn)::Type,PllonVal::usbNeedclkFunction> usbNeedclkFunction{};
             constexpr Register::FieldValue<decltype(pllOn)::Type,PllonVal::usbNeedclkAlways1> usbNeedclkAlways1{};
         }
-        }
         ///LPM Support.
         enum class LpmsupVal {
             lpmNotSupported=0x00000000,     ///<LPM not supported.
@@ -30,7 +29,6 @@ namespace Kvasir {
         namespace LpmsupValC{
             constexpr Register::FieldValue<decltype(lpmSup)::Type,LpmsupVal::lpmNotSupported> lpmNotSupported{};
             constexpr Register::FieldValue<decltype(lpmSup)::Type,LpmsupVal::lpmSupported> lpmSupported{};
-        }
         }
         ///Interrupt on NAK for interrupt and bulk OUT EP
         enum class IntonnakaoVal {
@@ -42,7 +40,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intonnakAo)::Type,IntonnakaoVal::onlyAcknowledgedPa> onlyAcknowledgedPa{};
             constexpr Register::FieldValue<decltype(intonnakAo)::Type,IntonnakaoVal::bothAcknowledgedAn> bothAcknowledgedAn{};
         }
-        }
         ///Interrupt on NAK for interrupt and bulk IN EP
         enum class IntonnakaiVal {
             onlyAcknowledgedPa=0x00000000,     ///<Only acknowledged packets generate an interrupt
@@ -52,7 +49,6 @@ namespace Kvasir {
         namespace IntonnakaiValC{
             constexpr Register::FieldValue<decltype(intonnakAi)::Type,IntonnakaiVal::onlyAcknowledgedPa> onlyAcknowledgedPa{};
             constexpr Register::FieldValue<decltype(intonnakAi)::Type,IntonnakaiVal::bothAcknowledgedAn> bothAcknowledgedAn{};
-        }
         }
         ///Interrupt on NAK for control OUT EP
         enum class IntonnakcoVal {
@@ -64,7 +60,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intonnakCo)::Type,IntonnakcoVal::onlyAcknowledgedPa> onlyAcknowledgedPa{};
             constexpr Register::FieldValue<decltype(intonnakCo)::Type,IntonnakcoVal::bothAcknowledgedAn> bothAcknowledgedAn{};
         }
-        }
         ///Interrupt on NAK for control IN EP
         enum class IntonnakciVal {
             onlyAcknowledgedPa=0x00000000,     ///<Only acknowledged packets generate an interrupt
@@ -74,7 +69,6 @@ namespace Kvasir {
         namespace IntonnakciValC{
             constexpr Register::FieldValue<decltype(intonnakCi)::Type,IntonnakciVal::onlyAcknowledgedPa> onlyAcknowledgedPa{};
             constexpr Register::FieldValue<decltype(intonnakCi)::Type,IntonnakciVal::bothAcknowledgedAn> bothAcknowledgedAn{};
-        }
         }
         ///Device status - connect.  The connect bit must be set by SW to indicate that the device must signal a connect. The pull-up resistor on USB_DP will be enabled when this bit is set and the VbusDebounced bit is one.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> dcon{}; 
@@ -134,7 +128,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(errCode)::Type,ErrcodeVal::bitstuffError> bitstuffError{};
             constexpr Register::FieldValue<decltype(errCode)::Type,ErrcodeVal::syncError> syncError{};
             constexpr Register::FieldValue<decltype(errCode)::Type,ErrcodeVal::wrongDataToggle> wrongDataToggle{};
-        }
         }
     }
     namespace Noneepliststart{    ///<USB EP Command/Status List start address

@@ -44,7 +44,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(v)::Type,VVal::v0> v0{};
             constexpr Register::FieldValue<decltype(v)::Type,VVal::v1> v1{};
         }
-        }
         ///Write protect
         enum class WpVal {
             v0=0x00000000,     ///<Read and write accesses are allowed
@@ -54,7 +53,6 @@ namespace Kvasir {
         namespace WpValC{
             constexpr Register::FieldValue<decltype(wp)::Type,WpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wp)::Type,WpVal::v1> v1{};
-        }
         }
         ///Base address mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> bam{}; 
@@ -71,7 +69,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(v)::Type,VVal::v0> v0{};
             constexpr Register::FieldValue<decltype(v)::Type,VVal::v1> v1{};
         }
-        }
         ///Write protect
         enum class WpVal {
             v0=0x00000000,     ///<Read and write accesses are allowed
@@ -81,7 +78,6 @@ namespace Kvasir {
         namespace WpValC{
             constexpr Register::FieldValue<decltype(wp)::Type,WpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wp)::Type,WpVal::v1> v1{};
-        }
         }
         ///Base address mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> bam{}; 
@@ -98,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(v)::Type,VVal::v0> v0{};
             constexpr Register::FieldValue<decltype(v)::Type,VVal::v1> v1{};
         }
-        }
         ///Write protect
         enum class WpVal {
             v0=0x00000000,     ///<Read and write accesses are allowed
@@ -108,7 +103,6 @@ namespace Kvasir {
         namespace WpValC{
             constexpr Register::FieldValue<decltype(wp)::Type,WpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wp)::Type,WpVal::v1> v1{};
-        }
         }
         ///Base address mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> bam{}; 
@@ -125,7 +119,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(v)::Type,VVal::v0> v0{};
             constexpr Register::FieldValue<decltype(v)::Type,VVal::v1> v1{};
         }
-        }
         ///Write protect
         enum class WpVal {
             v0=0x00000000,     ///<Read and write accesses are allowed
@@ -135,7 +128,6 @@ namespace Kvasir {
         namespace WpValC{
             constexpr Register::FieldValue<decltype(wp)::Type,WpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wp)::Type,WpVal::v1> v1{};
-        }
         }
         ///Base address mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> bam{}; 
@@ -152,7 +144,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(v)::Type,VVal::v0> v0{};
             constexpr Register::FieldValue<decltype(v)::Type,VVal::v1> v1{};
         }
-        }
         ///Write protect
         enum class WpVal {
             v0=0x00000000,     ///<Read and write accesses are allowed
@@ -162,7 +153,6 @@ namespace Kvasir {
         namespace WpValC{
             constexpr Register::FieldValue<decltype(wp)::Type,WpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wp)::Type,WpVal::v1> v1{};
-        }
         }
         ///Base address mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> bam{}; 
@@ -179,7 +169,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(v)::Type,VVal::v0> v0{};
             constexpr Register::FieldValue<decltype(v)::Type,VVal::v1> v1{};
         }
-        }
         ///Write protect
         enum class WpVal {
             v0=0x00000000,     ///<Read and write accesses are allowed
@@ -189,7 +178,6 @@ namespace Kvasir {
         namespace WpValC{
             constexpr Register::FieldValue<decltype(wp)::Type,WpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wp)::Type,WpVal::v1> v1{};
-        }
         }
         ///Base address mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> bam{}; 
@@ -206,7 +194,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bstw)::Type,BstwVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bstw)::Type,BstwVal::v1> v1{};
         }
-        }
         ///Burst-read enable
         enum class BstrVal {
             v0=0x00000000,     ///<Data exceeding the specified port size is broken into individual, port-sized, non-burst reads. For example, a longword read from an 8-bit port is broken into four 8-bit reads.
@@ -217,7 +204,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bstr)::Type,BstrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bstr)::Type,BstrVal::v1> v1{};
         }
-        }
         ///Byte-enable mode
         enum class BemVal {
             v0=0x00000000,     ///<The FB_BE n signals are not asserted for reads. The FB_BE n signals are asserted for data write only.
@@ -227,7 +213,6 @@ namespace Kvasir {
         namespace BemValC{
             constexpr Register::FieldValue<decltype(bem)::Type,BemVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bem)::Type,BemVal::v1> v1{};
-        }
         }
         ///Port size
         enum class PsVal {
@@ -243,7 +228,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v11> v11{};
         }
-        }
         ///Auto-acknowledge enable
         enum class AaVal {
             v0=0x00000000,     ///<No internal FB_TA is asserted. Cycle is terminated externally
@@ -254,7 +238,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aa)::Type,AaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(aa)::Type,AaVal::v1> v1{};
         }
-        }
         ///Byte-lane shift
         enum class BlsVal {
             v0=0x00000000,     ///<Not shifted. Data is left-justfied on FB_AD.
@@ -264,7 +247,6 @@ namespace Kvasir {
         namespace BlsValC{
             constexpr Register::FieldValue<decltype(bls)::Type,BlsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bls)::Type,BlsVal::v1> v1{};
-        }
         }
         ///Wait states
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,10),Register::ReadWriteAccess,unsigned> ws{}; 
@@ -282,7 +264,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wrah)::Type,WrahVal::v10> v10{};
             constexpr Register::FieldValue<decltype(wrah)::Type,WrahVal::v11> v11{};
         }
-        }
         ///Read address hold or deselect
         enum class RdahVal {
             v00=0x00000000,     ///<If AA is cleared, 1 cycle. If AA is set, 0 cycles.
@@ -296,7 +277,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rdah)::Type,RdahVal::v01> v01{};
             constexpr Register::FieldValue<decltype(rdah)::Type,RdahVal::v10> v10{};
             constexpr Register::FieldValue<decltype(rdah)::Type,RdahVal::v11> v11{};
-        }
         }
         ///Address setup
         enum class AsetVal {
@@ -312,7 +292,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aset)::Type,AsetVal::v10> v10{};
             constexpr Register::FieldValue<decltype(aset)::Type,AsetVal::v11> v11{};
         }
-        }
         ///no description available
         enum class ExtsVal {
             v0=0x00000000,     ///<FB_TS /FB_ALE asserts for one bus clock cycle
@@ -323,7 +302,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(exts)::Type,ExtsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(exts)::Type,ExtsVal::v1> v1{};
         }
-        }
         ///Secondary wait state enable
         enum class SwsenVal {
             v0=0x00000000,     ///<The WS value inserts wait states before an internal transfer acknowledge is generated for all transfers
@@ -333,7 +311,6 @@ namespace Kvasir {
         namespace SwsenValC{
             constexpr Register::FieldValue<decltype(swsen)::Type,SwsenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swsen)::Type,SwsenVal::v1> v1{};
-        }
         }
         ///Secondary wait states
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> sws{}; 
@@ -350,7 +327,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bstw)::Type,BstwVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bstw)::Type,BstwVal::v1> v1{};
         }
-        }
         ///Burst-read enable
         enum class BstrVal {
             v0=0x00000000,     ///<Data exceeding the specified port size is broken into individual, port-sized, non-burst reads. For example, a longword read from an 8-bit port is broken into four 8-bit reads.
@@ -361,7 +337,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bstr)::Type,BstrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bstr)::Type,BstrVal::v1> v1{};
         }
-        }
         ///Byte-enable mode
         enum class BemVal {
             v0=0x00000000,     ///<The FB_BE n signals are not asserted for reads. The FB_BE n signals are asserted for data write only.
@@ -371,7 +346,6 @@ namespace Kvasir {
         namespace BemValC{
             constexpr Register::FieldValue<decltype(bem)::Type,BemVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bem)::Type,BemVal::v1> v1{};
-        }
         }
         ///Port size
         enum class PsVal {
@@ -387,7 +361,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v11> v11{};
         }
-        }
         ///Auto-acknowledge enable
         enum class AaVal {
             v0=0x00000000,     ///<No internal FB_TA is asserted. Cycle is terminated externally
@@ -398,7 +371,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aa)::Type,AaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(aa)::Type,AaVal::v1> v1{};
         }
-        }
         ///Byte-lane shift
         enum class BlsVal {
             v0=0x00000000,     ///<Not shifted. Data is left-justfied on FB_AD.
@@ -408,7 +380,6 @@ namespace Kvasir {
         namespace BlsValC{
             constexpr Register::FieldValue<decltype(bls)::Type,BlsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bls)::Type,BlsVal::v1> v1{};
-        }
         }
         ///Wait states
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,10),Register::ReadWriteAccess,unsigned> ws{}; 
@@ -426,7 +397,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wrah)::Type,WrahVal::v10> v10{};
             constexpr Register::FieldValue<decltype(wrah)::Type,WrahVal::v11> v11{};
         }
-        }
         ///Read address hold or deselect
         enum class RdahVal {
             v00=0x00000000,     ///<If AA is cleared, 1 cycle. If AA is set, 0 cycles.
@@ -440,7 +410,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rdah)::Type,RdahVal::v01> v01{};
             constexpr Register::FieldValue<decltype(rdah)::Type,RdahVal::v10> v10{};
             constexpr Register::FieldValue<decltype(rdah)::Type,RdahVal::v11> v11{};
-        }
         }
         ///Address setup
         enum class AsetVal {
@@ -456,7 +425,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aset)::Type,AsetVal::v10> v10{};
             constexpr Register::FieldValue<decltype(aset)::Type,AsetVal::v11> v11{};
         }
-        }
         ///no description available
         enum class ExtsVal {
             v0=0x00000000,     ///<FB_TS /FB_ALE asserts for one bus clock cycle
@@ -467,7 +435,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(exts)::Type,ExtsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(exts)::Type,ExtsVal::v1> v1{};
         }
-        }
         ///Secondary wait state enable
         enum class SwsenVal {
             v0=0x00000000,     ///<The WS value inserts wait states before an internal transfer acknowledge is generated for all transfers
@@ -477,7 +444,6 @@ namespace Kvasir {
         namespace SwsenValC{
             constexpr Register::FieldValue<decltype(swsen)::Type,SwsenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swsen)::Type,SwsenVal::v1> v1{};
-        }
         }
         ///Secondary wait states
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> sws{}; 
@@ -494,7 +460,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bstw)::Type,BstwVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bstw)::Type,BstwVal::v1> v1{};
         }
-        }
         ///Burst-read enable
         enum class BstrVal {
             v0=0x00000000,     ///<Data exceeding the specified port size is broken into individual, port-sized, non-burst reads. For example, a longword read from an 8-bit port is broken into four 8-bit reads.
@@ -505,7 +470,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bstr)::Type,BstrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bstr)::Type,BstrVal::v1> v1{};
         }
-        }
         ///Byte-enable mode
         enum class BemVal {
             v0=0x00000000,     ///<The FB_BE n signals are not asserted for reads. The FB_BE n signals are asserted for data write only.
@@ -515,7 +479,6 @@ namespace Kvasir {
         namespace BemValC{
             constexpr Register::FieldValue<decltype(bem)::Type,BemVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bem)::Type,BemVal::v1> v1{};
-        }
         }
         ///Port size
         enum class PsVal {
@@ -531,7 +494,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v11> v11{};
         }
-        }
         ///Auto-acknowledge enable
         enum class AaVal {
             v0=0x00000000,     ///<No internal FB_TA is asserted. Cycle is terminated externally
@@ -542,7 +504,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aa)::Type,AaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(aa)::Type,AaVal::v1> v1{};
         }
-        }
         ///Byte-lane shift
         enum class BlsVal {
             v0=0x00000000,     ///<Not shifted. Data is left-justfied on FB_AD.
@@ -552,7 +513,6 @@ namespace Kvasir {
         namespace BlsValC{
             constexpr Register::FieldValue<decltype(bls)::Type,BlsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bls)::Type,BlsVal::v1> v1{};
-        }
         }
         ///Wait states
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,10),Register::ReadWriteAccess,unsigned> ws{}; 
@@ -570,7 +530,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wrah)::Type,WrahVal::v10> v10{};
             constexpr Register::FieldValue<decltype(wrah)::Type,WrahVal::v11> v11{};
         }
-        }
         ///Read address hold or deselect
         enum class RdahVal {
             v00=0x00000000,     ///<If AA is cleared, 1 cycle. If AA is set, 0 cycles.
@@ -584,7 +543,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rdah)::Type,RdahVal::v01> v01{};
             constexpr Register::FieldValue<decltype(rdah)::Type,RdahVal::v10> v10{};
             constexpr Register::FieldValue<decltype(rdah)::Type,RdahVal::v11> v11{};
-        }
         }
         ///Address setup
         enum class AsetVal {
@@ -600,7 +558,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aset)::Type,AsetVal::v10> v10{};
             constexpr Register::FieldValue<decltype(aset)::Type,AsetVal::v11> v11{};
         }
-        }
         ///no description available
         enum class ExtsVal {
             v0=0x00000000,     ///<FB_TS /FB_ALE asserts for one bus clock cycle
@@ -611,7 +568,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(exts)::Type,ExtsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(exts)::Type,ExtsVal::v1> v1{};
         }
-        }
         ///Secondary wait state enable
         enum class SwsenVal {
             v0=0x00000000,     ///<The WS value inserts wait states before an internal transfer acknowledge is generated for all transfers
@@ -621,7 +577,6 @@ namespace Kvasir {
         namespace SwsenValC{
             constexpr Register::FieldValue<decltype(swsen)::Type,SwsenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swsen)::Type,SwsenVal::v1> v1{};
-        }
         }
         ///Secondary wait states
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> sws{}; 
@@ -638,7 +593,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bstw)::Type,BstwVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bstw)::Type,BstwVal::v1> v1{};
         }
-        }
         ///Burst-read enable
         enum class BstrVal {
             v0=0x00000000,     ///<Data exceeding the specified port size is broken into individual, port-sized, non-burst reads. For example, a longword read from an 8-bit port is broken into four 8-bit reads.
@@ -649,7 +603,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bstr)::Type,BstrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bstr)::Type,BstrVal::v1> v1{};
         }
-        }
         ///Byte-enable mode
         enum class BemVal {
             v0=0x00000000,     ///<The FB_BE n signals are not asserted for reads. The FB_BE n signals are asserted for data write only.
@@ -659,7 +612,6 @@ namespace Kvasir {
         namespace BemValC{
             constexpr Register::FieldValue<decltype(bem)::Type,BemVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bem)::Type,BemVal::v1> v1{};
-        }
         }
         ///Port size
         enum class PsVal {
@@ -675,7 +627,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v11> v11{};
         }
-        }
         ///Auto-acknowledge enable
         enum class AaVal {
             v0=0x00000000,     ///<No internal FB_TA is asserted. Cycle is terminated externally
@@ -686,7 +637,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aa)::Type,AaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(aa)::Type,AaVal::v1> v1{};
         }
-        }
         ///Byte-lane shift
         enum class BlsVal {
             v0=0x00000000,     ///<Not shifted. Data is left-justfied on FB_AD.
@@ -696,7 +646,6 @@ namespace Kvasir {
         namespace BlsValC{
             constexpr Register::FieldValue<decltype(bls)::Type,BlsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bls)::Type,BlsVal::v1> v1{};
-        }
         }
         ///Wait states
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,10),Register::ReadWriteAccess,unsigned> ws{}; 
@@ -714,7 +663,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wrah)::Type,WrahVal::v10> v10{};
             constexpr Register::FieldValue<decltype(wrah)::Type,WrahVal::v11> v11{};
         }
-        }
         ///Read address hold or deselect
         enum class RdahVal {
             v00=0x00000000,     ///<If AA is cleared, 1 cycle. If AA is set, 0 cycles.
@@ -728,7 +676,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rdah)::Type,RdahVal::v01> v01{};
             constexpr Register::FieldValue<decltype(rdah)::Type,RdahVal::v10> v10{};
             constexpr Register::FieldValue<decltype(rdah)::Type,RdahVal::v11> v11{};
-        }
         }
         ///Address setup
         enum class AsetVal {
@@ -744,7 +691,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aset)::Type,AsetVal::v10> v10{};
             constexpr Register::FieldValue<decltype(aset)::Type,AsetVal::v11> v11{};
         }
-        }
         ///no description available
         enum class ExtsVal {
             v0=0x00000000,     ///<FB_TS /FB_ALE asserts for one bus clock cycle
@@ -755,7 +701,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(exts)::Type,ExtsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(exts)::Type,ExtsVal::v1> v1{};
         }
-        }
         ///Secondary wait state enable
         enum class SwsenVal {
             v0=0x00000000,     ///<The WS value inserts wait states before an internal transfer acknowledge is generated for all transfers
@@ -765,7 +710,6 @@ namespace Kvasir {
         namespace SwsenValC{
             constexpr Register::FieldValue<decltype(swsen)::Type,SwsenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swsen)::Type,SwsenVal::v1> v1{};
-        }
         }
         ///Secondary wait states
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> sws{}; 
@@ -782,7 +726,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bstw)::Type,BstwVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bstw)::Type,BstwVal::v1> v1{};
         }
-        }
         ///Burst-read enable
         enum class BstrVal {
             v0=0x00000000,     ///<Data exceeding the specified port size is broken into individual, port-sized, non-burst reads. For example, a longword read from an 8-bit port is broken into four 8-bit reads.
@@ -793,7 +736,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bstr)::Type,BstrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bstr)::Type,BstrVal::v1> v1{};
         }
-        }
         ///Byte-enable mode
         enum class BemVal {
             v0=0x00000000,     ///<The FB_BE n signals are not asserted for reads. The FB_BE n signals are asserted for data write only.
@@ -803,7 +745,6 @@ namespace Kvasir {
         namespace BemValC{
             constexpr Register::FieldValue<decltype(bem)::Type,BemVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bem)::Type,BemVal::v1> v1{};
-        }
         }
         ///Port size
         enum class PsVal {
@@ -819,7 +760,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v11> v11{};
         }
-        }
         ///Auto-acknowledge enable
         enum class AaVal {
             v0=0x00000000,     ///<No internal FB_TA is asserted. Cycle is terminated externally
@@ -830,7 +770,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aa)::Type,AaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(aa)::Type,AaVal::v1> v1{};
         }
-        }
         ///Byte-lane shift
         enum class BlsVal {
             v0=0x00000000,     ///<Not shifted. Data is left-justfied on FB_AD.
@@ -840,7 +779,6 @@ namespace Kvasir {
         namespace BlsValC{
             constexpr Register::FieldValue<decltype(bls)::Type,BlsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bls)::Type,BlsVal::v1> v1{};
-        }
         }
         ///Wait states
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,10),Register::ReadWriteAccess,unsigned> ws{}; 
@@ -858,7 +796,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wrah)::Type,WrahVal::v10> v10{};
             constexpr Register::FieldValue<decltype(wrah)::Type,WrahVal::v11> v11{};
         }
-        }
         ///Read address hold or deselect
         enum class RdahVal {
             v00=0x00000000,     ///<If AA is cleared, 1 cycle. If AA is set, 0 cycles.
@@ -872,7 +809,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rdah)::Type,RdahVal::v01> v01{};
             constexpr Register::FieldValue<decltype(rdah)::Type,RdahVal::v10> v10{};
             constexpr Register::FieldValue<decltype(rdah)::Type,RdahVal::v11> v11{};
-        }
         }
         ///Address setup
         enum class AsetVal {
@@ -888,7 +824,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aset)::Type,AsetVal::v10> v10{};
             constexpr Register::FieldValue<decltype(aset)::Type,AsetVal::v11> v11{};
         }
-        }
         ///no description available
         enum class ExtsVal {
             v0=0x00000000,     ///<FB_TS /FB_ALE asserts for one bus clock cycle
@@ -899,7 +834,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(exts)::Type,ExtsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(exts)::Type,ExtsVal::v1> v1{};
         }
-        }
         ///Secondary wait state enable
         enum class SwsenVal {
             v0=0x00000000,     ///<The WS value inserts wait states before an internal transfer acknowledge is generated for all transfers
@@ -909,7 +843,6 @@ namespace Kvasir {
         namespace SwsenValC{
             constexpr Register::FieldValue<decltype(swsen)::Type,SwsenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swsen)::Type,SwsenVal::v1> v1{};
-        }
         }
         ///Secondary wait states
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> sws{}; 
@@ -926,7 +859,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bstw)::Type,BstwVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bstw)::Type,BstwVal::v1> v1{};
         }
-        }
         ///Burst-read enable
         enum class BstrVal {
             v0=0x00000000,     ///<Data exceeding the specified port size is broken into individual, port-sized, non-burst reads. For example, a longword read from an 8-bit port is broken into four 8-bit reads.
@@ -937,7 +869,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bstr)::Type,BstrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bstr)::Type,BstrVal::v1> v1{};
         }
-        }
         ///Byte-enable mode
         enum class BemVal {
             v0=0x00000000,     ///<The FB_BE n signals are not asserted for reads. The FB_BE n signals are asserted for data write only.
@@ -947,7 +878,6 @@ namespace Kvasir {
         namespace BemValC{
             constexpr Register::FieldValue<decltype(bem)::Type,BemVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bem)::Type,BemVal::v1> v1{};
-        }
         }
         ///Port size
         enum class PsVal {
@@ -963,7 +893,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v11> v11{};
         }
-        }
         ///Auto-acknowledge enable
         enum class AaVal {
             v0=0x00000000,     ///<No internal FB_TA is asserted. Cycle is terminated externally
@@ -974,7 +903,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aa)::Type,AaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(aa)::Type,AaVal::v1> v1{};
         }
-        }
         ///Byte-lane shift
         enum class BlsVal {
             v0=0x00000000,     ///<Not shifted. Data is left-justfied on FB_AD.
@@ -984,7 +912,6 @@ namespace Kvasir {
         namespace BlsValC{
             constexpr Register::FieldValue<decltype(bls)::Type,BlsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bls)::Type,BlsVal::v1> v1{};
-        }
         }
         ///Wait states
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,10),Register::ReadWriteAccess,unsigned> ws{}; 
@@ -1002,7 +929,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wrah)::Type,WrahVal::v10> v10{};
             constexpr Register::FieldValue<decltype(wrah)::Type,WrahVal::v11> v11{};
         }
-        }
         ///Read address hold or deselect
         enum class RdahVal {
             v00=0x00000000,     ///<If AA is cleared, 1 cycle. If AA is set, 0 cycles.
@@ -1016,7 +942,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rdah)::Type,RdahVal::v01> v01{};
             constexpr Register::FieldValue<decltype(rdah)::Type,RdahVal::v10> v10{};
             constexpr Register::FieldValue<decltype(rdah)::Type,RdahVal::v11> v11{};
-        }
         }
         ///Address setup
         enum class AsetVal {
@@ -1032,7 +957,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aset)::Type,AsetVal::v10> v10{};
             constexpr Register::FieldValue<decltype(aset)::Type,AsetVal::v11> v11{};
         }
-        }
         ///no description available
         enum class ExtsVal {
             v0=0x00000000,     ///<FB_TS /FB_ALE asserts for one bus clock cycle
@@ -1043,7 +967,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(exts)::Type,ExtsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(exts)::Type,ExtsVal::v1> v1{};
         }
-        }
         ///Secondary wait state enable
         enum class SwsenVal {
             v0=0x00000000,     ///<The WS value inserts wait states before an internal transfer acknowledge is generated for all transfers
@@ -1053,7 +976,6 @@ namespace Kvasir {
         namespace SwsenValC{
             constexpr Register::FieldValue<decltype(swsen)::Type,SwsenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swsen)::Type,SwsenVal::v1> v1{};
-        }
         }
         ///Secondary wait states
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> sws{}; 

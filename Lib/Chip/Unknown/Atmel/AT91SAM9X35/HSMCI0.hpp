@@ -58,7 +58,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtomul)::Type,DtomulVal::v65536> v65536{};
             constexpr Register::FieldValue<decltype(dtomul)::Type,DtomulVal::v1048576> v1048576{};
         }
-        }
     }
     namespace Hsmci0Sdcr{    ///<SD/SDIO Card Register
         using Addr = Register::Address<0xf000800c,0xffffff3c,0,unsigned>;
@@ -76,7 +75,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sdcsel)::Type,SdcselVal::slotc> slotc{};
             constexpr Register::FieldValue<decltype(sdcsel)::Type,SdcselVal::slotd> slotd{};
         }
-        }
         ///SDCard/SDIO Bus Width
         enum class SdcbusVal {
             v1=0x00000000,     ///<1 bit
@@ -88,7 +86,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sdcbus)::Type,SdcbusVal::v1> v1{};
             constexpr Register::FieldValue<decltype(sdcbus)::Type,SdcbusVal::v4> v4{};
             constexpr Register::FieldValue<decltype(sdcbus)::Type,SdcbusVal::v8> v8{};
-        }
         }
     }
     namespace Hsmci0Argr{    ///<Argument Register
@@ -114,7 +111,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rsptyp)::Type,RsptypVal::v136Bit> v136Bit{};
             constexpr Register::FieldValue<decltype(rsptyp)::Type,RsptypVal::r1b> r1b{};
         }
-        }
         ///Special Command
         enum class SpcmdVal {
             std=0x00000000,     ///<Not a special CMD.
@@ -137,7 +133,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(spcmd)::Type,SpcmdVal::bor> bor{};
             constexpr Register::FieldValue<decltype(spcmd)::Type,SpcmdVal::ebo> ebo{};
         }
-        }
         ///Open Drain Command
         enum class OpdcmdVal {
             pushpull=0x00000000,     ///<Push pull command.
@@ -148,7 +143,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(opdcmd)::Type,OpdcmdVal::pushpull> pushpull{};
             constexpr Register::FieldValue<decltype(opdcmd)::Type,OpdcmdVal::opendrain> opendrain{};
         }
-        }
         ///Max Latency for Command to Response
         enum class MaxlatVal {
             v5=0x00000000,     ///<5-cycle max latency.
@@ -158,7 +152,6 @@ namespace Kvasir {
         namespace MaxlatValC{
             constexpr Register::FieldValue<decltype(maxlat)::Type,MaxlatVal::v5> v5{};
             constexpr Register::FieldValue<decltype(maxlat)::Type,MaxlatVal::v64> v64{};
-        }
         }
         ///Transfer Command
         enum class TrcmdVal {
@@ -172,7 +165,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trcmd)::Type,TrcmdVal::startData> startData{};
             constexpr Register::FieldValue<decltype(trcmd)::Type,TrcmdVal::stopData> stopData{};
         }
-        }
         ///Transfer Direction
         enum class TrdirVal {
             write=0x00000000,     ///<Write.
@@ -182,7 +174,6 @@ namespace Kvasir {
         namespace TrdirValC{
             constexpr Register::FieldValue<decltype(trdir)::Type,TrdirVal::write> write{};
             constexpr Register::FieldValue<decltype(trdir)::Type,TrdirVal::read> read{};
-        }
         }
         ///Transfer Type
         enum class TrtypVal {
@@ -200,7 +191,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trtyp)::Type,TrtypVal::byte> byte{};
             constexpr Register::FieldValue<decltype(trtyp)::Type,TrtypVal::block> block{};
         }
-        }
         ///SDIO Special Command
         enum class IospcmdVal {
             std=0x00000000,     ///<Not an SDIO Special Command
@@ -213,7 +203,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iospcmd)::Type,IospcmdVal::suspend> suspend{};
             constexpr Register::FieldValue<decltype(iospcmd)::Type,IospcmdVal::resume> resume{};
         }
-        }
         ///ATA with Command Completion Signal
         enum class AtacsVal {
             normal=0x00000000,     ///<Normal operation mode.
@@ -223,7 +212,6 @@ namespace Kvasir {
         namespace AtacsValC{
             constexpr Register::FieldValue<decltype(atacs)::Type,AtacsVal::normal> normal{};
             constexpr Register::FieldValue<decltype(atacs)::Type,AtacsVal::completion> completion{};
-        }
         }
         ///Boot Operation Acknowledge.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> bootAck{}; 
@@ -260,7 +248,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cstomul)::Type,CstomulVal::v4096> v4096{};
             constexpr Register::FieldValue<decltype(cstomul)::Type,CstomulVal::v65536> v65536{};
             constexpr Register::FieldValue<decltype(cstomul)::Type,CstomulVal::v1048576> v1048576{};
-        }
         }
     }
     namespace Hsmci0Rspr0{    ///<Response Register
@@ -518,7 +505,6 @@ namespace Kvasir {
         namespace ChksizeValC{
             constexpr Register::FieldValue<decltype(chksize)::Type,ChksizeVal::v1> v1{};
             constexpr Register::FieldValue<decltype(chksize)::Type,ChksizeVal::v4> v4{};
-        }
         }
         ///DMA Hardware Handshaking Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> dmaen{}; 

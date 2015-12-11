@@ -282,7 +282,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(css)::Type,CssVal::pllaClk> pllaClk{};
             constexpr Register::FieldValue<decltype(css)::Type,CssVal::pllbClk> pllbClk{};
         }
-        }
         ///Processor Clock Prescaler
         enum class PresVal {
             clk1=0x00000000,     ///<Selected clock
@@ -304,7 +303,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pres)::Type,PresVal::clk32> clk32{};
             constexpr Register::FieldValue<decltype(pres)::Type,PresVal::clk64> clk64{};
             constexpr Register::FieldValue<decltype(pres)::Type,PresVal::clk3> clk3{};
-        }
         }
         ///PLLA Divisor by 2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> plladiv2{}; 
@@ -336,7 +334,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(css)::Type,CssVal::pllbClk> pllbClk{};
             constexpr Register::FieldValue<decltype(css)::Type,CssVal::mck> mck{};
         }
-        }
         ///Programmable Clock Prescaler
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> pres{}; 
     }
@@ -358,7 +355,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(css)::Type,CssVal::pllbClk> pllbClk{};
             constexpr Register::FieldValue<decltype(css)::Type,CssVal::mck> mck{};
         }
-        }
         ///Programmable Clock Prescaler
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> pres{}; 
     }
@@ -379,7 +375,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(css)::Type,CssVal::pllaClk> pllaClk{};
             constexpr Register::FieldValue<decltype(css)::Type,CssVal::pllbClk> pllbClk{};
             constexpr Register::FieldValue<decltype(css)::Type,CssVal::mck> mck{};
-        }
         }
         ///Programmable Clock Prescaler
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> pres{}; 

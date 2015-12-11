@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wden)::Type,WdenVal::stop> stop{};
             constexpr Register::FieldValue<decltype(wden)::Type,WdenVal::run> run{};
         }
-        }
         ///Watchdog reset enable bit. This bit is Set Only. See Table 652.
         enum class WdresetVal {
             noreset=0x00000000,     ///<A watchdog timeout will not cause a chip reset.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace WdresetValC{
             constexpr Register::FieldValue<decltype(wdreset)::Type,WdresetVal::noreset> noreset{};
             constexpr Register::FieldValue<decltype(wdreset)::Type,WdresetVal::reset> reset{};
-        }
         }
         ///Watchdog time-out flag. Set when the watchdog timer times out, cleared by software.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wdtof{}; 
@@ -60,7 +58,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::pclk> pclk{};
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::rtcosc> rtcosc{};
         }
-        }
         ///If this bit is set to one writing to this register does not affect bit 0. The clock source can only be changed by first clearing this bit, then writing the new value of bit 0.
         enum class LockVal {
             unlocked=0x00000000,     ///<This bit is set to 0 on any reset. It cannot be cleared by software.
@@ -71,7 +68,6 @@ namespace Kvasir {
         namespace LockValC{
             constexpr Register::FieldValue<decltype(lock)::Type,LockVal::unlocked> unlocked{};
             constexpr Register::FieldValue<decltype(lock)::Type,LockVal::locked> locked{};
-        }
         }
     }
 }

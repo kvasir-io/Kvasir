@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwtov)::Type,PwtovVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pwtov)::Type,PwtovVal::v1> v1{};
         }
-        }
         ///PWT Pulse Width Valid
         enum class PwtrdyVal {
             v0=0x00000000,     ///<PWT pulse width register(s) is not up-to-date.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace PwtrdyValC{
             constexpr Register::FieldValue<decltype(pwtrdy)::Type,PwtrdyVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pwtrdy)::Type,PwtrdyVal::v1> v1{};
-        }
         }
         ///PWT Soft Reset
         enum class PwtsrVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwtsr)::Type,PwtsrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pwtsr)::Type,PwtsrVal::v1> v1{};
         }
-        }
         ///PWT Counter Overflow Interrupt Enable
         enum class PovieVal {
             v0=0x00000000,     ///<Disable PWT to generate interrupt when PWTOV is set.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace PovieValC{
             constexpr Register::FieldValue<decltype(povie)::Type,PovieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(povie)::Type,PovieVal::v1> v1{};
-        }
         }
         ///PWT Pulse Width Data Ready Interrupt Enable
         enum class PrdyieVal {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prdyie)::Type,PrdyieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(prdyie)::Type,PrdyieVal::v1> v1{};
         }
-        }
         ///PWT Module Interrupt Enable
         enum class PwtieVal {
             v0=0x00000000,     ///<Disables the PWT to generate interrupt.
@@ -69,7 +64,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwtie)::Type,PwtieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pwtie)::Type,PwtieVal::v1> v1{};
         }
-        }
         ///PWT Module Enable
         enum class PwtenVal {
             v0=0x00000000,     ///<The PWT is disabled.
@@ -79,7 +73,6 @@ namespace Kvasir {
         namespace PwtenValC{
             constexpr Register::FieldValue<decltype(pwten)::Type,PwtenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pwten)::Type,PwtenVal::v1> v1{};
-        }
         }
         ///PWT Clock Prescaler (CLKPRE) Setting
         enum class PreVal {
@@ -103,7 +96,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pre)::Type,PreVal::v110> v110{};
             constexpr Register::FieldValue<decltype(pre)::Type,PreVal::v111> v111{};
         }
-        }
         ///PWT Input Edge Sensitivity
         enum class EdgeVal {
             v00=0x00000000,     ///<The first falling-edge starts the pulse width measurement, and on all the subsequent falling edges, the pulse width is captured.
@@ -117,7 +109,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::v01> v01{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::v10> v10{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::v11> v11{};
-        }
         }
         ///PWT Pulse Inputs Selection
         enum class PinselVal {
@@ -133,7 +124,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pinsel)::Type,PinselVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pinsel)::Type,PinselVal::v11> v11{};
         }
-        }
         ///PWT Clock Source Selection
         enum class PclksVal {
             v0=0x00000000,     ///<Bus clock is selected as the clock source of PWT counter.
@@ -143,7 +133,6 @@ namespace Kvasir {
         namespace PclksValC{
             constexpr Register::FieldValue<decltype(pclks)::Type,PclksVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pclks)::Type,PclksVal::v1> v1{};
-        }
         }
         ///Positive Pulse Width
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> ppw{}; 

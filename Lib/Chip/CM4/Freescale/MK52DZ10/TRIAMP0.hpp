@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lpen)::Type,LpenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lpen)::Type,LpenVal::v1> v1{};
         }
-        }
         ///TRIAMP Enable
         enum class TriampenVal {
             v0=0x00000000,     ///<The amplifier is disabled and not powered.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace TriampenValC{
             constexpr Register::FieldValue<decltype(triampen)::Type,TriampenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(triampen)::Type,TriampenVal::v1> v1{};
-        }
         }
     }
 }

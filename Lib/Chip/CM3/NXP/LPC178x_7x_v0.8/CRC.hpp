@@ -16,7 +16,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(crcPoly)::Type,CrcpolyVal::crc16Polynomial> crc16Polynomial{};
             constexpr Register::FieldValue<decltype(crcPoly)::Type,CrcpolyVal::crc32Polynomial> crc32Polynomial{};
         }
-        }
         ///Select bit order for CRC_WR_DATA
         enum class BitrvswrVal {
             noBitOrderReverse=0x00000000,     ///<No bit order reverse for CRC_WR_DATA (per byte)
@@ -26,7 +25,6 @@ namespace Kvasir {
         namespace BitrvswrValC{
             constexpr Register::FieldValue<decltype(bitRvsWr)::Type,BitrvswrVal::noBitOrderReverse> noBitOrderReverse{};
             constexpr Register::FieldValue<decltype(bitRvsWr)::Type,BitrvswrVal::bitOrderReverseFo> bitOrderReverseFo{};
-        }
         }
         ///Select one's complement for CRC_WR_DATA
         enum class CmplwrVal {
@@ -38,7 +36,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmplWr)::Type,CmplwrVal::noOnesComplement> noOnesComplement{};
             constexpr Register::FieldValue<decltype(cmplWr)::Type,CmplwrVal::onesComplementFor> onesComplementFor{};
         }
-        }
         ///Select bit order revers for CRC_SUM
         enum class BitrvssumVal {
             noBitOrderReverse=0x00000000,     ///<No bit order reverse for CRC_SUM
@@ -49,7 +46,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bitRvsSum)::Type,BitrvssumVal::noBitOrderReverse> noBitOrderReverse{};
             constexpr Register::FieldValue<decltype(bitRvsSum)::Type,BitrvssumVal::bitOrderReverseFo> bitOrderReverseFo{};
         }
-        }
         ///Select one's complement for CRC_SUM
         enum class CmplsumVal {
             noOnesComplement=0x00000000,     ///<No one's complement for CRC_SUM
@@ -59,7 +55,6 @@ namespace Kvasir {
         namespace CmplsumValC{
             constexpr Register::FieldValue<decltype(cmplSum)::Type,CmplsumVal::noOnesComplement> noOnesComplement{};
             constexpr Register::FieldValue<decltype(cmplSum)::Type,CmplsumVal::onesComplementFor> onesComplementFor{};
-        }
         }
     }
     namespace Noneseed{    ///<CRC seed register

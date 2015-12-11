@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(p0int)::Type,P0intVal::noPendingInterrupt> noPendingInterrupt{};
             constexpr Register::FieldValue<decltype(p0int)::Type,P0intVal::atLeastOnePending> atLeastOnePending{};
         }
-        }
         ///Port 2 GPIO interrupt pending.
         enum class P2intVal {
             noPendingInterrupt=0x00000000,     ///<No pending interrupts on Port 2.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace P2intValC{
             constexpr Register::FieldValue<decltype(p2int)::Type,P2intVal::noPendingInterrupt> noPendingInterrupt{};
             constexpr Register::FieldValue<decltype(p2int)::Type,P2intVal::atLeastOnePending> atLeastOnePending{};
-        }
         }
     }
     namespace Nonestatr0{    ///<GPIO Interrupt Status for Rising edge for Port 0.

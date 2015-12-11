@@ -34,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flexen)::Type,FlexenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(flexen)::Type,FlexenVal::v1> v1{};
         }
-        }
         ///Software Reset
         enum class SwrstVal {
             v0=0x00000000,     ///<Software reset is disabled
@@ -44,7 +43,6 @@ namespace Kvasir {
         namespace SwrstValC{
             constexpr Register::FieldValue<decltype(swrst)::Type,SwrstVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swrst)::Type,SwrstVal::v1> v1{};
-        }
         }
         ///Fast Access
         enum class FastaccVal {
@@ -56,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fastacc)::Type,FastaccVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fastacc)::Type,FastaccVal::v1> v1{};
         }
-        }
         ///Debug Enable
         enum class DbgeVal {
             v0=0x00000000,     ///<FlexIO is disabled in debug modes.
@@ -67,7 +64,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dbge)::Type,DbgeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dbge)::Type,DbgeVal::v1> v1{};
         }
-        }
         ///Doze Enable
         enum class DozenVal {
             v0=0x00000000,     ///<FlexIO enabled in Doze modes.
@@ -77,7 +73,6 @@ namespace Kvasir {
         namespace DozenValC{
             constexpr Register::FieldValue<decltype(dozen)::Type,DozenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dozen)::Type,DozenVal::v1> v1{};
-        }
         }
     }
     namespace FlexioShiftstat{    ///<Shifter Status Register
@@ -133,7 +128,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v100> v100{};
             constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v101> v101{};
         }
-        }
         ///Shifter Pin Polarity
         enum class PinpolVal {
             v0=0x00000000,     ///<Pin is active high
@@ -143,7 +137,6 @@ namespace Kvasir {
         namespace PinpolValC{
             constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v1> v1{};
-        }
         }
         ///Shifter Pin Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> pinsel{}; 
@@ -161,7 +154,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v11> v11{};
         }
-        }
         ///Timer Polarity
         enum class TimpolVal {
             v0=0x00000000,     ///<Shift on posedge of Shift clock
@@ -171,7 +163,6 @@ namespace Kvasir {
         namespace TimpolValC{
             constexpr Register::FieldValue<decltype(timpol)::Type,TimpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(timpol)::Type,TimpolVal::v1> v1{};
-        }
         }
         ///Timer Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,unsigned> timsel{}; 
@@ -194,7 +185,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v100> v100{};
             constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v101> v101{};
         }
-        }
         ///Shifter Pin Polarity
         enum class PinpolVal {
             v0=0x00000000,     ///<Pin is active high
@@ -204,7 +194,6 @@ namespace Kvasir {
         namespace PinpolValC{
             constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v1> v1{};
-        }
         }
         ///Shifter Pin Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> pinsel{}; 
@@ -222,7 +211,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v11> v11{};
         }
-        }
         ///Timer Polarity
         enum class TimpolVal {
             v0=0x00000000,     ///<Shift on posedge of Shift clock
@@ -232,7 +220,6 @@ namespace Kvasir {
         namespace TimpolValC{
             constexpr Register::FieldValue<decltype(timpol)::Type,TimpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(timpol)::Type,TimpolVal::v1> v1{};
-        }
         }
         ///Timer Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,unsigned> timsel{}; 
@@ -255,7 +242,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v100> v100{};
             constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v101> v101{};
         }
-        }
         ///Shifter Pin Polarity
         enum class PinpolVal {
             v0=0x00000000,     ///<Pin is active high
@@ -265,7 +251,6 @@ namespace Kvasir {
         namespace PinpolValC{
             constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v1> v1{};
-        }
         }
         ///Shifter Pin Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> pinsel{}; 
@@ -283,7 +268,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v11> v11{};
         }
-        }
         ///Timer Polarity
         enum class TimpolVal {
             v0=0x00000000,     ///<Shift on posedge of Shift clock
@@ -293,7 +277,6 @@ namespace Kvasir {
         namespace TimpolValC{
             constexpr Register::FieldValue<decltype(timpol)::Type,TimpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(timpol)::Type,TimpolVal::v1> v1{};
-        }
         }
         ///Timer Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,unsigned> timsel{}; 
@@ -316,7 +299,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v100> v100{};
             constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v101> v101{};
         }
-        }
         ///Shifter Pin Polarity
         enum class PinpolVal {
             v0=0x00000000,     ///<Pin is active high
@@ -326,7 +308,6 @@ namespace Kvasir {
         namespace PinpolValC{
             constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v1> v1{};
-        }
         }
         ///Shifter Pin Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> pinsel{}; 
@@ -344,7 +325,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v11> v11{};
         }
-        }
         ///Timer Polarity
         enum class TimpolVal {
             v0=0x00000000,     ///<Shift on posedge of Shift clock
@@ -354,7 +334,6 @@ namespace Kvasir {
         namespace TimpolValC{
             constexpr Register::FieldValue<decltype(timpol)::Type,TimpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(timpol)::Type,TimpolVal::v1> v1{};
-        }
         }
         ///Timer Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,unsigned> timsel{}; 
@@ -375,7 +354,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sstart)::Type,SstartVal::v10> v10{};
             constexpr Register::FieldValue<decltype(sstart)::Type,SstartVal::v11> v11{};
         }
-        }
         ///Shifter Stop bit
         enum class SstopVal {
             v00=0x00000000,     ///<Stop bit disabled for transmitter/receiver/match store
@@ -390,7 +368,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sstop)::Type,SstopVal::v10> v10{};
             constexpr Register::FieldValue<decltype(sstop)::Type,SstopVal::v11> v11{};
         }
-        }
         ///Input Source
         enum class InsrcVal {
             v0=0x00000000,     ///<Pin
@@ -400,7 +377,6 @@ namespace Kvasir {
         namespace InsrcValC{
             constexpr Register::FieldValue<decltype(insrc)::Type,InsrcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(insrc)::Type,InsrcVal::v1> v1{};
-        }
         }
     }
     namespace FlexioShiftcfg1{    ///<Shifter Configuration N Register
@@ -419,7 +395,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sstart)::Type,SstartVal::v10> v10{};
             constexpr Register::FieldValue<decltype(sstart)::Type,SstartVal::v11> v11{};
         }
-        }
         ///Shifter Stop bit
         enum class SstopVal {
             v00=0x00000000,     ///<Stop bit disabled for transmitter/receiver/match store
@@ -434,7 +409,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sstop)::Type,SstopVal::v10> v10{};
             constexpr Register::FieldValue<decltype(sstop)::Type,SstopVal::v11> v11{};
         }
-        }
         ///Input Source
         enum class InsrcVal {
             v0=0x00000000,     ///<Pin
@@ -444,7 +418,6 @@ namespace Kvasir {
         namespace InsrcValC{
             constexpr Register::FieldValue<decltype(insrc)::Type,InsrcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(insrc)::Type,InsrcVal::v1> v1{};
-        }
         }
     }
     namespace FlexioShiftcfg2{    ///<Shifter Configuration N Register
@@ -463,7 +436,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sstart)::Type,SstartVal::v10> v10{};
             constexpr Register::FieldValue<decltype(sstart)::Type,SstartVal::v11> v11{};
         }
-        }
         ///Shifter Stop bit
         enum class SstopVal {
             v00=0x00000000,     ///<Stop bit disabled for transmitter/receiver/match store
@@ -478,7 +450,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sstop)::Type,SstopVal::v10> v10{};
             constexpr Register::FieldValue<decltype(sstop)::Type,SstopVal::v11> v11{};
         }
-        }
         ///Input Source
         enum class InsrcVal {
             v0=0x00000000,     ///<Pin
@@ -488,7 +459,6 @@ namespace Kvasir {
         namespace InsrcValC{
             constexpr Register::FieldValue<decltype(insrc)::Type,InsrcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(insrc)::Type,InsrcVal::v1> v1{};
-        }
         }
     }
     namespace FlexioShiftcfg3{    ///<Shifter Configuration N Register
@@ -507,7 +477,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sstart)::Type,SstartVal::v10> v10{};
             constexpr Register::FieldValue<decltype(sstart)::Type,SstartVal::v11> v11{};
         }
-        }
         ///Shifter Stop bit
         enum class SstopVal {
             v00=0x00000000,     ///<Stop bit disabled for transmitter/receiver/match store
@@ -522,7 +491,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sstop)::Type,SstopVal::v10> v10{};
             constexpr Register::FieldValue<decltype(sstop)::Type,SstopVal::v11> v11{};
         }
-        }
         ///Input Source
         enum class InsrcVal {
             v0=0x00000000,     ///<Pin
@@ -532,7 +500,6 @@ namespace Kvasir {
         namespace InsrcValC{
             constexpr Register::FieldValue<decltype(insrc)::Type,InsrcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(insrc)::Type,InsrcVal::v1> v1{};
-        }
         }
     }
     namespace FlexioShiftbuf0{    ///<Shifter Buffer N Register
@@ -631,7 +598,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timod)::Type,TimodVal::v10> v10{};
             constexpr Register::FieldValue<decltype(timod)::Type,TimodVal::v11> v11{};
         }
-        }
         ///Timer Pin Polarity
         enum class PinpolVal {
             v0=0x00000000,     ///<Pin is active high
@@ -641,7 +607,6 @@ namespace Kvasir {
         namespace PinpolValC{
             constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v1> v1{};
-        }
         }
         ///Timer Pin Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> pinsel{}; 
@@ -659,7 +624,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v11> v11{};
         }
-        }
         ///Trigger Source
         enum class TrgsrcVal {
             v0=0x00000000,     ///<External trigger selected
@@ -670,7 +634,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trgsrc)::Type,TrgsrcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(trgsrc)::Type,TrgsrcVal::v1> v1{};
         }
-        }
         ///Trigger Polarity
         enum class TrgpolVal {
             v0=0x00000000,     ///<Trigger active high
@@ -680,7 +643,6 @@ namespace Kvasir {
         namespace TrgpolValC{
             constexpr Register::FieldValue<decltype(trgpol)::Type,TrgpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(trgpol)::Type,TrgpolVal::v1> v1{};
-        }
         }
         ///Trigger Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> trgsel{}; 
@@ -701,7 +663,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timod)::Type,TimodVal::v10> v10{};
             constexpr Register::FieldValue<decltype(timod)::Type,TimodVal::v11> v11{};
         }
-        }
         ///Timer Pin Polarity
         enum class PinpolVal {
             v0=0x00000000,     ///<Pin is active high
@@ -711,7 +672,6 @@ namespace Kvasir {
         namespace PinpolValC{
             constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v1> v1{};
-        }
         }
         ///Timer Pin Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> pinsel{}; 
@@ -729,7 +689,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v11> v11{};
         }
-        }
         ///Trigger Source
         enum class TrgsrcVal {
             v0=0x00000000,     ///<External trigger selected
@@ -740,7 +699,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trgsrc)::Type,TrgsrcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(trgsrc)::Type,TrgsrcVal::v1> v1{};
         }
-        }
         ///Trigger Polarity
         enum class TrgpolVal {
             v0=0x00000000,     ///<Trigger active high
@@ -750,7 +708,6 @@ namespace Kvasir {
         namespace TrgpolValC{
             constexpr Register::FieldValue<decltype(trgpol)::Type,TrgpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(trgpol)::Type,TrgpolVal::v1> v1{};
-        }
         }
         ///Trigger Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> trgsel{}; 
@@ -771,7 +728,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timod)::Type,TimodVal::v10> v10{};
             constexpr Register::FieldValue<decltype(timod)::Type,TimodVal::v11> v11{};
         }
-        }
         ///Timer Pin Polarity
         enum class PinpolVal {
             v0=0x00000000,     ///<Pin is active high
@@ -781,7 +737,6 @@ namespace Kvasir {
         namespace PinpolValC{
             constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v1> v1{};
-        }
         }
         ///Timer Pin Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> pinsel{}; 
@@ -799,7 +754,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v11> v11{};
         }
-        }
         ///Trigger Source
         enum class TrgsrcVal {
             v0=0x00000000,     ///<External trigger selected
@@ -810,7 +764,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trgsrc)::Type,TrgsrcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(trgsrc)::Type,TrgsrcVal::v1> v1{};
         }
-        }
         ///Trigger Polarity
         enum class TrgpolVal {
             v0=0x00000000,     ///<Trigger active high
@@ -820,7 +773,6 @@ namespace Kvasir {
         namespace TrgpolValC{
             constexpr Register::FieldValue<decltype(trgpol)::Type,TrgpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(trgpol)::Type,TrgpolVal::v1> v1{};
-        }
         }
         ///Trigger Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> trgsel{}; 
@@ -841,7 +793,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timod)::Type,TimodVal::v10> v10{};
             constexpr Register::FieldValue<decltype(timod)::Type,TimodVal::v11> v11{};
         }
-        }
         ///Timer Pin Polarity
         enum class PinpolVal {
             v0=0x00000000,     ///<Pin is active high
@@ -851,7 +802,6 @@ namespace Kvasir {
         namespace PinpolValC{
             constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v1> v1{};
-        }
         }
         ///Timer Pin Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> pinsel{}; 
@@ -869,7 +819,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v11> v11{};
         }
-        }
         ///Trigger Source
         enum class TrgsrcVal {
             v0=0x00000000,     ///<External trigger selected
@@ -880,7 +829,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trgsrc)::Type,TrgsrcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(trgsrc)::Type,TrgsrcVal::v1> v1{};
         }
-        }
         ///Trigger Polarity
         enum class TrgpolVal {
             v0=0x00000000,     ///<Trigger active high
@@ -890,7 +838,6 @@ namespace Kvasir {
         namespace TrgpolValC{
             constexpr Register::FieldValue<decltype(trgpol)::Type,TrgpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(trgpol)::Type,TrgpolVal::v1> v1{};
-        }
         }
         ///Trigger Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> trgsel{}; 
@@ -907,7 +854,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tstart)::Type,TstartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tstart)::Type,TstartVal::v1> v1{};
         }
-        }
         ///Timer Stop Bit
         enum class TstopVal {
             v00=0x00000000,     ///<Stop bit disabled
@@ -921,7 +867,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v01> v01{};
             constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v10> v10{};
             constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v11> v11{};
-        }
         }
         ///Timer Enable
         enum class TimenaVal {
@@ -945,7 +890,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v110> v110{};
             constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v111> v111{};
         }
-        }
         ///Timer Disable
         enum class TimdisVal {
             v000=0x00000000,     ///<Timer never disabled
@@ -966,7 +910,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v101> v101{};
             constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v110> v110{};
         }
-        }
         ///Timer Reset
         enum class TimrstVal {
             v000=0x00000000,     ///<Timer never reset
@@ -985,7 +928,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v110> v110{};
             constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v111> v111{};
         }
-        }
         ///Timer Decrement
         enum class TimdecVal {
             v00=0x00000000,     ///<Decrement counter on FlexIO clock, Shift clock equals Timer output.
@@ -1000,7 +942,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timdec)::Type,TimdecVal::v10> v10{};
             constexpr Register::FieldValue<decltype(timdec)::Type,TimdecVal::v11> v11{};
         }
-        }
         ///Timer Output
         enum class TimoutVal {
             v00=0x00000000,     ///<Timer output is logic one when enabled and is not affected by timer reset
@@ -1014,7 +955,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v01> v01{};
             constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v10> v10{};
             constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v11> v11{};
-        }
         }
     }
     namespace FlexioTimcfg1{    ///<Timer Configuration N Register
@@ -1029,7 +969,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tstart)::Type,TstartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tstart)::Type,TstartVal::v1> v1{};
         }
-        }
         ///Timer Stop Bit
         enum class TstopVal {
             v00=0x00000000,     ///<Stop bit disabled
@@ -1043,7 +982,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v01> v01{};
             constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v10> v10{};
             constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v11> v11{};
-        }
         }
         ///Timer Enable
         enum class TimenaVal {
@@ -1067,7 +1005,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v110> v110{};
             constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v111> v111{};
         }
-        }
         ///Timer Disable
         enum class TimdisVal {
             v000=0x00000000,     ///<Timer never disabled
@@ -1088,7 +1025,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v101> v101{};
             constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v110> v110{};
         }
-        }
         ///Timer Reset
         enum class TimrstVal {
             v000=0x00000000,     ///<Timer never reset
@@ -1107,7 +1043,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v110> v110{};
             constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v111> v111{};
         }
-        }
         ///Timer Decrement
         enum class TimdecVal {
             v00=0x00000000,     ///<Decrement counter on FlexIO clock, Shift clock equals Timer output.
@@ -1122,7 +1057,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timdec)::Type,TimdecVal::v10> v10{};
             constexpr Register::FieldValue<decltype(timdec)::Type,TimdecVal::v11> v11{};
         }
-        }
         ///Timer Output
         enum class TimoutVal {
             v00=0x00000000,     ///<Timer output is logic one when enabled and is not affected by timer reset
@@ -1136,7 +1070,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v01> v01{};
             constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v10> v10{};
             constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v11> v11{};
-        }
         }
     }
     namespace FlexioTimcfg2{    ///<Timer Configuration N Register
@@ -1151,7 +1084,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tstart)::Type,TstartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tstart)::Type,TstartVal::v1> v1{};
         }
-        }
         ///Timer Stop Bit
         enum class TstopVal {
             v00=0x00000000,     ///<Stop bit disabled
@@ -1165,7 +1097,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v01> v01{};
             constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v10> v10{};
             constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v11> v11{};
-        }
         }
         ///Timer Enable
         enum class TimenaVal {
@@ -1189,7 +1120,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v110> v110{};
             constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v111> v111{};
         }
-        }
         ///Timer Disable
         enum class TimdisVal {
             v000=0x00000000,     ///<Timer never disabled
@@ -1210,7 +1140,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v101> v101{};
             constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v110> v110{};
         }
-        }
         ///Timer Reset
         enum class TimrstVal {
             v000=0x00000000,     ///<Timer never reset
@@ -1229,7 +1158,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v110> v110{};
             constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v111> v111{};
         }
-        }
         ///Timer Decrement
         enum class TimdecVal {
             v00=0x00000000,     ///<Decrement counter on FlexIO clock, Shift clock equals Timer output.
@@ -1244,7 +1172,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timdec)::Type,TimdecVal::v10> v10{};
             constexpr Register::FieldValue<decltype(timdec)::Type,TimdecVal::v11> v11{};
         }
-        }
         ///Timer Output
         enum class TimoutVal {
             v00=0x00000000,     ///<Timer output is logic one when enabled and is not affected by timer reset
@@ -1258,7 +1185,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v01> v01{};
             constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v10> v10{};
             constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v11> v11{};
-        }
         }
     }
     namespace FlexioTimcfg3{    ///<Timer Configuration N Register
@@ -1273,7 +1199,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tstart)::Type,TstartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tstart)::Type,TstartVal::v1> v1{};
         }
-        }
         ///Timer Stop Bit
         enum class TstopVal {
             v00=0x00000000,     ///<Stop bit disabled
@@ -1287,7 +1212,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v01> v01{};
             constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v10> v10{};
             constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v11> v11{};
-        }
         }
         ///Timer Enable
         enum class TimenaVal {
@@ -1311,7 +1235,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v110> v110{};
             constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v111> v111{};
         }
-        }
         ///Timer Disable
         enum class TimdisVal {
             v000=0x00000000,     ///<Timer never disabled
@@ -1332,7 +1255,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v101> v101{};
             constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v110> v110{};
         }
-        }
         ///Timer Reset
         enum class TimrstVal {
             v000=0x00000000,     ///<Timer never reset
@@ -1351,7 +1273,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v110> v110{};
             constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v111> v111{};
         }
-        }
         ///Timer Decrement
         enum class TimdecVal {
             v00=0x00000000,     ///<Decrement counter on FlexIO clock, Shift clock equals Timer output.
@@ -1366,7 +1287,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timdec)::Type,TimdecVal::v10> v10{};
             constexpr Register::FieldValue<decltype(timdec)::Type,TimdecVal::v11> v11{};
         }
-        }
         ///Timer Output
         enum class TimoutVal {
             v00=0x00000000,     ///<Timer output is logic one when enabled and is not affected by timer reset
@@ -1380,7 +1300,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v01> v01{};
             constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v10> v10{};
             constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v11> v11{};
-        }
         }
     }
     namespace FlexioTimcmp0{    ///<Timer Compare N Register

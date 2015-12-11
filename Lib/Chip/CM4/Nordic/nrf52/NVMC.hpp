@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::busy> busy{};
             constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::ready> ready{};
         }
-        }
     }
     namespace Noneconfig{    ///<Configuration register
         using Addr = Register::Address<0x4001e504,0xfffffffc,0,unsigned>;
@@ -29,7 +28,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wen)::Type,WenVal::ren> ren{};
             constexpr Register::FieldValue<decltype(wen)::Type,WenVal::wen> wen{};
             constexpr Register::FieldValue<decltype(wen)::Type,WenVal::een> een{};
-        }
         }
     }
     namespace Noneerasepage{    ///<Register for erasing a page in Code area
@@ -54,7 +52,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eraseall)::Type,EraseallVal::nooperation> nooperation{};
             constexpr Register::FieldValue<decltype(eraseall)::Type,EraseallVal::erase> erase{};
         }
-        }
     }
     namespace Noneerasepcr0{    ///<Deprecated register -  Register for erasing a page in Code area. Equivalent to ERASEPAGE.
         using Addr = Register::Address<0x4001e510,0x00000000,0,unsigned>;
@@ -73,7 +70,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eraseuicr)::Type,EraseuicrVal::nooperation> nooperation{};
             constexpr Register::FieldValue<decltype(eraseuicr)::Type,EraseuicrVal::erase> erase{};
         }
-        }
     }
     namespace Noneicachecnf{    ///<I-Code cache configuration register.
         using Addr = Register::Address<0x4001e540,0xfffffefe,0,unsigned>;
@@ -87,7 +83,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cacheen)::Type,CacheenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cacheen)::Type,CacheenVal::enabled> enabled{};
         }
-        }
         ///Cache profiling enable
         enum class CacheprofenVal {
             disabled=0x00000000,     ///<Disable cache profiling
@@ -97,7 +92,6 @@ namespace Kvasir {
         namespace CacheprofenValC{
             constexpr Register::FieldValue<decltype(cacheprofen)::Type,CacheprofenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cacheprofen)::Type,CacheprofenVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneihit{    ///<I-Code cache hit counter.

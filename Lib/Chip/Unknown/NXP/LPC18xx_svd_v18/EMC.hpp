@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(e)::Type,EVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(e)::Type,EVal::enabledPorAndWar> enabledPorAndWar{};
         }
-        }
         ///Address mirror. Indicates normal or reset memory map. On POR, CS1 is mirrored to both CS0 and DYCS0 memory areas. Clearing the M bit enables CS0 and DYCS0 memory to be accessed.
         enum class MVal {
             normalMemoryMap=0x00000000,     ///<Normal memory map.
@@ -25,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(m)::Type,MVal::normalMemoryMap> normalMemoryMap{};
             constexpr Register::FieldValue<decltype(m)::Type,MVal::resetMemoryMapSt> resetMemoryMapSt{};
         }
-        }
         ///Low-power mode. Indicates normal, or low-power mode. Entering low-power mode reduces memory controller power consumption. Dynamic memory is refreshed as necessary. The memory controller returns to normal functional mode by clearing the low-power mode bit (L), or by POR. This bit must only be modified when the EMC is in idle state.[1]
         enum class LVal {
             normalModeWarmRe=0x00000000,     ///<Normal mode (warm reset value).
@@ -35,7 +33,6 @@ namespace Kvasir {
         namespace LValC{
             constexpr Register::FieldValue<decltype(l)::Type,LVal::normalModeWarmRe> normalModeWarmRe{};
             constexpr Register::FieldValue<decltype(l)::Type,LVal::lowPowerMode> lowPowerMode{};
-        }
         }
     }
     namespace Nonestatus{    ///<Provides EMC status information.
@@ -50,7 +47,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(b)::Type,BVal::emcIsIdleWarmRe> emcIsIdleWarmRe{};
             constexpr Register::FieldValue<decltype(b)::Type,BVal::emcIsBusyPerformi> emcIsBusyPerformi{};
         }
-        }
         ///Write buffer status. This bit enables the EMC to enter low-power mode or disabled mode cleanly:
         enum class SVal {
             writeBuffersEmpty=0x00000000,     ///<Write buffers empty (POR reset value)
@@ -61,7 +57,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(s)::Type,SVal::writeBuffersEmpty> writeBuffersEmpty{};
             constexpr Register::FieldValue<decltype(s)::Type,SVal::writeBuffersContai> writeBuffersContai{};
         }
-        }
         ///Self-refresh acknowledge. This bit indicates the operating mode of the EMC:
         enum class SaVal {
             normalMode=0x00000000,     ///<Normal mode
@@ -71,7 +66,6 @@ namespace Kvasir {
         namespace SaValC{
             constexpr Register::FieldValue<decltype(sa)::Type,SaVal::normalMode> normalMode{};
             constexpr Register::FieldValue<decltype(sa)::Type,SaVal::selfRefreshModeP> selfRefreshModeP{};
-        }
         }
     }
     namespace Noneconfig{    ///<Configures operation of the memory controller.
@@ -86,7 +80,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(em)::Type,EmVal::littleEndianMode> littleEndianMode{};
             constexpr Register::FieldValue<decltype(em)::Type,EmVal::bigEndianMode> bigEndianMode{};
         }
-        }
         ///Clock Ratio. CCLK: CLKOUT[1:0] ratio:
         enum class CrVal {
             v1to1PorResetValue=0x00000000,     ///<1:1 (POR reset value)
@@ -96,7 +89,6 @@ namespace Kvasir {
         namespace CrValC{
             constexpr Register::FieldValue<decltype(cr)::Type,CrVal::v1to1PorResetValue> v1to1PorResetValue{};
             constexpr Register::FieldValue<decltype(cr)::Type,CrVal::v1to2> v1to2{};
-        }
         }
     }
     namespace Nonedynamiccontrol{    ///<Controls dynamic memory operation.
@@ -111,7 +103,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::clockEnableOfIdle> clockEnableOfIdle{};
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::allClockEnablesAr> allClockEnablesAr{};
         }
-        }
         ///Dynamic memory clock control. When clock control is LOW the output clock CLKOUT is stopped when there are no SDRAM transactions. The clock is also stopped during self-refresh mode.
         enum class CsVal {
             clkoutStopsWhenAl=0x00000000,     ///<CLKOUT stops when all SDRAMs are idle and during self-refresh mode.
@@ -121,7 +112,6 @@ namespace Kvasir {
         namespace CsValC{
             constexpr Register::FieldValue<decltype(cs)::Type,CsVal::clkoutStopsWhenAl> clkoutStopsWhenAl{};
             constexpr Register::FieldValue<decltype(cs)::Type,CsVal::clkoutRunsContinuo> clkoutRunsContinuo{};
-        }
         }
         ///Self-refresh request, EMCSREFREQ. By writing 1 to this bit self-refresh can be entered under software control. Writing 0 to this bit returns the EMC to normal mode. The self-refresh acknowledge bit in the Status register must be polled to discover the current operating mode of the EMC.[2]
         enum class SrVal {
@@ -133,7 +123,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sr)::Type,SrVal::normalMode> normalMode{};
             constexpr Register::FieldValue<decltype(sr)::Type,SrVal::enterSelfRefreshM> enterSelfRefreshM{};
         }
-        }
         ///Memory clock control.
         enum class MmcVal {
             clkoutEnabledPor=0x00000000,     ///<CLKOUT enabled (POR reset value).
@@ -143,7 +132,6 @@ namespace Kvasir {
         namespace MmcValC{
             constexpr Register::FieldValue<decltype(mmc)::Type,MmcVal::clkoutEnabledPor> clkoutEnabledPor{};
             constexpr Register::FieldValue<decltype(mmc)::Type,MmcVal::clkoutDisabled3> clkoutDisabled3{};
-        }
         }
         ///SDRAM initialization.
         enum class IVal {
@@ -159,7 +147,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i)::Type,IVal::issueSdramPallPr> issueSdramPallPr{};
             constexpr Register::FieldValue<decltype(i)::Type,IVal::issueSdramNopNo> issueSdramNopNo{};
         }
-        }
         ///Low-power SDRAM deep-sleep mode.
         enum class DpVal {
             normalOperationPo=0x00000000,     ///<Normal operation (POR reset value).
@@ -169,7 +156,6 @@ namespace Kvasir {
         namespace DpValC{
             constexpr Register::FieldValue<decltype(dp)::Type,DpVal::normalOperationPo> normalOperationPo{};
             constexpr Register::FieldValue<decltype(dp)::Type,DpVal::enterDeepSleepMod> enterDeepSleepMod{};
-        }
         }
     }
     namespace Nonedynamicrefresh{    ///<Configures dynamic memory refresh operation.
@@ -192,7 +178,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rd)::Type,RdVal::commandDelayed> commandDelayed{};
             constexpr Register::FieldValue<decltype(rd)::Type,RdVal::commandDelayedPlus1> commandDelayedPlus1{};
             constexpr Register::FieldValue<decltype(rd)::Type,RdVal::commandDelayedPlus2> commandDelayedPlus2{};
-        }
         }
     }
     namespace Nonedynamicrp{    ///<Selects the precharge command period.
@@ -269,7 +254,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::lowPowerSdram> lowPowerSdram{};
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::micronSyncflash> micronSyncflash{};
         }
-        }
         ///Address mapping. See Table 197. 000000 = reset value.[1]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,7),Register::ReadWriteAccess,unsigned> am0{}; 
         ///Address mapping See Table 197. 0 = reset value.
@@ -284,7 +268,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferDisabledFor> bufferDisabledFor{};
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferEnabledForA> bufferEnabledForA{};
         }
-        }
         ///Write protect.
         enum class PVal {
             writesNotProtected=0x00000000,     ///<Writes not protected (POR reset value).
@@ -294,7 +277,6 @@ namespace Kvasir {
         namespace PValC{
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesNotProtected> writesNotProtected{};
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesProtected> writesProtected{};
-        }
         }
     }
     namespace Nonedynamicconfig1{    ///<Selects the configuration information for dynamic memory chip select n.
@@ -311,7 +293,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::lowPowerSdram> lowPowerSdram{};
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::micronSyncflash> micronSyncflash{};
         }
-        }
         ///Address mapping. See Table 197. 000000 = reset value.[1]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,7),Register::ReadWriteAccess,unsigned> am0{}; 
         ///Address mapping See Table 197. 0 = reset value.
@@ -326,7 +307,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferDisabledFor> bufferDisabledFor{};
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferEnabledForA> bufferEnabledForA{};
         }
-        }
         ///Write protect.
         enum class PVal {
             writesNotProtected=0x00000000,     ///<Writes not protected (POR reset value).
@@ -336,7 +316,6 @@ namespace Kvasir {
         namespace PValC{
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesNotProtected> writesNotProtected{};
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesProtected> writesProtected{};
-        }
         }
     }
     namespace Nonedynamicconfig2{    ///<Selects the configuration information for dynamic memory chip select n.
@@ -353,7 +332,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::lowPowerSdram> lowPowerSdram{};
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::micronSyncflash> micronSyncflash{};
         }
-        }
         ///Address mapping. See Table 197. 000000 = reset value.[1]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,7),Register::ReadWriteAccess,unsigned> am0{}; 
         ///Address mapping See Table 197. 0 = reset value.
@@ -368,7 +346,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferDisabledFor> bufferDisabledFor{};
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferEnabledForA> bufferEnabledForA{};
         }
-        }
         ///Write protect.
         enum class PVal {
             writesNotProtected=0x00000000,     ///<Writes not protected (POR reset value).
@@ -378,7 +355,6 @@ namespace Kvasir {
         namespace PValC{
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesNotProtected> writesNotProtected{};
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesProtected> writesProtected{};
-        }
         }
     }
     namespace Nonedynamicconfig3{    ///<Selects the configuration information for dynamic memory chip select n.
@@ -395,7 +371,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::lowPowerSdram> lowPowerSdram{};
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::micronSyncflash> micronSyncflash{};
         }
-        }
         ///Address mapping. See Table 197. 000000 = reset value.[1]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,7),Register::ReadWriteAccess,unsigned> am0{}; 
         ///Address mapping See Table 197. 0 = reset value.
@@ -410,7 +385,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferDisabledFor> bufferDisabledFor{};
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferEnabledForA> bufferEnabledForA{};
         }
-        }
         ///Write protect.
         enum class PVal {
             writesNotProtected=0x00000000,     ///<Writes not protected (POR reset value).
@@ -420,7 +394,6 @@ namespace Kvasir {
         namespace PValC{
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesNotProtected> writesNotProtected{};
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesProtected> writesProtected{};
-        }
         }
     }
     namespace Nonedynamicrascas0{    ///<Selects the RAS and CAS latencies for dynamic memory chip select n.
@@ -437,7 +410,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ras)::Type,RasVal::twoCclkCycles> twoCclkCycles{};
             constexpr Register::FieldValue<decltype(ras)::Type,RasVal::threeCclkCyclesP> threeCclkCyclesP{};
         }
-        }
         ///CAS latency.
         enum class CasVal {
             oneCclkCycle=0x00000001,     ///<One CCLK cycle.
@@ -449,7 +421,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::oneCclkCycle> oneCclkCycle{};
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::twoCclkCycles> twoCclkCycles{};
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::threeCclkCyclesP> threeCclkCyclesP{};
-        }
         }
     }
     namespace Nonedynamicrascas1{    ///<Selects the RAS and CAS latencies for dynamic memory chip select n.
@@ -466,7 +437,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ras)::Type,RasVal::twoCclkCycles> twoCclkCycles{};
             constexpr Register::FieldValue<decltype(ras)::Type,RasVal::threeCclkCyclesP> threeCclkCyclesP{};
         }
-        }
         ///CAS latency.
         enum class CasVal {
             oneCclkCycle=0x00000001,     ///<One CCLK cycle.
@@ -478,7 +448,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::oneCclkCycle> oneCclkCycle{};
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::twoCclkCycles> twoCclkCycles{};
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::threeCclkCyclesP> threeCclkCyclesP{};
-        }
         }
     }
     namespace Nonedynamicrascas2{    ///<Selects the RAS and CAS latencies for dynamic memory chip select n.
@@ -495,7 +464,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ras)::Type,RasVal::twoCclkCycles> twoCclkCycles{};
             constexpr Register::FieldValue<decltype(ras)::Type,RasVal::threeCclkCyclesP> threeCclkCyclesP{};
         }
-        }
         ///CAS latency.
         enum class CasVal {
             oneCclkCycle=0x00000001,     ///<One CCLK cycle.
@@ -507,7 +475,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::oneCclkCycle> oneCclkCycle{};
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::twoCclkCycles> twoCclkCycles{};
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::threeCclkCyclesP> threeCclkCyclesP{};
-        }
         }
     }
     namespace Nonedynamicrascas3{    ///<Selects the RAS and CAS latencies for dynamic memory chip select n.
@@ -524,7 +491,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ras)::Type,RasVal::twoCclkCycles> twoCclkCycles{};
             constexpr Register::FieldValue<decltype(ras)::Type,RasVal::threeCclkCyclesP> threeCclkCyclesP{};
         }
-        }
         ///CAS latency.
         enum class CasVal {
             oneCclkCycle=0x00000001,     ///<One CCLK cycle.
@@ -536,7 +502,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::oneCclkCycle> oneCclkCycle{};
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::twoCclkCycles> twoCclkCycles{};
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::threeCclkCyclesP> threeCclkCyclesP{};
-        }
         }
     }
     namespace Nonestaticconfig0{    ///<Selects the memory configuration for static chip select n.
@@ -553,7 +518,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mw)::Type,MwVal::v16Bit> v16Bit{};
             constexpr Register::FieldValue<decltype(mw)::Type,MwVal::v32Bit> v32Bit{};
         }
-        }
         ///Page mode. In page mode the EMC can burst up to four external accesses. Therefore devices with asynchronous page mode burst four or higher devices are supported. Asynchronous page mode burst two devices are not supported and must be accessed normally.
         enum class PmVal {
             disabledPorReset=0x00000000,     ///<Disabled (POR reset value).
@@ -563,7 +527,6 @@ namespace Kvasir {
         namespace PmValC{
             constexpr Register::FieldValue<decltype(pm)::Type,PmVal::disabledPorReset> disabledPorReset{};
             constexpr Register::FieldValue<decltype(pm)::Type,PmVal::asyncPageModeEnab> asyncPageModeEnab{};
-        }
         }
         ///Chip select polarity. The value of the chip select polarity on power-on reset is 0.
         enum class PcVal {
@@ -575,7 +538,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pc)::Type,PcVal::activeLowChipSele> activeLowChipSele{};
             constexpr Register::FieldValue<decltype(pc)::Type,PcVal::activeHighChipSel> activeHighChipSel{};
         }
-        }
         ///Byte lane state. The byte lane state bit, PB, enables different types of memory to be connected. For byte-wide static memories the BLSn[3:0] signal from the EMC is usually connected to WE (write enable). In this case for reads all the BLSn[3:0] bits must be HIGH. This means that the byte lane state (PB) bit must be LOW. 16 bit wide static memory devices usually have the BLSn[3:0] signals connected to the UBn and LBn (upper byte and lower byte) signals in the static memory. In this case a write to a particular byte must assert the appropriate UBn or LBn signal LOW. For reads, all the UB and LB signals must be asserted LOW so that the bus is driven. In this case the byte lane state (PB) bit must be HIGH. When PB is set to 0, the WE signal is undefined or 0. You must set PB to 1, to use the WE signal.
         enum class PbVal {
             high=0x00000000,     ///<For reads all the bits in BLSn[3:0] are HIGH. For writes the respective active bits in BLSn[3:0] are LOW (POR reset value).
@@ -585,7 +547,6 @@ namespace Kvasir {
         namespace PbValC{
             constexpr Register::FieldValue<decltype(pb)::Type,PbVal::high> high{};
             constexpr Register::FieldValue<decltype(pb)::Type,PbVal::low> low{};
-        }
         }
         ///Extended wait. Extended wait (EW) uses the StaticExtendedWait register to time both the read and write transfers rather than the StaticWaitRd and StaticWaitWr registers. This enables much longer transactions.[1]
         enum class EwVal {
@@ -597,7 +558,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ew)::Type,EwVal::extendedWaitDisabl> extendedWaitDisabl{};
             constexpr Register::FieldValue<decltype(ew)::Type,EwVal::extendedWaitEnable> extendedWaitEnable{};
         }
-        }
         ///Buffer enable[2].
         enum class BVal {
             bufferDisabledPor=0x00000000,     ///<Buffer disabled (POR reset value).
@@ -608,7 +568,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferDisabledPor> bufferDisabledPor{};
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferEnabled> bufferEnabled{};
         }
-        }
         ///Write protect.
         enum class PVal {
             writesNotProtected=0x00000000,     ///<Writes not protected (POR reset value).
@@ -618,7 +577,6 @@ namespace Kvasir {
         namespace PValC{
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesNotProtected> writesNotProtected{};
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writeProtected> writeProtected{};
-        }
         }
     }
     namespace Nonestaticconfig1{    ///<Selects the memory configuration for static chip select n.
@@ -635,7 +593,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mw)::Type,MwVal::v16Bit> v16Bit{};
             constexpr Register::FieldValue<decltype(mw)::Type,MwVal::v32Bit> v32Bit{};
         }
-        }
         ///Page mode. In page mode the EMC can burst up to four external accesses. Therefore devices with asynchronous page mode burst four or higher devices are supported. Asynchronous page mode burst two devices are not supported and must be accessed normally.
         enum class PmVal {
             disabledPorReset=0x00000000,     ///<Disabled (POR reset value).
@@ -645,7 +602,6 @@ namespace Kvasir {
         namespace PmValC{
             constexpr Register::FieldValue<decltype(pm)::Type,PmVal::disabledPorReset> disabledPorReset{};
             constexpr Register::FieldValue<decltype(pm)::Type,PmVal::asyncPageModeEnab> asyncPageModeEnab{};
-        }
         }
         ///Chip select polarity. The value of the chip select polarity on power-on reset is 0.
         enum class PcVal {
@@ -657,7 +613,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pc)::Type,PcVal::activeLowChipSele> activeLowChipSele{};
             constexpr Register::FieldValue<decltype(pc)::Type,PcVal::activeHighChipSel> activeHighChipSel{};
         }
-        }
         ///Byte lane state. The byte lane state bit, PB, enables different types of memory to be connected. For byte-wide static memories the BLSn[3:0] signal from the EMC is usually connected to WE (write enable). In this case for reads all the BLSn[3:0] bits must be HIGH. This means that the byte lane state (PB) bit must be LOW. 16 bit wide static memory devices usually have the BLSn[3:0] signals connected to the UBn and LBn (upper byte and lower byte) signals in the static memory. In this case a write to a particular byte must assert the appropriate UBn or LBn signal LOW. For reads, all the UB and LB signals must be asserted LOW so that the bus is driven. In this case the byte lane state (PB) bit must be HIGH. When PB is set to 0, the WE signal is undefined or 0. You must set PB to 1, to use the WE signal.
         enum class PbVal {
             high=0x00000000,     ///<For reads all the bits in BLSn[3:0] are HIGH. For writes the respective active bits in BLSn[3:0] are LOW (POR reset value).
@@ -667,7 +622,6 @@ namespace Kvasir {
         namespace PbValC{
             constexpr Register::FieldValue<decltype(pb)::Type,PbVal::high> high{};
             constexpr Register::FieldValue<decltype(pb)::Type,PbVal::low> low{};
-        }
         }
         ///Extended wait. Extended wait (EW) uses the StaticExtendedWait register to time both the read and write transfers rather than the StaticWaitRd and StaticWaitWr registers. This enables much longer transactions.[1]
         enum class EwVal {
@@ -679,7 +633,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ew)::Type,EwVal::extendedWaitDisabl> extendedWaitDisabl{};
             constexpr Register::FieldValue<decltype(ew)::Type,EwVal::extendedWaitEnable> extendedWaitEnable{};
         }
-        }
         ///Buffer enable[2].
         enum class BVal {
             bufferDisabledPor=0x00000000,     ///<Buffer disabled (POR reset value).
@@ -690,7 +643,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferDisabledPor> bufferDisabledPor{};
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferEnabled> bufferEnabled{};
         }
-        }
         ///Write protect.
         enum class PVal {
             writesNotProtected=0x00000000,     ///<Writes not protected (POR reset value).
@@ -700,7 +652,6 @@ namespace Kvasir {
         namespace PValC{
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesNotProtected> writesNotProtected{};
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writeProtected> writeProtected{};
-        }
         }
     }
     namespace Nonestaticconfig2{    ///<Selects the memory configuration for static chip select n.
@@ -717,7 +668,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mw)::Type,MwVal::v16Bit> v16Bit{};
             constexpr Register::FieldValue<decltype(mw)::Type,MwVal::v32Bit> v32Bit{};
         }
-        }
         ///Page mode. In page mode the EMC can burst up to four external accesses. Therefore devices with asynchronous page mode burst four or higher devices are supported. Asynchronous page mode burst two devices are not supported and must be accessed normally.
         enum class PmVal {
             disabledPorReset=0x00000000,     ///<Disabled (POR reset value).
@@ -727,7 +677,6 @@ namespace Kvasir {
         namespace PmValC{
             constexpr Register::FieldValue<decltype(pm)::Type,PmVal::disabledPorReset> disabledPorReset{};
             constexpr Register::FieldValue<decltype(pm)::Type,PmVal::asyncPageModeEnab> asyncPageModeEnab{};
-        }
         }
         ///Chip select polarity. The value of the chip select polarity on power-on reset is 0.
         enum class PcVal {
@@ -739,7 +688,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pc)::Type,PcVal::activeLowChipSele> activeLowChipSele{};
             constexpr Register::FieldValue<decltype(pc)::Type,PcVal::activeHighChipSel> activeHighChipSel{};
         }
-        }
         ///Byte lane state. The byte lane state bit, PB, enables different types of memory to be connected. For byte-wide static memories the BLSn[3:0] signal from the EMC is usually connected to WE (write enable). In this case for reads all the BLSn[3:0] bits must be HIGH. This means that the byte lane state (PB) bit must be LOW. 16 bit wide static memory devices usually have the BLSn[3:0] signals connected to the UBn and LBn (upper byte and lower byte) signals in the static memory. In this case a write to a particular byte must assert the appropriate UBn or LBn signal LOW. For reads, all the UB and LB signals must be asserted LOW so that the bus is driven. In this case the byte lane state (PB) bit must be HIGH. When PB is set to 0, the WE signal is undefined or 0. You must set PB to 1, to use the WE signal.
         enum class PbVal {
             high=0x00000000,     ///<For reads all the bits in BLSn[3:0] are HIGH. For writes the respective active bits in BLSn[3:0] are LOW (POR reset value).
@@ -749,7 +697,6 @@ namespace Kvasir {
         namespace PbValC{
             constexpr Register::FieldValue<decltype(pb)::Type,PbVal::high> high{};
             constexpr Register::FieldValue<decltype(pb)::Type,PbVal::low> low{};
-        }
         }
         ///Extended wait. Extended wait (EW) uses the StaticExtendedWait register to time both the read and write transfers rather than the StaticWaitRd and StaticWaitWr registers. This enables much longer transactions.[1]
         enum class EwVal {
@@ -761,7 +708,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ew)::Type,EwVal::extendedWaitDisabl> extendedWaitDisabl{};
             constexpr Register::FieldValue<decltype(ew)::Type,EwVal::extendedWaitEnable> extendedWaitEnable{};
         }
-        }
         ///Buffer enable[2].
         enum class BVal {
             bufferDisabledPor=0x00000000,     ///<Buffer disabled (POR reset value).
@@ -772,7 +718,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferDisabledPor> bufferDisabledPor{};
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferEnabled> bufferEnabled{};
         }
-        }
         ///Write protect.
         enum class PVal {
             writesNotProtected=0x00000000,     ///<Writes not protected (POR reset value).
@@ -782,7 +727,6 @@ namespace Kvasir {
         namespace PValC{
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesNotProtected> writesNotProtected{};
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writeProtected> writeProtected{};
-        }
         }
     }
     namespace Nonestaticconfig3{    ///<Selects the memory configuration for static chip select n.
@@ -799,7 +743,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mw)::Type,MwVal::v16Bit> v16Bit{};
             constexpr Register::FieldValue<decltype(mw)::Type,MwVal::v32Bit> v32Bit{};
         }
-        }
         ///Page mode. In page mode the EMC can burst up to four external accesses. Therefore devices with asynchronous page mode burst four or higher devices are supported. Asynchronous page mode burst two devices are not supported and must be accessed normally.
         enum class PmVal {
             disabledPorReset=0x00000000,     ///<Disabled (POR reset value).
@@ -809,7 +752,6 @@ namespace Kvasir {
         namespace PmValC{
             constexpr Register::FieldValue<decltype(pm)::Type,PmVal::disabledPorReset> disabledPorReset{};
             constexpr Register::FieldValue<decltype(pm)::Type,PmVal::asyncPageModeEnab> asyncPageModeEnab{};
-        }
         }
         ///Chip select polarity. The value of the chip select polarity on power-on reset is 0.
         enum class PcVal {
@@ -821,7 +763,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pc)::Type,PcVal::activeLowChipSele> activeLowChipSele{};
             constexpr Register::FieldValue<decltype(pc)::Type,PcVal::activeHighChipSel> activeHighChipSel{};
         }
-        }
         ///Byte lane state. The byte lane state bit, PB, enables different types of memory to be connected. For byte-wide static memories the BLSn[3:0] signal from the EMC is usually connected to WE (write enable). In this case for reads all the BLSn[3:0] bits must be HIGH. This means that the byte lane state (PB) bit must be LOW. 16 bit wide static memory devices usually have the BLSn[3:0] signals connected to the UBn and LBn (upper byte and lower byte) signals in the static memory. In this case a write to a particular byte must assert the appropriate UBn or LBn signal LOW. For reads, all the UB and LB signals must be asserted LOW so that the bus is driven. In this case the byte lane state (PB) bit must be HIGH. When PB is set to 0, the WE signal is undefined or 0. You must set PB to 1, to use the WE signal.
         enum class PbVal {
             high=0x00000000,     ///<For reads all the bits in BLSn[3:0] are HIGH. For writes the respective active bits in BLSn[3:0] are LOW (POR reset value).
@@ -831,7 +772,6 @@ namespace Kvasir {
         namespace PbValC{
             constexpr Register::FieldValue<decltype(pb)::Type,PbVal::high> high{};
             constexpr Register::FieldValue<decltype(pb)::Type,PbVal::low> low{};
-        }
         }
         ///Extended wait. Extended wait (EW) uses the StaticExtendedWait register to time both the read and write transfers rather than the StaticWaitRd and StaticWaitWr registers. This enables much longer transactions.[1]
         enum class EwVal {
@@ -843,7 +783,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ew)::Type,EwVal::extendedWaitDisabl> extendedWaitDisabl{};
             constexpr Register::FieldValue<decltype(ew)::Type,EwVal::extendedWaitEnable> extendedWaitEnable{};
         }
-        }
         ///Buffer enable[2].
         enum class BVal {
             bufferDisabledPor=0x00000000,     ///<Buffer disabled (POR reset value).
@@ -854,7 +793,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferDisabledPor> bufferDisabledPor{};
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferEnabled> bufferEnabled{};
         }
-        }
         ///Write protect.
         enum class PVal {
             writesNotProtected=0x00000000,     ///<Writes not protected (POR reset value).
@@ -864,7 +802,6 @@ namespace Kvasir {
         namespace PValC{
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesNotProtected> writesNotProtected{};
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writeProtected> writeProtected{};
-        }
         }
     }
     namespace Nonestaticwaitwen0{    ///<Selects the delay from chip select n to write enable.

@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frde)::Type,FrdeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frde)::Type,FrdeVal::v1> v1{};
         }
-        }
         ///FIFO Warning DMA Enable
         enum class FwdeVal {
             v0=0x00000000,     ///<Disables the DMA request.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace FwdeValC{
             constexpr Register::FieldValue<decltype(fwde)::Type,FwdeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fwde)::Type,FwdeVal::v1> v1{};
-        }
         }
         ///FIFO Request Interrupt Enable
         enum class FrieVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frie)::Type,FrieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frie)::Type,FrieVal::v1> v1{};
         }
-        }
         ///FIFO Warning Interrupt Enable
         enum class FwieVal {
             v0=0x00000000,     ///<Disables the interrupt.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace FwieValC{
             constexpr Register::FieldValue<decltype(fwie)::Type,FwieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fwie)::Type,FwieVal::v1> v1{};
-        }
         }
         ///FIFO Error Interrupt Enable
         enum class FeieVal {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(feie)::Type,FeieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(feie)::Type,FeieVal::v1> v1{};
         }
-        }
         ///Sync Error Interrupt Enable
         enum class SeieVal {
             v0=0x00000000,     ///<Disables interrupt.
@@ -68,7 +63,6 @@ namespace Kvasir {
         namespace SeieValC{
             constexpr Register::FieldValue<decltype(seie)::Type,SeieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(seie)::Type,SeieVal::v1> v1{};
-        }
         }
         ///Word Start Interrupt Enable
         enum class WsieVal {
@@ -80,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wsie)::Type,WsieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wsie)::Type,WsieVal::v1> v1{};
         }
-        }
         ///FIFO Request Flag
         enum class FrfVal {
             v0=0x00000000,     ///<Transmit FIFO watermark has not been reached.
@@ -90,7 +83,6 @@ namespace Kvasir {
         namespace FrfValC{
             constexpr Register::FieldValue<decltype(frf)::Type,FrfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frf)::Type,FrfVal::v1> v1{};
-        }
         }
         ///FIFO Warning Flag
         enum class FwfVal {
@@ -102,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fwf)::Type,FwfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fwf)::Type,FwfVal::v1> v1{};
         }
-        }
         ///FIFO Error Flag
         enum class FefVal {
             v0=0x00000000,     ///<Transmit underrun not detected.
@@ -112,7 +103,6 @@ namespace Kvasir {
         namespace FefValC{
             constexpr Register::FieldValue<decltype(fef)::Type,FefVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fef)::Type,FefVal::v1> v1{};
-        }
         }
         ///Sync Error Flag
         enum class SefVal {
@@ -124,7 +114,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sef)::Type,SefVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sef)::Type,SefVal::v1> v1{};
         }
-        }
         ///Word Start Flag
         enum class WsfVal {
             v0=0x00000000,     ///<Start of word not detected.
@@ -134,7 +123,6 @@ namespace Kvasir {
         namespace WsfValC{
             constexpr Register::FieldValue<decltype(wsf)::Type,WsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wsf)::Type,WsfVal::v1> v1{};
-        }
         }
         ///Software Reset
         enum class SrVal {
@@ -146,7 +134,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sr)::Type,SrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sr)::Type,SrVal::v1> v1{};
         }
-        }
         ///FIFO Reset
         enum class FrVal {
             v0=0x00000000,     ///<No effect.
@@ -156,7 +143,6 @@ namespace Kvasir {
         namespace FrValC{
             constexpr Register::FieldValue<decltype(fr)::Type,FrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fr)::Type,FrVal::v1> v1{};
-        }
         }
         ///Bit Clock Enable
         enum class BceVal {
@@ -168,7 +154,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bce)::Type,BceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bce)::Type,BceVal::v1> v1{};
         }
-        }
         ///Debug Enable
         enum class DbgeVal {
             v0=0x00000000,     ///<Transmitter is disabled in Debug mode, after completing the current frame.
@@ -178,7 +163,6 @@ namespace Kvasir {
         namespace DbgeValC{
             constexpr Register::FieldValue<decltype(dbge)::Type,DbgeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dbge)::Type,DbgeVal::v1> v1{};
-        }
         }
         ///Stop Enable
         enum class StopeVal {
@@ -190,7 +174,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stope)::Type,StopeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(stope)::Type,StopeVal::v1> v1{};
         }
-        }
         ///Transmitter Enable
         enum class TeVal {
             v0=0x00000000,     ///<Transmitter is disabled.
@@ -200,7 +183,6 @@ namespace Kvasir {
         namespace TeValC{
             constexpr Register::FieldValue<decltype(te)::Type,TeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(te)::Type,TeVal::v1> v1{};
-        }
         }
     }
     namespace I2s0Tcr1{    ///<SAI Transmit Configuration 1 Register
@@ -222,7 +204,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bcd)::Type,BcdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bcd)::Type,BcdVal::v1> v1{};
         }
-        }
         ///Bit Clock Polarity
         enum class BcpVal {
             v0=0x00000000,     ///<Bit clock is active high with drive outputs on rising edge and sample inputs on falling edge.
@@ -232,7 +213,6 @@ namespace Kvasir {
         namespace BcpValC{
             constexpr Register::FieldValue<decltype(bcp)::Type,BcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bcp)::Type,BcpVal::v1> v1{};
-        }
         }
         ///MCLK Select
         enum class MselVal {
@@ -248,7 +228,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(msel)::Type,MselVal::v10> v10{};
             constexpr Register::FieldValue<decltype(msel)::Type,MselVal::v11> v11{};
         }
-        }
         ///Bit Clock Input
         enum class BciVal {
             v0=0x00000000,     ///<No effect.
@@ -259,7 +238,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bci)::Type,BciVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bci)::Type,BciVal::v1> v1{};
         }
-        }
         ///Bit Clock Swap
         enum class BcsVal {
             v0=0x00000000,     ///<Use the normal bit clock source.
@@ -269,7 +247,6 @@ namespace Kvasir {
         namespace BcsValC{
             constexpr Register::FieldValue<decltype(bcs)::Type,BcsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bcs)::Type,BcsVal::v1> v1{};
-        }
         }
         ///Synchronous Mode
         enum class SyncVal {
@@ -284,7 +261,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sync)::Type,SyncVal::v01> v01{};
             constexpr Register::FieldValue<decltype(sync)::Type,SyncVal::v10> v10{};
             constexpr Register::FieldValue<decltype(sync)::Type,SyncVal::v11> v11{};
-        }
         }
     }
     namespace I2s0Tcr3{    ///<SAI Transmit Configuration 3 Register
@@ -301,7 +277,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tce)::Type,TceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tce)::Type,TceVal::v1> v1{};
         }
-        }
     }
     namespace I2s0Tcr4{    ///<SAI Transmit Configuration 4 Register
         using Addr = Register::Address<0x4002f010,0xecf0e0e0,0,unsigned>;
@@ -315,7 +290,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fsd)::Type,FsdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fsd)::Type,FsdVal::v1> v1{};
         }
-        }
         ///Frame Sync Polarity
         enum class FspVal {
             v0=0x00000000,     ///<Frame sync is active high.
@@ -325,7 +299,6 @@ namespace Kvasir {
         namespace FspValC{
             constexpr Register::FieldValue<decltype(fsp)::Type,FspVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fsp)::Type,FspVal::v1> v1{};
-        }
         }
         ///On Demand Mode
         enum class OndemVal {
@@ -337,7 +310,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ondem)::Type,OndemVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ondem)::Type,OndemVal::v1> v1{};
         }
-        }
         ///Frame Sync Early
         enum class FseVal {
             v0=0x00000000,     ///<Frame sync asserts with the first bit of the frame.
@@ -348,7 +320,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fse)::Type,FseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fse)::Type,FseVal::v1> v1{};
         }
-        }
         ///MSB First
         enum class MfVal {
             v0=0x00000000,     ///<LSB is transmitted first.
@@ -358,7 +329,6 @@ namespace Kvasir {
         namespace MfValC{
             constexpr Register::FieldValue<decltype(mf)::Type,MfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(mf)::Type,MfVal::v1> v1{};
-        }
         }
         ///Sync Width
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> sywd{}; 
@@ -376,7 +346,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fpack)::Type,FpackVal::v10> v10{};
             constexpr Register::FieldValue<decltype(fpack)::Type,FpackVal::v11> v11{};
         }
-        }
         ///FIFO Continue on Error
         enum class FcontVal {
             v0=0x00000000,     ///<On FIFO error, the SAI will continue from the start of the next frame after the FIFO error flag has been cleared.
@@ -386,7 +355,6 @@ namespace Kvasir {
         namespace FcontValC{
             constexpr Register::FieldValue<decltype(fcont)::Type,FcontVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fcont)::Type,FcontVal::v1> v1{};
-        }
         }
     }
     namespace I2s0Tcr5{    ///<SAI Transmit Configuration 5 Register
@@ -427,7 +395,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frde)::Type,FrdeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frde)::Type,FrdeVal::v1> v1{};
         }
-        }
         ///FIFO Warning DMA Enable
         enum class FwdeVal {
             v0=0x00000000,     ///<Disables the DMA request.
@@ -437,7 +404,6 @@ namespace Kvasir {
         namespace FwdeValC{
             constexpr Register::FieldValue<decltype(fwde)::Type,FwdeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fwde)::Type,FwdeVal::v1> v1{};
-        }
         }
         ///FIFO Request Interrupt Enable
         enum class FrieVal {
@@ -449,7 +415,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frie)::Type,FrieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frie)::Type,FrieVal::v1> v1{};
         }
-        }
         ///FIFO Warning Interrupt Enable
         enum class FwieVal {
             v0=0x00000000,     ///<Disables the interrupt.
@@ -459,7 +424,6 @@ namespace Kvasir {
         namespace FwieValC{
             constexpr Register::FieldValue<decltype(fwie)::Type,FwieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fwie)::Type,FwieVal::v1> v1{};
-        }
         }
         ///FIFO Error Interrupt Enable
         enum class FeieVal {
@@ -471,7 +435,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(feie)::Type,FeieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(feie)::Type,FeieVal::v1> v1{};
         }
-        }
         ///Sync Error Interrupt Enable
         enum class SeieVal {
             v0=0x00000000,     ///<Disables interrupt.
@@ -481,7 +444,6 @@ namespace Kvasir {
         namespace SeieValC{
             constexpr Register::FieldValue<decltype(seie)::Type,SeieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(seie)::Type,SeieVal::v1> v1{};
-        }
         }
         ///Word Start Interrupt Enable
         enum class WsieVal {
@@ -493,7 +455,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wsie)::Type,WsieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wsie)::Type,WsieVal::v1> v1{};
         }
-        }
         ///FIFO Request Flag
         enum class FrfVal {
             v0=0x00000000,     ///<Receive FIFO watermark not reached.
@@ -503,7 +464,6 @@ namespace Kvasir {
         namespace FrfValC{
             constexpr Register::FieldValue<decltype(frf)::Type,FrfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frf)::Type,FrfVal::v1> v1{};
-        }
         }
         ///FIFO Warning Flag
         enum class FwfVal {
@@ -515,7 +475,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fwf)::Type,FwfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fwf)::Type,FwfVal::v1> v1{};
         }
-        }
         ///FIFO Error Flag
         enum class FefVal {
             v0=0x00000000,     ///<Receive overflow not detected.
@@ -525,7 +484,6 @@ namespace Kvasir {
         namespace FefValC{
             constexpr Register::FieldValue<decltype(fef)::Type,FefVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fef)::Type,FefVal::v1> v1{};
-        }
         }
         ///Sync Error Flag
         enum class SefVal {
@@ -537,7 +495,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sef)::Type,SefVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sef)::Type,SefVal::v1> v1{};
         }
-        }
         ///Word Start Flag
         enum class WsfVal {
             v0=0x00000000,     ///<Start of word not detected.
@@ -547,7 +504,6 @@ namespace Kvasir {
         namespace WsfValC{
             constexpr Register::FieldValue<decltype(wsf)::Type,WsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wsf)::Type,WsfVal::v1> v1{};
-        }
         }
         ///Software Reset
         enum class SrVal {
@@ -559,7 +515,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sr)::Type,SrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sr)::Type,SrVal::v1> v1{};
         }
-        }
         ///FIFO Reset
         enum class FrVal {
             v0=0x00000000,     ///<No effect.
@@ -569,7 +524,6 @@ namespace Kvasir {
         namespace FrValC{
             constexpr Register::FieldValue<decltype(fr)::Type,FrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fr)::Type,FrVal::v1> v1{};
-        }
         }
         ///Bit Clock Enable
         enum class BceVal {
@@ -581,7 +535,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bce)::Type,BceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bce)::Type,BceVal::v1> v1{};
         }
-        }
         ///Debug Enable
         enum class DbgeVal {
             v0=0x00000000,     ///<Receiver is disabled in Debug mode, after completing the current frame.
@@ -591,7 +544,6 @@ namespace Kvasir {
         namespace DbgeValC{
             constexpr Register::FieldValue<decltype(dbge)::Type,DbgeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dbge)::Type,DbgeVal::v1> v1{};
-        }
         }
         ///Stop Enable
         enum class StopeVal {
@@ -603,7 +555,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stope)::Type,StopeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(stope)::Type,StopeVal::v1> v1{};
         }
-        }
         ///Receiver Enable
         enum class ReVal {
             v0=0x00000000,     ///<Receiver is disabled.
@@ -613,7 +564,6 @@ namespace Kvasir {
         namespace ReValC{
             constexpr Register::FieldValue<decltype(re)::Type,ReVal::v0> v0{};
             constexpr Register::FieldValue<decltype(re)::Type,ReVal::v1> v1{};
-        }
         }
     }
     namespace I2s0Rcr1{    ///<SAI Receive Configuration 1 Register
@@ -635,7 +585,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bcd)::Type,BcdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bcd)::Type,BcdVal::v1> v1{};
         }
-        }
         ///Bit Clock Polarity
         enum class BcpVal {
             v0=0x00000000,     ///<Bit Clock is active high with drive outputs on rising edge and sample inputs on falling edge.
@@ -645,7 +594,6 @@ namespace Kvasir {
         namespace BcpValC{
             constexpr Register::FieldValue<decltype(bcp)::Type,BcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bcp)::Type,BcpVal::v1> v1{};
-        }
         }
         ///MCLK Select
         enum class MselVal {
@@ -661,7 +609,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(msel)::Type,MselVal::v10> v10{};
             constexpr Register::FieldValue<decltype(msel)::Type,MselVal::v11> v11{};
         }
-        }
         ///Bit Clock Input
         enum class BciVal {
             v0=0x00000000,     ///<No effect.
@@ -672,7 +619,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bci)::Type,BciVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bci)::Type,BciVal::v1> v1{};
         }
-        }
         ///Bit Clock Swap
         enum class BcsVal {
             v0=0x00000000,     ///<Use the normal bit clock source.
@@ -682,7 +628,6 @@ namespace Kvasir {
         namespace BcsValC{
             constexpr Register::FieldValue<decltype(bcs)::Type,BcsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bcs)::Type,BcsVal::v1> v1{};
-        }
         }
         ///Synchronous Mode
         enum class SyncVal {
@@ -697,7 +642,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sync)::Type,SyncVal::v01> v01{};
             constexpr Register::FieldValue<decltype(sync)::Type,SyncVal::v10> v10{};
             constexpr Register::FieldValue<decltype(sync)::Type,SyncVal::v11> v11{};
-        }
         }
     }
     namespace I2s0Rcr3{    ///<SAI Receive Configuration 3 Register
@@ -714,7 +658,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rce)::Type,RceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rce)::Type,RceVal::v1> v1{};
         }
-        }
     }
     namespace I2s0Rcr4{    ///<SAI Receive Configuration 4 Register
         using Addr = Register::Address<0x4002f090,0xecf0e0e0,0,unsigned>;
@@ -728,7 +671,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fsd)::Type,FsdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fsd)::Type,FsdVal::v1> v1{};
         }
-        }
         ///Frame Sync Polarity
         enum class FspVal {
             v0=0x00000000,     ///<Frame sync is active high.
@@ -738,7 +680,6 @@ namespace Kvasir {
         namespace FspValC{
             constexpr Register::FieldValue<decltype(fsp)::Type,FspVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fsp)::Type,FspVal::v1> v1{};
-        }
         }
         ///On Demand Mode
         enum class OndemVal {
@@ -750,7 +691,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ondem)::Type,OndemVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ondem)::Type,OndemVal::v1> v1{};
         }
-        }
         ///Frame Sync Early
         enum class FseVal {
             v0=0x00000000,     ///<Frame sync asserts with the first bit of the frame.
@@ -761,7 +701,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fse)::Type,FseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fse)::Type,FseVal::v1> v1{};
         }
-        }
         ///MSB First
         enum class MfVal {
             v0=0x00000000,     ///<LSB is received first.
@@ -771,7 +710,6 @@ namespace Kvasir {
         namespace MfValC{
             constexpr Register::FieldValue<decltype(mf)::Type,MfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(mf)::Type,MfVal::v1> v1{};
-        }
         }
         ///Sync Width
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> sywd{}; 
@@ -789,7 +727,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fpack)::Type,FpackVal::v10> v10{};
             constexpr Register::FieldValue<decltype(fpack)::Type,FpackVal::v11> v11{};
         }
-        }
         ///FIFO Continue on Error
         enum class FcontVal {
             v0=0x00000000,     ///<On FIFO error, the SAI will continue from the start of the next frame after the FIFO error flag has been cleared.
@@ -799,7 +736,6 @@ namespace Kvasir {
         namespace FcontValC{
             constexpr Register::FieldValue<decltype(fcont)::Type,FcontVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fcont)::Type,FcontVal::v1> v1{};
-        }
         }
     }
     namespace I2s0Rcr5{    ///<SAI Receive Configuration 5 Register
@@ -844,7 +780,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mics)::Type,MicsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(mics)::Type,MicsVal::v11> v11{};
         }
-        }
         ///MCLK Output Enable
         enum class MoeVal {
             v0=0x00000000,     ///<MCLK signal pin is configured as an input that bypasses the MCLK divider.
@@ -855,7 +790,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(moe)::Type,MoeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(moe)::Type,MoeVal::v1> v1{};
         }
-        }
         ///Divider Update Flag
         enum class DufVal {
             v0=0x00000000,     ///<MCLK divider ratio is not being updated currently.
@@ -865,7 +799,6 @@ namespace Kvasir {
         namespace DufValC{
             constexpr Register::FieldValue<decltype(duf)::Type,DufVal::v0> v0{};
             constexpr Register::FieldValue<decltype(duf)::Type,DufVal::v1> v1{};
-        }
         }
     }
     namespace I2s0Mdr{    ///<SAI MCLK Divide Register

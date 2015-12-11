@@ -34,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rbrie)::Type,RbrieVal::disable> disable{};
             constexpr Register::FieldValue<decltype(rbrie)::Type,RbrieVal::enable> enable{};
         }
-        }
         ///Interrupt Enable. Enables the THRE interrupt for UART. The status of this interrupt can be read from LSR[5].
         enum class ThreieVal {
             disable=0x00000000,     ///<Disable the THRE interrupt.
@@ -44,7 +43,6 @@ namespace Kvasir {
         namespace ThreieValC{
             constexpr Register::FieldValue<decltype(threie)::Type,ThreieVal::disable> disable{};
             constexpr Register::FieldValue<decltype(threie)::Type,ThreieVal::enable> enable{};
-        }
         }
         ///Line Interrupt Enable. Enables the UART RX line status interrupts. The status of this interrupt can be read from LSR[4:1].
         enum class RxlieVal {
@@ -58,7 +56,6 @@ the RX line status interrupts.
             constexpr Register::FieldValue<decltype(rxlie)::Type,RxlieVal::disable> disable{};
             constexpr Register::FieldValue<decltype(rxlie)::Type,RxlieVal::enable> enable{};
         }
-        }
         ///Enables the end of auto-baud interrupt.
         enum class AbeointenVal {
             disable=0x00000000,     ///<Disable end of auto-baud
@@ -71,7 +68,6 @@ end of auto-baud Interrupt.
             constexpr Register::FieldValue<decltype(abeointen)::Type,AbeointenVal::disable> disable{};
             constexpr Register::FieldValue<decltype(abeointen)::Type,AbeointenVal::enable> enable{};
         }
-        }
         ///Enables the auto-baud time-out interrupt.
         enum class AbtointenVal {
             disable=0x00000000,     ///<Disable auto-baud time-out
@@ -83,7 +79,6 @@ auto-baud time-out Interrupt.
         namespace AbtointenValC{
             constexpr Register::FieldValue<decltype(abtointen)::Type,AbtointenVal::disable> disable{};
             constexpr Register::FieldValue<decltype(abtointen)::Type,AbtointenVal::enable> enable{};
-        }
         }
     }
     namespace Noneiir{    ///<Interrupt ID Register. Identifies which interrupt(s) are pending.
@@ -99,7 +94,6 @@ interrupt is pending.
         namespace IntstatusValC{
             constexpr Register::FieldValue<decltype(intstatus)::Type,IntstatusVal::int_> int_{};
             constexpr Register::FieldValue<decltype(intstatus)::Type,IntstatusVal::noint> noint{};
-        }
         }
         ///Interrupt identification. IER[3:1] identifies an interrupt corresponding to the UART Rx FIFO. All other combinations of IER[3:1] not listed below are reserved (100,101,111).
         enum class IntidVal {
@@ -121,7 +115,6 @@ interrupt is pending.
             constexpr Register::FieldValue<decltype(intid)::Type,IntidVal::thre> thre{};
             constexpr Register::FieldValue<decltype(intid)::Type,IntidVal::modem> modem{};
         }
-        }
         ///These bits are equivalent to FCR[0].
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> fifoen{}; 
         ///End of auto-baud interrupt. True if auto-baud has finished successfully and interrupt is enabled.
@@ -141,7 +134,6 @@ interrupt is pending.
             constexpr Register::FieldValue<decltype(fifoen)::Type,FifoenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(fifoen)::Type,FifoenVal::enabled> enabled{};
         }
-        }
         ///RX FIFO Reset
         enum class RxfiforVal {
             noaction=0x00000000,     ///<No impact on either of UART FIFOs.
@@ -152,7 +144,6 @@ interrupt is pending.
             constexpr Register::FieldValue<decltype(rxfifor)::Type,RxfiforVal::noaction> noaction{};
             constexpr Register::FieldValue<decltype(rxfifor)::Type,RxfiforVal::clear> clear{};
         }
-        }
         ///TX FIFO Reset
         enum class TxfiforVal {
             noaction=0x00000000,     ///<No impact on either of UART FIFOs.
@@ -162,7 +153,6 @@ interrupt is pending.
         namespace TxfiforValC{
             constexpr Register::FieldValue<decltype(txfifor)::Type,TxfiforVal::noaction> noaction{};
             constexpr Register::FieldValue<decltype(txfifor)::Type,TxfiforVal::clear> clear{};
-        }
         }
         ///RX Trigger Level. These two bits determine how many receiver UART FIFO characters must be written before an interrupt is activated.
         enum class RxtlvlVal {
@@ -177,7 +167,6 @@ interrupt is pending.
             constexpr Register::FieldValue<decltype(rxtlvl)::Type,RxtlvlVal::triggerLevel14C> triggerLevel14C{};
             constexpr Register::FieldValue<decltype(rxtlvl)::Type,RxtlvlVal::triggerLevel28C> triggerLevel28C{};
             constexpr Register::FieldValue<decltype(rxtlvl)::Type,RxtlvlVal::triggerLevel314> triggerLevel314{};
-        }
         }
     }
     namespace Nonelcr{    ///<Line Control Register. Contains controls for frame formatting and break generation.
@@ -196,7 +185,6 @@ interrupt is pending.
             constexpr Register::FieldValue<decltype(wls)::Type,WlsVal::v7BitCharacterLeng> v7BitCharacterLeng{};
             constexpr Register::FieldValue<decltype(wls)::Type,WlsVal::v8BitCharacterLeng> v8BitCharacterLeng{};
         }
-        }
         ///Stop Bit Select
         enum class SbsVal {
             v1StopBit=0x00000000,     ///<1 stop bit.
@@ -207,7 +195,6 @@ interrupt is pending.
             constexpr Register::FieldValue<decltype(sbs)::Type,SbsVal::v1StopBit> v1StopBit{};
             constexpr Register::FieldValue<decltype(sbs)::Type,SbsVal::v2StopBits15If> v2StopBits15If{};
         }
-        }
         ///Parity Enable
         enum class PeVal {
             disableParityGener=0x00000000,     ///<Disable parity generation and checking.
@@ -217,7 +204,6 @@ interrupt is pending.
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::disableParityGener> disableParityGener{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::enableParityGenera> enableParityGenera{};
-        }
         }
         ///Parity Select
         enum class PsVal {
@@ -233,7 +219,6 @@ interrupt is pending.
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::forced1StickParit> forced1StickParit{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::forced0StickParit> forced0StickParit{};
         }
-        }
         ///Break Control
         enum class BcVal {
             disableBreakTransm=0x00000000,     ///<Disable break transmission.
@@ -244,7 +229,6 @@ interrupt is pending.
             constexpr Register::FieldValue<decltype(bc)::Type,BcVal::disableBreakTransm> disableBreakTransm{};
             constexpr Register::FieldValue<decltype(bc)::Type,BcVal::enableBreakTransmi> enableBreakTransmi{};
         }
-        }
         ///Divisor Latch Access Bit (DLAB)
         enum class DlabVal {
             disableAccessToDi=0x00000000,     ///<Disable access to Divisor Latches.
@@ -254,7 +238,6 @@ interrupt is pending.
         namespace DlabValC{
             constexpr Register::FieldValue<decltype(dlab)::Type,DlabVal::disableAccessToDi> disableAccessToDi{};
             constexpr Register::FieldValue<decltype(dlab)::Type,DlabVal::enableAccessToDiv> enableAccessToDiv{};
-        }
         }
     }
     namespace Nonemcr{    ///<Modem control register
@@ -275,7 +258,6 @@ interrupt is pending.
             constexpr Register::FieldValue<decltype(rtsen)::Type,RtsenVal::disableAutoRtsFlo> disableAutoRtsFlo{};
             constexpr Register::FieldValue<decltype(rtsen)::Type,RtsenVal::enableAutoRtsFlow> enableAutoRtsFlow{};
         }
-        }
         ///CTS enable
         enum class CtsenVal {
             disableAutoCtsFlo=0x00000000,     ///<Disable auto-cts flow control.
@@ -285,7 +267,6 @@ interrupt is pending.
         namespace CtsenValC{
             constexpr Register::FieldValue<decltype(ctsen)::Type,CtsenVal::disableAutoCtsFlo> disableAutoCtsFlo{};
             constexpr Register::FieldValue<decltype(ctsen)::Type,CtsenVal::enableAutoCtsFlow> enableAutoCtsFlow{};
-        }
         }
     }
     namespace Nonelsr{    ///<Line Status Register. Contains flags for transmit and receive status, including line errors.
@@ -300,7 +281,6 @@ interrupt is pending.
             constexpr Register::FieldValue<decltype(rdr)::Type,RdrVal::rbrIsEmpty> rbrIsEmpty{};
             constexpr Register::FieldValue<decltype(rdr)::Type,RdrVal::rbrContainsValid> rbrContainsValid{};
         }
-        }
         ///Overrun Error. The overrun error condition is set as soon as it occurs. A LSR read clears LSR[1]. LSR[1] is set when UART RSR has a new character assembled and the UART RBR FIFO is full. In this case, the UART RBR FIFO will not be overwritten and the character in the UART RSR will be lost.
         enum class OeVal {
             inactive=0x00000000,     ///<Overrun error status is inactive.
@@ -310,7 +290,6 @@ interrupt is pending.
         namespace OeValC{
             constexpr Register::FieldValue<decltype(oe)::Type,OeVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(oe)::Type,OeVal::active> active{};
-        }
         }
         ///Parity Error. When the parity bit of a received character is in the wrong state, a parity error occurs. A LSR read clears LSR[2]. Time of parity error detection is dependent on FCR[0]. Note: A parity error is associated with the character at the top of the UART RBR FIFO.
         enum class PeVal {
@@ -322,7 +301,6 @@ interrupt is pending.
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::active> active{};
         }
-        }
         ///Framing Error. When the stop bit of a received character is a logic 0, a framing error occurs. A LSR read clears LSR[3]. The time of the framing error detection is dependent on FCR0. Upon detection of a framing error, the RX will attempt to re-synchronize to the data and assume that the bad stop bit is actually an early start bit. However, it cannot be assumed that the next received byte will be correct even if there is no Framing Error. Note: A framing error is associated with the character at the top of the UART RBR FIFO.
         enum class FeVal {
             inactive=0x00000000,     ///<Framing error status is inactive.
@@ -332,7 +310,6 @@ interrupt is pending.
         namespace FeValC{
             constexpr Register::FieldValue<decltype(fe)::Type,FeVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(fe)::Type,FeVal::active> active{};
-        }
         }
         ///Break Interrupt. When RXD1 is held in the spacing state (all zeros) for one full character transmission (start, data, parity, stop), a break interrupt occurs. Once the break condition has been detected, the receiver goes idle until RXD1 goes to marking state (all ones). A LSR read clears this status bit. The time of break detection is dependent on FCR[0]. Note: The break interrupt is associated with the character at the top of the UART RBR FIFO.
         enum class BiVal {
@@ -344,7 +321,6 @@ interrupt is pending.
             constexpr Register::FieldValue<decltype(bi)::Type,BiVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(bi)::Type,BiVal::active> active{};
         }
-        }
         ///Transmitter Holding Register Empty. THRE is set immediately upon detection of an empty UART THR and is cleared on a THR write.
         enum class ThreVal {
             valid=0x00000000,     ///<THR contains valid data.
@@ -354,7 +330,6 @@ interrupt is pending.
         namespace ThreValC{
             constexpr Register::FieldValue<decltype(thre)::Type,ThreVal::valid> valid{};
             constexpr Register::FieldValue<decltype(thre)::Type,ThreVal::empty> empty{};
-        }
         }
         ///Transmitter Empty. TEMT is set when both THR and TSR are empty; TEMT is cleared when either the TSR or the THR contain valid data.
         enum class TemtVal {
@@ -366,7 +341,6 @@ interrupt is pending.
             constexpr Register::FieldValue<decltype(temt)::Type,TemtVal::valid> valid{};
             constexpr Register::FieldValue<decltype(temt)::Type,TemtVal::empty> empty{};
         }
-        }
         ///Error in RX FIFO. LSR[7] is set when a character with a RX error such as framing error, parity error or break interrupt, is loaded into the RBR. This bit is cleared when the LSR register is read and there are no subsequent errors in the UART FIFO.
         enum class RxfeVal {
             noerror=0x00000000,     ///<RBR contains no UART RX errors or FCR[0]=0.
@@ -376,7 +350,6 @@ interrupt is pending.
         namespace RxfeValC{
             constexpr Register::FieldValue<decltype(rxfe)::Type,RxfeVal::noerror> noerror{};
             constexpr Register::FieldValue<decltype(rxfe)::Type,RxfeVal::errors> errors{};
-        }
         }
     }
     namespace Nonemsr{    ///<Modem status register
@@ -391,7 +364,6 @@ interrupt is pending.
             constexpr Register::FieldValue<decltype(deltacts)::Type,DeltactsVal::noStateChange> noStateChange{};
             constexpr Register::FieldValue<decltype(deltacts)::Type,DeltactsVal::stateChangeDetecte> stateChangeDetecte{};
         }
-        }
         ///Set upon state change of input DSR. Cleared on a MSR read.
         enum class DeltadsrVal {
             noStateChange=0x00000000,     ///<No change detected on modem input DSR.
@@ -401,7 +373,6 @@ interrupt is pending.
         namespace DeltadsrValC{
             constexpr Register::FieldValue<decltype(deltadsr)::Type,DeltadsrVal::noStateChange> noStateChange{};
             constexpr Register::FieldValue<decltype(deltadsr)::Type,DeltadsrVal::stateChangeDetecte> stateChangeDetecte{};
-        }
         }
         ///Trailing Edge RI. Set upon low to high transition of input RI. Cleared on a MSR read.
         enum class TeriVal {
@@ -413,7 +384,6 @@ interrupt is pending.
             constexpr Register::FieldValue<decltype(teri)::Type,TeriVal::noStateChange> noStateChange{};
             constexpr Register::FieldValue<decltype(teri)::Type,TeriVal::lowToHighTransiti> lowToHighTransiti{};
         }
-        }
         ///Set upon state change of input  DCD. Cleared on a MSR read.
         enum class DeltadcdVal {
             noStateChange=0x00000000,     ///<No change detected on modem input DCD.
@@ -423,7 +393,6 @@ interrupt is pending.
         namespace DeltadcdValC{
             constexpr Register::FieldValue<decltype(deltadcd)::Type,DeltadcdVal::noStateChange> noStateChange{};
             constexpr Register::FieldValue<decltype(deltadcd)::Type,DeltadcdVal::stateChangeDetecte> stateChangeDetecte{};
-        }
         }
         ///Clear To Send State. Complement of input signal CTS. This bit is connected to MCR[1] in modem loopback mode.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> cts{}; 
@@ -451,7 +420,6 @@ interrupt is pending.
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::autoBaudStopAuto> autoBaudStopAuto{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::autoBaudStartAut> autoBaudStartAut{};
         }
-        }
         ///Auto-baud mode select bit.
         enum class ModeVal {
             mode0=0x00000000,     ///<Mode 0.
@@ -461,7 +429,6 @@ interrupt is pending.
         namespace ModeValC{
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::mode0> mode0{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::mode1> mode1{};
-        }
         }
         ///Auto restart
         enum class AutorestartVal {
@@ -473,7 +440,6 @@ interrupt is pending.
             constexpr Register::FieldValue<decltype(autorestart)::Type,AutorestartVal::noRestart> noRestart{};
             constexpr Register::FieldValue<decltype(autorestart)::Type,AutorestartVal::restartInCaseOfT> restartInCaseOfT{};
         }
-        }
         ///End of auto-baud interrupt clear bit (write only accessible).
         enum class AbeointclrVal {
             noaction=0x00000000,     ///<Writing a 0 has no impact.
@@ -484,7 +450,6 @@ interrupt is pending.
             constexpr Register::FieldValue<decltype(abeointclr)::Type,AbeointclrVal::noaction> noaction{};
             constexpr Register::FieldValue<decltype(abeointclr)::Type,AbeointclrVal::clear> clear{};
         }
-        }
         ///Auto-baud time-out interrupt clear bit (write only accessible).
         enum class AbtointclrVal {
             noaction=0x00000000,     ///<Writing a 0 has no impact.
@@ -494,7 +459,6 @@ interrupt is pending.
         namespace AbtointclrValC{
             constexpr Register::FieldValue<decltype(abtointclr)::Type,AbtointclrVal::noaction> noaction{};
             constexpr Register::FieldValue<decltype(abtointclr)::Type,AbtointclrVal::clear> clear{};
-        }
         }
     }
     namespace Nonefdr{    ///<Fractional Divider Register. Generates a clock input for the baud rate divider.
@@ -521,7 +485,6 @@ interrupt is pending.
             constexpr Register::FieldValue<decltype(nmmen)::Type,NmmenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(nmmen)::Type,NmmenVal::enabled> enabled{};
         }
-        }
         ///Receiver enable
         enum class RxdisVal {
             enabled=0x00000000,     ///<The receiver is enabled.
@@ -531,7 +494,6 @@ interrupt is pending.
         namespace RxdisValC{
             constexpr Register::FieldValue<decltype(rxdis)::Type,RxdisVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(rxdis)::Type,RxdisVal::disabled> disabled{};
-        }
         }
         ///AAD enable
         enum class AadenVal {
@@ -543,7 +505,6 @@ interrupt is pending.
             constexpr Register::FieldValue<decltype(aaden)::Type,AadenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(aaden)::Type,AadenVal::enabled> enabled{};
         }
-        }
         ///Direction control pins select
         enum class SelVal {
             rts=0x00000000,     ///<If direction control is enabled (bit DCTRL = 1), pin RTS is used for direction control.
@@ -553,7 +514,6 @@ interrupt is pending.
         namespace SelValC{
             constexpr Register::FieldValue<decltype(sel)::Type,SelVal::rts> rts{};
             constexpr Register::FieldValue<decltype(sel)::Type,SelVal::dtr> dtr{};
-        }
         }
         ///Direction control enable
         enum class DctrlVal {
@@ -565,7 +525,6 @@ interrupt is pending.
             constexpr Register::FieldValue<decltype(dctrl)::Type,DctrlVal::disableAutoDirecti> disableAutoDirecti{};
             constexpr Register::FieldValue<decltype(dctrl)::Type,DctrlVal::enableAutoDirectio> enableAutoDirectio{};
         }
-        }
         ///This bit reverses the polarity of the direction control signal on the RTS (or DTR) pin.
         enum class OinvVal {
             low=0x00000000,     ///<The direction control pin will be driven to logic 0 when the transmitter has data to be sent. It will be driven to logic 1 after the last bit of data has been transmitted.
@@ -575,7 +534,6 @@ interrupt is pending.
         namespace OinvValC{
             constexpr Register::FieldValue<decltype(oinv)::Type,OinvVal::low> low{};
             constexpr Register::FieldValue<decltype(oinv)::Type,OinvVal::high> high{};
-        }
         }
     }
     namespace Noners485adrmatch{    ///<RS-485/EIA-485 address match. Contains the address match value for RS-485/EIA-485 mode.

@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(kbmod)::Type,KbmodVal::v0> v0{};
             constexpr Register::FieldValue<decltype(kbmod)::Type,KbmodVal::v1> v1{};
         }
-        }
         ///KBI Interrupt Enable
         enum class KbieVal {
             v0=0x00000000,     ///<KBI interrupt not enabled.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace KbieValC{
             constexpr Register::FieldValue<decltype(kbie)::Type,KbieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(kbie)::Type,KbieVal::v1> v1{};
-        }
         }
         ///KBI Acknowledge
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> kback{}; 
@@ -37,7 +35,6 @@ namespace Kvasir {
         namespace KbfValC{
             constexpr Register::FieldValue<decltype(kbf)::Type,KbfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(kbf)::Type,KbfVal::v1> v1{};
-        }
         }
     }
     namespace Kbi1Pe{    ///<KBIx Pin Enable Register

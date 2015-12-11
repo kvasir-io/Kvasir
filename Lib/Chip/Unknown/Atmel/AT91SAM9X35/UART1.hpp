@@ -37,7 +37,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(par)::Type,ParVal::mark> mark{};
             constexpr Register::FieldValue<decltype(par)::Type,ParVal::no> no{};
         }
-        }
         ///Channel Mode
         enum class ChmodeVal {
             normal=0x00000000,     ///<Normal Mode
@@ -51,7 +50,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chmode)::Type,ChmodeVal::automatic> automatic{};
             constexpr Register::FieldValue<decltype(chmode)::Type,ChmodeVal::localLoopback> localLoopback{};
             constexpr Register::FieldValue<decltype(chmode)::Type,ChmodeVal::remoteLoopback> remoteLoopback{};
-        }
         }
     }
     namespace Uart1Ier{    ///<Interrupt Enable Register

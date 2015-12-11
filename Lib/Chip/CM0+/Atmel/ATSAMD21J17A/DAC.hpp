@@ -35,7 +35,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::avcc> avcc{};
             constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::vrefp> vrefp{};
         }
-        }
     }
     namespace DacData{    ///<Data
         using Addr = Register::Address<0x42004808,0xffff0000,0,unsigned>;

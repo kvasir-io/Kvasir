@@ -74,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(readyStart)::Type,ReadystartVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(readyStart)::Type,ReadystartVal::enabled> enabled{};
         }
-        }
         ///Shortcut between EVENTS_END event and TASKS_DISABLE task
         enum class EnddisableVal {
             disabled=0x00000000,     ///<Disable shortcut
@@ -84,7 +83,6 @@ namespace Kvasir {
         namespace EnddisableValC{
             constexpr Register::FieldValue<decltype(endDisable)::Type,EnddisableVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(endDisable)::Type,EnddisableVal::enabled> enabled{};
-        }
         }
         ///Shortcut between EVENTS_DISABLED event and TASKS_TXEN task
         enum class DisabledtxenVal {
@@ -96,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(disabledTxen)::Type,DisabledtxenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(disabledTxen)::Type,DisabledtxenVal::enabled> enabled{};
         }
-        }
         ///Shortcut between EVENTS_DISABLED event and TASKS_RXEN task
         enum class DisabledrxenVal {
             disabled=0x00000000,     ///<Disable shortcut
@@ -106,7 +103,6 @@ namespace Kvasir {
         namespace DisabledrxenValC{
             constexpr Register::FieldValue<decltype(disabledRxen)::Type,DisabledrxenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(disabledRxen)::Type,DisabledrxenVal::enabled> enabled{};
-        }
         }
         ///Shortcut between EVENTS_ADDRESS event and TASKS_RSSISTART task
         enum class AddressrssistartVal {
@@ -118,7 +114,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(addressRssistart)::Type,AddressrssistartVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(addressRssistart)::Type,AddressrssistartVal::enabled> enabled{};
         }
-        }
         ///Shortcut between EVENTS_END event and TASKS_START task
         enum class EndstartVal {
             disabled=0x00000000,     ///<Disable shortcut
@@ -128,7 +123,6 @@ namespace Kvasir {
         namespace EndstartValC{
             constexpr Register::FieldValue<decltype(endStart)::Type,EndstartVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(endStart)::Type,EndstartVal::enabled> enabled{};
-        }
         }
         ///Shortcut between EVENTS_ADDRESS event and TASKS_BCSTART task
         enum class AddressbcstartVal {
@@ -140,7 +134,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(addressBcstart)::Type,AddressbcstartVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(addressBcstart)::Type,AddressbcstartVal::enabled> enabled{};
         }
-        }
         ///Shortcut between EVENTS_DISABLED event and TASKS_RSSISTOP task
         enum class DisabledrssistopVal {
             disabled=0x00000000,     ///<Disable shortcut
@@ -150,7 +143,6 @@ namespace Kvasir {
         namespace DisabledrssistopValC{
             constexpr Register::FieldValue<decltype(disabledRssistop)::Type,DisabledrssistopVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(disabledRssistop)::Type,DisabledrssistopVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneintenset{    ///<Enable interrupt
@@ -167,7 +159,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_ADDRESS event
         enum class AddressVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -179,7 +170,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(address)::Type,AddressVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(address)::Type,AddressVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(address)::Type,AddressVal::set> set{};
-        }
         }
         ///Write '1' to Enable interrupt on EVENTS_PAYLOAD event
         enum class PayloadVal {
@@ -193,7 +183,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(payload)::Type,PayloadVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(payload)::Type,PayloadVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_END event
         enum class EndVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -205,7 +194,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::set> set{};
-        }
         }
         ///Write '1' to Enable interrupt on EVENTS_DISABLED event
         enum class DisabledVal {
@@ -219,7 +207,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(disabled)::Type,DisabledVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(disabled)::Type,DisabledVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_DEVMATCH event
         enum class DevmatchVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -231,7 +218,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(devmatch)::Type,DevmatchVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(devmatch)::Type,DevmatchVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(devmatch)::Type,DevmatchVal::set> set{};
-        }
         }
         ///Write '1' to Enable interrupt on EVENTS_DEVMISS event
         enum class DevmissVal {
@@ -245,7 +231,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(devmiss)::Type,DevmissVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(devmiss)::Type,DevmissVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_RSSIEND event
         enum class RssiendVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -257,7 +242,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rssiend)::Type,RssiendVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rssiend)::Type,RssiendVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(rssiend)::Type,RssiendVal::set> set{};
-        }
         }
         ///Write '1' to Enable interrupt on EVENTS_BCMATCH event
         enum class BcmatchVal {
@@ -271,7 +255,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bcmatch)::Type,BcmatchVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(bcmatch)::Type,BcmatchVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_CRCOK event
         enum class CrcokVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -284,7 +267,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(crcok)::Type,CrcokVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(crcok)::Type,CrcokVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_CRCERROR event
         enum class CrcerrorVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -296,7 +278,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(crcerror)::Type,CrcerrorVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(crcerror)::Type,CrcerrorVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(crcerror)::Type,CrcerrorVal::set> set{};
-        }
         }
     }
     namespace Noneintenclr{    ///<Disable interrupt
@@ -313,7 +294,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_ADDRESS event
         enum class AddressVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -325,7 +305,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(address)::Type,AddressVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(address)::Type,AddressVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(address)::Type,AddressVal::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_PAYLOAD event
         enum class PayloadVal {
@@ -339,7 +318,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(payload)::Type,PayloadVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(payload)::Type,PayloadVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_END event
         enum class EndVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -351,7 +329,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_DISABLED event
         enum class DisabledVal {
@@ -365,7 +342,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(disabled)::Type,DisabledVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(disabled)::Type,DisabledVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_DEVMATCH event
         enum class DevmatchVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -377,7 +353,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(devmatch)::Type,DevmatchVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(devmatch)::Type,DevmatchVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(devmatch)::Type,DevmatchVal::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_DEVMISS event
         enum class DevmissVal {
@@ -391,7 +366,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(devmiss)::Type,DevmissVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(devmiss)::Type,DevmissVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_RSSIEND event
         enum class RssiendVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -403,7 +377,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rssiend)::Type,RssiendVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rssiend)::Type,RssiendVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(rssiend)::Type,RssiendVal::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_BCMATCH event
         enum class BcmatchVal {
@@ -417,7 +390,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bcmatch)::Type,BcmatchVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(bcmatch)::Type,BcmatchVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_CRCOK event
         enum class CrcokVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -429,7 +401,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(crcok)::Type,CrcokVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(crcok)::Type,CrcokVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(crcok)::Type,CrcokVal::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_CRCERROR event
         enum class CrcerrorVal {
@@ -443,7 +414,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(crcerror)::Type,CrcerrorVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(crcerror)::Type,CrcerrorVal::clear> clear{};
         }
-        }
     }
     namespace Nonecrcstatus{    ///<CRC status
         using Addr = Register::Address<0x40001400,0xfffffffe,0,unsigned>;
@@ -456,7 +426,6 @@ namespace Kvasir {
         namespace CrcstatusValC{
             constexpr Register::FieldValue<decltype(crcstatus)::Type,CrcstatusVal::crcerror> crcerror{};
             constexpr Register::FieldValue<decltype(crcstatus)::Type,CrcstatusVal::crcok> crcok{};
-        }
         }
     }
     namespace Nonerxmatch{    ///<Received address
@@ -512,7 +481,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txpower)::Type,TxpowerVal::neg30dbm> neg30dbm{};
             constexpr Register::FieldValue<decltype(txpower)::Type,TxpowerVal::neg40dbm> neg40dbm{};
         }
-        }
     }
     namespace Nonemode{    ///<Data rate and modulation
         using Addr = Register::Address<0x40001510,0xfffffff0,0,unsigned>;
@@ -537,7 +505,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(s1incl)::Type,S1inclVal::automatic> automatic{};
             constexpr Register::FieldValue<decltype(s1incl)::Type,S1inclVal::include> include{};
         }
-        }
         ///Length of preamble on air. Decision point: "RADIO.TASKS_START"  task
         enum class PlenVal {
             v8bit=0x00000000,     ///<8-bit preamble
@@ -547,7 +514,6 @@ namespace Kvasir {
         namespace PlenValC{
             constexpr Register::FieldValue<decltype(plen)::Type,PlenVal::v8bit> v8bit{};
             constexpr Register::FieldValue<decltype(plen)::Type,PlenVal::v16bit> v16bit{};
-        }
         }
     }
     namespace Nonepcnf1{    ///<Packet configuration register 1
@@ -568,7 +534,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(endian)::Type,EndianVal::little> little{};
             constexpr Register::FieldValue<decltype(endian)::Type,EndianVal::big> big{};
         }
-        }
         ///Enable or disable packet whitening
         enum class WhiteenVal {
             disabled=0x00000000,     ///<Disable
@@ -578,7 +543,6 @@ namespace Kvasir {
         namespace WhiteenValC{
             constexpr Register::FieldValue<decltype(whiteen)::Type,WhiteenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(whiteen)::Type,WhiteenVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonebase0{    ///<Base address 0
@@ -630,7 +594,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(addr0)::Type,Addr0Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(addr0)::Type,Addr0Val::enabled> enabled{};
         }
-        }
         ///Enable or disable reception on logical address 1.
         enum class Addr1Val {
             disabled=0x00000000,     ///<Disable
@@ -640,7 +603,6 @@ namespace Kvasir {
         namespace Addr1ValC{
             constexpr Register::FieldValue<decltype(addr1)::Type,Addr1Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(addr1)::Type,Addr1Val::enabled> enabled{};
-        }
         }
         ///Enable or disable reception on logical address 2.
         enum class Addr2Val {
@@ -652,7 +614,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(addr2)::Type,Addr2Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(addr2)::Type,Addr2Val::enabled> enabled{};
         }
-        }
         ///Enable or disable reception on logical address 3.
         enum class Addr3Val {
             disabled=0x00000000,     ///<Disable
@@ -662,7 +623,6 @@ namespace Kvasir {
         namespace Addr3ValC{
             constexpr Register::FieldValue<decltype(addr3)::Type,Addr3Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(addr3)::Type,Addr3Val::enabled> enabled{};
-        }
         }
         ///Enable or disable reception on logical address 4.
         enum class Addr4Val {
@@ -674,7 +634,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(addr4)::Type,Addr4Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(addr4)::Type,Addr4Val::enabled> enabled{};
         }
-        }
         ///Enable or disable reception on logical address 5.
         enum class Addr5Val {
             disabled=0x00000000,     ///<Disable
@@ -684,7 +643,6 @@ namespace Kvasir {
         namespace Addr5ValC{
             constexpr Register::FieldValue<decltype(addr5)::Type,Addr5Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(addr5)::Type,Addr5Val::enabled> enabled{};
-        }
         }
         ///Enable or disable reception on logical address 6.
         enum class Addr6Val {
@@ -696,7 +654,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(addr6)::Type,Addr6Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(addr6)::Type,Addr6Val::enabled> enabled{};
         }
-        }
         ///Enable or disable reception on logical address 7.
         enum class Addr7Val {
             disabled=0x00000000,     ///<Disable
@@ -706,7 +663,6 @@ namespace Kvasir {
         namespace Addr7ValC{
             constexpr Register::FieldValue<decltype(addr7)::Type,Addr7Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(addr7)::Type,Addr7Val::enabled> enabled{};
-        }
         }
     }
     namespace Nonecrccnf{    ///<CRC configuration
@@ -725,7 +681,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(len)::Type,LenVal::two> two{};
             constexpr Register::FieldValue<decltype(len)::Type,LenVal::three> three{};
         }
-        }
         ///Include or exclude packet address field out of CRC calculation.
         enum class SkipaddrVal {
             include=0x00000000,     ///<CRC calculation includes address field
@@ -735,7 +690,6 @@ namespace Kvasir {
         namespace SkipaddrValC{
             constexpr Register::FieldValue<decltype(skipaddr)::Type,SkipaddrVal::include> include{};
             constexpr Register::FieldValue<decltype(skipaddr)::Type,SkipaddrVal::skip> skip{};
-        }
         }
     }
     namespace Nonecrcpoly{    ///<CRC polynomial
@@ -786,7 +740,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(state)::Type,StateVal::txidle> txidle{};
             constexpr Register::FieldValue<decltype(state)::Type,StateVal::tx> tx{};
             constexpr Register::FieldValue<decltype(state)::Type,StateVal::txdisable> txdisable{};
-        }
         }
     }
     namespace Nonedatawhiteiv{    ///<Data whitening initial value
@@ -891,7 +844,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena0)::Type,Ena0Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena0)::Type,Ena0Val::enabled> enabled{};
         }
-        }
         ///Enable or disable device address matching using device address 1
         enum class Ena1Val {
             disabled=0x00000000,     ///<Disabled
@@ -901,7 +853,6 @@ namespace Kvasir {
         namespace Ena1ValC{
             constexpr Register::FieldValue<decltype(ena1)::Type,Ena1Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena1)::Type,Ena1Val::enabled> enabled{};
-        }
         }
         ///Enable or disable device address matching using device address 2
         enum class Ena2Val {
@@ -913,7 +864,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena2)::Type,Ena2Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena2)::Type,Ena2Val::enabled> enabled{};
         }
-        }
         ///Enable or disable device address matching using device address 3
         enum class Ena3Val {
             disabled=0x00000000,     ///<Disabled
@@ -923,7 +873,6 @@ namespace Kvasir {
         namespace Ena3ValC{
             constexpr Register::FieldValue<decltype(ena3)::Type,Ena3Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena3)::Type,Ena3Val::enabled> enabled{};
-        }
         }
         ///Enable or disable device address matching using device address 4
         enum class Ena4Val {
@@ -935,7 +884,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena4)::Type,Ena4Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena4)::Type,Ena4Val::enabled> enabled{};
         }
-        }
         ///Enable or disable device address matching using device address 5
         enum class Ena5Val {
             disabled=0x00000000,     ///<Disabled
@@ -945,7 +893,6 @@ namespace Kvasir {
         namespace Ena5ValC{
             constexpr Register::FieldValue<decltype(ena5)::Type,Ena5Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena5)::Type,Ena5Val::enabled> enabled{};
-        }
         }
         ///Enable or disable device address matching using device address 6
         enum class Ena6Val {
@@ -957,7 +904,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ena6)::Type,Ena6Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena6)::Type,Ena6Val::enabled> enabled{};
         }
-        }
         ///Enable or disable device address matching using device address 7
         enum class Ena7Val {
             disabled=0x00000000,     ///<Disabled
@@ -967,7 +913,6 @@ namespace Kvasir {
         namespace Ena7ValC{
             constexpr Register::FieldValue<decltype(ena7)::Type,Ena7Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ena7)::Type,Ena7Val::enabled> enabled{};
-        }
         }
         ///TxAdd for device address 0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txadd0{}; 
@@ -998,7 +943,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ru)::Type,RuVal::default_> default_{};
             constexpr Register::FieldValue<decltype(ru)::Type,RuVal::fast> fast{};
         }
-        }
         ///Default TX value
         enum class DtxVal {
             b1=0x00000000,     ///<Transmit '1'
@@ -1010,7 +954,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtx)::Type,DtxVal::b1> b1{};
             constexpr Register::FieldValue<decltype(dtx)::Type,DtxVal::b0> b0{};
             constexpr Register::FieldValue<decltype(dtx)::Type,DtxVal::center> center{};
-        }
         }
     }
     namespace Nonepower{    ///<Peripheral power control
@@ -1024,7 +967,6 @@ namespace Kvasir {
         namespace PowerValC{
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::enabled> enabled{};
-        }
         }
     }
 }

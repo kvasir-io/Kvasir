@@ -16,7 +16,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(map)::Type,MapVal::userRamModeInter> userRamModeInter{};
             constexpr Register::FieldValue<decltype(map)::Type,MapVal::userFlashModeInt> userFlashModeInt{};
         }
-        }
     }
     namespace Nonepresetctrl{    ///<Peripheral reset control
         using Addr = Register::Address<0x40048004,0xfffffff8,0,unsigned>;
@@ -30,7 +29,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssp0RstN)::Type,Ssp0rstnVal::resetsTheSsp0Peri> resetsTheSsp0Peri{};
             constexpr Register::FieldValue<decltype(ssp0RstN)::Type,Ssp0rstnVal::ssp0ResetDeAssert> ssp0ResetDeAssert{};
         }
-        }
         ///I2C reset control
         enum class I2crstnVal {
             resetsTheI2cPerip=0x00000000,     ///<Resets the I2C peripheral.
@@ -41,7 +39,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2cRstN)::Type,I2crstnVal::resetsTheI2cPerip> resetsTheI2cPerip{};
             constexpr Register::FieldValue<decltype(i2cRstN)::Type,I2crstnVal::i2cResetDeAsserte> i2cResetDeAsserte{};
         }
-        }
         ///SSP1 reset control
         enum class Ssp1rstnVal {
             resetsTheSsp0Peri=0x00000000,     ///<Resets the SSP0 peripheral.
@@ -51,7 +48,6 @@ namespace Kvasir {
         namespace Ssp1rstnValC{
             constexpr Register::FieldValue<decltype(ssp1RstN)::Type,Ssp1rstnVal::resetsTheSsp0Peri> resetsTheSsp0Peri{};
             constexpr Register::FieldValue<decltype(ssp1RstN)::Type,Ssp1rstnVal::ssp1ResetDeAssert> ssp1ResetDeAssert{};
-        }
         }
     }
     namespace Nonesyspllctrl{    ///<System PLL control
@@ -72,7 +68,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psel)::Type,PselVal::pEq4> pEq4{};
             constexpr Register::FieldValue<decltype(psel)::Type,PselVal::pEq8> pEq8{};
         }
-        }
     }
     namespace Nonesyspllstat{    ///<System PLL status
         using Addr = Register::Address<0x4004800c,0xfffffffe,0,unsigned>;
@@ -85,7 +80,6 @@ namespace Kvasir {
         namespace LockValC{
             constexpr Register::FieldValue<decltype(lock)::Type,LockVal::pllNotLocked> pllNotLocked{};
             constexpr Register::FieldValue<decltype(lock)::Type,LockVal::pllLocked> pllLocked{};
-        }
         }
     }
     namespace Noneusbpllctrl{    ///<USB PLL control
@@ -106,7 +100,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psel)::Type,PselVal::pEq4> pEq4{};
             constexpr Register::FieldValue<decltype(psel)::Type,PselVal::pEq8> pEq8{};
         }
-        }
     }
     namespace Noneusbpllstat{    ///<USB PLL status
         using Addr = Register::Address<0x40048014,0xfffffffe,0,unsigned>;
@@ -119,7 +112,6 @@ namespace Kvasir {
         namespace LockValC{
             constexpr Register::FieldValue<decltype(lock)::Type,LockVal::pllNotLocked> pllNotLocked{};
             constexpr Register::FieldValue<decltype(lock)::Type,LockVal::pllLocked> pllLocked{};
-        }
         }
     }
     namespace Nonesysoscctrl{    ///<System oscillator control
@@ -134,7 +126,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bypass)::Type,BypassVal::oscillatorIsNotBy> oscillatorIsNotBy{};
             constexpr Register::FieldValue<decltype(bypass)::Type,BypassVal::bypassEnabledPll> bypassEnabledPll{};
         }
-        }
         ///Determines frequency range for Low-power oscillator.
         enum class FreqrangeVal {
             v120MhzFrequency=0x00000000,     ///<1 - 20 MHz frequency range.
@@ -144,7 +135,6 @@ namespace Kvasir {
         namespace FreqrangeValC{
             constexpr Register::FieldValue<decltype(freqrange)::Type,FreqrangeVal::v120MhzFrequency> v120MhzFrequency{};
             constexpr Register::FieldValue<decltype(freqrange)::Type,FreqrangeVal::v1525MhzFrequenc> v1525MhzFrequenc{};
-        }
         }
     }
     namespace Nonewdtoscctrl{    ///<Watchdog oscillator control
@@ -187,7 +177,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v44Mhz> v44Mhz{};
             constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v46Mhz> v46Mhz{};
         }
-        }
     }
     namespace Nonesysrststat{    ///<System reset status register
         using Addr = Register::Address<0x40048030,0xffffffe0,0,unsigned>;
@@ -201,7 +190,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(por)::Type,PorVal::noPorDetected> noPorDetected{};
             constexpr Register::FieldValue<decltype(por)::Type,PorVal::porDetected> porDetected{};
         }
-        }
         ///Status of the external RESET pin
         enum class ExtrstVal {
             noResetEventDetec=0x00000000,     ///<No reset event detected
@@ -211,7 +199,6 @@ namespace Kvasir {
         namespace ExtrstValC{
             constexpr Register::FieldValue<decltype(extrst)::Type,ExtrstVal::noResetEventDetec> noResetEventDetec{};
             constexpr Register::FieldValue<decltype(extrst)::Type,ExtrstVal::resetDetected> resetDetected{};
-        }
         }
         ///Status of the Watchdog reset
         enum class WdtVal {
@@ -223,7 +210,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wdt)::Type,WdtVal::noWdtResetDetecte> noWdtResetDetecte{};
             constexpr Register::FieldValue<decltype(wdt)::Type,WdtVal::wdtResetDetected> wdtResetDetected{};
         }
-        }
         ///Status of the Brown-out detect reset
         enum class BodVal {
             noBodResetDetecte=0x00000000,     ///<No BOD reset detected
@@ -234,7 +220,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bod)::Type,BodVal::noBodResetDetecte> noBodResetDetecte{};
             constexpr Register::FieldValue<decltype(bod)::Type,BodVal::bodResetDetected> bodResetDetected{};
         }
-        }
         ///Status of the software system reset
         enum class SysrstVal {
             noSystemResetDete=0x00000000,     ///<No System reset detected
@@ -244,7 +229,6 @@ namespace Kvasir {
         namespace SysrstValC{
             constexpr Register::FieldValue<decltype(sysrst)::Type,SysrstVal::noSystemResetDete> noSystemResetDete{};
             constexpr Register::FieldValue<decltype(sysrst)::Type,SysrstVal::systemResetDetecte> systemResetDetecte{};
-        }
         }
     }
     namespace Nonesyspllclksel{    ///<System PLL clock source select
@@ -259,7 +243,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sel)::Type,SelVal::irc> irc{};
             constexpr Register::FieldValue<decltype(sel)::Type,SelVal::crystalOscillator> crystalOscillator{};
         }
-        }
     }
     namespace Noneusbpllclksel{    ///<USB PLL clock source select
         using Addr = Register::Address<0x40048048,0xfffffffc,0,unsigned>;
@@ -272,7 +255,6 @@ namespace Kvasir {
         namespace SelValC{
             constexpr Register::FieldValue<decltype(sel)::Type,SelVal::ircTheUsbPllClo> ircTheUsbPllClo{};
             constexpr Register::FieldValue<decltype(sel)::Type,SelVal::systemOscillator> systemOscillator{};
-        }
         }
     }
     namespace Nonemainclksel{    ///<Main clock source select
@@ -291,7 +273,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sel)::Type,SelVal::watchdogOscillator> watchdogOscillator{};
             constexpr Register::FieldValue<decltype(sel)::Type,SelVal::pllOutput> pllOutput{};
         }
-        }
     }
     namespace Nonesysahbclkdiv{    ///<System clock divider
         using Addr = Register::Address<0x40048078,0xffffff00,0,unsigned>;
@@ -308,7 +289,6 @@ namespace Kvasir {
         namespace SysValC{
             constexpr Register::FieldValue<decltype(sys)::Type,SysVal::enable> enable{};
         }
-        }
         ///Enables clock for ROM.
         enum class RomVal {
             disable=0x00000000,     ///<Disable
@@ -318,7 +298,6 @@ namespace Kvasir {
         namespace RomValC{
             constexpr Register::FieldValue<decltype(rom)::Type,RomVal::disable> disable{};
             constexpr Register::FieldValue<decltype(rom)::Type,RomVal::enable> enable{};
-        }
         }
         ///Enables clock for SRAM0.
         enum class Ram0Val {
@@ -330,7 +309,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ram0)::Type,Ram0Val::disable> disable{};
             constexpr Register::FieldValue<decltype(ram0)::Type,Ram0Val::enable> enable{};
         }
-        }
         ///Enables clock for flash register interface.
         enum class FlashregVal {
             disabled=0x00000000,     ///<Disabled
@@ -340,7 +318,6 @@ namespace Kvasir {
         namespace FlashregValC{
             constexpr Register::FieldValue<decltype(flashreg)::Type,FlashregVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(flashreg)::Type,FlashregVal::enabled> enabled{};
-        }
         }
         ///Enables clock for flash array access.
         enum class FlasharrayVal {
@@ -352,7 +329,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flasharray)::Type,FlasharrayVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(flasharray)::Type,FlasharrayVal::enabled> enabled{};
         }
-        }
         ///Enables clock for I2C.
         enum class I2cVal {
             disable=0x00000000,     ///<Disable
@@ -362,7 +338,6 @@ namespace Kvasir {
         namespace I2cValC{
             constexpr Register::FieldValue<decltype(i2c)::Type,I2cVal::disable> disable{};
             constexpr Register::FieldValue<decltype(i2c)::Type,I2cVal::enable> enable{};
-        }
         }
         ///Enables clock for GPIO port registers.
         enum class GpioVal {
@@ -374,7 +349,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gpio)::Type,GpioVal::disable> disable{};
             constexpr Register::FieldValue<decltype(gpio)::Type,GpioVal::enable> enable{};
         }
-        }
         ///Enables clock for 16-bit counter/timer 0.
         enum class Ct16b0Val {
             disable=0x00000000,     ///<Disable
@@ -384,7 +358,6 @@ namespace Kvasir {
         namespace Ct16b0ValC{
             constexpr Register::FieldValue<decltype(ct16b0)::Type,Ct16b0Val::disable> disable{};
             constexpr Register::FieldValue<decltype(ct16b0)::Type,Ct16b0Val::enable> enable{};
-        }
         }
         ///Enables clock for 16-bit counter/timer 1.
         enum class Ct16b1Val {
@@ -396,7 +369,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ct16b1)::Type,Ct16b1Val::disable> disable{};
             constexpr Register::FieldValue<decltype(ct16b1)::Type,Ct16b1Val::enable> enable{};
         }
-        }
         ///Enables clock for 32-bit counter/timer 0.
         enum class Ct32b0Val {
             disable=0x00000000,     ///<Disable
@@ -406,7 +378,6 @@ namespace Kvasir {
         namespace Ct32b0ValC{
             constexpr Register::FieldValue<decltype(ct32b0)::Type,Ct32b0Val::disable> disable{};
             constexpr Register::FieldValue<decltype(ct32b0)::Type,Ct32b0Val::enable> enable{};
-        }
         }
         ///Enables clock for 32-bit counter/timer 1.
         enum class Ct32b1Val {
@@ -418,7 +389,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ct32b1)::Type,Ct32b1Val::disable> disable{};
             constexpr Register::FieldValue<decltype(ct32b1)::Type,Ct32b1Val::enable> enable{};
         }
-        }
         ///Enables clock for SSP0.
         enum class Ssp0Val {
             disable=0x00000000,     ///<Disable
@@ -428,7 +398,6 @@ namespace Kvasir {
         namespace Ssp0ValC{
             constexpr Register::FieldValue<decltype(ssp0)::Type,Ssp0Val::disable> disable{};
             constexpr Register::FieldValue<decltype(ssp0)::Type,Ssp0Val::enable> enable{};
-        }
         }
         ///Enables clock for UART.
         enum class UsartVal {
@@ -440,7 +409,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usart)::Type,UsartVal::disable> disable{};
             constexpr Register::FieldValue<decltype(usart)::Type,UsartVal::enable> enable{};
         }
-        }
         ///Enables clock for ADC.
         enum class AdcVal {
             disable=0x00000000,     ///<Disable
@@ -450,7 +418,6 @@ namespace Kvasir {
         namespace AdcValC{
             constexpr Register::FieldValue<decltype(adc)::Type,AdcVal::disable> disable{};
             constexpr Register::FieldValue<decltype(adc)::Type,AdcVal::enable> enable{};
-        }
         }
         ///Enables clock to the USB register interface.
         enum class UsbVal {
@@ -462,7 +429,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usb)::Type,UsbVal::disable> disable{};
             constexpr Register::FieldValue<decltype(usb)::Type,UsbVal::enable> enable{};
         }
-        }
         ///Enables clock for WWDT.
         enum class WwdtVal {
             disable=0x00000000,     ///<Disable
@@ -472,7 +438,6 @@ namespace Kvasir {
         namespace WwdtValC{
             constexpr Register::FieldValue<decltype(wwdt)::Type,WwdtVal::disable> disable{};
             constexpr Register::FieldValue<decltype(wwdt)::Type,WwdtVal::enable> enable{};
-        }
         }
         ///Enables clock for I/O configuration block.
         enum class IoconVal {
@@ -484,7 +449,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iocon)::Type,IoconVal::disable> disable{};
             constexpr Register::FieldValue<decltype(iocon)::Type,IoconVal::enable> enable{};
         }
-        }
         ///Enables clock for SSP1.
         enum class Ssp1Val {
             disable=0x00000000,     ///<Disable
@@ -494,7 +458,6 @@ namespace Kvasir {
         namespace Ssp1ValC{
             constexpr Register::FieldValue<decltype(ssp1)::Type,Ssp1Val::disable> disable{};
             constexpr Register::FieldValue<decltype(ssp1)::Type,Ssp1Val::enable> enable{};
-        }
         }
         ///Enables clock to GPIO Pin interrupts register interface.
         enum class PintVal {
@@ -506,7 +469,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pint)::Type,PintVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pint)::Type,PintVal::enable> enable{};
         }
-        }
         ///Enables clock to GPIO GROUP0 interrupt register interface.
         enum class Group0intVal {
             disable=0x00000000,     ///<Disable
@@ -516,7 +478,6 @@ namespace Kvasir {
         namespace Group0intValC{
             constexpr Register::FieldValue<decltype(group0int)::Type,Group0intVal::disable> disable{};
             constexpr Register::FieldValue<decltype(group0int)::Type,Group0intVal::enable> enable{};
-        }
         }
         ///Enables clock to GPIO GROUP1 interrupt register interface.
         enum class Group1intVal {
@@ -528,7 +489,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(group1int)::Type,Group1intVal::disable> disable{};
             constexpr Register::FieldValue<decltype(group1int)::Type,Group1intVal::enable> enable{};
         }
-        }
         ///Enables clock for SRAM1 located at 0x2000 0000 to 0x2000 0800.
         enum class Ram1Val {
             disable=0x00000000,     ///<Disable
@@ -539,7 +499,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ram1)::Type,Ram1Val::disable> disable{};
             constexpr Register::FieldValue<decltype(ram1)::Type,Ram1Val::enable> enable{};
         }
-        }
         ///Enables USB SRAM block located at 0x2000 4000 to 0x2000 4800.
         enum class UsbsramVal {
             disable=0x00000000,     ///<Disable
@@ -549,7 +508,6 @@ namespace Kvasir {
         namespace UsbsramValC{
             constexpr Register::FieldValue<decltype(usbsram)::Type,UsbsramVal::disable> disable{};
             constexpr Register::FieldValue<decltype(usbsram)::Type,UsbsramVal::enable> enable{};
-        }
         }
     }
     namespace Nonessp0clkdiv{    ///<SSP0 clock divider
@@ -589,7 +547,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sel)::Type,SelVal::usbPllOut> usbPllOut{};
             constexpr Register::FieldValue<decltype(sel)::Type,SelVal::mainClock> mainClock{};
         }
-        }
     }
     namespace Noneusbclkdiv{    ///<USB clock source divider
         using Addr = Register::Address<0x400480c8,0xffffff00,0,unsigned>;
@@ -611,7 +568,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sel)::Type,SelVal::crystalOscillator> crystalOscillator{};
             constexpr Register::FieldValue<decltype(sel)::Type,SelVal::watchdogOscillator> watchdogOscillator{};
             constexpr Register::FieldValue<decltype(sel)::Type,SelVal::mainClock> mainClock{};
-        }
         }
     }
     namespace Noneclkoutdiv{    ///<CLKOUT clock divider
@@ -645,7 +601,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bodrstlev)::Type,BodrstlevVal::level2TheResetA> level2TheResetA{};
             constexpr Register::FieldValue<decltype(bodrstlev)::Type,BodrstlevVal::level3TheResetA> level3TheResetA{};
         }
-        }
         ///BOD interrupt level
         enum class BodintvalVal {
             level1theInterrup=0x00000001,     ///<Level 1:The interrupt assertion threshold voltage is 2.22 V; the interrupt de-assertion threshold voltage is 2.35 V.
@@ -658,7 +613,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bodintval)::Type,BodintvalVal::level2TheInterru> level2TheInterru{};
             constexpr Register::FieldValue<decltype(bodintval)::Type,BodintvalVal::level3TheInterru> level3TheInterru{};
         }
-        }
         ///BOD reset enable
         enum class BodrstenaVal {
             disableResetFuncti=0x00000000,     ///<Disable reset function.
@@ -668,7 +622,6 @@ namespace Kvasir {
         namespace BodrstenaValC{
             constexpr Register::FieldValue<decltype(bodrstena)::Type,BodrstenaVal::disableResetFuncti> disableResetFuncti{};
             constexpr Register::FieldValue<decltype(bodrstena)::Type,BodrstenaVal::enableResetFunctio> enableResetFunctio{};
-        }
         }
     }
     namespace Nonesystckcal{    ///<System tick counter calibration
@@ -702,7 +655,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(portsel)::Type,PortselVal::port0> port0{};
             constexpr Register::FieldValue<decltype(portsel)::Type,PortselVal::port1> port1{};
         }
-        }
     }
     namespace Nonepintsel1{    ///<GPIO Pin Interrupt Select register
         using Addr = Register::Address<0x4004817c,0xffffffc0,0,unsigned>;
@@ -717,7 +669,6 @@ namespace Kvasir {
         namespace PortselValC{
             constexpr Register::FieldValue<decltype(portsel)::Type,PortselVal::port0> port0{};
             constexpr Register::FieldValue<decltype(portsel)::Type,PortselVal::port1> port1{};
-        }
         }
     }
     namespace Nonepintsel2{    ///<GPIO Pin Interrupt Select register
@@ -734,7 +685,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(portsel)::Type,PortselVal::port0> port0{};
             constexpr Register::FieldValue<decltype(portsel)::Type,PortselVal::port1> port1{};
         }
-        }
     }
     namespace Nonepintsel3{    ///<GPIO Pin Interrupt Select register
         using Addr = Register::Address<0x40048184,0xffffffc0,0,unsigned>;
@@ -749,7 +699,6 @@ namespace Kvasir {
         namespace PortselValC{
             constexpr Register::FieldValue<decltype(portsel)::Type,PortselVal::port0> port0{};
             constexpr Register::FieldValue<decltype(portsel)::Type,PortselVal::port1> port1{};
-        }
         }
     }
     namespace Nonepintsel4{    ///<GPIO Pin Interrupt Select register
@@ -766,7 +715,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(portsel)::Type,PortselVal::port0> port0{};
             constexpr Register::FieldValue<decltype(portsel)::Type,PortselVal::port1> port1{};
         }
-        }
     }
     namespace Nonepintsel5{    ///<GPIO Pin Interrupt Select register
         using Addr = Register::Address<0x4004818c,0xffffffc0,0,unsigned>;
@@ -781,7 +729,6 @@ namespace Kvasir {
         namespace PortselValC{
             constexpr Register::FieldValue<decltype(portsel)::Type,PortselVal::port0> port0{};
             constexpr Register::FieldValue<decltype(portsel)::Type,PortselVal::port1> port1{};
-        }
         }
     }
     namespace Nonepintsel6{    ///<GPIO Pin Interrupt Select register
@@ -798,7 +745,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(portsel)::Type,PortselVal::port0> port0{};
             constexpr Register::FieldValue<decltype(portsel)::Type,PortselVal::port1> port1{};
         }
-        }
     }
     namespace Nonepintsel7{    ///<GPIO Pin Interrupt Select register
         using Addr = Register::Address<0x40048194,0xffffffc0,0,unsigned>;
@@ -814,7 +760,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(portsel)::Type,PortselVal::port0> port0{};
             constexpr Register::FieldValue<decltype(portsel)::Type,PortselVal::port1> port1{};
         }
-        }
     }
     namespace Noneusbclkctrl{    ///<USB clock control
         using Addr = Register::Address<0x40048198,0xfffffffc,0,unsigned>;
@@ -828,7 +773,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(apClk)::Type,ApclkVal::underHardwareContr> underHardwareContr{};
             constexpr Register::FieldValue<decltype(apClk)::Type,ApclkVal::forcedHigh> forcedHigh{};
         }
-        }
         ///USB need_clock polarity for triggering the USB wake-up interrupt
         enum class PolclkVal {
             fallingEdgeOfThe=0x00000000,     ///<Falling edge of the USB need_clock triggers the USB wake-up (default).
@@ -838,7 +782,6 @@ namespace Kvasir {
         namespace PolclkValC{
             constexpr Register::FieldValue<decltype(polClk)::Type,PolclkVal::fallingEdgeOfThe> fallingEdgeOfThe{};
             constexpr Register::FieldValue<decltype(polClk)::Type,PolclkVal::risingEdgeOfTheU> risingEdgeOfTheU{};
-        }
         }
     }
     namespace Noneusbclkst{    ///<USB clock status
@@ -853,7 +796,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(needClkst)::Type,NeedclkstVal::low> low{};
             constexpr Register::FieldValue<decltype(needClkst)::Type,NeedclkstVal::high> high{};
         }
-        }
     }
     namespace Nonestarterp0{    ///<Start logic 0 interrupt wake-up enable register 0
         using Addr = Register::Address<0x40048204,0xffffff00,0,unsigned>;
@@ -867,7 +809,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pint0)::Type,Pint0Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pint0)::Type,Pint0Val::enabled> enabled{};
         }
-        }
         ///Pin interrupt 1 wake-up
         enum class Pint1Val {
             disabled=0x00000000,     ///<Disabled
@@ -877,7 +818,6 @@ namespace Kvasir {
         namespace Pint1ValC{
             constexpr Register::FieldValue<decltype(pint1)::Type,Pint1Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pint1)::Type,Pint1Val::enabled> enabled{};
-        }
         }
         ///Pin interrupt 2 wake-up
         enum class Pint2Val {
@@ -889,7 +829,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pint2)::Type,Pint2Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pint2)::Type,Pint2Val::enabled> enabled{};
         }
-        }
         ///Pin interrupt 3 wake-up
         enum class Pint3Val {
             disabled=0x00000000,     ///<Disabled
@@ -899,7 +838,6 @@ namespace Kvasir {
         namespace Pint3ValC{
             constexpr Register::FieldValue<decltype(pint3)::Type,Pint3Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pint3)::Type,Pint3Val::enabled> enabled{};
-        }
         }
         ///Pin interrupt 4 wake-up
         enum class Pint4Val {
@@ -911,7 +849,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pint4)::Type,Pint4Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pint4)::Type,Pint4Val::enabled> enabled{};
         }
-        }
         ///Pin interrupt 5 wake-up
         enum class Pint5Val {
             disabled=0x00000000,     ///<Disabled
@@ -921,7 +858,6 @@ namespace Kvasir {
         namespace Pint5ValC{
             constexpr Register::FieldValue<decltype(pint5)::Type,Pint5Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pint5)::Type,Pint5Val::enabled> enabled{};
-        }
         }
         ///Pin interrupt 6 wake-up
         enum class Pint6Val {
@@ -933,7 +869,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pint6)::Type,Pint6Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pint6)::Type,Pint6Val::enabled> enabled{};
         }
-        }
         ///Pin interrupt 7 wake-up
         enum class Pint7Val {
             disabled=0x00000000,     ///<Disabled
@@ -943,7 +878,6 @@ namespace Kvasir {
         namespace Pint7ValC{
             constexpr Register::FieldValue<decltype(pint7)::Type,Pint7Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pint7)::Type,Pint7Val::enabled> enabled{};
-        }
         }
     }
     namespace Nonestarterp1{    ///<Start logic 1 interrupt wake-up enable register 1
@@ -958,7 +892,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wwdtint)::Type,WwdtintVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(wwdtint)::Type,WwdtintVal::enabled> enabled{};
         }
-        }
         ///Brown Out Detect (BOD) interrupt wake-up
         enum class BodintVal {
             disabled=0x00000000,     ///<Disabled
@@ -968,7 +901,6 @@ namespace Kvasir {
         namespace BodintValC{
             constexpr Register::FieldValue<decltype(bodint)::Type,BodintVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(bodint)::Type,BodintVal::enabled> enabled{};
-        }
         }
         ///USB need_clock signal wake-up
         enum class UsbwakeupVal {
@@ -980,7 +912,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usbWakeup)::Type,UsbwakeupVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(usbWakeup)::Type,UsbwakeupVal::enabled> enabled{};
         }
-        }
         ///GPIO GROUP0 interrupt wake-up
         enum class Gpioint0Val {
             disabled=0x00000000,     ///<Disabled
@@ -991,7 +922,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gpioint0)::Type,Gpioint0Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(gpioint0)::Type,Gpioint0Val::enabled> enabled{};
         }
-        }
         ///GPIO GROUP1 interrupt wake-up
         enum class Gpioint1Val {
             disabled=0x00000000,     ///<Disabled
@@ -1001,7 +931,6 @@ namespace Kvasir {
         namespace Gpioint1ValC{
             constexpr Register::FieldValue<decltype(gpioint1)::Type,Gpioint1Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(gpioint1)::Type,Gpioint1Val::enabled> enabled{};
-        }
         }
     }
     namespace Nonepdsleepcfg{    ///<Power-down states in deep-sleep mode
@@ -1016,7 +945,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bodPd)::Type,BodpdVal::poweredDown> poweredDown{};
             constexpr Register::FieldValue<decltype(bodPd)::Type,BodpdVal::powered> powered{};
         }
-        }
         ///Watchdog oscillator power-down control for Deep-sleep and Power-down mode
         enum class WdtoscpdVal {
             poweredDown=0x00000001,     ///<Powered down
@@ -1026,7 +954,6 @@ namespace Kvasir {
         namespace WdtoscpdValC{
             constexpr Register::FieldValue<decltype(wdtoscPd)::Type,WdtoscpdVal::poweredDown> poweredDown{};
             constexpr Register::FieldValue<decltype(wdtoscPd)::Type,WdtoscpdVal::powered> powered{};
-        }
         }
     }
     namespace Nonepdawakecfg{    ///<Power-down states for wake-up from deep-sleep
@@ -1041,7 +968,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ircoutPd)::Type,IrcoutpdVal::poweredDown> poweredDown{};
             constexpr Register::FieldValue<decltype(ircoutPd)::Type,IrcoutpdVal::powered> powered{};
         }
-        }
         ///IRC oscillator power-down wake-up configuration
         enum class IrcpdVal {
             poweredDown=0x00000001,     ///<Powered down
@@ -1051,7 +977,6 @@ namespace Kvasir {
         namespace IrcpdValC{
             constexpr Register::FieldValue<decltype(ircPd)::Type,IrcpdVal::poweredDown> poweredDown{};
             constexpr Register::FieldValue<decltype(ircPd)::Type,IrcpdVal::powered> powered{};
-        }
         }
         ///Flash wake-up configuration
         enum class FlashpdVal {
@@ -1063,7 +988,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flashPd)::Type,FlashpdVal::poweredDown> poweredDown{};
             constexpr Register::FieldValue<decltype(flashPd)::Type,FlashpdVal::powered> powered{};
         }
-        }
         ///BOD wake-up configuration
         enum class BodpdVal {
             poweredDown=0x00000001,     ///<Powered down
@@ -1073,7 +997,6 @@ namespace Kvasir {
         namespace BodpdValC{
             constexpr Register::FieldValue<decltype(bodPd)::Type,BodpdVal::poweredDown> poweredDown{};
             constexpr Register::FieldValue<decltype(bodPd)::Type,BodpdVal::powered> powered{};
-        }
         }
         ///ADC wake-up configuration
         enum class AdcpdVal {
@@ -1085,7 +1008,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adcPd)::Type,AdcpdVal::poweredDown> poweredDown{};
             constexpr Register::FieldValue<decltype(adcPd)::Type,AdcpdVal::powered> powered{};
         }
-        }
         ///Crystal oscillator wake-up configuration
         enum class SysoscpdVal {
             poweredDown=0x00000001,     ///<Powered down
@@ -1095,7 +1017,6 @@ namespace Kvasir {
         namespace SysoscpdValC{
             constexpr Register::FieldValue<decltype(sysoscPd)::Type,SysoscpdVal::poweredDown> poweredDown{};
             constexpr Register::FieldValue<decltype(sysoscPd)::Type,SysoscpdVal::powered> powered{};
-        }
         }
         ///Watchdog oscillator wake-up configuration
         enum class WdtoscpdVal {
@@ -1107,7 +1028,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wdtoscPd)::Type,WdtoscpdVal::poweredDown> poweredDown{};
             constexpr Register::FieldValue<decltype(wdtoscPd)::Type,WdtoscpdVal::powered> powered{};
         }
-        }
         ///System PLL wake-up configuration
         enum class SyspllpdVal {
             poweredDown=0x00000001,     ///<Powered down
@@ -1117,7 +1037,6 @@ namespace Kvasir {
         namespace SyspllpdValC{
             constexpr Register::FieldValue<decltype(syspllPd)::Type,SyspllpdVal::poweredDown> poweredDown{};
             constexpr Register::FieldValue<decltype(syspllPd)::Type,SyspllpdVal::powered> powered{};
-        }
         }
         ///USB PLL wake-up configuration
         enum class UsbpllpdVal {
@@ -1129,7 +1048,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usbpllPd)::Type,UsbpllpdVal::powered> powered{};
             constexpr Register::FieldValue<decltype(usbpllPd)::Type,UsbpllpdVal::poweredDown> poweredDown{};
         }
-        }
         ///USB transceiver wake-up configuration
         enum class UsbpadpdVal {
             usbTransceiverPowe=0x00000000,     ///<USB transceiver powered
@@ -1139,7 +1057,6 @@ namespace Kvasir {
         namespace UsbpadpdValC{
             constexpr Register::FieldValue<decltype(usbpadPd)::Type,UsbpadpdVal::usbTransceiverPowe> usbTransceiverPowe{};
             constexpr Register::FieldValue<decltype(usbpadPd)::Type,UsbpadpdVal::usbTransceiverPowe> usbTransceiverPowe{};
-        }
         }
     }
     namespace Nonepdruncfg{    ///<Power configuration register
@@ -1154,7 +1071,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ircoutPd)::Type,IrcoutpdVal::poweredDown> poweredDown{};
             constexpr Register::FieldValue<decltype(ircoutPd)::Type,IrcoutpdVal::powered> powered{};
         }
-        }
         ///IRC oscillator power-down
         enum class IrcpdVal {
             poweredDown=0x00000001,     ///<Powered down
@@ -1164,7 +1080,6 @@ namespace Kvasir {
         namespace IrcpdValC{
             constexpr Register::FieldValue<decltype(ircPd)::Type,IrcpdVal::poweredDown> poweredDown{};
             constexpr Register::FieldValue<decltype(ircPd)::Type,IrcpdVal::powered> powered{};
-        }
         }
         ///Flash power-down
         enum class FlashpdVal {
@@ -1176,7 +1091,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flashPd)::Type,FlashpdVal::poweredDown> poweredDown{};
             constexpr Register::FieldValue<decltype(flashPd)::Type,FlashpdVal::powered> powered{};
         }
-        }
         ///BOD power-down
         enum class BodpdVal {
             poweredDown=0x00000001,     ///<Powered down
@@ -1186,7 +1100,6 @@ namespace Kvasir {
         namespace BodpdValC{
             constexpr Register::FieldValue<decltype(bodPd)::Type,BodpdVal::poweredDown> poweredDown{};
             constexpr Register::FieldValue<decltype(bodPd)::Type,BodpdVal::powered> powered{};
-        }
         }
         ///ADC power-down
         enum class AdcpdVal {
@@ -1198,7 +1111,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adcPd)::Type,AdcpdVal::poweredDown> poweredDown{};
             constexpr Register::FieldValue<decltype(adcPd)::Type,AdcpdVal::powered> powered{};
         }
-        }
         ///Crystal oscillator power-down
         enum class SysoscpdVal {
             poweredDown=0x00000001,     ///<Powered down
@@ -1208,7 +1120,6 @@ namespace Kvasir {
         namespace SysoscpdValC{
             constexpr Register::FieldValue<decltype(sysoscPd)::Type,SysoscpdVal::poweredDown> poweredDown{};
             constexpr Register::FieldValue<decltype(sysoscPd)::Type,SysoscpdVal::powered> powered{};
-        }
         }
         ///Watchdog oscillator power-down
         enum class WdtoscpdVal {
@@ -1220,7 +1131,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wdtoscPd)::Type,WdtoscpdVal::poweredDown> poweredDown{};
             constexpr Register::FieldValue<decltype(wdtoscPd)::Type,WdtoscpdVal::powered> powered{};
         }
-        }
         ///System PLL power-down
         enum class SyspllpdVal {
             poweredDown=0x00000001,     ///<Powered down
@@ -1230,7 +1140,6 @@ namespace Kvasir {
         namespace SyspllpdValC{
             constexpr Register::FieldValue<decltype(syspllPd)::Type,SyspllpdVal::poweredDown> poweredDown{};
             constexpr Register::FieldValue<decltype(syspllPd)::Type,SyspllpdVal::powered> powered{};
-        }
         }
         ///USB PLL power-down
         enum class UsbpllpdVal {
@@ -1242,7 +1151,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usbpllPd)::Type,UsbpllpdVal::powered> powered{};
             constexpr Register::FieldValue<decltype(usbpllPd)::Type,UsbpllpdVal::poweredDown> poweredDown{};
         }
-        }
         ///USB transceiver power-down configuration
         enum class UsbpadpdVal {
             usbTransceiverPowe=0x00000000,     ///<USB transceiver powered
@@ -1252,7 +1160,6 @@ namespace Kvasir {
         namespace UsbpadpdValC{
             constexpr Register::FieldValue<decltype(usbpadPd)::Type,UsbpadpdVal::usbTransceiverPowe> usbTransceiverPowe{};
             constexpr Register::FieldValue<decltype(usbpadPd)::Type,UsbpadpdVal::usbTransceiverPowe> usbTransceiverPowe{};
-        }
         }
     }
     namespace NonedeviceId{    ///<Device ID

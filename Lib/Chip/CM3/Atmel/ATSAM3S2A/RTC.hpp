@@ -22,7 +22,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timevsel)::Type,TimevselVal::midnight> midnight{};
             constexpr Register::FieldValue<decltype(timevsel)::Type,TimevselVal::noon> noon{};
         }
-        }
         ///Calendar Event Selection
         enum class CalevselVal {
             week=0x00000000,     ///<Week change (every Monday at time 00:00:00)
@@ -34,7 +33,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(calevsel)::Type,CalevselVal::week> week{};
             constexpr Register::FieldValue<decltype(calevsel)::Type,CalevselVal::month> month{};
             constexpr Register::FieldValue<decltype(calevsel)::Type,CalevselVal::year> year{};
-        }
         }
     }
     namespace RtcMr{    ///<Mode Register
@@ -106,7 +104,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ackupd)::Type,AckupdVal::freerun> freerun{};
             constexpr Register::FieldValue<decltype(ackupd)::Type,AckupdVal::update> update{};
         }
-        }
         ///Alarm Flag
         enum class AlarmVal {
             noAlarmevent=0x00000000,     ///<No alarm matching condition occurred.
@@ -116,7 +113,6 @@ namespace Kvasir {
         namespace AlarmValC{
             constexpr Register::FieldValue<decltype(alarm)::Type,AlarmVal::noAlarmevent> noAlarmevent{};
             constexpr Register::FieldValue<decltype(alarm)::Type,AlarmVal::alarmevent> alarmevent{};
-        }
         }
         ///Second Event
         enum class SecVal {
@@ -128,7 +124,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sec)::Type,SecVal::noSecevent> noSecevent{};
             constexpr Register::FieldValue<decltype(sec)::Type,SecVal::secevent> secevent{};
         }
-        }
         ///Time Event
         enum class TimevVal {
             noTimevent=0x00000000,     ///<No time event has occurred since the last clear.
@@ -139,7 +134,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timev)::Type,TimevVal::noTimevent> noTimevent{};
             constexpr Register::FieldValue<decltype(timev)::Type,TimevVal::timevent> timevent{};
         }
-        }
         ///Calendar Event
         enum class CalevVal {
             noCalevent=0x00000000,     ///<No calendar event has occurred since the last clear.
@@ -149,7 +143,6 @@ namespace Kvasir {
         namespace CalevValC{
             constexpr Register::FieldValue<decltype(calev)::Type,CalevVal::noCalevent> noCalevent{};
             constexpr Register::FieldValue<decltype(calev)::Type,CalevVal::calevent> calevent{};
-        }
         }
     }
     namespace RtcSccr{    ///<Status Clear Command Register

@@ -18,7 +18,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::software> software{};
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::burst> burst{};
         }
-        }
         ///This field selects the number of clocks used for each conversion in Burst mode, and the number of bits of accuracy of the result in the LS bits of ADDR, between 11 clocks (10 bits) and 4 clocks (3 bits).
         enum class ClksVal {
             v11Clocks10Bits=0x00000000,     ///<11 clocks / 10 bits
@@ -41,7 +40,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v5Clocks4Bits> v5Clocks4Bits{};
             constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v4Clocks3Bits> v4Clocks3Bits{};
         }
-        }
         ///Power mode
         enum class PdnVal {
             powerdown=0x00000000,     ///<The A/D converter is in Power-down mode.
@@ -51,7 +49,6 @@ namespace Kvasir {
         namespace PdnValC{
             constexpr Register::FieldValue<decltype(pdn)::Type,PdnVal::powerdown> powerdown{};
             constexpr Register::FieldValue<decltype(pdn)::Type,PdnVal::running> running{};
-        }
         }
         ///When the BURST bit is 0, these bits control whether and when an A/D conversion is started (also see Figure 56):
         enum class StartVal {
@@ -73,7 +70,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::adctrig1> adctrig1{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::mcoa2> mcoa2{};
         }
-        }
         ///This bit is significant only when the START field contains 0x2 -0x6. In these cases:
         enum class EdgeVal {
             rising=0x00000000,     ///<Start conversion on a rising edge on the selected signal.
@@ -83,7 +79,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::rising> rising{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::falling> falling{};
-        }
         }
     }
     namespace Nonegdr{    ///<A/D Global Data Register. Contains the result of the most recent A/D conversion.

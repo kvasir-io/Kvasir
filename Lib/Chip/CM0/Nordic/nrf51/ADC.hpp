@@ -25,7 +25,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::set> set{};
         }
-        }
     }
     namespace Noneintenclr{    ///<Interrupt enable clear register.
         using Addr = Register::Address<0x40007308,0xfffffffe,0,unsigned>;
@@ -41,7 +40,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::clear> clear{};
         }
-        }
     }
     namespace Nonebusy{    ///<ADC busy register.
         using Addr = Register::Address<0x40007400,0xfffffffe,0,unsigned>;
@@ -55,7 +53,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::ready> ready{};
             constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::busy> busy{};
         }
-        }
     }
     namespace Noneenable{    ///<ADC enable.
         using Addr = Register::Address<0x40007500,0xfffffffc,0,unsigned>;
@@ -68,7 +65,6 @@ namespace Kvasir {
         namespace EnableValC{
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneconfig{    ///<ADC configuration register.
@@ -84,7 +80,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(res)::Type,ResVal::v8bit> v8bit{};
             constexpr Register::FieldValue<decltype(res)::Type,ResVal::v9bit> v9bit{};
             constexpr Register::FieldValue<decltype(res)::Type,ResVal::v10bit> v10bit{};
-        }
         }
         ///ADC input selection.
         enum class InpselVal {
@@ -102,7 +97,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inpsel)::Type,InpselVal::supplytwothirdsprescaling> supplytwothirdsprescaling{};
             constexpr Register::FieldValue<decltype(inpsel)::Type,InpselVal::supplyonethirdprescaling> supplyonethirdprescaling{};
         }
-        }
         ///ADC reference selection.
         enum class RefselVal {
             vbg=0x00000000,     ///<Use internal 1.2V bandgap voltage as reference for conversion.
@@ -116,7 +110,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::external> external{};
             constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::supplyonehalfprescaling> supplyonehalfprescaling{};
             constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::supplyonethirdprescaling> supplyonethirdprescaling{};
-        }
         }
         ///ADC analog pin selection.
         enum class PselVal {
@@ -142,7 +135,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psel)::Type,PselVal::analoginput6> analoginput6{};
             constexpr Register::FieldValue<decltype(psel)::Type,PselVal::analoginput7> analoginput7{};
         }
-        }
         ///ADC external reference pin selection.
         enum class ExtrefselVal {
             none=0x00000000,     ///<Analog external reference inputs disabled.
@@ -154,7 +146,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(extrefsel)::Type,ExtrefselVal::none> none{};
             constexpr Register::FieldValue<decltype(extrefsel)::Type,ExtrefselVal::analogreference0> analogreference0{};
             constexpr Register::FieldValue<decltype(extrefsel)::Type,ExtrefselVal::analogreference1> analogreference1{};
-        }
         }
     }
     namespace Noneresult{    ///<Result of ADC conversion.
@@ -173,7 +164,6 @@ namespace Kvasir {
         namespace PowerValC{
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::enabled> enabled{};
-        }
         }
     }
 }

@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmpie)::Type,CmpieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cmpie)::Type,CmpieVal::v1> v1{};
         }
-        }
         ///Compare Interrupt Request
         enum class CmpirqVal {
             v0=0x00000000,     ///<No match has occurred
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace CmpirqValC{
             constexpr Register::FieldValue<decltype(cmpirq)::Type,CmpirqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cmpirq)::Type,CmpirqVal::v1> v1{};
-        }
         }
         ///Watchdog Enable
         enum class WdeVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wde)::Type,WdeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wde)::Type,WdeVal::v1> v1{};
         }
-        }
         ///Watchdog Timeout Interrupt Enable
         enum class DieVal {
             v0=0x00000000,     ///<Watchdog timer interrupt is disabled
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace DieValC{
             constexpr Register::FieldValue<decltype(die)::Type,DieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(die)::Type,DieVal::v1> v1{};
-        }
         }
         ///Watchdog Timeout Interrupt Request
         enum class DirqVal {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dirq)::Type,DirqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dirq)::Type,DirqVal::v1> v1{};
         }
-        }
         ///Use Negative Edge of INDEX Pulse
         enum class XneVal {
             v0=0x00000000,     ///<Use positive transition edge of INDEX pulse
@@ -68,7 +63,6 @@ namespace Kvasir {
         namespace XneValC{
             constexpr Register::FieldValue<decltype(xne)::Type,XneVal::v0> v0{};
             constexpr Register::FieldValue<decltype(xne)::Type,XneVal::v1> v1{};
-        }
         }
         ///INDEX Triggered Initialization of Position Counters UPOS and LPOS
         enum class XipVal {
@@ -80,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(xip)::Type,XipVal::v0> v0{};
             constexpr Register::FieldValue<decltype(xip)::Type,XipVal::v1> v1{};
         }
-        }
         ///INDEX Pulse Interrupt Enable
         enum class XieVal {
             v0=0x00000000,     ///<INDEX pulse interrupt is disabled
@@ -90,7 +83,6 @@ namespace Kvasir {
         namespace XieValC{
             constexpr Register::FieldValue<decltype(xie)::Type,XieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(xie)::Type,XieVal::v1> v1{};
-        }
         }
         ///INDEX Pulse Interrupt Request
         enum class XirqVal {
@@ -102,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(xirq)::Type,XirqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(xirq)::Type,XirqVal::v1> v1{};
         }
-        }
         ///Enable Signal Phase Count Mode
         enum class Ph1Val {
             v0=0x00000000,     ///<Use standard quadrature decoder where PHASEA and PHASEB represent a two phase quadrature signal.
@@ -112,7 +103,6 @@ namespace Kvasir {
         namespace Ph1ValC{
             constexpr Register::FieldValue<decltype(ph1)::Type,Ph1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ph1)::Type,Ph1Val::v1> v1{};
-        }
         }
         ///Enable Reverse Direction Counting
         enum class RevVal {
@@ -124,7 +114,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rev)::Type,RevVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rev)::Type,RevVal::v1> v1{};
         }
-        }
         ///Software Triggered Initialization of Position Counters UPOS and LPOS
         enum class SwipVal {
             v0=0x00000000,     ///<No action
@@ -134,7 +123,6 @@ namespace Kvasir {
         namespace SwipValC{
             constexpr Register::FieldValue<decltype(swip)::Type,SwipVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swip)::Type,SwipVal::v1> v1{};
-        }
         }
         ///Use Negative Edge of HOME Input
         enum class HneVal {
@@ -146,7 +134,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hne)::Type,HneVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hne)::Type,HneVal::v1> v1{};
         }
-        }
         ///Enable HOME to Initialize Position Counters UPOS and LPOS
         enum class HipVal {
             v0=0x00000000,     ///<No action
@@ -156,7 +143,6 @@ namespace Kvasir {
         namespace HipValC{
             constexpr Register::FieldValue<decltype(hip)::Type,HipVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hip)::Type,HipVal::v1> v1{};
-        }
         }
         ///HOME Interrupt Enable
         enum class HieVal {
@@ -168,7 +154,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hie)::Type,HieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hie)::Type,HieVal::v1> v1{};
         }
-        }
         ///HOME Signal Transition Interrupt Request
         enum class HirqVal {
             v0=0x00000000,     ///<No interrupt
@@ -178,7 +163,6 @@ namespace Kvasir {
         namespace HirqValC{
             constexpr Register::FieldValue<decltype(hirq)::Type,HirqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hirq)::Type,HirqVal::v1> v1{};
-        }
         }
     }
     namespace EncFilt{    ///<Input Filter Register
@@ -278,7 +262,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(qdn)::Type,QdnVal::v0> v0{};
             constexpr Register::FieldValue<decltype(qdn)::Type,QdnVal::v1> v1{};
         }
-        }
         ///Test Counter Enable
         enum class TceVal {
             v0=0x00000000,     ///<Test count is not enabled
@@ -289,7 +272,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tce)::Type,TceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tce)::Type,TceVal::v1> v1{};
         }
-        }
         ///Test Mode Enable
         enum class TenVal {
             v0=0x00000000,     ///<Test module is not enabled
@@ -299,7 +281,6 @@ namespace Kvasir {
         namespace TenValC{
             constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v1> v1{};
-        }
         }
     }
     namespace EncCtrl2{    ///<Control 2 Register
@@ -314,7 +295,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(updhld)::Type,UpdhldVal::v0> v0{};
             constexpr Register::FieldValue<decltype(updhld)::Type,UpdhldVal::v1> v1{};
         }
-        }
         ///Update Position Registers
         enum class UpdposVal {
             v0=0x00000000,     ///<No action for POSD, REV, UPOS and LPOS on rising edge of TRIGGER
@@ -324,7 +304,6 @@ namespace Kvasir {
         namespace UpdposValC{
             constexpr Register::FieldValue<decltype(updpos)::Type,UpdposVal::v0> v0{};
             constexpr Register::FieldValue<decltype(updpos)::Type,UpdposVal::v1> v1{};
-        }
         }
         ///Enable Modulo Counting
         enum class ModVal {
@@ -336,7 +315,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mod)::Type,ModVal::v0> v0{};
             constexpr Register::FieldValue<decltype(mod)::Type,ModVal::v1> v1{};
         }
-        }
         ///Count Direction Flag
         enum class DirVal {
             v0=0x00000000,     ///<Last count was in the down direction
@@ -346,7 +324,6 @@ namespace Kvasir {
         namespace DirValC{
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::v1> v1{};
-        }
         }
         ///Roll-under Interrupt Enable
         enum class RuieVal {
@@ -358,7 +335,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ruie)::Type,RuieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ruie)::Type,RuieVal::v1> v1{};
         }
-        }
         ///Roll-under Interrupt Request
         enum class RuirqVal {
             v0=0x00000000,     ///<No roll-under has occurred
@@ -368,7 +344,6 @@ namespace Kvasir {
         namespace RuirqValC{
             constexpr Register::FieldValue<decltype(ruirq)::Type,RuirqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ruirq)::Type,RuirqVal::v1> v1{};
-        }
         }
         ///Roll-over Interrupt Enable
         enum class RoieVal {
@@ -380,7 +355,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(roie)::Type,RoieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(roie)::Type,RoieVal::v1> v1{};
         }
-        }
         ///Roll-over Interrupt Request
         enum class RoirqVal {
             v0=0x00000000,     ///<No roll-over has occurred
@@ -390,7 +364,6 @@ namespace Kvasir {
         namespace RoirqValC{
             constexpr Register::FieldValue<decltype(roirq)::Type,RoirqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(roirq)::Type,RoirqVal::v1> v1{};
-        }
         }
         ///Revolution Counter Modulus Enable
         enum class RevmodVal {
@@ -402,7 +375,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(revmod)::Type,RevmodVal::v0> v0{};
             constexpr Register::FieldValue<decltype(revmod)::Type,RevmodVal::v1> v1{};
         }
-        }
         ///Output Control
         enum class OutctlVal {
             v0=0x00000000,     ///<POSMATCH pulses when a match occurs between the position counters (POS) and the compare value (COMP).
@@ -412,7 +384,6 @@ namespace Kvasir {
         namespace OutctlValC{
             constexpr Register::FieldValue<decltype(outctl)::Type,OutctlVal::v0> v0{};
             constexpr Register::FieldValue<decltype(outctl)::Type,OutctlVal::v1> v1{};
-        }
         }
         ///Simultaneous PHASEA and PHASEB Change Interrupt Enable
         enum class SabieVal {
@@ -424,7 +395,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sabie)::Type,SabieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sabie)::Type,SabieVal::v1> v1{};
         }
-        }
         ///Simultaneous PHASEA and PHASEB Change Interrupt Request
         enum class SabirqVal {
             v0=0x00000000,     ///<No simultaneous change of PHASEA and PHASEB has occurred.
@@ -434,7 +404,6 @@ namespace Kvasir {
         namespace SabirqValC{
             constexpr Register::FieldValue<decltype(sabirq)::Type,SabirqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sabirq)::Type,SabirqVal::v1> v1{};
-        }
         }
     }
     namespace EncUmod{    ///<Upper Modulus Register

@@ -18,7 +18,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmpPdIref)::Type,CmppdirefVal::disPwrdwn> disPwrdwn{};
             constexpr Register::FieldValue<decltype(cmpPdIref)::Type,CmppdirefVal::enabled> enabled{};
         }
-        }
         ///Controls the bandgap reference source that is used by the comparators. These bits must be set when either comparator is used.
         enum class CmppdvbgVal {
             disabled=0x00000000,     ///<The comparator bandgap reference is disabled.
@@ -32,7 +31,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmpPdVbg)::Type,CmppdvbgVal::disDeepslpPwrdwn> disDeepslpPwrdwn{};
             constexpr Register::FieldValue<decltype(cmpPdVbg)::Type,CmppdvbgVal::disPwrdwn> disPwrdwn{};
             constexpr Register::FieldValue<decltype(cmpPdVbg)::Type,CmppdvbgVal::enabled> enabled{};
-        }
         }
         ///Controls the voltage reference of the temperature sensor. These bits must be set when the temperature sensor is used.
         enum class CmpvtempVal {
@@ -48,7 +46,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmpVtemp)::Type,CmpvtempVal::disPwrdwn> disPwrdwn{};
             constexpr Register::FieldValue<decltype(cmpVtemp)::Type,CmpvtempVal::enabled> enabled{};
         }
-        }
         ///Enables the temperature sensor. These bits must be set when the temperature sensor is used.
         enum class CmptempsenVal {
             disabled=0x00000000,     ///<Temperature sensor is disabled.
@@ -63,7 +60,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmpTempsen)::Type,CmptempsenVal::disPwrdwn> disPwrdwn{};
             constexpr Register::FieldValue<decltype(cmpTempsen)::Type,CmptempsenVal::enabled> enabled{};
         }
-        }
         ///Selects the inputs for the flip/flops that provide the CMP_ROSC output.
         enum class CmproscctlVal {
             cmp1=0x00000000,     ///<The CMP_ROSC output is set by CMP1 and reset by CMP0.
@@ -73,7 +69,6 @@ namespace Kvasir {
         namespace CmproscctlValC{
             constexpr Register::FieldValue<decltype(cmpRoscctl)::Type,CmproscctlVal::cmp1> cmp1{};
             constexpr Register::FieldValue<decltype(cmpRoscctl)::Type,CmproscctlVal::cmp0> cmp0{};
-        }
         }
         ///Selects the reset source for the CMP_ROSC output.
         enum class CmpextresetVal {
@@ -85,7 +80,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmpExtReset)::Type,CmpextresetVal::intreset> intreset{};
             constexpr Register::FieldValue<decltype(cmpExtReset)::Type,CmpextresetVal::cmpResetin> cmpResetin{};
         }
-        }
         ///Selects the input for Timer 0 capture input 2.
         enum class Cmpt0cap2Val {
             comp0=0x00000000,     ///<T0CAP2 is connected to comparator 0 level output.
@@ -95,7 +89,6 @@ namespace Kvasir {
         namespace Cmpt0cap2ValC{
             constexpr Register::FieldValue<decltype(cmpT0cap2)::Type,Cmpt0cap2Val::comp0> comp0{};
             constexpr Register::FieldValue<decltype(cmpT0cap2)::Type,Cmpt0cap2Val::comp1> comp1{};
-        }
         }
         ///Selects the input for Timer 0 capture input 3.
         enum class Cmpt0cap3Val {
@@ -107,7 +100,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmpT0cap3)::Type,Cmpt0cap3Val::comp0> comp0{};
             constexpr Register::FieldValue<decltype(cmpT0cap3)::Type,Cmpt0cap3Val::comp1> comp1{};
         }
-        }
         ///Selects the input for Timer 1 capture input 2.
         enum class Cmpt1cap2Val {
             comp1=0x00000000,     ///<T1CAP2 is connected to comparator 1 edge output.
@@ -118,7 +110,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmpT1cap2)::Type,Cmpt1cap2Val::comp1> comp1{};
             constexpr Register::FieldValue<decltype(cmpT1cap2)::Type,Cmpt1cap2Val::comp0> comp0{};
         }
-        }
         ///Selects the input for Timer 1 capture input 3.
         enum class Cmpt1cap3Val {
             comp1=0x00000000,     ///<T1CAP3 is connected to comparator 1 level output.
@@ -128,7 +119,6 @@ namespace Kvasir {
         namespace Cmpt1cap3ValC{
             constexpr Register::FieldValue<decltype(cmpT1cap3)::Type,Cmpt1cap3Val::comp1> comp1{};
             constexpr Register::FieldValue<decltype(cmpT1cap3)::Type,Cmpt1cap3Val::comp0> comp0{};
-        }
         }
     }
     namespace Nonectrl0{    ///<Comparator 0 control register
@@ -147,7 +137,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp0En)::Type,Cmp0enVal::disPwrdwn> disPwrdwn{};
             constexpr Register::FieldValue<decltype(cmp0En)::Type,Cmp0enVal::enabled> enabled{};
         }
-        }
         ///Comparator 0 output enable.
         enum class Cmp0oeVal {
             disabled=0x00000000,     ///<Comparator 0 output is disabled.
@@ -157,7 +146,6 @@ namespace Kvasir {
         namespace Cmp0oeValC{
             constexpr Register::FieldValue<decltype(cmp0Oe)::Type,Cmp0oeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmp0Oe)::Type,Cmp0oeVal::enabled> enabled{};
-        }
         }
         ///Comparator 0 status. This bit reflects the comparator 0 output, and is not affected by CMP0_OE.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> cmp0Stat{}; 
@@ -183,7 +171,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp0Vm)::Type,Cmp0vmVal::internal09VBand> internal09VBand{};
             constexpr Register::FieldValue<decltype(cmp0Vm)::Type,Cmp0vmVal::temperatureSensor> temperatureSensor{};
         }
-        }
         ///Comparator 0 VP input select.
         enum class Cmp0vpVal {
             vrefDivider0=0x00000000,     ///<Vref divider 0.
@@ -206,7 +193,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp0Vp)::Type,Cmp0vpVal::internal09VBand> internal09VBand{};
             constexpr Register::FieldValue<decltype(cmp0Vp)::Type,Cmp0vpVal::temperatureSensor> temperatureSensor{};
         }
-        }
         ///Comparator 0 output synchronization control.
         enum class Cmp0syncVal {
             direct=0x00000000,     ///<The comparator 0 output is used directly.
@@ -216,7 +202,6 @@ namespace Kvasir {
         namespace Cmp0syncValC{
             constexpr Register::FieldValue<decltype(cmp0Sync)::Type,Cmp0syncVal::direct> direct{};
             constexpr Register::FieldValue<decltype(cmp0Sync)::Type,Cmp0syncVal::synch> synch{};
-        }
         }
         ///Comparator 0 hysteresis control. When enabled, hysteresis determines the difference required between the comparator inputs before the comparator output switches. The difference must be in the direction opposite of the current comparator output.
         enum class Cmp0hysVal {
@@ -232,7 +217,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp0Hys)::Type,Cmp0hysVal::hysteresisEq10Mv> hysteresisEq10Mv{};
             constexpr Register::FieldValue<decltype(cmp0Hys)::Type,Cmp0hysVal::hysteresisEq15Mv> hysteresisEq15Mv{};
         }
-        }
         ///Selects the polarity of the CMP0 output for purposes of generating level interrupts. See Table 412.
         enum class Cmp0intpolVal {
             notinverted=0x00000000,     ///<The CMP0 output is used as-is for generating interrupts.
@@ -243,7 +227,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp0Intpol)::Type,Cmp0intpolVal::notinverted> notinverted{};
             constexpr Register::FieldValue<decltype(cmp0Intpol)::Type,Cmp0intpolVal::inverted> inverted{};
         }
-        }
         ///Select comparator 0 interrupt type. See Table 412.
         enum class Cmp0inttypeVal {
             edge=0x00000000,     ///<Comparator 0 interrupt is edge triggered.
@@ -253,7 +236,6 @@ namespace Kvasir {
         namespace Cmp0inttypeValC{
             constexpr Register::FieldValue<decltype(cmp0Inttype)::Type,Cmp0inttypeVal::edge> edge{};
             constexpr Register::FieldValue<decltype(cmp0Inttype)::Type,Cmp0inttypeVal::level> level{};
-        }
         }
         ///Select edge triggered interrupt to be active on either high or low transitions, when CMP0_IntType = 0. See Table 412.
         enum class Cmp0intedgeVal {
@@ -267,7 +249,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp0Intedge)::Type,Cmp0intedgeVal::rising> rising{};
             constexpr Register::FieldValue<decltype(cmp0Intedge)::Type,Cmp0intedgeVal::dualedge> dualedge{};
         }
-        }
         ///Comparator 0 interrupt flag.
         enum class Cmp0intflagVal {
             notpending=0x00000000,     ///<The Comparator 0 interrupt is not pending.
@@ -277,7 +258,6 @@ namespace Kvasir {
         namespace Cmp0intflagValC{
             constexpr Register::FieldValue<decltype(cmp0Intflag)::Type,Cmp0intflagVal::notpending> notpending{};
             constexpr Register::FieldValue<decltype(cmp0Intflag)::Type,Cmp0intflagVal::pending> pending{};
-        }
         }
         ///Voltage ladder enable for comparator 0.
         enum class Cmp0vladenVal {
@@ -293,7 +273,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp0Vladen)::Type,Cmp0vladenVal::disPwrdwn> disPwrdwn{};
             constexpr Register::FieldValue<decltype(cmp0Vladen)::Type,Cmp0vladenVal::enabled> enabled{};
         }
-        }
         ///Voltage reference select for comparator 0 voltage ladder.
         enum class Cmp0vladrefVal {
             vrefCmpPin=0x00000000,     ///<VREF_CMP pin.
@@ -303,7 +282,6 @@ namespace Kvasir {
         namespace Cmp0vladrefValC{
             constexpr Register::FieldValue<decltype(cmp0Vladref)::Type,Cmp0vladrefVal::vrefCmpPin> vrefCmpPin{};
             constexpr Register::FieldValue<decltype(cmp0Vladref)::Type,Cmp0vladrefVal::vddaPin> vddaPin{};
-        }
         }
         ///Voltage ladder value for comparator 0. The reference voltage Vref depends on the setting of CMP0_VLADREF (either VDD(3V3) or voltage on pin VREF_CMP). 00000 = Vss. 00001 = 1 x  Vref0 / 31. 00010 = 2 x Vref0 / 31. ... 11111 = Vref0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> cmp0Vsel{}; 
@@ -324,7 +302,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp1En)::Type,Cmp1enVal::disPwrdwn> disPwrdwn{};
             constexpr Register::FieldValue<decltype(cmp1En)::Type,Cmp1enVal::enabled> enabled{};
         }
-        }
         ///Comparator 1 output enable.
         enum class Cmp1oeVal {
             disabled=0x00000000,     ///<Comparator 1 output is disabled.
@@ -334,7 +311,6 @@ namespace Kvasir {
         namespace Cmp1oeValC{
             constexpr Register::FieldValue<decltype(cmp1Oe)::Type,Cmp1oeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmp1Oe)::Type,Cmp1oeVal::enabled> enabled{};
-        }
         }
         ///Comparator 1 status. This bit reflects the comparator 1 output, and is not affected by CMP1_OE.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> cmp1Stat{}; 
@@ -360,7 +336,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp1Vm)::Type,Cmp1vmVal::internal09VBand> internal09VBand{};
             constexpr Register::FieldValue<decltype(cmp1Vm)::Type,Cmp1vmVal::temperatureSensor> temperatureSensor{};
         }
-        }
         ///Comparator 1 VP input select.
         enum class Cmp1vpVal {
             vrefDivider0=0x00000000,     ///<Vref divider 0.
@@ -383,7 +358,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp1Vp)::Type,Cmp1vpVal::internal09VBand> internal09VBand{};
             constexpr Register::FieldValue<decltype(cmp1Vp)::Type,Cmp1vpVal::temperatureSensor> temperatureSensor{};
         }
-        }
         ///Comparator 1 output synchronization control.
         enum class Cmp1syncVal {
             direct=0x00000000,     ///<The comparator 1 output is used directly.
@@ -393,7 +367,6 @@ namespace Kvasir {
         namespace Cmp1syncValC{
             constexpr Register::FieldValue<decltype(cmp1Sync)::Type,Cmp1syncVal::direct> direct{};
             constexpr Register::FieldValue<decltype(cmp1Sync)::Type,Cmp1syncVal::synch> synch{};
-        }
         }
         ///Comparator 1 hysteresis control. When enabled, hysteresis determines the difference required between the comparator inputs before the comparator output switches. The difference must be in the direction opposite of the current comparator output.
         enum class Cmp1hysVal {
@@ -409,7 +382,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp1Hys)::Type,Cmp1hysVal::hysteresisEq10Mv> hysteresisEq10Mv{};
             constexpr Register::FieldValue<decltype(cmp1Hys)::Type,Cmp1hysVal::hysteresisEq15Mv> hysteresisEq15Mv{};
         }
-        }
         ///Selects the polarity of the CMP1 output for purposes of generating level interrupts. See Table 412.
         enum class Cmp1intpolVal {
             notinverted=0x00000000,     ///<The CMP1 output is used as-is for generating interrupts.
@@ -420,7 +392,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp1Intpol)::Type,Cmp1intpolVal::notinverted> notinverted{};
             constexpr Register::FieldValue<decltype(cmp1Intpol)::Type,Cmp1intpolVal::inverted> inverted{};
         }
-        }
         ///Select comparator 1 interrupt type. See Table 412.
         enum class Cmp1inttypeVal {
             edge=0x00000000,     ///<Comparator 1 interrupt is edge triggered.
@@ -430,7 +401,6 @@ namespace Kvasir {
         namespace Cmp1inttypeValC{
             constexpr Register::FieldValue<decltype(cmp1Inttype)::Type,Cmp1inttypeVal::edge> edge{};
             constexpr Register::FieldValue<decltype(cmp1Inttype)::Type,Cmp1inttypeVal::level> level{};
-        }
         }
         ///Select edge triggered interrupt to be active on either high or low transitions, when CMP1_IntType = 0. See Table 412.
         enum class Cmp1intedgeVal {
@@ -444,7 +414,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp1Intedge)::Type,Cmp1intedgeVal::rising> rising{};
             constexpr Register::FieldValue<decltype(cmp1Intedge)::Type,Cmp1intedgeVal::dualedge> dualedge{};
         }
-        }
         ///Comparator 1 interrupt flag.
         enum class Cmp1intflagVal {
             notpending=0x00000000,     ///<The Comparator 1 interrupt is not pending.
@@ -454,7 +423,6 @@ namespace Kvasir {
         namespace Cmp1intflagValC{
             constexpr Register::FieldValue<decltype(cmp1Intflag)::Type,Cmp1intflagVal::notpending> notpending{};
             constexpr Register::FieldValue<decltype(cmp1Intflag)::Type,Cmp1intflagVal::pending> pending{};
-        }
         }
         ///Voltage ladder enable for comparator 1.
         enum class Cmp1vladenVal {
@@ -470,7 +438,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp1Vladen)::Type,Cmp1vladenVal::disPwrdwn> disPwrdwn{};
             constexpr Register::FieldValue<decltype(cmp1Vladen)::Type,Cmp1vladenVal::enabled> enabled{};
         }
-        }
         ///Voltage reference select for comparator 1 voltage ladder.
         enum class Cmp1vladrefVal {
             vrefCmpPin=0x00000000,     ///<VREF_CMP pin.
@@ -480,7 +447,6 @@ namespace Kvasir {
         namespace Cmp1vladrefValC{
             constexpr Register::FieldValue<decltype(cmp1Vladref)::Type,Cmp1vladrefVal::vrefCmpPin> vrefCmpPin{};
             constexpr Register::FieldValue<decltype(cmp1Vladref)::Type,Cmp1vladrefVal::vddaPin> vddaPin{};
-        }
         }
         ///Voltage ladder value for comparator 1. The reference voltage Vref depends on the setting of CMP1_VLADREF (either VDD(3V3) or voltage on pin VREF_CMP). 00000 = Vss. 00001 = 1 x Vref1 / 31. 00010 = 2 x Vref1 / 31. ... 11111 = Vref1.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> cmp1Vsel{}; 

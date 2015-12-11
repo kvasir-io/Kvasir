@@ -15,7 +15,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(e)::Type,EVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(e)::Type,EVal::enabled> enabled{};
         }
-        }
         ///Address mirror. Indicates normal or reset memory map:
         enum class MVal {
             normal=0x00000000,     ///<Normal memory map.
@@ -26,7 +25,6 @@ mirrored onto EMC_CS0 and EMC_DYCS0 (POR reset value).
         namespace MValC{
             constexpr Register::FieldValue<decltype(m)::Type,MVal::normal> normal{};
             constexpr Register::FieldValue<decltype(m)::Type,MVal::reset> reset{};
-        }
         }
         ///Low-power mode. Indicates normal, or low-power mode:
         enum class LVal {
@@ -44,7 +42,6 @@ is in idle state.[1]
             constexpr Register::FieldValue<decltype(l)::Type,LVal::warmreset> warmreset{};
             constexpr Register::FieldValue<decltype(l)::Type,LVal::lowpower> lowpower{};
         }
-        }
     }
     namespace Nonestatus{    ///<Provides EMC status information.
         using Addr = Register::Address<0x2009c004,0xfffffff8,0,unsigned>;
@@ -61,7 +58,6 @@ or is in self-refresh mode (POR reset value).
             constexpr Register::FieldValue<decltype(b)::Type,BVal::idle> idle{};
             constexpr Register::FieldValue<decltype(b)::Type,BVal::busy> busy{};
         }
-        }
         ///Write buffer status.This bit enables the EMC to enter low-power mode or disabled mode cleanly.
         enum class SVal {
             empty=0x00000000,     ///<Write buffers
@@ -74,7 +70,6 @@ buffers contain data.
             constexpr Register::FieldValue<decltype(s)::Type,SVal::empty> empty{};
             constexpr Register::FieldValue<decltype(s)::Type,SVal::data> data{};
         }
-        }
         ///Self-refresh acknowledge. This bit indicates the operating mode of the EMC.
         enum class SaVal {
             normal=0x00000000,     ///<Normal mode
@@ -84,7 +79,6 @@ buffers contain data.
         namespace SaValC{
             constexpr Register::FieldValue<decltype(sa)::Type,SaVal::normal> normal{};
             constexpr Register::FieldValue<decltype(sa)::Type,SaVal::selfrefresh> selfrefresh{};
-        }
         }
     }
     namespace Noneconfig{    ///<Configures operation of the memory controller
@@ -101,7 +95,6 @@ mode.
             constexpr Register::FieldValue<decltype(em)::Type,EmVal::littleendian> littleendian{};
             constexpr Register::FieldValue<decltype(em)::Type,EmVal::bigendian> bigendian{};
         }
-        }
         ///CCLK: CLKOUT ratio. This bit must contain 0 for proper operation of the EMC.
         enum class ClkrVal {
             porreset=0x00000000,     ///<1:1(POR reset value)
@@ -111,7 +104,6 @@ mode.
         namespace ClkrValC{
             constexpr Register::FieldValue<decltype(clkr)::Type,ClkrVal::porreset> porreset{};
             constexpr Register::FieldValue<decltype(clkr)::Type,ClkrVal::donotuse> donotuse{};
-        }
         }
     }
     namespace Nonedynamiccontrol{    ///<Controls dynamic memory operation.
@@ -126,7 +118,6 @@ mode.
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::powersave> powersave{};
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::high> high{};
         }
-        }
         ///Dynamic memory clock control. When clock control is LOW the output clock CLKOUT is stopped when there are no SDRAM transactions. The clock is also stopped during self-refresh mode.
         enum class CsVal {
             stop=0x00000000,     ///<CLKOUT stops when all SDRAMs are idle and during self-refresh mode.
@@ -136,7 +127,6 @@ mode.
         namespace CsValC{
             constexpr Register::FieldValue<decltype(cs)::Type,CsVal::stop> stop{};
             constexpr Register::FieldValue<decltype(cs)::Type,CsVal::run> run{};
-        }
         }
         ///Self-refresh request, EMCSREFREQ. By writing 1 to this bit self-refresh can be entered under software control. Writing 0 to this bit returns the EMC to normal mode. The self-refresh acknowledge bit in the Status register must be polled to discover the current operating mode of the EMC.[2]
         enum class SrVal {
@@ -148,7 +138,6 @@ mode.
             constexpr Register::FieldValue<decltype(sr)::Type,SrVal::normalMode> normalMode{};
             constexpr Register::FieldValue<decltype(sr)::Type,SrVal::enterSelfRefreshM> enterSelfRefreshM{};
         }
-        }
         ///Memory clock control.
         enum class MmcVal {
             clkoutEnabledPor=0x00000000,     ///<CLKOUT enabled (POR reset value).
@@ -158,7 +147,6 @@ mode.
         namespace MmcValC{
             constexpr Register::FieldValue<decltype(mmc)::Type,MmcVal::clkoutEnabledPor> clkoutEnabledPor{};
             constexpr Register::FieldValue<decltype(mmc)::Type,MmcVal::clkoutDisabled> clkoutDisabled{};
-        }
         }
         ///SDRAM initialization.
         enum class IVal {
@@ -173,7 +161,6 @@ mode.
             constexpr Register::FieldValue<decltype(i)::Type,IVal::mode> mode{};
             constexpr Register::FieldValue<decltype(i)::Type,IVal::pall> pall{};
             constexpr Register::FieldValue<decltype(i)::Type,IVal::nop> nop{};
-        }
         }
     }
     namespace Nonedynamicrefresh{    ///<Configures dynamic memory refresh.
@@ -196,7 +183,6 @@ mode.
             constexpr Register::FieldValue<decltype(rd)::Type,RdVal::commandDelayedStra> commandDelayedStra{};
             constexpr Register::FieldValue<decltype(rd)::Type,RdVal::commandDelayedStra> commandDelayedStra{};
             constexpr Register::FieldValue<decltype(rd)::Type,RdVal::commandDelayedStra> commandDelayedStra{};
-        }
         }
     }
     namespace Nonedynamicrp{    ///<Precharge command period.
@@ -271,7 +257,6 @@ mode.
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::sdramPorResetVal> sdramPorResetVal{};
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::lowPowerSdram> lowPowerSdram{};
         }
-        }
         ///See Table 133. 000000 = reset value.[1]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,7),Register::ReadWriteAccess,unsigned> am0{}; 
         ///See  Table 133. 0 = reset value.
@@ -286,7 +271,6 @@ mode.
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferDisabledFor> bufferDisabledFor{};
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferEnabledForA> bufferEnabledForA{};
         }
-        }
         ///Write protect.
         enum class PVal {
             writesNotProtected=0x00000000,     ///<Writes not protected (POR reset value).
@@ -296,7 +280,6 @@ mode.
         namespace PValC{
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesNotProtected> writesNotProtected{};
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesProtected> writesProtected{};
-        }
         }
     }
     namespace Nonedynamicconfig1{    ///<Configuration information for EMC_DYCS0.
@@ -311,7 +294,6 @@ mode.
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::sdramPorResetVal> sdramPorResetVal{};
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::lowPowerSdram> lowPowerSdram{};
         }
-        }
         ///See Table 133. 000000 = reset value.[1]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,7),Register::ReadWriteAccess,unsigned> am0{}; 
         ///See  Table 133. 0 = reset value.
@@ -326,7 +308,6 @@ mode.
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferDisabledFor> bufferDisabledFor{};
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferEnabledForA> bufferEnabledForA{};
         }
-        }
         ///Write protect.
         enum class PVal {
             writesNotProtected=0x00000000,     ///<Writes not protected (POR reset value).
@@ -336,7 +317,6 @@ mode.
         namespace PValC{
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesNotProtected> writesNotProtected{};
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesProtected> writesProtected{};
-        }
         }
     }
     namespace Nonedynamicconfig2{    ///<Configuration information for EMC_DYCS0.
@@ -351,7 +331,6 @@ mode.
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::sdramPorResetVal> sdramPorResetVal{};
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::lowPowerSdram> lowPowerSdram{};
         }
-        }
         ///See Table 133. 000000 = reset value.[1]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,7),Register::ReadWriteAccess,unsigned> am0{}; 
         ///See  Table 133. 0 = reset value.
@@ -366,7 +345,6 @@ mode.
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferDisabledFor> bufferDisabledFor{};
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferEnabledForA> bufferEnabledForA{};
         }
-        }
         ///Write protect.
         enum class PVal {
             writesNotProtected=0x00000000,     ///<Writes not protected (POR reset value).
@@ -376,7 +354,6 @@ mode.
         namespace PValC{
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesNotProtected> writesNotProtected{};
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesProtected> writesProtected{};
-        }
         }
     }
     namespace Nonedynamicconfig3{    ///<Configuration information for EMC_DYCS0.
@@ -391,7 +368,6 @@ mode.
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::sdramPorResetVal> sdramPorResetVal{};
             constexpr Register::FieldValue<decltype(md)::Type,MdVal::lowPowerSdram> lowPowerSdram{};
         }
-        }
         ///See Table 133. 000000 = reset value.[1]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,7),Register::ReadWriteAccess,unsigned> am0{}; 
         ///See  Table 133. 0 = reset value.
@@ -406,7 +382,6 @@ mode.
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferDisabledFor> bufferDisabledFor{};
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferEnabledForA> bufferEnabledForA{};
         }
-        }
         ///Write protect.
         enum class PVal {
             writesNotProtected=0x00000000,     ///<Writes not protected (POR reset value).
@@ -416,7 +391,6 @@ mode.
         namespace PValC{
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesNotProtected> writesNotProtected{};
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesProtected> writesProtected{};
-        }
         }
     }
     namespace Nonedynamicrascas0{    ///<RAS and CAS latencies for EMC_DYCS0.
@@ -433,7 +407,6 @@ mode.
             constexpr Register::FieldValue<decltype(ras)::Type,RasVal::twoCclkCycles> twoCclkCycles{};
             constexpr Register::FieldValue<decltype(ras)::Type,RasVal::threeCclkCyclesP> threeCclkCyclesP{};
         }
-        }
         ///CAS latency.
         enum class CasVal {
             oneCclkCycle=0x00000001,     ///<One CCLK cycle.
@@ -445,7 +418,6 @@ mode.
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::oneCclkCycle> oneCclkCycle{};
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::twoCclkCycles> twoCclkCycles{};
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::threeCclkCyclesP> threeCclkCyclesP{};
-        }
         }
     }
     namespace Nonedynamicrascas1{    ///<RAS and CAS latencies for EMC_DYCS0.
@@ -462,7 +434,6 @@ mode.
             constexpr Register::FieldValue<decltype(ras)::Type,RasVal::twoCclkCycles> twoCclkCycles{};
             constexpr Register::FieldValue<decltype(ras)::Type,RasVal::threeCclkCyclesP> threeCclkCyclesP{};
         }
-        }
         ///CAS latency.
         enum class CasVal {
             oneCclkCycle=0x00000001,     ///<One CCLK cycle.
@@ -474,7 +445,6 @@ mode.
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::oneCclkCycle> oneCclkCycle{};
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::twoCclkCycles> twoCclkCycles{};
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::threeCclkCyclesP> threeCclkCyclesP{};
-        }
         }
     }
     namespace Nonedynamicrascas2{    ///<RAS and CAS latencies for EMC_DYCS0.
@@ -491,7 +461,6 @@ mode.
             constexpr Register::FieldValue<decltype(ras)::Type,RasVal::twoCclkCycles> twoCclkCycles{};
             constexpr Register::FieldValue<decltype(ras)::Type,RasVal::threeCclkCyclesP> threeCclkCyclesP{};
         }
-        }
         ///CAS latency.
         enum class CasVal {
             oneCclkCycle=0x00000001,     ///<One CCLK cycle.
@@ -503,7 +472,6 @@ mode.
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::oneCclkCycle> oneCclkCycle{};
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::twoCclkCycles> twoCclkCycles{};
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::threeCclkCyclesP> threeCclkCyclesP{};
-        }
         }
     }
     namespace Nonedynamicrascas3{    ///<RAS and CAS latencies for EMC_DYCS0.
@@ -520,7 +488,6 @@ mode.
             constexpr Register::FieldValue<decltype(ras)::Type,RasVal::twoCclkCycles> twoCclkCycles{};
             constexpr Register::FieldValue<decltype(ras)::Type,RasVal::threeCclkCyclesP> threeCclkCyclesP{};
         }
-        }
         ///CAS latency.
         enum class CasVal {
             oneCclkCycle=0x00000001,     ///<One CCLK cycle.
@@ -532,7 +499,6 @@ mode.
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::oneCclkCycle> oneCclkCycle{};
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::twoCclkCycles> twoCclkCycles{};
             constexpr Register::FieldValue<decltype(cas)::Type,CasVal::threeCclkCyclesP> threeCclkCyclesP{};
-        }
         }
     }
     namespace Nonestaticconfig0{    ///<Configuration for EMC_CS0.
@@ -549,7 +515,6 @@ mode.
             constexpr Register::FieldValue<decltype(mw)::Type,MwVal::v16Bit> v16Bit{};
             constexpr Register::FieldValue<decltype(mw)::Type,MwVal::v32Bit> v32Bit{};
         }
-        }
         ///Page mode. In page mode the EMC can burst up to four external accesses. Therefore devices with asynchronous page mode burst four or higher devices are supported. Asynchronous page mode burst two devices are not supported and must be accessed normally.
         enum class PmVal {
             disabledPorReset=0x00000000,     ///<Disabled (POR reset value).
@@ -559,7 +524,6 @@ mode.
         namespace PmValC{
             constexpr Register::FieldValue<decltype(pm)::Type,PmVal::disabledPorReset> disabledPorReset{};
             constexpr Register::FieldValue<decltype(pm)::Type,PmVal::asynchronousPageMo> asynchronousPageMo{};
-        }
         }
         ///Chip select polarity. The value of the chip select polarity on power-on reset is 0.
         enum class PcVal {
@@ -571,7 +535,6 @@ mode.
             constexpr Register::FieldValue<decltype(pc)::Type,PcVal::activeLowChipSele> activeLowChipSele{};
             constexpr Register::FieldValue<decltype(pc)::Type,PcVal::activeHighChipSel> activeHighChipSel{};
         }
-        }
         ///Byte lane state. The byte lane state bit, PB, enables different types of memory to be connected. For byte-wide static memories the BLS3:0 signal from the EMC is usually connected to WE (write enable). In this case for reads all the BLS3:0 bits must be HIGH. This means that the byte lane state (PB) bit must be LOW. 16 bit wide static memory devices usually have the BLS3:0 signals connected to the UBn and LBn (upper byte and lower byte) signals in the static memory. In this case a write to a particular byte must assert the appropriate UBn or LBn signal LOW. For reads, all the UB and LB signals must be asserted LOW so that the bus is driven. In this case the byte lane state (PB) bit must be HIGH.
         enum class PbVal {
             blshigh=0x00000000,     ///<For reads all the bits in BLS3:0 are HIGH. For writes the respective active bits in BLS3:0 are LOW (POR reset value).
@@ -581,7 +544,6 @@ mode.
         namespace PbValC{
             constexpr Register::FieldValue<decltype(pb)::Type,PbVal::blshigh> blshigh{};
             constexpr Register::FieldValue<decltype(pb)::Type,PbVal::blslow> blslow{};
-        }
         }
         ///Extended wait (EW) uses the EMCStaticExtendedWait register to time both the read and write transfers rather than the EMCStaticWaitRd and EMCStaticWaitWr registers. This enables much longer transactions. [1]
         enum class EwVal {
@@ -593,7 +555,6 @@ mode.
             constexpr Register::FieldValue<decltype(ew)::Type,EwVal::extendedWaitDisabl> extendedWaitDisabl{};
             constexpr Register::FieldValue<decltype(ew)::Type,EwVal::extendedWaitEnable> extendedWaitEnable{};
         }
-        }
         ///Buffer enable [2]
         enum class BVal {
             bufferDisabledPor=0x00000000,     ///<Buffer disabled (POR reset value).
@@ -604,7 +565,6 @@ mode.
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferDisabledPor> bufferDisabledPor{};
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferEnabled> bufferEnabled{};
         }
-        }
         ///Write protect
         enum class PVal {
             writesNotProtected=0x00000000,     ///<Writes not protected (POR reset value).
@@ -614,7 +574,6 @@ mode.
         namespace PValC{
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesNotProtected> writesNotProtected{};
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writeProtected> writeProtected{};
-        }
         }
     }
     namespace Nonestaticconfig1{    ///<Configuration for EMC_CS0.
@@ -631,7 +590,6 @@ mode.
             constexpr Register::FieldValue<decltype(mw)::Type,MwVal::v16Bit> v16Bit{};
             constexpr Register::FieldValue<decltype(mw)::Type,MwVal::v32Bit> v32Bit{};
         }
-        }
         ///Page mode. In page mode the EMC can burst up to four external accesses. Therefore devices with asynchronous page mode burst four or higher devices are supported. Asynchronous page mode burst two devices are not supported and must be accessed normally.
         enum class PmVal {
             disabledPorReset=0x00000000,     ///<Disabled (POR reset value).
@@ -641,7 +599,6 @@ mode.
         namespace PmValC{
             constexpr Register::FieldValue<decltype(pm)::Type,PmVal::disabledPorReset> disabledPorReset{};
             constexpr Register::FieldValue<decltype(pm)::Type,PmVal::asynchronousPageMo> asynchronousPageMo{};
-        }
         }
         ///Chip select polarity. The value of the chip select polarity on power-on reset is 0.
         enum class PcVal {
@@ -653,7 +610,6 @@ mode.
             constexpr Register::FieldValue<decltype(pc)::Type,PcVal::activeLowChipSele> activeLowChipSele{};
             constexpr Register::FieldValue<decltype(pc)::Type,PcVal::activeHighChipSel> activeHighChipSel{};
         }
-        }
         ///Byte lane state. The byte lane state bit, PB, enables different types of memory to be connected. For byte-wide static memories the BLS3:0 signal from the EMC is usually connected to WE (write enable). In this case for reads all the BLS3:0 bits must be HIGH. This means that the byte lane state (PB) bit must be LOW. 16 bit wide static memory devices usually have the BLS3:0 signals connected to the UBn and LBn (upper byte and lower byte) signals in the static memory. In this case a write to a particular byte must assert the appropriate UBn or LBn signal LOW. For reads, all the UB and LB signals must be asserted LOW so that the bus is driven. In this case the byte lane state (PB) bit must be HIGH.
         enum class PbVal {
             blshigh=0x00000000,     ///<For reads all the bits in BLS3:0 are HIGH. For writes the respective active bits in BLS3:0 are LOW (POR reset value).
@@ -663,7 +619,6 @@ mode.
         namespace PbValC{
             constexpr Register::FieldValue<decltype(pb)::Type,PbVal::blshigh> blshigh{};
             constexpr Register::FieldValue<decltype(pb)::Type,PbVal::blslow> blslow{};
-        }
         }
         ///Extended wait (EW) uses the EMCStaticExtendedWait register to time both the read and write transfers rather than the EMCStaticWaitRd and EMCStaticWaitWr registers. This enables much longer transactions. [1]
         enum class EwVal {
@@ -675,7 +630,6 @@ mode.
             constexpr Register::FieldValue<decltype(ew)::Type,EwVal::extendedWaitDisabl> extendedWaitDisabl{};
             constexpr Register::FieldValue<decltype(ew)::Type,EwVal::extendedWaitEnable> extendedWaitEnable{};
         }
-        }
         ///Buffer enable [2]
         enum class BVal {
             bufferDisabledPor=0x00000000,     ///<Buffer disabled (POR reset value).
@@ -686,7 +640,6 @@ mode.
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferDisabledPor> bufferDisabledPor{};
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferEnabled> bufferEnabled{};
         }
-        }
         ///Write protect
         enum class PVal {
             writesNotProtected=0x00000000,     ///<Writes not protected (POR reset value).
@@ -696,7 +649,6 @@ mode.
         namespace PValC{
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesNotProtected> writesNotProtected{};
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writeProtected> writeProtected{};
-        }
         }
     }
     namespace Nonestaticconfig2{    ///<Configuration for EMC_CS0.
@@ -713,7 +665,6 @@ mode.
             constexpr Register::FieldValue<decltype(mw)::Type,MwVal::v16Bit> v16Bit{};
             constexpr Register::FieldValue<decltype(mw)::Type,MwVal::v32Bit> v32Bit{};
         }
-        }
         ///Page mode. In page mode the EMC can burst up to four external accesses. Therefore devices with asynchronous page mode burst four or higher devices are supported. Asynchronous page mode burst two devices are not supported and must be accessed normally.
         enum class PmVal {
             disabledPorReset=0x00000000,     ///<Disabled (POR reset value).
@@ -723,7 +674,6 @@ mode.
         namespace PmValC{
             constexpr Register::FieldValue<decltype(pm)::Type,PmVal::disabledPorReset> disabledPorReset{};
             constexpr Register::FieldValue<decltype(pm)::Type,PmVal::asynchronousPageMo> asynchronousPageMo{};
-        }
         }
         ///Chip select polarity. The value of the chip select polarity on power-on reset is 0.
         enum class PcVal {
@@ -735,7 +685,6 @@ mode.
             constexpr Register::FieldValue<decltype(pc)::Type,PcVal::activeLowChipSele> activeLowChipSele{};
             constexpr Register::FieldValue<decltype(pc)::Type,PcVal::activeHighChipSel> activeHighChipSel{};
         }
-        }
         ///Byte lane state. The byte lane state bit, PB, enables different types of memory to be connected. For byte-wide static memories the BLS3:0 signal from the EMC is usually connected to WE (write enable). In this case for reads all the BLS3:0 bits must be HIGH. This means that the byte lane state (PB) bit must be LOW. 16 bit wide static memory devices usually have the BLS3:0 signals connected to the UBn and LBn (upper byte and lower byte) signals in the static memory. In this case a write to a particular byte must assert the appropriate UBn or LBn signal LOW. For reads, all the UB and LB signals must be asserted LOW so that the bus is driven. In this case the byte lane state (PB) bit must be HIGH.
         enum class PbVal {
             blshigh=0x00000000,     ///<For reads all the bits in BLS3:0 are HIGH. For writes the respective active bits in BLS3:0 are LOW (POR reset value).
@@ -745,7 +694,6 @@ mode.
         namespace PbValC{
             constexpr Register::FieldValue<decltype(pb)::Type,PbVal::blshigh> blshigh{};
             constexpr Register::FieldValue<decltype(pb)::Type,PbVal::blslow> blslow{};
-        }
         }
         ///Extended wait (EW) uses the EMCStaticExtendedWait register to time both the read and write transfers rather than the EMCStaticWaitRd and EMCStaticWaitWr registers. This enables much longer transactions. [1]
         enum class EwVal {
@@ -757,7 +705,6 @@ mode.
             constexpr Register::FieldValue<decltype(ew)::Type,EwVal::extendedWaitDisabl> extendedWaitDisabl{};
             constexpr Register::FieldValue<decltype(ew)::Type,EwVal::extendedWaitEnable> extendedWaitEnable{};
         }
-        }
         ///Buffer enable [2]
         enum class BVal {
             bufferDisabledPor=0x00000000,     ///<Buffer disabled (POR reset value).
@@ -768,7 +715,6 @@ mode.
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferDisabledPor> bufferDisabledPor{};
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferEnabled> bufferEnabled{};
         }
-        }
         ///Write protect
         enum class PVal {
             writesNotProtected=0x00000000,     ///<Writes not protected (POR reset value).
@@ -778,7 +724,6 @@ mode.
         namespace PValC{
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesNotProtected> writesNotProtected{};
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writeProtected> writeProtected{};
-        }
         }
     }
     namespace Nonestaticconfig3{    ///<Configuration for EMC_CS0.
@@ -795,7 +740,6 @@ mode.
             constexpr Register::FieldValue<decltype(mw)::Type,MwVal::v16Bit> v16Bit{};
             constexpr Register::FieldValue<decltype(mw)::Type,MwVal::v32Bit> v32Bit{};
         }
-        }
         ///Page mode. In page mode the EMC can burst up to four external accesses. Therefore devices with asynchronous page mode burst four or higher devices are supported. Asynchronous page mode burst two devices are not supported and must be accessed normally.
         enum class PmVal {
             disabledPorReset=0x00000000,     ///<Disabled (POR reset value).
@@ -805,7 +749,6 @@ mode.
         namespace PmValC{
             constexpr Register::FieldValue<decltype(pm)::Type,PmVal::disabledPorReset> disabledPorReset{};
             constexpr Register::FieldValue<decltype(pm)::Type,PmVal::asynchronousPageMo> asynchronousPageMo{};
-        }
         }
         ///Chip select polarity. The value of the chip select polarity on power-on reset is 0.
         enum class PcVal {
@@ -817,7 +760,6 @@ mode.
             constexpr Register::FieldValue<decltype(pc)::Type,PcVal::activeLowChipSele> activeLowChipSele{};
             constexpr Register::FieldValue<decltype(pc)::Type,PcVal::activeHighChipSel> activeHighChipSel{};
         }
-        }
         ///Byte lane state. The byte lane state bit, PB, enables different types of memory to be connected. For byte-wide static memories the BLS3:0 signal from the EMC is usually connected to WE (write enable). In this case for reads all the BLS3:0 bits must be HIGH. This means that the byte lane state (PB) bit must be LOW. 16 bit wide static memory devices usually have the BLS3:0 signals connected to the UBn and LBn (upper byte and lower byte) signals in the static memory. In this case a write to a particular byte must assert the appropriate UBn or LBn signal LOW. For reads, all the UB and LB signals must be asserted LOW so that the bus is driven. In this case the byte lane state (PB) bit must be HIGH.
         enum class PbVal {
             blshigh=0x00000000,     ///<For reads all the bits in BLS3:0 are HIGH. For writes the respective active bits in BLS3:0 are LOW (POR reset value).
@@ -827,7 +769,6 @@ mode.
         namespace PbValC{
             constexpr Register::FieldValue<decltype(pb)::Type,PbVal::blshigh> blshigh{};
             constexpr Register::FieldValue<decltype(pb)::Type,PbVal::blslow> blslow{};
-        }
         }
         ///Extended wait (EW) uses the EMCStaticExtendedWait register to time both the read and write transfers rather than the EMCStaticWaitRd and EMCStaticWaitWr registers. This enables much longer transactions. [1]
         enum class EwVal {
@@ -839,7 +780,6 @@ mode.
             constexpr Register::FieldValue<decltype(ew)::Type,EwVal::extendedWaitDisabl> extendedWaitDisabl{};
             constexpr Register::FieldValue<decltype(ew)::Type,EwVal::extendedWaitEnable> extendedWaitEnable{};
         }
-        }
         ///Buffer enable [2]
         enum class BVal {
             bufferDisabledPor=0x00000000,     ///<Buffer disabled (POR reset value).
@@ -850,7 +790,6 @@ mode.
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferDisabledPor> bufferDisabledPor{};
             constexpr Register::FieldValue<decltype(b)::Type,BVal::bufferEnabled> bufferEnabled{};
         }
-        }
         ///Write protect
         enum class PVal {
             writesNotProtected=0x00000000,     ///<Writes not protected (POR reset value).
@@ -860,7 +799,6 @@ mode.
         namespace PValC{
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writesNotProtected> writesNotProtected{};
             constexpr Register::FieldValue<decltype(p)::Type,PVal::writeProtected> writeProtected{};
-        }
         }
     }
     namespace Nonestaticwaitwen0{    ///<Delay from EMC_CS0 to write enable.

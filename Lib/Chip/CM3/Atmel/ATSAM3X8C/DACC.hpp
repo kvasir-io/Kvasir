@@ -19,7 +19,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trgen)::Type,TrgenVal::dis> dis{};
             constexpr Register::FieldValue<decltype(trgen)::Type,TrgenVal::en> en{};
         }
-        }
         ///Trigger Selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,1),Register::ReadWriteAccess,unsigned> trgsel{}; 
         ///Word Transfer
@@ -31,7 +30,6 @@ namespace Kvasir {
         namespace WordValC{
             constexpr Register::FieldValue<decltype(word)::Type,WordVal::half> half{};
             constexpr Register::FieldValue<decltype(word)::Type,WordVal::word> word{};
-        }
         }
         ///Sleep Mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> sleep{}; 
@@ -49,7 +47,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(userSel)::Type,UserselVal::channel0> channel0{};
             constexpr Register::FieldValue<decltype(userSel)::Type,UserselVal::channel1> channel1{};
         }
-        }
         ///Tag Selection Mode
         enum class TagVal {
             dis=0x00000000,     ///<Tag selection mode disabled. Using USER_SEL to select the channel for the conversion.
@@ -60,7 +57,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tag)::Type,TagVal::dis> dis{};
             constexpr Register::FieldValue<decltype(tag)::Type,TagVal::en> en{};
         }
-        }
         ///Max Speed Mode
         enum class MaxsVal {
             normal=0x00000000,     ///<Normal Mode
@@ -70,7 +66,6 @@ namespace Kvasir {
         namespace MaxsValC{
             constexpr Register::FieldValue<decltype(maxs)::Type,MaxsVal::normal> normal{};
             constexpr Register::FieldValue<decltype(maxs)::Type,MaxsVal::maximum> maximum{};
-        }
         }
         ///Startup Time Selection
         enum class StartupVal {
@@ -141,7 +136,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(startup)::Type,StartupVal::v1856> v1856{};
             constexpr Register::FieldValue<decltype(startup)::Type,StartupVal::v1920> v1920{};
             constexpr Register::FieldValue<decltype(startup)::Type,StartupVal::v1984> v1984{};
-        }
         }
     }
     namespace DaccCher{    ///<Channel Enable Register

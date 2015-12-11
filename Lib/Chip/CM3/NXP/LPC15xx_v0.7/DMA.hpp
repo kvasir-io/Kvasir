@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
         }
-        }
     }
     namespace Noneintstat{    ///<Interrupt status.
         using Addr = Register::Address<0x1c004004,0xfffffff9,0,unsigned>;
@@ -28,7 +27,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(activeint)::Type,ActiveintVal::notPending> notPending{};
             constexpr Register::FieldValue<decltype(activeint)::Type,ActiveintVal::pending> pending{};
         }
-        }
         ///Summarizes whether any error interrupts are pending.
         enum class ActiveerrintVal {
             notPending=0x00000000,     ///<Not pending. No error interrupts are pending.
@@ -38,7 +36,6 @@ namespace Kvasir {
         namespace ActiveerrintValC{
             constexpr Register::FieldValue<decltype(activeerrint)::Type,ActiveerrintVal::notPending> notPending{};
             constexpr Register::FieldValue<decltype(activeerrint)::Type,ActiveerrintVal::pending> pending{};
-        }
         }
     }
     namespace Nonesrambase{    ///<SRAM address of the channel configuration table.
@@ -526,7 +523,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
-        }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
             disabled=0x00000000,     ///<Disabled. Hardware triggering is not used.
@@ -536,7 +532,6 @@ namespace Kvasir {
         namespace HwtrigenValC{
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
-        }
         }
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
@@ -548,7 +543,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
-        }
         ///Trigger Type. Selects hardware trigger as edge triggered or level triggered.
         enum class TrigtypeVal {
             edge=0x00000000,     ///<Edge. Hardware trigger is edge triggered.
@@ -559,7 +553,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
-        }
         ///Trigger Burst. Selects whether hardware triggers cause a single or burst transfer.
         enum class TrigburstVal {
             singleTransfer=0x00000000,     ///<Single transfer. Hardware trigger causes a single transfer.
@@ -569,7 +562,6 @@ namespace Kvasir {
         namespace TrigburstValC{
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
-        }
         }
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
@@ -583,7 +575,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
-        }
         ///Destination Burst Wrap. When enabled, the destination data address for the DMA is wrapped, meaning that the destination address range for each burst will be the same. As an example, this could be used to write several sequential registers to a peripheral for each DMA burst, writing the same registers again for each burst.
         enum class DstburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Destination burst wrapping is not enabled for this DMA channel.
@@ -593,7 +584,6 @@ namespace Kvasir {
         namespace DstburstwrapValC{
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
-        }
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 3-bit priority field giving 8 priority levels. A specific instance of the SDMA might have anywhere from 2 to 16 priority levels (1 to 4 bits for the CH_PRIORITY field). 0x0 = highest priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
@@ -610,7 +600,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
-        }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
             disabled=0x00000000,     ///<Disabled. Hardware triggering is not used.
@@ -620,7 +609,6 @@ namespace Kvasir {
         namespace HwtrigenValC{
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
-        }
         }
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
@@ -632,7 +620,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
-        }
         ///Trigger Type. Selects hardware trigger as edge triggered or level triggered.
         enum class TrigtypeVal {
             edge=0x00000000,     ///<Edge. Hardware trigger is edge triggered.
@@ -643,7 +630,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
-        }
         ///Trigger Burst. Selects whether hardware triggers cause a single or burst transfer.
         enum class TrigburstVal {
             singleTransfer=0x00000000,     ///<Single transfer. Hardware trigger causes a single transfer.
@@ -653,7 +639,6 @@ namespace Kvasir {
         namespace TrigburstValC{
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
-        }
         }
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
@@ -667,7 +652,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
-        }
         ///Destination Burst Wrap. When enabled, the destination data address for the DMA is wrapped, meaning that the destination address range for each burst will be the same. As an example, this could be used to write several sequential registers to a peripheral for each DMA burst, writing the same registers again for each burst.
         enum class DstburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Destination burst wrapping is not enabled for this DMA channel.
@@ -677,7 +661,6 @@ namespace Kvasir {
         namespace DstburstwrapValC{
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
-        }
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 3-bit priority field giving 8 priority levels. A specific instance of the SDMA might have anywhere from 2 to 16 priority levels (1 to 4 bits for the CH_PRIORITY field). 0x0 = highest priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
@@ -694,7 +677,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
-        }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
             disabled=0x00000000,     ///<Disabled. Hardware triggering is not used.
@@ -704,7 +686,6 @@ namespace Kvasir {
         namespace HwtrigenValC{
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
-        }
         }
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
@@ -716,7 +697,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
-        }
         ///Trigger Type. Selects hardware trigger as edge triggered or level triggered.
         enum class TrigtypeVal {
             edge=0x00000000,     ///<Edge. Hardware trigger is edge triggered.
@@ -727,7 +707,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
-        }
         ///Trigger Burst. Selects whether hardware triggers cause a single or burst transfer.
         enum class TrigburstVal {
             singleTransfer=0x00000000,     ///<Single transfer. Hardware trigger causes a single transfer.
@@ -737,7 +716,6 @@ namespace Kvasir {
         namespace TrigburstValC{
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
-        }
         }
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
@@ -751,7 +729,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
-        }
         ///Destination Burst Wrap. When enabled, the destination data address for the DMA is wrapped, meaning that the destination address range for each burst will be the same. As an example, this could be used to write several sequential registers to a peripheral for each DMA burst, writing the same registers again for each burst.
         enum class DstburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Destination burst wrapping is not enabled for this DMA channel.
@@ -761,7 +738,6 @@ namespace Kvasir {
         namespace DstburstwrapValC{
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
-        }
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 3-bit priority field giving 8 priority levels. A specific instance of the SDMA might have anywhere from 2 to 16 priority levels (1 to 4 bits for the CH_PRIORITY field). 0x0 = highest priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
@@ -778,7 +754,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
-        }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
             disabled=0x00000000,     ///<Disabled. Hardware triggering is not used.
@@ -788,7 +763,6 @@ namespace Kvasir {
         namespace HwtrigenValC{
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
-        }
         }
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
@@ -800,7 +774,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
-        }
         ///Trigger Type. Selects hardware trigger as edge triggered or level triggered.
         enum class TrigtypeVal {
             edge=0x00000000,     ///<Edge. Hardware trigger is edge triggered.
@@ -811,7 +784,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
-        }
         ///Trigger Burst. Selects whether hardware triggers cause a single or burst transfer.
         enum class TrigburstVal {
             singleTransfer=0x00000000,     ///<Single transfer. Hardware trigger causes a single transfer.
@@ -821,7 +793,6 @@ namespace Kvasir {
         namespace TrigburstValC{
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
-        }
         }
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
@@ -835,7 +806,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
-        }
         ///Destination Burst Wrap. When enabled, the destination data address for the DMA is wrapped, meaning that the destination address range for each burst will be the same. As an example, this could be used to write several sequential registers to a peripheral for each DMA burst, writing the same registers again for each burst.
         enum class DstburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Destination burst wrapping is not enabled for this DMA channel.
@@ -845,7 +815,6 @@ namespace Kvasir {
         namespace DstburstwrapValC{
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
-        }
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 3-bit priority field giving 8 priority levels. A specific instance of the SDMA might have anywhere from 2 to 16 priority levels (1 to 4 bits for the CH_PRIORITY field). 0x0 = highest priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
@@ -862,7 +831,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
-        }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
             disabled=0x00000000,     ///<Disabled. Hardware triggering is not used.
@@ -872,7 +840,6 @@ namespace Kvasir {
         namespace HwtrigenValC{
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
-        }
         }
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
@@ -884,7 +851,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
-        }
         ///Trigger Type. Selects hardware trigger as edge triggered or level triggered.
         enum class TrigtypeVal {
             edge=0x00000000,     ///<Edge. Hardware trigger is edge triggered.
@@ -895,7 +861,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
-        }
         ///Trigger Burst. Selects whether hardware triggers cause a single or burst transfer.
         enum class TrigburstVal {
             singleTransfer=0x00000000,     ///<Single transfer. Hardware trigger causes a single transfer.
@@ -905,7 +870,6 @@ namespace Kvasir {
         namespace TrigburstValC{
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
-        }
         }
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
@@ -919,7 +883,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
-        }
         ///Destination Burst Wrap. When enabled, the destination data address for the DMA is wrapped, meaning that the destination address range for each burst will be the same. As an example, this could be used to write several sequential registers to a peripheral for each DMA burst, writing the same registers again for each burst.
         enum class DstburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Destination burst wrapping is not enabled for this DMA channel.
@@ -929,7 +892,6 @@ namespace Kvasir {
         namespace DstburstwrapValC{
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
-        }
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 3-bit priority field giving 8 priority levels. A specific instance of the SDMA might have anywhere from 2 to 16 priority levels (1 to 4 bits for the CH_PRIORITY field). 0x0 = highest priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
@@ -946,7 +908,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
-        }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
             disabled=0x00000000,     ///<Disabled. Hardware triggering is not used.
@@ -956,7 +917,6 @@ namespace Kvasir {
         namespace HwtrigenValC{
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
-        }
         }
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
@@ -968,7 +928,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
-        }
         ///Trigger Type. Selects hardware trigger as edge triggered or level triggered.
         enum class TrigtypeVal {
             edge=0x00000000,     ///<Edge. Hardware trigger is edge triggered.
@@ -979,7 +938,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
-        }
         ///Trigger Burst. Selects whether hardware triggers cause a single or burst transfer.
         enum class TrigburstVal {
             singleTransfer=0x00000000,     ///<Single transfer. Hardware trigger causes a single transfer.
@@ -989,7 +947,6 @@ namespace Kvasir {
         namespace TrigburstValC{
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
-        }
         }
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
@@ -1003,7 +960,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
-        }
         ///Destination Burst Wrap. When enabled, the destination data address for the DMA is wrapped, meaning that the destination address range for each burst will be the same. As an example, this could be used to write several sequential registers to a peripheral for each DMA burst, writing the same registers again for each burst.
         enum class DstburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Destination burst wrapping is not enabled for this DMA channel.
@@ -1013,7 +969,6 @@ namespace Kvasir {
         namespace DstburstwrapValC{
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
-        }
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 3-bit priority field giving 8 priority levels. A specific instance of the SDMA might have anywhere from 2 to 16 priority levels (1 to 4 bits for the CH_PRIORITY field). 0x0 = highest priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
@@ -1030,7 +985,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
-        }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
             disabled=0x00000000,     ///<Disabled. Hardware triggering is not used.
@@ -1040,7 +994,6 @@ namespace Kvasir {
         namespace HwtrigenValC{
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
-        }
         }
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
@@ -1052,7 +1005,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
-        }
         ///Trigger Type. Selects hardware trigger as edge triggered or level triggered.
         enum class TrigtypeVal {
             edge=0x00000000,     ///<Edge. Hardware trigger is edge triggered.
@@ -1063,7 +1015,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
-        }
         ///Trigger Burst. Selects whether hardware triggers cause a single or burst transfer.
         enum class TrigburstVal {
             singleTransfer=0x00000000,     ///<Single transfer. Hardware trigger causes a single transfer.
@@ -1073,7 +1024,6 @@ namespace Kvasir {
         namespace TrigburstValC{
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
-        }
         }
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
@@ -1087,7 +1037,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
-        }
         ///Destination Burst Wrap. When enabled, the destination data address for the DMA is wrapped, meaning that the destination address range for each burst will be the same. As an example, this could be used to write several sequential registers to a peripheral for each DMA burst, writing the same registers again for each burst.
         enum class DstburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Destination burst wrapping is not enabled for this DMA channel.
@@ -1097,7 +1046,6 @@ namespace Kvasir {
         namespace DstburstwrapValC{
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
-        }
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 3-bit priority field giving 8 priority levels. A specific instance of the SDMA might have anywhere from 2 to 16 priority levels (1 to 4 bits for the CH_PRIORITY field). 0x0 = highest priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
@@ -1114,7 +1062,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
-        }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
             disabled=0x00000000,     ///<Disabled. Hardware triggering is not used.
@@ -1124,7 +1071,6 @@ namespace Kvasir {
         namespace HwtrigenValC{
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
-        }
         }
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
@@ -1136,7 +1082,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
-        }
         ///Trigger Type. Selects hardware trigger as edge triggered or level triggered.
         enum class TrigtypeVal {
             edge=0x00000000,     ///<Edge. Hardware trigger is edge triggered.
@@ -1147,7 +1092,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
-        }
         ///Trigger Burst. Selects whether hardware triggers cause a single or burst transfer.
         enum class TrigburstVal {
             singleTransfer=0x00000000,     ///<Single transfer. Hardware trigger causes a single transfer.
@@ -1157,7 +1101,6 @@ namespace Kvasir {
         namespace TrigburstValC{
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
-        }
         }
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
@@ -1171,7 +1114,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
-        }
         ///Destination Burst Wrap. When enabled, the destination data address for the DMA is wrapped, meaning that the destination address range for each burst will be the same. As an example, this could be used to write several sequential registers to a peripheral for each DMA burst, writing the same registers again for each burst.
         enum class DstburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Destination burst wrapping is not enabled for this DMA channel.
@@ -1181,7 +1123,6 @@ namespace Kvasir {
         namespace DstburstwrapValC{
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
-        }
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 3-bit priority field giving 8 priority levels. A specific instance of the SDMA might have anywhere from 2 to 16 priority levels (1 to 4 bits for the CH_PRIORITY field). 0x0 = highest priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
@@ -1198,7 +1139,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
-        }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
             disabled=0x00000000,     ///<Disabled. Hardware triggering is not used.
@@ -1208,7 +1148,6 @@ namespace Kvasir {
         namespace HwtrigenValC{
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
-        }
         }
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
@@ -1220,7 +1159,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
-        }
         ///Trigger Type. Selects hardware trigger as edge triggered or level triggered.
         enum class TrigtypeVal {
             edge=0x00000000,     ///<Edge. Hardware trigger is edge triggered.
@@ -1231,7 +1169,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
-        }
         ///Trigger Burst. Selects whether hardware triggers cause a single or burst transfer.
         enum class TrigburstVal {
             singleTransfer=0x00000000,     ///<Single transfer. Hardware trigger causes a single transfer.
@@ -1241,7 +1178,6 @@ namespace Kvasir {
         namespace TrigburstValC{
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
-        }
         }
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
@@ -1255,7 +1191,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
-        }
         ///Destination Burst Wrap. When enabled, the destination data address for the DMA is wrapped, meaning that the destination address range for each burst will be the same. As an example, this could be used to write several sequential registers to a peripheral for each DMA burst, writing the same registers again for each burst.
         enum class DstburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Destination burst wrapping is not enabled for this DMA channel.
@@ -1265,7 +1200,6 @@ namespace Kvasir {
         namespace DstburstwrapValC{
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
-        }
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 3-bit priority field giving 8 priority levels. A specific instance of the SDMA might have anywhere from 2 to 16 priority levels (1 to 4 bits for the CH_PRIORITY field). 0x0 = highest priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
@@ -1282,7 +1216,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
-        }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
             disabled=0x00000000,     ///<Disabled. Hardware triggering is not used.
@@ -1292,7 +1225,6 @@ namespace Kvasir {
         namespace HwtrigenValC{
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
-        }
         }
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
@@ -1304,7 +1236,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
-        }
         ///Trigger Type. Selects hardware trigger as edge triggered or level triggered.
         enum class TrigtypeVal {
             edge=0x00000000,     ///<Edge. Hardware trigger is edge triggered.
@@ -1315,7 +1246,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
-        }
         ///Trigger Burst. Selects whether hardware triggers cause a single or burst transfer.
         enum class TrigburstVal {
             singleTransfer=0x00000000,     ///<Single transfer. Hardware trigger causes a single transfer.
@@ -1325,7 +1255,6 @@ namespace Kvasir {
         namespace TrigburstValC{
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
-        }
         }
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
@@ -1339,7 +1268,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
-        }
         ///Destination Burst Wrap. When enabled, the destination data address for the DMA is wrapped, meaning that the destination address range for each burst will be the same. As an example, this could be used to write several sequential registers to a peripheral for each DMA burst, writing the same registers again for each burst.
         enum class DstburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Destination burst wrapping is not enabled for this DMA channel.
@@ -1349,7 +1277,6 @@ namespace Kvasir {
         namespace DstburstwrapValC{
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
-        }
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 3-bit priority field giving 8 priority levels. A specific instance of the SDMA might have anywhere from 2 to 16 priority levels (1 to 4 bits for the CH_PRIORITY field). 0x0 = highest priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
@@ -1366,7 +1293,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
-        }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
             disabled=0x00000000,     ///<Disabled. Hardware triggering is not used.
@@ -1376,7 +1302,6 @@ namespace Kvasir {
         namespace HwtrigenValC{
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
-        }
         }
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
@@ -1388,7 +1313,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
-        }
         ///Trigger Type. Selects hardware trigger as edge triggered or level triggered.
         enum class TrigtypeVal {
             edge=0x00000000,     ///<Edge. Hardware trigger is edge triggered.
@@ -1399,7 +1323,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
-        }
         ///Trigger Burst. Selects whether hardware triggers cause a single or burst transfer.
         enum class TrigburstVal {
             singleTransfer=0x00000000,     ///<Single transfer. Hardware trigger causes a single transfer.
@@ -1409,7 +1332,6 @@ namespace Kvasir {
         namespace TrigburstValC{
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
-        }
         }
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
@@ -1423,7 +1345,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
-        }
         ///Destination Burst Wrap. When enabled, the destination data address for the DMA is wrapped, meaning that the destination address range for each burst will be the same. As an example, this could be used to write several sequential registers to a peripheral for each DMA burst, writing the same registers again for each burst.
         enum class DstburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Destination burst wrapping is not enabled for this DMA channel.
@@ -1433,7 +1354,6 @@ namespace Kvasir {
         namespace DstburstwrapValC{
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
-        }
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 3-bit priority field giving 8 priority levels. A specific instance of the SDMA might have anywhere from 2 to 16 priority levels (1 to 4 bits for the CH_PRIORITY field). 0x0 = highest priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
@@ -1450,7 +1370,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
-        }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
             disabled=0x00000000,     ///<Disabled. Hardware triggering is not used.
@@ -1460,7 +1379,6 @@ namespace Kvasir {
         namespace HwtrigenValC{
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
-        }
         }
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
@@ -1472,7 +1390,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
-        }
         ///Trigger Type. Selects hardware trigger as edge triggered or level triggered.
         enum class TrigtypeVal {
             edge=0x00000000,     ///<Edge. Hardware trigger is edge triggered.
@@ -1483,7 +1400,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
-        }
         ///Trigger Burst. Selects whether hardware triggers cause a single or burst transfer.
         enum class TrigburstVal {
             singleTransfer=0x00000000,     ///<Single transfer. Hardware trigger causes a single transfer.
@@ -1493,7 +1409,6 @@ namespace Kvasir {
         namespace TrigburstValC{
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
-        }
         }
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
@@ -1507,7 +1422,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
-        }
         ///Destination Burst Wrap. When enabled, the destination data address for the DMA is wrapped, meaning that the destination address range for each burst will be the same. As an example, this could be used to write several sequential registers to a peripheral for each DMA burst, writing the same registers again for each burst.
         enum class DstburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Destination burst wrapping is not enabled for this DMA channel.
@@ -1517,7 +1431,6 @@ namespace Kvasir {
         namespace DstburstwrapValC{
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
-        }
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 3-bit priority field giving 8 priority levels. A specific instance of the SDMA might have anywhere from 2 to 16 priority levels (1 to 4 bits for the CH_PRIORITY field). 0x0 = highest priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
@@ -1534,7 +1447,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
-        }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
             disabled=0x00000000,     ///<Disabled. Hardware triggering is not used.
@@ -1544,7 +1456,6 @@ namespace Kvasir {
         namespace HwtrigenValC{
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
-        }
         }
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
@@ -1556,7 +1467,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
-        }
         ///Trigger Type. Selects hardware trigger as edge triggered or level triggered.
         enum class TrigtypeVal {
             edge=0x00000000,     ///<Edge. Hardware trigger is edge triggered.
@@ -1567,7 +1477,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
-        }
         ///Trigger Burst. Selects whether hardware triggers cause a single or burst transfer.
         enum class TrigburstVal {
             singleTransfer=0x00000000,     ///<Single transfer. Hardware trigger causes a single transfer.
@@ -1577,7 +1486,6 @@ namespace Kvasir {
         namespace TrigburstValC{
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
-        }
         }
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
@@ -1591,7 +1499,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
-        }
         ///Destination Burst Wrap. When enabled, the destination data address for the DMA is wrapped, meaning that the destination address range for each burst will be the same. As an example, this could be used to write several sequential registers to a peripheral for each DMA burst, writing the same registers again for each burst.
         enum class DstburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Destination burst wrapping is not enabled for this DMA channel.
@@ -1601,7 +1508,6 @@ namespace Kvasir {
         namespace DstburstwrapValC{
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
-        }
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 3-bit priority field giving 8 priority levels. A specific instance of the SDMA might have anywhere from 2 to 16 priority levels (1 to 4 bits for the CH_PRIORITY field). 0x0 = highest priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
@@ -1618,7 +1524,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
-        }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
             disabled=0x00000000,     ///<Disabled. Hardware triggering is not used.
@@ -1628,7 +1533,6 @@ namespace Kvasir {
         namespace HwtrigenValC{
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
-        }
         }
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
@@ -1640,7 +1544,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
-        }
         ///Trigger Type. Selects hardware trigger as edge triggered or level triggered.
         enum class TrigtypeVal {
             edge=0x00000000,     ///<Edge. Hardware trigger is edge triggered.
@@ -1651,7 +1554,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
-        }
         ///Trigger Burst. Selects whether hardware triggers cause a single or burst transfer.
         enum class TrigburstVal {
             singleTransfer=0x00000000,     ///<Single transfer. Hardware trigger causes a single transfer.
@@ -1661,7 +1563,6 @@ namespace Kvasir {
         namespace TrigburstValC{
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
-        }
         }
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
@@ -1675,7 +1576,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
-        }
         ///Destination Burst Wrap. When enabled, the destination data address for the DMA is wrapped, meaning that the destination address range for each burst will be the same. As an example, this could be used to write several sequential registers to a peripheral for each DMA burst, writing the same registers again for each burst.
         enum class DstburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Destination burst wrapping is not enabled for this DMA channel.
@@ -1685,7 +1585,6 @@ namespace Kvasir {
         namespace DstburstwrapValC{
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
-        }
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 3-bit priority field giving 8 priority levels. A specific instance of the SDMA might have anywhere from 2 to 16 priority levels (1 to 4 bits for the CH_PRIORITY field). 0x0 = highest priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
@@ -1702,7 +1601,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
-        }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
             disabled=0x00000000,     ///<Disabled. Hardware triggering is not used.
@@ -1712,7 +1610,6 @@ namespace Kvasir {
         namespace HwtrigenValC{
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
-        }
         }
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
@@ -1724,7 +1621,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
-        }
         ///Trigger Type. Selects hardware trigger as edge triggered or level triggered.
         enum class TrigtypeVal {
             edge=0x00000000,     ///<Edge. Hardware trigger is edge triggered.
@@ -1735,7 +1631,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
-        }
         ///Trigger Burst. Selects whether hardware triggers cause a single or burst transfer.
         enum class TrigburstVal {
             singleTransfer=0x00000000,     ///<Single transfer. Hardware trigger causes a single transfer.
@@ -1745,7 +1640,6 @@ namespace Kvasir {
         namespace TrigburstValC{
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
-        }
         }
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
@@ -1759,7 +1653,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
-        }
         ///Destination Burst Wrap. When enabled, the destination data address for the DMA is wrapped, meaning that the destination address range for each burst will be the same. As an example, this could be used to write several sequential registers to a peripheral for each DMA burst, writing the same registers again for each burst.
         enum class DstburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Destination burst wrapping is not enabled for this DMA channel.
@@ -1769,7 +1662,6 @@ namespace Kvasir {
         namespace DstburstwrapValC{
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
-        }
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 3-bit priority field giving 8 priority levels. A specific instance of the SDMA might have anywhere from 2 to 16 priority levels (1 to 4 bits for the CH_PRIORITY field). 0x0 = highest priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
@@ -1786,7 +1678,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
-        }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
             disabled=0x00000000,     ///<Disabled. Hardware triggering is not used.
@@ -1796,7 +1687,6 @@ namespace Kvasir {
         namespace HwtrigenValC{
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
-        }
         }
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
@@ -1808,7 +1698,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
-        }
         ///Trigger Type. Selects hardware trigger as edge triggered or level triggered.
         enum class TrigtypeVal {
             edge=0x00000000,     ///<Edge. Hardware trigger is edge triggered.
@@ -1819,7 +1708,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
-        }
         ///Trigger Burst. Selects whether hardware triggers cause a single or burst transfer.
         enum class TrigburstVal {
             singleTransfer=0x00000000,     ///<Single transfer. Hardware trigger causes a single transfer.
@@ -1829,7 +1717,6 @@ namespace Kvasir {
         namespace TrigburstValC{
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
-        }
         }
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
@@ -1843,7 +1730,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
-        }
         ///Destination Burst Wrap. When enabled, the destination data address for the DMA is wrapped, meaning that the destination address range for each burst will be the same. As an example, this could be used to write several sequential registers to a peripheral for each DMA burst, writing the same registers again for each burst.
         enum class DstburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Destination burst wrapping is not enabled for this DMA channel.
@@ -1853,7 +1739,6 @@ namespace Kvasir {
         namespace DstburstwrapValC{
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
-        }
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 3-bit priority field giving 8 priority levels. A specific instance of the SDMA might have anywhere from 2 to 16 priority levels (1 to 4 bits for the CH_PRIORITY field). 0x0 = highest priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
@@ -1870,7 +1755,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
-        }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
             disabled=0x00000000,     ///<Disabled. Hardware triggering is not used.
@@ -1880,7 +1764,6 @@ namespace Kvasir {
         namespace HwtrigenValC{
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
-        }
         }
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
@@ -1892,7 +1775,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
-        }
         ///Trigger Type. Selects hardware trigger as edge triggered or level triggered.
         enum class TrigtypeVal {
             edge=0x00000000,     ///<Edge. Hardware trigger is edge triggered.
@@ -1903,7 +1785,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
-        }
         ///Trigger Burst. Selects whether hardware triggers cause a single or burst transfer.
         enum class TrigburstVal {
             singleTransfer=0x00000000,     ///<Single transfer. Hardware trigger causes a single transfer.
@@ -1913,7 +1794,6 @@ namespace Kvasir {
         namespace TrigburstValC{
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
-        }
         }
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
@@ -1927,7 +1807,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
-        }
         ///Destination Burst Wrap. When enabled, the destination data address for the DMA is wrapped, meaning that the destination address range for each burst will be the same. As an example, this could be used to write several sequential registers to a peripheral for each DMA burst, writing the same registers again for each burst.
         enum class DstburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Destination burst wrapping is not enabled for this DMA channel.
@@ -1937,7 +1816,6 @@ namespace Kvasir {
         namespace DstburstwrapValC{
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
-        }
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 3-bit priority field giving 8 priority levels. A specific instance of the SDMA might have anywhere from 2 to 16 priority levels (1 to 4 bits for the CH_PRIORITY field). 0x0 = highest priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
@@ -1954,7 +1832,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
-        }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
             disabled=0x00000000,     ///<Disabled. Hardware triggering is not used.
@@ -1964,7 +1841,6 @@ namespace Kvasir {
         namespace HwtrigenValC{
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
-        }
         }
         ///Trigger Polarity. Selects the polarity of a hardware trigger for this channel.
         enum class TrigpolVal {
@@ -1976,7 +1852,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
-        }
         ///Trigger Type. Selects hardware trigger as edge triggered or level triggered.
         enum class TrigtypeVal {
             edge=0x00000000,     ///<Edge. Hardware trigger is edge triggered.
@@ -1987,7 +1862,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
             constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
-        }
         ///Trigger Burst. Selects whether hardware triggers cause a single or burst transfer.
         enum class TrigburstVal {
             singleTransfer=0x00000000,     ///<Single transfer. Hardware trigger causes a single transfer.
@@ -1997,7 +1871,6 @@ namespace Kvasir {
         namespace TrigburstValC{
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
             constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
-        }
         }
         ///Burst Power is used in two ways. It always selects the address wrap size when SrcBurstWrap and/or DstBurstWrap is modes are selected (see descriptions elsewhere in this register). When the TRIGBURST field elsewhere in this register = 1, Burst Power selects how many transfers are performed for each DMA trigger. This can be used, for example, with peripherals that contain a FIFO that can initiate a DMA operation when the FIFO reaches a certain level. 0000: Burst size = 1 (20). 0001: Burst size = 2 (21). 0010: Burst size = 4 (22). ... 1010: Burst size = 1024 (210). This corresponds to the maximum supported transfer count. others: not supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
@@ -2011,7 +1884,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
-        }
         ///Destination Burst Wrap. When enabled, the destination data address for the DMA is wrapped, meaning that the destination address range for each burst will be the same. As an example, this could be used to write several sequential registers to a peripheral for each DMA burst, writing the same registers again for each burst.
         enum class DstburstwrapVal {
             disabled=0x00000000,     ///<Disabled. Destination burst wrapping is not enabled for this DMA channel.
@@ -2021,7 +1893,6 @@ namespace Kvasir {
         namespace DstburstwrapValC{
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
-        }
         }
         ///Priority of this channel when multiple DMA requests are pending. This description reflects a 3-bit priority field giving 8 priority levels. A specific instance of the SDMA might have anywhere from 2 to 16 priority levels (1 to 4 bits for the CH_PRIORITY field). 0x0 = highest priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
@@ -2038,7 +1909,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
-        }
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -2048,7 +1918,6 @@ namespace Kvasir {
         namespace TrigValC{
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
-        }
         }
     }
     namespace Nonectlstat1{    ///<Control and status register for DMA channel 0.
@@ -2063,7 +1932,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
-        }
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -2073,7 +1941,6 @@ namespace Kvasir {
         namespace TrigValC{
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
-        }
         }
     }
     namespace Nonectlstat2{    ///<Control and status register for DMA channel 0.
@@ -2088,7 +1955,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
-        }
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -2098,7 +1964,6 @@ namespace Kvasir {
         namespace TrigValC{
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
-        }
         }
     }
     namespace Nonectlstat3{    ///<Control and status register for DMA channel 0.
@@ -2113,7 +1978,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
-        }
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -2123,7 +1987,6 @@ namespace Kvasir {
         namespace TrigValC{
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
-        }
         }
     }
     namespace Nonectlstat4{    ///<Control and status register for DMA channel 0.
@@ -2138,7 +2001,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
-        }
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -2148,7 +2010,6 @@ namespace Kvasir {
         namespace TrigValC{
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
-        }
         }
     }
     namespace Nonectlstat5{    ///<Control and status register for DMA channel 0.
@@ -2163,7 +2024,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
-        }
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -2173,7 +2033,6 @@ namespace Kvasir {
         namespace TrigValC{
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
-        }
         }
     }
     namespace Nonectlstat6{    ///<Control and status register for DMA channel 0.
@@ -2188,7 +2047,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
-        }
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -2198,7 +2056,6 @@ namespace Kvasir {
         namespace TrigValC{
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
-        }
         }
     }
     namespace Nonectlstat7{    ///<Control and status register for DMA channel 0.
@@ -2213,7 +2070,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
-        }
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -2223,7 +2079,6 @@ namespace Kvasir {
         namespace TrigValC{
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
-        }
         }
     }
     namespace Nonectlstat8{    ///<Control and status register for DMA channel 0.
@@ -2238,7 +2093,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
-        }
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -2248,7 +2102,6 @@ namespace Kvasir {
         namespace TrigValC{
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
-        }
         }
     }
     namespace Nonectlstat9{    ///<Control and status register for DMA channel 0.
@@ -2263,7 +2116,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
-        }
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -2273,7 +2125,6 @@ namespace Kvasir {
         namespace TrigValC{
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
-        }
         }
     }
     namespace Nonectlstat10{    ///<Control and status register for DMA channel 0.
@@ -2288,7 +2139,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
-        }
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -2298,7 +2148,6 @@ namespace Kvasir {
         namespace TrigValC{
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
-        }
         }
     }
     namespace Nonectlstat11{    ///<Control and status register for DMA channel 0.
@@ -2313,7 +2162,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
-        }
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -2323,7 +2171,6 @@ namespace Kvasir {
         namespace TrigValC{
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
-        }
         }
     }
     namespace Nonectlstat12{    ///<Control and status register for DMA channel 0.
@@ -2338,7 +2185,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
-        }
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -2348,7 +2194,6 @@ namespace Kvasir {
         namespace TrigValC{
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
-        }
         }
     }
     namespace Nonectlstat13{    ///<Control and status register for DMA channel 0.
@@ -2363,7 +2208,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
-        }
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -2373,7 +2217,6 @@ namespace Kvasir {
         namespace TrigValC{
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
-        }
         }
     }
     namespace Nonectlstat14{    ///<Control and status register for DMA channel 0.
@@ -2388,7 +2231,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
-        }
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -2398,7 +2240,6 @@ namespace Kvasir {
         namespace TrigValC{
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
-        }
         }
     }
     namespace Nonectlstat15{    ///<Control and status register for DMA channel 0.
@@ -2413,7 +2254,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
-        }
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -2423,7 +2263,6 @@ namespace Kvasir {
         namespace TrigValC{
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
-        }
         }
     }
     namespace Nonectlstat16{    ///<Control and status register for DMA channel 0.
@@ -2438,7 +2277,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
-        }
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -2448,7 +2286,6 @@ namespace Kvasir {
         namespace TrigValC{
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
-        }
         }
     }
     namespace Nonectlstat17{    ///<Control and status register for DMA channel 0.
@@ -2463,7 +2300,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffectOnDmaOpe> noEffectOnDmaOpe{};
             constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
-        }
         ///Trigger flag. Indicates that the trigger for this channel is currently set. This bit is cleared at the end of an entire transfer or upon reload when CLRTRIG = 1.
         enum class TrigVal {
             notTriggered=0x00000000,     ///<Not triggered. The trigger for this DMA channel is not set. DMA operations will not be carried out.
@@ -2473,7 +2309,6 @@ namespace Kvasir {
         namespace TrigValC{
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
-        }
         }
     }
     namespace Nonexfercfg0{    ///<Transfer configuration register for DMA channel 0.
@@ -2488,7 +2323,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
-        }
         ///Indicates whether the channel's control structure will be reloaded when the current descriptor is exhausted. Reloading allows ping-pong and linked transfers.
         enum class ReloadVal {
             disabled=0x00000000,     ///<Disabled. Do not reload the channels' control structure when the current descriptor is exhausted.
@@ -2498,7 +2332,6 @@ namespace Kvasir {
         namespace ReloadValC{
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
-        }
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -2510,7 +2343,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
         }
-        }
         ///Clear Trigger.
         enum class ClrtrigVal {
             notCleared=0x00000000,     ///<Not cleared. The trigger is not cleared when this descriptor is exhausted. If there is a reload, the next descriptor will be started.
@@ -2520,7 +2352,6 @@ namespace Kvasir {
         namespace ClrtrigValC{
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
-        }
         }
         ///Set Interrupt flag A for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintaVal {
@@ -2532,7 +2363,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
-        }
         ///Set Interrupt flag B for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintbVal {
             noEffect=0x00000000,     ///<No effect.
@@ -2542,7 +2372,6 @@ namespace Kvasir {
         namespace SetintbValC{
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
-        }
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -2555,7 +2384,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8BitTransfersAre> v8BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfersAre> v16BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfersAre> v32BitTransfersAre{};
-        }
         }
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
@@ -2571,7 +2399,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
-        }
         ///Determines whether the destination address is incremented for each DMA transfer.
         enum class DstincVal {
             noIncrement=0x00000000,     ///<No increment. The destination address is not incremented for each transfer. This is the usual case when the destination is a peripheral device.
@@ -2585,7 +2412,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
-        }
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
@@ -2602,7 +2428,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
-        }
         ///Indicates whether the channel's control structure will be reloaded when the current descriptor is exhausted. Reloading allows ping-pong and linked transfers.
         enum class ReloadVal {
             disabled=0x00000000,     ///<Disabled. Do not reload the channels' control structure when the current descriptor is exhausted.
@@ -2612,7 +2437,6 @@ namespace Kvasir {
         namespace ReloadValC{
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
-        }
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -2624,7 +2448,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
         }
-        }
         ///Clear Trigger.
         enum class ClrtrigVal {
             notCleared=0x00000000,     ///<Not cleared. The trigger is not cleared when this descriptor is exhausted. If there is a reload, the next descriptor will be started.
@@ -2634,7 +2457,6 @@ namespace Kvasir {
         namespace ClrtrigValC{
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
-        }
         }
         ///Set Interrupt flag A for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintaVal {
@@ -2646,7 +2468,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
-        }
         ///Set Interrupt flag B for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintbVal {
             noEffect=0x00000000,     ///<No effect.
@@ -2656,7 +2477,6 @@ namespace Kvasir {
         namespace SetintbValC{
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
-        }
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -2669,7 +2489,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8BitTransfersAre> v8BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfersAre> v16BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfersAre> v32BitTransfersAre{};
-        }
         }
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
@@ -2685,7 +2504,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
-        }
         ///Determines whether the destination address is incremented for each DMA transfer.
         enum class DstincVal {
             noIncrement=0x00000000,     ///<No increment. The destination address is not incremented for each transfer. This is the usual case when the destination is a peripheral device.
@@ -2699,7 +2517,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
-        }
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
@@ -2716,7 +2533,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
-        }
         ///Indicates whether the channel's control structure will be reloaded when the current descriptor is exhausted. Reloading allows ping-pong and linked transfers.
         enum class ReloadVal {
             disabled=0x00000000,     ///<Disabled. Do not reload the channels' control structure when the current descriptor is exhausted.
@@ -2726,7 +2542,6 @@ namespace Kvasir {
         namespace ReloadValC{
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
-        }
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -2738,7 +2553,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
         }
-        }
         ///Clear Trigger.
         enum class ClrtrigVal {
             notCleared=0x00000000,     ///<Not cleared. The trigger is not cleared when this descriptor is exhausted. If there is a reload, the next descriptor will be started.
@@ -2748,7 +2562,6 @@ namespace Kvasir {
         namespace ClrtrigValC{
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
-        }
         }
         ///Set Interrupt flag A for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintaVal {
@@ -2760,7 +2573,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
-        }
         ///Set Interrupt flag B for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintbVal {
             noEffect=0x00000000,     ///<No effect.
@@ -2770,7 +2582,6 @@ namespace Kvasir {
         namespace SetintbValC{
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
-        }
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -2783,7 +2594,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8BitTransfersAre> v8BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfersAre> v16BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfersAre> v32BitTransfersAre{};
-        }
         }
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
@@ -2799,7 +2609,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
-        }
         ///Determines whether the destination address is incremented for each DMA transfer.
         enum class DstincVal {
             noIncrement=0x00000000,     ///<No increment. The destination address is not incremented for each transfer. This is the usual case when the destination is a peripheral device.
@@ -2813,7 +2622,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
-        }
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
@@ -2830,7 +2638,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
-        }
         ///Indicates whether the channel's control structure will be reloaded when the current descriptor is exhausted. Reloading allows ping-pong and linked transfers.
         enum class ReloadVal {
             disabled=0x00000000,     ///<Disabled. Do not reload the channels' control structure when the current descriptor is exhausted.
@@ -2840,7 +2647,6 @@ namespace Kvasir {
         namespace ReloadValC{
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
-        }
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -2852,7 +2658,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
         }
-        }
         ///Clear Trigger.
         enum class ClrtrigVal {
             notCleared=0x00000000,     ///<Not cleared. The trigger is not cleared when this descriptor is exhausted. If there is a reload, the next descriptor will be started.
@@ -2862,7 +2667,6 @@ namespace Kvasir {
         namespace ClrtrigValC{
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
-        }
         }
         ///Set Interrupt flag A for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintaVal {
@@ -2874,7 +2678,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
-        }
         ///Set Interrupt flag B for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintbVal {
             noEffect=0x00000000,     ///<No effect.
@@ -2884,7 +2687,6 @@ namespace Kvasir {
         namespace SetintbValC{
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
-        }
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -2897,7 +2699,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8BitTransfersAre> v8BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfersAre> v16BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfersAre> v32BitTransfersAre{};
-        }
         }
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
@@ -2913,7 +2714,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
-        }
         ///Determines whether the destination address is incremented for each DMA transfer.
         enum class DstincVal {
             noIncrement=0x00000000,     ///<No increment. The destination address is not incremented for each transfer. This is the usual case when the destination is a peripheral device.
@@ -2927,7 +2727,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
-        }
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
@@ -2944,7 +2743,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
-        }
         ///Indicates whether the channel's control structure will be reloaded when the current descriptor is exhausted. Reloading allows ping-pong and linked transfers.
         enum class ReloadVal {
             disabled=0x00000000,     ///<Disabled. Do not reload the channels' control structure when the current descriptor is exhausted.
@@ -2954,7 +2752,6 @@ namespace Kvasir {
         namespace ReloadValC{
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
-        }
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -2966,7 +2763,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
         }
-        }
         ///Clear Trigger.
         enum class ClrtrigVal {
             notCleared=0x00000000,     ///<Not cleared. The trigger is not cleared when this descriptor is exhausted. If there is a reload, the next descriptor will be started.
@@ -2976,7 +2772,6 @@ namespace Kvasir {
         namespace ClrtrigValC{
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
-        }
         }
         ///Set Interrupt flag A for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintaVal {
@@ -2988,7 +2783,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
-        }
         ///Set Interrupt flag B for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintbVal {
             noEffect=0x00000000,     ///<No effect.
@@ -2998,7 +2792,6 @@ namespace Kvasir {
         namespace SetintbValC{
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
-        }
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -3011,7 +2804,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8BitTransfersAre> v8BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfersAre> v16BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfersAre> v32BitTransfersAre{};
-        }
         }
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
@@ -3027,7 +2819,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
-        }
         ///Determines whether the destination address is incremented for each DMA transfer.
         enum class DstincVal {
             noIncrement=0x00000000,     ///<No increment. The destination address is not incremented for each transfer. This is the usual case when the destination is a peripheral device.
@@ -3041,7 +2832,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
-        }
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
@@ -3058,7 +2848,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
-        }
         ///Indicates whether the channel's control structure will be reloaded when the current descriptor is exhausted. Reloading allows ping-pong and linked transfers.
         enum class ReloadVal {
             disabled=0x00000000,     ///<Disabled. Do not reload the channels' control structure when the current descriptor is exhausted.
@@ -3068,7 +2857,6 @@ namespace Kvasir {
         namespace ReloadValC{
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
-        }
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -3080,7 +2868,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
         }
-        }
         ///Clear Trigger.
         enum class ClrtrigVal {
             notCleared=0x00000000,     ///<Not cleared. The trigger is not cleared when this descriptor is exhausted. If there is a reload, the next descriptor will be started.
@@ -3090,7 +2877,6 @@ namespace Kvasir {
         namespace ClrtrigValC{
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
-        }
         }
         ///Set Interrupt flag A for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintaVal {
@@ -3102,7 +2888,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
-        }
         ///Set Interrupt flag B for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintbVal {
             noEffect=0x00000000,     ///<No effect.
@@ -3112,7 +2897,6 @@ namespace Kvasir {
         namespace SetintbValC{
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
-        }
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -3125,7 +2909,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8BitTransfersAre> v8BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfersAre> v16BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfersAre> v32BitTransfersAre{};
-        }
         }
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
@@ -3141,7 +2924,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
-        }
         ///Determines whether the destination address is incremented for each DMA transfer.
         enum class DstincVal {
             noIncrement=0x00000000,     ///<No increment. The destination address is not incremented for each transfer. This is the usual case when the destination is a peripheral device.
@@ -3155,7 +2937,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
-        }
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
@@ -3172,7 +2953,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
-        }
         ///Indicates whether the channel's control structure will be reloaded when the current descriptor is exhausted. Reloading allows ping-pong and linked transfers.
         enum class ReloadVal {
             disabled=0x00000000,     ///<Disabled. Do not reload the channels' control structure when the current descriptor is exhausted.
@@ -3182,7 +2962,6 @@ namespace Kvasir {
         namespace ReloadValC{
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
-        }
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -3194,7 +2973,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
         }
-        }
         ///Clear Trigger.
         enum class ClrtrigVal {
             notCleared=0x00000000,     ///<Not cleared. The trigger is not cleared when this descriptor is exhausted. If there is a reload, the next descriptor will be started.
@@ -3204,7 +2982,6 @@ namespace Kvasir {
         namespace ClrtrigValC{
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
-        }
         }
         ///Set Interrupt flag A for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintaVal {
@@ -3216,7 +2993,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
-        }
         ///Set Interrupt flag B for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintbVal {
             noEffect=0x00000000,     ///<No effect.
@@ -3226,7 +3002,6 @@ namespace Kvasir {
         namespace SetintbValC{
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
-        }
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -3239,7 +3014,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8BitTransfersAre> v8BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfersAre> v16BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfersAre> v32BitTransfersAre{};
-        }
         }
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
@@ -3255,7 +3029,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
-        }
         ///Determines whether the destination address is incremented for each DMA transfer.
         enum class DstincVal {
             noIncrement=0x00000000,     ///<No increment. The destination address is not incremented for each transfer. This is the usual case when the destination is a peripheral device.
@@ -3269,7 +3042,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
-        }
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
@@ -3286,7 +3058,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
-        }
         ///Indicates whether the channel's control structure will be reloaded when the current descriptor is exhausted. Reloading allows ping-pong and linked transfers.
         enum class ReloadVal {
             disabled=0x00000000,     ///<Disabled. Do not reload the channels' control structure when the current descriptor is exhausted.
@@ -3296,7 +3067,6 @@ namespace Kvasir {
         namespace ReloadValC{
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
-        }
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -3308,7 +3078,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
         }
-        }
         ///Clear Trigger.
         enum class ClrtrigVal {
             notCleared=0x00000000,     ///<Not cleared. The trigger is not cleared when this descriptor is exhausted. If there is a reload, the next descriptor will be started.
@@ -3318,7 +3087,6 @@ namespace Kvasir {
         namespace ClrtrigValC{
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
-        }
         }
         ///Set Interrupt flag A for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintaVal {
@@ -3330,7 +3098,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
-        }
         ///Set Interrupt flag B for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintbVal {
             noEffect=0x00000000,     ///<No effect.
@@ -3340,7 +3107,6 @@ namespace Kvasir {
         namespace SetintbValC{
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
-        }
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -3353,7 +3119,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8BitTransfersAre> v8BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfersAre> v16BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfersAre> v32BitTransfersAre{};
-        }
         }
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
@@ -3369,7 +3134,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
-        }
         ///Determines whether the destination address is incremented for each DMA transfer.
         enum class DstincVal {
             noIncrement=0x00000000,     ///<No increment. The destination address is not incremented for each transfer. This is the usual case when the destination is a peripheral device.
@@ -3383,7 +3147,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
-        }
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
@@ -3400,7 +3163,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
-        }
         ///Indicates whether the channel's control structure will be reloaded when the current descriptor is exhausted. Reloading allows ping-pong and linked transfers.
         enum class ReloadVal {
             disabled=0x00000000,     ///<Disabled. Do not reload the channels' control structure when the current descriptor is exhausted.
@@ -3410,7 +3172,6 @@ namespace Kvasir {
         namespace ReloadValC{
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
-        }
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -3422,7 +3183,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
         }
-        }
         ///Clear Trigger.
         enum class ClrtrigVal {
             notCleared=0x00000000,     ///<Not cleared. The trigger is not cleared when this descriptor is exhausted. If there is a reload, the next descriptor will be started.
@@ -3432,7 +3192,6 @@ namespace Kvasir {
         namespace ClrtrigValC{
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
-        }
         }
         ///Set Interrupt flag A for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintaVal {
@@ -3444,7 +3203,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
-        }
         ///Set Interrupt flag B for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintbVal {
             noEffect=0x00000000,     ///<No effect.
@@ -3454,7 +3212,6 @@ namespace Kvasir {
         namespace SetintbValC{
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
-        }
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -3467,7 +3224,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8BitTransfersAre> v8BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfersAre> v16BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfersAre> v32BitTransfersAre{};
-        }
         }
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
@@ -3483,7 +3239,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
-        }
         ///Determines whether the destination address is incremented for each DMA transfer.
         enum class DstincVal {
             noIncrement=0x00000000,     ///<No increment. The destination address is not incremented for each transfer. This is the usual case when the destination is a peripheral device.
@@ -3497,7 +3252,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
-        }
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
@@ -3514,7 +3268,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
-        }
         ///Indicates whether the channel's control structure will be reloaded when the current descriptor is exhausted. Reloading allows ping-pong and linked transfers.
         enum class ReloadVal {
             disabled=0x00000000,     ///<Disabled. Do not reload the channels' control structure when the current descriptor is exhausted.
@@ -3524,7 +3277,6 @@ namespace Kvasir {
         namespace ReloadValC{
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
-        }
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -3536,7 +3288,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
         }
-        }
         ///Clear Trigger.
         enum class ClrtrigVal {
             notCleared=0x00000000,     ///<Not cleared. The trigger is not cleared when this descriptor is exhausted. If there is a reload, the next descriptor will be started.
@@ -3546,7 +3297,6 @@ namespace Kvasir {
         namespace ClrtrigValC{
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
-        }
         }
         ///Set Interrupt flag A for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintaVal {
@@ -3558,7 +3308,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
-        }
         ///Set Interrupt flag B for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintbVal {
             noEffect=0x00000000,     ///<No effect.
@@ -3568,7 +3317,6 @@ namespace Kvasir {
         namespace SetintbValC{
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
-        }
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -3581,7 +3329,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8BitTransfersAre> v8BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfersAre> v16BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfersAre> v32BitTransfersAre{};
-        }
         }
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
@@ -3597,7 +3344,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
-        }
         ///Determines whether the destination address is incremented for each DMA transfer.
         enum class DstincVal {
             noIncrement=0x00000000,     ///<No increment. The destination address is not incremented for each transfer. This is the usual case when the destination is a peripheral device.
@@ -3611,7 +3357,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
-        }
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
@@ -3628,7 +3373,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
-        }
         ///Indicates whether the channel's control structure will be reloaded when the current descriptor is exhausted. Reloading allows ping-pong and linked transfers.
         enum class ReloadVal {
             disabled=0x00000000,     ///<Disabled. Do not reload the channels' control structure when the current descriptor is exhausted.
@@ -3638,7 +3382,6 @@ namespace Kvasir {
         namespace ReloadValC{
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
-        }
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -3650,7 +3393,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
         }
-        }
         ///Clear Trigger.
         enum class ClrtrigVal {
             notCleared=0x00000000,     ///<Not cleared. The trigger is not cleared when this descriptor is exhausted. If there is a reload, the next descriptor will be started.
@@ -3660,7 +3402,6 @@ namespace Kvasir {
         namespace ClrtrigValC{
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
-        }
         }
         ///Set Interrupt flag A for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintaVal {
@@ -3672,7 +3413,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
-        }
         ///Set Interrupt flag B for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintbVal {
             noEffect=0x00000000,     ///<No effect.
@@ -3682,7 +3422,6 @@ namespace Kvasir {
         namespace SetintbValC{
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
-        }
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -3695,7 +3434,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8BitTransfersAre> v8BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfersAre> v16BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfersAre> v32BitTransfersAre{};
-        }
         }
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
@@ -3711,7 +3449,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
-        }
         ///Determines whether the destination address is incremented for each DMA transfer.
         enum class DstincVal {
             noIncrement=0x00000000,     ///<No increment. The destination address is not incremented for each transfer. This is the usual case when the destination is a peripheral device.
@@ -3725,7 +3462,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
-        }
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
@@ -3742,7 +3478,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
-        }
         ///Indicates whether the channel's control structure will be reloaded when the current descriptor is exhausted. Reloading allows ping-pong and linked transfers.
         enum class ReloadVal {
             disabled=0x00000000,     ///<Disabled. Do not reload the channels' control structure when the current descriptor is exhausted.
@@ -3752,7 +3487,6 @@ namespace Kvasir {
         namespace ReloadValC{
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
-        }
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -3764,7 +3498,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
         }
-        }
         ///Clear Trigger.
         enum class ClrtrigVal {
             notCleared=0x00000000,     ///<Not cleared. The trigger is not cleared when this descriptor is exhausted. If there is a reload, the next descriptor will be started.
@@ -3774,7 +3507,6 @@ namespace Kvasir {
         namespace ClrtrigValC{
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
-        }
         }
         ///Set Interrupt flag A for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintaVal {
@@ -3786,7 +3518,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
-        }
         ///Set Interrupt flag B for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintbVal {
             noEffect=0x00000000,     ///<No effect.
@@ -3796,7 +3527,6 @@ namespace Kvasir {
         namespace SetintbValC{
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
-        }
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -3809,7 +3539,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8BitTransfersAre> v8BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfersAre> v16BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfersAre> v32BitTransfersAre{};
-        }
         }
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
@@ -3825,7 +3554,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
-        }
         ///Determines whether the destination address is incremented for each DMA transfer.
         enum class DstincVal {
             noIncrement=0x00000000,     ///<No increment. The destination address is not incremented for each transfer. This is the usual case when the destination is a peripheral device.
@@ -3839,7 +3567,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
-        }
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
@@ -3856,7 +3583,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
-        }
         ///Indicates whether the channel's control structure will be reloaded when the current descriptor is exhausted. Reloading allows ping-pong and linked transfers.
         enum class ReloadVal {
             disabled=0x00000000,     ///<Disabled. Do not reload the channels' control structure when the current descriptor is exhausted.
@@ -3866,7 +3592,6 @@ namespace Kvasir {
         namespace ReloadValC{
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
-        }
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -3878,7 +3603,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
         }
-        }
         ///Clear Trigger.
         enum class ClrtrigVal {
             notCleared=0x00000000,     ///<Not cleared. The trigger is not cleared when this descriptor is exhausted. If there is a reload, the next descriptor will be started.
@@ -3888,7 +3612,6 @@ namespace Kvasir {
         namespace ClrtrigValC{
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
-        }
         }
         ///Set Interrupt flag A for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintaVal {
@@ -3900,7 +3623,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
-        }
         ///Set Interrupt flag B for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintbVal {
             noEffect=0x00000000,     ///<No effect.
@@ -3910,7 +3632,6 @@ namespace Kvasir {
         namespace SetintbValC{
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
-        }
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -3923,7 +3644,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8BitTransfersAre> v8BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfersAre> v16BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfersAre> v32BitTransfersAre{};
-        }
         }
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
@@ -3939,7 +3659,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
-        }
         ///Determines whether the destination address is incremented for each DMA transfer.
         enum class DstincVal {
             noIncrement=0x00000000,     ///<No increment. The destination address is not incremented for each transfer. This is the usual case when the destination is a peripheral device.
@@ -3953,7 +3672,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
-        }
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
@@ -3970,7 +3688,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
-        }
         ///Indicates whether the channel's control structure will be reloaded when the current descriptor is exhausted. Reloading allows ping-pong and linked transfers.
         enum class ReloadVal {
             disabled=0x00000000,     ///<Disabled. Do not reload the channels' control structure when the current descriptor is exhausted.
@@ -3980,7 +3697,6 @@ namespace Kvasir {
         namespace ReloadValC{
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
-        }
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -3992,7 +3708,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
         }
-        }
         ///Clear Trigger.
         enum class ClrtrigVal {
             notCleared=0x00000000,     ///<Not cleared. The trigger is not cleared when this descriptor is exhausted. If there is a reload, the next descriptor will be started.
@@ -4002,7 +3717,6 @@ namespace Kvasir {
         namespace ClrtrigValC{
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
-        }
         }
         ///Set Interrupt flag A for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintaVal {
@@ -4014,7 +3728,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
-        }
         ///Set Interrupt flag B for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintbVal {
             noEffect=0x00000000,     ///<No effect.
@@ -4024,7 +3737,6 @@ namespace Kvasir {
         namespace SetintbValC{
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
-        }
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -4037,7 +3749,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8BitTransfersAre> v8BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfersAre> v16BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfersAre> v32BitTransfersAre{};
-        }
         }
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
@@ -4053,7 +3764,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
-        }
         ///Determines whether the destination address is incremented for each DMA transfer.
         enum class DstincVal {
             noIncrement=0x00000000,     ///<No increment. The destination address is not incremented for each transfer. This is the usual case when the destination is a peripheral device.
@@ -4067,7 +3777,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
-        }
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
@@ -4084,7 +3793,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
-        }
         ///Indicates whether the channel's control structure will be reloaded when the current descriptor is exhausted. Reloading allows ping-pong and linked transfers.
         enum class ReloadVal {
             disabled=0x00000000,     ///<Disabled. Do not reload the channels' control structure when the current descriptor is exhausted.
@@ -4094,7 +3802,6 @@ namespace Kvasir {
         namespace ReloadValC{
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
-        }
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -4106,7 +3813,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
         }
-        }
         ///Clear Trigger.
         enum class ClrtrigVal {
             notCleared=0x00000000,     ///<Not cleared. The trigger is not cleared when this descriptor is exhausted. If there is a reload, the next descriptor will be started.
@@ -4116,7 +3822,6 @@ namespace Kvasir {
         namespace ClrtrigValC{
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
-        }
         }
         ///Set Interrupt flag A for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintaVal {
@@ -4128,7 +3833,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
-        }
         ///Set Interrupt flag B for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintbVal {
             noEffect=0x00000000,     ///<No effect.
@@ -4138,7 +3842,6 @@ namespace Kvasir {
         namespace SetintbValC{
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
-        }
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -4151,7 +3854,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8BitTransfersAre> v8BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfersAre> v16BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfersAre> v32BitTransfersAre{};
-        }
         }
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
@@ -4167,7 +3869,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
-        }
         ///Determines whether the destination address is incremented for each DMA transfer.
         enum class DstincVal {
             noIncrement=0x00000000,     ///<No increment. The destination address is not incremented for each transfer. This is the usual case when the destination is a peripheral device.
@@ -4181,7 +3882,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
-        }
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
@@ -4198,7 +3898,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
-        }
         ///Indicates whether the channel's control structure will be reloaded when the current descriptor is exhausted. Reloading allows ping-pong and linked transfers.
         enum class ReloadVal {
             disabled=0x00000000,     ///<Disabled. Do not reload the channels' control structure when the current descriptor is exhausted.
@@ -4208,7 +3907,6 @@ namespace Kvasir {
         namespace ReloadValC{
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
-        }
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -4220,7 +3918,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
         }
-        }
         ///Clear Trigger.
         enum class ClrtrigVal {
             notCleared=0x00000000,     ///<Not cleared. The trigger is not cleared when this descriptor is exhausted. If there is a reload, the next descriptor will be started.
@@ -4230,7 +3927,6 @@ namespace Kvasir {
         namespace ClrtrigValC{
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
-        }
         }
         ///Set Interrupt flag A for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintaVal {
@@ -4242,7 +3938,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
-        }
         ///Set Interrupt flag B for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintbVal {
             noEffect=0x00000000,     ///<No effect.
@@ -4252,7 +3947,6 @@ namespace Kvasir {
         namespace SetintbValC{
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
-        }
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -4265,7 +3959,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8BitTransfersAre> v8BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfersAre> v16BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfersAre> v32BitTransfersAre{};
-        }
         }
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
@@ -4281,7 +3974,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
-        }
         ///Determines whether the destination address is incremented for each DMA transfer.
         enum class DstincVal {
             noIncrement=0x00000000,     ///<No increment. The destination address is not incremented for each transfer. This is the usual case when the destination is a peripheral device.
@@ -4295,7 +3987,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
-        }
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
@@ -4312,7 +4003,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
-        }
         ///Indicates whether the channel's control structure will be reloaded when the current descriptor is exhausted. Reloading allows ping-pong and linked transfers.
         enum class ReloadVal {
             disabled=0x00000000,     ///<Disabled. Do not reload the channels' control structure when the current descriptor is exhausted.
@@ -4322,7 +4012,6 @@ namespace Kvasir {
         namespace ReloadValC{
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
-        }
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -4334,7 +4023,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
         }
-        }
         ///Clear Trigger.
         enum class ClrtrigVal {
             notCleared=0x00000000,     ///<Not cleared. The trigger is not cleared when this descriptor is exhausted. If there is a reload, the next descriptor will be started.
@@ -4344,7 +4032,6 @@ namespace Kvasir {
         namespace ClrtrigValC{
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
-        }
         }
         ///Set Interrupt flag A for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintaVal {
@@ -4356,7 +4043,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
-        }
         ///Set Interrupt flag B for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintbVal {
             noEffect=0x00000000,     ///<No effect.
@@ -4366,7 +4052,6 @@ namespace Kvasir {
         namespace SetintbValC{
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
-        }
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -4379,7 +4064,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8BitTransfersAre> v8BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfersAre> v16BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfersAre> v32BitTransfersAre{};
-        }
         }
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
@@ -4395,7 +4079,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
-        }
         ///Determines whether the destination address is incremented for each DMA transfer.
         enum class DstincVal {
             noIncrement=0x00000000,     ///<No increment. The destination address is not incremented for each transfer. This is the usual case when the destination is a peripheral device.
@@ -4409,7 +4092,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
-        }
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
@@ -4426,7 +4108,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
             constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
-        }
         ///Indicates whether the channel's control structure will be reloaded when the current descriptor is exhausted. Reloading allows ping-pong and linked transfers.
         enum class ReloadVal {
             disabled=0x00000000,     ///<Disabled. Do not reload the channels' control structure when the current descriptor is exhausted.
@@ -4436,7 +4117,6 @@ namespace Kvasir {
         namespace ReloadValC{
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
-        }
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -4448,7 +4128,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
             constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::whenWrittenBySoft> whenWrittenBySoft{};
         }
-        }
         ///Clear Trigger.
         enum class ClrtrigVal {
             notCleared=0x00000000,     ///<Not cleared. The trigger is not cleared when this descriptor is exhausted. If there is a reload, the next descriptor will be started.
@@ -4458,7 +4137,6 @@ namespace Kvasir {
         namespace ClrtrigValC{
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
             constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
-        }
         }
         ///Set Interrupt flag A for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintaVal {
@@ -4470,7 +4148,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
-        }
         ///Set Interrupt flag B for this channel. There is no hardware distinction between interrupt A and B. They can be used by software to assist with more complex descriptor usage. By convention, interrupt A may be used when only one interrupt flag is needed.
         enum class SetintbVal {
             noEffect=0x00000000,     ///<No effect.
@@ -4480,7 +4157,6 @@ namespace Kvasir {
         namespace SetintbValC{
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
-        }
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -4493,7 +4169,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8BitTransfersAre> v8BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16BitTransfersAre> v16BitTransfersAre{};
             constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32BitTransfersAre> v32BitTransfersAre{};
-        }
         }
         ///Determines whether the source address is incremented for each DMA transfer.
         enum class SrcincVal {
@@ -4509,7 +4184,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
-        }
         ///Determines whether the destination address is incremented for each DMA transfer.
         enum class DstincVal {
             noIncrement=0x00000000,     ///<No increment. The destination address is not incremented for each transfer. This is the usual case when the destination is a peripheral device.
@@ -4523,7 +4197,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
             constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
-        }
         }
         ///Total number of transfers to be performed, minus 1 encoded. The number of bytes transferred is: (XFERCOUNT + 1) x data width (as defined by the WIDTH field). 0x0 = a total of 1 transfer will be performed. 0x1 = a total of 2 transfers will be performed. ... 0x3FF = a total of 1,024 transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 

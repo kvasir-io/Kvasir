@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lcden)::Type,LcdenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(lcden)::Type,LcdenVal::enabled> enabled{};
         }
-        }
         ///Charge Pump Full Power Drive Mode Enable. 
         enum class CpfpdenVal {
             disabled=0x00000000,     ///<Disable the LCD charge pump's full power drive mode. The charge pump draws less power but operates with reduced output current capabilities.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace CpfpdenValC{
             constexpr Register::FieldValue<decltype(cpfpden)::Type,CpfpdenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cpfpden)::Type,CpfpdenVal::enabled> enabled{};
-        }
         }
         ///LCD Missing Clock Detector Enable. 
         enum class McdenVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mcden)::Type,McdenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(mcden)::Type,McdenVal::enabled> enabled{};
         }
-        }
         ///RTC Clock Request Enable. 
         enum class RtccenVal {
             disabled=0x00000000,     ///<The LCD module does not require the RTC clock.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace RtccenValC{
             constexpr Register::FieldValue<decltype(rtccen)::Type,RtccenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rtccen)::Type,RtccenVal::enabled> enabled{};
-        }
         }
         ///Bias Enable. 
         enum class BiasenVal {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(biasen)::Type,BiasenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(biasen)::Type,BiasenVal::enabled> enabled{};
         }
-        }
         ///DCDC Bias Output Enable. 
         enum class DcdcbiasenVal {
             disabled=0x00000000,     ///<Disable the secondary bias current output.
@@ -68,7 +63,6 @@ namespace Kvasir {
         namespace DcdcbiasenValC{
             constexpr Register::FieldValue<decltype(dcdcbiasen)::Type,DcdcbiasenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dcdcbiasen)::Type,DcdcbiasenVal::enabled> enabled{};
-        }
         }
         ///DCDC Bias Standby Enable. 
         enum class DcdcstdbyenVal {
@@ -80,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dcdcstdbyen)::Type,DcdcstdbyenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dcdcstdbyen)::Type,DcdcstdbyenVal::enabled> enabled{};
         }
-        }
         ///Charge Pump Bypass Enable. 
         enum class CpbenVal {
             disabled=0x00000000,     ///<The LCD charge pump generates the VLCD voltage.
@@ -90,7 +83,6 @@ namespace Kvasir {
         namespace CpbenValC{
             constexpr Register::FieldValue<decltype(cpben)::Type,CpbenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cpben)::Type,CpbenVal::enabled> enabled{};
-        }
         }
         ///High-Contrast-Voltage Low-Power Mode Enable. 
         enum class HcvlpmenVal {
@@ -102,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hcvlpmen)::Type,HcvlpmenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hcvlpmen)::Type,HcvlpmenVal::enabled> enabled{};
         }
-        }
         ///VBAT Monitor Low Power Enable. 
         enum class VbmlpenVal {
             disabled=0x00000000,     ///<Disable the LCD VBAT Monitor low power mode.
@@ -112,7 +103,6 @@ namespace Kvasir {
         namespace VbmlpenValC{
             constexpr Register::FieldValue<decltype(vbmlpen)::Type,VbmlpenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(vbmlpen)::Type,VbmlpenVal::enabled> enabled{};
-        }
         }
         ///Charge-Pump Oscillator Low-Power Enable. 
         enum class CpolpenVal {
@@ -124,7 +114,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpolpen)::Type,CpolpenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cpolpen)::Type,CpolpenVal::enabled> enabled{};
         }
-        }
         ///Comparator Buffer Low-Power Enable. 
         enum class CmpblpenVal {
             disabled=0x00000000,     ///<Disable the comparator buffer low-power mode.
@@ -134,7 +123,6 @@ namespace Kvasir {
         namespace CmpblpenValC{
             constexpr Register::FieldValue<decltype(cmpblpen)::Type,CmpblpenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmpblpen)::Type,CmpblpenVal::enabled> enabled{};
-        }
         }
         ///Bias Switching Enable. 
         enum class BiassenVal {
@@ -146,7 +134,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(biassen)::Type,BiassenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(biassen)::Type,BiassenVal::enabled> enabled{};
         }
-        }
         ///Reference Band Gap Switching Enable. 
         enum class RbgsenVal {
             disabled=0x00000000,     ///<Disable reference band gap switching mode.
@@ -156,7 +143,6 @@ namespace Kvasir {
         namespace RbgsenValC{
             constexpr Register::FieldValue<decltype(rbgsen)::Type,RbgsenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rbgsen)::Type,RbgsenVal::enabled> enabled{};
-        }
         }
         ///Charge-Pump Auto-Contrast Enable. 
         enum class CpacenVal {
@@ -168,7 +154,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpacen)::Type,CpacenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cpacen)::Type,CpacenVal::enabled> enabled{};
         }
-        }
         ///Force Bias Continuous Mode Enable. 
         enum class FbiascenVal {
             disabled=0x00000000,     ///<The bias operates as configured.
@@ -178,7 +163,6 @@ namespace Kvasir {
         namespace FbiascenValC{
             constexpr Register::FieldValue<decltype(fbiascen)::Type,FbiascenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(fbiascen)::Type,FbiascenVal::enabled> enabled{};
-        }
         }
         ///High-Contrast-Voltage Comparator Bypass Enable. 
         enum class HcvcbypenVal {
@@ -190,7 +174,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hcvcbypen)::Type,HcvcbypenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hcvcbypen)::Type,HcvcbypenVal::enabled> enabled{};
         }
-        }
         ///High-Contrast-Voltage Comparator Force On Enable. 
         enum class HcvcfoenVal {
             disabled=0x00000000,     ///<Hardware enables the high-contrast-voltage comparator as needed.
@@ -200,7 +183,6 @@ namespace Kvasir {
         namespace HcvcfoenValC{
             constexpr Register::FieldValue<decltype(hcvcfoen)::Type,HcvcfoenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hcvcfoen)::Type,HcvcfoenVal::enabled> enabled{};
-        }
         }
         ///High-Contrast-Voltage Comparator Hysteresis. 
         enum class HcvchmdVal {
@@ -212,7 +194,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hcvchmd)::Type,HcvchmdVal::high> high{};
             constexpr Register::FieldValue<decltype(hcvchmd)::Type,HcvchmdVal::low> low{};
         }
-        }
         ///High-Contrast-Voltage Comparator Bias. 
         enum class HcvcbmdVal {
             high=0x00000000,     ///<Set the high-contrast-voltage comparator to high bias mode.
@@ -223,7 +204,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hcvcbmd)::Type,HcvcbmdVal::high> high{};
             constexpr Register::FieldValue<decltype(hcvcbmd)::Type,HcvcbmdVal::low> low{};
         }
-        }
         ///High-Contrast-Voltage Comparator Status. 
         enum class CpcsVal {
             vbat=0x00000000,     ///<VBAT is greater than VLCD. 
@@ -233,7 +213,6 @@ namespace Kvasir {
         namespace CpcsValC{
             constexpr Register::FieldValue<decltype(cpcs)::Type,CpcsVal::vbat> vbat{};
             constexpr Register::FieldValue<decltype(cpcs)::Type,CpcsVal::vlcd> vlcd{};
-        }
         }
     }
     namespace Noneclkcontrol{    ///<Clock Control
@@ -253,7 +232,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rtcclkdiv)::Type,RtcclkdivVal::divideBy2> divideBy2{};
             constexpr Register::FieldValue<decltype(rtcclkdiv)::Type,RtcclkdivVal::divideBy4> divideBy4{};
             constexpr Register::FieldValue<decltype(rtcclkdiv)::Type,RtcclkdivVal::divideBy8> divideBy8{};
-        }
         }
     }
     namespace Noneblkcontrol{    ///<Blinking Control
@@ -290,7 +268,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(blkrexp)::Type,BlkrexpVal::divideBy2048> divideBy2048{};
             constexpr Register::FieldValue<decltype(blkrexp)::Type,BlkrexpVal::divideBy4096> divideBy4096{};
         }
-        }
     }
     namespace Nonesegcontrol{    ///<Segment Control
         using Addr = Register::Address<0x4004d040,0xfffffe08,0,unsigned>;
@@ -303,7 +280,6 @@ namespace Kvasir {
         namespace BiasmdValC{
             constexpr Register::FieldValue<decltype(biasmd)::Type,BiasmdVal::oneThird> oneThird{};
             constexpr Register::FieldValue<decltype(biasmd)::Type,BiasmdVal::oneHalf> oneHalf{};
-        }
         }
         ///Segment Mode. 
         enum class SegmdVal {
@@ -319,7 +295,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(segmd)::Type,SegmdVal::v3Mux> v3Mux{};
             constexpr Register::FieldValue<decltype(segmd)::Type,SegmdVal::v4Mux> v4Mux{};
         }
-        }
         ///Segment Blank Enable. 
         enum class BlankenVal {
             disabled=0x00000000,     ///<Operate segments normally.
@@ -330,7 +305,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(blanken)::Type,BlankenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(blanken)::Type,BlankenVal::enabled> enabled{};
         }
-        }
         ///Reset Phase Enable. 
         enum class RphenVal {
             disabled=0x00000000,     ///<Hardware switches the LCD segment and common pin controls directly from one state to another.
@@ -340,7 +314,6 @@ namespace Kvasir {
         namespace RphenValC{
             constexpr Register::FieldValue<decltype(rphen)::Type,RphenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rphen)::Type,RphenVal::enabled> enabled{};
-        }
         }
         ///Reset Phase Mode. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,6),Register::ReadWriteAccess,unsigned> rphmd{}; 
@@ -359,7 +332,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ctrstbf)::Type,CtrstbfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(ctrstbf)::Type,CtrstbfVal::set> set{};
         }
-        }
         ///Charge Pump Capacitor Divider Enable. 
         enum class CpcdenVal {
             disabled=0x00000000,     ///<Disable the charge pump capacitor divider.
@@ -369,7 +341,6 @@ namespace Kvasir {
         namespace CpcdenValC{
             constexpr Register::FieldValue<decltype(cpcden)::Type,CpcdenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cpcden)::Type,CpcdenVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonevbmcontrol{    ///<VBAT Monitor Control
@@ -386,7 +357,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vbmbf)::Type,VbmbfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(vbmbf)::Type,VbmbfVal::set> set{};
         }
-        }
         ///VBAT Monitor Clock Divider. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,22),Register::ReadWriteAccess,unsigned> vbmclkdiv{}; 
         ///VBAT Monitor Capacitor Divider Enable. 
@@ -399,7 +369,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vbmcden)::Type,VbmcdenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(vbmcden)::Type,VbmcdenVal::enabled> enabled{};
         }
-        }
         ///VBAT Monitor Offset Enable. 
         enum class VbmoenVal {
             disabled=0x00000000,     ///<The VBAT monitor threshold set by the VBMTH field functions as an absolute threshold value for the VBAT monitor.
@@ -410,7 +379,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vbmoen)::Type,VbmoenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(vbmoen)::Type,VbmoenVal::enabled> enabled{};
         }
-        }
         ///VBAT Monitor Enable. 
         enum class VbmenVal {
             disabled=0x00000000,     ///<Disable the VBAT monitor.
@@ -420,7 +388,6 @@ namespace Kvasir {
         namespace VbmenValC{
             constexpr Register::FieldValue<decltype(vbmen)::Type,VbmenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(vbmen)::Type,VbmenVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonesegmask0{    ///<Segment Mask 0

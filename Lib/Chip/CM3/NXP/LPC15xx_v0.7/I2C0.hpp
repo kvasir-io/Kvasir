@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(msten)::Type,MstenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(msten)::Type,MstenVal::enabled> enabled{};
         }
-        }
         ///Slave Enable. When disabled, configurations settings for the Slave function are not changed, but the Slave function is internally reset.
         enum class SlvenVal {
             disabled=0x00000000,     ///<Disabled. The I2C slave function is disabled.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace SlvenValC{
             constexpr Register::FieldValue<decltype(slven)::Type,SlvenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(slven)::Type,SlvenVal::enabled> enabled{};
-        }
         }
         ///Monitor Enable. When disabled, configurations settings for the Monitor function are not changed, but the Monitor function is internally reset.
         enum class MonenVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(monen)::Type,MonenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(monen)::Type,MonenVal::enabled> enabled{};
         }
-        }
         ///I2C bus Time-out Enable. When disabled, the time-out function is internally reset.
         enum class TimeoutenVal {
             disabled=0x00000000,     ///<Disabled. Time-out function is disabled.
@@ -47,7 +44,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timeouten)::Type,TimeoutenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(timeouten)::Type,TimeoutenVal::enabled> enabled{};
         }
-        }
         ///Monitor function Clock Stretching.
         enum class MonclkstrVal {
             disabled=0x00000000,     ///<Disabled. The monitor function will not perform clock stretching. Software or DMA may not always be able to read data provided by the monitor function before it is overwritten. This mode may be used when non-invasive monitoring is critical.
@@ -57,7 +53,6 @@ namespace Kvasir {
         namespace MonclkstrValC{
             constexpr Register::FieldValue<decltype(monclkstr)::Type,MonclkstrVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(monclkstr)::Type,MonclkstrVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonestat{    ///<Status register for Master, Slave, and Monitor functions.
@@ -71,7 +66,6 @@ namespace Kvasir {
         namespace MstpendingValC{
             constexpr Register::FieldValue<decltype(mstpending)::Type,MstpendingVal::inProgress> inProgress{};
             constexpr Register::FieldValue<decltype(mstpending)::Type,MstpendingVal::pending> pending{};
-        }
         }
         ///Master State code. The master state code reflects the master state when the MSTPENDING bit is set, that is the master is pending or in the idle state. Each value of this field indicates a specific required service for the Master function.  All other values are reserved.
         enum class MststateVal {
@@ -89,7 +83,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mststate)::Type,MststateVal::nackAddress> nackAddress{};
             constexpr Register::FieldValue<decltype(mststate)::Type,MststateVal::nackData> nackData{};
         }
-        }
         ///Master Arbitration Loss flag. This flag can be cleared by software writing a 1 to this bit. It is also cleared automatically a 1 is written to MSTCONTINUE.
         enum class MstarblossVal {
             noLoss=0x00000000,     ///<No loss. No Arbitration Loss has occurred.
@@ -99,7 +92,6 @@ namespace Kvasir {
         namespace MstarblossValC{
             constexpr Register::FieldValue<decltype(mstarbloss)::Type,MstarblossVal::noLoss> noLoss{};
             constexpr Register::FieldValue<decltype(mstarbloss)::Type,MstarblossVal::arbitrationLoss> arbitrationLoss{};
-        }
         }
         ///Master Start/Stop Error flag. This flag can be cleared by software writing a 1 to this bit. It is also cleared automatically a 1 is written to MSTCONTINUE.
         enum class MstststperrVal {
@@ -111,7 +103,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mstststperr)::Type,MstststperrVal::noStartstopError> noStartstopError{};
             constexpr Register::FieldValue<decltype(mstststperr)::Type,MstststperrVal::startstopErrorHas> startstopErrorHas{};
         }
-        }
         ///Slave Pending. Indicates that the Slave function is waiting to continue communication on the I2C-bus and needs software service. This flag will cause an interrupt when set if enabled via INTENSET. The SLVPENDING flag is not set when the DMA is handling an event (if the SLVDMA bit in the SLVCTL register is set). The SLVPENDING flag is read-only and is automatically cleared when a 1 is written to the SLVCONTINUE bit in the MSTCTL register.
         enum class SlvpendingVal {
             inProgress=0x00000000,     ///<In progress. The Slave function does not currently need service.
@@ -121,7 +112,6 @@ namespace Kvasir {
         namespace SlvpendingValC{
             constexpr Register::FieldValue<decltype(slvpending)::Type,SlvpendingVal::inProgress> inProgress{};
             constexpr Register::FieldValue<decltype(slvpending)::Type,SlvpendingVal::pending> pending{};
-        }
         }
         ///Slave State code. Each value of this field indicates a specific required service for the Slave function. All other values are reserved.
         enum class SlvstateVal {
@@ -135,7 +125,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slvstate)::Type,SlvstateVal::slaveReceive> slaveReceive{};
             constexpr Register::FieldValue<decltype(slvstate)::Type,SlvstateVal::slaveTransmit> slaveTransmit{};
         }
-        }
         ///Slave Not Stretching. Indicates when the slave function is stretching the I2C clock. This is needed in order to gracefully invoke Deep Sleep or Power-down modes during slave operation. This read-only flag reflects the slave function status in real time.
         enum class SlvnotstrVal {
             stretching=0x00000000,     ///<Stretching. The slave function is currently stretching the I2C bus clock. Deep-Sleep or Power-down mode cannot be entered at this time.
@@ -145,7 +134,6 @@ namespace Kvasir {
         namespace SlvnotstrValC{
             constexpr Register::FieldValue<decltype(slvnotstr)::Type,SlvnotstrVal::stretching> stretching{};
             constexpr Register::FieldValue<decltype(slvnotstr)::Type,SlvnotstrVal::notStretching> notStretching{};
-        }
         }
         ///Slave address match Index. This field is valid when the I2C slave function has been selected by receiving an address that matches one of the slave addresses defined by any enabled slave address registers, and provides an identification of the address that was matched. It is possible that more than one address could be matched, but only one match can be reported here.
         enum class SlvidxVal {
@@ -161,7 +149,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slvidx)::Type,SlvidxVal::slaveAddress2Was> slaveAddress2Was{};
             constexpr Register::FieldValue<decltype(slvidx)::Type,SlvidxVal::slaveAddress3Was> slaveAddress3Was{};
         }
-        }
         ///Slave selected flag. SLVSEL is set after an address match when software tells the Slave function to acknowledge the address. It is cleared when another address cycle presents an address that does not match an enabled address on the Slave function, when slave software decides to NACK a matched address, or when there is a Stop detected on the bus. SLVSEL is not cleared if software Nacks data.
         enum class SlvselVal {
             notSelected=0x00000000,     ///<Not selected. The Slave function is not currently selected.
@@ -171,7 +158,6 @@ namespace Kvasir {
         namespace SlvselValC{
             constexpr Register::FieldValue<decltype(slvsel)::Type,SlvselVal::notSelected> notSelected{};
             constexpr Register::FieldValue<decltype(slvsel)::Type,SlvselVal::selected> selected{};
-        }
         }
         ///Slave Deselected flag. This flag will cause an interrupt when set if enabled via INTENSET. This flag can be cleared by writing a 1 to this bit.
         enum class SlvdeselVal {
@@ -183,7 +169,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slvdesel)::Type,SlvdeselVal::notDeselected> notDeselected{};
             constexpr Register::FieldValue<decltype(slvdesel)::Type,SlvdeselVal::deselected> deselected{};
         }
-        }
         ///Monitor Ready. This flag is cleared when the MONRXDAT register is read.
         enum class MonrdyVal {
             noData=0x00000000,     ///<No data. The Monitor function does not currently have data available.
@@ -193,7 +178,6 @@ namespace Kvasir {
         namespace MonrdyValC{
             constexpr Register::FieldValue<decltype(monrdy)::Type,MonrdyVal::noData> noData{};
             constexpr Register::FieldValue<decltype(monrdy)::Type,MonrdyVal::dataWaiting> dataWaiting{};
-        }
         }
         ///Monitor Overflow flag.
         enum class MonovVal {
@@ -205,7 +189,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(monov)::Type,MonovVal::noOverrun> noOverrun{};
             constexpr Register::FieldValue<decltype(monov)::Type,MonovVal::overrun> overrun{};
         }
-        }
         ///Monitor Active flag. This flag indicates when the Monitor function considers the I2C bus to be active. Active is defined here as when some Master is on the bus: a bus Start has occurred more recently than a bus Stop.
         enum class MonactiveVal {
             inactive=0x00000000,     ///<Inactive. The Monitor function considers the I2C bus to be inactive.
@@ -215,7 +198,6 @@ namespace Kvasir {
         namespace MonactiveValC{
             constexpr Register::FieldValue<decltype(monactive)::Type,MonactiveVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(monactive)::Type,MonactiveVal::active> active{};
-        }
         }
         ///Monitor Idle flag. This flag is set when the Monitor function sees the I2C bus change from active to inactive. This can be used by software to decide when to process data accumulated by the Monitor function. This flag will cause an interrupt when set if enabled via the INTENSET register . The flag can be cleared by writing a 1 to this bit.
         enum class MonidleVal {
@@ -227,7 +209,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(monidle)::Type,MonidleVal::notIdle> notIdle{};
             constexpr Register::FieldValue<decltype(monidle)::Type,MonidleVal::idle> idle{};
         }
-        }
         ///Event Time-out Interrupt flag. Indicates when the time between events has been longer than the time specified by the TIMEOUT register. Events include Start, Stop, and clock edges. The flag is cleared by writing a 1 to this bit. No time-out is created when the I2C-bus is idle.
         enum class EventtimeoutVal {
             noTimeOut=0x00000000,     ///<No time-out. I2C bus events have not caused a time-out.
@@ -238,7 +219,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eventtimeout)::Type,EventtimeoutVal::noTimeOut> noTimeOut{};
             constexpr Register::FieldValue<decltype(eventtimeout)::Type,EventtimeoutVal::eventTimeOut> eventTimeOut{};
         }
-        }
         ///SCL Time-out Interrupt flag. Indicates when SCL has remained low longer than the time specific by the TIMEOUT register. The flag is cleared by writing a 1 to this bit.
         enum class ScltimeoutVal {
             noTimeOut=0x00000000,     ///<No time-out. SCL low time has not caused a time-out.
@@ -248,7 +228,6 @@ namespace Kvasir {
         namespace ScltimeoutValC{
             constexpr Register::FieldValue<decltype(scltimeout)::Type,ScltimeoutVal::noTimeOut> noTimeOut{};
             constexpr Register::FieldValue<decltype(scltimeout)::Type,ScltimeoutVal::timeOut> timeOut{};
-        }
         }
     }
     namespace Noneintenset{    ///<Interrupt Enable Set and read register.
@@ -263,7 +242,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mstpendingen)::Type,MstpendingenVal::theMstpendingInter> theMstpendingInter{};
             constexpr Register::FieldValue<decltype(mstpendingen)::Type,MstpendingenVal::theMstpendingInter> theMstpendingInter{};
         }
-        }
         ///Master Arbitration Loss interrupt Enable.
         enum class MstarblossenVal {
             theMstarblossInter=0x00000000,     ///<The MstArbLoss interrupt is disabled.
@@ -273,7 +251,6 @@ namespace Kvasir {
         namespace MstarblossenValC{
             constexpr Register::FieldValue<decltype(mstarblossen)::Type,MstarblossenVal::theMstarblossInter> theMstarblossInter{};
             constexpr Register::FieldValue<decltype(mstarblossen)::Type,MstarblossenVal::theMstarblossInter> theMstarblossInter{};
-        }
         }
         ///Master Start/Stop Error interrupt Enable.
         enum class MstststperrenVal {
@@ -285,7 +262,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mstststperren)::Type,MstststperrenVal::theMstststperrInte> theMstststperrInte{};
             constexpr Register::FieldValue<decltype(mstststperren)::Type,MstststperrenVal::theMstststperrInte> theMstststperrInte{};
         }
-        }
         ///Slave Pending interrupt Enable.
         enum class SlvpendingenVal {
             theSlvpendingInter=0x00000000,     ///<The SlvPending interrupt is disabled.
@@ -295,7 +271,6 @@ namespace Kvasir {
         namespace SlvpendingenValC{
             constexpr Register::FieldValue<decltype(slvpendingen)::Type,SlvpendingenVal::theSlvpendingInter> theSlvpendingInter{};
             constexpr Register::FieldValue<decltype(slvpendingen)::Type,SlvpendingenVal::theSlvpendingInter> theSlvpendingInter{};
-        }
         }
         ///Slave Not Stretching interrupt Enable.
         enum class SlvnotstrenVal {
@@ -307,7 +282,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slvnotstren)::Type,SlvnotstrenVal::theSlvnotstrInterr> theSlvnotstrInterr{};
             constexpr Register::FieldValue<decltype(slvnotstren)::Type,SlvnotstrenVal::theSlvnotstrInterr> theSlvnotstrInterr{};
         }
-        }
         ///Slave Deselect interrupt Enable.
         enum class SlvdeselenVal {
             theSlvdeselInterru=0x00000000,     ///<The SlvDeSel interrupt is disabled.
@@ -317,7 +291,6 @@ namespace Kvasir {
         namespace SlvdeselenValC{
             constexpr Register::FieldValue<decltype(slvdeselen)::Type,SlvdeselenVal::theSlvdeselInterru> theSlvdeselInterru{};
             constexpr Register::FieldValue<decltype(slvdeselen)::Type,SlvdeselenVal::theSlvdeselInterru> theSlvdeselInterru{};
-        }
         }
         ///Monitor data Ready interrupt Enable.
         enum class MonrdyenVal {
@@ -329,7 +302,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(monrdyen)::Type,MonrdyenVal::theMonrdyInterrupt> theMonrdyInterrupt{};
             constexpr Register::FieldValue<decltype(monrdyen)::Type,MonrdyenVal::theMonrdyInterrupt> theMonrdyInterrupt{};
         }
-        }
         ///Monitor Overrun interrupt Enable.
         enum class MonovenVal {
             theMonovInterrupt=0x00000000,     ///<The MonOv interrupt is disabled.
@@ -339,7 +311,6 @@ namespace Kvasir {
         namespace MonovenValC{
             constexpr Register::FieldValue<decltype(monoven)::Type,MonovenVal::theMonovInterrupt> theMonovInterrupt{};
             constexpr Register::FieldValue<decltype(monoven)::Type,MonovenVal::theMonovInterrupt> theMonovInterrupt{};
-        }
         }
         ///Monitor Idle interrupt Enable.
         enum class MonidleenVal {
@@ -351,7 +322,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(monidleen)::Type,MonidleenVal::theMonidleInterrup> theMonidleInterrup{};
             constexpr Register::FieldValue<decltype(monidleen)::Type,MonidleenVal::theMonidleInterrup> theMonidleInterrup{};
         }
-        }
         ///Event time-out interrupt Enable.
         enum class EventtimeoutenVal {
             theEventTimeOutI=0x00000000,     ///<The Event time-out interrupt is disabled.
@@ -362,7 +332,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eventtimeouten)::Type,EventtimeoutenVal::theEventTimeOutI> theEventTimeOutI{};
             constexpr Register::FieldValue<decltype(eventtimeouten)::Type,EventtimeoutenVal::theEventTimeOutI> theEventTimeOutI{};
         }
-        }
         ///SCL time-out interrupt Enable.
         enum class ScltimeoutenVal {
             theSclTimeOutInt=0x00000000,     ///<The SCL time-out interrupt is disabled.
@@ -372,7 +341,6 @@ namespace Kvasir {
         namespace ScltimeoutenValC{
             constexpr Register::FieldValue<decltype(scltimeouten)::Type,ScltimeoutenVal::theSclTimeOutInt> theSclTimeOutInt{};
             constexpr Register::FieldValue<decltype(scltimeouten)::Type,ScltimeoutenVal::theSclTimeOutInt> theSclTimeOutInt{};
-        }
         }
     }
     namespace Noneintenclr{    ///<Interrupt Enable Clear register.
@@ -449,7 +417,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mstcontinue)::Type,MstcontinueVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(mstcontinue)::Type,MstcontinueVal::continue_> continue_{};
         }
-        }
         ///Master Start control. This bit is write-only.
         enum class MststartVal {
             noEffect=0x00000000,     ///<No effect.
@@ -459,7 +426,6 @@ namespace Kvasir {
         namespace MststartValC{
             constexpr Register::FieldValue<decltype(mststart)::Type,MststartVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(mststart)::Type,MststartVal::start> start{};
-        }
         }
         ///Master Stop control. This bit is write-only.
         enum class MststopVal {
@@ -471,7 +437,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mststop)::Type,MststopVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(mststop)::Type,MststopVal::stop> stop{};
         }
-        }
         ///Master DMA enable. Data operations of the I2C can be performed with DMA. Protocol type operations such as Start, address, Stop, and address match must always be done with software, typically via an interrupt. When a DMA data transfer is complete, MSTDMA must be cleared prior to beginning the next operation, typically a  Start or Stop.This bit is read/write.
         enum class MstdmaVal {
             disable=0x00000000,     ///<Disable. No DMA requests are generated for master operation.
@@ -481,7 +446,6 @@ namespace Kvasir {
         namespace MstdmaValC{
             constexpr Register::FieldValue<decltype(mstdma)::Type,MstdmaVal::disable> disable{};
             constexpr Register::FieldValue<decltype(mstdma)::Type,MstdmaVal::enable> enable{};
-        }
         }
     }
     namespace Nonemsttime{    ///<Master timing configuration.
@@ -508,7 +472,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mstscllow)::Type,MstscllowVal::v8Clocks> v8Clocks{};
             constexpr Register::FieldValue<decltype(mstscllow)::Type,MstscllowVal::v9Clocks> v9Clocks{};
         }
-        }
         ///Master SCL High time. Specifies the minimum high time that will be asserted by this master on SCL. Other masters in a multi-master system could shorten this time. This corresponds to the parameter tHIGH in the I2C bus specification. I2C bus specification parameters tSU;STO and tHD;STA have the same values and are also controlled by MSTSCLHIGH.
         enum class MstsclhighVal {
             v2Clocks=0x00000000,     ///<2 clocks. Minimum SCL high time is 2 clock of the I2C clock pre-divider.
@@ -531,7 +494,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mstsclhigh)::Type,MstsclhighVal::v8Clocks> v8Clocks{};
             constexpr Register::FieldValue<decltype(mstsclhigh)::Type,MstsclhighVal::v9Clocks> v9Clocks{};
         }
-        }
     }
     namespace Nonemstdat{    ///<Combined Master receiver and transmitter data register.
         using Addr = Register::Address<0x40050028,0xffffff00,0,unsigned>;
@@ -550,7 +512,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slvcontinue)::Type,SlvcontinueVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(slvcontinue)::Type,SlvcontinueVal::continue_> continue_{};
         }
-        }
         ///Slave NACK.
         enum class SlvnackVal {
             noEffect=0x00000000,     ///<No effect.
@@ -561,7 +522,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slvnack)::Type,SlvnackVal::noEffect> noEffect{};
             constexpr Register::FieldValue<decltype(slvnack)::Type,SlvnackVal::nack> nack{};
         }
-        }
         ///Slave DMA enable.
         enum class SlvdmaVal {
             disabled=0x00000000,     ///<Disabled. No DMA requests are issued for Slave mode operation.
@@ -571,7 +531,6 @@ namespace Kvasir {
         namespace SlvdmaValC{
             constexpr Register::FieldValue<decltype(slvdma)::Type,SlvdmaVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(slvdma)::Type,SlvdmaVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneslvdat{    ///<Combined Slave receiver and transmitter data register.
@@ -591,7 +550,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sadisable)::Type,SadisableVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(sadisable)::Type,SadisableVal::ignoredSlaveAddres> ignoredSlaveAddres{};
         }
-        }
         ///Seven bit slave address that is compared to received addresses if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> slvadr{}; 
     }
@@ -606,7 +564,6 @@ namespace Kvasir {
         namespace SadisableValC{
             constexpr Register::FieldValue<decltype(sadisable)::Type,SadisableVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(sadisable)::Type,SadisableVal::ignoredSlaveAddres> ignoredSlaveAddres{};
-        }
         }
         ///Seven bit slave address that is compared to received addresses if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> slvadr{}; 
@@ -623,7 +580,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sadisable)::Type,SadisableVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(sadisable)::Type,SadisableVal::ignoredSlaveAddres> ignoredSlaveAddres{};
         }
-        }
         ///Seven bit slave address that is compared to received addresses if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> slvadr{}; 
     }
@@ -639,7 +595,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sadisable)::Type,SadisableVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(sadisable)::Type,SadisableVal::ignoredSlaveAddres> ignoredSlaveAddres{};
         }
-        }
         ///Seven bit slave address that is compared to received addresses if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> slvadr{}; 
     }
@@ -654,7 +609,6 @@ namespace Kvasir {
         namespace Qualmode0ValC{
             constexpr Register::FieldValue<decltype(qualmode0)::Type,Qualmode0Val::theSlvqual0FieldI> theSlvqual0FieldI{};
             constexpr Register::FieldValue<decltype(qualmode0)::Type,Qualmode0Val::theSlvqual0FieldI> theSlvqual0FieldI{};
-        }
         }
         ///Slave address Qualifier for address 0. A value of 0 causes the address in SLVADR0 to be used as-is, assuming that it is enabled. If QUALMODE0 = 0, any bit in this field which is set to 1 will cause an automatic match of the corresponding bit of the received address when it is compared to the SLVADR0 register. If QUALMODE0 = 1, an address range is matched for address 0. This range extends from the value defined by SLVADR0 to the address defined by SLVQUAL0 (address matches when SLVADR0[7:1] <
 				= received address <= SLVQUAL0[7:1]).
@@ -674,7 +628,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(monstart)::Type,MonstartVal::noDetect> noDetect{};
             constexpr Register::FieldValue<decltype(monstart)::Type,MonstartVal::startDetect> startDetect{};
         }
-        }
         ///Monitor Received Repeated Start.
         enum class MonrestartVal {
             noStartDetect=0x00000000,     ///<No start detect. The monitor function has not detected a Repeated Start event on the I2C bus.
@@ -685,7 +638,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(monrestart)::Type,MonrestartVal::noStartDetect> noStartDetect{};
             constexpr Register::FieldValue<decltype(monrestart)::Type,MonrestartVal::repeatedStartDetec> repeatedStartDetec{};
         }
-        }
         ///Monitor Received NACK.
         enum class MonnackVal {
             acknowledged=0x00000000,     ///<Acknowledged. The data currently being provided by the monitor function was acknowledged by at least one master or slave receiver.
@@ -695,7 +647,6 @@ namespace Kvasir {
         namespace MonnackValC{
             constexpr Register::FieldValue<decltype(monnack)::Type,MonnackVal::acknowledged> acknowledged{};
             constexpr Register::FieldValue<decltype(monnack)::Type,MonnackVal::notAcknowledged> notAcknowledged{};
-        }
         }
     }
 }

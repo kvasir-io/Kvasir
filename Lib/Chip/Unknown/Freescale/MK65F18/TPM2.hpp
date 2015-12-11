@@ -26,7 +26,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v111> v111{};
         }
-        }
         ///Clock Mode Selection
         enum class CmodVal {
             v00=0x00000000,     ///<TPM counter is disabled
@@ -41,7 +40,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmod)::Type,CmodVal::v10> v10{};
             constexpr Register::FieldValue<decltype(cmod)::Type,CmodVal::v11> v11{};
         }
-        }
         ///Center-Aligned PWM Select
         enum class CpwmsVal {
             v0=0x00000000,     ///<TPM counter operates in up counting mode.
@@ -51,7 +49,6 @@ namespace Kvasir {
         namespace CpwmsValC{
             constexpr Register::FieldValue<decltype(cpwms)::Type,CpwmsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cpwms)::Type,CpwmsVal::v1> v1{};
-        }
         }
         ///Timer Overflow Interrupt Enable
         enum class ToieVal {
@@ -63,7 +60,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(toie)::Type,ToieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(toie)::Type,ToieVal::v1> v1{};
         }
-        }
         ///Timer Overflow Flag
         enum class TofVal {
             v0=0x00000000,     ///<TPM counter has not overflowed.
@@ -74,7 +70,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tof)::Type,TofVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tof)::Type,TofVal::v1> v1{};
         }
-        }
         ///DMA Enable
         enum class DmaVal {
             v0=0x00000000,     ///<Disables DMA transfers.
@@ -84,7 +79,6 @@ namespace Kvasir {
         namespace DmaValC{
             constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
-        }
         }
     }
     namespace Tpm2Cnt{    ///<Counter
@@ -109,7 +103,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
         }
-        }
         ///Edge or Level Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
         ///Edge or Level Select
@@ -128,7 +121,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
         }
-        }
         ///Channel Flag
         enum class ChfVal {
             v0=0x00000000,     ///<No channel event has occurred.
@@ -138,7 +130,6 @@ namespace Kvasir {
         namespace ChfValC{
             constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
-        }
         }
     }
     namespace Tpm2C1sc{    ///<Channel (n) Status and Control
@@ -153,7 +144,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
         }
-        }
         ///Edge or Level Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
         ///Edge or Level Select
@@ -172,7 +162,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
         }
-        }
         ///Channel Flag
         enum class ChfVal {
             v0=0x00000000,     ///<No channel event has occurred.
@@ -182,7 +171,6 @@ namespace Kvasir {
         namespace ChfValC{
             constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
-        }
         }
     }
     namespace Tpm2C0v{    ///<Channel (n) Value
@@ -207,7 +195,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0f)::Type,Ch0fVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch0f)::Type,Ch0fVal::v1> v1{};
         }
-        }
         ///Channel 1 Flag
         enum class Ch1fVal {
             v0=0x00000000,     ///<No channel event has occurred.
@@ -218,7 +205,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch1f)::Type,Ch1fVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch1f)::Type,Ch1fVal::v1> v1{};
         }
-        }
         ///Timer Overflow Flag
         enum class TofVal {
             v0=0x00000000,     ///<TPM counter has not overflowed.
@@ -228,7 +214,6 @@ namespace Kvasir {
         namespace TofValC{
             constexpr Register::FieldValue<decltype(tof)::Type,TofVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tof)::Type,TofVal::v1> v1{};
-        }
         }
     }
     namespace Tpm2Combine{    ///<Combine Channel Register
@@ -243,7 +228,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(combine0)::Type,Combine0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(combine0)::Type,Combine0Val::v1> v1{};
         }
-        }
         ///Combine Channel 0 and 1 Swap
         enum class Comswap0Val {
             v0=0x00000000,     ///<Even channel is used for input capture and 1st compare.
@@ -253,7 +237,6 @@ namespace Kvasir {
         namespace Comswap0ValC{
             constexpr Register::FieldValue<decltype(comswap0)::Type,Comswap0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(comswap0)::Type,Comswap0Val::v1> v1{};
-        }
         }
     }
     namespace Tpm2Pol{    ///<Channel Polarity
@@ -268,7 +251,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pol0)::Type,Pol0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pol0)::Type,Pol0Val::v1> v1{};
         }
-        }
         ///Channel 1 Polarity
         enum class Pol1Val {
             v0=0x00000000,     ///<The channel polarity is active high.
@@ -278,7 +260,6 @@ namespace Kvasir {
         namespace Pol1ValC{
             constexpr Register::FieldValue<decltype(pol1)::Type,Pol1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pol1)::Type,Pol1Val::v1> v1{};
-        }
         }
     }
     namespace Tpm2Filter{    ///<Filter Control
@@ -300,7 +281,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(quaden)::Type,QuadenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(quaden)::Type,QuadenVal::v1> v1{};
         }
-        }
         ///no description available
         enum class TofdirVal {
             v0=0x00000000,     ///<TOF bit was set on the bottom of counting. There was an FTM counter decrement and FTM counter changes from its minimum value (zero) to its maximum value (MOD register).
@@ -310,7 +290,6 @@ namespace Kvasir {
         namespace TofdirValC{
             constexpr Register::FieldValue<decltype(tofdir)::Type,TofdirVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tofdir)::Type,TofdirVal::v1> v1{};
-        }
         }
         ///Counter Direction in Quadrature Decode Mode
         enum class QuadirVal {
@@ -322,7 +301,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(quadir)::Type,QuadirVal::v0> v0{};
             constexpr Register::FieldValue<decltype(quadir)::Type,QuadirVal::v1> v1{};
         }
-        }
         ///Quadrature Decoder Mode
         enum class QuadmodeVal {
             v0=0x00000000,     ///<Phase encoding mode.
@@ -332,7 +310,6 @@ namespace Kvasir {
         namespace QuadmodeValC{
             constexpr Register::FieldValue<decltype(quadmode)::Type,QuadmodeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(quadmode)::Type,QuadmodeVal::v1> v1{};
-        }
         }
     }
     namespace Tpm2Conf{    ///<Configuration
@@ -347,7 +324,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dozeen)::Type,DozeenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dozeen)::Type,DozeenVal::v1> v1{};
         }
-        }
         ///Debug Mode
         enum class DbgmodeVal {
             v00=0x00000000,     ///<TPM counter is paused and does not increment during debug mode. Trigger inputs and input capture events are also ignored.
@@ -357,7 +333,6 @@ namespace Kvasir {
         namespace DbgmodeValC{
             constexpr Register::FieldValue<decltype(dbgmode)::Type,DbgmodeVal::v00> v00{};
             constexpr Register::FieldValue<decltype(dbgmode)::Type,DbgmodeVal::v11> v11{};
-        }
         }
         ///Global Time Base Synchronization
         enum class GtbsyncVal {
@@ -369,7 +344,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gtbsync)::Type,GtbsyncVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gtbsync)::Type,GtbsyncVal::v1> v1{};
         }
-        }
         ///Global time base enable
         enum class GtbeenVal {
             v0=0x00000000,     ///<All channels use the internally generated TPM counter as their timebase
@@ -379,7 +353,6 @@ namespace Kvasir {
         namespace GtbeenValC{
             constexpr Register::FieldValue<decltype(gtbeen)::Type,GtbeenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gtbeen)::Type,GtbeenVal::v1> v1{};
-        }
         }
         ///Counter Start on Trigger
         enum class CsotVal {
@@ -391,7 +364,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(csot)::Type,CsotVal::v0> v0{};
             constexpr Register::FieldValue<decltype(csot)::Type,CsotVal::v1> v1{};
         }
-        }
         ///Counter Stop On Overflow
         enum class CsooVal {
             v0=0x00000000,     ///<TPM counter continues incrementing or decrementing after overflow
@@ -402,7 +374,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(csoo)::Type,CsooVal::v0> v0{};
             constexpr Register::FieldValue<decltype(csoo)::Type,CsooVal::v1> v1{};
         }
-        }
         ///Counter Reload On Trigger
         enum class CrotVal {
             v0=0x00000000,     ///<Counter is not reloaded due to a rising edge on the selected input trigger
@@ -412,7 +383,6 @@ namespace Kvasir {
         namespace CrotValC{
             constexpr Register::FieldValue<decltype(crot)::Type,CrotVal::v0> v0{};
             constexpr Register::FieldValue<decltype(crot)::Type,CrotVal::v1> v1{};
-        }
         }
         ///Counter Pause On Trigger
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> cpot{}; 
@@ -426,7 +396,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trgpol)::Type,TrgpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(trgpol)::Type,TrgpolVal::v1> v1{};
         }
-        }
         ///Trigger Source
         enum class TrgsrcVal {
             v0=0x00000000,     ///<Trigger source selected by TRGSEL is external.
@@ -436,7 +405,6 @@ namespace Kvasir {
         namespace TrgsrcValC{
             constexpr Register::FieldValue<decltype(trgsrc)::Type,TrgsrcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(trgsrc)::Type,TrgsrcVal::v1> v1{};
-        }
         }
         ///Trigger Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> trgsel{}; 

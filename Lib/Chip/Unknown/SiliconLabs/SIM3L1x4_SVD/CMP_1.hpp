@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmpfi)::Type,CmpfiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(cmpfi)::Type,CmpfiVal::set> set{};
         }
-        }
         ///Rising Edge Interrupt Flag. 
         enum class CmpriVal {
             notSet=0x00000000,     ///<No comparator rising edge has occurred since this flag was last cleared.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace CmpriValC{
             constexpr Register::FieldValue<decltype(cmpri)::Type,CmpriVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(cmpri)::Type,CmpriVal::set> set{};
-        }
         }
         ///Output State. 
         enum class CmpoutVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmpout)::Type,CmpoutVal::posLtNeg> posLtNeg{};
             constexpr Register::FieldValue<decltype(cmpout)::Type,CmpoutVal::posGtNeg> posGtNeg{};
         }
-        }
         ///Comparator Enable. 
         enum class CmpenVal {
             disabled=0x00000000,     ///<Disable the comparator.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace CmpenValC{
             constexpr Register::FieldValue<decltype(cmpen)::Type,CmpenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmpen)::Type,CmpenVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonemode{    ///<Input and Module Mode
@@ -89,7 +85,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nmux)::Type,NmuxVal::cmpnn14> cmpnn14{};
             constexpr Register::FieldValue<decltype(nmux)::Type,NmuxVal::cmpnn15> cmpnn15{};
         }
-        }
         ///Positive Input Select. 
         enum class PmuxVal {
             cmpnp0=0x00000000,     ///<Select CMPnP.0 (PB0.1).
@@ -128,7 +123,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmux)::Type,PmuxVal::cmpnp14> cmpnp14{};
             constexpr Register::FieldValue<decltype(pmux)::Type,PmuxVal::cmpnp15> cmpnp15{};
         }
-        }
         ///Input MUX Select. 
         enum class InmuxVal {
             direct=0x00000000,     ///<Connects the NMUX signal to CMP- and the PMUX signal to CMP+.
@@ -142,7 +136,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inmux)::Type,InmuxVal::cmppVss> cmppVss{};
             constexpr Register::FieldValue<decltype(inmux)::Type,InmuxVal::cmppDac> cmppDac{};
             constexpr Register::FieldValue<decltype(inmux)::Type,InmuxVal::cmpnDac> cmpnDac{};
-        }
         }
         ///Comparator Mode. 
         enum class CmpmdVal {
@@ -158,7 +151,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmpmd)::Type,CmpmdVal::mode2> mode2{};
             constexpr Register::FieldValue<decltype(cmpmd)::Type,CmpmdVal::mode3> mode3{};
         }
-        }
         ///Falling Edge Interrupt Enable. 
         enum class FienVal {
             disabled=0x00000000,     ///<Disable the comparator falling edge interrupt.
@@ -169,7 +161,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fien)::Type,FienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(fien)::Type,FienVal::enabled> enabled{};
         }
-        }
         ///Rising Edge Interrupt Enable. 
         enum class RienVal {
             disabled=0x00000000,     ///<Disable the comparator rising edge interrupt.
@@ -179,7 +170,6 @@ namespace Kvasir {
         namespace RienValC{
             constexpr Register::FieldValue<decltype(rien)::Type,RienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rien)::Type,RienVal::enabled> enabled{};
-        }
         }
         ///Comparator DAC Output Level. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> daclvl{}; 
@@ -193,7 +183,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nwpuen)::Type,NwpuenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(nwpuen)::Type,NwpuenVal::enabled> enabled{};
         }
-        }
         ///Positive Input Weak Pullup Enable. 
         enum class PwpuenVal {
             disabled=0x00000000,     ///<Disable the positive input weak pull up.
@@ -203,7 +192,6 @@ namespace Kvasir {
         namespace PwpuenValC{
             constexpr Register::FieldValue<decltype(pwpuen)::Type,PwpuenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pwpuen)::Type,PwpuenVal::enabled> enabled{};
-        }
         }
         ///Negative Hysteresis Control. 
         enum class CmphynVal {
@@ -219,7 +207,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmphyn)::Type,CmphynVal::neg10Mv> neg10Mv{};
             constexpr Register::FieldValue<decltype(cmphyn)::Type,CmphynVal::neg20Mv> neg20Mv{};
         }
-        }
         ///Positive Hysteresis Control. 
         enum class CmphypVal {
             disabled=0x00000000,     ///<Disable positive hysteresis.
@@ -234,7 +221,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmphyp)::Type,CmphypVal::pos10Mv> pos10Mv{};
             constexpr Register::FieldValue<decltype(cmphyp)::Type,CmphypVal::pos20Mv> pos20Mv{};
         }
-        }
         ///Invert Comparator Output Enable. 
         enum class InvenVal {
             disabled=0x00000000,     ///<Do not invert the comparator output.
@@ -244,7 +230,6 @@ namespace Kvasir {
         namespace InvenValC{
             constexpr Register::FieldValue<decltype(inven)::Type,InvenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(inven)::Type,InvenVal::enabled> enabled{};
-        }
         }
     }
 }

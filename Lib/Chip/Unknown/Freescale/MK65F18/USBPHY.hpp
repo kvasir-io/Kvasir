@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txpwdfs)::Type,TxpwdfsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txpwdfs)::Type,TxpwdfsVal::v1> v1{};
         }
-        }
         ///no description available
         enum class TxpwdibiasVal {
             v0=0x00000000,     ///<Normal operation
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace TxpwdibiasValC{
             constexpr Register::FieldValue<decltype(txpwdibias)::Type,TxpwdibiasVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txpwdibias)::Type,TxpwdibiasVal::v1> v1{};
-        }
         }
         ///no description available
         enum class Txpwdv2iVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txpwdv2i)::Type,Txpwdv2iVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txpwdv2i)::Type,Txpwdv2iVal::v1> v1{};
         }
-        }
         ///no description available
         enum class RxpwdenvVal {
             v0=0x00000000,     ///<Normal operation.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace RxpwdenvValC{
             constexpr Register::FieldValue<decltype(rxpwdenv)::Type,RxpwdenvVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxpwdenv)::Type,RxpwdenvVal::v1> v1{};
-        }
         }
         ///no description available
         enum class Rxpwd1pt1Val {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxpwd1pt1)::Type,Rxpwd1pt1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(rxpwd1pt1)::Type,Rxpwd1pt1Val::v1> v1{};
         }
-        }
         ///no description available
         enum class RxpwddiffVal {
             v0=0x00000000,     ///<Normal operation.
@@ -69,7 +64,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxpwddiff)::Type,RxpwddiffVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxpwddiff)::Type,RxpwddiffVal::v1> v1{};
         }
-        }
         ///no description available
         enum class RxpwdrxVal {
             v0=0x00000000,     ///<Normal operation
@@ -79,7 +73,6 @@ namespace Kvasir {
         namespace RxpwdrxValC{
             constexpr Register::FieldValue<decltype(rxpwdrx)::Type,RxpwdrxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxpwdrx)::Type,RxpwdrxVal::v1> v1{};
-        }
         }
     }
     namespace UsbphyPwdSet{    ///<USB PHY Power-Down Register
@@ -94,7 +87,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txpwdfs)::Type,TxpwdfsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txpwdfs)::Type,TxpwdfsVal::v1> v1{};
         }
-        }
         ///no description available
         enum class TxpwdibiasVal {
             v0=0x00000000,     ///<Normal operation
@@ -104,7 +96,6 @@ namespace Kvasir {
         namespace TxpwdibiasValC{
             constexpr Register::FieldValue<decltype(txpwdibias)::Type,TxpwdibiasVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txpwdibias)::Type,TxpwdibiasVal::v1> v1{};
-        }
         }
         ///no description available
         enum class Txpwdv2iVal {
@@ -116,7 +107,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txpwdv2i)::Type,Txpwdv2iVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txpwdv2i)::Type,Txpwdv2iVal::v1> v1{};
         }
-        }
         ///no description available
         enum class RxpwdenvVal {
             v0=0x00000000,     ///<Normal operation.
@@ -126,7 +116,6 @@ namespace Kvasir {
         namespace RxpwdenvValC{
             constexpr Register::FieldValue<decltype(rxpwdenv)::Type,RxpwdenvVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxpwdenv)::Type,RxpwdenvVal::v1> v1{};
-        }
         }
         ///no description available
         enum class Rxpwd1pt1Val {
@@ -138,7 +127,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxpwd1pt1)::Type,Rxpwd1pt1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(rxpwd1pt1)::Type,Rxpwd1pt1Val::v1> v1{};
         }
-        }
         ///no description available
         enum class RxpwddiffVal {
             v0=0x00000000,     ///<Normal operation.
@@ -149,7 +137,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxpwddiff)::Type,RxpwddiffVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxpwddiff)::Type,RxpwddiffVal::v1> v1{};
         }
-        }
         ///no description available
         enum class RxpwdrxVal {
             v0=0x00000000,     ///<Normal operation
@@ -159,7 +146,6 @@ namespace Kvasir {
         namespace RxpwdrxValC{
             constexpr Register::FieldValue<decltype(rxpwdrx)::Type,RxpwdrxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxpwdrx)::Type,RxpwdrxVal::v1> v1{};
-        }
         }
     }
     namespace UsbphyPwdClr{    ///<USB PHY Power-Down Register
@@ -174,7 +160,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txpwdfs)::Type,TxpwdfsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txpwdfs)::Type,TxpwdfsVal::v1> v1{};
         }
-        }
         ///no description available
         enum class TxpwdibiasVal {
             v0=0x00000000,     ///<Normal operation
@@ -184,7 +169,6 @@ namespace Kvasir {
         namespace TxpwdibiasValC{
             constexpr Register::FieldValue<decltype(txpwdibias)::Type,TxpwdibiasVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txpwdibias)::Type,TxpwdibiasVal::v1> v1{};
-        }
         }
         ///no description available
         enum class Txpwdv2iVal {
@@ -196,7 +180,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txpwdv2i)::Type,Txpwdv2iVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txpwdv2i)::Type,Txpwdv2iVal::v1> v1{};
         }
-        }
         ///no description available
         enum class RxpwdenvVal {
             v0=0x00000000,     ///<Normal operation.
@@ -206,7 +189,6 @@ namespace Kvasir {
         namespace RxpwdenvValC{
             constexpr Register::FieldValue<decltype(rxpwdenv)::Type,RxpwdenvVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxpwdenv)::Type,RxpwdenvVal::v1> v1{};
-        }
         }
         ///no description available
         enum class Rxpwd1pt1Val {
@@ -218,7 +200,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxpwd1pt1)::Type,Rxpwd1pt1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(rxpwd1pt1)::Type,Rxpwd1pt1Val::v1> v1{};
         }
-        }
         ///no description available
         enum class RxpwddiffVal {
             v0=0x00000000,     ///<Normal operation.
@@ -229,7 +210,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxpwddiff)::Type,RxpwddiffVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxpwddiff)::Type,RxpwddiffVal::v1> v1{};
         }
-        }
         ///no description available
         enum class RxpwdrxVal {
             v0=0x00000000,     ///<Normal operation
@@ -239,7 +219,6 @@ namespace Kvasir {
         namespace RxpwdrxValC{
             constexpr Register::FieldValue<decltype(rxpwdrx)::Type,RxpwdrxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxpwdrx)::Type,RxpwdrxVal::v1> v1{};
-        }
         }
     }
     namespace UsbphyPwdTog{    ///<USB PHY Power-Down Register
@@ -254,7 +233,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txpwdfs)::Type,TxpwdfsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txpwdfs)::Type,TxpwdfsVal::v1> v1{};
         }
-        }
         ///no description available
         enum class TxpwdibiasVal {
             v0=0x00000000,     ///<Normal operation
@@ -264,7 +242,6 @@ namespace Kvasir {
         namespace TxpwdibiasValC{
             constexpr Register::FieldValue<decltype(txpwdibias)::Type,TxpwdibiasVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txpwdibias)::Type,TxpwdibiasVal::v1> v1{};
-        }
         }
         ///no description available
         enum class Txpwdv2iVal {
@@ -276,7 +253,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txpwdv2i)::Type,Txpwdv2iVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txpwdv2i)::Type,Txpwdv2iVal::v1> v1{};
         }
-        }
         ///no description available
         enum class RxpwdenvVal {
             v0=0x00000000,     ///<Normal operation.
@@ -286,7 +262,6 @@ namespace Kvasir {
         namespace RxpwdenvValC{
             constexpr Register::FieldValue<decltype(rxpwdenv)::Type,RxpwdenvVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxpwdenv)::Type,RxpwdenvVal::v1> v1{};
-        }
         }
         ///no description available
         enum class Rxpwd1pt1Val {
@@ -298,7 +273,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxpwd1pt1)::Type,Rxpwd1pt1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(rxpwd1pt1)::Type,Rxpwd1pt1Val::v1> v1{};
         }
-        }
         ///no description available
         enum class RxpwddiffVal {
             v0=0x00000000,     ///<Normal operation.
@@ -309,7 +283,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxpwddiff)::Type,RxpwddiffVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxpwddiff)::Type,RxpwddiffVal::v1> v1{};
         }
-        }
         ///no description available
         enum class RxpwdrxVal {
             v0=0x00000000,     ///<Normal operation
@@ -319,7 +292,6 @@ namespace Kvasir {
         namespace RxpwdrxValC{
             constexpr Register::FieldValue<decltype(rxpwdrx)::Type,RxpwdrxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxpwdrx)::Type,RxpwdrxVal::v1> v1{};
-        }
         }
     }
     namespace UsbphyTx{    ///<USB PHY Transmitter Control Register
@@ -382,7 +354,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxdbypass)::Type,RxdbypassVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxdbypass)::Type,RxdbypassVal::v1> v1{};
         }
-        }
     }
     namespace UsbphyRxSet{    ///<USB PHY Receiver Control Register
         using Addr = Register::Address<0x400a2024,0xffbfff88,0,unsigned>;
@@ -399,7 +370,6 @@ namespace Kvasir {
         namespace RxdbypassValC{
             constexpr Register::FieldValue<decltype(rxdbypass)::Type,RxdbypassVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxdbypass)::Type,RxdbypassVal::v1> v1{};
-        }
         }
     }
     namespace UsbphyRxClr{    ///<USB PHY Receiver Control Register
@@ -418,7 +388,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxdbypass)::Type,RxdbypassVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxdbypass)::Type,RxdbypassVal::v1> v1{};
         }
-        }
     }
     namespace UsbphyRxTog{    ///<USB PHY Receiver Control Register
         using Addr = Register::Address<0x400a202c,0xffbfff88,0,unsigned>;
@@ -435,7 +404,6 @@ namespace Kvasir {
         namespace RxdbypassValC{
             constexpr Register::FieldValue<decltype(rxdbypass)::Type,RxdbypassVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxdbypass)::Type,RxdbypassVal::v1> v1{};
-        }
         }
     }
     namespace UsbphyCtrl{    ///<USB PHY General Control Register
@@ -690,7 +658,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(entailadjvd)::Type,EntailadjvdVal::v10> v10{};
             constexpr Register::FieldValue<decltype(entailadjvd)::Type,EntailadjvdVal::v11> v11{};
         }
-        }
     }
     namespace UsbphyDebug1Set{    ///<UTMI Debug Status Register 1
         using Addr = Register::Address<0x400a2074,0xffff9fff,0,unsigned>;
@@ -707,7 +674,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(entailadjvd)::Type,EntailadjvdVal::v01> v01{};
             constexpr Register::FieldValue<decltype(entailadjvd)::Type,EntailadjvdVal::v10> v10{};
             constexpr Register::FieldValue<decltype(entailadjvd)::Type,EntailadjvdVal::v11> v11{};
-        }
         }
     }
     namespace UsbphyDebug1Clr{    ///<UTMI Debug Status Register 1
@@ -726,7 +692,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(entailadjvd)::Type,EntailadjvdVal::v10> v10{};
             constexpr Register::FieldValue<decltype(entailadjvd)::Type,EntailadjvdVal::v11> v11{};
         }
-        }
     }
     namespace UsbphyDebug1Tog{    ///<UTMI Debug Status Register 1
         using Addr = Register::Address<0x400a207c,0xffff9fff,0,unsigned>;
@@ -743,7 +708,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(entailadjvd)::Type,EntailadjvdVal::v01> v01{};
             constexpr Register::FieldValue<decltype(entailadjvd)::Type,EntailadjvdVal::v10> v10{};
             constexpr Register::FieldValue<decltype(entailadjvd)::Type,EntailadjvdVal::v11> v11{};
-        }
         }
     }
     namespace UsbphyVersion{    ///<UTMI RTL Version
@@ -766,7 +730,6 @@ namespace Kvasir {
         namespace PlldivselValC{
             constexpr Register::FieldValue<decltype(pllDivSel)::Type,PlldivselVal::v00> v00{};
             constexpr Register::FieldValue<decltype(pllDivSel)::Type,PlldivselVal::v01> v01{};
-        }
         }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> pllEnUsbClks{}; 
@@ -793,7 +756,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pllDivSel)::Type,PlldivselVal::v00> v00{};
             constexpr Register::FieldValue<decltype(pllDivSel)::Type,PlldivselVal::v01> v01{};
         }
-        }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> pllEnUsbClks{}; 
         ///no description available
@@ -819,7 +781,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pllDivSel)::Type,PlldivselVal::v00> v00{};
             constexpr Register::FieldValue<decltype(pllDivSel)::Type,PlldivselVal::v01> v01{};
         }
-        }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> pllEnUsbClks{}; 
         ///no description available
@@ -844,7 +805,6 @@ namespace Kvasir {
         namespace PlldivselValC{
             constexpr Register::FieldValue<decltype(pllDivSel)::Type,PlldivselVal::v00> v00{};
             constexpr Register::FieldValue<decltype(pllDivSel)::Type,PlldivselVal::v01> v01{};
-        }
         }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> pllEnUsbClks{}; 
@@ -883,7 +843,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vbusvalidThresh)::Type,VbusvalidthreshVal::v110> v110{};
             constexpr Register::FieldValue<decltype(vbusvalidThresh)::Type,VbusvalidthreshVal::v111> v111{};
         }
-        }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> vbusvalidToSessvalid{}; 
         ///no description available
@@ -916,7 +875,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vbusvalidThresh)::Type,VbusvalidthreshVal::v101> v101{};
             constexpr Register::FieldValue<decltype(vbusvalidThresh)::Type,VbusvalidthreshVal::v110> v110{};
             constexpr Register::FieldValue<decltype(vbusvalidThresh)::Type,VbusvalidthreshVal::v111> v111{};
-        }
         }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> vbusvalidToSessvalid{}; 
@@ -951,7 +909,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vbusvalidThresh)::Type,VbusvalidthreshVal::v110> v110{};
             constexpr Register::FieldValue<decltype(vbusvalidThresh)::Type,VbusvalidthreshVal::v111> v111{};
         }
-        }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> vbusvalidToSessvalid{}; 
         ///no description available
@@ -984,7 +941,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vbusvalidThresh)::Type,VbusvalidthreshVal::v101> v101{};
             constexpr Register::FieldValue<decltype(vbusvalidThresh)::Type,VbusvalidthreshVal::v110> v110{};
             constexpr Register::FieldValue<decltype(vbusvalidThresh)::Type,VbusvalidthreshVal::v111> v111{};
-        }
         }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> vbusvalidToSessvalid{}; 

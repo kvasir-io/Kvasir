@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irefsten)::Type,IrefstenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irefsten)::Type,IrefstenVal::v1> v1{};
         }
-        }
         ///Internal Reference Clock Enable
         enum class IrclkenVal {
             v0=0x00000000,     ///<ICSIRCLK inactive.
@@ -25,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irclken)::Type,IrclkenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irclken)::Type,IrclkenVal::v1> v1{};
         }
-        }
         ///Internal Reference Select
         enum class IrefsVal {
             v0=0x00000000,     ///<External reference clock selected.
@@ -35,7 +33,6 @@ namespace Kvasir {
         namespace IrefsValC{
             constexpr Register::FieldValue<decltype(irefs)::Type,IrefsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irefs)::Type,IrefsVal::v1> v1{};
-        }
         }
         ///Reference Divider
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,3),Register::ReadWriteAccess,unsigned> rdiv{}; 
@@ -53,7 +50,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v10> v10{};
             constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v11> v11{};
         }
-        }
     }
     namespace IcsC2{    ///<ICS Control Register 2
         using Addr = Register::Address<0x40044001,0xffffff03,0,unsigned char>;
@@ -68,7 +64,6 @@ namespace Kvasir {
         namespace LpValC{
             constexpr Register::FieldValue<decltype(lp)::Type,LpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lp)::Type,LpVal::v1> v1{};
-        }
         }
         ///Bus Frequency Divider
         enum class BdivVal {
@@ -92,7 +87,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bdiv)::Type,BdivVal::v110> v110{};
             constexpr Register::FieldValue<decltype(bdiv)::Type,BdivVal::v111> v111{};
         }
-        }
     }
     namespace IcsC3{    ///<ICS Control Register 3
         using Addr = Register::Address<0x40044002,0xffffff00,0,unsigned char>;
@@ -113,7 +107,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cme)::Type,CmeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cme)::Type,CmeVal::v1> v1{};
         }
-        }
         ///Loss of Rough Lock Interrupt Enable
         enum class RlolieVal {
             v0=0x00000000,     ///<Lose of Rough Lock Interrupt disable.
@@ -124,7 +117,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rlolie)::Type,RlolieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rlolie)::Type,RlolieVal::v1> v1{};
         }
-        }
         ///Loss of Fine Lock Interrupt Enable
         enum class FlolieVal {
             v0=0x00000000,     ///<Lose of fine Lock Interrupt disable.
@@ -134,7 +126,6 @@ namespace Kvasir {
         namespace FlolieValC{
             constexpr Register::FieldValue<decltype(flolie)::Type,FlolieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(flolie)::Type,FlolieVal::v1> v1{};
-        }
         }
     }
     namespace IcsS{    ///<ICS Status Register
@@ -153,7 +144,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkst)::Type,ClkstVal::v10> v10{};
             constexpr Register::FieldValue<decltype(clkst)::Type,ClkstVal::v11> v11{};
         }
-        }
         ///Internal Reference Status
         enum class IrefstVal {
             v0=0x00000000,     ///<Source of reference clock is external clock.
@@ -163,7 +153,6 @@ namespace Kvasir {
         namespace IrefstValC{
             constexpr Register::FieldValue<decltype(irefst)::Type,IrefstVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irefst)::Type,IrefstVal::v1> v1{};
-        }
         }
         ///Rough Lock Status
         enum class RlockVal {
@@ -175,7 +164,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rlock)::Type,RlockVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rlock)::Type,RlockVal::v1> v1{};
         }
-        }
         ///Fine Lock Status
         enum class FlockVal {
             v0=0x00000000,     ///<FLL is currently unlocked.
@@ -186,7 +174,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flock)::Type,FlockVal::v0> v0{};
             constexpr Register::FieldValue<decltype(flock)::Type,FlockVal::v1> v1{};
         }
-        }
         ///Loss of Lock Status
         enum class LolsVal {
             v0=0x00000000,     ///<FLL has not lost lock since LOLS was last cleared.
@@ -196,7 +183,6 @@ namespace Kvasir {
         namespace LolsValC{
             constexpr Register::FieldValue<decltype(lols)::Type,LolsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lols)::Type,LolsVal::v1> v1{};
-        }
         }
     }
 }

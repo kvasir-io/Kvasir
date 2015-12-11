@@ -49,7 +49,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mr0i)::Type,Mr0iVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(mr0i)::Type,Mr0iVal::disabled> disabled{};
         }
-        }
         ///Reset on MR0: the TC will be reset if MR0 matches it.
         enum class Mr0rVal {
             enabled=0x00000001,     ///<Enabled
@@ -59,7 +58,6 @@ namespace Kvasir {
         namespace Mr0rValC{
             constexpr Register::FieldValue<decltype(mr0r)::Type,Mr0rVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(mr0r)::Type,Mr0rVal::disabled> disabled{};
-        }
         }
         ///Stop on MR0: the TC and PC will be stopped and TCR[0] will be set to 0 if MR0 matches the TC.
         enum class Mr0sVal {
@@ -71,7 +69,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mr0s)::Type,Mr0sVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(mr0s)::Type,Mr0sVal::disabled> disabled{};
         }
-        }
         ///Interrupt on MR1: an interrupt is generated when MR1 matches the value in the TC.
         enum class Mr1iVal {
             enabled=0x00000001,     ///<Enabled
@@ -81,7 +78,6 @@ namespace Kvasir {
         namespace Mr1iValC{
             constexpr Register::FieldValue<decltype(mr1i)::Type,Mr1iVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(mr1i)::Type,Mr1iVal::disabled> disabled{};
-        }
         }
         ///Reset on MR1: the TC will be reset if MR1 matches it.
         enum class Mr1rVal {
@@ -93,7 +89,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mr1r)::Type,Mr1rVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(mr1r)::Type,Mr1rVal::disabled> disabled{};
         }
-        }
         ///Stop on MR1: the TC and PC will be stopped and TCR[0] will be set to 0 if MR1 matches the TC.
         enum class Mr1sVal {
             enabled=0x00000001,     ///<Enabled
@@ -103,7 +98,6 @@ namespace Kvasir {
         namespace Mr1sValC{
             constexpr Register::FieldValue<decltype(mr1s)::Type,Mr1sVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(mr1s)::Type,Mr1sVal::disabled> disabled{};
-        }
         }
         ///Interrupt on MR2: an interrupt is generated when MR2 matches the value in the TC.
         enum class Mr2iVal {
@@ -115,7 +109,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mr2i)::Type,Mr2iVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(mr2i)::Type,Mr2iVal::disabled> disabled{};
         }
-        }
         ///Reset on MR2: the TC will be reset if MR2 matches it.
         enum class Mr2rVal {
             enabled=0x00000001,     ///<Enabled
@@ -125,7 +118,6 @@ namespace Kvasir {
         namespace Mr2rValC{
             constexpr Register::FieldValue<decltype(mr2r)::Type,Mr2rVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(mr2r)::Type,Mr2rVal::disabled> disabled{};
-        }
         }
         ///Stop on MR2: the TC and PC will be stopped and TCR[0] will be set to 0 if MR2 matches the TC.
         enum class Mr2sVal {
@@ -137,7 +129,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mr2s)::Type,Mr2sVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(mr2s)::Type,Mr2sVal::disabled> disabled{};
         }
-        }
         ///Interrupt on MR3: an interrupt is generated when MR3 matches the value in the TC.
         enum class Mr3iVal {
             enabled=0x00000001,     ///<Enabled
@@ -147,7 +138,6 @@ namespace Kvasir {
         namespace Mr3iValC{
             constexpr Register::FieldValue<decltype(mr3i)::Type,Mr3iVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(mr3i)::Type,Mr3iVal::disabled> disabled{};
-        }
         }
         ///Reset on MR3: the TC will be reset if MR3 matches it.
         enum class Mr3rVal {
@@ -159,7 +149,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mr3r)::Type,Mr3rVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(mr3r)::Type,Mr3rVal::disabled> disabled{};
         }
-        }
         ///Stop on MR3: the TC and PC will be stopped and TCR[0] will be set to 0 if MR3 matches the TC.
         enum class Mr3sVal {
             enabled=0x00000001,     ///<Enabled
@@ -169,7 +158,6 @@ namespace Kvasir {
         namespace Mr3sValC{
             constexpr Register::FieldValue<decltype(mr3s)::Type,Mr3sVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(mr3s)::Type,Mr3sVal::disabled> disabled{};
-        }
         }
     }
     namespace Nonemr0{    ///<Match Register. MR can be enabled through theMCR to reset the TC, stop both the TC and PC, and/or generate an interrupt every time MR matches the TC.
@@ -204,7 +192,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cap0re)::Type,Cap0reVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(cap0re)::Type,Cap0reVal::disabled> disabled{};
         }
-        }
         ///Capture on CT32Bn_CAP0 falling edge: a sequence of 1 then 0 on CT32Bn_CAP0 will cause CR0 to be loaded with the contents of TC.
         enum class Cap0feVal {
             enabled=0x00000001,     ///<Enabled
@@ -215,7 +202,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cap0fe)::Type,Cap0feVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(cap0fe)::Type,Cap0feVal::disabled> disabled{};
         }
-        }
         ///Interrupt on CT32Bn_CAP0 event: a CR0 load due to a CT32Bn_CAP0 event will generate an interrupt.
         enum class Cap0iVal {
             enabled=0x00000001,     ///<Enabled
@@ -225,7 +211,6 @@ namespace Kvasir {
         namespace Cap0iValC{
             constexpr Register::FieldValue<decltype(cap0i)::Type,Cap0iVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(cap0i)::Type,Cap0iVal::disabled> disabled{};
-        }
         }
     }
     namespace Nonecr0{    ///<Capture Register 0 (CR0). CR0 is loaded with the value of TC when there is an event on the CT16B0_CAP0 input.
@@ -257,7 +242,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(emc0)::Type,Emc0Val::set> set{};
             constexpr Register::FieldValue<decltype(emc0)::Type,Emc0Val::toggle> toggle{};
         }
-        }
         ///External Match Control 1. Determines the functionality of External Match 1.
         enum class Emc1Val {
             donothing=0x00000000,     ///<Do Nothing.
@@ -271,7 +255,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(emc1)::Type,Emc1Val::clear> clear{};
             constexpr Register::FieldValue<decltype(emc1)::Type,Emc1Val::set> set{};
             constexpr Register::FieldValue<decltype(emc1)::Type,Emc1Val::toggle> toggle{};
-        }
         }
         ///External Match Control 2. Determines the functionality of External Match 2.
         enum class Emc2Val {
@@ -287,7 +270,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(emc2)::Type,Emc2Val::set> set{};
             constexpr Register::FieldValue<decltype(emc2)::Type,Emc2Val::toggle> toggle{};
         }
-        }
         ///External Match Control 3. Determines the functionality of External Match 3.
         enum class Emc3Val {
             donothing=0x00000000,     ///<Do Nothing.
@@ -301,7 +283,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(emc3)::Type,Emc3Val::clear> clear{};
             constexpr Register::FieldValue<decltype(emc3)::Type,Emc3Val::set> set{};
             constexpr Register::FieldValue<decltype(emc3)::Type,Emc3Val::toggle> toggle{};
-        }
         }
     }
     namespace Nonectcr{    ///<Count Control Register (CTCR). The CTCR selects between Timer and Counter mode, and in Counter mode selects the signal and edge(s) for counting.
@@ -320,7 +301,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ctm)::Type,CtmVal::falling> falling{};
             constexpr Register::FieldValue<decltype(ctm)::Type,CtmVal::risingfalling> risingfalling{};
         }
-        }
         ///Count Input Select. When bits 1:0 in this register are not 00, these bits select which CAP pin is sampled for clocking. Note: If Counter mode is selected in the TnCTCR, the 3 bits for that input in the Capture Control Register (TnCCR) must be programmed as 000.  0x1 - 0x3 reserved.
         enum class CisVal {
             ct32bnCap0=0x00000000,     ///<CT32Bn_CAP0
@@ -328,7 +308,6 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,CisVal> cis{}; 
         namespace CisValC{
             constexpr Register::FieldValue<decltype(cis)::Type,CisVal::ct32bnCap0> ct32bnCap0{};
-        }
         }
     }
     namespace Nonepwmc{    ///<PWM Control Register (PWMCON). The PWMCON enables PWM mode for the external match pins CT32B0_MAT[3:0].

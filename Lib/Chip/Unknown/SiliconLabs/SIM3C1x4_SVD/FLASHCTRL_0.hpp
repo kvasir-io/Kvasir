@@ -18,7 +18,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(spmd)::Type,SpmdVal::mode2> mode2{};
             constexpr Register::FieldValue<decltype(spmd)::Type,SpmdVal::mode3> mode3{};
         }
-        }
         ///Read Store Mode Enable. 
         enum class RdsenVal {
             disabled=0x00000000,     ///<Disable read store mode.
@@ -28,7 +27,6 @@ namespace Kvasir {
         namespace RdsenValC{
             constexpr Register::FieldValue<decltype(rdsen)::Type,RdsenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rdsen)::Type,RdsenVal::enabled> enabled{};
-        }
         }
         ///Data Prefetch Enable. 
         enum class DpfenVal {
@@ -40,7 +38,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpfen)::Type,DpfenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dpfen)::Type,DpfenVal::enabled> enabled{};
         }
-        }
         ///Prefetch Inhibit. 
         enum class PfinhVal {
             inactive=0x00000000,     ///<Any reads from Flash are prefetched until the prefetch buffer is full.
@@ -50,7 +47,6 @@ namespace Kvasir {
         namespace PfinhValC{
             constexpr Register::FieldValue<decltype(pfinh)::Type,PfinhVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(pfinh)::Type,PfinhVal::active> active{};
-        }
         }
         ///Flash Write Sequence Enable. 
         enum class SqwenVal {
@@ -62,7 +58,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sqwen)::Type,SqwenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(sqwen)::Type,SqwenVal::enabled> enabled{};
         }
-        }
         ///Flash Page Erase Enable. 
         enum class EraseenVal {
             disabled=0x00000000,     ///<Writes to the WRDATA field will initiate a write to Flash at the address in the WRADDR field.
@@ -72,7 +67,6 @@ namespace Kvasir {
         namespace EraseenValC{
             constexpr Register::FieldValue<decltype(eraseen)::Type,EraseenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(eraseen)::Type,EraseenVal::enabled> enabled{};
-        }
         }
         ///Flash Buffer Status. 
         enum class BufstsVal {
@@ -84,7 +78,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bufsts)::Type,BufstsVal::empty> empty{};
             constexpr Register::FieldValue<decltype(bufsts)::Type,BufstsVal::full> full{};
         }
-        }
         ///Flash Operation Busy Flag. 
         enum class BusyfVal {
             notSet=0x00000000,     ///<The Flash interface is not busy.
@@ -94,7 +87,6 @@ namespace Kvasir {
         namespace BusyfValC{
             constexpr Register::FieldValue<decltype(busyf)::Type,BusyfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(busyf)::Type,BusyfVal::set> set{};
-        }
         }
     }
     namespace Nonewraddr{    ///<Flash Write Address
@@ -123,7 +115,6 @@ namespace Kvasir {
         namespace FlrtmdValC{
             constexpr Register::FieldValue<decltype(flrtmd)::Type,FlrtmdVal::slow> slow{};
             constexpr Register::FieldValue<decltype(flrtmd)::Type,FlrtmdVal::fast> fast{};
-        }
         }
     }
 }

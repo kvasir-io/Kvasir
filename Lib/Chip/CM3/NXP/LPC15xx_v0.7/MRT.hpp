@@ -16,7 +16,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(load)::Type,LoadVal::noForceLoad> noForceLoad{};
             constexpr Register::FieldValue<decltype(load)::Type,LoadVal::forceLoad> forceLoad{};
         }
-        }
     }
     namespace Noneintval1{    ///<MRT0 Time interval value register. This value is loaded into the TIMER0 register.
         using Addr = Register::Address<0x400a0010,0x7f000000,0,unsigned>;
@@ -31,7 +30,6 @@ namespace Kvasir {
         namespace LoadValC{
             constexpr Register::FieldValue<decltype(load)::Type,LoadVal::noForceLoad> noForceLoad{};
             constexpr Register::FieldValue<decltype(load)::Type,LoadVal::forceLoad> forceLoad{};
-        }
         }
     }
     namespace Noneintval2{    ///<MRT0 Time interval value register. This value is loaded into the TIMER0 register.
@@ -48,7 +46,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(load)::Type,LoadVal::noForceLoad> noForceLoad{};
             constexpr Register::FieldValue<decltype(load)::Type,LoadVal::forceLoad> forceLoad{};
         }
-        }
     }
     namespace Noneintval3{    ///<MRT0 Time interval value register. This value is loaded into the TIMER0 register.
         using Addr = Register::Address<0x400a0030,0x7f000000,0,unsigned>;
@@ -63,7 +60,6 @@ namespace Kvasir {
         namespace LoadValC{
             constexpr Register::FieldValue<decltype(load)::Type,LoadVal::noForceLoad> noForceLoad{};
             constexpr Register::FieldValue<decltype(load)::Type,LoadVal::forceLoad> forceLoad{};
-        }
         }
     }
     namespace Nonetimer0{    ///<MRT0 Timer register. This register reads the value of the down-counter.
@@ -98,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inten)::Type,IntenVal::disable> disable{};
             constexpr Register::FieldValue<decltype(inten)::Type,IntenVal::enable> enable{};
         }
-        }
         ///Selects timer mode.
         enum class ModeVal {
             repeatInterruptMod=0x00000000,     ///<Repeat interrupt mode.
@@ -108,7 +103,6 @@ namespace Kvasir {
         namespace ModeValC{
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeatInterruptMod> repeatInterruptMod{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::oneShotInterruptM> oneShotInterruptM{};
-        }
         }
     }
     namespace Nonectrl1{    ///<MRT0 Control register. This register controls the MRT0 modes.
@@ -123,7 +117,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inten)::Type,IntenVal::disable> disable{};
             constexpr Register::FieldValue<decltype(inten)::Type,IntenVal::enable> enable{};
         }
-        }
         ///Selects timer mode.
         enum class ModeVal {
             repeatInterruptMod=0x00000000,     ///<Repeat interrupt mode.
@@ -133,7 +126,6 @@ namespace Kvasir {
         namespace ModeValC{
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeatInterruptMod> repeatInterruptMod{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::oneShotInterruptM> oneShotInterruptM{};
-        }
         }
     }
     namespace Nonectrl2{    ///<MRT0 Control register. This register controls the MRT0 modes.
@@ -148,7 +140,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inten)::Type,IntenVal::disable> disable{};
             constexpr Register::FieldValue<decltype(inten)::Type,IntenVal::enable> enable{};
         }
-        }
         ///Selects timer mode.
         enum class ModeVal {
             repeatInterruptMod=0x00000000,     ///<Repeat interrupt mode.
@@ -158,7 +149,6 @@ namespace Kvasir {
         namespace ModeValC{
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeatInterruptMod> repeatInterruptMod{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::oneShotInterruptM> oneShotInterruptM{};
-        }
         }
     }
     namespace Nonectrl3{    ///<MRT0 Control register. This register controls the MRT0 modes.
@@ -173,7 +163,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inten)::Type,IntenVal::disable> disable{};
             constexpr Register::FieldValue<decltype(inten)::Type,IntenVal::enable> enable{};
         }
-        }
         ///Selects timer mode.
         enum class ModeVal {
             repeatInterruptMod=0x00000000,     ///<Repeat interrupt mode.
@@ -183,7 +172,6 @@ namespace Kvasir {
         namespace ModeValC{
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeatInterruptMod> repeatInterruptMod{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::oneShotInterruptM> oneShotInterruptM{};
-        }
         }
     }
     namespace Nonestat0{    ///<MRT0 Status register.
@@ -198,7 +186,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intflag)::Type,IntflagVal::noPendingInterrupt> noPendingInterrupt{};
             constexpr Register::FieldValue<decltype(intflag)::Type,IntflagVal::pendingInterrupt> pendingInterrupt{};
         }
-        }
         ///Indicates the state of TIMERn. This bit is read-only.
         enum class RunVal {
             idleState=0x00000000,     ///<Idle state. TIMERn is stopped.
@@ -208,7 +195,6 @@ namespace Kvasir {
         namespace RunValC{
             constexpr Register::FieldValue<decltype(run)::Type,RunVal::idleState> idleState{};
             constexpr Register::FieldValue<decltype(run)::Type,RunVal::running> running{};
-        }
         }
     }
     namespace Nonestat1{    ///<MRT0 Status register.
@@ -223,7 +209,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intflag)::Type,IntflagVal::noPendingInterrupt> noPendingInterrupt{};
             constexpr Register::FieldValue<decltype(intflag)::Type,IntflagVal::pendingInterrupt> pendingInterrupt{};
         }
-        }
         ///Indicates the state of TIMERn. This bit is read-only.
         enum class RunVal {
             idleState=0x00000000,     ///<Idle state. TIMERn is stopped.
@@ -233,7 +218,6 @@ namespace Kvasir {
         namespace RunValC{
             constexpr Register::FieldValue<decltype(run)::Type,RunVal::idleState> idleState{};
             constexpr Register::FieldValue<decltype(run)::Type,RunVal::running> running{};
-        }
         }
     }
     namespace Nonestat2{    ///<MRT0 Status register.
@@ -248,7 +232,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intflag)::Type,IntflagVal::noPendingInterrupt> noPendingInterrupt{};
             constexpr Register::FieldValue<decltype(intflag)::Type,IntflagVal::pendingInterrupt> pendingInterrupt{};
         }
-        }
         ///Indicates the state of TIMERn. This bit is read-only.
         enum class RunVal {
             idleState=0x00000000,     ///<Idle state. TIMERn is stopped.
@@ -258,7 +241,6 @@ namespace Kvasir {
         namespace RunValC{
             constexpr Register::FieldValue<decltype(run)::Type,RunVal::idleState> idleState{};
             constexpr Register::FieldValue<decltype(run)::Type,RunVal::running> running{};
-        }
         }
     }
     namespace Nonestat3{    ///<MRT0 Status register.
@@ -273,7 +255,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intflag)::Type,IntflagVal::noPendingInterrupt> noPendingInterrupt{};
             constexpr Register::FieldValue<decltype(intflag)::Type,IntflagVal::pendingInterrupt> pendingInterrupt{};
         }
-        }
         ///Indicates the state of TIMERn. This bit is read-only.
         enum class RunVal {
             idleState=0x00000000,     ///<Idle state. TIMERn is stopped.
@@ -283,7 +264,6 @@ namespace Kvasir {
         namespace RunValC{
             constexpr Register::FieldValue<decltype(run)::Type,RunVal::idleState> idleState{};
             constexpr Register::FieldValue<decltype(run)::Type,RunVal::running> running{};
-        }
         }
     }
     namespace NoneidleCh{    ///<Idle channel register. This register returns the number of the first idle channel.
@@ -303,7 +283,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gflag0)::Type,Gflag0Val::noPendingInterrupt> noPendingInterrupt{};
             constexpr Register::FieldValue<decltype(gflag0)::Type,Gflag0Val::pendingInterrupt> pendingInterrupt{};
         }
-        }
         ///Monitors the interrupt flag of TIMER1.
         enum class Gflag1Val {
             noPendingInterrupt=0x00000000,     ///<No pending interrupt. Writing a zero is equivalent to no operation.
@@ -313,7 +292,6 @@ namespace Kvasir {
         namespace Gflag1ValC{
             constexpr Register::FieldValue<decltype(gflag1)::Type,Gflag1Val::noPendingInterrupt> noPendingInterrupt{};
             constexpr Register::FieldValue<decltype(gflag1)::Type,Gflag1Val::pendingInterrupt> pendingInterrupt{};
-        }
         }
         ///Monitors the interrupt flag of TIMER2.
         enum class Gflag2Val {
@@ -325,7 +303,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gflag2)::Type,Gflag2Val::noPendingInterrupt> noPendingInterrupt{};
             constexpr Register::FieldValue<decltype(gflag2)::Type,Gflag2Val::pendingInterrupt> pendingInterrupt{};
         }
-        }
         ///Monitors the interrupt flag of TIMER3.
         enum class Gflag3Val {
             noPendingInterrupt=0x00000000,     ///<No pending interrupt. Writing a zero is equivalent to no operation.
@@ -335,7 +312,6 @@ namespace Kvasir {
         namespace Gflag3ValC{
             constexpr Register::FieldValue<decltype(gflag3)::Type,Gflag3Val::noPendingInterrupt> noPendingInterrupt{};
             constexpr Register::FieldValue<decltype(gflag3)::Type,Gflag3Val::pendingInterrupt> pendingInterrupt{};
-        }
         }
     }
 }

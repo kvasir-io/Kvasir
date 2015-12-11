@@ -28,7 +28,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(endecb)::Type,EndecbVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(endecb)::Type,EndecbVal::set> set{};
         }
-        }
         ///Enable interrupt on ERRORECB event.
         enum class ErrorecbVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -40,7 +39,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(errorecb)::Type,ErrorecbVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(errorecb)::Type,ErrorecbVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(errorecb)::Type,ErrorecbVal::set> set{};
-        }
         }
     }
     namespace Noneintenclr{    ///<Interrupt enable clear register.
@@ -57,7 +55,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(endecb)::Type,EndecbVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(endecb)::Type,EndecbVal::clear> clear{};
         }
-        }
         ///Disable interrupt on ERRORECB event.
         enum class ErrorecbVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -69,7 +66,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(errorecb)::Type,ErrorecbVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(errorecb)::Type,ErrorecbVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(errorecb)::Type,ErrorecbVal::clear> clear{};
-        }
         }
     }
     namespace Noneecbdataptr{    ///<ECB block encrypt memory pointer.
@@ -86,7 +82,6 @@ namespace Kvasir {
         namespace PowerValC{
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::enabled> enabled{};
-        }
         }
     }
 }

@@ -20,7 +20,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
         }
-        }
     }
     namespace AicSmr1{    ///<Source Mode Register
         using Addr = Register::Address<0xfffff004,0xffffff98,0,unsigned>;
@@ -39,7 +38,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::intEdgeTriggered> intEdgeTriggered{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
-        }
         }
     }
     namespace AicSmr2{    ///<Source Mode Register
@@ -60,7 +58,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
         }
-        }
     }
     namespace AicSmr3{    ///<Source Mode Register
         using Addr = Register::Address<0xfffff00c,0xffffff98,0,unsigned>;
@@ -79,7 +76,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::intEdgeTriggered> intEdgeTriggered{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
-        }
         }
     }
     namespace AicSmr4{    ///<Source Mode Register
@@ -100,7 +96,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
         }
-        }
     }
     namespace AicSmr5{    ///<Source Mode Register
         using Addr = Register::Address<0xfffff014,0xffffff98,0,unsigned>;
@@ -119,7 +114,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::intEdgeTriggered> intEdgeTriggered{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
-        }
         }
     }
     namespace AicSmr6{    ///<Source Mode Register
@@ -140,7 +134,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
         }
-        }
     }
     namespace AicSmr7{    ///<Source Mode Register
         using Addr = Register::Address<0xfffff01c,0xffffff98,0,unsigned>;
@@ -159,7 +152,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::intEdgeTriggered> intEdgeTriggered{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
-        }
         }
     }
     namespace AicSmr8{    ///<Source Mode Register
@@ -180,7 +172,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
         }
-        }
     }
     namespace AicSmr9{    ///<Source Mode Register
         using Addr = Register::Address<0xfffff024,0xffffff98,0,unsigned>;
@@ -199,7 +190,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::intEdgeTriggered> intEdgeTriggered{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
-        }
         }
     }
     namespace AicSmr10{    ///<Source Mode Register
@@ -220,7 +210,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
         }
-        }
     }
     namespace AicSmr11{    ///<Source Mode Register
         using Addr = Register::Address<0xfffff02c,0xffffff98,0,unsigned>;
@@ -239,7 +228,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::intEdgeTriggered> intEdgeTriggered{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
-        }
         }
     }
     namespace AicSmr12{    ///<Source Mode Register
@@ -260,7 +248,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
         }
-        }
     }
     namespace AicSmr13{    ///<Source Mode Register
         using Addr = Register::Address<0xfffff034,0xffffff98,0,unsigned>;
@@ -279,7 +266,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::intEdgeTriggered> intEdgeTriggered{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
-        }
         }
     }
     namespace AicSmr14{    ///<Source Mode Register
@@ -300,7 +286,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
         }
-        }
     }
     namespace AicSmr15{    ///<Source Mode Register
         using Addr = Register::Address<0xfffff03c,0xffffff98,0,unsigned>;
@@ -319,7 +304,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::intEdgeTriggered> intEdgeTriggered{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
-        }
         }
     }
     namespace AicSmr16{    ///<Source Mode Register
@@ -340,7 +324,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
         }
-        }
     }
     namespace AicSmr17{    ///<Source Mode Register
         using Addr = Register::Address<0xfffff044,0xffffff98,0,unsigned>;
@@ -359,7 +342,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::intEdgeTriggered> intEdgeTriggered{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
-        }
         }
     }
     namespace AicSmr18{    ///<Source Mode Register
@@ -380,7 +362,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
         }
-        }
     }
     namespace AicSmr19{    ///<Source Mode Register
         using Addr = Register::Address<0xfffff04c,0xffffff98,0,unsigned>;
@@ -399,7 +380,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::intEdgeTriggered> intEdgeTriggered{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
-        }
         }
     }
     namespace AicSmr20{    ///<Source Mode Register
@@ -420,7 +400,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
         }
-        }
     }
     namespace AicSmr21{    ///<Source Mode Register
         using Addr = Register::Address<0xfffff054,0xffffff98,0,unsigned>;
@@ -439,7 +418,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::intEdgeTriggered> intEdgeTriggered{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
-        }
         }
     }
     namespace AicSmr22{    ///<Source Mode Register
@@ -460,7 +438,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
         }
-        }
     }
     namespace AicSmr23{    ///<Source Mode Register
         using Addr = Register::Address<0xfffff05c,0xffffff98,0,unsigned>;
@@ -479,7 +456,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::intEdgeTriggered> intEdgeTriggered{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
-        }
         }
     }
     namespace AicSmr24{    ///<Source Mode Register
@@ -500,7 +476,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
         }
-        }
     }
     namespace AicSmr25{    ///<Source Mode Register
         using Addr = Register::Address<0xfffff064,0xffffff98,0,unsigned>;
@@ -519,7 +494,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::intEdgeTriggered> intEdgeTriggered{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
-        }
         }
     }
     namespace AicSmr26{    ///<Source Mode Register
@@ -540,7 +514,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
         }
-        }
     }
     namespace AicSmr27{    ///<Source Mode Register
         using Addr = Register::Address<0xfffff06c,0xffffff98,0,unsigned>;
@@ -559,7 +532,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::intEdgeTriggered> intEdgeTriggered{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
-        }
         }
     }
     namespace AicSmr28{    ///<Source Mode Register
@@ -580,7 +552,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
         }
-        }
     }
     namespace AicSmr29{    ///<Source Mode Register
         using Addr = Register::Address<0xfffff074,0xffffff98,0,unsigned>;
@@ -599,7 +570,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::intEdgeTriggered> intEdgeTriggered{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
-        }
         }
     }
     namespace AicSmr30{    ///<Source Mode Register
@@ -620,7 +590,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
         }
-        }
     }
     namespace AicSmr31{    ///<Source Mode Register
         using Addr = Register::Address<0xfffff07c,0xffffff98,0,unsigned>;
@@ -639,7 +608,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::intEdgeTriggered> intEdgeTriggered{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extHighLevel> extHighLevel{};
             constexpr Register::FieldValue<decltype(srctype)::Type,SrctypeVal::extPositiveEdge> extPositiveEdge{};
-        }
         }
     }
     namespace AicSvr0{    ///<Source Vector Register

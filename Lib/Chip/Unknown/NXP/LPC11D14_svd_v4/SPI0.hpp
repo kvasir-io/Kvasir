@@ -36,7 +36,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dss)::Type,DssVal::v15BitTransfer> v15BitTransfer{};
             constexpr Register::FieldValue<decltype(dss)::Type,DssVal::v16BitTransfer> v16BitTransfer{};
         }
-        }
         ///Frame Format.
         enum class FrfVal {
             spi=0x00000000,     ///<SPI
@@ -49,7 +48,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frf)::Type,FrfVal::ti> ti{};
             constexpr Register::FieldValue<decltype(frf)::Type,FrfVal::microwire> microwire{};
         }
-        }
         ///Clock Out Polarity. This bit is only used in SPI mode.
         enum class CpolVal {
             low=0x00000000,     ///<SPI controller maintains the bus clock low between frames.
@@ -60,7 +58,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::low> low{};
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::high> high{};
         }
-        }
         ///Clock Out Phase. This bit is only used in SPI mode.
         enum class CphaVal {
             firstclock=0x00000000,     ///<SPI controller captures serial data on the first clock transition of the frame, that is, the transition away from the inter-frame state of the clock line.
@@ -70,7 +67,6 @@ namespace Kvasir {
         namespace CphaValC{
             constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::firstclock> firstclock{};
             constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::secondclock> secondclock{};
-        }
         }
         ///Serial Clock Rate. The number of prescaler output clocks per bit on the bus, minus one. Given that CPSDVSR is the prescale divider, and the APB clock PCLK clocks the prescaler, the bit frequency is PCLK / (CPSDVSR X [SCR+1]).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> scr{}; 
@@ -87,7 +83,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lbm)::Type,LbmVal::duringnormaloperation> duringnormaloperation{};
             constexpr Register::FieldValue<decltype(lbm)::Type,LbmVal::serialinputistakenfromtheserialoutputmosiormisoratherthantheserialinputpinmisoormosirespectively> serialinputistakenfromtheserialoutputmosiormisoratherthantheserialinputpinmisoormosirespectively{};
         }
-        }
         ///SPI Enable.
         enum class SseVal {
             thespicontrollerisdisabled=0x00000000,     ///<The SPI controller is disabled.
@@ -98,7 +93,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sse)::Type,SseVal::thespicontrollerisdisabled> thespicontrollerisdisabled{};
             constexpr Register::FieldValue<decltype(sse)::Type,SseVal::thespicontrollerwillinteractwithotherdevicesontheserialbussoftwareshouldwritetheappropriatecontrolinformationtotheotherspisspregistersandinterruptcontrollerregistersbeforesettingthisbit> thespicontrollerwillinteractwithotherdevicesontheserialbussoftwareshouldwritetheappropriatecontrolinformationtotheotherspisspregistersandinterruptcontrollerregistersbeforesettingthisbit{};
         }
-        }
         ///Master/Slave Mode.This bit can only be written when the SSE bit is 0.
         enum class MsVal {
             thespicontrolleractsasamasteronthebusdrivingthesclkmosiandssellinesandreceivingthemisoline=0x00000000,     ///<The SPI controller acts as a master on the bus, driving the SCLK, MOSI, and SSEL lines and receiving the MISO line.
@@ -108,7 +102,6 @@ namespace Kvasir {
         namespace MsValC{
             constexpr Register::FieldValue<decltype(ms)::Type,MsVal::thespicontrolleractsasamasteronthebusdrivingthesclkmosiandssellinesandreceivingthemisoline> thespicontrolleractsasamasteronthebusdrivingthesclkmosiandssellinesandreceivingthemisoline{};
             constexpr Register::FieldValue<decltype(ms)::Type,MsVal::thespicontrolleractsasaslaveonthebusdrivingmisolineandreceivingsclkmosiandssellines> thespicontrolleractsasaslaveonthebusdrivingmisolineandreceivingsclkmosiandssellines{};
-        }
         }
         ///Slave Output Disable. This bit is relevant only in slave mode (MS = 1). If it is 1, this blocks this SPI controller from driving the transmit data line (MISO).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> sod{}; 

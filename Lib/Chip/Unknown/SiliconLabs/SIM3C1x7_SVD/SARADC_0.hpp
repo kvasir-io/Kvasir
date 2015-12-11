@@ -42,7 +42,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(spsel)::Type,SpselVal::phase14> phase14{};
             constexpr Register::FieldValue<decltype(spsel)::Type,SpselVal::phase15> phase15{};
         }
-        }
         ///Sampling Phase Enable. 
         enum class SpenVal {
             disabled=0x00000000,     ///<Disable Phase Select.  The ADC will always sample on the start-of-conversion trigger selected by the SCSEL field.
@@ -53,7 +52,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(spen)::Type,SpenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(spen)::Type,SpenVal::enabled> enabled{};
         }
-        }
         ///Synchronous Sample Generator Enable. 
         enum class SsgenVal {
             disabled=0x00000000,     ///<Disable the SAR clock output to SSG.
@@ -63,7 +61,6 @@ namespace Kvasir {
         namespace SsgenValC{
             constexpr Register::FieldValue<decltype(ssgen)::Type,SsgenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ssgen)::Type,SsgenVal::enabled> enabled{};
-        }
         }
         ///Output Packing Mode. 
         enum class PackmdVal {
@@ -79,7 +76,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(packmd)::Type,PackmdVal::upperFirst> upperFirst{};
             constexpr Register::FieldValue<decltype(packmd)::Type,PackmdVal::lowerFirst> lowerFirst{};
         }
-        }
         ///Simultaneous Conversion Packing Enable. 
         enum class SimcenVal {
             disabled=0x00000000,     ///<Disable simultaneous mode conversion packing.
@@ -89,7 +85,6 @@ namespace Kvasir {
         namespace SimcenValC{
             constexpr Register::FieldValue<decltype(simcen)::Type,SimcenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(simcen)::Type,SimcenVal::enabled> enabled{};
-        }
         }
         ///Interleaved Conversion Packing Enable. 
         enum class IntlvenVal {
@@ -101,7 +96,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intlven)::Type,IntlvenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(intlven)::Type,IntlvenVal::enabled> enabled{};
         }
-        }
         ///Scan Mode Enable. 
         enum class ScanenVal {
             disabled=0x00000000,     ///<Disable ADC scan mode.
@@ -111,7 +105,6 @@ namespace Kvasir {
         namespace ScanenValC{
             constexpr Register::FieldValue<decltype(scanen)::Type,ScanenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(scanen)::Type,ScanenVal::enabled> enabled{};
-        }
         }
         ///Scan Mode Select. 
         enum class ScanmdVal {
@@ -123,7 +116,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(scanmd)::Type,ScanmdVal::once> once{};
             constexpr Register::FieldValue<decltype(scanmd)::Type,ScanmdVal::loop> loop{};
         }
-        }
         ///DMA Interface Enable . 
         enum class DmaenVal {
             disabled=0x00000000,     ///<Disable the ADC module DMA interface.
@@ -134,7 +126,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::enabled> enabled{};
         }
-        }
         ///Burst Mode Clock Select. 
         enum class BclkselVal {
             lposc0=0x00000000,     ///<Burst mode uses the Low Power Oscillator.
@@ -144,7 +135,6 @@ namespace Kvasir {
         namespace BclkselValC{
             constexpr Register::FieldValue<decltype(bclksel)::Type,BclkselVal::lposc0> lposc0{};
             constexpr Register::FieldValue<decltype(bclksel)::Type,BclkselVal::apb> apb{};
-        }
         }
         ///SAR Clock Divider. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,16),Register::ReadWriteAccess,unsigned> clkdiv{}; 
@@ -158,7 +148,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sccien)::Type,SccienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(sccien)::Type,SccienVal::enabled> enabled{};
         }
-        }
         ///Scan Done Interrupt Enable. 
         enum class SdienVal {
             disabled=0x00000000,     ///<Disable the ADC scan complete interrupt.
@@ -168,7 +157,6 @@ namespace Kvasir {
         namespace SdienValC{
             constexpr Register::FieldValue<decltype(sdien)::Type,SdienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(sdien)::Type,SdienVal::enabled> enabled{};
-        }
         }
         ///FIFO Overrun Interrupt Enable. 
         enum class ForienVal {
@@ -180,7 +168,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(forien)::Type,ForienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(forien)::Type,ForienVal::enabled> enabled{};
         }
-        }
         ///FIFO Underrun Interrupt Enable. 
         enum class FurienVal {
             disabled=0x00000000,     ///<Disable the data FIFO underrun interrupt.
@@ -190,7 +177,6 @@ namespace Kvasir {
         namespace FurienValC{
             constexpr Register::FieldValue<decltype(furien)::Type,FurienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(furien)::Type,FurienVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonecontrol{    ///<Measurement Control
@@ -205,7 +191,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(refgndsel)::Type,RefgndselVal::internal> internal{};
             constexpr Register::FieldValue<decltype(refgndsel)::Type,RefgndselVal::external> external{};
         }
-        }
         ///Sampling Clock Edge Select. 
         enum class ClkeselVal {
             rising=0x00000000,     ///<Select the rising edge of the APB clock.
@@ -215,7 +200,6 @@ namespace Kvasir {
         namespace ClkeselValC{
             constexpr Register::FieldValue<decltype(clkesel)::Type,ClkeselVal::rising> rising{};
             constexpr Register::FieldValue<decltype(clkesel)::Type,ClkeselVal::falling> falling{};
-        }
         }
         ///Burst Mode Tracking Time. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,2),Register::ReadWriteAccess,unsigned> bmtk{}; 
@@ -257,7 +241,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(scsel)::Type,ScselVal::adcnt14> adcnt14{};
             constexpr Register::FieldValue<decltype(scsel)::Type,ScselVal::adcnt15> adcnt15{};
         }
-        }
         ///Burst Mode Power Up Time. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> pwrtime{}; 
         ///Burst Mode Enable. 
@@ -270,7 +253,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bursten)::Type,BurstenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(bursten)::Type,BurstenVal::enabled> enabled{};
         }
-        }
         ///ADC Enable. 
         enum class AdcenVal {
             disabled=0x00000000,     ///<Disable the ADC (low-power shutdown).
@@ -280,7 +262,6 @@ namespace Kvasir {
         namespace AdcenValC{
             constexpr Register::FieldValue<decltype(adcen)::Type,AdcenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(adcen)::Type,AdcenVal::enabled> enabled{};
-        }
         }
         ///12-Bit Mode Sample Select. 
         enum class Ad12bsselVal {
@@ -292,7 +273,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ad12bssel)::Type,Ad12bsselVal::four> four{};
             constexpr Register::FieldValue<decltype(ad12bssel)::Type,Ad12bsselVal::one> one{};
         }
-        }
         ///Common Mode Buffer Enable. 
         enum class VcmenVal {
             disabled=0x00000000,     ///<Disable the common mode buffer.
@@ -302,7 +282,6 @@ namespace Kvasir {
         namespace VcmenValC{
             constexpr Register::FieldValue<decltype(vcmen)::Type,VcmenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(vcmen)::Type,VcmenVal::enabled> enabled{};
-        }
         }
         ///Accumulation Mode. 
         enum class AccmdVal {
@@ -314,7 +293,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(accmd)::Type,AccmdVal::accumulate> accumulate{};
             constexpr Register::FieldValue<decltype(accmd)::Type,AccmdVal::repeat> repeat{};
         }
-        }
         ///ADC Tracking Mode. 
         enum class TrkmdVal {
             normal=0x00000000,     ///<Normal Tracking Mode: When the ADC is enabled, a conversion begins immediately following the start-of-conversion signal.
@@ -324,7 +302,6 @@ namespace Kvasir {
         namespace TrkmdValC{
             constexpr Register::FieldValue<decltype(trkmd)::Type,TrkmdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(trkmd)::Type,TrkmdVal::delayed> delayed{};
-        }
         }
         ///ADC Busy. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> adbusy{}; 
@@ -342,7 +319,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(biassel)::Type,BiasselVal::mode2> mode2{};
             constexpr Register::FieldValue<decltype(biassel)::Type,BiasselVal::mode3> mode3{};
         }
-        }
         ///Low Power Mode Enable. 
         enum class LpmdenVal {
             disabled=0x00000000,     ///<Disable low power mode.
@@ -353,7 +329,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lpmden)::Type,LpmdenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(lpmden)::Type,LpmdenVal::enabled> enabled{};
         }
-        }
         ///MUX and VREF Low Power Enable. 
         enum class MreflpenVal {
             disabled=0x00000000,     ///<Disable low power mode.
@@ -363,7 +338,6 @@ namespace Kvasir {
         namespace MreflpenValC{
             constexpr Register::FieldValue<decltype(mreflpen)::Type,MreflpenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(mreflpen)::Type,MreflpenVal::enabled> enabled{};
-        }
         }
         ///Voltage Reference Select. 
         enum class VrefselVal {
@@ -378,7 +352,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vrefsel)::Type,VrefselVal::vdd> vdd{};
             constexpr Register::FieldValue<decltype(vrefsel)::Type,VrefselVal::ldoOut> ldoOut{};
             constexpr Register::FieldValue<decltype(vrefsel)::Type,VrefselVal::externalVref> externalVref{};
-        }
         }
     }
     namespace Nonesq7654{    ///<Channel Sequencer Time Slots 4-7 Setup
@@ -396,7 +369,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ts4chr)::Type,Ts4chrVal::cc1> cc1{};
             constexpr Register::FieldValue<decltype(ts4chr)::Type,Ts4chrVal::cc2> cc2{};
             constexpr Register::FieldValue<decltype(ts4chr)::Type,Ts4chrVal::cc3> cc3{};
-        }
         }
         ///Time Slot 4 Input Channel. 
         enum class Ts4muxVal {
@@ -468,7 +440,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ts4mux)::Type,Ts4muxVal::adcn30> adcn30{};
             constexpr Register::FieldValue<decltype(ts4mux)::Type,Ts4muxVal::end> end{};
         }
-        }
         ///Time Slot 5 Conversion Characteristic. 
         enum class Ts5chrVal {
             cc0=0x00000000,     ///<Select conversion characteristic 0 for time slot 5.
@@ -482,7 +453,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ts5chr)::Type,Ts5chrVal::cc1> cc1{};
             constexpr Register::FieldValue<decltype(ts5chr)::Type,Ts5chrVal::cc2> cc2{};
             constexpr Register::FieldValue<decltype(ts5chr)::Type,Ts5chrVal::cc3> cc3{};
-        }
         }
         ///Time Slot 5 Input Channel. 
         enum class Ts5muxVal {
@@ -554,7 +524,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ts5mux)::Type,Ts5muxVal::adcn30> adcn30{};
             constexpr Register::FieldValue<decltype(ts5mux)::Type,Ts5muxVal::end> end{};
         }
-        }
         ///Time Slot 6 Conversion Characteristic. 
         enum class Ts6chrVal {
             cc0=0x00000000,     ///<Select conversion characteristic 0 for time slot 6.
@@ -568,7 +537,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ts6chr)::Type,Ts6chrVal::cc1> cc1{};
             constexpr Register::FieldValue<decltype(ts6chr)::Type,Ts6chrVal::cc2> cc2{};
             constexpr Register::FieldValue<decltype(ts6chr)::Type,Ts6chrVal::cc3> cc3{};
-        }
         }
         ///Time Slot 6 Input Channel. 
         enum class Ts6muxVal {
@@ -640,7 +608,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ts6mux)::Type,Ts6muxVal::adcn30> adcn30{};
             constexpr Register::FieldValue<decltype(ts6mux)::Type,Ts6muxVal::end> end{};
         }
-        }
         ///Time Slot 7 Conversion Characteristic. 
         enum class Ts7chrVal {
             cc0=0x00000000,     ///<Select conversion characteristic 0 for time slot 7.
@@ -654,7 +621,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ts7chr)::Type,Ts7chrVal::cc1> cc1{};
             constexpr Register::FieldValue<decltype(ts7chr)::Type,Ts7chrVal::cc2> cc2{};
             constexpr Register::FieldValue<decltype(ts7chr)::Type,Ts7chrVal::cc3> cc3{};
-        }
         }
         ///Time Slot 7 Input Channel. 
         enum class Ts7muxVal {
@@ -726,7 +692,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ts7mux)::Type,Ts7muxVal::adcn30> adcn30{};
             constexpr Register::FieldValue<decltype(ts7mux)::Type,Ts7muxVal::end> end{};
         }
-        }
     }
     namespace Nonesq3210{    ///<Channel Sequencer Time Slots 0-3 Setup
         using Addr = Register::Address<0x4001a030,0x80808080,0,unsigned>;
@@ -743,7 +708,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ts0chr)::Type,Ts0chrVal::cc1> cc1{};
             constexpr Register::FieldValue<decltype(ts0chr)::Type,Ts0chrVal::cc2> cc2{};
             constexpr Register::FieldValue<decltype(ts0chr)::Type,Ts0chrVal::cc3> cc3{};
-        }
         }
         ///Time Slot 0 Input Channel. 
         enum class Ts0muxVal {
@@ -815,7 +779,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ts0mux)::Type,Ts0muxVal::adcn30> adcn30{};
             constexpr Register::FieldValue<decltype(ts0mux)::Type,Ts0muxVal::end> end{};
         }
-        }
         ///Time Slot 1 Conversion Characteristic. 
         enum class Ts1chrVal {
             cc0=0x00000000,     ///<Select conversion characteristic 0 for time slot 1.
@@ -829,7 +792,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ts1chr)::Type,Ts1chrVal::cc1> cc1{};
             constexpr Register::FieldValue<decltype(ts1chr)::Type,Ts1chrVal::cc2> cc2{};
             constexpr Register::FieldValue<decltype(ts1chr)::Type,Ts1chrVal::cc3> cc3{};
-        }
         }
         ///Time Slot 1 Input Channel. 
         enum class Ts1muxVal {
@@ -901,7 +863,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ts1mux)::Type,Ts1muxVal::adcn30> adcn30{};
             constexpr Register::FieldValue<decltype(ts1mux)::Type,Ts1muxVal::end> end{};
         }
-        }
         ///Time Slot 2 Conversion Characteristic. 
         enum class Ts2chrVal {
             cc0=0x00000000,     ///<Select conversion characteristic 0 for time slot 2.
@@ -915,7 +876,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ts2chr)::Type,Ts2chrVal::cc1> cc1{};
             constexpr Register::FieldValue<decltype(ts2chr)::Type,Ts2chrVal::cc2> cc2{};
             constexpr Register::FieldValue<decltype(ts2chr)::Type,Ts2chrVal::cc3> cc3{};
-        }
         }
         ///Time Slot 2 Input Channel. 
         enum class Ts2muxVal {
@@ -987,7 +947,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ts2mux)::Type,Ts2muxVal::adcn30> adcn30{};
             constexpr Register::FieldValue<decltype(ts2mux)::Type,Ts2muxVal::end> end{};
         }
-        }
         ///Time Slot 3 Conversion Characteristic. 
         enum class Ts3chrVal {
             cc0=0x00000000,     ///<Select conversion characteristic 0 for time slot 3.
@@ -1001,7 +960,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ts3chr)::Type,Ts3chrVal::cc1> cc1{};
             constexpr Register::FieldValue<decltype(ts3chr)::Type,Ts3chrVal::cc2> cc2{};
             constexpr Register::FieldValue<decltype(ts3chr)::Type,Ts3chrVal::cc3> cc3{};
-        }
         }
         ///Time Slot 3 Input Channel. 
         enum class Ts3muxVal {
@@ -1073,7 +1031,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ts3mux)::Type,Ts3muxVal::adcn30> adcn30{};
             constexpr Register::FieldValue<decltype(ts3mux)::Type,Ts3muxVal::end> end{};
         }
-        }
     }
     namespace Nonechar32{    ///<Conversion Characteristic 2 and 3 Setup
         using Addr = Register::Address<0x4001a040,0xfe00fe00,0,unsigned>;
@@ -1086,7 +1043,6 @@ namespace Kvasir {
         namespace Chr2gnValC{
             constexpr Register::FieldValue<decltype(chr2gn)::Type,Chr2gnVal::unity> unity{};
             constexpr Register::FieldValue<decltype(chr2gn)::Type,Chr2gnVal::half> half{};
-        }
         }
         ///Conversion Characteristic 2 Repeat Counter. 
         enum class Chr2rptVal {
@@ -1106,7 +1062,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chr2rpt)::Type,Chr2rptVal::acc32> acc32{};
             constexpr Register::FieldValue<decltype(chr2rpt)::Type,Chr2rptVal::acc64> acc64{};
         }
-        }
         ///Conversion Characteristic 2 Left-Shift Bits. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> chr2ls{}; 
         ///Conversion Characteristic 2 Resolution Selection. 
@@ -1119,7 +1074,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chr2rsel)::Type,Chr2rselVal::b10> b10{};
             constexpr Register::FieldValue<decltype(chr2rsel)::Type,Chr2rselVal::b12> b12{};
         }
-        }
         ///Conversion Characteristic 2 Window Comparator Interrupt Enable. 
         enum class Chr2wcienVal {
             disabled=0x00000000,     ///<Disable window comparison interrupts.
@@ -1130,7 +1084,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chr2wcien)::Type,Chr2wcienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(chr2wcien)::Type,Chr2wcienVal::enabled> enabled{};
         }
-        }
         ///Conversion Characteristic 3 Gain. 
         enum class Chr3gnVal {
             unity=0x00000000,     ///<The on-chip PGA gain is 1.
@@ -1140,7 +1093,6 @@ namespace Kvasir {
         namespace Chr3gnValC{
             constexpr Register::FieldValue<decltype(chr3gn)::Type,Chr3gnVal::unity> unity{};
             constexpr Register::FieldValue<decltype(chr3gn)::Type,Chr3gnVal::half> half{};
-        }
         }
         ///Conversion Characteristic 3 Repeat Counter. 
         enum class Chr3rptVal {
@@ -1160,7 +1112,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chr3rpt)::Type,Chr3rptVal::acc32> acc32{};
             constexpr Register::FieldValue<decltype(chr3rpt)::Type,Chr3rptVal::acc64> acc64{};
         }
-        }
         ///Conversion Characteristic 3 Left-Shift Bits. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,unsigned> chr3ls{}; 
         ///Conversion Characteristic 3 Resolution Selection. 
@@ -1173,7 +1124,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chr3rsel)::Type,Chr3rselVal::b10> b10{};
             constexpr Register::FieldValue<decltype(chr3rsel)::Type,Chr3rselVal::b12> b12{};
         }
-        }
         ///Conversion Characteristic 3 Window Comparator Interrupt Enable. 
         enum class Chr3wcienVal {
             disabled=0x00000000,     ///<Disable window comparison interrupts.
@@ -1183,7 +1133,6 @@ namespace Kvasir {
         namespace Chr3wcienValC{
             constexpr Register::FieldValue<decltype(chr3wcien)::Type,Chr3wcienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(chr3wcien)::Type,Chr3wcienVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonechar10{    ///<Conversion Characteristic 0 and 1 Setup
@@ -1197,7 +1146,6 @@ namespace Kvasir {
         namespace Chr0gnValC{
             constexpr Register::FieldValue<decltype(chr0gn)::Type,Chr0gnVal::unity> unity{};
             constexpr Register::FieldValue<decltype(chr0gn)::Type,Chr0gnVal::half> half{};
-        }
         }
         ///Conversion Characteristic 0 Repeat Counter. 
         enum class Chr0rptVal {
@@ -1217,7 +1165,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chr0rpt)::Type,Chr0rptVal::acc32> acc32{};
             constexpr Register::FieldValue<decltype(chr0rpt)::Type,Chr0rptVal::acc64> acc64{};
         }
-        }
         ///Conversion Characteristic 0 Left-Shift Bits. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> chr0ls{}; 
         ///Conversion Characteristic 0 Resolution Selection. 
@@ -1230,7 +1177,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chr0rsel)::Type,Chr0rselVal::b10> b10{};
             constexpr Register::FieldValue<decltype(chr0rsel)::Type,Chr0rselVal::b12> b12{};
         }
-        }
         ///Conversion Characteristic 0 Window Comparator Interrupt Enable. 
         enum class Chr0wcienVal {
             disabled=0x00000000,     ///<Disable window comparison interrupts.
@@ -1241,7 +1187,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chr0wcien)::Type,Chr0wcienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(chr0wcien)::Type,Chr0wcienVal::enabled> enabled{};
         }
-        }
         ///Conversion Characteristic 1 Gain. 
         enum class Chr1gnVal {
             unity=0x00000000,     ///<The on-chip PGA gain is 1.
@@ -1251,7 +1196,6 @@ namespace Kvasir {
         namespace Chr1gnValC{
             constexpr Register::FieldValue<decltype(chr1gn)::Type,Chr1gnVal::unity> unity{};
             constexpr Register::FieldValue<decltype(chr1gn)::Type,Chr1gnVal::half> half{};
-        }
         }
         ///Conversion Characteristic 1 Repeat Counter. 
         enum class Chr1rptVal {
@@ -1271,7 +1215,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chr1rpt)::Type,Chr1rptVal::acc32> acc32{};
             constexpr Register::FieldValue<decltype(chr1rpt)::Type,Chr1rptVal::acc64> acc64{};
         }
-        }
         ///Conversion Characteristic 1 Left-Shift Bits. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,unsigned> chr1ls{}; 
         ///Conversion Characteristic 1 Resolution Selection. 
@@ -1284,7 +1227,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chr1rsel)::Type,Chr1rselVal::b10> b10{};
             constexpr Register::FieldValue<decltype(chr1rsel)::Type,Chr1rselVal::b12> b12{};
         }
-        }
         ///Conversion Characteristic 1 Window Comparator Interrupt Enable. 
         enum class Chr1wcienVal {
             disabled=0x00000000,     ///<Disable window comparison interrupts.
@@ -1294,7 +1236,6 @@ namespace Kvasir {
         namespace Chr1wcienValC{
             constexpr Register::FieldValue<decltype(chr1wcien)::Type,Chr1wcienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(chr1wcien)::Type,Chr1wcienVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonedata{    ///<Output Data Word
@@ -1326,7 +1267,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wci)::Type,WciVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(wci)::Type,WciVal::set> set{};
         }
-        }
         ///Single Conversion Complete Interrupt. 
         enum class ScciVal {
             notSet=0x00000000,     ///<Read: A single data conversion interrupt has not occurred. Write: Clear the interrupt.
@@ -1336,7 +1276,6 @@ namespace Kvasir {
         namespace ScciValC{
             constexpr Register::FieldValue<decltype(scci)::Type,ScciVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(scci)::Type,ScciVal::set> set{};
-        }
         }
         ///Scan Done Interrupt. 
         enum class SdiVal {
@@ -1348,7 +1287,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sdi)::Type,SdiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(sdi)::Type,SdiVal::set> set{};
         }
-        }
         ///FIFO Overrun Interrupt. 
         enum class ForiVal {
             notSet=0x00000000,     ///<Read: A data FIFO overrun interrupt has not occurred. Write: Clear the interrupt.
@@ -1359,7 +1297,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fori)::Type,ForiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(fori)::Type,ForiVal::set> set{};
         }
-        }
         ///FIFO Underrun Interrupt. 
         enum class FuriVal {
             notSet=0x00000000,     ///<Read: A data FIFO underrun interrupt has not occurred. Write: Clear the interrupt.
@@ -1369,7 +1306,6 @@ namespace Kvasir {
         namespace FuriValC{
             constexpr Register::FieldValue<decltype(furi)::Type,FuriVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(furi)::Type,FuriVal::set> set{};
-        }
         }
     }
     namespace Nonefifostatus{    ///<FIFO Status
@@ -1386,7 +1322,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpsts)::Type,DpstsVal::lower> lower{};
             constexpr Register::FieldValue<decltype(dpsts)::Type,DpstsVal::upper> upper{};
         }
-        }
         ///Data Ready Flag. 
         enum class DrdyfVal {
             notSet=0x00000000,     ///<New data is not produced yet.
@@ -1396,7 +1331,6 @@ namespace Kvasir {
         namespace DrdyfValC{
             constexpr Register::FieldValue<decltype(drdyf)::Type,DrdyfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(drdyf)::Type,DrdyfVal::set> set{};
-        }
         }
     }
 }

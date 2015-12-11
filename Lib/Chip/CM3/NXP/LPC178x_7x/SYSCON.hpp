@@ -22,7 +22,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flashtim)::Type,FlashtimVal::flashAccessesUse5> flashAccessesUse5{};
             constexpr Register::FieldValue<decltype(flashtim)::Type,FlashtimVal::flashAccessesUse6> flashAccessesUse6{};
         }
-        }
     }
     namespace Nonepll0con{    ///<PLL0 Control register
         using Addr = Register::Address<0x400fc080,0xfffffffe,0,unsigned>;
@@ -180,7 +179,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(emcdiv)::Type,EmcdivVal::theEmcUsesTheSam> theEmcUsesTheSam{};
             constexpr Register::FieldValue<decltype(emcdiv)::Type,EmcdivVal::theEmcUsesAClock> theEmcUsesAClock{};
         }
-        }
     }
     namespace Nonecclksel{    ///<CPU Clock Selection register
         using Addr = Register::Address<0x400fc104,0xfffffee0,0,unsigned>;
@@ -195,7 +193,6 @@ namespace Kvasir {
         namespace CclkselValC{
             constexpr Register::FieldValue<decltype(cclksel)::Type,CclkselVal::sysclkIsUsedAsTh> sysclkIsUsedAsTh{};
             constexpr Register::FieldValue<decltype(cclksel)::Type,CclkselVal::theOutputOfTheMa> theOutputOfTheMa{};
-        }
         }
     }
     namespace Noneusbclksel{    ///<USB Clock Selection register
@@ -214,7 +211,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usbsel)::Type,UsbselVal::theOutputOfTheMa> theOutputOfTheMa{};
             constexpr Register::FieldValue<decltype(usbsel)::Type,UsbselVal::theOutputOfTheAl> theOutputOfTheAl{};
         }
-        }
     }
     namespace Noneclksrcsel{    ///<Clock Source Select Register
         using Addr = Register::Address<0x400fc10c,0xfffffffe,0,unsigned>;
@@ -227,7 +223,6 @@ namespace Kvasir {
         namespace ClksrcValC{
             constexpr Register::FieldValue<decltype(clksrc)::Type,ClksrcVal::selectsTheInternal> selectsTheInternal{};
             constexpr Register::FieldValue<decltype(clksrc)::Type,ClksrcVal::selectsTheMainOsc> selectsTheMainOsc{};
-        }
         }
     }
     namespace Nonecansleepclr{    ///<Allows clearing the current CAN channel sleep state as well as reading that state.
@@ -267,7 +262,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(extmode0)::Type,Extmode0Val::levelSensitive> levelSensitive{};
             constexpr Register::FieldValue<decltype(extmode0)::Type,Extmode0Val::edgeSensitive> edgeSensitive{};
         }
-        }
         ///Level or edge sensitivity select for EINT1.
         enum class Extmode1Val {
             levelSensitive=0x00000000,     ///<Level sensitive.
@@ -277,7 +271,6 @@ namespace Kvasir {
         namespace Extmode1ValC{
             constexpr Register::FieldValue<decltype(extmode1)::Type,Extmode1Val::levelSensitive> levelSensitive{};
             constexpr Register::FieldValue<decltype(extmode1)::Type,Extmode1Val::edgeSensitive> edgeSensitive{};
-        }
         }
         ///Level or edge sensitivity select for EINT2.
         enum class Extmode2Val {
@@ -289,7 +282,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(extmode2)::Type,Extmode2Val::levelSensitive> levelSensitive{};
             constexpr Register::FieldValue<decltype(extmode2)::Type,Extmode2Val::edgeSensitive> edgeSensitive{};
         }
-        }
         ///Level or edge sensitivity select for EINT3.
         enum class Extmode3Val {
             levelSensitive=0x00000000,     ///<Level sensitive.
@@ -299,7 +291,6 @@ namespace Kvasir {
         namespace Extmode3ValC{
             constexpr Register::FieldValue<decltype(extmode3)::Type,Extmode3Val::levelSensitive> levelSensitive{};
             constexpr Register::FieldValue<decltype(extmode3)::Type,Extmode3Val::edgeSensitive> edgeSensitive{};
-        }
         }
     }
     namespace Noneextpolar{    ///<External Interrupt Polarity Register
@@ -314,7 +305,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(extpolar0)::Type,Extpolar0Val::lowActiveOrFallin> lowActiveOrFallin{};
             constexpr Register::FieldValue<decltype(extpolar0)::Type,Extpolar0Val::highActiveOrRisin> highActiveOrRisin{};
         }
-        }
         ///External interrupt polarity for EINT1.
         enum class Extpolar1Val {
             lowActiveOrFallin=0x00000000,     ///<Low-active or falling-edge sensitive (depending on EXTMODE1).
@@ -324,7 +314,6 @@ namespace Kvasir {
         namespace Extpolar1ValC{
             constexpr Register::FieldValue<decltype(extpolar1)::Type,Extpolar1Val::lowActiveOrFallin> lowActiveOrFallin{};
             constexpr Register::FieldValue<decltype(extpolar1)::Type,Extpolar1Val::highActiveOrRisin> highActiveOrRisin{};
-        }
         }
         ///External interrupt polarity for EINT2.
         enum class Extpolar2Val {
@@ -336,7 +325,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(extpolar2)::Type,Extpolar2Val::lowActiveOrFallin> lowActiveOrFallin{};
             constexpr Register::FieldValue<decltype(extpolar2)::Type,Extpolar2Val::highActiveOrRisin> highActiveOrRisin{};
         }
-        }
         ///External interrupt polarity for EINT3.
         enum class Extpolar3Val {
             lowActiveOrFallin=0x00000000,     ///<Low-active or falling-edge sensitive (depending on EXTMODE3).
@@ -346,7 +334,6 @@ namespace Kvasir {
         namespace Extpolar3ValC{
             constexpr Register::FieldValue<decltype(extpolar3)::Type,Extpolar3Val::lowActiveOrFallin> lowActiveOrFallin{};
             constexpr Register::FieldValue<decltype(extpolar3)::Type,Extpolar3Val::highActiveOrRisin> highActiveOrRisin{};
-        }
         }
     }
     namespace Nonersid{    ///<Reset Source Identification Register
@@ -395,7 +382,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(emcsc)::Type,EmcscVal::staticMemoryAddres> staticMemoryAddres{};
             constexpr Register::FieldValue<decltype(emcsc)::Type,EmcscVal::staticMemoryAddres> staticMemoryAddres{};
         }
-        }
         ///EMC Reset Disable[1]. External Memory Controller Reset Disable. Also see Section 10.8 in the EMC chapter.
         enum class EmcrdVal {
             bothEmcResetsAre=0x00000000,     ///<Both EMC resets are asserted when any type of chip reset event occurs. In this mode, all registers and functions of the EMC are initialized upon any reset condition.
@@ -405,7 +391,6 @@ namespace Kvasir {
         namespace EmcrdValC{
             constexpr Register::FieldValue<decltype(emcrd)::Type,EmcrdVal::bothEmcResetsAre> bothEmcResetsAre{};
             constexpr Register::FieldValue<decltype(emcrd)::Type,EmcrdVal::manyPortionsOfThe> manyPortionsOfThe{};
-        }
         }
         ///External Memory Controller burst control. Also see Section 10.10 in the EMC chapter.
         enum class EmcbcVal {
@@ -417,7 +402,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(emcbc)::Type,EmcbcVal::burstEnabled> burstEnabled{};
             constexpr Register::FieldValue<decltype(emcbc)::Type,EmcbcVal::burstDisabledThis> burstDisabledThis{};
         }
-        }
         ///MCIPWR Active Level[1]. Selects the active level of the SD card interface signal SD_PWR.
         enum class McipwralVal {
             sdPwrIsActiveLow=0x00000000,     ///<SD_PWR is active low (inverted output of the SD Card interface block).
@@ -427,7 +411,6 @@ namespace Kvasir {
         namespace McipwralValC{
             constexpr Register::FieldValue<decltype(mcipwral)::Type,McipwralVal::sdPwrIsActiveLow> sdPwrIsActiveLow{};
             constexpr Register::FieldValue<decltype(mcipwral)::Type,McipwralVal::sdPwrIsActiveHig> sdPwrIsActiveHig{};
-        }
         }
         ///Main oscillator range select.
         enum class OscrsVal {
@@ -439,7 +422,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oscrs)::Type,OscrsVal::theFrequencyRange> theFrequencyRange{};
             constexpr Register::FieldValue<decltype(oscrs)::Type,OscrsVal::theFrequencyRange> theFrequencyRange{};
         }
-        }
         ///Main oscillator enable.
         enum class OscenVal {
             theMainOscillator=0x00000000,     ///<The main oscillator is disabled.
@@ -450,7 +432,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oscen)::Type,OscenVal::theMainOscillator> theMainOscillator{};
             constexpr Register::FieldValue<decltype(oscen)::Type,OscenVal::theMainOscillator> theMainOscillator{};
         }
-        }
         ///Main oscillator status.
         enum class OscstatVal {
             theMainOscillator=0x00000000,     ///<The main oscillator is not ready to be used as a clock source.
@@ -460,7 +441,6 @@ namespace Kvasir {
         namespace OscstatValC{
             constexpr Register::FieldValue<decltype(oscstat)::Type,OscstatVal::theMainOscillator> theMainOscillator{};
             constexpr Register::FieldValue<decltype(oscstat)::Type,OscstatVal::theMainOscillator> theMainOscillator{};
-        }
         }
     }
     namespace Nonepclksel{    ///<Peripheral Clock Selection register
@@ -488,7 +468,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(spifisel)::Type,SpifiselVal::sysclkIsUsedAsTh> sysclkIsUsedAsTh{};
             constexpr Register::FieldValue<decltype(spifisel)::Type,SpifiselVal::theOutputOfTheMa> theOutputOfTheMa{};
             constexpr Register::FieldValue<decltype(spifisel)::Type,SpifiselVal::theOutputOfTheAl> theOutputOfTheAl{};
-        }
         }
     }
     namespace NonelcdCfg{    ///<LCD Clock configuration register

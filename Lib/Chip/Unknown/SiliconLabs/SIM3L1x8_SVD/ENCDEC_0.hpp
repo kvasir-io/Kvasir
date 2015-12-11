@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inrdyien)::Type,InrdyienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(inrdyien)::Type,InrdyienVal::enabled> enabled{};
         }
-        }
         ///Output Ready Interrupt Enable. 
         enum class OrdyienVal {
             disabled=0x00000000,     ///<Disable the output ready interrupt.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace OrdyienValC{
             constexpr Register::FieldValue<decltype(ordyien)::Type,OrdyienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ordyien)::Type,OrdyienVal::enabled> enabled{};
-        }
         }
         ///Error Interrupt Enable. 
         enum class ErrienVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(errien)::Type,ErrienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(errien)::Type,ErrienVal::enabled> enabled{};
         }
-        }
         ///Module Reset. 
         enum class ResetVal {
             active=0x00000001,     ///<Reset the module.
@@ -44,7 +41,6 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ResetVal> reset{}; 
         namespace ResetValC{
             constexpr Register::FieldValue<decltype(reset)::Type,ResetVal::active> active{};
-        }
         }
         ///Manchester Output Size. 
         enum class MosizeVal {
@@ -56,7 +52,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mosize)::Type,MosizeVal::small> small{};
             constexpr Register::FieldValue<decltype(mosize)::Type,MosizeVal::large> large{};
         }
-        }
         ///Encode Decode Mode. 
         enum class EdmdVal {
             decode=0x00000000,     ///<Decode data written to DATAIN.
@@ -66,7 +61,6 @@ namespace Kvasir {
         namespace EdmdValC{
             constexpr Register::FieldValue<decltype(edmd)::Type,EdmdVal::decode> decode{};
             constexpr Register::FieldValue<decltype(edmd)::Type,EdmdVal::encode> encode{};
-        }
         }
         ///Operation Mode. 
         enum class OpmdVal {
@@ -78,7 +72,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(opmd)::Type,OpmdVal::manchester> manchester{};
             constexpr Register::FieldValue<decltype(opmd)::Type,OpmdVal::v3outof6> v3outof6{};
         }
-        }
         ///Bypass Encoder/Decoder Operation Enable. 
         enum class BenVal {
             disabled=0x00000000,     ///<Do not bypass ENCDEC operations.
@@ -88,7 +81,6 @@ namespace Kvasir {
         namespace BenValC{
             constexpr Register::FieldValue<decltype(ben)::Type,BenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ben)::Type,BenVal::enabled> enabled{};
-        }
         }
         ///DMA Mode Enable. 
         enum class DmaenVal {
@@ -100,7 +92,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::enabled> enabled{};
         }
-        }
         ///Debug Mode. 
         enum class DbgmdVal {
             run=0x00000000,     ///<The AES module will continue to operate while the core is halted in debug mode.
@@ -110,7 +101,6 @@ namespace Kvasir {
         namespace DbgmdValC{
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::run> run{};
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::halt> halt{};
-        }
         }
         ///Output Order Mode. 
         enum class OorderVal {
@@ -126,7 +116,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oorder)::Type,OorderVal::word> word{};
             constexpr Register::FieldValue<decltype(oorder)::Type,OorderVal::lowerThreeBytes> lowerThreeBytes{};
         }
-        }
         ///Input Order Mode. 
         enum class IorderVal {
             noChange=0x00000000,     ///<Data written to DATAIN is processed in the order written (input: B3 B2 B1 B0, output: B3 B2 B1 B0).
@@ -141,7 +130,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iorder)::Type,IorderVal::word> word{};
             constexpr Register::FieldValue<decltype(iorder)::Type,IorderVal::lowerThreeBytes> lowerThreeBytes{};
         }
-        }
     }
     namespace Nonestatus{    ///<Module Status
         using Addr = Register::Address<0x4004f010,0xffffffe0,0,unsigned>;
@@ -155,7 +143,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inrdyi)::Type,InrdyiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(inrdyi)::Type,InrdyiVal::set> set{};
         }
-        }
         ///Output Ready Interrupt Flag. 
         enum class OrdyiVal {
             notSet=0x00000000,     ///<The output data is not ready.
@@ -165,7 +152,6 @@ namespace Kvasir {
         namespace OrdyiValC{
             constexpr Register::FieldValue<decltype(ordyi)::Type,OrdyiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(ordyi)::Type,OrdyiVal::set> set{};
-        }
         }
         ///Data Error Interrupt Flag. 
         enum class DerriVal {
@@ -177,7 +163,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(derri)::Type,DerriVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(derri)::Type,DerriVal::set> set{};
         }
-        }
         ///Data Underrun Interrupt Flag. 
         enum class DuriVal {
             notSet=0x00000000,     ///<No output data FIFO underrun.
@@ -188,7 +173,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(duri)::Type,DuriVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(duri)::Type,DuriVal::set> set{};
         }
-        }
         ///Data Overrun Interrupt Flag. 
         enum class DoriVal {
             notSet=0x00000000,     ///<No input data FIFO overrun.
@@ -198,7 +182,6 @@ namespace Kvasir {
         namespace DoriValC{
             constexpr Register::FieldValue<decltype(dori)::Type,DoriVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(dori)::Type,DoriVal::set> set{};
-        }
         }
     }
     namespace Nonedatain{    ///<Data Input

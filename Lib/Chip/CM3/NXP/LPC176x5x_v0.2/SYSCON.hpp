@@ -22,7 +22,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flashtim)::Type,FlashtimVal::v5clk> v5clk{};
             constexpr Register::FieldValue<decltype(flashtim)::Type,FlashtimVal::v6clk> v6clk{};
         }
-        }
     }
     namespace Nonepll0con{    ///<PLL0 Control Register
         using Addr = Register::Address<0x400fc080,0xfffffffc,0,unsigned>;
@@ -190,7 +189,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clksrc)::Type,ClksrcVal::selectsTheMainOsc> selectsTheMainOsc{};
             constexpr Register::FieldValue<decltype(clksrc)::Type,ClksrcVal::selectsTheRtcOsci> selectsTheRtcOsci{};
         }
-        }
     }
     namespace Nonecansleepclr{    ///<Allows clearing the current CAN channel sleep state as well as reading that state.
         using Addr = Register::Address<0x400fc110,0xfffffff9,0,unsigned>;
@@ -229,7 +227,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(extmode0)::Type,Extmode0Val::levelSensitive> levelSensitive{};
             constexpr Register::FieldValue<decltype(extmode0)::Type,Extmode0Val::edgeSensitive> edgeSensitive{};
         }
-        }
         ///External interrupt 1 EINT1 mode.
         enum class Extmode1Val {
             levelSensitive=0x00000000,     ///<Level-sensitive. Level-sensitivity is selected for EINT1.
@@ -239,7 +236,6 @@ namespace Kvasir {
         namespace Extmode1ValC{
             constexpr Register::FieldValue<decltype(extmode1)::Type,Extmode1Val::levelSensitive> levelSensitive{};
             constexpr Register::FieldValue<decltype(extmode1)::Type,Extmode1Val::edgeSensitive> edgeSensitive{};
-        }
         }
         ///External interrupt 2 EINT2 mode.
         enum class Extmode2Val {
@@ -251,7 +247,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(extmode2)::Type,Extmode2Val::levelSensitive> levelSensitive{};
             constexpr Register::FieldValue<decltype(extmode2)::Type,Extmode2Val::edgeSensitive> edgeSensitive{};
         }
-        }
         ///External interrupt 3 EINT3 mode.
         enum class Extmode3Val {
             levelSensitive=0x00000000,     ///<Level-sensitive. Level-sensitivity is selected for EINT3.
@@ -261,7 +256,6 @@ namespace Kvasir {
         namespace Extmode3ValC{
             constexpr Register::FieldValue<decltype(extmode3)::Type,Extmode3Val::levelSensitive> levelSensitive{};
             constexpr Register::FieldValue<decltype(extmode3)::Type,Extmode3Val::edgeSensitive> edgeSensitive{};
-        }
         }
     }
     namespace Noneextpolar{    ///<External Interrupt Polarity Register
@@ -276,7 +270,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(extpolar0)::Type,Extpolar0Val::fallingEdge> fallingEdge{};
             constexpr Register::FieldValue<decltype(extpolar0)::Type,Extpolar0Val::risingEdge> risingEdge{};
         }
-        }
         ///External interrupt 1 EINT1 polarity.
         enum class Extpolar1Val {
             fallingEdge=0x00000000,     ///<Falling edge. EINT1 is low-active or falling-edge sensitive (depending on EXTMODE1).
@@ -286,7 +279,6 @@ namespace Kvasir {
         namespace Extpolar1ValC{
             constexpr Register::FieldValue<decltype(extpolar1)::Type,Extpolar1Val::fallingEdge> fallingEdge{};
             constexpr Register::FieldValue<decltype(extpolar1)::Type,Extpolar1Val::risingEdge> risingEdge{};
-        }
         }
         ///External interrupt 2 EINT2 polarity.
         enum class Extpolar2Val {
@@ -298,7 +290,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(extpolar2)::Type,Extpolar2Val::fallingEdge> fallingEdge{};
             constexpr Register::FieldValue<decltype(extpolar2)::Type,Extpolar2Val::risingEdge> risingEdge{};
         }
-        }
         ///External interrupt 3 EINT3 polarity.
         enum class Extpolar3Val {
             fallingEdge=0x00000000,     ///<Falling edge. EINT3 is low-active or falling-edge sensitive (depending on EXTMODE3).
@@ -308,7 +299,6 @@ namespace Kvasir {
         namespace Extpolar3ValC{
             constexpr Register::FieldValue<decltype(extpolar3)::Type,Extpolar3Val::fallingEdge> fallingEdge{};
             constexpr Register::FieldValue<decltype(extpolar3)::Type,Extpolar3Val::risingEdge> risingEdge{};
-        }
         }
     }
     namespace Nonersid{    ///<Reset Source Identification Register
@@ -334,7 +324,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oscrange)::Type,OscrangeVal::low> low{};
             constexpr Register::FieldValue<decltype(oscrange)::Type,OscrangeVal::high> high{};
         }
-        }
         ///Main oscillator enable.
         enum class OscenVal {
             disabled=0x00000000,     ///<Disabled. The main oscillator is disabled.
@@ -345,7 +334,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oscen)::Type,OscenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(oscen)::Type,OscenVal::enabled> enabled{};
         }
-        }
         ///Main oscillator status.
         enum class OscstatVal {
             notReady=0x00000000,     ///<Not ready. The main oscillator is not ready to be used as a clock source.
@@ -355,7 +343,6 @@ namespace Kvasir {
         namespace OscstatValC{
             constexpr Register::FieldValue<decltype(oscstat)::Type,OscstatVal::notReady> notReady{};
             constexpr Register::FieldValue<decltype(oscstat)::Type,OscstatVal::ready> ready{};
-        }
         }
     }
     namespace Nonepclksel0{    ///<Peripheral Clock Selection register 0.
@@ -374,7 +361,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkWdt)::Type,PclkwdtVal::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkWdt)::Type,PclkwdtVal::cclkDiv8> cclkDiv8{};
         }
-        }
         ///Peripheral clock selection for TIMER0.
         enum class Pclktimer0Val {
             cclkDiv4=0x00000000,     ///<CCLK div 4. PCLK_peripheral = CCLK/4
@@ -388,7 +374,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkTimer0)::Type,Pclktimer0Val::cclk> cclk{};
             constexpr Register::FieldValue<decltype(pclkTimer0)::Type,Pclktimer0Val::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkTimer0)::Type,Pclktimer0Val::cclkDiv8> cclkDiv8{};
-        }
         }
         ///Peripheral clock selection for TIMER1.
         enum class Pclktimer1Val {
@@ -404,7 +389,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkTimer1)::Type,Pclktimer1Val::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkTimer1)::Type,Pclktimer1Val::cclkDiv8> cclkDiv8{};
         }
-        }
         ///Peripheral clock selection for UART0.
         enum class Pclkuart0Val {
             cclkDiv4=0x00000000,     ///<CCLK div 4. PCLK_peripheral = CCLK/4
@@ -418,7 +402,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkUart0)::Type,Pclkuart0Val::cclk> cclk{};
             constexpr Register::FieldValue<decltype(pclkUart0)::Type,Pclkuart0Val::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkUart0)::Type,Pclkuart0Val::cclkDiv8> cclkDiv8{};
-        }
         }
         ///Peripheral clock selection for UART1.
         enum class Pclkuart1Val {
@@ -434,7 +417,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkUart1)::Type,Pclkuart1Val::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkUart1)::Type,Pclkuart1Val::cclkDiv8> cclkDiv8{};
         }
-        }
         ///Peripheral clock selection for PWM1.
         enum class Pclkpwm1Val {
             cclkDiv4=0x00000000,     ///<CCLK div 4. PCLK_peripheral = CCLK/4
@@ -448,7 +430,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkPwm1)::Type,Pclkpwm1Val::cclk> cclk{};
             constexpr Register::FieldValue<decltype(pclkPwm1)::Type,Pclkpwm1Val::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkPwm1)::Type,Pclkpwm1Val::cclkDiv8> cclkDiv8{};
-        }
         }
         ///Peripheral clock selection for I2C0.
         enum class Pclki2c0Val {
@@ -464,7 +445,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkI2c0)::Type,Pclki2c0Val::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkI2c0)::Type,Pclki2c0Val::cclkDiv8> cclkDiv8{};
         }
-        }
         ///Peripheral clock selection for SPI.
         enum class PclkspiVal {
             cclkDiv4=0x00000000,     ///<CCLK div 4. PCLK_peripheral = CCLK/4
@@ -478,7 +458,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkSpi)::Type,PclkspiVal::cclk> cclk{};
             constexpr Register::FieldValue<decltype(pclkSpi)::Type,PclkspiVal::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkSpi)::Type,PclkspiVal::cclkDiv8> cclkDiv8{};
-        }
         }
         ///Peripheral clock selection for SSP1.
         enum class Pclkssp1Val {
@@ -494,7 +473,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkSsp1)::Type,Pclkssp1Val::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkSsp1)::Type,Pclkssp1Val::cclkDiv8> cclkDiv8{};
         }
-        }
         ///Peripheral clock selection for DAC.
         enum class PclkdacVal {
             cclkDiv4=0x00000000,     ///<CCLK div 4. PCLK_peripheral = CCLK/4
@@ -508,7 +486,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkDac)::Type,PclkdacVal::cclk> cclk{};
             constexpr Register::FieldValue<decltype(pclkDac)::Type,PclkdacVal::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkDac)::Type,PclkdacVal::cclkDiv8> cclkDiv8{};
-        }
         }
         ///Peripheral clock selection for ADC.
         enum class PclkadcVal {
@@ -524,7 +501,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkAdc)::Type,PclkadcVal::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkAdc)::Type,PclkadcVal::cclkDiv8> cclkDiv8{};
         }
-        }
         ///Peripheral clock selection for CAN1.PCLK_CAN1 and PCLK_CAN2 must have the same PCLK divide value when the CAN function is used.
         enum class Pclkcan1Val {
             cclkDiv4=0x00000000,     ///<CCLK div 4. PCLK_peripheral = CCLK/4
@@ -538,7 +514,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkCan1)::Type,Pclkcan1Val::cclk> cclk{};
             constexpr Register::FieldValue<decltype(pclkCan1)::Type,Pclkcan1Val::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkCan1)::Type,Pclkcan1Val::cclkDiv6> cclkDiv6{};
-        }
         }
         ///Peripheral clock selection for CAN2.PCLK_CAN1 and PCLK_CAN2 must have the same PCLK divide value when the CAN function is used.
         enum class Pclkcan2Val {
@@ -554,7 +529,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkCan2)::Type,Pclkcan2Val::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkCan2)::Type,Pclkcan2Val::cclkDiv6> cclkDiv6{};
         }
-        }
         ///Peripheral clock selection for CAN acceptance filtering.PCLK_CAN1 and PCLK_CAN2 must have the same PCLK divide value when the CAN function is used.
         enum class PclkacfVal {
             cclkDiv4=0x00000000,     ///<CCLK div 4. PCLK_peripheral = CCLK/4
@@ -568,7 +542,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkAcf)::Type,PclkacfVal::cclk> cclk{};
             constexpr Register::FieldValue<decltype(pclkAcf)::Type,PclkacfVal::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkAcf)::Type,PclkacfVal::cclkDiv6> cclkDiv6{};
-        }
         }
     }
     namespace Nonepclksel1{    ///<Peripheral Clock Selection register 1.
@@ -587,7 +560,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkQei)::Type,PclkqeiVal::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkQei)::Type,PclkqeiVal::cclkDiv8> cclkDiv8{};
         }
-        }
         ///Peripheral clock selection for GPIO interrupts.
         enum class PclkgpiointVal {
             cclkDiv4=0x00000000,     ///<CCLK div 4. PCLK_peripheral = CCLK/4
@@ -601,7 +573,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkGpioint)::Type,PclkgpiointVal::cclk> cclk{};
             constexpr Register::FieldValue<decltype(pclkGpioint)::Type,PclkgpiointVal::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkGpioint)::Type,PclkgpiointVal::cclkDiv8> cclkDiv8{};
-        }
         }
         ///Peripheral clock selection for the Pin Connect block.
         enum class PclkpcbVal {
@@ -617,7 +588,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkPcb)::Type,PclkpcbVal::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkPcb)::Type,PclkpcbVal::cclkDiv8> cclkDiv8{};
         }
-        }
         ///Peripheral clock selection for I2C1.
         enum class Pclki2c1Val {
             cclkDiv4=0x00000000,     ///<CCLK div 4. PCLK_peripheral = CCLK/4
@@ -631,7 +601,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkI2c1)::Type,Pclki2c1Val::cclk> cclk{};
             constexpr Register::FieldValue<decltype(pclkI2c1)::Type,Pclki2c1Val::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkI2c1)::Type,Pclki2c1Val::cclkDiv8> cclkDiv8{};
-        }
         }
         ///Peripheral clock selection for SSP0.
         enum class Pclkssp0Val {
@@ -647,7 +616,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkSsp0)::Type,Pclkssp0Val::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkSsp0)::Type,Pclkssp0Val::cclkDiv8> cclkDiv8{};
         }
-        }
         ///Peripheral clock selection for TIMER2.
         enum class Pclktimer2Val {
             cclkDiv4=0x00000000,     ///<CCLK div 4. PCLK_peripheral = CCLK/4
@@ -661,7 +629,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkTimer2)::Type,Pclktimer2Val::cclk> cclk{};
             constexpr Register::FieldValue<decltype(pclkTimer2)::Type,Pclktimer2Val::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkTimer2)::Type,Pclktimer2Val::cclkDiv8> cclkDiv8{};
-        }
         }
         ///Peripheral clock selection for TIMER3.
         enum class Pclktimer3Val {
@@ -677,7 +644,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkTimer3)::Type,Pclktimer3Val::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkTimer3)::Type,Pclktimer3Val::cclkDiv8> cclkDiv8{};
         }
-        }
         ///Peripheral clock selection for UART2.
         enum class Pclkuart2Val {
             cclkDiv4=0x00000000,     ///<CCLK div 4. PCLK_peripheral = CCLK/4
@@ -691,7 +657,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkUart2)::Type,Pclkuart2Val::cclk> cclk{};
             constexpr Register::FieldValue<decltype(pclkUart2)::Type,Pclkuart2Val::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkUart2)::Type,Pclkuart2Val::cclkDiv8> cclkDiv8{};
-        }
         }
         ///Peripheral clock selection for UART3.
         enum class Pclkuart3Val {
@@ -707,7 +672,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkUart3)::Type,Pclkuart3Val::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkUart3)::Type,Pclkuart3Val::cclkDiv8> cclkDiv8{};
         }
-        }
         ///Peripheral clock selection for I2C2.
         enum class Pclki2c2Val {
             cclkDiv4=0x00000000,     ///<CCLK div 4. PCLK_peripheral = CCLK/4
@@ -721,7 +685,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkI2c2)::Type,Pclki2c2Val::cclk> cclk{};
             constexpr Register::FieldValue<decltype(pclkI2c2)::Type,Pclki2c2Val::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkI2c2)::Type,Pclki2c2Val::cclkDiv8> cclkDiv8{};
-        }
         }
         ///Peripheral clock selection for I2S.
         enum class Pclki2sVal {
@@ -737,7 +700,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkI2s)::Type,Pclki2sVal::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkI2s)::Type,Pclki2sVal::cclkDiv8> cclkDiv8{};
         }
-        }
         ///Peripheral clock selection for Repetitive Interrupt Timer.
         enum class PclkritVal {
             cclkDiv4=0x00000000,     ///<CCLK div 4. PCLK_peripheral = CCLK/4
@@ -751,7 +713,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkRit)::Type,PclkritVal::cclk> cclk{};
             constexpr Register::FieldValue<decltype(pclkRit)::Type,PclkritVal::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkRit)::Type,PclkritVal::cclkDiv8> cclkDiv8{};
-        }
         }
         ///Peripheral clock selection for the System Control block.
         enum class PclksysconVal {
@@ -767,7 +728,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkSyscon)::Type,PclksysconVal::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkSyscon)::Type,PclksysconVal::cclkDiv8> cclkDiv8{};
         }
-        }
         ///Peripheral clock selection for the Motor Control PWM.
         enum class PclkmcVal {
             cclkDiv4=0x00000000,     ///<CCLK div 4. PCLK_peripheral = CCLK/4
@@ -781,7 +741,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pclkMc)::Type,PclkmcVal::cclk> cclk{};
             constexpr Register::FieldValue<decltype(pclkMc)::Type,PclkmcVal::cclkDiv2> cclkDiv2{};
             constexpr Register::FieldValue<decltype(pclkMc)::Type,PclkmcVal::cclkDiv8> cclkDiv8{};
-        }
         }
     }
     namespace Noneusbintst{    ///<USB Interrupt Status
@@ -841,7 +800,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkoutsel)::Type,ClkoutselVal::selectsTheInternal> selectsTheInternal{};
             constexpr Register::FieldValue<decltype(clkoutsel)::Type,ClkoutselVal::selectsTheUsbCloc> selectsTheUsbCloc{};
             constexpr Register::FieldValue<decltype(clkoutsel)::Type,ClkoutselVal::selectsTheRtcOsci> selectsTheRtcOsci{};
-        }
         }
         ///Integer value to divide the output clock by, minus one. 0 = Clock is divided by 1 1 = Clock is divided by 2. 2 = Clock is divided by 3. ... 15 = Clock is divided by 16.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> clkoutdiv{}; 

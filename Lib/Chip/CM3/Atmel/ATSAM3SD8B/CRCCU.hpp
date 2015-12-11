@@ -65,7 +65,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::castagnoli> castagnoli{};
             constexpr Register::FieldValue<decltype(ptype)::Type,PtypeVal::ccitt16> ccitt16{};
         }
-        }
         ///Request Divider
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> divider{}; 
     }

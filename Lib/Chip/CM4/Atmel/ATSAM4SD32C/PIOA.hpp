@@ -3052,7 +3052,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dsize)::Type,DsizeVal::halfword> halfword{};
             constexpr Register::FieldValue<decltype(dsize)::Type,DsizeVal::word> word{};
         }
-        }
         ///Parallel Capture Mode Always Sampling
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> alwys{}; 
         ///Parallel Capture Mode Half Sampling

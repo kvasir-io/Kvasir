@@ -18,7 +18,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(m0ap)::Type,M0apVal::v10> v10{};
             constexpr Register::FieldValue<decltype(m0ap)::Type,M0apVal::v11> v11{};
         }
-        }
         ///Master 1 Access Protection
         enum class M1apVal {
             v00=0x00000000,     ///<No access may be performed by this master
@@ -32,7 +31,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(m1ap)::Type,M1apVal::v01> v01{};
             constexpr Register::FieldValue<decltype(m1ap)::Type,M1apVal::v10> v10{};
             constexpr Register::FieldValue<decltype(m1ap)::Type,M1apVal::v11> v11{};
-        }
         }
         ///Master 2 Access Protection
         enum class M2apVal {
@@ -48,7 +46,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(m2ap)::Type,M2apVal::v10> v10{};
             constexpr Register::FieldValue<decltype(m2ap)::Type,M2apVal::v11> v11{};
         }
-        }
         ///Master 3 Access Protection
         enum class M3apVal {
             v00=0x00000000,     ///<No access may be performed by this master
@@ -63,7 +60,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(m3ap)::Type,M3apVal::v10> v10{};
             constexpr Register::FieldValue<decltype(m3ap)::Type,M3apVal::v11> v11{};
         }
-        }
         ///Master 0 Prefetch Disable
         enum class M0pfdVal {
             v0=0x00000000,     ///<Prefetching for this master is enabled.
@@ -73,7 +69,6 @@ namespace Kvasir {
         namespace M0pfdValC{
             constexpr Register::FieldValue<decltype(m0pfd)::Type,M0pfdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(m0pfd)::Type,M0pfdVal::v1> v1{};
-        }
         }
         ///Master 1 Prefetch Disable
         enum class M1pfdVal {
@@ -85,7 +80,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(m1pfd)::Type,M1pfdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(m1pfd)::Type,M1pfdVal::v1> v1{};
         }
-        }
         ///Master 2 Prefetch Disable
         enum class M2pfdVal {
             v0=0x00000000,     ///<Prefetching for this master is enabled.
@@ -96,7 +90,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(m2pfd)::Type,M2pfdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(m2pfd)::Type,M2pfdVal::v1> v1{};
         }
-        }
         ///Master 3 Prefetch Disable
         enum class M3pfdVal {
             v0=0x00000000,     ///<Prefetching for this master is enabled.
@@ -106,7 +99,6 @@ namespace Kvasir {
         namespace M3pfdValC{
             constexpr Register::FieldValue<decltype(m3pfd)::Type,M3pfdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(m3pfd)::Type,M3pfdVal::v1> v1{};
-        }
         }
     }
     namespace FmcPfb0cr{    ///<Flash Bank 0 Control Register
@@ -121,7 +113,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(b0sebe)::Type,B0sebeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(b0sebe)::Type,B0sebeVal::v1> v1{};
         }
-        }
         ///Bank 0 Instruction Prefetch Enable
         enum class B0ipeVal {
             v0=0x00000000,     ///<Do not prefetch in response to instruction fetches.
@@ -131,7 +122,6 @@ namespace Kvasir {
         namespace B0ipeValC{
             constexpr Register::FieldValue<decltype(b0ipe)::Type,B0ipeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(b0ipe)::Type,B0ipeVal::v1> v1{};
-        }
         }
         ///Bank 0 Data Prefetch Enable
         enum class B0dpeVal {
@@ -143,7 +133,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(b0dpe)::Type,B0dpeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(b0dpe)::Type,B0dpeVal::v1> v1{};
         }
-        }
         ///Bank 0 Instruction Cache Enable
         enum class B0iceVal {
             v0=0x00000000,     ///<Do not cache instruction fetches.
@@ -154,7 +143,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(b0ice)::Type,B0iceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(b0ice)::Type,B0iceVal::v1> v1{};
         }
-        }
         ///Bank 0 Data Cache Enable
         enum class B0dceVal {
             v0=0x00000000,     ///<Do not cache data references.
@@ -164,7 +152,6 @@ namespace Kvasir {
         namespace B0dceValC{
             constexpr Register::FieldValue<decltype(b0dce)::Type,B0dceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(b0dce)::Type,B0dceVal::v1> v1{};
-        }
         }
         ///Cache Replacement Control
         enum class CrcVal {
@@ -182,7 +169,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(crc)::Type,CrcVal::v011> v011{};
             constexpr Register::FieldValue<decltype(crc)::Type,CrcVal::v1xx> v1xx{};
         }
-        }
         ///Bank 0 Memory Width
         enum class B0mwVal {
             v00=0x00000000,     ///<32 bits
@@ -195,7 +181,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(b0mw)::Type,B0mwVal::v01> v01{};
             constexpr Register::FieldValue<decltype(b0mw)::Type,B0mwVal::v1x> v1x{};
         }
-        }
         ///Invalidate Prefetch Speculation Buffer
         enum class SbinvVal {
             v0=0x00000000,     ///<Speculation buffer and single entry buffer are not affected.
@@ -205,7 +190,6 @@ namespace Kvasir {
         namespace SbinvValC{
             constexpr Register::FieldValue<decltype(sBInv)::Type,SbinvVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sBInv)::Type,SbinvVal::v1> v1{};
-        }
         }
         ///Cache Invalidate Way x
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> cinvWay{}; 
@@ -229,7 +213,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(b1mw)::Type,B1mwVal::v01> v01{};
             constexpr Register::FieldValue<decltype(b1mw)::Type,B1mwVal::v10> v10{};
             constexpr Register::FieldValue<decltype(b1mw)::Type,B1mwVal::v11> v11{};
-        }
         }
         ///Bank 1 Read Wait State Control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> b1rwsc{}; 

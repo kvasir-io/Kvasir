@@ -21,7 +21,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyStart)::Type,BusystartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(busyStart)::Type,BusystartVal::v1> v1{};
         }
-        }
         ///Internal buffer number used for this command
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,1),Register::ReadWriteAccess,unsigned> bufno{}; 
         ///User-defined flash operation sequencer
@@ -54,7 +53,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rb0)::Type,Rb0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(rb0)::Type,Rb0Val::v1> v1{};
         }
-        }
         ///Ready/busy 1 enable
         enum class Rb1Val {
             v0=0x00000000,     ///<NFC_R/ B 1 is disabled
@@ -64,7 +62,6 @@ namespace Kvasir {
         namespace Rb1ValC{
             constexpr Register::FieldValue<decltype(rb1)::Type,Rb1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(rb1)::Type,Rb1Val::v1> v1{};
-        }
         }
         ///Chip select 0 enable
         enum class Cs0Val {
@@ -76,7 +73,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cs0)::Type,Cs0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(cs0)::Type,Cs0Val::v1> v1{};
         }
-        }
         ///Chip select 1 enable
         enum class Cs1Val {
             v0=0x00000000,     ///<NFC_CE1 is disabled
@@ -86,7 +82,6 @@ namespace Kvasir {
         namespace Cs1ValC{
             constexpr Register::FieldValue<decltype(cs1)::Type,Cs1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(cs1)::Type,Cs1Val::v1> v1{};
-        }
         }
     }
     namespace NfcRpt{    ///<Flash command repeat
@@ -138,7 +133,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(act2)::Type,Act2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(act2)::Type,Act2Val::v1> v1{};
         }
-        }
         ///DMA channel 1 status
         enum class Act1Val {
             v0=0x00000000,     ///<Inactive
@@ -148,7 +142,6 @@ namespace Kvasir {
         namespace Act1ValC{
             constexpr Register::FieldValue<decltype(act1)::Type,Act1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(act1)::Type,Act1Val::v1> v1{};
-        }
         }
         ///256-byte offset for DMA channel 2. DMA channel 2 transfer starts at this offset count x 256 bytes. For example, if OFFSET2 = 0x2, DMA channel 2 transfer starts at 0x200.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,9),Register::ReadWriteAccess,unsigned> offset2{}; 
@@ -183,7 +176,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aibn)::Type,AibnVal::v0> v0{};
             constexpr Register::FieldValue<decltype(aibn)::Type,AibnVal::v1> v1{};
         }
-        }
         ///no description available
         enum class AiadVal {
             v0=0x00000000,     ///<Do not auto-increment flash row address
@@ -194,7 +186,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aiad)::Type,AiadVal::v0> v0{};
             constexpr Register::FieldValue<decltype(aiad)::Type,AiadVal::v1> v1{};
         }
-        }
         ///no description available
         enum class BitwidthVal {
             v0=0x00000000,     ///<8-bit wide flash mode
@@ -204,7 +195,6 @@ namespace Kvasir {
         namespace BitwidthValC{
             constexpr Register::FieldValue<decltype(bitwidth)::Type,BitwidthVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bitwidth)::Type,BitwidthVal::v1> v1{};
-        }
         }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> timeout{}; 
@@ -219,7 +209,6 @@ namespace Kvasir {
         namespace FastValC{
             constexpr Register::FieldValue<decltype(fast)::Type,FastVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fast)::Type,FastVal::v1> v1{};
-        }
         }
         ///no description available
         enum class EccmodeVal {
@@ -243,7 +232,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eccmode)::Type,EccmodeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(eccmode)::Type,EccmodeVal::v111> v111{};
         }
-        }
         ///no description available
         enum class DmareqVal {
             v0=0x00000000,     ///<Do not transfer sector after ECC done
@@ -254,7 +242,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmareq)::Type,DmareqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmareq)::Type,DmareqVal::v1> v1{};
         }
-        }
         ///no description available
         enum class EccsramVal {
             v0=0x00000000,     ///<Do not write ECC status to SRAM
@@ -264,7 +251,6 @@ namespace Kvasir {
         namespace EccsramValC{
             constexpr Register::FieldValue<decltype(eccsram)::Type,EccsramVal::v0> v0{};
             constexpr Register::FieldValue<decltype(eccsram)::Type,EccsramVal::v1> v1{};
-        }
         }
         ///Byte address in SRAM where ECC status is written.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,22),Register::ReadWriteAccess,unsigned> eccad{}; 
@@ -277,7 +263,6 @@ namespace Kvasir {
         namespace StopwerrValC{
             constexpr Register::FieldValue<decltype(stopwerr)::Type,StopwerrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(stopwerr)::Type,StopwerrVal::v1> v1{};
-        }
         }
     }
     namespace NfcDma2{    ///<DMA channel 2 address

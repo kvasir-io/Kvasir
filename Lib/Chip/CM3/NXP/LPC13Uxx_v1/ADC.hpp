@@ -18,7 +18,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::softwareControlled> softwareControlled{};
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::hardwareScanMode> hardwareScanMode{};
         }
-        }
         ///Low-power mode
         enum class LpwrmodeVal {
             disableTheLowPowe=0x00000000,     ///<Disable the low-power ADC mode. The analog circuitry remains activated when no conversions are requested.
@@ -29,7 +28,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lpwrmode)::Type,LpwrmodeVal::disableTheLowPowe> disableTheLowPowe{};
             constexpr Register::FieldValue<decltype(lpwrmode)::Type,LpwrmodeVal::enableTheLowPower> enableTheLowPower{};
         }
-        }
         ///10-bit conversion rate mode
         enum class Mode10bitVal {
             disableThe10BitC=0x00000000,     ///<Disable the 10-bit conversion rate mode.
@@ -39,7 +37,6 @@ namespace Kvasir {
         namespace Mode10bitValC{
             constexpr Register::FieldValue<decltype(mode10bit)::Type,Mode10bitVal::disableThe10BitC> disableThe10BitC{};
             constexpr Register::FieldValue<decltype(mode10bit)::Type,Mode10bitVal::enableThe10BitCo> enableThe10BitCo{};
-        }
         }
         ///When the BURST bit is 0, these bits control whether and when an A/D conversion is started:
         enum class StartVal {
@@ -63,7 +60,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::ct16b0Mat0> ct16b0Mat0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::ct16b0Mat1> ct16b0Mat1{};
         }
-        }
         ///Edge control. This bit is significant only when the START field contains 010-111.
         enum class EdgeVal {
             rising=0x00000000,     ///<Start conversion on a rising edge on the selected CAP/MAT signal.
@@ -73,7 +69,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::rising> rising{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::falling> falling{};
-        }
         }
     }
     namespace Nonegdr{    ///<A/D Global Data Register. Contains the result of the most recent A/D conversion.

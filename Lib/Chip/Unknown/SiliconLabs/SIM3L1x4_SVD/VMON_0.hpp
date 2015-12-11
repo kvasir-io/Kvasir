@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vbatrstf)::Type,VbatrstfVal::vbatIsBelowReset> vbatIsBelowReset{};
             constexpr Register::FieldValue<decltype(vbatrstf)::Type,VbatrstfVal::vbatIsAboveReset> vbatIsAboveReset{};
         }
-        }
         ///VBAT Low Interrupt Flag. 
         enum class VbatliVal {
             vbatIsLow=0x00000000,     ///<The VBAT voltage is below the early warning threshold.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace VbatliValC{
             constexpr Register::FieldValue<decltype(vbatli)::Type,VbatliVal::vbatIsLow> vbatIsLow{};
             constexpr Register::FieldValue<decltype(vbatli)::Type,VbatliVal::vbatIsOk> vbatIsOk{};
-        }
         }
         ///VBAT High Threshold Enable. 
         enum class VbathithenVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vbathithen)::Type,VbathithenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(vbathithen)::Type,VbathithenVal::enabled> enabled{};
         }
-        }
         ///VBAT Low Interrupt Enable. 
         enum class VbatlienVal {
             disabled=0x00000000,     ///<Disable the VBAT low interrupt.
@@ -47,7 +44,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vbatlien)::Type,VbatlienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(vbatlien)::Type,VbatlienVal::enabled> enabled{};
         }
-        }
         ///VBAT Supply Monitor Enable. 
         enum class VmonenVal {
             disabled=0x00000000,     ///<Disable the VBAT supply monitor.
@@ -57,7 +53,6 @@ namespace Kvasir {
         namespace VmonenValC{
             constexpr Register::FieldValue<decltype(vmonen)::Type,VmonenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(vmonen)::Type,VmonenVal::enabled> enabled{};
-        }
         }
     }
 }

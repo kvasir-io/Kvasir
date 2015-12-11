@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inA0)::Type,Ina0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inA0)::Type,Ina0Val::v1> v1{};
         }
-        }
         ///Event Inputs {B0}
         enum class Inb0Val {
             v0=0x00000000,     ///<The state of the event input was negated.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace Inb0ValC{
             constexpr Register::FieldValue<decltype(inB0)::Type,Inb0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inB0)::Type,Inb0Val::v1> v1{};
-        }
         }
         ///Event Inputs {C0}
         enum class Inc0Val {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inC0)::Type,Inc0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inC0)::Type,Inc0Val::v1> v1{};
         }
-        }
         ///Event Inputs {D0}
         enum class Ind0Val {
             v0=0x00000000,     ///<The state of the event input was negated.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace Ind0ValC{
             constexpr Register::FieldValue<decltype(inD0)::Type,Ind0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inD0)::Type,Ind0Val::v1> v1{};
-        }
         }
         ///Output Finite State Machine 0
         enum class Outputfsm0Val {
@@ -66,7 +62,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(outputFsm0)::Type,Outputfsm0Val::v101> v101{};
             constexpr Register::FieldValue<decltype(outputFsm0)::Type,Outputfsm0Val::v111> v111{};
         }
-        }
         ///Event Output 0
         enum class Evout0Val {
             v0=0x00000000,     ///<The event output is negated.
@@ -77,7 +72,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(evOut0)::Type,Evout0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(evOut0)::Type,Evout0Val::v1> v1{};
         }
-        }
         ///Event Inputs {A1}
         enum class Ina1Val {
             v0=0x00000000,     ///<The state of the event input was negated.
@@ -85,7 +79,6 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ina1Val> inA1{}; 
         namespace Ina1ValC{
             constexpr Register::FieldValue<decltype(inA1)::Type,Ina1Val::v0> v0{};
-        }
         }
         ///Event Inputs {B1}
         enum class Inb1Val {
@@ -97,7 +90,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inB1)::Type,Inb1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inB1)::Type,Inb1Val::v1> v1{};
         }
-        }
         ///Event Inputs {C1}
         enum class Inc1Val {
             v0=0x00000000,     ///<The state of the event input was negated.
@@ -108,7 +100,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inC1)::Type,Inc1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inC1)::Type,Inc1Val::v1> v1{};
         }
-        }
         ///Event Inputs {D1}
         enum class Ind1Val {
             v0=0x00000000,     ///<The state of the event input was negated.
@@ -118,7 +109,6 @@ namespace Kvasir {
         namespace Ind1ValC{
             constexpr Register::FieldValue<decltype(inD1)::Type,Ind1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inD1)::Type,Ind1Val::v1> v1{};
-        }
         }
         ///Output Finite State Machine 1
         enum class Outputfsm1Val {
@@ -138,7 +128,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(outputFsm1)::Type,Outputfsm1Val::v101> v101{};
             constexpr Register::FieldValue<decltype(outputFsm1)::Type,Outputfsm1Val::v111> v111{};
         }
-        }
         ///Event Output 1
         enum class Evout1Val {
             v0=0x00000000,     ///<The event output is negated.
@@ -148,7 +137,6 @@ namespace Kvasir {
         namespace Evout1ValC{
             constexpr Register::FieldValue<decltype(evOut1)::Type,Evout1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(evOut1)::Type,Evout1Val::v1> v1{};
-        }
         }
         ///Event Inputs {A2}
         enum class Ina2Val {
@@ -160,7 +148,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inA2)::Type,Ina2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inA2)::Type,Ina2Val::v1> v1{};
         }
-        }
         ///Event Inputs {B2}
         enum class Inb2Val {
             v0=0x00000000,     ///<The state of the event input was negated.
@@ -170,7 +157,6 @@ namespace Kvasir {
         namespace Inb2ValC{
             constexpr Register::FieldValue<decltype(inB2)::Type,Inb2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inB2)::Type,Inb2Val::v1> v1{};
-        }
         }
         ///Event Inputs {C2}
         enum class Inc2Val {
@@ -182,7 +168,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inC2)::Type,Inc2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inC2)::Type,Inc2Val::v1> v1{};
         }
-        }
         ///Event Inputs {D2}
         enum class Ind2Val {
             v0=0x00000000,     ///<The state of the event input was negated.
@@ -192,7 +177,6 @@ namespace Kvasir {
         namespace Ind2ValC{
             constexpr Register::FieldValue<decltype(inD2)::Type,Ind2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inD2)::Type,Ind2Val::v1> v1{};
-        }
         }
         ///Output Finite State Machine 2
         enum class Outputfsm2Val {
@@ -212,7 +196,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(outputFsm2)::Type,Outputfsm2Val::v101> v101{};
             constexpr Register::FieldValue<decltype(outputFsm2)::Type,Outputfsm2Val::v111> v111{};
         }
-        }
         ///Event Output 2
         enum class Evout2Val {
             v0=0x00000000,     ///<The event output is negated.
@@ -222,7 +205,6 @@ namespace Kvasir {
         namespace Evout2ValC{
             constexpr Register::FieldValue<decltype(evOut2)::Type,Evout2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(evOut2)::Type,Evout2Val::v1> v1{};
-        }
         }
         ///Event Inputs {A3}
         enum class Ina3Val {
@@ -234,7 +216,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inA3)::Type,Ina3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inA3)::Type,Ina3Val::v1> v1{};
         }
-        }
         ///Event Inputs {B3}
         enum class Inb3Val {
             v0=0x00000000,     ///<The state of the event input was negated.
@@ -244,7 +225,6 @@ namespace Kvasir {
         namespace Inb3ValC{
             constexpr Register::FieldValue<decltype(inB3)::Type,Inb3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inB3)::Type,Inb3Val::v1> v1{};
-        }
         }
         ///Event Inputs {C3}
         enum class Inc3Val {
@@ -256,7 +236,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inC3)::Type,Inc3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inC3)::Type,Inc3Val::v1> v1{};
         }
-        }
         ///Event Inputs {D3}
         enum class Ind3Val {
             v0=0x00000000,     ///<The state of the event input was negated.
@@ -266,7 +245,6 @@ namespace Kvasir {
         namespace Ind3ValC{
             constexpr Register::FieldValue<decltype(inD3)::Type,Ind3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(inD3)::Type,Ind3Val::v1> v1{};
-        }
         }
         ///Output Finite State Machine 3
         enum class Outputfsm3Val {
@@ -286,7 +264,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(outputFsm3)::Type,Outputfsm3Val::v101> v101{};
             constexpr Register::FieldValue<decltype(outputFsm3)::Type,Outputfsm3Val::v111> v111{};
         }
-        }
         ///Event Output 3
         enum class Evout3Val {
             v0=0x00000000,     ///<The event output is negated.
@@ -296,7 +273,6 @@ namespace Kvasir {
         namespace Evout3ValC{
             constexpr Register::FieldValue<decltype(evOut3)::Type,Evout3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(evOut3)::Type,Evout3Val::v1> v1{};
-        }
         }
     }
     namespace IeventCrl{    ///<iEvent Control Register: Low
@@ -315,7 +291,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(type0)::Type,Type0Val::v10> v10{};
             constexpr Register::FieldValue<decltype(type0)::Type,Type0Val::v11> v11{};
         }
-        }
         ///One-Shot Enable 0
         enum class Ose0Val {
             v0=0x00000000,     ///<The channel event output is enabled to occur multiple times.
@@ -325,7 +300,6 @@ namespace Kvasir {
         namespace Ose0ValC{
             constexpr Register::FieldValue<decltype(ose0)::Type,Ose0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ose0)::Type,Ose0Val::v1> v1{};
-        }
         }
         ///Disable Done Broadcast 0
         enum class Ddb0Val {
@@ -337,7 +311,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ddb0)::Type,Ddb0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ddb0)::Type,Ddb0Val::v1> v1{};
         }
-        }
         ///Read-Only 0
         enum class Ro0Val {
             v0=0x00000000,     ///<The iEvent configuration registers for this channel can be read and written.
@@ -347,7 +320,6 @@ namespace Kvasir {
         namespace Ro0ValC{
             constexpr Register::FieldValue<decltype(ro0)::Type,Ro0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ro0)::Type,Ro0Val::v1> v1{};
-        }
         }
         ///Output Channel Type 1
         enum class Type1Val {
@@ -363,7 +335,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(type1)::Type,Type1Val::v10> v10{};
             constexpr Register::FieldValue<decltype(type1)::Type,Type1Val::v11> v11{};
         }
-        }
         ///One-Shot Enable 1
         enum class Ose1Val {
             v0=0x00000000,     ///<The channel event output is enabled to occur multiple times.
@@ -373,7 +344,6 @@ namespace Kvasir {
         namespace Ose1ValC{
             constexpr Register::FieldValue<decltype(ose1)::Type,Ose1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ose1)::Type,Ose1Val::v1> v1{};
-        }
         }
         ///Disable Done Broadcast 1
         enum class Ddb1Val {
@@ -385,7 +355,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ddb1)::Type,Ddb1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ddb1)::Type,Ddb1Val::v1> v1{};
         }
-        }
         ///Read-Only 1
         enum class Ro1Val {
             v0=0x00000000,     ///<The iEvent configuration registers for this channel can be read and written.
@@ -395,7 +364,6 @@ namespace Kvasir {
         namespace Ro1ValC{
             constexpr Register::FieldValue<decltype(ro1)::Type,Ro1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ro1)::Type,Ro1Val::v1> v1{};
-        }
         }
         ///Output Channel Type 2
         enum class Type2Val {
@@ -411,7 +379,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(type2)::Type,Type2Val::v10> v10{};
             constexpr Register::FieldValue<decltype(type2)::Type,Type2Val::v11> v11{};
         }
-        }
         ///One-Shot Enable 2
         enum class Ose2Val {
             v0=0x00000000,     ///<The channel event output is enabled to occur multiple times.
@@ -421,7 +388,6 @@ namespace Kvasir {
         namespace Ose2ValC{
             constexpr Register::FieldValue<decltype(ose2)::Type,Ose2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ose2)::Type,Ose2Val::v1> v1{};
-        }
         }
         ///Disable Done Broadcast 2
         enum class Ddb2Val {
@@ -433,7 +399,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ddb2)::Type,Ddb2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ddb2)::Type,Ddb2Val::v1> v1{};
         }
-        }
         ///Read-Only 2
         enum class Ro2Val {
             v0=0x00000000,     ///<The iEvent configuration registers for this channel can be read and written.
@@ -443,7 +408,6 @@ namespace Kvasir {
         namespace Ro2ValC{
             constexpr Register::FieldValue<decltype(ro2)::Type,Ro2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ro2)::Type,Ro2Val::v1> v1{};
-        }
         }
         ///Output Channel Type 3
         enum class Type3Val {
@@ -459,7 +423,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(type3)::Type,Type3Val::v10> v10{};
             constexpr Register::FieldValue<decltype(type3)::Type,Type3Val::v11> v11{};
         }
-        }
         ///One-Shot Enable 3
         enum class Ose3Val {
             v0=0x00000000,     ///<The channel event output is enabled to occur multiple times.
@@ -469,7 +432,6 @@ namespace Kvasir {
         namespace Ose3ValC{
             constexpr Register::FieldValue<decltype(ose3)::Type,Ose3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ose3)::Type,Ose3Val::v1> v1{};
-        }
         }
         ///Disable Done Broadcast 3
         enum class Ddb3Val {
@@ -481,7 +443,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ddb3)::Type,Ddb3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ddb3)::Type,Ddb3Val::v1> v1{};
         }
-        }
         ///Read-Only 3
         enum class Ro3Val {
             v0=0x00000000,     ///<The iEvent configuration registers for this channel can be read and written.
@@ -491,7 +452,6 @@ namespace Kvasir {
         namespace Ro3ValC{
             constexpr Register::FieldValue<decltype(ro3)::Type,Ro3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ro3)::Type,Ro3Val::v1> v1{};
-        }
         }
     }
     namespace IeventImxcr0{    ///<iEvent Input Mux Configuration Register
@@ -534,7 +494,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dSelect)::Type,DselectVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(dSelect)::Type,DselectVal::v1111> v1111{};
         }
-        }
         ///no description available
         enum class CselectVal {
             v0000=0x00000000,     ///<Select input[0] as C.
@@ -572,7 +531,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cSelect)::Type,CselectVal::v1101> v1101{};
             constexpr Register::FieldValue<decltype(cSelect)::Type,CselectVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(cSelect)::Type,CselectVal::v1111> v1111{};
-        }
         }
         ///no description available
         enum class BselectVal {
@@ -612,7 +570,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bSelect)::Type,BselectVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(bSelect)::Type,BselectVal::v1111> v1111{};
         }
-        }
         ///no description available
         enum class AselectVal {
             v0000=0x00000000,     ///<Select input[0] as A.
@@ -650,7 +607,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v1101> v1101{};
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v1111> v1111{};
-        }
         }
     }
     namespace IeventImxcr1{    ///<iEvent Input Mux Configuration Register
@@ -693,7 +649,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dSelect)::Type,DselectVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(dSelect)::Type,DselectVal::v1111> v1111{};
         }
-        }
         ///no description available
         enum class CselectVal {
             v0000=0x00000000,     ///<Select input[0] as C.
@@ -731,7 +686,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cSelect)::Type,CselectVal::v1101> v1101{};
             constexpr Register::FieldValue<decltype(cSelect)::Type,CselectVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(cSelect)::Type,CselectVal::v1111> v1111{};
-        }
         }
         ///no description available
         enum class BselectVal {
@@ -771,7 +725,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bSelect)::Type,BselectVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(bSelect)::Type,BselectVal::v1111> v1111{};
         }
-        }
         ///no description available
         enum class AselectVal {
             v0000=0x00000000,     ///<Select input[0] as A.
@@ -809,7 +762,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v1101> v1101{};
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v1111> v1111{};
-        }
         }
     }
     namespace IeventImxcr2{    ///<iEvent Input Mux Configuration Register
@@ -852,7 +804,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dSelect)::Type,DselectVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(dSelect)::Type,DselectVal::v1111> v1111{};
         }
-        }
         ///no description available
         enum class CselectVal {
             v0000=0x00000000,     ///<Select input[0] as C.
@@ -890,7 +841,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cSelect)::Type,CselectVal::v1101> v1101{};
             constexpr Register::FieldValue<decltype(cSelect)::Type,CselectVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(cSelect)::Type,CselectVal::v1111> v1111{};
-        }
         }
         ///no description available
         enum class BselectVal {
@@ -930,7 +880,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bSelect)::Type,BselectVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(bSelect)::Type,BselectVal::v1111> v1111{};
         }
-        }
         ///no description available
         enum class AselectVal {
             v0000=0x00000000,     ///<Select input[0] as A.
@@ -968,7 +917,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v1101> v1101{};
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v1111> v1111{};
-        }
         }
     }
     namespace IeventImxcr3{    ///<iEvent Input Mux Configuration Register
@@ -1011,7 +959,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dSelect)::Type,DselectVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(dSelect)::Type,DselectVal::v1111> v1111{};
         }
-        }
         ///no description available
         enum class CselectVal {
             v0000=0x00000000,     ///<Select input[0] as C.
@@ -1049,7 +996,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cSelect)::Type,CselectVal::v1101> v1101{};
             constexpr Register::FieldValue<decltype(cSelect)::Type,CselectVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(cSelect)::Type,CselectVal::v1111> v1111{};
-        }
         }
         ///no description available
         enum class BselectVal {
@@ -1089,7 +1035,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bSelect)::Type,BselectVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(bSelect)::Type,BselectVal::v1111> v1111{};
         }
-        }
         ///no description available
         enum class AselectVal {
             v0000=0x00000000,     ///<Select input[0] as A.
@@ -1128,7 +1073,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(aSelect)::Type,AselectVal::v1111> v1111{};
         }
-        }
     }
     namespace IeventBfecr0{    ///<iEvent Boolean Function Eva1ation Configuration Register
         using Addr = Register::Address<0x40019104,0x00000000,0,unsigned>;
@@ -1146,7 +1090,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt3Dc)::Type,Pt3dcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt3Dc)::Type,Pt3dcVal::v11> v11{};
         }
-        }
         ///Product Term 3, C input Configuration
         enum class Pt3ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
@@ -1160,7 +1103,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt3Cc)::Type,Pt3ccVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt3Cc)::Type,Pt3ccVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt3Cc)::Type,Pt3ccVal::v11> v11{};
-        }
         }
         ///Product Term 3, B input Configuration
         enum class Pt3bcVal {
@@ -1176,7 +1118,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt3Bc)::Type,Pt3bcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt3Bc)::Type,Pt3bcVal::v11> v11{};
         }
-        }
         ///Product Term 3, A input Configuration
         enum class Pt3acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
@@ -1190,7 +1131,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt3Ac)::Type,Pt3acVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt3Ac)::Type,Pt3acVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt3Ac)::Type,Pt3acVal::v11> v11{};
-        }
         }
         ///Product Term 2, D input Configuration
         enum class Pt2dcVal {
@@ -1206,7 +1146,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt2Dc)::Type,Pt2dcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt2Dc)::Type,Pt2dcVal::v11> v11{};
         }
-        }
         ///Product Term 2, C input Configuration
         enum class Pt2ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
@@ -1220,7 +1159,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt2Cc)::Type,Pt2ccVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt2Cc)::Type,Pt2ccVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt2Cc)::Type,Pt2ccVal::v11> v11{};
-        }
         }
         ///Product Term 2, B input Configuration
         enum class Pt2bcVal {
@@ -1236,7 +1174,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt2Bc)::Type,Pt2bcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt2Bc)::Type,Pt2bcVal::v11> v11{};
         }
-        }
         ///Product Term 2, A input Configuration
         enum class Pt2acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
@@ -1250,7 +1187,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt2Ac)::Type,Pt2acVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt2Ac)::Type,Pt2acVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt2Ac)::Type,Pt2acVal::v11> v11{};
-        }
         }
         ///Product Term 1, D input Configuration
         enum class Pt1dcVal {
@@ -1266,7 +1202,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt1Dc)::Type,Pt1dcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt1Dc)::Type,Pt1dcVal::v11> v11{};
         }
-        }
         ///Product Term 1, C input Configuration
         enum class Pt1ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
@@ -1280,7 +1215,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt1Cc)::Type,Pt1ccVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt1Cc)::Type,Pt1ccVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt1Cc)::Type,Pt1ccVal::v11> v11{};
-        }
         }
         ///Product Term 1, B input Configuration
         enum class Pt1bcVal {
@@ -1296,7 +1230,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt1Bc)::Type,Pt1bcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt1Bc)::Type,Pt1bcVal::v11> v11{};
         }
-        }
         ///Product Term 1, A input Configuration
         enum class Pt1acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
@@ -1310,7 +1243,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt1Ac)::Type,Pt1acVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt1Ac)::Type,Pt1acVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt1Ac)::Type,Pt1acVal::v11> v11{};
-        }
         }
         ///Product Term 0, D input Configuration
         enum class Pt0dcVal {
@@ -1326,7 +1258,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt0Dc)::Type,Pt0dcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt0Dc)::Type,Pt0dcVal::v11> v11{};
         }
-        }
         ///Product Term 0, C input Configuration
         enum class Pt0ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
@@ -1340,7 +1271,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt0Cc)::Type,Pt0ccVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt0Cc)::Type,Pt0ccVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt0Cc)::Type,Pt0ccVal::v11> v11{};
-        }
         }
         ///Product Term 0, B input Configuration
         enum class Pt0bcVal {
@@ -1356,7 +1286,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt0Bc)::Type,Pt0bcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt0Bc)::Type,Pt0bcVal::v11> v11{};
         }
-        }
         ///Product Term 0, A input Configuration
         enum class Pt0acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
@@ -1370,7 +1299,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt0Ac)::Type,Pt0acVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt0Ac)::Type,Pt0acVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt0Ac)::Type,Pt0acVal::v11> v11{};
-        }
         }
     }
     namespace IeventBfecr1{    ///<iEvent Boolean Function Eva1ation Configuration Register
@@ -1389,7 +1317,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt3Dc)::Type,Pt3dcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt3Dc)::Type,Pt3dcVal::v11> v11{};
         }
-        }
         ///Product Term 3, C input Configuration
         enum class Pt3ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
@@ -1403,7 +1330,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt3Cc)::Type,Pt3ccVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt3Cc)::Type,Pt3ccVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt3Cc)::Type,Pt3ccVal::v11> v11{};
-        }
         }
         ///Product Term 3, B input Configuration
         enum class Pt3bcVal {
@@ -1419,7 +1345,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt3Bc)::Type,Pt3bcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt3Bc)::Type,Pt3bcVal::v11> v11{};
         }
-        }
         ///Product Term 3, A input Configuration
         enum class Pt3acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
@@ -1433,7 +1358,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt3Ac)::Type,Pt3acVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt3Ac)::Type,Pt3acVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt3Ac)::Type,Pt3acVal::v11> v11{};
-        }
         }
         ///Product Term 2, D input Configuration
         enum class Pt2dcVal {
@@ -1449,7 +1373,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt2Dc)::Type,Pt2dcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt2Dc)::Type,Pt2dcVal::v11> v11{};
         }
-        }
         ///Product Term 2, C input Configuration
         enum class Pt2ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
@@ -1463,7 +1386,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt2Cc)::Type,Pt2ccVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt2Cc)::Type,Pt2ccVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt2Cc)::Type,Pt2ccVal::v11> v11{};
-        }
         }
         ///Product Term 2, B input Configuration
         enum class Pt2bcVal {
@@ -1479,7 +1401,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt2Bc)::Type,Pt2bcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt2Bc)::Type,Pt2bcVal::v11> v11{};
         }
-        }
         ///Product Term 2, A input Configuration
         enum class Pt2acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
@@ -1493,7 +1414,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt2Ac)::Type,Pt2acVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt2Ac)::Type,Pt2acVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt2Ac)::Type,Pt2acVal::v11> v11{};
-        }
         }
         ///Product Term 1, D input Configuration
         enum class Pt1dcVal {
@@ -1509,7 +1429,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt1Dc)::Type,Pt1dcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt1Dc)::Type,Pt1dcVal::v11> v11{};
         }
-        }
         ///Product Term 1, C input Configuration
         enum class Pt1ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
@@ -1523,7 +1442,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt1Cc)::Type,Pt1ccVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt1Cc)::Type,Pt1ccVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt1Cc)::Type,Pt1ccVal::v11> v11{};
-        }
         }
         ///Product Term 1, B input Configuration
         enum class Pt1bcVal {
@@ -1539,7 +1457,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt1Bc)::Type,Pt1bcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt1Bc)::Type,Pt1bcVal::v11> v11{};
         }
-        }
         ///Product Term 1, A input Configuration
         enum class Pt1acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
@@ -1553,7 +1470,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt1Ac)::Type,Pt1acVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt1Ac)::Type,Pt1acVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt1Ac)::Type,Pt1acVal::v11> v11{};
-        }
         }
         ///Product Term 0, D input Configuration
         enum class Pt0dcVal {
@@ -1569,7 +1485,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt0Dc)::Type,Pt0dcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt0Dc)::Type,Pt0dcVal::v11> v11{};
         }
-        }
         ///Product Term 0, C input Configuration
         enum class Pt0ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
@@ -1583,7 +1498,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt0Cc)::Type,Pt0ccVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt0Cc)::Type,Pt0ccVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt0Cc)::Type,Pt0ccVal::v11> v11{};
-        }
         }
         ///Product Term 0, B input Configuration
         enum class Pt0bcVal {
@@ -1599,7 +1513,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt0Bc)::Type,Pt0bcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt0Bc)::Type,Pt0bcVal::v11> v11{};
         }
-        }
         ///Product Term 0, A input Configuration
         enum class Pt0acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
@@ -1613,7 +1526,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt0Ac)::Type,Pt0acVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt0Ac)::Type,Pt0acVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt0Ac)::Type,Pt0acVal::v11> v11{};
-        }
         }
     }
     namespace IeventBfecr2{    ///<iEvent Boolean Function Eva1ation Configuration Register
@@ -1632,7 +1544,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt3Dc)::Type,Pt3dcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt3Dc)::Type,Pt3dcVal::v11> v11{};
         }
-        }
         ///Product Term 3, C input Configuration
         enum class Pt3ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
@@ -1646,7 +1557,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt3Cc)::Type,Pt3ccVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt3Cc)::Type,Pt3ccVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt3Cc)::Type,Pt3ccVal::v11> v11{};
-        }
         }
         ///Product Term 3, B input Configuration
         enum class Pt3bcVal {
@@ -1662,7 +1572,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt3Bc)::Type,Pt3bcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt3Bc)::Type,Pt3bcVal::v11> v11{};
         }
-        }
         ///Product Term 3, A input Configuration
         enum class Pt3acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
@@ -1676,7 +1585,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt3Ac)::Type,Pt3acVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt3Ac)::Type,Pt3acVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt3Ac)::Type,Pt3acVal::v11> v11{};
-        }
         }
         ///Product Term 2, D input Configuration
         enum class Pt2dcVal {
@@ -1692,7 +1600,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt2Dc)::Type,Pt2dcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt2Dc)::Type,Pt2dcVal::v11> v11{};
         }
-        }
         ///Product Term 2, C input Configuration
         enum class Pt2ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
@@ -1706,7 +1613,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt2Cc)::Type,Pt2ccVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt2Cc)::Type,Pt2ccVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt2Cc)::Type,Pt2ccVal::v11> v11{};
-        }
         }
         ///Product Term 2, B input Configuration
         enum class Pt2bcVal {
@@ -1722,7 +1628,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt2Bc)::Type,Pt2bcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt2Bc)::Type,Pt2bcVal::v11> v11{};
         }
-        }
         ///Product Term 2, A input Configuration
         enum class Pt2acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
@@ -1736,7 +1641,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt2Ac)::Type,Pt2acVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt2Ac)::Type,Pt2acVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt2Ac)::Type,Pt2acVal::v11> v11{};
-        }
         }
         ///Product Term 1, D input Configuration
         enum class Pt1dcVal {
@@ -1752,7 +1656,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt1Dc)::Type,Pt1dcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt1Dc)::Type,Pt1dcVal::v11> v11{};
         }
-        }
         ///Product Term 1, C input Configuration
         enum class Pt1ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
@@ -1766,7 +1669,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt1Cc)::Type,Pt1ccVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt1Cc)::Type,Pt1ccVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt1Cc)::Type,Pt1ccVal::v11> v11{};
-        }
         }
         ///Product Term 1, B input Configuration
         enum class Pt1bcVal {
@@ -1782,7 +1684,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt1Bc)::Type,Pt1bcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt1Bc)::Type,Pt1bcVal::v11> v11{};
         }
-        }
         ///Product Term 1, A input Configuration
         enum class Pt1acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
@@ -1796,7 +1697,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt1Ac)::Type,Pt1acVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt1Ac)::Type,Pt1acVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt1Ac)::Type,Pt1acVal::v11> v11{};
-        }
         }
         ///Product Term 0, D input Configuration
         enum class Pt0dcVal {
@@ -1812,7 +1712,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt0Dc)::Type,Pt0dcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt0Dc)::Type,Pt0dcVal::v11> v11{};
         }
-        }
         ///Product Term 0, C input Configuration
         enum class Pt0ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
@@ -1826,7 +1725,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt0Cc)::Type,Pt0ccVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt0Cc)::Type,Pt0ccVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt0Cc)::Type,Pt0ccVal::v11> v11{};
-        }
         }
         ///Product Term 0, B input Configuration
         enum class Pt0bcVal {
@@ -1842,7 +1740,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt0Bc)::Type,Pt0bcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt0Bc)::Type,Pt0bcVal::v11> v11{};
         }
-        }
         ///Product Term 0, A input Configuration
         enum class Pt0acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
@@ -1856,7 +1753,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt0Ac)::Type,Pt0acVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt0Ac)::Type,Pt0acVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt0Ac)::Type,Pt0acVal::v11> v11{};
-        }
         }
     }
     namespace IeventBfecr3{    ///<iEvent Boolean Function Eva1ation Configuration Register
@@ -1875,7 +1771,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt3Dc)::Type,Pt3dcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt3Dc)::Type,Pt3dcVal::v11> v11{};
         }
-        }
         ///Product Term 3, C input Configuration
         enum class Pt3ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
@@ -1889,7 +1784,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt3Cc)::Type,Pt3ccVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt3Cc)::Type,Pt3ccVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt3Cc)::Type,Pt3ccVal::v11> v11{};
-        }
         }
         ///Product Term 3, B input Configuration
         enum class Pt3bcVal {
@@ -1905,7 +1799,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt3Bc)::Type,Pt3bcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt3Bc)::Type,Pt3bcVal::v11> v11{};
         }
-        }
         ///Product Term 3, A input Configuration
         enum class Pt3acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
@@ -1919,7 +1812,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt3Ac)::Type,Pt3acVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt3Ac)::Type,Pt3acVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt3Ac)::Type,Pt3acVal::v11> v11{};
-        }
         }
         ///Product Term 2, D input Configuration
         enum class Pt2dcVal {
@@ -1935,7 +1827,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt2Dc)::Type,Pt2dcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt2Dc)::Type,Pt2dcVal::v11> v11{};
         }
-        }
         ///Product Term 2, C input Configuration
         enum class Pt2ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
@@ -1949,7 +1840,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt2Cc)::Type,Pt2ccVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt2Cc)::Type,Pt2ccVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt2Cc)::Type,Pt2ccVal::v11> v11{};
-        }
         }
         ///Product Term 2, B input Configuration
         enum class Pt2bcVal {
@@ -1965,7 +1855,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt2Bc)::Type,Pt2bcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt2Bc)::Type,Pt2bcVal::v11> v11{};
         }
-        }
         ///Product Term 2, A input Configuration
         enum class Pt2acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
@@ -1979,7 +1868,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt2Ac)::Type,Pt2acVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt2Ac)::Type,Pt2acVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt2Ac)::Type,Pt2acVal::v11> v11{};
-        }
         }
         ///Product Term 1, D input Configuration
         enum class Pt1dcVal {
@@ -1995,7 +1883,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt1Dc)::Type,Pt1dcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt1Dc)::Type,Pt1dcVal::v11> v11{};
         }
-        }
         ///Product Term 1, C input Configuration
         enum class Pt1ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
@@ -2009,7 +1896,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt1Cc)::Type,Pt1ccVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt1Cc)::Type,Pt1ccVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt1Cc)::Type,Pt1ccVal::v11> v11{};
-        }
         }
         ///Product Term 1, B input Configuration
         enum class Pt1bcVal {
@@ -2025,7 +1911,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt1Bc)::Type,Pt1bcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt1Bc)::Type,Pt1bcVal::v11> v11{};
         }
-        }
         ///Product Term 1, A input Configuration
         enum class Pt1acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
@@ -2039,7 +1924,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt1Ac)::Type,Pt1acVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt1Ac)::Type,Pt1acVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt1Ac)::Type,Pt1acVal::v11> v11{};
-        }
         }
         ///Product Term 0, D input Configuration
         enum class Pt0dcVal {
@@ -2055,7 +1939,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt0Dc)::Type,Pt0dcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt0Dc)::Type,Pt0dcVal::v11> v11{};
         }
-        }
         ///Product Term 0, C input Configuration
         enum class Pt0ccVal {
             v00=0x00000000,     ///<Force the C input in this product term to a logical zero.
@@ -2069,7 +1952,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt0Cc)::Type,Pt0ccVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt0Cc)::Type,Pt0ccVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt0Cc)::Type,Pt0ccVal::v11> v11{};
-        }
         }
         ///Product Term 0, B input Configuration
         enum class Pt0bcVal {
@@ -2085,7 +1967,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt0Bc)::Type,Pt0bcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt0Bc)::Type,Pt0bcVal::v11> v11{};
         }
-        }
         ///Product Term 0, A input Configuration
         enum class Pt0acVal {
             v00=0x00000000,     ///<Force the A input in this product term to a logical zero.
@@ -2099,7 +1980,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pt0Ac)::Type,Pt0acVal::v01> v01{};
             constexpr Register::FieldValue<decltype(pt0Ac)::Type,Pt0acVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pt0Ac)::Type,Pt0acVal::v11> v11{};
-        }
         }
     }
 }

@@ -81,7 +81,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(deviceaddrtype)::Type,DeviceaddrtypeVal::public_> public_{};
             constexpr Register::FieldValue<decltype(deviceaddrtype)::Type,DeviceaddrtypeVal::random> random{};
         }
-        }
     }
     namespace Nonedeviceaddr0{    ///<Description collection[0]:  Device address 0
         using Addr = Register::Address<0x100000a4,0x00000000,0,unsigned>;

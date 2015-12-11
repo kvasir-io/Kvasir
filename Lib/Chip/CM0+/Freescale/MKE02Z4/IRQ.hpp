@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqmod)::Type,IrqmodVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irqmod)::Type,IrqmodVal::v1> v1{};
         }
-        }
         ///IRQ Interrupt Enable
         enum class IrqieVal {
             v0=0x00000000,     ///<Interrupt request when IRQF set is disabled (use polling).
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace IrqieValC{
             constexpr Register::FieldValue<decltype(irqie)::Type,IrqieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irqie)::Type,IrqieVal::v1> v1{};
-        }
         }
         ///IRQ Acknowledge
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> irqack{}; 
@@ -38,7 +36,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqf)::Type,IrqfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irqf)::Type,IrqfVal::v1> v1{};
         }
-        }
         ///IRQ Pin Enable
         enum class IrqpeVal {
             v0=0x00000000,     ///<IRQ pin function is disabled.
@@ -48,7 +45,6 @@ namespace Kvasir {
         namespace IrqpeValC{
             constexpr Register::FieldValue<decltype(irqpe)::Type,IrqpeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irqpe)::Type,IrqpeVal::v1> v1{};
-        }
         }
         ///Interrupt Request (IRQ) Edge Select
         enum class IrqedgVal {
@@ -60,7 +56,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqedg)::Type,IrqedgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irqedg)::Type,IrqedgVal::v1> v1{};
         }
-        }
         ///Interrupt Request (IRQ) Pull Device Disable
         enum class IrqpddVal {
             v0=0x00000000,     ///<IRQ pull device enabled if IRQPE = 1.
@@ -70,7 +65,6 @@ namespace Kvasir {
         namespace IrqpddValC{
             constexpr Register::FieldValue<decltype(irqpdd)::Type,IrqpddVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irqpdd)::Type,IrqpddVal::v1> v1{};
-        }
         }
     }
 }

@@ -18,7 +18,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edgesel)::Type,EdgeselVal::dualedge> dualedge{};
             constexpr Register::FieldValue<decltype(edgesel)::Type,EdgeselVal::dualedge> dualedge{};
         }
-        }
         ///Comarator output control
         enum class CompsaVal {
             direct=0x00000000,     ///<Uses the comparator output directly.
@@ -28,7 +27,6 @@ namespace Kvasir {
         namespace CompsaValC{
             constexpr Register::FieldValue<decltype(compsa)::Type,CompsaVal::direct> direct{};
             constexpr Register::FieldValue<decltype(compsa)::Type,CompsaVal::synch> synch{};
-        }
         }
         ///Selects positive voltage input
         enum class CompvpselVal {
@@ -52,7 +50,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compVpSel)::Type,CompvpselVal::intvoltageref> intvoltageref{};
             constexpr Register::FieldValue<decltype(compVpSel)::Type,CompvpselVal::tempsensor> tempsensor{};
         }
-        }
         ///Selects negative voltage input
         enum class CompvmselVal {
             vladdout=0x00000000,     ///<voltage ladder output
@@ -72,7 +69,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compVmSel)::Type,CompvmselVal::acmpi4> acmpi4{};
             constexpr Register::FieldValue<decltype(compVmSel)::Type,CompvmselVal::acmpi5> acmpi5{};
             constexpr Register::FieldValue<decltype(compVmSel)::Type,CompvmselVal::intvoltageref> intvoltageref{};
-        }
         }
         ///Interrupt clear bit. Writing a 1 to this bit clears the COMPEDGE bit (bit 23 below) and thus negates the interrupt request.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> edgeclr{}; 
@@ -94,7 +90,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::hsy10mv> hsy10mv{};
             constexpr Register::FieldValue<decltype(hys)::Type,HysVal::hsy20mv> hsy20mv{};
         }
-        }
     }
     namespace Nonelad{    ///<Voltage ladder register
         using Addr = Register::Address<0x40028004,0xffffff80,0,unsigned>;
@@ -111,7 +106,6 @@ namespace Kvasir {
         namespace LadrefValC{
             constexpr Register::FieldValue<decltype(ladref)::Type,LadrefVal::vddpin> vddpin{};
             constexpr Register::FieldValue<decltype(ladref)::Type,LadrefVal::vddcmppin> vddcmppin{};
-        }
         }
     }
 }

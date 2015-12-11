@@ -26,7 +26,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -36,7 +35,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -48,7 +46,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -59,7 +56,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -69,7 +65,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
     }
     namespace Nonesfsp01{    ///<Pin configuration register for pins P0
@@ -96,7 +91,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -106,7 +100,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -118,7 +111,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -129,7 +121,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -139,7 +130,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
     }
     namespace Nonesfsp10{    ///<Pin configuration register for pins P1
@@ -166,7 +156,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -176,7 +165,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -188,7 +176,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -199,7 +186,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -209,7 +195,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -224,7 +209,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp11{    ///<Pin configuration register for pins P1
@@ -251,7 +235,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -261,7 +244,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -273,7 +255,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -284,7 +265,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -294,7 +274,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -309,7 +288,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp12{    ///<Pin configuration register for pins P1
@@ -336,7 +314,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -346,7 +323,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -358,7 +334,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -369,7 +344,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -379,7 +353,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -394,7 +367,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp13{    ///<Pin configuration register for pins P1
@@ -421,7 +393,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -431,7 +402,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -443,7 +413,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -454,7 +423,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -464,7 +432,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -479,7 +446,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp14{    ///<Pin configuration register for pins P1
@@ -506,7 +472,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -516,7 +481,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -528,7 +492,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -539,7 +502,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -549,7 +511,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -564,7 +525,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp15{    ///<Pin configuration register for pins P1
@@ -591,7 +551,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -601,7 +560,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -613,7 +571,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -624,7 +581,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -634,7 +590,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -649,7 +604,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp16{    ///<Pin configuration register for pins P1
@@ -676,7 +630,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -686,7 +639,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -698,7 +650,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -709,7 +660,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -719,7 +669,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -734,7 +683,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp17{    ///<Pin configuration register for pins P1
@@ -761,7 +709,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -771,7 +718,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -783,7 +729,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -794,7 +739,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -804,7 +748,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -819,7 +762,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp18{    ///<Pin configuration register for pins P1
@@ -846,7 +788,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -856,7 +797,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -868,7 +808,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -879,7 +818,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -889,7 +827,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -904,7 +841,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp19{    ///<Pin configuration register for pins P1
@@ -931,7 +867,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -941,7 +876,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -953,7 +887,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -964,7 +897,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -974,7 +906,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -989,7 +920,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp110{    ///<Pin configuration register for pins P1
@@ -1016,7 +946,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -1026,7 +955,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -1038,7 +966,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -1049,7 +976,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -1059,7 +985,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -1074,7 +999,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp111{    ///<Pin configuration register for pins P1
@@ -1101,7 +1025,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -1111,7 +1034,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -1123,7 +1045,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -1134,7 +1055,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -1144,7 +1064,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -1159,7 +1078,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp112{    ///<Pin configuration register for pins P1
@@ -1186,7 +1104,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -1196,7 +1113,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -1208,7 +1124,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -1219,7 +1134,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -1229,7 +1143,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -1244,7 +1157,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp113{    ///<Pin configuration register for pins P1
@@ -1271,7 +1183,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -1281,7 +1192,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -1293,7 +1203,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -1304,7 +1213,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -1314,7 +1222,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -1329,7 +1236,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp114{    ///<Pin configuration register for pins P1
@@ -1356,7 +1262,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -1366,7 +1271,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -1378,7 +1282,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -1389,7 +1292,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -1399,7 +1301,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -1414,7 +1315,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp115{    ///<Pin configuration register for pins P1
@@ -1441,7 +1341,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -1451,7 +1350,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -1463,7 +1361,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -1474,7 +1371,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -1484,7 +1380,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -1499,7 +1394,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp116{    ///<Pin configuration register for pins P1
@@ -1526,7 +1420,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -1536,7 +1429,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -1548,7 +1440,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -1559,7 +1450,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -1569,7 +1459,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -1584,7 +1473,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp117{    ///<Pin configuration register for pins P1
@@ -1611,7 +1499,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -1621,7 +1508,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -1633,7 +1519,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -1644,7 +1529,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -1654,7 +1538,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -1669,7 +1552,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp118{    ///<Pin configuration register for pins P1
@@ -1696,7 +1578,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -1706,7 +1587,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -1718,7 +1598,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -1729,7 +1608,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -1739,7 +1617,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -1754,7 +1631,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp119{    ///<Pin configuration register for pins P1
@@ -1781,7 +1657,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -1791,7 +1666,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -1803,7 +1677,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -1814,7 +1687,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -1824,7 +1696,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -1839,7 +1710,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp120{    ///<Pin configuration register for pins P1
@@ -1866,7 +1736,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -1876,7 +1745,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -1888,7 +1756,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -1899,7 +1766,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -1909,7 +1775,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -1924,7 +1789,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp20{    ///<Pin configuration register for pins P2
@@ -1951,7 +1815,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -1961,7 +1824,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -1973,7 +1835,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -1984,7 +1845,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -1994,7 +1854,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -2009,7 +1868,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp21{    ///<Pin configuration register for pins P2
@@ -2036,7 +1894,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -2046,7 +1903,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -2058,7 +1914,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -2069,7 +1924,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -2079,7 +1933,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -2094,7 +1947,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp22{    ///<Pin configuration register for pins P2
@@ -2121,7 +1973,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -2131,7 +1982,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -2143,7 +1993,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -2154,7 +2003,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -2164,7 +2012,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -2179,7 +2026,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp23{    ///<Pin configuration register for pins P2
@@ -2206,7 +2052,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -2216,7 +2061,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -2228,7 +2072,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -2239,7 +2082,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -2249,7 +2091,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -2264,7 +2105,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp24{    ///<Pin configuration register for pins P2
@@ -2291,7 +2131,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -2301,7 +2140,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -2313,7 +2151,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -2324,7 +2161,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -2334,7 +2170,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -2349,7 +2184,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp25{    ///<Pin configuration register for pins P2
@@ -2376,7 +2210,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -2386,7 +2219,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -2398,7 +2230,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -2409,7 +2240,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -2419,7 +2249,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -2434,7 +2263,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp26{    ///<Pin configuration register for pins P2
@@ -2461,7 +2289,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -2471,7 +2298,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -2483,7 +2309,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -2494,7 +2319,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -2504,7 +2328,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -2519,7 +2342,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp27{    ///<Pin configuration register for pins P2
@@ -2546,7 +2368,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -2556,7 +2377,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -2568,7 +2388,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -2579,7 +2398,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -2589,7 +2407,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -2604,7 +2421,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp28{    ///<Pin configuration register for pins P2
@@ -2631,7 +2447,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -2641,7 +2456,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -2653,7 +2467,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -2664,7 +2477,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -2674,7 +2486,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -2689,7 +2500,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp29{    ///<Pin configuration register for pins P2
@@ -2716,7 +2526,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -2726,7 +2535,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -2738,7 +2546,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -2749,7 +2556,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -2759,7 +2565,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -2774,7 +2579,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp210{    ///<Pin configuration register for pins P2
@@ -2801,7 +2605,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -2811,7 +2614,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -2823,7 +2625,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -2834,7 +2635,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -2844,7 +2644,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -2859,7 +2658,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp211{    ///<Pin configuration register for pins P2
@@ -2886,7 +2684,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -2896,7 +2693,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -2908,7 +2704,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -2919,7 +2714,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -2929,7 +2723,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -2944,7 +2737,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp212{    ///<Pin configuration register for pins P2
@@ -2971,7 +2763,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -2981,7 +2772,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -2993,7 +2783,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -3004,7 +2793,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -3014,7 +2802,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -3029,7 +2816,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp213{    ///<Pin configuration register for pins P2
@@ -3056,7 +2842,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -3066,7 +2851,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -3078,7 +2862,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -3089,7 +2872,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -3099,7 +2881,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -3114,7 +2895,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp30{    ///<Pin configuration register for pins P3
@@ -3141,7 +2921,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -3151,7 +2930,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -3163,7 +2941,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -3174,7 +2951,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -3184,7 +2960,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -3199,7 +2974,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp31{    ///<Pin configuration register for pins P3
@@ -3226,7 +3000,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -3236,7 +3009,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -3248,7 +3020,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -3259,7 +3030,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -3269,7 +3039,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -3284,7 +3053,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp32{    ///<Pin configuration register for pins P3
@@ -3311,7 +3079,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -3321,7 +3088,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -3333,7 +3099,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -3344,7 +3109,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -3354,7 +3118,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -3369,7 +3132,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp33{    ///<Pin configuration register for pins P3
@@ -3396,7 +3158,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -3406,7 +3167,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -3418,7 +3178,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -3429,7 +3188,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -3439,7 +3197,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -3454,7 +3211,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp34{    ///<Pin configuration register for pins P3
@@ -3481,7 +3237,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -3491,7 +3246,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -3503,7 +3257,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -3514,7 +3267,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -3524,7 +3276,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -3539,7 +3290,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp35{    ///<Pin configuration register for pins P3
@@ -3566,7 +3316,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -3576,7 +3325,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -3588,7 +3336,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -3599,7 +3346,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -3609,7 +3355,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -3624,7 +3369,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp36{    ///<Pin configuration register for pins P3
@@ -3651,7 +3395,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -3661,7 +3404,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -3673,7 +3415,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -3684,7 +3425,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -3694,7 +3434,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -3709,7 +3448,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp37{    ///<Pin configuration register for pins P3
@@ -3736,7 +3474,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -3746,7 +3483,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -3758,7 +3494,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -3769,7 +3504,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -3779,7 +3513,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -3794,7 +3527,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp38{    ///<Pin configuration register for pins P3
@@ -3821,7 +3553,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -3831,7 +3562,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -3843,7 +3573,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -3854,7 +3583,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -3864,7 +3592,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -3879,7 +3606,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp40{    ///<Pin configuration register for pins P4
@@ -3906,7 +3632,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -3916,7 +3641,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -3928,7 +3652,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -3939,7 +3662,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -3949,7 +3671,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -3964,7 +3685,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp41{    ///<Pin configuration register for pins P4
@@ -3991,7 +3711,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -4001,7 +3720,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -4013,7 +3731,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -4024,7 +3741,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -4034,7 +3750,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -4049,7 +3764,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp42{    ///<Pin configuration register for pins P4
@@ -4076,7 +3790,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -4086,7 +3799,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -4098,7 +3810,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -4109,7 +3820,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -4119,7 +3829,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -4134,7 +3843,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp43{    ///<Pin configuration register for pins P4
@@ -4161,7 +3869,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -4171,7 +3878,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -4183,7 +3889,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -4194,7 +3899,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -4204,7 +3908,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -4219,7 +3922,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp44{    ///<Pin configuration register for pins P4
@@ -4246,7 +3948,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -4256,7 +3957,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -4268,7 +3968,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -4279,7 +3978,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -4289,7 +3987,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -4304,7 +4001,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp45{    ///<Pin configuration register for pins P4
@@ -4331,7 +4027,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -4341,7 +4036,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -4353,7 +4047,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -4364,7 +4057,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -4374,7 +4066,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -4389,7 +4080,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp46{    ///<Pin configuration register for pins P4
@@ -4416,7 +4106,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -4426,7 +4115,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -4438,7 +4126,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -4449,7 +4136,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -4459,7 +4145,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -4474,7 +4159,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp47{    ///<Pin configuration register for pins P4
@@ -4501,7 +4185,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -4511,7 +4194,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -4523,7 +4205,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -4534,7 +4215,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -4544,7 +4224,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -4559,7 +4238,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp48{    ///<Pin configuration register for pins P4
@@ -4586,7 +4264,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -4596,7 +4273,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -4608,7 +4284,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -4619,7 +4294,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -4629,7 +4303,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -4644,7 +4317,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp49{    ///<Pin configuration register for pins P4
@@ -4671,7 +4343,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -4681,7 +4352,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -4693,7 +4363,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -4704,7 +4373,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -4714,7 +4382,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -4729,7 +4396,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp410{    ///<Pin configuration register for pins P4
@@ -4756,7 +4422,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -4766,7 +4431,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -4778,7 +4442,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -4789,7 +4452,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -4799,7 +4461,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -4814,7 +4475,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp50{    ///<Pin configuration register for pins P5
@@ -4841,7 +4501,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -4851,7 +4510,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -4863,7 +4521,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -4874,7 +4531,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -4884,7 +4540,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -4899,7 +4554,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp51{    ///<Pin configuration register for pins P5
@@ -4926,7 +4580,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -4936,7 +4589,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -4948,7 +4600,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -4959,7 +4610,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -4969,7 +4619,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -4984,7 +4633,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp52{    ///<Pin configuration register for pins P5
@@ -5011,7 +4659,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -5021,7 +4668,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -5033,7 +4679,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -5044,7 +4689,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -5054,7 +4698,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -5069,7 +4712,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp53{    ///<Pin configuration register for pins P5
@@ -5096,7 +4738,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -5106,7 +4747,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -5118,7 +4758,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -5129,7 +4768,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -5139,7 +4777,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -5154,7 +4791,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp54{    ///<Pin configuration register for pins P5
@@ -5181,7 +4817,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -5191,7 +4826,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -5203,7 +4837,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -5214,7 +4847,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -5224,7 +4856,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -5239,7 +4870,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp55{    ///<Pin configuration register for pins P5
@@ -5266,7 +4896,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -5276,7 +4905,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -5288,7 +4916,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -5299,7 +4926,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -5309,7 +4935,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -5324,7 +4949,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp56{    ///<Pin configuration register for pins P5
@@ -5351,7 +4975,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -5361,7 +4984,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -5373,7 +4995,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -5384,7 +5005,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -5394,7 +5014,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -5409,7 +5028,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp57{    ///<Pin configuration register for pins P5
@@ -5436,7 +5054,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -5446,7 +5063,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -5458,7 +5074,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -5469,7 +5084,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -5479,7 +5093,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -5494,7 +5107,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp60{    ///<Pin configuration register for pins P6
@@ -5521,7 +5133,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -5531,7 +5142,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -5543,7 +5153,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -5554,7 +5163,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -5564,7 +5172,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -5579,7 +5186,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp61{    ///<Pin configuration register for pins P6
@@ -5606,7 +5212,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -5616,7 +5221,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -5628,7 +5232,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -5639,7 +5242,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -5649,7 +5251,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -5664,7 +5265,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp62{    ///<Pin configuration register for pins P6
@@ -5691,7 +5291,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -5701,7 +5300,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -5713,7 +5311,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -5724,7 +5321,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -5734,7 +5330,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -5749,7 +5344,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp63{    ///<Pin configuration register for pins P6
@@ -5776,7 +5370,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -5786,7 +5379,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -5798,7 +5390,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -5809,7 +5400,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -5819,7 +5409,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -5834,7 +5423,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp64{    ///<Pin configuration register for pins P6
@@ -5861,7 +5449,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -5871,7 +5458,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -5883,7 +5469,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -5894,7 +5479,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -5904,7 +5488,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -5919,7 +5502,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp65{    ///<Pin configuration register for pins P6
@@ -5946,7 +5528,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -5956,7 +5537,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -5968,7 +5548,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -5979,7 +5558,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -5989,7 +5567,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -6004,7 +5581,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp66{    ///<Pin configuration register for pins P6
@@ -6031,7 +5607,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -6041,7 +5616,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -6053,7 +5627,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -6064,7 +5637,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -6074,7 +5646,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -6089,7 +5660,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp67{    ///<Pin configuration register for pins P6
@@ -6116,7 +5686,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -6126,7 +5695,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -6138,7 +5706,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -6149,7 +5716,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -6159,7 +5725,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -6174,7 +5739,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp68{    ///<Pin configuration register for pins P6
@@ -6201,7 +5765,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -6211,7 +5774,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -6223,7 +5785,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -6234,7 +5795,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -6244,7 +5804,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -6259,7 +5818,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp69{    ///<Pin configuration register for pins P6
@@ -6286,7 +5844,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -6296,7 +5853,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -6308,7 +5864,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -6319,7 +5874,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -6329,7 +5883,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -6344,7 +5897,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp610{    ///<Pin configuration register for pins P6
@@ -6371,7 +5923,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -6381,7 +5932,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -6393,7 +5943,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -6404,7 +5953,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -6414,7 +5962,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -6429,7 +5976,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp611{    ///<Pin configuration register for pins P6
@@ -6456,7 +6002,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -6466,7 +6011,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -6478,7 +6022,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -6489,7 +6032,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -6499,7 +6041,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -6514,7 +6055,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp612{    ///<Pin configuration register for pins P6
@@ -6541,7 +6081,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -6551,7 +6090,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -6563,7 +6101,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -6574,7 +6111,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -6584,7 +6120,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -6599,7 +6134,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp70{    ///<Pin configuration register for pins P7
@@ -6626,7 +6160,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -6636,7 +6169,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -6648,7 +6180,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -6659,7 +6190,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -6669,7 +6199,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -6684,7 +6213,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp71{    ///<Pin configuration register for pins P7
@@ -6711,7 +6239,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -6721,7 +6248,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -6733,7 +6259,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -6744,7 +6269,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -6754,7 +6278,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -6769,7 +6292,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp72{    ///<Pin configuration register for pins P7
@@ -6796,7 +6318,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -6806,7 +6327,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -6818,7 +6338,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -6829,7 +6348,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -6839,7 +6357,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -6854,7 +6371,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp73{    ///<Pin configuration register for pins P7
@@ -6881,7 +6397,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -6891,7 +6406,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -6903,7 +6417,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -6914,7 +6427,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -6924,7 +6436,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -6939,7 +6450,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp74{    ///<Pin configuration register for pins P7
@@ -6966,7 +6476,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -6976,7 +6485,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -6988,7 +6496,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -6999,7 +6506,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -7009,7 +6515,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -7024,7 +6529,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp75{    ///<Pin configuration register for pins P7
@@ -7051,7 +6555,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -7061,7 +6564,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -7073,7 +6575,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -7084,7 +6585,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -7094,7 +6594,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -7109,7 +6608,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp76{    ///<Pin configuration register for pins P7
@@ -7136,7 +6634,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -7146,7 +6643,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -7158,7 +6654,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -7169,7 +6664,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -7179,7 +6673,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -7194,7 +6687,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp77{    ///<Pin configuration register for pins P7
@@ -7221,7 +6713,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -7231,7 +6722,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -7243,7 +6733,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -7254,7 +6743,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -7264,7 +6752,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -7279,7 +6766,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp80{    ///<Pin configuration register for pins P8
@@ -7306,7 +6792,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -7316,7 +6801,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -7328,7 +6812,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -7339,7 +6822,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -7349,7 +6831,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -7364,7 +6845,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp81{    ///<Pin configuration register for pins P8
@@ -7391,7 +6871,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -7401,7 +6880,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -7413,7 +6891,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -7424,7 +6901,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -7434,7 +6910,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -7449,7 +6924,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp82{    ///<Pin configuration register for pins P8
@@ -7476,7 +6950,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -7486,7 +6959,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -7498,7 +6970,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -7509,7 +6980,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -7519,7 +6989,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -7534,7 +7003,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp83{    ///<Pin configuration register for pins P8
@@ -7561,7 +7029,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -7571,7 +7038,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -7583,7 +7049,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -7594,7 +7059,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -7604,7 +7068,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -7619,7 +7082,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp84{    ///<Pin configuration register for pins P8
@@ -7646,7 +7108,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -7656,7 +7117,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -7668,7 +7128,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -7679,7 +7138,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -7689,7 +7147,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -7704,7 +7161,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp85{    ///<Pin configuration register for pins P8
@@ -7731,7 +7187,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -7741,7 +7196,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -7753,7 +7207,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -7764,7 +7217,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -7774,7 +7226,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -7789,7 +7240,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp86{    ///<Pin configuration register for pins P8
@@ -7816,7 +7266,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -7826,7 +7275,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -7838,7 +7286,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -7849,7 +7296,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -7859,7 +7305,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -7874,7 +7319,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp87{    ///<Pin configuration register for pins P8
@@ -7901,7 +7345,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -7911,7 +7354,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -7923,7 +7365,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -7934,7 +7375,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -7944,7 +7384,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -7959,7 +7398,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp88{    ///<Pin configuration register for pins P8
@@ -7986,7 +7424,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -7996,7 +7433,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -8008,7 +7444,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -8019,7 +7454,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -8029,7 +7463,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -8044,7 +7477,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp90{    ///<Pin configuration register for pins P9
@@ -8071,7 +7503,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -8081,7 +7512,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -8093,7 +7523,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -8104,7 +7533,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -8114,7 +7542,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -8129,7 +7556,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp91{    ///<Pin configuration register for pins P9
@@ -8156,7 +7582,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -8166,7 +7591,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -8178,7 +7602,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -8189,7 +7612,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -8199,7 +7621,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -8214,7 +7635,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp92{    ///<Pin configuration register for pins P9
@@ -8241,7 +7661,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -8251,7 +7670,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -8263,7 +7681,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -8274,7 +7691,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -8284,7 +7700,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -8299,7 +7714,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp93{    ///<Pin configuration register for pins P9
@@ -8326,7 +7740,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -8336,7 +7749,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -8348,7 +7760,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -8359,7 +7770,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -8369,7 +7779,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -8384,7 +7793,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp94{    ///<Pin configuration register for pins P9
@@ -8411,7 +7819,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -8421,7 +7828,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -8433,7 +7839,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -8444,7 +7849,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -8454,7 +7858,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -8469,7 +7872,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp95{    ///<Pin configuration register for pins P9
@@ -8496,7 +7898,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -8506,7 +7907,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -8518,7 +7918,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -8529,7 +7928,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -8539,7 +7937,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -8554,7 +7951,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsp96{    ///<Pin configuration register for pins P9
@@ -8581,7 +7977,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -8591,7 +7986,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -8603,7 +7997,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -8614,7 +8007,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -8624,7 +8016,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -8639,7 +8030,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspa0{    ///<Pin configuration register for pins PA
@@ -8666,7 +8056,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -8676,7 +8065,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -8688,7 +8076,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -8699,7 +8086,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -8709,7 +8095,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -8724,7 +8109,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspa1{    ///<Pin configuration register for pins PA
@@ -8751,7 +8135,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -8761,7 +8144,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -8773,7 +8155,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -8784,7 +8165,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -8794,7 +8174,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -8809,7 +8188,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspa2{    ///<Pin configuration register for pins PA
@@ -8836,7 +8214,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -8846,7 +8223,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -8858,7 +8234,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -8869,7 +8244,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -8879,7 +8253,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -8894,7 +8267,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspa3{    ///<Pin configuration register for pins PA
@@ -8921,7 +8293,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -8931,7 +8302,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -8943,7 +8313,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -8954,7 +8323,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -8964,7 +8332,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -8979,7 +8346,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspa4{    ///<Pin configuration register for pins PA
@@ -9006,7 +8372,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -9016,7 +8381,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -9028,7 +8392,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -9039,7 +8402,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -9049,7 +8411,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -9064,7 +8425,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspb0{    ///<Pin configuration register for pins PB
@@ -9091,7 +8451,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -9101,7 +8460,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -9113,7 +8471,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -9124,7 +8481,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -9134,7 +8490,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -9149,7 +8504,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspb1{    ///<Pin configuration register for pins PB
@@ -9176,7 +8530,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -9186,7 +8539,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -9198,7 +8550,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -9209,7 +8560,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -9219,7 +8569,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -9234,7 +8583,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspb2{    ///<Pin configuration register for pins PB
@@ -9261,7 +8609,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -9271,7 +8618,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -9283,7 +8629,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -9294,7 +8639,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -9304,7 +8648,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -9319,7 +8662,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspb3{    ///<Pin configuration register for pins PB
@@ -9346,7 +8688,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -9356,7 +8697,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -9368,7 +8708,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -9379,7 +8718,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -9389,7 +8727,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -9404,7 +8741,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspb4{    ///<Pin configuration register for pins PB
@@ -9431,7 +8767,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -9441,7 +8776,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -9453,7 +8787,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -9464,7 +8797,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -9474,7 +8806,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -9489,7 +8820,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspb5{    ///<Pin configuration register for pins PB
@@ -9516,7 +8846,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -9526,7 +8855,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -9538,7 +8866,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -9549,7 +8876,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -9559,7 +8885,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -9574,7 +8899,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspb6{    ///<Pin configuration register for pins PB
@@ -9601,7 +8925,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -9611,7 +8934,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -9623,7 +8945,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -9634,7 +8955,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -9644,7 +8964,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -9659,7 +8978,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspc0{    ///<Pin configuration register for pins PC
@@ -9686,7 +9004,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -9696,7 +9013,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -9708,7 +9024,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -9719,7 +9034,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -9729,7 +9043,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -9744,7 +9057,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspc1{    ///<Pin configuration register for pins PC
@@ -9771,7 +9083,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -9781,7 +9092,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -9793,7 +9103,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -9804,7 +9113,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -9814,7 +9122,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -9829,7 +9136,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspc2{    ///<Pin configuration register for pins PC
@@ -9856,7 +9162,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -9866,7 +9171,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -9878,7 +9182,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -9889,7 +9192,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -9899,7 +9201,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -9914,7 +9215,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspc3{    ///<Pin configuration register for pins PC
@@ -9941,7 +9241,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -9951,7 +9250,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -9963,7 +9261,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -9974,7 +9271,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -9984,7 +9280,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -9999,7 +9294,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspc4{    ///<Pin configuration register for pins PC
@@ -10026,7 +9320,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -10036,7 +9329,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -10048,7 +9340,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -10059,7 +9350,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -10069,7 +9359,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -10084,7 +9373,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspc5{    ///<Pin configuration register for pins PC
@@ -10111,7 +9399,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -10121,7 +9408,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -10133,7 +9419,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -10144,7 +9429,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -10154,7 +9438,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -10169,7 +9452,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspc6{    ///<Pin configuration register for pins PC
@@ -10196,7 +9478,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -10206,7 +9487,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -10218,7 +9498,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -10229,7 +9508,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -10239,7 +9517,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -10254,7 +9531,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspc7{    ///<Pin configuration register for pins PC
@@ -10281,7 +9557,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -10291,7 +9566,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -10303,7 +9577,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -10314,7 +9587,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -10324,7 +9596,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -10339,7 +9610,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspc8{    ///<Pin configuration register for pins PC
@@ -10366,7 +9636,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -10376,7 +9645,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -10388,7 +9656,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -10399,7 +9666,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -10409,7 +9675,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -10424,7 +9689,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspc9{    ///<Pin configuration register for pins PC
@@ -10451,7 +9715,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -10461,7 +9724,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -10473,7 +9735,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -10484,7 +9745,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -10494,7 +9754,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -10509,7 +9768,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspc10{    ///<Pin configuration register for pins PC
@@ -10536,7 +9794,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -10546,7 +9803,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -10558,7 +9814,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -10569,7 +9824,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -10579,7 +9833,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -10594,7 +9847,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspc11{    ///<Pin configuration register for pins PC
@@ -10621,7 +9873,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -10631,7 +9882,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -10643,7 +9893,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -10654,7 +9903,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -10664,7 +9912,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -10679,7 +9926,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspc12{    ///<Pin configuration register for pins PC
@@ -10706,7 +9952,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -10716,7 +9961,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -10728,7 +9972,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -10739,7 +9982,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -10749,7 +9991,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -10764,7 +10005,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspc13{    ///<Pin configuration register for pins PC
@@ -10791,7 +10031,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -10801,7 +10040,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -10813,7 +10051,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -10824,7 +10061,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -10834,7 +10070,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -10849,7 +10084,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspc14{    ///<Pin configuration register for pins PC
@@ -10876,7 +10110,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -10886,7 +10119,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -10898,7 +10130,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -10909,7 +10140,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -10919,7 +10149,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -10934,7 +10163,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspd0{    ///<Pin configuration register for pins PD
@@ -10961,7 +10189,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -10971,7 +10198,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -10983,7 +10209,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -10994,7 +10219,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -11004,7 +10228,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -11019,7 +10242,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspd1{    ///<Pin configuration register for pins PD
@@ -11046,7 +10268,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -11056,7 +10277,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -11068,7 +10288,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -11079,7 +10298,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -11089,7 +10307,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -11104,7 +10321,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspd2{    ///<Pin configuration register for pins PD
@@ -11131,7 +10347,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -11141,7 +10356,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -11153,7 +10367,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -11164,7 +10377,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -11174,7 +10386,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -11189,7 +10400,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspd3{    ///<Pin configuration register for pins PD
@@ -11216,7 +10426,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -11226,7 +10435,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -11238,7 +10446,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -11249,7 +10456,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -11259,7 +10465,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -11274,7 +10479,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspd4{    ///<Pin configuration register for pins PD
@@ -11301,7 +10505,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -11311,7 +10514,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -11323,7 +10525,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -11334,7 +10535,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -11344,7 +10544,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -11359,7 +10558,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspd5{    ///<Pin configuration register for pins PD
@@ -11386,7 +10584,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -11396,7 +10593,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -11408,7 +10604,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -11419,7 +10614,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -11429,7 +10623,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -11444,7 +10637,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspd6{    ///<Pin configuration register for pins PD
@@ -11471,7 +10663,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -11481,7 +10672,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -11493,7 +10683,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -11504,7 +10693,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -11514,7 +10702,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -11529,7 +10716,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspd7{    ///<Pin configuration register for pins PD
@@ -11556,7 +10742,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -11566,7 +10751,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -11578,7 +10762,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -11589,7 +10772,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -11599,7 +10781,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -11614,7 +10795,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspd8{    ///<Pin configuration register for pins PD
@@ -11641,7 +10821,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -11651,7 +10830,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -11663,7 +10841,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -11674,7 +10851,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -11684,7 +10860,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -11699,7 +10874,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspd9{    ///<Pin configuration register for pins PD
@@ -11726,7 +10900,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -11736,7 +10909,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -11748,7 +10920,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -11759,7 +10930,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -11769,7 +10939,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -11784,7 +10953,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspd10{    ///<Pin configuration register for pins PD
@@ -11811,7 +10979,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -11821,7 +10988,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -11833,7 +10999,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -11844,7 +11009,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -11854,7 +11018,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -11869,7 +11032,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspd11{    ///<Pin configuration register for pins PD
@@ -11896,7 +11058,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -11906,7 +11067,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -11918,7 +11078,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -11929,7 +11088,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -11939,7 +11097,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -11954,7 +11111,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspd12{    ///<Pin configuration register for pins PD
@@ -11981,7 +11137,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -11991,7 +11146,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -12003,7 +11157,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -12014,7 +11167,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -12024,7 +11176,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -12039,7 +11190,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspd13{    ///<Pin configuration register for pins PD
@@ -12066,7 +11216,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -12076,7 +11225,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -12088,7 +11236,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -12099,7 +11246,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -12109,7 +11255,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -12124,7 +11269,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspd14{    ///<Pin configuration register for pins PD
@@ -12151,7 +11295,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -12161,7 +11304,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -12173,7 +11315,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -12184,7 +11325,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -12194,7 +11334,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -12209,7 +11348,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspd15{    ///<Pin configuration register for pins PD
@@ -12236,7 +11374,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -12246,7 +11383,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -12258,7 +11394,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -12269,7 +11404,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -12279,7 +11413,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -12294,7 +11427,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspd16{    ///<Pin configuration register for pins PD
@@ -12321,7 +11453,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -12331,7 +11462,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -12343,7 +11473,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -12354,7 +11483,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -12364,7 +11492,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -12379,7 +11506,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspe0{    ///<Pin configuration register for pins PE
@@ -12406,7 +11532,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -12416,7 +11541,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -12428,7 +11552,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -12439,7 +11562,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -12449,7 +11571,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -12464,7 +11585,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspe1{    ///<Pin configuration register for pins PE
@@ -12491,7 +11611,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -12501,7 +11620,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -12513,7 +11631,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -12524,7 +11641,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -12534,7 +11650,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -12549,7 +11664,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspe2{    ///<Pin configuration register for pins PE
@@ -12576,7 +11690,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -12586,7 +11699,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -12598,7 +11710,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -12609,7 +11720,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -12619,7 +11729,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -12634,7 +11743,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspe3{    ///<Pin configuration register for pins PE
@@ -12661,7 +11769,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -12671,7 +11778,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -12683,7 +11789,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -12694,7 +11799,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -12704,7 +11808,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -12719,7 +11822,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspe4{    ///<Pin configuration register for pins PE
@@ -12746,7 +11848,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -12756,7 +11857,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -12768,7 +11868,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -12779,7 +11878,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -12789,7 +11887,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -12804,7 +11901,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspe5{    ///<Pin configuration register for pins PE
@@ -12831,7 +11927,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -12841,7 +11936,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -12853,7 +11947,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -12864,7 +11957,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -12874,7 +11966,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -12889,7 +11980,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspe6{    ///<Pin configuration register for pins PE
@@ -12916,7 +12006,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -12926,7 +12015,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -12938,7 +12026,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -12949,7 +12036,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -12959,7 +12045,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -12974,7 +12059,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspe7{    ///<Pin configuration register for pins PE
@@ -13001,7 +12085,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -13011,7 +12094,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -13023,7 +12105,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -13034,7 +12115,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -13044,7 +12124,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -13059,7 +12138,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspe8{    ///<Pin configuration register for pins PE
@@ -13086,7 +12164,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -13096,7 +12173,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -13108,7 +12184,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -13119,7 +12194,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -13129,7 +12203,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -13144,7 +12217,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspe9{    ///<Pin configuration register for pins PE
@@ -13171,7 +12243,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -13181,7 +12252,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -13193,7 +12263,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -13204,7 +12273,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -13214,7 +12282,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -13229,7 +12296,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspe10{    ///<Pin configuration register for pins PE
@@ -13256,7 +12322,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -13266,7 +12331,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -13278,7 +12342,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -13289,7 +12352,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -13299,7 +12361,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -13314,7 +12375,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspe11{    ///<Pin configuration register for pins PE
@@ -13341,7 +12401,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -13351,7 +12410,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -13363,7 +12421,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -13374,7 +12431,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -13384,7 +12440,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -13399,7 +12454,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspe12{    ///<Pin configuration register for pins PE
@@ -13426,7 +12480,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -13436,7 +12489,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -13448,7 +12500,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -13459,7 +12510,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -13469,7 +12519,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -13484,7 +12533,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspe13{    ///<Pin configuration register for pins PE
@@ -13511,7 +12559,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -13521,7 +12568,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -13533,7 +12579,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -13544,7 +12589,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -13554,7 +12598,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -13569,7 +12612,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspe14{    ///<Pin configuration register for pins PE
@@ -13596,7 +12638,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -13606,7 +12647,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -13618,7 +12658,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -13629,7 +12668,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -13639,7 +12677,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -13654,7 +12691,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspe15{    ///<Pin configuration register for pins PE
@@ -13681,7 +12717,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -13691,7 +12726,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -13703,7 +12737,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -13714,7 +12747,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -13724,7 +12756,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -13739,7 +12770,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspf0{    ///<Pin configuration register for pins PF
@@ -13766,7 +12796,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -13776,7 +12805,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -13788,7 +12816,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -13799,7 +12826,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -13809,7 +12835,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -13824,7 +12849,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspf1{    ///<Pin configuration register for pins PF
@@ -13851,7 +12875,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -13861,7 +12884,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -13873,7 +12895,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -13884,7 +12905,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -13894,7 +12914,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -13909,7 +12928,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspf2{    ///<Pin configuration register for pins PF
@@ -13936,7 +12954,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -13946,7 +12963,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -13958,7 +12974,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -13969,7 +12984,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -13979,7 +12993,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -13994,7 +13007,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspf3{    ///<Pin configuration register for pins PF
@@ -14021,7 +13033,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -14031,7 +13042,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -14043,7 +13053,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -14054,7 +13063,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -14064,7 +13072,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -14079,7 +13086,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspf4{    ///<Pin configuration register for pins PF
@@ -14106,7 +13112,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -14116,7 +13121,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -14128,7 +13132,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -14139,7 +13142,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -14149,7 +13151,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -14164,7 +13165,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspf5{    ///<Pin configuration register for pins PF
@@ -14191,7 +13191,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -14201,7 +13200,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -14213,7 +13211,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -14224,7 +13221,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -14234,7 +13230,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -14249,7 +13244,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspf6{    ///<Pin configuration register for pins PF
@@ -14276,7 +13270,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -14286,7 +13279,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -14298,7 +13290,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -14309,7 +13300,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -14319,7 +13309,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -14334,7 +13323,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspf7{    ///<Pin configuration register for pins PF
@@ -14361,7 +13349,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -14371,7 +13358,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -14383,7 +13369,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -14394,7 +13379,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -14404,7 +13388,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -14419,7 +13402,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspf8{    ///<Pin configuration register for pins PF
@@ -14446,7 +13428,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -14456,7 +13437,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -14468,7 +13448,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -14479,7 +13458,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -14489,7 +13467,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -14504,7 +13481,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspf9{    ///<Pin configuration register for pins PF
@@ -14531,7 +13507,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -14541,7 +13516,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -14553,7 +13527,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -14564,7 +13537,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -14574,7 +13546,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -14589,7 +13560,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspf10{    ///<Pin configuration register for pins PF
@@ -14616,7 +13586,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -14626,7 +13595,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -14638,7 +13606,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -14649,7 +13616,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -14659,7 +13625,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -14674,7 +13639,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfspf11{    ///<Pin configuration register for pins PF
@@ -14701,7 +13665,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -14711,7 +13674,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -14723,7 +13685,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -14734,7 +13695,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -14744,7 +13704,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -14759,7 +13718,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsclk0{    ///<Pin configuration register for pins CLK
@@ -14786,7 +13744,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -14796,7 +13753,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -14808,7 +13764,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -14819,7 +13774,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -14829,7 +13783,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -14844,7 +13797,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsclk1{    ///<Pin configuration register for pins CLK
@@ -14871,7 +13823,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -14881,7 +13832,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -14893,7 +13843,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -14904,7 +13853,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -14914,7 +13862,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -14929,7 +13876,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsclk2{    ///<Pin configuration register for pins CLK
@@ -14956,7 +13902,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -14966,7 +13911,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -14978,7 +13922,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -14989,7 +13932,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -14999,7 +13941,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -15014,7 +13955,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::mediumDrive8MaD> mediumDrive8MaD{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
-        }
         }
     }
     namespace Nonesfsclk3{    ///<Pin configuration register for pins CLK
@@ -15041,7 +13981,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function6> function6{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::function7> function7{};
         }
-        }
         ///Enable pull-down resistor at pad
         enum class EpdVal {
             disablePullDown=0x00000000,     ///<Disable pull-down.
@@ -15051,7 +13990,6 @@ namespace Kvasir {
         namespace EpdValC{
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::disablePullDown> disablePullDown{};
             constexpr Register::FieldValue<decltype(epd)::Type,EpdVal::enablePullDown> enablePullDown{};
-        }
         }
         ///Disable pull-up resistor at pad. By default, the pull-up resistor is enabled at reset.
         enum class EpunVal {
@@ -15063,7 +14001,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::enablePullUp> enablePullUp{};
             constexpr Register::FieldValue<decltype(epun)::Type,EpunVal::disablePullUp> disablePullUp{};
         }
-        }
         ///Slew rate
         enum class EhsVal {
             slow=0x00000000,     ///<Slow
@@ -15074,7 +14011,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::slow> slow{};
             constexpr Register::FieldValue<decltype(ehs)::Type,EhsVal::fast> fast{};
         }
-        }
         ///Input buffer enable. The input buffer is disabled by default at reset but must be enabled to transfer data from the I/O buffer to the pad.
         enum class EziVal {
             disableInputBuffer=0x00000000,     ///<Disable input buffer
@@ -15084,7 +14020,6 @@ namespace Kvasir {
         namespace EziValC{
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::disableInputBuffer> disableInputBuffer{};
             constexpr Register::FieldValue<decltype(ezi)::Type,EziVal::enableInputBuffer> enableInputBuffer{};
-        }
         }
         ///Select drive strength
         enum class EhdVal {
@@ -15100,7 +14035,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::highDrive14MaDr> highDrive14MaDr{};
             constexpr Register::FieldValue<decltype(ehd)::Type,EhdVal::ultraHighDrive20> ultraHighDrive20{};
         }
-        }
     }
     namespace Noneenaio0{    ///<ADC0 function select register
         using Addr = Register::Address<0x40086c88,0xffffff80,0,unsigned>;
@@ -15114,7 +14048,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adc00)::Type,Adc00Val::analogFunctionAdc0> analogFunctionAdc0{};
             constexpr Register::FieldValue<decltype(adc00)::Type,Adc00Val::digitalFunctionSel> digitalFunctionSel{};
         }
-        }
         ///Select ADC0_1
         enum class Adc01Val {
             analogFunctionAdc0=0x00000000,     ///<Analog function ADC0_1 selected on pin P4_1.
@@ -15124,7 +14057,6 @@ namespace Kvasir {
         namespace Adc01ValC{
             constexpr Register::FieldValue<decltype(adc01)::Type,Adc01Val::analogFunctionAdc0> analogFunctionAdc0{};
             constexpr Register::FieldValue<decltype(adc01)::Type,Adc01Val::digitalFunctionSel> digitalFunctionSel{};
-        }
         }
         ///Select ADC0_2
         enum class Adc02Val {
@@ -15136,7 +14068,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adc02)::Type,Adc02Val::analogFunctionAdc0> analogFunctionAdc0{};
             constexpr Register::FieldValue<decltype(adc02)::Type,Adc02Val::digitalFunctionSel> digitalFunctionSel{};
         }
-        }
         ///Select ADC0_3
         enum class Adc03Val {
             analogFunctionAdc0=0x00000000,     ///<Analog function ADC0_3 selected on pin P7_5.
@@ -15146,7 +14077,6 @@ namespace Kvasir {
         namespace Adc03ValC{
             constexpr Register::FieldValue<decltype(adc03)::Type,Adc03Val::analogFunctionAdc0> analogFunctionAdc0{};
             constexpr Register::FieldValue<decltype(adc03)::Type,Adc03Val::digitalFunctionSel> digitalFunctionSel{};
-        }
         }
         ///Select ADC0_4
         enum class Adc04Val {
@@ -15158,7 +14088,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adc04)::Type,Adc04Val::analogFunctionAdc0> analogFunctionAdc0{};
             constexpr Register::FieldValue<decltype(adc04)::Type,Adc04Val::digitalFunctionSel> digitalFunctionSel{};
         }
-        }
         ///Select ADC0_5
         enum class Adc05Val {
             analogFunctionAdc0=0x00000000,     ///<Analog function ADC0_5 selected on pin PF_10.
@@ -15169,7 +14098,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adc05)::Type,Adc05Val::analogFunctionAdc0> analogFunctionAdc0{};
             constexpr Register::FieldValue<decltype(adc05)::Type,Adc05Val::digitalFunctionSel> digitalFunctionSel{};
         }
-        }
         ///Select ADC0_6
         enum class Adc06Val {
             analogFunctionAdc0=0x00000000,     ///<Analog function ADC0_6 selected on pin PB_6.
@@ -15179,7 +14107,6 @@ namespace Kvasir {
         namespace Adc06ValC{
             constexpr Register::FieldValue<decltype(adc06)::Type,Adc06Val::analogFunctionAdc0> analogFunctionAdc0{};
             constexpr Register::FieldValue<decltype(adc06)::Type,Adc06Val::digitalFunctionSel> digitalFunctionSel{};
-        }
         }
     }
     namespace Noneenaio1{    ///<ADC1 function select register
@@ -15194,7 +14121,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adc10)::Type,Adc10Val::analogFunctionAdc1> analogFunctionAdc1{};
             constexpr Register::FieldValue<decltype(adc10)::Type,Adc10Val::digitalFunctionSel> digitalFunctionSel{};
         }
-        }
         ///Select ADC1_1
         enum class Adc11Val {
             analogFunctionAdc1=0x00000000,     ///<Analog function ADC1_1 selected on pin PC_0.
@@ -15204,7 +14130,6 @@ namespace Kvasir {
         namespace Adc11ValC{
             constexpr Register::FieldValue<decltype(adc11)::Type,Adc11Val::analogFunctionAdc1> analogFunctionAdc1{};
             constexpr Register::FieldValue<decltype(adc11)::Type,Adc11Val::digitalFunctionSel> digitalFunctionSel{};
-        }
         }
         ///Select ADC1_2
         enum class Adc12Val {
@@ -15216,7 +14141,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adc12)::Type,Adc12Val::analogFunctionAdc1> analogFunctionAdc1{};
             constexpr Register::FieldValue<decltype(adc12)::Type,Adc12Val::digitalFunctionSel> digitalFunctionSel{};
         }
-        }
         ///Select ADC1_3
         enum class Adc13Val {
             analogFunctionAdc1=0x00000000,     ///<Analog function ADC1_3 selected on pin PF_6.
@@ -15226,7 +14150,6 @@ namespace Kvasir {
         namespace Adc13ValC{
             constexpr Register::FieldValue<decltype(adc13)::Type,Adc13Val::analogFunctionAdc1> analogFunctionAdc1{};
             constexpr Register::FieldValue<decltype(adc13)::Type,Adc13Val::digitalFunctionSel> digitalFunctionSel{};
-        }
         }
         ///Select ADC1_4
         enum class Adc14Val {
@@ -15238,7 +14161,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adc14)::Type,Adc14Val::analogFunctionAdc1> analogFunctionAdc1{};
             constexpr Register::FieldValue<decltype(adc14)::Type,Adc14Val::digitalFunctionSel> digitalFunctionSel{};
         }
-        }
         ///Select ADC1_5
         enum class Adc15Val {
             analogFunctionAdc1=0x00000000,     ///<Analog function ADC1_5 selected on pin PF_11.
@@ -15248,7 +14170,6 @@ namespace Kvasir {
         namespace Adc15ValC{
             constexpr Register::FieldValue<decltype(adc15)::Type,Adc15Val::analogFunctionAdc1> analogFunctionAdc1{};
             constexpr Register::FieldValue<decltype(adc15)::Type,Adc15Val::digitalFunctionSel> digitalFunctionSel{};
-        }
         }
         ///Select ADC1_6
         enum class Adc16Val {
@@ -15260,7 +14181,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adc16)::Type,Adc16Val::analogFunctionAdc1> analogFunctionAdc1{};
             constexpr Register::FieldValue<decltype(adc16)::Type,Adc16Val::digitalFunctionSel> digitalFunctionSel{};
         }
-        }
         ///Select ADC1_7
         enum class Adc17Val {
             analogFunctionAdc1=0x00000000,     ///<Analog function ADC1_7 selected on pin PF_7.
@@ -15270,7 +14190,6 @@ namespace Kvasir {
         namespace Adc17ValC{
             constexpr Register::FieldValue<decltype(adc17)::Type,Adc17Val::analogFunctionAdc1> analogFunctionAdc1{};
             constexpr Register::FieldValue<decltype(adc17)::Type,Adc17Val::digitalFunctionSel> digitalFunctionSel{};
-        }
         }
     }
     namespace Noneenaio2{    ///<Analog function select register
@@ -15285,7 +14204,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dac)::Type,DacVal::analogFunctionDac> analogFunctionDac{};
             constexpr Register::FieldValue<decltype(dac)::Type,DacVal::digitalFunctionSel> digitalFunctionSel{};
         }
-        }
         ///Select bandgap output
         enum class BgVal {
             bandgapOutputSelec=0x00000000,     ///<Bandgap output selected for pin PF_7.
@@ -15295,7 +14213,6 @@ namespace Kvasir {
         namespace BgValC{
             constexpr Register::FieldValue<decltype(bg)::Type,BgVal::bandgapOutputSelec> bandgapOutputSelec{};
             constexpr Register::FieldValue<decltype(bg)::Type,BgVal::digitalFunctionSel> digitalFunctionSel{};
-        }
         }
     }
     namespace Nonesfsusb{    ///<Pin configuration register for
@@ -15310,7 +14227,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usbAim)::Type,UsbaimVal::goingLowWithFull> goingLowWithFull{};
             constexpr Register::FieldValue<decltype(usbAim)::Type,UsbaimVal::goingHighWithFull> goingHighWithFull{};
         }
-        }
         ///Control signal for differential input or single input
         enum class UsbeseaVal {
             reservedDoNotUse=0x00000000,     ///<Reserved. Do not use.
@@ -15320,7 +14236,6 @@ namespace Kvasir {
         namespace UsbeseaValC{
             constexpr Register::FieldValue<decltype(usbEsea)::Type,UsbeseaVal::reservedDoNotUse> reservedDoNotUse{};
             constexpr Register::FieldValue<decltype(usbEsea)::Type,UsbeseaVal::singleInputAipEn> singleInputAipEn{};
-        }
         }
     }
     namespace Nonesfsi2c0{    ///<Pin configuration register for I 2C0-bus pins
@@ -15335,7 +14250,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sdaEhs)::Type,SdaehsVal::standardfastMode> standardfastMode{};
             constexpr Register::FieldValue<decltype(sdaEhs)::Type,SdaehsVal::highSpeedMode34> highSpeedMode34{};
         }
-        }
         ///Configures I2C0-bus speed for SCL0 pin
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> sclEhs{}; 
         ///Direction (only applies if SCL_EHS = 1)
@@ -15347,7 +14261,6 @@ namespace Kvasir {
         namespace SclecsValC{
             constexpr Register::FieldValue<decltype(sclEcs)::Type,SclecsVal::receive> receive{};
             constexpr Register::FieldValue<decltype(sclEcs)::Type,SclecsVal::transmit> transmit{};
-        }
         }
     }
     namespace Noneemcdelayclk{    ///<EMC clock delay register
@@ -15395,7 +14308,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(portsel0)::Type,Portsel0Val::gpioPort6> gpioPort6{};
             constexpr Register::FieldValue<decltype(portsel0)::Type,Portsel0Val::gpioPort7> gpioPort7{};
         }
-        }
         ///Pint interrupt 1: Select the pin number within the GPIO port selected by the PORTSEL1 bit in this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> intpin1{}; 
         ///Pin interrupt 1: Select the port for the pin number to be selected in the INTPIN1 bits of this register.
@@ -15419,7 +14331,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(portsel1)::Type,Portsel1Val::gpioPort5> gpioPort5{};
             constexpr Register::FieldValue<decltype(portsel1)::Type,Portsel1Val::gpioPort6> gpioPort6{};
             constexpr Register::FieldValue<decltype(portsel1)::Type,Portsel1Val::gpioPort7> gpioPort7{};
-        }
         }
         ///Pint interrupt 2: Select the pin number within the GPIO port selected by the PORTSEL2 bit in this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> intpin2{}; 
@@ -15445,7 +14356,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(portsel2)::Type,Portsel2Val::gpioPort6> gpioPort6{};
             constexpr Register::FieldValue<decltype(portsel2)::Type,Portsel2Val::gpioPort7> gpioPort7{};
         }
-        }
         ///Pint interrupt 3: Select the pin number within the GPIO port selected by the PORTSEL3 bit in this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> intpin3{}; 
         ///Pin interrupt 3: Select the port for the pin number to be selected in the INTPIN3 bits of this register.
@@ -15469,7 +14379,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(portsel3)::Type,Portsel3Val::gpioPort5> gpioPort5{};
             constexpr Register::FieldValue<decltype(portsel3)::Type,Portsel3Val::gpioPort6> gpioPort6{};
             constexpr Register::FieldValue<decltype(portsel3)::Type,Portsel3Val::gpioPort7> gpioPort7{};
-        }
         }
     }
     namespace Nonepintsel1{    ///<Pin interrupt select register for pin interrupts 4 to 7.
@@ -15498,7 +14407,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(portsel4)::Type,Portsel4Val::gpioPort6> gpioPort6{};
             constexpr Register::FieldValue<decltype(portsel4)::Type,Portsel4Val::gpioPort7> gpioPort7{};
         }
-        }
         ///Pint interrupt 5: Select the pin number within the GPIO port selected by the PORTSEL5 bit in this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> intpin5{}; 
         ///Pin interrupt 5: Select the port for the pin number to be selected in the INTPIN5 bits of this register.
@@ -15522,7 +14430,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(portsel5)::Type,Portsel5Val::gpioPort5> gpioPort5{};
             constexpr Register::FieldValue<decltype(portsel5)::Type,Portsel5Val::gpioPort6> gpioPort6{};
             constexpr Register::FieldValue<decltype(portsel5)::Type,Portsel5Val::gpioPort7> gpioPort7{};
-        }
         }
         ///Pint interrupt 6: Select the pin number within the GPIO port selected by the PORTSEL6 bit in this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> intpin6{}; 
@@ -15548,7 +14455,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(portsel6)::Type,Portsel6Val::gpioPort6> gpioPort6{};
             constexpr Register::FieldValue<decltype(portsel6)::Type,Portsel6Val::gpioPort7> gpioPort7{};
         }
-        }
         ///Pint interrupt 7: Select the pin number within the GPIO port selected by the PORTSEL7 bit in this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> intpin7{}; 
         ///Pin interrupt 7: Select the port for the pin number to be selected in the INTPIN7 bits of this register.
@@ -15572,7 +14478,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(portsel7)::Type,Portsel7Val::gpioPort5> gpioPort5{};
             constexpr Register::FieldValue<decltype(portsel7)::Type,Portsel7Val::gpioPort6> gpioPort6{};
             constexpr Register::FieldValue<decltype(portsel7)::Type,Portsel7Val::gpioPort7> gpioPort7{};
-        }
         }
     }
 }

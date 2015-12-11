@@ -18,7 +18,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sleepflag)::Type,SleepflagVal::readNoPowerDown> readNoPowerDown{};
             constexpr Register::FieldValue<decltype(sleepflag)::Type,SleepflagVal::readSleepdeepSle> readSleepdeepSle{};
         }
-        }
         ///Deep power-down flag
         enum class DpdflagVal {
             readDeepPowerDow=0x00000000,     ///<Read: Deep power-down mode  not entered. Write: No effect.
@@ -28,7 +27,6 @@ namespace Kvasir {
         namespace DpdflagValC{
             constexpr Register::FieldValue<decltype(dpdflag)::Type,DpdflagVal::readDeepPowerDow> readDeepPowerDow{};
             constexpr Register::FieldValue<decltype(dpdflag)::Type,DpdflagVal::readDeepPowerDow> readDeepPowerDow{};
-        }
         }
     }
     namespace Nonegpreg0{    ///<General purpose register 0
@@ -63,7 +61,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wakeuphys)::Type,WakeuphysVal::disabledHysteresis> disabledHysteresis{};
             constexpr Register::FieldValue<decltype(wakeuphys)::Type,WakeuphysVal::enabledHysteresis> enabledHysteresis{};
         }
-        }
         ///WAKEUP pin disable. Setting this bit disables the wake-up pin, so it can be used for other purposes. Never set this bit if you intend to use a pin to wake up the part from Deep power-down mode. You can only disable the wake-up pin if the self wake-up timer is enabled and configured. Setting this bit is not necessary if Deep power-down mode is not used.
         enum class WakepaddisableVal {
             enabledTheWakeUp=0x00000000,     ///<Enabled. The wake-up function is enabled on pin PIO0_4.
@@ -73,7 +70,6 @@ namespace Kvasir {
         namespace WakepaddisableValC{
             constexpr Register::FieldValue<decltype(wakepadDisable)::Type,WakepaddisableVal::enabledTheWakeUp> enabledTheWakeUp{};
             constexpr Register::FieldValue<decltype(wakepadDisable)::Type,WakepaddisableVal::disabledSettingTh> disabledSettingTh{};
-        }
         }
         ///Enable the low-power oscillator for use with the 10 kHz self wake-up timer clock. You must set this bit if the CLKSEL bit in the self wake-up timer CTRL bit is set.  Do not enable the low-power oscillator if the self wake-up timer is clocked by the divided IRC.
         enum class LposcenVal {
@@ -85,7 +81,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lposcen)::Type,LposcenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(lposcen)::Type,LposcenVal::enabled> enabled{};
         }
-        }
         ///Enable the low-power oscillator in Deep power-down mode. Setting this bit causes the low-power oscillator to remain running during Deep power-down mode provided that bit 12 in this register is set as well.  You must set this bit for the self wake-up timer to be able to wake up the part from Deep power-down mode. Do not set this bit unless you must use the self wake-up timer to wake up from Deep power-down mode.
         enum class LposcdpdenVal {
             disabled=0x00000000,     ///<Disabled.
@@ -95,7 +90,6 @@ namespace Kvasir {
         namespace LposcdpdenValC{
             constexpr Register::FieldValue<decltype(lposcdpden)::Type,LposcdpdenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(lposcdpden)::Type,LposcdpdenVal::enabled> enabled{};
-        }
         }
     }
 }

@@ -32,7 +32,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(thmask)::Type,ThmaskVal::beats8> beats8{};
             constexpr Register::FieldValue<decltype(thmask)::Type,ThmaskVal::beats16> beats16{};
         }
-        }
         ///Start of Line Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> sld{}; 
         ///Start of Frame Delay

@@ -203,7 +203,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::bulkIn> bulkIn{};
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::intIn> intIn{};
         }
-        }
         ///Data Toggle
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> dtgle{}; 
         ///Endpoint Enable Disable
@@ -248,7 +247,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::isoIn> isoIn{};
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::bulkIn> bulkIn{};
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::intIn> intIn{};
-        }
         }
         ///Data Toggle
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> dtgle{}; 
@@ -295,7 +293,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::bulkIn> bulkIn{};
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::intIn> intIn{};
         }
-        }
         ///Data Toggle
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> dtgle{}; 
         ///Endpoint Enable Disable
@@ -340,7 +337,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::isoIn> isoIn{};
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::bulkIn> bulkIn{};
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::intIn> intIn{};
-        }
         }
         ///Data Toggle
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> dtgle{}; 
@@ -387,7 +383,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::bulkIn> bulkIn{};
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::intIn> intIn{};
         }
-        }
         ///Data Toggle
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> dtgle{}; 
         ///Endpoint Enable Disable
@@ -433,7 +428,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::bulkIn> bulkIn{};
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::intIn> intIn{};
         }
-        }
         ///Data Toggle
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> dtgle{}; 
         ///Endpoint Enable Disable
@@ -478,7 +472,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::bulkIn> bulkIn{};
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::intOut> intOut{};
             constexpr Register::FieldValue<decltype(eptype)::Type,EptypeVal::intIn> intIn{};
-        }
         }
         ///Data Toggle
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> dtgle{}; 

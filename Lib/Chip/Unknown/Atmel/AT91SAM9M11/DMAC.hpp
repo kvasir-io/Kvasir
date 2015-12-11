@@ -498,7 +498,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dscrIf)::Type,DscrifVal::ahbIf1> ahbIf1{};
             constexpr Register::FieldValue<decltype(dscrIf)::Type,DscrifVal::ahbIf2> ahbIf2{};
         }
-        }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> dscr{}; 
     }
@@ -528,7 +527,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(scsize)::Type,ScsizeVal::chk128> chk128{};
             constexpr Register::FieldValue<decltype(scsize)::Type,ScsizeVal::chk256> chk256{};
         }
-        }
         ///None
         enum class DcsizeVal {
             chk1=0x00000000,     ///<1 data transferred
@@ -551,7 +549,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dcsize)::Type,DcsizeVal::chk128> chk128{};
             constexpr Register::FieldValue<decltype(dcsize)::Type,DcsizeVal::chk256> chk256{};
         }
-        }
         ///None
         enum class SrcwidthVal {
             byte=0x00000000,     ///<the transfer size is set to 8-bit width
@@ -564,7 +561,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcWidth)::Type,SrcwidthVal::halfWord> halfWord{};
             constexpr Register::FieldValue<decltype(srcWidth)::Type,SrcwidthVal::word> word{};
         }
-        }
         ///None
         enum class DstwidthVal {
             byte=0x00000000,     ///<the transfer size is set to 8-bit width
@@ -576,7 +572,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstWidth)::Type,DstwidthVal::byte> byte{};
             constexpr Register::FieldValue<decltype(dstWidth)::Type,DstwidthVal::halfWord> halfWord{};
             constexpr Register::FieldValue<decltype(dstWidth)::Type,DstwidthVal::word> word{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
@@ -595,7 +590,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sif)::Type,SifVal::ahbIf1> ahbIf1{};
             constexpr Register::FieldValue<decltype(sif)::Type,SifVal::ahbIf2> ahbIf2{};
         }
-        }
         ///Destination Interface Selection Field
         enum class DifVal {
             ahbIfo=0x00000000,     ///<The destination transfer is done via AHB-Lite Interface 0
@@ -607,7 +601,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dif)::Type,DifVal::ahbIfo> ahbIfo{};
             constexpr Register::FieldValue<decltype(dif)::Type,DifVal::ahbIf1> ahbIf1{};
             constexpr Register::FieldValue<decltype(dif)::Type,DifVal::ahbIf2> ahbIf2{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> srcDscr{}; 
@@ -635,7 +628,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fc)::Type,FcVal::per2perSperFc> per2perSperFc{};
             constexpr Register::FieldValue<decltype(fc)::Type,FcVal::per2perDperFc> per2perDperFc{};
         }
-        }
         ///None
         enum class SrcincrVal {
             incrementing=0x00000000,     ///<The source address is incremented
@@ -648,7 +640,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcIncr)::Type,SrcincrVal::decrementing> decrementing{};
             constexpr Register::FieldValue<decltype(srcIncr)::Type,SrcincrVal::fixed> fixed{};
         }
-        }
         ///None
         enum class DstincrVal {
             incrementing=0x00000000,     ///<The destination address is incremented
@@ -660,7 +651,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstIncr)::Type,DstincrVal::incrementing> incrementing{};
             constexpr Register::FieldValue<decltype(dstIncr)::Type,DstincrVal::decrementing> decrementing{};
             constexpr Register::FieldValue<decltype(dstIncr)::Type,DstincrVal::fixed> fixed{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> ien{}; 
@@ -703,7 +693,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fifocfg)::Type,FifocfgVal::halfCfg> halfCfg{};
             constexpr Register::FieldValue<decltype(fifocfg)::Type,FifocfgVal::asapCfg> asapCfg{};
         }
-        }
     }
     namespace DmacSaddr1{    ///<DMAC Channel Source Address Register (ch_num = 1)
         using Addr = Register::Address<0xffffec64,0x00000000,0,unsigned>;
@@ -728,7 +717,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dscrIf)::Type,DscrifVal::ahbIfo> ahbIfo{};
             constexpr Register::FieldValue<decltype(dscrIf)::Type,DscrifVal::ahbIf1> ahbIf1{};
             constexpr Register::FieldValue<decltype(dscrIf)::Type,DscrifVal::ahbIf2> ahbIf2{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> dscr{}; 
@@ -759,7 +747,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(scsize)::Type,ScsizeVal::chk128> chk128{};
             constexpr Register::FieldValue<decltype(scsize)::Type,ScsizeVal::chk256> chk256{};
         }
-        }
         ///None
         enum class DcsizeVal {
             chk1=0x00000000,     ///<1 data transferred
@@ -782,7 +769,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dcsize)::Type,DcsizeVal::chk128> chk128{};
             constexpr Register::FieldValue<decltype(dcsize)::Type,DcsizeVal::chk256> chk256{};
         }
-        }
         ///None
         enum class SrcwidthVal {
             byte=0x00000000,     ///<the transfer size is set to 8-bit width
@@ -795,7 +781,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcWidth)::Type,SrcwidthVal::halfWord> halfWord{};
             constexpr Register::FieldValue<decltype(srcWidth)::Type,SrcwidthVal::word> word{};
         }
-        }
         ///None
         enum class DstwidthVal {
             byte=0x00000000,     ///<the transfer size is set to 8-bit width
@@ -807,7 +792,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstWidth)::Type,DstwidthVal::byte> byte{};
             constexpr Register::FieldValue<decltype(dstWidth)::Type,DstwidthVal::halfWord> halfWord{};
             constexpr Register::FieldValue<decltype(dstWidth)::Type,DstwidthVal::word> word{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
@@ -826,7 +810,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sif)::Type,SifVal::ahbIf1> ahbIf1{};
             constexpr Register::FieldValue<decltype(sif)::Type,SifVal::ahbIf2> ahbIf2{};
         }
-        }
         ///Destination Interface Selection Field
         enum class DifVal {
             ahbIfo=0x00000000,     ///<The destination transfer is done via AHB-Lite Interface 0
@@ -838,7 +821,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dif)::Type,DifVal::ahbIfo> ahbIfo{};
             constexpr Register::FieldValue<decltype(dif)::Type,DifVal::ahbIf1> ahbIf1{};
             constexpr Register::FieldValue<decltype(dif)::Type,DifVal::ahbIf2> ahbIf2{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> srcDscr{}; 
@@ -866,7 +848,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fc)::Type,FcVal::per2perSperFc> per2perSperFc{};
             constexpr Register::FieldValue<decltype(fc)::Type,FcVal::per2perDperFc> per2perDperFc{};
         }
-        }
         ///None
         enum class SrcincrVal {
             incrementing=0x00000000,     ///<The source address is incremented
@@ -879,7 +860,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcIncr)::Type,SrcincrVal::decrementing> decrementing{};
             constexpr Register::FieldValue<decltype(srcIncr)::Type,SrcincrVal::fixed> fixed{};
         }
-        }
         ///None
         enum class DstincrVal {
             incrementing=0x00000000,     ///<The destination address is incremented
@@ -891,7 +871,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstIncr)::Type,DstincrVal::incrementing> incrementing{};
             constexpr Register::FieldValue<decltype(dstIncr)::Type,DstincrVal::decrementing> decrementing{};
             constexpr Register::FieldValue<decltype(dstIncr)::Type,DstincrVal::fixed> fixed{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> ien{}; 
@@ -934,7 +913,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fifocfg)::Type,FifocfgVal::halfCfg> halfCfg{};
             constexpr Register::FieldValue<decltype(fifocfg)::Type,FifocfgVal::asapCfg> asapCfg{};
         }
-        }
     }
     namespace DmacSaddr2{    ///<DMAC Channel Source Address Register (ch_num = 2)
         using Addr = Register::Address<0xffffec8c,0x00000000,0,unsigned>;
@@ -959,7 +937,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dscrIf)::Type,DscrifVal::ahbIfo> ahbIfo{};
             constexpr Register::FieldValue<decltype(dscrIf)::Type,DscrifVal::ahbIf1> ahbIf1{};
             constexpr Register::FieldValue<decltype(dscrIf)::Type,DscrifVal::ahbIf2> ahbIf2{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> dscr{}; 
@@ -990,7 +967,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(scsize)::Type,ScsizeVal::chk128> chk128{};
             constexpr Register::FieldValue<decltype(scsize)::Type,ScsizeVal::chk256> chk256{};
         }
-        }
         ///None
         enum class DcsizeVal {
             chk1=0x00000000,     ///<1 data transferred
@@ -1013,7 +989,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dcsize)::Type,DcsizeVal::chk128> chk128{};
             constexpr Register::FieldValue<decltype(dcsize)::Type,DcsizeVal::chk256> chk256{};
         }
-        }
         ///None
         enum class SrcwidthVal {
             byte=0x00000000,     ///<the transfer size is set to 8-bit width
@@ -1026,7 +1001,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcWidth)::Type,SrcwidthVal::halfWord> halfWord{};
             constexpr Register::FieldValue<decltype(srcWidth)::Type,SrcwidthVal::word> word{};
         }
-        }
         ///None
         enum class DstwidthVal {
             byte=0x00000000,     ///<the transfer size is set to 8-bit width
@@ -1038,7 +1012,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstWidth)::Type,DstwidthVal::byte> byte{};
             constexpr Register::FieldValue<decltype(dstWidth)::Type,DstwidthVal::halfWord> halfWord{};
             constexpr Register::FieldValue<decltype(dstWidth)::Type,DstwidthVal::word> word{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
@@ -1057,7 +1030,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sif)::Type,SifVal::ahbIf1> ahbIf1{};
             constexpr Register::FieldValue<decltype(sif)::Type,SifVal::ahbIf2> ahbIf2{};
         }
-        }
         ///Destination Interface Selection Field
         enum class DifVal {
             ahbIfo=0x00000000,     ///<The destination transfer is done via AHB-Lite Interface 0
@@ -1069,7 +1041,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dif)::Type,DifVal::ahbIfo> ahbIfo{};
             constexpr Register::FieldValue<decltype(dif)::Type,DifVal::ahbIf1> ahbIf1{};
             constexpr Register::FieldValue<decltype(dif)::Type,DifVal::ahbIf2> ahbIf2{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> srcDscr{}; 
@@ -1097,7 +1068,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fc)::Type,FcVal::per2perSperFc> per2perSperFc{};
             constexpr Register::FieldValue<decltype(fc)::Type,FcVal::per2perDperFc> per2perDperFc{};
         }
-        }
         ///None
         enum class SrcincrVal {
             incrementing=0x00000000,     ///<The source address is incremented
@@ -1110,7 +1080,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcIncr)::Type,SrcincrVal::decrementing> decrementing{};
             constexpr Register::FieldValue<decltype(srcIncr)::Type,SrcincrVal::fixed> fixed{};
         }
-        }
         ///None
         enum class DstincrVal {
             incrementing=0x00000000,     ///<The destination address is incremented
@@ -1122,7 +1091,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstIncr)::Type,DstincrVal::incrementing> incrementing{};
             constexpr Register::FieldValue<decltype(dstIncr)::Type,DstincrVal::decrementing> decrementing{};
             constexpr Register::FieldValue<decltype(dstIncr)::Type,DstincrVal::fixed> fixed{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> ien{}; 
@@ -1165,7 +1133,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fifocfg)::Type,FifocfgVal::halfCfg> halfCfg{};
             constexpr Register::FieldValue<decltype(fifocfg)::Type,FifocfgVal::asapCfg> asapCfg{};
         }
-        }
     }
     namespace DmacSaddr3{    ///<DMAC Channel Source Address Register (ch_num = 3)
         using Addr = Register::Address<0xffffecb4,0x00000000,0,unsigned>;
@@ -1190,7 +1157,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dscrIf)::Type,DscrifVal::ahbIfo> ahbIfo{};
             constexpr Register::FieldValue<decltype(dscrIf)::Type,DscrifVal::ahbIf1> ahbIf1{};
             constexpr Register::FieldValue<decltype(dscrIf)::Type,DscrifVal::ahbIf2> ahbIf2{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> dscr{}; 
@@ -1221,7 +1187,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(scsize)::Type,ScsizeVal::chk128> chk128{};
             constexpr Register::FieldValue<decltype(scsize)::Type,ScsizeVal::chk256> chk256{};
         }
-        }
         ///None
         enum class DcsizeVal {
             chk1=0x00000000,     ///<1 data transferred
@@ -1244,7 +1209,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dcsize)::Type,DcsizeVal::chk128> chk128{};
             constexpr Register::FieldValue<decltype(dcsize)::Type,DcsizeVal::chk256> chk256{};
         }
-        }
         ///None
         enum class SrcwidthVal {
             byte=0x00000000,     ///<the transfer size is set to 8-bit width
@@ -1257,7 +1221,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcWidth)::Type,SrcwidthVal::halfWord> halfWord{};
             constexpr Register::FieldValue<decltype(srcWidth)::Type,SrcwidthVal::word> word{};
         }
-        }
         ///None
         enum class DstwidthVal {
             byte=0x00000000,     ///<the transfer size is set to 8-bit width
@@ -1269,7 +1232,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstWidth)::Type,DstwidthVal::byte> byte{};
             constexpr Register::FieldValue<decltype(dstWidth)::Type,DstwidthVal::halfWord> halfWord{};
             constexpr Register::FieldValue<decltype(dstWidth)::Type,DstwidthVal::word> word{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
@@ -1288,7 +1250,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sif)::Type,SifVal::ahbIf1> ahbIf1{};
             constexpr Register::FieldValue<decltype(sif)::Type,SifVal::ahbIf2> ahbIf2{};
         }
-        }
         ///Destination Interface Selection Field
         enum class DifVal {
             ahbIfo=0x00000000,     ///<The destination transfer is done via AHB-Lite Interface 0
@@ -1300,7 +1261,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dif)::Type,DifVal::ahbIfo> ahbIfo{};
             constexpr Register::FieldValue<decltype(dif)::Type,DifVal::ahbIf1> ahbIf1{};
             constexpr Register::FieldValue<decltype(dif)::Type,DifVal::ahbIf2> ahbIf2{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> srcDscr{}; 
@@ -1328,7 +1288,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fc)::Type,FcVal::per2perSperFc> per2perSperFc{};
             constexpr Register::FieldValue<decltype(fc)::Type,FcVal::per2perDperFc> per2perDperFc{};
         }
-        }
         ///None
         enum class SrcincrVal {
             incrementing=0x00000000,     ///<The source address is incremented
@@ -1341,7 +1300,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcIncr)::Type,SrcincrVal::decrementing> decrementing{};
             constexpr Register::FieldValue<decltype(srcIncr)::Type,SrcincrVal::fixed> fixed{};
         }
-        }
         ///None
         enum class DstincrVal {
             incrementing=0x00000000,     ///<The destination address is incremented
@@ -1353,7 +1311,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstIncr)::Type,DstincrVal::incrementing> incrementing{};
             constexpr Register::FieldValue<decltype(dstIncr)::Type,DstincrVal::decrementing> decrementing{};
             constexpr Register::FieldValue<decltype(dstIncr)::Type,DstincrVal::fixed> fixed{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> ien{}; 
@@ -1396,7 +1353,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fifocfg)::Type,FifocfgVal::halfCfg> halfCfg{};
             constexpr Register::FieldValue<decltype(fifocfg)::Type,FifocfgVal::asapCfg> asapCfg{};
         }
-        }
     }
     namespace DmacSaddr4{    ///<DMAC Channel Source Address Register (ch_num = 4)
         using Addr = Register::Address<0xffffecdc,0x00000000,0,unsigned>;
@@ -1421,7 +1377,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dscrIf)::Type,DscrifVal::ahbIfo> ahbIfo{};
             constexpr Register::FieldValue<decltype(dscrIf)::Type,DscrifVal::ahbIf1> ahbIf1{};
             constexpr Register::FieldValue<decltype(dscrIf)::Type,DscrifVal::ahbIf2> ahbIf2{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> dscr{}; 
@@ -1452,7 +1407,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(scsize)::Type,ScsizeVal::chk128> chk128{};
             constexpr Register::FieldValue<decltype(scsize)::Type,ScsizeVal::chk256> chk256{};
         }
-        }
         ///None
         enum class DcsizeVal {
             chk1=0x00000000,     ///<1 data transferred
@@ -1475,7 +1429,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dcsize)::Type,DcsizeVal::chk128> chk128{};
             constexpr Register::FieldValue<decltype(dcsize)::Type,DcsizeVal::chk256> chk256{};
         }
-        }
         ///None
         enum class SrcwidthVal {
             byte=0x00000000,     ///<the transfer size is set to 8-bit width
@@ -1488,7 +1441,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcWidth)::Type,SrcwidthVal::halfWord> halfWord{};
             constexpr Register::FieldValue<decltype(srcWidth)::Type,SrcwidthVal::word> word{};
         }
-        }
         ///None
         enum class DstwidthVal {
             byte=0x00000000,     ///<the transfer size is set to 8-bit width
@@ -1500,7 +1452,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstWidth)::Type,DstwidthVal::byte> byte{};
             constexpr Register::FieldValue<decltype(dstWidth)::Type,DstwidthVal::halfWord> halfWord{};
             constexpr Register::FieldValue<decltype(dstWidth)::Type,DstwidthVal::word> word{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
@@ -1519,7 +1470,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sif)::Type,SifVal::ahbIf1> ahbIf1{};
             constexpr Register::FieldValue<decltype(sif)::Type,SifVal::ahbIf2> ahbIf2{};
         }
-        }
         ///Destination Interface Selection Field
         enum class DifVal {
             ahbIfo=0x00000000,     ///<The destination transfer is done via AHB-Lite Interface 0
@@ -1531,7 +1481,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dif)::Type,DifVal::ahbIfo> ahbIfo{};
             constexpr Register::FieldValue<decltype(dif)::Type,DifVal::ahbIf1> ahbIf1{};
             constexpr Register::FieldValue<decltype(dif)::Type,DifVal::ahbIf2> ahbIf2{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> srcDscr{}; 
@@ -1559,7 +1508,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fc)::Type,FcVal::per2perSperFc> per2perSperFc{};
             constexpr Register::FieldValue<decltype(fc)::Type,FcVal::per2perDperFc> per2perDperFc{};
         }
-        }
         ///None
         enum class SrcincrVal {
             incrementing=0x00000000,     ///<The source address is incremented
@@ -1572,7 +1520,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcIncr)::Type,SrcincrVal::decrementing> decrementing{};
             constexpr Register::FieldValue<decltype(srcIncr)::Type,SrcincrVal::fixed> fixed{};
         }
-        }
         ///None
         enum class DstincrVal {
             incrementing=0x00000000,     ///<The destination address is incremented
@@ -1584,7 +1531,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstIncr)::Type,DstincrVal::incrementing> incrementing{};
             constexpr Register::FieldValue<decltype(dstIncr)::Type,DstincrVal::decrementing> decrementing{};
             constexpr Register::FieldValue<decltype(dstIncr)::Type,DstincrVal::fixed> fixed{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> ien{}; 
@@ -1627,7 +1573,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fifocfg)::Type,FifocfgVal::halfCfg> halfCfg{};
             constexpr Register::FieldValue<decltype(fifocfg)::Type,FifocfgVal::asapCfg> asapCfg{};
         }
-        }
     }
     namespace DmacSaddr5{    ///<DMAC Channel Source Address Register (ch_num = 5)
         using Addr = Register::Address<0xffffed04,0x00000000,0,unsigned>;
@@ -1652,7 +1597,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dscrIf)::Type,DscrifVal::ahbIfo> ahbIfo{};
             constexpr Register::FieldValue<decltype(dscrIf)::Type,DscrifVal::ahbIf1> ahbIf1{};
             constexpr Register::FieldValue<decltype(dscrIf)::Type,DscrifVal::ahbIf2> ahbIf2{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> dscr{}; 
@@ -1683,7 +1627,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(scsize)::Type,ScsizeVal::chk128> chk128{};
             constexpr Register::FieldValue<decltype(scsize)::Type,ScsizeVal::chk256> chk256{};
         }
-        }
         ///None
         enum class DcsizeVal {
             chk1=0x00000000,     ///<1 data transferred
@@ -1706,7 +1649,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dcsize)::Type,DcsizeVal::chk128> chk128{};
             constexpr Register::FieldValue<decltype(dcsize)::Type,DcsizeVal::chk256> chk256{};
         }
-        }
         ///None
         enum class SrcwidthVal {
             byte=0x00000000,     ///<the transfer size is set to 8-bit width
@@ -1719,7 +1661,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcWidth)::Type,SrcwidthVal::halfWord> halfWord{};
             constexpr Register::FieldValue<decltype(srcWidth)::Type,SrcwidthVal::word> word{};
         }
-        }
         ///None
         enum class DstwidthVal {
             byte=0x00000000,     ///<the transfer size is set to 8-bit width
@@ -1731,7 +1672,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstWidth)::Type,DstwidthVal::byte> byte{};
             constexpr Register::FieldValue<decltype(dstWidth)::Type,DstwidthVal::halfWord> halfWord{};
             constexpr Register::FieldValue<decltype(dstWidth)::Type,DstwidthVal::word> word{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
@@ -1750,7 +1690,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sif)::Type,SifVal::ahbIf1> ahbIf1{};
             constexpr Register::FieldValue<decltype(sif)::Type,SifVal::ahbIf2> ahbIf2{};
         }
-        }
         ///Destination Interface Selection Field
         enum class DifVal {
             ahbIfo=0x00000000,     ///<The destination transfer is done via AHB-Lite Interface 0
@@ -1762,7 +1701,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dif)::Type,DifVal::ahbIfo> ahbIfo{};
             constexpr Register::FieldValue<decltype(dif)::Type,DifVal::ahbIf1> ahbIf1{};
             constexpr Register::FieldValue<decltype(dif)::Type,DifVal::ahbIf2> ahbIf2{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> srcDscr{}; 
@@ -1790,7 +1728,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fc)::Type,FcVal::per2perSperFc> per2perSperFc{};
             constexpr Register::FieldValue<decltype(fc)::Type,FcVal::per2perDperFc> per2perDperFc{};
         }
-        }
         ///None
         enum class SrcincrVal {
             incrementing=0x00000000,     ///<The source address is incremented
@@ -1803,7 +1740,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcIncr)::Type,SrcincrVal::decrementing> decrementing{};
             constexpr Register::FieldValue<decltype(srcIncr)::Type,SrcincrVal::fixed> fixed{};
         }
-        }
         ///None
         enum class DstincrVal {
             incrementing=0x00000000,     ///<The destination address is incremented
@@ -1815,7 +1751,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstIncr)::Type,DstincrVal::incrementing> incrementing{};
             constexpr Register::FieldValue<decltype(dstIncr)::Type,DstincrVal::decrementing> decrementing{};
             constexpr Register::FieldValue<decltype(dstIncr)::Type,DstincrVal::fixed> fixed{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> ien{}; 
@@ -1858,7 +1793,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fifocfg)::Type,FifocfgVal::halfCfg> halfCfg{};
             constexpr Register::FieldValue<decltype(fifocfg)::Type,FifocfgVal::asapCfg> asapCfg{};
         }
-        }
     }
     namespace DmacSaddr6{    ///<DMAC Channel Source Address Register (ch_num = 6)
         using Addr = Register::Address<0xffffed2c,0x00000000,0,unsigned>;
@@ -1883,7 +1817,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dscrIf)::Type,DscrifVal::ahbIfo> ahbIfo{};
             constexpr Register::FieldValue<decltype(dscrIf)::Type,DscrifVal::ahbIf1> ahbIf1{};
             constexpr Register::FieldValue<decltype(dscrIf)::Type,DscrifVal::ahbIf2> ahbIf2{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> dscr{}; 
@@ -1914,7 +1847,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(scsize)::Type,ScsizeVal::chk128> chk128{};
             constexpr Register::FieldValue<decltype(scsize)::Type,ScsizeVal::chk256> chk256{};
         }
-        }
         ///None
         enum class DcsizeVal {
             chk1=0x00000000,     ///<1 data transferred
@@ -1937,7 +1869,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dcsize)::Type,DcsizeVal::chk128> chk128{};
             constexpr Register::FieldValue<decltype(dcsize)::Type,DcsizeVal::chk256> chk256{};
         }
-        }
         ///None
         enum class SrcwidthVal {
             byte=0x00000000,     ///<the transfer size is set to 8-bit width
@@ -1950,7 +1881,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcWidth)::Type,SrcwidthVal::halfWord> halfWord{};
             constexpr Register::FieldValue<decltype(srcWidth)::Type,SrcwidthVal::word> word{};
         }
-        }
         ///None
         enum class DstwidthVal {
             byte=0x00000000,     ///<the transfer size is set to 8-bit width
@@ -1962,7 +1892,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstWidth)::Type,DstwidthVal::byte> byte{};
             constexpr Register::FieldValue<decltype(dstWidth)::Type,DstwidthVal::halfWord> halfWord{};
             constexpr Register::FieldValue<decltype(dstWidth)::Type,DstwidthVal::word> word{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
@@ -1981,7 +1910,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sif)::Type,SifVal::ahbIf1> ahbIf1{};
             constexpr Register::FieldValue<decltype(sif)::Type,SifVal::ahbIf2> ahbIf2{};
         }
-        }
         ///Destination Interface Selection Field
         enum class DifVal {
             ahbIfo=0x00000000,     ///<The destination transfer is done via AHB-Lite Interface 0
@@ -1993,7 +1921,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dif)::Type,DifVal::ahbIfo> ahbIfo{};
             constexpr Register::FieldValue<decltype(dif)::Type,DifVal::ahbIf1> ahbIf1{};
             constexpr Register::FieldValue<decltype(dif)::Type,DifVal::ahbIf2> ahbIf2{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> srcDscr{}; 
@@ -2021,7 +1948,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fc)::Type,FcVal::per2perSperFc> per2perSperFc{};
             constexpr Register::FieldValue<decltype(fc)::Type,FcVal::per2perDperFc> per2perDperFc{};
         }
-        }
         ///None
         enum class SrcincrVal {
             incrementing=0x00000000,     ///<The source address is incremented
@@ -2034,7 +1960,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcIncr)::Type,SrcincrVal::decrementing> decrementing{};
             constexpr Register::FieldValue<decltype(srcIncr)::Type,SrcincrVal::fixed> fixed{};
         }
-        }
         ///None
         enum class DstincrVal {
             incrementing=0x00000000,     ///<The destination address is incremented
@@ -2046,7 +1971,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstIncr)::Type,DstincrVal::incrementing> incrementing{};
             constexpr Register::FieldValue<decltype(dstIncr)::Type,DstincrVal::decrementing> decrementing{};
             constexpr Register::FieldValue<decltype(dstIncr)::Type,DstincrVal::fixed> fixed{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> ien{}; 
@@ -2089,7 +2013,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fifocfg)::Type,FifocfgVal::halfCfg> halfCfg{};
             constexpr Register::FieldValue<decltype(fifocfg)::Type,FifocfgVal::asapCfg> asapCfg{};
         }
-        }
     }
     namespace DmacSaddr7{    ///<DMAC Channel Source Address Register (ch_num = 7)
         using Addr = Register::Address<0xffffed54,0x00000000,0,unsigned>;
@@ -2114,7 +2037,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dscrIf)::Type,DscrifVal::ahbIfo> ahbIfo{};
             constexpr Register::FieldValue<decltype(dscrIf)::Type,DscrifVal::ahbIf1> ahbIf1{};
             constexpr Register::FieldValue<decltype(dscrIf)::Type,DscrifVal::ahbIf2> ahbIf2{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> dscr{}; 
@@ -2145,7 +2067,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(scsize)::Type,ScsizeVal::chk128> chk128{};
             constexpr Register::FieldValue<decltype(scsize)::Type,ScsizeVal::chk256> chk256{};
         }
-        }
         ///None
         enum class DcsizeVal {
             chk1=0x00000000,     ///<1 data transferred
@@ -2168,7 +2089,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dcsize)::Type,DcsizeVal::chk128> chk128{};
             constexpr Register::FieldValue<decltype(dcsize)::Type,DcsizeVal::chk256> chk256{};
         }
-        }
         ///None
         enum class SrcwidthVal {
             byte=0x00000000,     ///<the transfer size is set to 8-bit width
@@ -2181,7 +2101,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcWidth)::Type,SrcwidthVal::halfWord> halfWord{};
             constexpr Register::FieldValue<decltype(srcWidth)::Type,SrcwidthVal::word> word{};
         }
-        }
         ///None
         enum class DstwidthVal {
             byte=0x00000000,     ///<the transfer size is set to 8-bit width
@@ -2193,7 +2112,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstWidth)::Type,DstwidthVal::byte> byte{};
             constexpr Register::FieldValue<decltype(dstWidth)::Type,DstwidthVal::halfWord> halfWord{};
             constexpr Register::FieldValue<decltype(dstWidth)::Type,DstwidthVal::word> word{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> done{}; 
@@ -2212,7 +2130,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sif)::Type,SifVal::ahbIf1> ahbIf1{};
             constexpr Register::FieldValue<decltype(sif)::Type,SifVal::ahbIf2> ahbIf2{};
         }
-        }
         ///Destination Interface Selection Field
         enum class DifVal {
             ahbIfo=0x00000000,     ///<The destination transfer is done via AHB-Lite Interface 0
@@ -2224,7 +2141,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dif)::Type,DifVal::ahbIfo> ahbIfo{};
             constexpr Register::FieldValue<decltype(dif)::Type,DifVal::ahbIf1> ahbIf1{};
             constexpr Register::FieldValue<decltype(dif)::Type,DifVal::ahbIf2> ahbIf2{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> srcDscr{}; 
@@ -2252,7 +2168,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fc)::Type,FcVal::per2perSperFc> per2perSperFc{};
             constexpr Register::FieldValue<decltype(fc)::Type,FcVal::per2perDperFc> per2perDperFc{};
         }
-        }
         ///None
         enum class SrcincrVal {
             incrementing=0x00000000,     ///<The source address is incremented
@@ -2265,7 +2180,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcIncr)::Type,SrcincrVal::decrementing> decrementing{};
             constexpr Register::FieldValue<decltype(srcIncr)::Type,SrcincrVal::fixed> fixed{};
         }
-        }
         ///None
         enum class DstincrVal {
             incrementing=0x00000000,     ///<The destination address is incremented
@@ -2277,7 +2191,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstIncr)::Type,DstincrVal::incrementing> incrementing{};
             constexpr Register::FieldValue<decltype(dstIncr)::Type,DstincrVal::decrementing> decrementing{};
             constexpr Register::FieldValue<decltype(dstIncr)::Type,DstincrVal::fixed> fixed{};
-        }
         }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> ien{}; 
@@ -2319,7 +2232,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fifocfg)::Type,FifocfgVal::alapCfg> alapCfg{};
             constexpr Register::FieldValue<decltype(fifocfg)::Type,FifocfgVal::halfCfg> halfCfg{};
             constexpr Register::FieldValue<decltype(fifocfg)::Type,FifocfgVal::asapCfg> asapCfg{};
-        }
         }
     }
     namespace DmacWpmr{    ///<Write Protect Mode Register

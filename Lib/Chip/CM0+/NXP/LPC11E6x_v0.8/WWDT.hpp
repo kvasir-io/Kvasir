@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wden)::Type,WdenVal::stopped> stopped{};
             constexpr Register::FieldValue<decltype(wden)::Type,WdenVal::running> running{};
         }
-        }
         ///Watchdog reset enable bit. Once this bit has been written with a 1 it cannot be rewritten with a 0.
         enum class WdresetVal {
             interrupt=0x00000000,     ///<A watchdog timeout will not cause a chip reset.
@@ -22,7 +21,6 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,WdresetVal> wdreset{}; 
         namespace WdresetValC{
             constexpr Register::FieldValue<decltype(wdreset)::Type,WdresetVal::interrupt> interrupt{};
-        }
         }
         ///Watchdog time-out flag. Set when the watchdog timer times out, by a feed error, or by events associated with WDPROTECT. Cleared by software. Causes a chip reset if WDRESET = 1.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wdtof{}; 
@@ -37,7 +35,6 @@ namespace Kvasir {
         namespace WdprotectValC{
             constexpr Register::FieldValue<decltype(wdprotect)::Type,WdprotectVal::notLocked> notLocked{};
             constexpr Register::FieldValue<decltype(wdprotect)::Type,WdprotectVal::locked> locked{};
-        }
         }
         ///A 1 in this bit prevents disabling or powering down the clock source selected by bit 0 of the WDCLKSRC register and also prevents switching to a clock source that is disabled or powered down. This bit can be set once by software and is only cleared by any reset. If this bit is one and the WWDT clock source is the IRC when Deep-sleep or Power-down modes are entered, the IRC remains running thereby increasing power consumption in Deep-sleep mode and potentially preventing the part of entering Power-down mode correctly (see Section 15.7).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> lock{}; 
@@ -68,7 +65,6 @@ namespace Kvasir {
         namespace ClkselValC{
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::irc> irc{};
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::watchdogOscillator> watchdogOscillator{};
-        }
         }
         ///If this bit is set to one writing to this register does not affect bit 0. The clock source can only be changed by first clearing this bit, then writing the new value of bit 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> lock{}; 

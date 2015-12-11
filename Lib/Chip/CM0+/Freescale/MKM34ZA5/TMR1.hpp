@@ -56,7 +56,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(outmode)::Type,OutmodeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(outmode)::Type,OutmodeVal::v111> v111{};
         }
-        }
         ///Co-Channel Initialization
         enum class CoinitVal {
             v0=0x00000000,     ///<Co-channel counter/timers cannot force a re-initialization of this counter/timer
@@ -66,7 +65,6 @@ namespace Kvasir {
         namespace CoinitValC{
             constexpr Register::FieldValue<decltype(coinit)::Type,CoinitVal::v0> v0{};
             constexpr Register::FieldValue<decltype(coinit)::Type,CoinitVal::v1> v1{};
-        }
         }
         ///Count Direction
         enum class DirVal {
@@ -78,7 +76,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::v1> v1{};
         }
-        }
         ///Count Length
         enum class LengthVal {
             v0=0x00000000,     ///<Roll over.
@@ -89,7 +86,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(length)::Type,LengthVal::v0> v0{};
             constexpr Register::FieldValue<decltype(length)::Type,LengthVal::v1> v1{};
         }
-        }
         ///Count Once
         enum class OnceVal {
             v0=0x00000000,     ///<Count repeatedly.
@@ -99,7 +95,6 @@ namespace Kvasir {
         namespace OnceValC{
             constexpr Register::FieldValue<decltype(once)::Type,OnceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(once)::Type,OnceVal::v1> v1{};
-        }
         }
         ///Secondary Count Source
         enum class ScsVal {
@@ -114,7 +109,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(scs)::Type,ScsVal::v01> v01{};
             constexpr Register::FieldValue<decltype(scs)::Type,ScsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(scs)::Type,ScsVal::v11> v11{};
-        }
         }
         ///Primary Count Source
         enum class PcsVal {
@@ -154,7 +148,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pcs)::Type,PcsVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(pcs)::Type,PcsVal::v1111> v1111{};
         }
-        }
         ///Count Mode
         enum class CmVal {
             v000=0x00000000,     ///<No operation
@@ -177,7 +170,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cm)::Type,CmVal::v110> v110{};
             constexpr Register::FieldValue<decltype(cm)::Type,CmVal::v111> v111{};
         }
-        }
     }
     namespace Tmr1Sctrl{    ///<Timer Channel Status and Control Register
         using Addr = Register::Address<0x4005800e,0xffff0000,0,unsigned>;
@@ -191,7 +183,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oen)::Type,OenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(oen)::Type,OenVal::v1> v1{};
         }
-        }
         ///Output Polarity Select
         enum class OpsVal {
             v0=0x00000000,     ///<True polarity.
@@ -201,7 +192,6 @@ namespace Kvasir {
         namespace OpsValC{
             constexpr Register::FieldValue<decltype(ops)::Type,OpsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ops)::Type,OpsVal::v1> v1{};
-        }
         }
         ///Force OFLAG Output
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> force{}; 
@@ -224,7 +214,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(captureMode)::Type,CapturemodeVal::v01> v01{};
             constexpr Register::FieldValue<decltype(captureMode)::Type,CapturemodeVal::v10> v10{};
             constexpr Register::FieldValue<decltype(captureMode)::Type,CapturemodeVal::v11> v11{};
-        }
         }
         ///External Input Signal
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> input{}; 
@@ -267,7 +256,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cl1)::Type,Cl1Val::v01> v01{};
             constexpr Register::FieldValue<decltype(cl1)::Type,Cl1Val::v10> v10{};
         }
-        }
         ///Compare Load Control 2
         enum class Cl2Val {
             v00=0x00000000,     ///<Never preload
@@ -279,7 +267,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cl2)::Type,Cl2Val::v00> v00{};
             constexpr Register::FieldValue<decltype(cl2)::Type,Cl2Val::v01> v01{};
             constexpr Register::FieldValue<decltype(cl2)::Type,Cl2Val::v10> v10{};
-        }
         }
         ///Timer Compare 1 Interrupt Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> tcf1{}; 
@@ -299,7 +286,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oflag)::Type,OflagVal::v0> v0{};
             constexpr Register::FieldValue<decltype(oflag)::Type,OflagVal::v1> v1{};
         }
-        }
         ///Counting Direction Indicator
         enum class UpVal {
             v0=0x00000000,     ///<The last count was in the DOWN direction.
@@ -309,7 +295,6 @@ namespace Kvasir {
         namespace UpValC{
             constexpr Register::FieldValue<decltype(up)::Type,UpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(up)::Type,UpVal::v1> v1{};
-        }
         }
         ///Triggered Count Initialization Control
         enum class TciVal {
@@ -321,7 +306,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tci)::Type,TciVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tci)::Type,TciVal::v1> v1{};
         }
-        }
         ///Reload on Capture
         enum class RocVal {
             v0=0x00000000,     ///<Do not reload the counter on a capture event.
@@ -331,7 +315,6 @@ namespace Kvasir {
         namespace RocValC{
             constexpr Register::FieldValue<decltype(roc)::Type,RocVal::v0> v0{};
             constexpr Register::FieldValue<decltype(roc)::Type,RocVal::v1> v1{};
-        }
         }
         ///Alternative Load Enable
         enum class AltloadVal {
@@ -343,7 +326,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(altLoad)::Type,AltloadVal::v0> v0{};
             constexpr Register::FieldValue<decltype(altLoad)::Type,AltloadVal::v1> v1{};
         }
-        }
         ///Fault Enable
         enum class FaultVal {
             v0=0x00000000,     ///<Fault function disabled.
@@ -353,7 +335,6 @@ namespace Kvasir {
         namespace FaultValC{
             constexpr Register::FieldValue<decltype(fault)::Type,FaultVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fault)::Type,FaultVal::v1> v1{};
-        }
         }
         ///Debug Actions Enable
         enum class DbgenVal {
@@ -368,7 +349,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dbgEn)::Type,DbgenVal::v01> v01{};
             constexpr Register::FieldValue<decltype(dbgEn)::Type,DbgenVal::v10> v10{};
             constexpr Register::FieldValue<decltype(dbgEn)::Type,DbgenVal::v11> v11{};
-        }
         }
     }
     namespace Tmr1Filt{    ///<Timer Channel Input Filter Register

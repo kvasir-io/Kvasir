@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rtco)::Type,RtcoVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rtco)::Type,RtcoVal::v1> v1{};
         }
-        }
         ///Real-Time Interrupt Enable
         enum class RtieVal {
             v0=0x00000000,     ///<Real-time interrupt requests are disabled. Use software polling.
@@ -25,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rtie)::Type,RtieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rtie)::Type,RtieVal::v1> v1{};
         }
-        }
         ///Real-Time Interrupt Flag
         enum class RtifVal {
             v0=0x00000000,     ///<RTC counter has not reached the value in the RTC modulo register.
@@ -35,7 +33,6 @@ namespace Kvasir {
         namespace RtifValC{
             constexpr Register::FieldValue<decltype(rtif)::Type,RtifVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rtif)::Type,RtifVal::v1> v1{};
-        }
         }
         ///Real-Time Clock Prescaler Select
         enum class RtcpsVal {
@@ -59,7 +56,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rtcps)::Type,RtcpsVal::v110> v110{};
             constexpr Register::FieldValue<decltype(rtcps)::Type,RtcpsVal::v111> v111{};
         }
-        }
         ///Real-Time Clock Source Select
         enum class RtclksVal {
             v00=0x00000000,     ///<External clock source.
@@ -73,7 +69,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rtclks)::Type,RtclksVal::v01> v01{};
             constexpr Register::FieldValue<decltype(rtclks)::Type,RtclksVal::v10> v10{};
             constexpr Register::FieldValue<decltype(rtclks)::Type,RtclksVal::v11> v11{};
-        }
         }
     }
     namespace RtcMod{    ///<RTC Modulo Register

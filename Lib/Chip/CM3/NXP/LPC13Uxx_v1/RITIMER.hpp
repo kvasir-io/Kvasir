@@ -24,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ritint)::Type,RitintVal::mask> mask{};
             constexpr Register::FieldValue<decltype(ritint)::Type,RitintVal::noMask> noMask{};
         }
-        }
         ///Timer enable clear
         enum class RitenclrVal {
             clearOnO=0x00000001,     ///<The timer will be cleared to 0 whenever the counter value equals the masked compare value specified by the contents of COMPVAL/COMPVAL_H and MASK/MASK_H registers. This will occur on the same clock that sets the interrupt flag.
@@ -34,7 +33,6 @@ namespace Kvasir {
         namespace RitenclrValC{
             constexpr Register::FieldValue<decltype(ritenclr)::Type,RitenclrVal::clearOnO> clearOnO{};
             constexpr Register::FieldValue<decltype(ritenclr)::Type,RitenclrVal::notClearOn0> notClearOn0{};
-        }
         }
         ///Timer enable for debug
         enum class RitenbrVal {
@@ -46,7 +44,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ritenbr)::Type,RitenbrVal::haltOnDebug> haltOnDebug{};
             constexpr Register::FieldValue<decltype(ritenbr)::Type,RitenbrVal::noEffectOnDebug> noEffectOnDebug{};
         }
-        }
         ///Timer enable.
         enum class RitenVal {
             timerEnabled=0x00000001,     ///<Timer enabled. This can be overruled by a debug halt if enabled in bit 2.
@@ -56,7 +53,6 @@ namespace Kvasir {
         namespace RitenValC{
             constexpr Register::FieldValue<decltype(riten)::Type,RitenVal::timerEnabled> timerEnabled{};
             constexpr Register::FieldValue<decltype(riten)::Type,RitenVal::timerDisabled> timerDisabled{};
-        }
         }
     }
     namespace Nonecounter{    ///<Counter LSB register. 32 LSBs of the counter.

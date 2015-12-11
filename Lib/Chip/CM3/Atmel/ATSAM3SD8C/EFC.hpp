@@ -49,7 +49,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fcmd)::Type,FcmdVal::stui> stui{};
             constexpr Register::FieldValue<decltype(fcmd)::Type,FcmdVal::spui> spui{};
         }
-        }
         ///Flash Command Argument
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,8),Register::ReadWriteAccess,unsigned> farg{}; 
         ///Flash Writing Protection Key

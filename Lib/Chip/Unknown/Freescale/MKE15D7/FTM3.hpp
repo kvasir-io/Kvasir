@@ -26,7 +26,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v111> v111{};
         }
-        }
         ///Clock Source Selection
         enum class ClksVal {
             v00=0x00000000,     ///<No clock selected. This in effect disables the FTM counter.
@@ -41,7 +40,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v10> v10{};
             constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v11> v11{};
         }
-        }
         ///Center-Aligned PWM Select
         enum class CpwmsVal {
             v0=0x00000000,     ///<FTM counter operates in Up Counting mode.
@@ -51,7 +49,6 @@ namespace Kvasir {
         namespace CpwmsValC{
             constexpr Register::FieldValue<decltype(cpwms)::Type,CpwmsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cpwms)::Type,CpwmsVal::v1> v1{};
-        }
         }
         ///Timer Overflow Interrupt Enable
         enum class ToieVal {
@@ -63,7 +60,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(toie)::Type,ToieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(toie)::Type,ToieVal::v1> v1{};
         }
-        }
         ///Timer Overflow Flag
         enum class TofVal {
             v0=0x00000000,     ///<FTM counter has not overflowed.
@@ -73,7 +69,6 @@ namespace Kvasir {
         namespace TofValC{
             constexpr Register::FieldValue<decltype(tof)::Type,TofVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tof)::Type,TofVal::v1> v1{};
-        }
         }
     }
     namespace Ftm3Cnt{    ///<Counter
@@ -98,7 +93,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
         }
-        }
         ///Edge or Level Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
         ///Edge or Level Select
@@ -117,7 +111,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
         }
-        }
         ///Channel Flag
         enum class ChfVal {
             v0=0x00000000,     ///<No channel event has occurred.
@@ -127,7 +120,6 @@ namespace Kvasir {
         namespace ChfValC{
             constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
-        }
         }
     }
     namespace Ftm3C1sc{    ///<Channel (n) Status And Control
@@ -142,7 +134,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
         }
-        }
         ///Edge or Level Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
         ///Edge or Level Select
@@ -161,7 +152,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
         }
-        }
         ///Channel Flag
         enum class ChfVal {
             v0=0x00000000,     ///<No channel event has occurred.
@@ -171,7 +161,6 @@ namespace Kvasir {
         namespace ChfValC{
             constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
-        }
         }
     }
     namespace Ftm3C2sc{    ///<Channel (n) Status And Control
@@ -186,7 +175,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
         }
-        }
         ///Edge or Level Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
         ///Edge or Level Select
@@ -205,7 +193,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
         }
-        }
         ///Channel Flag
         enum class ChfVal {
             v0=0x00000000,     ///<No channel event has occurred.
@@ -215,7 +202,6 @@ namespace Kvasir {
         namespace ChfValC{
             constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
-        }
         }
     }
     namespace Ftm3C3sc{    ///<Channel (n) Status And Control
@@ -230,7 +216,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
         }
-        }
         ///Edge or Level Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
         ///Edge or Level Select
@@ -249,7 +234,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
         }
-        }
         ///Channel Flag
         enum class ChfVal {
             v0=0x00000000,     ///<No channel event has occurred.
@@ -259,7 +243,6 @@ namespace Kvasir {
         namespace ChfValC{
             constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
-        }
         }
     }
     namespace Ftm3C4sc{    ///<Channel (n) Status And Control
@@ -274,7 +257,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
         }
-        }
         ///Edge or Level Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
         ///Edge or Level Select
@@ -293,7 +275,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
         }
-        }
         ///Channel Flag
         enum class ChfVal {
             v0=0x00000000,     ///<No channel event has occurred.
@@ -303,7 +284,6 @@ namespace Kvasir {
         namespace ChfValC{
             constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
-        }
         }
     }
     namespace Ftm3C5sc{    ///<Channel (n) Status And Control
@@ -318,7 +298,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
         }
-        }
         ///Edge or Level Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> elsa{}; 
         ///Edge or Level Select
@@ -337,7 +316,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chie)::Type,ChieVal::v1> v1{};
         }
-        }
         ///Channel Flag
         enum class ChfVal {
             v0=0x00000000,     ///<No channel event has occurred.
@@ -347,7 +325,6 @@ namespace Kvasir {
         namespace ChfValC{
             constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chf)::Type,ChfVal::v1> v1{};
-        }
         }
     }
     namespace Ftm3C0v{    ///<Channel (n) Value
@@ -397,7 +374,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0f)::Type,Ch0fVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch0f)::Type,Ch0fVal::v1> v1{};
         }
-        }
         ///Channel 1 Flag
         enum class Ch1fVal {
             v0=0x00000000,     ///<No channel event has occurred.
@@ -407,7 +383,6 @@ namespace Kvasir {
         namespace Ch1fValC{
             constexpr Register::FieldValue<decltype(ch1f)::Type,Ch1fVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch1f)::Type,Ch1fVal::v1> v1{};
-        }
         }
         ///Channel 2 Flag
         enum class Ch2fVal {
@@ -419,7 +394,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2f)::Type,Ch2fVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch2f)::Type,Ch2fVal::v1> v1{};
         }
-        }
         ///Channel 3 Flag
         enum class Ch3fVal {
             v0=0x00000000,     ///<No channel event has occurred.
@@ -429,7 +403,6 @@ namespace Kvasir {
         namespace Ch3fValC{
             constexpr Register::FieldValue<decltype(ch3f)::Type,Ch3fVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch3f)::Type,Ch3fVal::v1> v1{};
-        }
         }
         ///Channel 4 Flag
         enum class Ch4fVal {
@@ -441,7 +414,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4f)::Type,Ch4fVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch4f)::Type,Ch4fVal::v1> v1{};
         }
-        }
         ///Channel 5 Flag
         enum class Ch5fVal {
             v0=0x00000000,     ///<No channel event has occurred.
@@ -451,7 +423,6 @@ namespace Kvasir {
         namespace Ch5fValC{
             constexpr Register::FieldValue<decltype(ch5f)::Type,Ch5fVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch5f)::Type,Ch5fVal::v1> v1{};
-        }
         }
         ///Channel 6 Flag
         enum class Ch6fVal {
@@ -463,7 +434,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch6f)::Type,Ch6fVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch6f)::Type,Ch6fVal::v1> v1{};
         }
-        }
         ///Channel 7 Flag
         enum class Ch7fVal {
             v0=0x00000000,     ///<No channel event has occurred.
@@ -473,7 +443,6 @@ namespace Kvasir {
         namespace Ch7fValC{
             constexpr Register::FieldValue<decltype(ch7f)::Type,Ch7fVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch7f)::Type,Ch7fVal::v1> v1{};
-        }
         }
     }
     namespace Ftm3Mode{    ///<Features Mode Selection
@@ -488,7 +457,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ftmen)::Type,FtmenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ftmen)::Type,FtmenVal::v1> v1{};
         }
-        }
         ///Initialize The Channels Output
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> init{}; 
         ///Write Protection Disable
@@ -501,7 +469,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wpdis)::Type,WpdisVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wpdis)::Type,WpdisVal::v1> v1{};
         }
-        }
         ///PWM Synchronization Mode
         enum class PwmsyncVal {
             v0=0x00000000,     ///<No restrictions. Software and hardware triggers can be used by MOD, CnV, OUTMASK, and FTM counter synchronization.
@@ -512,7 +479,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmsync)::Type,PwmsyncVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pwmsync)::Type,PwmsyncVal::v1> v1{};
         }
-        }
         ///Capture Test Mode Enable
         enum class CaptestVal {
             v0=0x00000000,     ///<Capture test mode is disabled.
@@ -522,7 +488,6 @@ namespace Kvasir {
         namespace CaptestValC{
             constexpr Register::FieldValue<decltype(captest)::Type,CaptestVal::v0> v0{};
             constexpr Register::FieldValue<decltype(captest)::Type,CaptestVal::v1> v1{};
-        }
         }
         ///Fault Control Mode
         enum class FaultmVal {
@@ -538,7 +503,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(faultm)::Type,FaultmVal::v10> v10{};
             constexpr Register::FieldValue<decltype(faultm)::Type,FaultmVal::v11> v11{};
         }
-        }
         ///Fault Interrupt Enable
         enum class FaultieVal {
             v0=0x00000000,     ///<Fault control interrupt is disabled.
@@ -548,7 +512,6 @@ namespace Kvasir {
         namespace FaultieValC{
             constexpr Register::FieldValue<decltype(faultie)::Type,FaultieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(faultie)::Type,FaultieVal::v1> v1{};
-        }
         }
     }
     namespace Ftm3Sync{    ///<Synchronization
@@ -563,7 +526,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cntmin)::Type,CntminVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cntmin)::Type,CntminVal::v1> v1{};
         }
-        }
         ///Maximum Loading Point Enable
         enum class CntmaxVal {
             v0=0x00000000,     ///<The maximum loading point is disabled.
@@ -573,7 +535,6 @@ namespace Kvasir {
         namespace CntmaxValC{
             constexpr Register::FieldValue<decltype(cntmax)::Type,CntmaxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cntmax)::Type,CntmaxVal::v1> v1{};
-        }
         }
         ///FTM Counter Reinitialization By Synchronization (FTM counter synchronization)
         enum class ReinitVal {
@@ -585,7 +546,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(reinit)::Type,ReinitVal::v0> v0{};
             constexpr Register::FieldValue<decltype(reinit)::Type,ReinitVal::v1> v1{};
         }
-        }
         ///Output Mask Synchronization
         enum class SynchomVal {
             v0=0x00000000,     ///<OUTMASK register is updated with the value of its buffer in all rising edges of the system clock.
@@ -595,7 +555,6 @@ namespace Kvasir {
         namespace SynchomValC{
             constexpr Register::FieldValue<decltype(synchom)::Type,SynchomVal::v0> v0{};
             constexpr Register::FieldValue<decltype(synchom)::Type,SynchomVal::v1> v1{};
-        }
         }
         ///PWM Synchronization Hardware Trigger 0
         enum class Trig0Val {
@@ -607,7 +566,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trig0)::Type,Trig0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(trig0)::Type,Trig0Val::v1> v1{};
         }
-        }
         ///PWM Synchronization Hardware Trigger 1
         enum class Trig1Val {
             v0=0x00000000,     ///<Trigger is disabled.
@@ -617,7 +575,6 @@ namespace Kvasir {
         namespace Trig1ValC{
             constexpr Register::FieldValue<decltype(trig1)::Type,Trig1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(trig1)::Type,Trig1Val::v1> v1{};
-        }
         }
         ///PWM Synchronization Hardware Trigger 2
         enum class Trig2Val {
@@ -629,7 +586,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trig2)::Type,Trig2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(trig2)::Type,Trig2Val::v1> v1{};
         }
-        }
         ///PWM Synchronization Software Trigger
         enum class SwsyncVal {
             v0=0x00000000,     ///<Software trigger is not selected.
@@ -639,7 +595,6 @@ namespace Kvasir {
         namespace SwsyncValC{
             constexpr Register::FieldValue<decltype(swsync)::Type,SwsyncVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swsync)::Type,SwsyncVal::v1> v1{};
-        }
         }
     }
     namespace Ftm3Outinit{    ///<Initial State For Channels Output
@@ -654,7 +609,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0oi)::Type,Ch0oiVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch0oi)::Type,Ch0oiVal::v1> v1{};
         }
-        }
         ///Channel 1 Output Initialization Value
         enum class Ch1oiVal {
             v0=0x00000000,     ///<The initialization value is 0.
@@ -664,7 +618,6 @@ namespace Kvasir {
         namespace Ch1oiValC{
             constexpr Register::FieldValue<decltype(ch1oi)::Type,Ch1oiVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch1oi)::Type,Ch1oiVal::v1> v1{};
-        }
         }
         ///Channel 2 Output Initialization Value
         enum class Ch2oiVal {
@@ -676,7 +629,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2oi)::Type,Ch2oiVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch2oi)::Type,Ch2oiVal::v1> v1{};
         }
-        }
         ///Channel 3 Output Initialization Value
         enum class Ch3oiVal {
             v0=0x00000000,     ///<The initialization value is 0.
@@ -686,7 +638,6 @@ namespace Kvasir {
         namespace Ch3oiValC{
             constexpr Register::FieldValue<decltype(ch3oi)::Type,Ch3oiVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch3oi)::Type,Ch3oiVal::v1> v1{};
-        }
         }
         ///Channel 4 Output Initialization Value
         enum class Ch4oiVal {
@@ -698,7 +649,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4oi)::Type,Ch4oiVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch4oi)::Type,Ch4oiVal::v1> v1{};
         }
-        }
         ///Channel 5 Output Initialization Value
         enum class Ch5oiVal {
             v0=0x00000000,     ///<The initialization value is 0.
@@ -708,7 +658,6 @@ namespace Kvasir {
         namespace Ch5oiValC{
             constexpr Register::FieldValue<decltype(ch5oi)::Type,Ch5oiVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch5oi)::Type,Ch5oiVal::v1> v1{};
-        }
         }
         ///Channel 6 Output Initialization Value
         enum class Ch6oiVal {
@@ -720,7 +669,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch6oi)::Type,Ch6oiVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch6oi)::Type,Ch6oiVal::v1> v1{};
         }
-        }
         ///Channel 7 Output Initialization Value
         enum class Ch7oiVal {
             v0=0x00000000,     ///<The initialization value is 0.
@@ -730,7 +678,6 @@ namespace Kvasir {
         namespace Ch7oiValC{
             constexpr Register::FieldValue<decltype(ch7oi)::Type,Ch7oiVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch7oi)::Type,Ch7oiVal::v1> v1{};
-        }
         }
     }
     namespace Ftm3Outmask{    ///<Output Mask
@@ -745,7 +692,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0om)::Type,Ch0omVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch0om)::Type,Ch0omVal::v1> v1{};
         }
-        }
         ///Channel 1 Output Mask
         enum class Ch1omVal {
             v0=0x00000000,     ///<Channel output is not masked. It continues to operate normally.
@@ -755,7 +701,6 @@ namespace Kvasir {
         namespace Ch1omValC{
             constexpr Register::FieldValue<decltype(ch1om)::Type,Ch1omVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch1om)::Type,Ch1omVal::v1> v1{};
-        }
         }
         ///Channel 2 Output Mask
         enum class Ch2omVal {
@@ -767,7 +712,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2om)::Type,Ch2omVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch2om)::Type,Ch2omVal::v1> v1{};
         }
-        }
         ///Channel 3 Output Mask
         enum class Ch3omVal {
             v0=0x00000000,     ///<Channel output is not masked. It continues to operate normally.
@@ -777,7 +721,6 @@ namespace Kvasir {
         namespace Ch3omValC{
             constexpr Register::FieldValue<decltype(ch3om)::Type,Ch3omVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch3om)::Type,Ch3omVal::v1> v1{};
-        }
         }
         ///Channel 4 Output Mask
         enum class Ch4omVal {
@@ -789,7 +732,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4om)::Type,Ch4omVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch4om)::Type,Ch4omVal::v1> v1{};
         }
-        }
         ///Channel 5 Output Mask
         enum class Ch5omVal {
             v0=0x00000000,     ///<Channel output is not masked. It continues to operate normally.
@@ -799,7 +741,6 @@ namespace Kvasir {
         namespace Ch5omValC{
             constexpr Register::FieldValue<decltype(ch5om)::Type,Ch5omVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch5om)::Type,Ch5omVal::v1> v1{};
-        }
         }
         ///Channel 6 Output Mask
         enum class Ch6omVal {
@@ -811,7 +752,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch6om)::Type,Ch6omVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch6om)::Type,Ch6omVal::v1> v1{};
         }
-        }
         ///Channel 7 Output Mask
         enum class Ch7omVal {
             v0=0x00000000,     ///<Channel output is not masked. It continues to operate normally.
@@ -821,7 +761,6 @@ namespace Kvasir {
         namespace Ch7omValC{
             constexpr Register::FieldValue<decltype(ch7om)::Type,Ch7omVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch7om)::Type,Ch7omVal::v1> v1{};
-        }
         }
     }
     namespace Ftm3Combine{    ///<Function For Linked Channels
@@ -836,7 +775,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(combine0)::Type,Combine0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(combine0)::Type,Combine0Val::v1> v1{};
         }
-        }
         ///Complement Of Channel (n) For n = 0
         enum class Comp0Val {
             v0=0x00000000,     ///<The channel (n+1) output is the same as the channel (n) output.
@@ -846,7 +784,6 @@ namespace Kvasir {
         namespace Comp0ValC{
             constexpr Register::FieldValue<decltype(comp0)::Type,Comp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(comp0)::Type,Comp0Val::v1> v1{};
-        }
         }
         ///Dual Edge Capture Mode Enable For n = 0
         enum class Decapen0Val {
@@ -858,7 +795,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(decapen0)::Type,Decapen0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(decapen0)::Type,Decapen0Val::v1> v1{};
         }
-        }
         ///Dual Edge Capture Mode Captures For n = 0
         enum class Decap0Val {
             v0=0x00000000,     ///<The dual edge captures are inactive.
@@ -868,7 +804,6 @@ namespace Kvasir {
         namespace Decap0ValC{
             constexpr Register::FieldValue<decltype(decap0)::Type,Decap0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(decap0)::Type,Decap0Val::v1> v1{};
-        }
         }
         ///Deadtime Enable For n = 0
         enum class Dten0Val {
@@ -880,7 +815,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dten0)::Type,Dten0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(dten0)::Type,Dten0Val::v1> v1{};
         }
-        }
         ///Synchronization Enable For n = 0
         enum class Syncen0Val {
             v0=0x00000000,     ///<The PWM synchronization in this pair of channels is disabled.
@@ -890,7 +824,6 @@ namespace Kvasir {
         namespace Syncen0ValC{
             constexpr Register::FieldValue<decltype(syncen0)::Type,Syncen0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(syncen0)::Type,Syncen0Val::v1> v1{};
-        }
         }
         ///Fault Control Enable For n = 0
         enum class Faulten0Val {
@@ -902,7 +835,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(faulten0)::Type,Faulten0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(faulten0)::Type,Faulten0Val::v1> v1{};
         }
-        }
         ///Combine Channels For n = 2
         enum class Combine1Val {
             v0=0x00000000,     ///<Channels (n) and (n+1) are independent.
@@ -912,7 +844,6 @@ namespace Kvasir {
         namespace Combine1ValC{
             constexpr Register::FieldValue<decltype(combine1)::Type,Combine1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(combine1)::Type,Combine1Val::v1> v1{};
-        }
         }
         ///Complement Of Channel (n) For n = 2
         enum class Comp1Val {
@@ -924,7 +855,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(comp1)::Type,Comp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(comp1)::Type,Comp1Val::v1> v1{};
         }
-        }
         ///Dual Edge Capture Mode Enable For n = 2
         enum class Decapen1Val {
             v0=0x00000000,     ///<The Dual Edge Capture mode in this pair of channels is disabled.
@@ -934,7 +864,6 @@ namespace Kvasir {
         namespace Decapen1ValC{
             constexpr Register::FieldValue<decltype(decapen1)::Type,Decapen1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(decapen1)::Type,Decapen1Val::v1> v1{};
-        }
         }
         ///Dual Edge Capture Mode Captures For n = 2
         enum class Decap1Val {
@@ -946,7 +875,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(decap1)::Type,Decap1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(decap1)::Type,Decap1Val::v1> v1{};
         }
-        }
         ///Deadtime Enable For n = 2
         enum class Dten1Val {
             v0=0x00000000,     ///<The deadtime insertion in this pair of channels is disabled.
@@ -956,7 +884,6 @@ namespace Kvasir {
         namespace Dten1ValC{
             constexpr Register::FieldValue<decltype(dten1)::Type,Dten1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(dten1)::Type,Dten1Val::v1> v1{};
-        }
         }
         ///Synchronization Enable For n = 2
         enum class Syncen1Val {
@@ -968,7 +895,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(syncen1)::Type,Syncen1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(syncen1)::Type,Syncen1Val::v1> v1{};
         }
-        }
         ///Fault Control Enable For n = 2
         enum class Faulten1Val {
             v0=0x00000000,     ///<The fault control in this pair of channels is disabled.
@@ -978,7 +904,6 @@ namespace Kvasir {
         namespace Faulten1ValC{
             constexpr Register::FieldValue<decltype(faulten1)::Type,Faulten1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(faulten1)::Type,Faulten1Val::v1> v1{};
-        }
         }
         ///Combine Channels For n = 4
         enum class Combine2Val {
@@ -990,7 +915,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(combine2)::Type,Combine2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(combine2)::Type,Combine2Val::v1> v1{};
         }
-        }
         ///Complement Of Channel (n) For n = 4
         enum class Comp2Val {
             v0=0x00000000,     ///<The channel (n+1) output is the same as the channel (n) output.
@@ -1000,7 +924,6 @@ namespace Kvasir {
         namespace Comp2ValC{
             constexpr Register::FieldValue<decltype(comp2)::Type,Comp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(comp2)::Type,Comp2Val::v1> v1{};
-        }
         }
         ///Dual Edge Capture Mode Enable For n = 4
         enum class Decapen2Val {
@@ -1012,7 +935,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(decapen2)::Type,Decapen2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(decapen2)::Type,Decapen2Val::v1> v1{};
         }
-        }
         ///Dual Edge Capture Mode Captures For n = 4
         enum class Decap2Val {
             v0=0x00000000,     ///<The dual edge captures are inactive.
@@ -1022,7 +944,6 @@ namespace Kvasir {
         namespace Decap2ValC{
             constexpr Register::FieldValue<decltype(decap2)::Type,Decap2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(decap2)::Type,Decap2Val::v1> v1{};
-        }
         }
         ///Deadtime Enable For n = 4
         enum class Dten2Val {
@@ -1034,7 +955,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dten2)::Type,Dten2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(dten2)::Type,Dten2Val::v1> v1{};
         }
-        }
         ///Synchronization Enable For n = 4
         enum class Syncen2Val {
             v0=0x00000000,     ///<The PWM synchronization in this pair of channels is disabled.
@@ -1044,7 +964,6 @@ namespace Kvasir {
         namespace Syncen2ValC{
             constexpr Register::FieldValue<decltype(syncen2)::Type,Syncen2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(syncen2)::Type,Syncen2Val::v1> v1{};
-        }
         }
         ///Fault Control Enable For n = 4
         enum class Faulten2Val {
@@ -1056,7 +975,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(faulten2)::Type,Faulten2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(faulten2)::Type,Faulten2Val::v1> v1{};
         }
-        }
         ///Combine Channels For n = 6
         enum class Combine3Val {
             v0=0x00000000,     ///<Channels (n) and (n+1) are independent.
@@ -1066,7 +984,6 @@ namespace Kvasir {
         namespace Combine3ValC{
             constexpr Register::FieldValue<decltype(combine3)::Type,Combine3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(combine3)::Type,Combine3Val::v1> v1{};
-        }
         }
         ///Complement Of Channel (n) for n = 6
         enum class Comp3Val {
@@ -1078,7 +995,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(comp3)::Type,Comp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(comp3)::Type,Comp3Val::v1> v1{};
         }
-        }
         ///Dual Edge Capture Mode Enable For n = 6
         enum class Decapen3Val {
             v0=0x00000000,     ///<The Dual Edge Capture mode in this pair of channels is disabled.
@@ -1088,7 +1004,6 @@ namespace Kvasir {
         namespace Decapen3ValC{
             constexpr Register::FieldValue<decltype(decapen3)::Type,Decapen3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(decapen3)::Type,Decapen3Val::v1> v1{};
-        }
         }
         ///Dual Edge Capture Mode Captures For n = 6
         enum class Decap3Val {
@@ -1100,7 +1015,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(decap3)::Type,Decap3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(decap3)::Type,Decap3Val::v1> v1{};
         }
-        }
         ///Deadtime Enable For n = 6
         enum class Dten3Val {
             v0=0x00000000,     ///<The deadtime insertion in this pair of channels is disabled.
@@ -1110,7 +1024,6 @@ namespace Kvasir {
         namespace Dten3ValC{
             constexpr Register::FieldValue<decltype(dten3)::Type,Dten3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(dten3)::Type,Dten3Val::v1> v1{};
-        }
         }
         ///Synchronization Enable For n = 6
         enum class Syncen3Val {
@@ -1122,7 +1035,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(syncen3)::Type,Syncen3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(syncen3)::Type,Syncen3Val::v1> v1{};
         }
-        }
         ///Fault Control Enable For n = 6
         enum class Faulten3Val {
             v0=0x00000000,     ///<The fault control in this pair of channels is disabled.
@@ -1132,7 +1044,6 @@ namespace Kvasir {
         namespace Faulten3ValC{
             constexpr Register::FieldValue<decltype(faulten3)::Type,Faulten3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(faulten3)::Type,Faulten3Val::v1> v1{};
-        }
         }
     }
     namespace Ftm3Deadtime{    ///<Deadtime Insertion Control
@@ -1151,7 +1062,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtps)::Type,DtpsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(dtps)::Type,DtpsVal::v11> v11{};
         }
-        }
     }
     namespace Ftm3Exttrig{    ///<FTM External Trigger
         using Addr = Register::Address<0x4002c06c,0xffffff00,0,unsigned>;
@@ -1165,7 +1075,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2trig)::Type,Ch2trigVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch2trig)::Type,Ch2trigVal::v1> v1{};
         }
-        }
         ///Channel 3 Trigger Enable
         enum class Ch3trigVal {
             v0=0x00000000,     ///<The generation of the channel trigger is disabled.
@@ -1175,7 +1084,6 @@ namespace Kvasir {
         namespace Ch3trigValC{
             constexpr Register::FieldValue<decltype(ch3trig)::Type,Ch3trigVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch3trig)::Type,Ch3trigVal::v1> v1{};
-        }
         }
         ///Channel 4 Trigger Enable
         enum class Ch4trigVal {
@@ -1187,7 +1095,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4trig)::Type,Ch4trigVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch4trig)::Type,Ch4trigVal::v1> v1{};
         }
-        }
         ///Channel 5 Trigger Enable
         enum class Ch5trigVal {
             v0=0x00000000,     ///<The generation of the channel trigger is disabled.
@@ -1197,7 +1104,6 @@ namespace Kvasir {
         namespace Ch5trigValC{
             constexpr Register::FieldValue<decltype(ch5trig)::Type,Ch5trigVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch5trig)::Type,Ch5trigVal::v1> v1{};
-        }
         }
         ///Channel 0 Trigger Enable
         enum class Ch0trigVal {
@@ -1209,7 +1115,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0trig)::Type,Ch0trigVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch0trig)::Type,Ch0trigVal::v1> v1{};
         }
-        }
         ///Channel 1 Trigger Enable
         enum class Ch1trigVal {
             v0=0x00000000,     ///<The generation of the channel trigger is disabled.
@@ -1219,7 +1124,6 @@ namespace Kvasir {
         namespace Ch1trigValC{
             constexpr Register::FieldValue<decltype(ch1trig)::Type,Ch1trigVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch1trig)::Type,Ch1trigVal::v1> v1{};
-        }
         }
         ///Initialization Trigger Enable
         enum class InittrigenVal {
@@ -1231,7 +1135,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inittrigen)::Type,InittrigenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inittrigen)::Type,InittrigenVal::v1> v1{};
         }
-        }
         ///Channel Trigger Flag
         enum class TrigfVal {
             v0=0x00000000,     ///<No channel trigger was generated.
@@ -1241,7 +1144,6 @@ namespace Kvasir {
         namespace TrigfValC{
             constexpr Register::FieldValue<decltype(trigf)::Type,TrigfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(trigf)::Type,TrigfVal::v1> v1{};
-        }
         }
     }
     namespace Ftm3Pol{    ///<Channels Polarity
@@ -1256,7 +1158,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pol0)::Type,Pol0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pol0)::Type,Pol0Val::v1> v1{};
         }
-        }
         ///Channel 1 Polarity
         enum class Pol1Val {
             v0=0x00000000,     ///<The channel polarity is active high.
@@ -1266,7 +1167,6 @@ namespace Kvasir {
         namespace Pol1ValC{
             constexpr Register::FieldValue<decltype(pol1)::Type,Pol1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pol1)::Type,Pol1Val::v1> v1{};
-        }
         }
         ///Channel 2 Polarity
         enum class Pol2Val {
@@ -1278,7 +1178,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pol2)::Type,Pol2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pol2)::Type,Pol2Val::v1> v1{};
         }
-        }
         ///Channel 3 Polarity
         enum class Pol3Val {
             v0=0x00000000,     ///<The channel polarity is active high.
@@ -1288,7 +1187,6 @@ namespace Kvasir {
         namespace Pol3ValC{
             constexpr Register::FieldValue<decltype(pol3)::Type,Pol3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pol3)::Type,Pol3Val::v1> v1{};
-        }
         }
         ///Channel 4 Polarity
         enum class Pol4Val {
@@ -1300,7 +1198,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pol4)::Type,Pol4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pol4)::Type,Pol4Val::v1> v1{};
         }
-        }
         ///Channel 5 Polarity
         enum class Pol5Val {
             v0=0x00000000,     ///<The channel polarity is active high.
@@ -1310,7 +1207,6 @@ namespace Kvasir {
         namespace Pol5ValC{
             constexpr Register::FieldValue<decltype(pol5)::Type,Pol5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pol5)::Type,Pol5Val::v1> v1{};
-        }
         }
         ///Channel 6 Polarity
         enum class Pol6Val {
@@ -1322,7 +1218,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pol6)::Type,Pol6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pol6)::Type,Pol6Val::v1> v1{};
         }
-        }
         ///Channel 7 Polarity
         enum class Pol7Val {
             v0=0x00000000,     ///<The channel polarity is active high.
@@ -1332,7 +1227,6 @@ namespace Kvasir {
         namespace Pol7ValC{
             constexpr Register::FieldValue<decltype(pol7)::Type,Pol7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pol7)::Type,Pol7Val::v1> v1{};
-        }
         }
     }
     namespace Ftm3Fms{    ///<Fault Mode Status
@@ -1347,7 +1241,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(faultf0)::Type,Faultf0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(faultf0)::Type,Faultf0Val::v1> v1{};
         }
-        }
         ///Fault Detection Flag 1
         enum class Faultf1Val {
             v0=0x00000000,     ///<No fault condition was detected at the fault input.
@@ -1357,7 +1250,6 @@ namespace Kvasir {
         namespace Faultf1ValC{
             constexpr Register::FieldValue<decltype(faultf1)::Type,Faultf1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(faultf1)::Type,Faultf1Val::v1> v1{};
-        }
         }
         ///Fault Detection Flag 2
         enum class Faultf2Val {
@@ -1369,7 +1261,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(faultf2)::Type,Faultf2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(faultf2)::Type,Faultf2Val::v1> v1{};
         }
-        }
         ///Fault Detection Flag 3
         enum class Faultf3Val {
             v0=0x00000000,     ///<No fault condition was detected at the fault input.
@@ -1379,7 +1270,6 @@ namespace Kvasir {
         namespace Faultf3ValC{
             constexpr Register::FieldValue<decltype(faultf3)::Type,Faultf3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(faultf3)::Type,Faultf3Val::v1> v1{};
-        }
         }
         ///Fault Inputs
         enum class FaultinVal {
@@ -1391,7 +1281,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(faultin)::Type,FaultinVal::v0> v0{};
             constexpr Register::FieldValue<decltype(faultin)::Type,FaultinVal::v1> v1{};
         }
-        }
         ///Write Protection Enable
         enum class WpenVal {
             v0=0x00000000,     ///<Write protection is disabled. Write protected bits can be written.
@@ -1402,7 +1291,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wpen)::Type,WpenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wpen)::Type,WpenVal::v1> v1{};
         }
-        }
         ///Fault Detection Flag
         enum class FaultfVal {
             v0=0x00000000,     ///<No fault condition was detected.
@@ -1412,7 +1300,6 @@ namespace Kvasir {
         namespace FaultfValC{
             constexpr Register::FieldValue<decltype(faultf)::Type,FaultfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(faultf)::Type,FaultfVal::v1> v1{};
-        }
         }
     }
     namespace Ftm3Filter{    ///<Input Capture Filter Control
@@ -1438,7 +1325,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fault0en)::Type,Fault0enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fault0en)::Type,Fault0enVal::v1> v1{};
         }
-        }
         ///Fault Input 1 Enable
         enum class Fault1enVal {
             v0=0x00000000,     ///<Fault input is disabled.
@@ -1448,7 +1334,6 @@ namespace Kvasir {
         namespace Fault1enValC{
             constexpr Register::FieldValue<decltype(fault1en)::Type,Fault1enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fault1en)::Type,Fault1enVal::v1> v1{};
-        }
         }
         ///Fault Input 2 Enable
         enum class Fault2enVal {
@@ -1460,7 +1345,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fault2en)::Type,Fault2enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fault2en)::Type,Fault2enVal::v1> v1{};
         }
-        }
         ///Fault Input 3 Enable
         enum class Fault3enVal {
             v0=0x00000000,     ///<Fault input is disabled.
@@ -1470,7 +1354,6 @@ namespace Kvasir {
         namespace Fault3enValC{
             constexpr Register::FieldValue<decltype(fault3en)::Type,Fault3enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fault3en)::Type,Fault3enVal::v1> v1{};
-        }
         }
         ///Fault Input 0 Filter Enable
         enum class Ffltr0enVal {
@@ -1482,7 +1365,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ffltr0en)::Type,Ffltr0enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ffltr0en)::Type,Ffltr0enVal::v1> v1{};
         }
-        }
         ///Fault Input 1 Filter Enable
         enum class Ffltr1enVal {
             v0=0x00000000,     ///<Fault input filter is disabled.
@@ -1492,7 +1374,6 @@ namespace Kvasir {
         namespace Ffltr1enValC{
             constexpr Register::FieldValue<decltype(ffltr1en)::Type,Ffltr1enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ffltr1en)::Type,Ffltr1enVal::v1> v1{};
-        }
         }
         ///Fault Input 2 Filter Enable
         enum class Ffltr2enVal {
@@ -1504,7 +1385,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ffltr2en)::Type,Ffltr2enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ffltr2en)::Type,Ffltr2enVal::v1> v1{};
         }
-        }
         ///Fault Input 3 Filter Enable
         enum class Ffltr3enVal {
             v0=0x00000000,     ///<Fault input filter is disabled.
@@ -1514,7 +1394,6 @@ namespace Kvasir {
         namespace Ffltr3enValC{
             constexpr Register::FieldValue<decltype(ffltr3en)::Type,Ffltr3enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ffltr3en)::Type,Ffltr3enVal::v1> v1{};
-        }
         }
         ///Fault Input Filter
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> ffval{}; 
@@ -1531,7 +1410,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(quaden)::Type,QuadenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(quaden)::Type,QuadenVal::v1> v1{};
         }
-        }
         ///Timer Overflow Direction In Quadrature Decoder Mode
         enum class TofdirVal {
             v0=0x00000000,     ///<TOF bit was set on the bottom of counting. There was an FTM counter decrement and FTM counter changes from its minimum value (CNTIN register) to its maximum value (MOD register).
@@ -1541,7 +1419,6 @@ namespace Kvasir {
         namespace TofdirValC{
             constexpr Register::FieldValue<decltype(tofdir)::Type,TofdirVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tofdir)::Type,TofdirVal::v1> v1{};
-        }
         }
         ///FTM Counter Direction In Quadrature Decoder Mode
         enum class QuadirVal {
@@ -1553,7 +1430,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(quadir)::Type,QuadirVal::v0> v0{};
             constexpr Register::FieldValue<decltype(quadir)::Type,QuadirVal::v1> v1{};
         }
-        }
         ///Quadrature Decoder Mode
         enum class QuadmodeVal {
             v0=0x00000000,     ///<Phase A and phase B encoding mode.
@@ -1563,7 +1439,6 @@ namespace Kvasir {
         namespace QuadmodeValC{
             constexpr Register::FieldValue<decltype(quadmode)::Type,QuadmodeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(quadmode)::Type,QuadmodeVal::v1> v1{};
-        }
         }
         ///Phase B Input Polarity
         enum class PhbpolVal {
@@ -1575,7 +1450,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(phbpol)::Type,PhbpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(phbpol)::Type,PhbpolVal::v1> v1{};
         }
-        }
         ///Phase A Input Polarity
         enum class PhapolVal {
             v0=0x00000000,     ///<Normal polarity. Phase A input signal is not inverted before identifying the rising and falling edges of this signal.
@@ -1585,7 +1459,6 @@ namespace Kvasir {
         namespace PhapolValC{
             constexpr Register::FieldValue<decltype(phapol)::Type,PhapolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(phapol)::Type,PhapolVal::v1> v1{};
-        }
         }
         ///Phase B Input Filter Enable
         enum class PhbfltrenVal {
@@ -1597,7 +1470,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(phbfltren)::Type,PhbfltrenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(phbfltren)::Type,PhbfltrenVal::v1> v1{};
         }
-        }
         ///Phase A Input Filter Enable
         enum class PhafltrenVal {
             v0=0x00000000,     ///<Phase A input filter is disabled.
@@ -1607,7 +1479,6 @@ namespace Kvasir {
         namespace PhafltrenValC{
             constexpr Register::FieldValue<decltype(phafltren)::Type,PhafltrenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(phafltren)::Type,PhafltrenVal::v1> v1{};
-        }
         }
     }
     namespace Ftm3Conf{    ///<Configuration
@@ -1626,7 +1497,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gtbeen)::Type,GtbeenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gtbeen)::Type,GtbeenVal::v1> v1{};
         }
-        }
         ///Global Time Base Output
         enum class GtbeoutVal {
             v0=0x00000000,     ///<A global time base signal generation is disabled.
@@ -1636,7 +1506,6 @@ namespace Kvasir {
         namespace GtbeoutValC{
             constexpr Register::FieldValue<decltype(gtbeout)::Type,GtbeoutVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gtbeout)::Type,GtbeoutVal::v1> v1{};
-        }
         }
     }
     namespace Ftm3Fltpol{    ///<FTM Fault Input Polarity
@@ -1651,7 +1520,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flt0pol)::Type,Flt0polVal::v0> v0{};
             constexpr Register::FieldValue<decltype(flt0pol)::Type,Flt0polVal::v1> v1{};
         }
-        }
         ///Fault Input 1 Polarity
         enum class Flt1polVal {
             v0=0x00000000,     ///<The fault input polarity is active high. A one at the fault input indicates a fault.
@@ -1661,7 +1529,6 @@ namespace Kvasir {
         namespace Flt1polValC{
             constexpr Register::FieldValue<decltype(flt1pol)::Type,Flt1polVal::v0> v0{};
             constexpr Register::FieldValue<decltype(flt1pol)::Type,Flt1polVal::v1> v1{};
-        }
         }
         ///Fault Input 2 Polarity
         enum class Flt2polVal {
@@ -1673,7 +1540,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flt2pol)::Type,Flt2polVal::v0> v0{};
             constexpr Register::FieldValue<decltype(flt2pol)::Type,Flt2polVal::v1> v1{};
         }
-        }
         ///Fault Input 3 Polarity
         enum class Flt3polVal {
             v0=0x00000000,     ///<The fault input polarity is active high. A one at the fault input indicates a fault.
@@ -1683,7 +1549,6 @@ namespace Kvasir {
         namespace Flt3polValC{
             constexpr Register::FieldValue<decltype(flt3pol)::Type,Flt3polVal::v0> v0{};
             constexpr Register::FieldValue<decltype(flt3pol)::Type,Flt3polVal::v1> v1{};
-        }
         }
     }
     namespace Ftm3Synconf{    ///<Synchronization Configuration
@@ -1698,7 +1563,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hwtrigmode)::Type,HwtrigmodeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hwtrigmode)::Type,HwtrigmodeVal::v1> v1{};
         }
-        }
         ///CNTIN Register Synchronization
         enum class CntincVal {
             v0=0x00000000,     ///<CNTIN register is updated with its buffer value at all rising edges of system clock.
@@ -1708,7 +1572,6 @@ namespace Kvasir {
         namespace CntincValC{
             constexpr Register::FieldValue<decltype(cntinc)::Type,CntincVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cntinc)::Type,CntincVal::v1> v1{};
-        }
         }
         ///INVCTRL Register Synchronization
         enum class InvcVal {
@@ -1720,7 +1583,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invc)::Type,InvcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(invc)::Type,InvcVal::v1> v1{};
         }
-        }
         ///SWOCTRL Register Synchronization
         enum class SwocVal {
             v0=0x00000000,     ///<SWOCTRL register is updated with its buffer value at all rising edges of system clock.
@@ -1730,7 +1592,6 @@ namespace Kvasir {
         namespace SwocValC{
             constexpr Register::FieldValue<decltype(swoc)::Type,SwocVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swoc)::Type,SwocVal::v1> v1{};
-        }
         }
         ///Synchronization Mode
         enum class SyncmodeVal {
@@ -1742,7 +1603,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(syncmode)::Type,SyncmodeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(syncmode)::Type,SyncmodeVal::v1> v1{};
         }
-        }
         ///no description available
         enum class SwrstcntVal {
             v0=0x00000000,     ///<The software trigger does not activate the FTM counter synchronization.
@@ -1752,7 +1612,6 @@ namespace Kvasir {
         namespace SwrstcntValC{
             constexpr Register::FieldValue<decltype(swrstcnt)::Type,SwrstcntVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swrstcnt)::Type,SwrstcntVal::v1> v1{};
-        }
         }
         ///no description available
         enum class SwwrbufVal {
@@ -1764,7 +1623,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swwrbuf)::Type,SwwrbufVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swwrbuf)::Type,SwwrbufVal::v1> v1{};
         }
-        }
         ///no description available
         enum class SwomVal {
             v0=0x00000000,     ///<The software trigger does not activate the OUTMASK register synchronization.
@@ -1774,7 +1632,6 @@ namespace Kvasir {
         namespace SwomValC{
             constexpr Register::FieldValue<decltype(swom)::Type,SwomVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swom)::Type,SwomVal::v1> v1{};
-        }
         }
         ///no description available
         enum class SwinvcVal {
@@ -1786,7 +1643,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swinvc)::Type,SwinvcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swinvc)::Type,SwinvcVal::v1> v1{};
         }
-        }
         ///no description available
         enum class SwsocVal {
             v0=0x00000000,     ///<The software trigger does not activate the SWOCTRL register synchronization.
@@ -1796,7 +1652,6 @@ namespace Kvasir {
         namespace SwsocValC{
             constexpr Register::FieldValue<decltype(swsoc)::Type,SwsocVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swsoc)::Type,SwsocVal::v1> v1{};
-        }
         }
         ///no description available
         enum class HwrstcntVal {
@@ -1808,7 +1663,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hwrstcnt)::Type,HwrstcntVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hwrstcnt)::Type,HwrstcntVal::v1> v1{};
         }
-        }
         ///no description available
         enum class HwwrbufVal {
             v0=0x00000000,     ///<A hardware trigger does not activate MOD, CNTIN, and CV registers synchronization.
@@ -1818,7 +1672,6 @@ namespace Kvasir {
         namespace HwwrbufValC{
             constexpr Register::FieldValue<decltype(hwwrbuf)::Type,HwwrbufVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hwwrbuf)::Type,HwwrbufVal::v1> v1{};
-        }
         }
         ///no description available
         enum class HwomVal {
@@ -1830,7 +1683,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hwom)::Type,HwomVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hwom)::Type,HwomVal::v1> v1{};
         }
-        }
         ///no description available
         enum class HwinvcVal {
             v0=0x00000000,     ///<A hardware trigger does not activate the INVCTRL register synchronization.
@@ -1841,7 +1693,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hwinvc)::Type,HwinvcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hwinvc)::Type,HwinvcVal::v1> v1{};
         }
-        }
         ///no description available
         enum class HwsocVal {
             v0=0x00000000,     ///<A hardware trigger does not activate the SWOCTRL register synchronization.
@@ -1851,7 +1702,6 @@ namespace Kvasir {
         namespace HwsocValC{
             constexpr Register::FieldValue<decltype(hwsoc)::Type,HwsocVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hwsoc)::Type,HwsocVal::v1> v1{};
-        }
         }
     }
     namespace Ftm3Invctrl{    ///<FTM Inverting Control
@@ -1866,7 +1716,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv0en)::Type,Inv0enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inv0en)::Type,Inv0enVal::v1> v1{};
         }
-        }
         ///Pair Channels 1 Inverting Enable
         enum class Inv1enVal {
             v0=0x00000000,     ///<Inverting is disabled.
@@ -1876,7 +1725,6 @@ namespace Kvasir {
         namespace Inv1enValC{
             constexpr Register::FieldValue<decltype(inv1en)::Type,Inv1enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inv1en)::Type,Inv1enVal::v1> v1{};
-        }
         }
         ///Pair Channels 2 Inverting Enable
         enum class Inv2enVal {
@@ -1888,7 +1736,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv2en)::Type,Inv2enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inv2en)::Type,Inv2enVal::v1> v1{};
         }
-        }
         ///Pair Channels 3 Inverting Enable
         enum class Inv3enVal {
             v0=0x00000000,     ///<Inverting is disabled.
@@ -1898,7 +1745,6 @@ namespace Kvasir {
         namespace Inv3enValC{
             constexpr Register::FieldValue<decltype(inv3en)::Type,Inv3enVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inv3en)::Type,Inv3enVal::v1> v1{};
-        }
         }
     }
     namespace Ftm3Swoctrl{    ///<FTM Software Output Control
@@ -1913,7 +1759,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0oc)::Type,Ch0ocVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch0oc)::Type,Ch0ocVal::v1> v1{};
         }
-        }
         ///Channel 1 Software Output Control Enable
         enum class Ch1ocVal {
             v0=0x00000000,     ///<The channel output is not affected by software output control.
@@ -1923,7 +1768,6 @@ namespace Kvasir {
         namespace Ch1ocValC{
             constexpr Register::FieldValue<decltype(ch1oc)::Type,Ch1ocVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch1oc)::Type,Ch1ocVal::v1> v1{};
-        }
         }
         ///Channel 2 Software Output Control Enable
         enum class Ch2ocVal {
@@ -1935,7 +1779,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2oc)::Type,Ch2ocVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch2oc)::Type,Ch2ocVal::v1> v1{};
         }
-        }
         ///Channel 3 Software Output Control Enable
         enum class Ch3ocVal {
             v0=0x00000000,     ///<The channel output is not affected by software output control.
@@ -1945,7 +1788,6 @@ namespace Kvasir {
         namespace Ch3ocValC{
             constexpr Register::FieldValue<decltype(ch3oc)::Type,Ch3ocVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch3oc)::Type,Ch3ocVal::v1> v1{};
-        }
         }
         ///Channel 4 Software Output Control Enable
         enum class Ch4ocVal {
@@ -1957,7 +1799,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4oc)::Type,Ch4ocVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch4oc)::Type,Ch4ocVal::v1> v1{};
         }
-        }
         ///Channel 5 Software Output Control Enable
         enum class Ch5ocVal {
             v0=0x00000000,     ///<The channel output is not affected by software output control.
@@ -1967,7 +1808,6 @@ namespace Kvasir {
         namespace Ch5ocValC{
             constexpr Register::FieldValue<decltype(ch5oc)::Type,Ch5ocVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch5oc)::Type,Ch5ocVal::v1> v1{};
-        }
         }
         ///Channel 6 Software Output Control Enable
         enum class Ch6ocVal {
@@ -1979,7 +1819,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch6oc)::Type,Ch6ocVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch6oc)::Type,Ch6ocVal::v1> v1{};
         }
-        }
         ///Channel 7 Software Output Control Enable
         enum class Ch7ocVal {
             v0=0x00000000,     ///<The channel output is not affected by software output control.
@@ -1989,7 +1828,6 @@ namespace Kvasir {
         namespace Ch7ocValC{
             constexpr Register::FieldValue<decltype(ch7oc)::Type,Ch7ocVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch7oc)::Type,Ch7ocVal::v1> v1{};
-        }
         }
         ///Channel 0 Software Output Control Value
         enum class Ch0ocvVal {
@@ -2001,7 +1839,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0ocv)::Type,Ch0ocvVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch0ocv)::Type,Ch0ocvVal::v1> v1{};
         }
-        }
         ///Channel 1 Software Output Control Value
         enum class Ch1ocvVal {
             v0=0x00000000,     ///<The software output control forces 0 to the channel output.
@@ -2011,7 +1848,6 @@ namespace Kvasir {
         namespace Ch1ocvValC{
             constexpr Register::FieldValue<decltype(ch1ocv)::Type,Ch1ocvVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch1ocv)::Type,Ch1ocvVal::v1> v1{};
-        }
         }
         ///Channel 2 Software Output Control Value
         enum class Ch2ocvVal {
@@ -2023,7 +1859,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2ocv)::Type,Ch2ocvVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch2ocv)::Type,Ch2ocvVal::v1> v1{};
         }
-        }
         ///Channel 3 Software Output Control Value
         enum class Ch3ocvVal {
             v0=0x00000000,     ///<The software output control forces 0 to the channel output.
@@ -2033,7 +1868,6 @@ namespace Kvasir {
         namespace Ch3ocvValC{
             constexpr Register::FieldValue<decltype(ch3ocv)::Type,Ch3ocvVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch3ocv)::Type,Ch3ocvVal::v1> v1{};
-        }
         }
         ///Channel 4 Software Output Control Value
         enum class Ch4ocvVal {
@@ -2045,7 +1879,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4ocv)::Type,Ch4ocvVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch4ocv)::Type,Ch4ocvVal::v1> v1{};
         }
-        }
         ///Channel 5 Software Output Control Value
         enum class Ch5ocvVal {
             v0=0x00000000,     ///<The software output control forces 0 to the channel output.
@@ -2055,7 +1888,6 @@ namespace Kvasir {
         namespace Ch5ocvValC{
             constexpr Register::FieldValue<decltype(ch5ocv)::Type,Ch5ocvVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch5ocv)::Type,Ch5ocvVal::v1> v1{};
-        }
         }
         ///Channel 6 Software Output Control Value
         enum class Ch6ocvVal {
@@ -2067,7 +1899,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch6ocv)::Type,Ch6ocvVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch6ocv)::Type,Ch6ocvVal::v1> v1{};
         }
-        }
         ///Channel 7 Software Output Control Value
         enum class Ch7ocvVal {
             v0=0x00000000,     ///<The software output control forces 0 to the channel output.
@@ -2077,7 +1908,6 @@ namespace Kvasir {
         namespace Ch7ocvValC{
             constexpr Register::FieldValue<decltype(ch7ocv)::Type,Ch7ocvVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch7ocv)::Type,Ch7ocvVal::v1> v1{};
-        }
         }
     }
     namespace Ftm3Pwmload{    ///<FTM PWM Load
@@ -2092,7 +1922,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0sel)::Type,Ch0selVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch0sel)::Type,Ch0selVal::v1> v1{};
         }
-        }
         ///Channel 1 Select
         enum class Ch1selVal {
             v0=0x00000000,     ///<Do not include the channel in the matching process.
@@ -2102,7 +1931,6 @@ namespace Kvasir {
         namespace Ch1selValC{
             constexpr Register::FieldValue<decltype(ch1sel)::Type,Ch1selVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch1sel)::Type,Ch1selVal::v1> v1{};
-        }
         }
         ///Channel 2 Select
         enum class Ch2selVal {
@@ -2114,7 +1942,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2sel)::Type,Ch2selVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch2sel)::Type,Ch2selVal::v1> v1{};
         }
-        }
         ///Channel 3 Select
         enum class Ch3selVal {
             v0=0x00000000,     ///<Do not include the channel in the matching process.
@@ -2124,7 +1951,6 @@ namespace Kvasir {
         namespace Ch3selValC{
             constexpr Register::FieldValue<decltype(ch3sel)::Type,Ch3selVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch3sel)::Type,Ch3selVal::v1> v1{};
-        }
         }
         ///Channel 4 Select
         enum class Ch4selVal {
@@ -2136,7 +1962,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4sel)::Type,Ch4selVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch4sel)::Type,Ch4selVal::v1> v1{};
         }
-        }
         ///Channel 5 Select
         enum class Ch5selVal {
             v0=0x00000000,     ///<Do not include the channel in the matching process.
@@ -2146,7 +1971,6 @@ namespace Kvasir {
         namespace Ch5selValC{
             constexpr Register::FieldValue<decltype(ch5sel)::Type,Ch5selVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch5sel)::Type,Ch5selVal::v1> v1{};
-        }
         }
         ///Channel 6 Select
         enum class Ch6selVal {
@@ -2158,7 +1982,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch6sel)::Type,Ch6selVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch6sel)::Type,Ch6selVal::v1> v1{};
         }
-        }
         ///Channel 7 Select
         enum class Ch7selVal {
             v0=0x00000000,     ///<Do not include the channel in the matching process.
@@ -2169,7 +1992,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch7sel)::Type,Ch7selVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ch7sel)::Type,Ch7selVal::v1> v1{};
         }
-        }
         ///Load Enable
         enum class LdokVal {
             v0=0x00000000,     ///<Loading updated values is disabled.
@@ -2179,7 +2001,6 @@ namespace Kvasir {
         namespace LdokValC{
             constexpr Register::FieldValue<decltype(ldok)::Type,LdokVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ldok)::Type,LdokVal::v1> v1{};
-        }
         }
     }
 }

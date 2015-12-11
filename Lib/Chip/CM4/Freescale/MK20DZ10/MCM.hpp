@@ -28,7 +28,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sramuap)::Type,SramuapVal::v10> v10{};
             constexpr Register::FieldValue<decltype(sramuap)::Type,SramuapVal::v11> v11{};
         }
-        }
         ///SRAM_U write protect
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> sramuwp{}; 
         ///SRAM_L arbitration priority
@@ -45,7 +44,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sramlap)::Type,SramlapVal::v10> v10{};
             constexpr Register::FieldValue<decltype(sramlap)::Type,SramlapVal::v11> v11{};
         }
-        }
         ///SRAM_L write protect
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> sramlwp{}; 
     }
@@ -61,7 +59,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irq)::Type,IrqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irq)::Type,IrqVal::v1> v1{};
         }
-        }
         ///Non-maskable interrupt pending
         enum class NmiVal {
             v0=0x00000000,     ///<No pending NMI
@@ -71,7 +68,6 @@ namespace Kvasir {
         namespace NmiValC{
             constexpr Register::FieldValue<decltype(nmi)::Type,NmiVal::v0> v0{};
             constexpr Register::FieldValue<decltype(nmi)::Type,NmiVal::v1> v1{};
-        }
         }
     }
     namespace McmEtbcc{    ///<ETB counter control register
@@ -85,7 +81,6 @@ namespace Kvasir {
         namespace CntenValC{
             constexpr Register::FieldValue<decltype(cnten)::Type,CntenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cnten)::Type,CntenVal::v1> v1{};
-        }
         }
         ///Response type
         enum class RsptVal {
@@ -101,7 +96,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rspt)::Type,RsptVal::v10> v10{};
             constexpr Register::FieldValue<decltype(rspt)::Type,RsptVal::v11> v11{};
         }
-        }
         ///Reload request
         enum class RlrqVal {
             v0=0x00000000,     ///<No effect
@@ -111,7 +105,6 @@ namespace Kvasir {
         namespace RlrqValC{
             constexpr Register::FieldValue<decltype(rlrq)::Type,RlrqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rlrq)::Type,RlrqVal::v1> v1{};
-        }
         }
         ///ETM-to-TPIU disable
         enum class EtdisVal {
@@ -123,7 +116,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(etdis)::Type,EtdisVal::v0> v0{};
             constexpr Register::FieldValue<decltype(etdis)::Type,EtdisVal::v1> v1{};
         }
-        }
         ///ITM-to-TPIU disable
         enum class ItdisVal {
             v0=0x00000000,     ///<ITM-to-TPIU trace path enabled
@@ -133,7 +125,6 @@ namespace Kvasir {
         namespace ItdisValC{
             constexpr Register::FieldValue<decltype(itdis)::Type,ItdisVal::v0> v0{};
             constexpr Register::FieldValue<decltype(itdis)::Type,ItdisVal::v1> v1{};
-        }
         }
     }
     namespace McmEtbrl{    ///<ETB reload register

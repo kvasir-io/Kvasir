@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wakeup0L)::Type,Wakeup0lVal::detectLowLevelIf> detectLowLevelIf{};
             constexpr Register::FieldValue<decltype(wakeup0L)::Type,Wakeup0lVal::detectHighLevelIf> detectHighLevelIf{};
         }
-        }
         ///Level detect mode for WAKEUP1 event. The corresponding bit in the EDGE register must be 0.
         enum class Wakeup1lVal {
             detectLowLevelIf=0x00000000,     ///<Detect LOW level if bit 1 in the EDGE register is 0.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace Wakeup1lValC{
             constexpr Register::FieldValue<decltype(wakeup1L)::Type,Wakeup1lVal::detectLowLevelIf> detectLowLevelIf{};
             constexpr Register::FieldValue<decltype(wakeup1L)::Type,Wakeup1lVal::detectHighLevelIf> detectHighLevelIf{};
-        }
         }
         ///Level detect mode for WAKEUP2 event.
         enum class Wakeup2lVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wakeup2L)::Type,Wakeup2lVal::detectLowLevelIf> detectLowLevelIf{};
             constexpr Register::FieldValue<decltype(wakeup2L)::Type,Wakeup2lVal::detectHighLevelIf> detectHighLevelIf{};
         }
-        }
         ///Level detect mode for WAKEUP3 event.
         enum class Wakeup3lVal {
             detectLowLevelIf=0x00000000,     ///<Detect LOW level if bit 3 in the EDGE register is 0. Detect falling edge if bit 3 in the EDGE register is 1.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace Wakeup3lValC{
             constexpr Register::FieldValue<decltype(wakeup3L)::Type,Wakeup3lVal::detectLowLevelIf> detectLowLevelIf{};
             constexpr Register::FieldValue<decltype(wakeup3L)::Type,Wakeup3lVal::detectHighLevelIf> detectHighLevelIf{};
-        }
         }
         ///Level detect mode for alarm timer event.
         enum class AtimerlVal {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(atimerL)::Type,AtimerlVal::detectLowLevelIf> detectLowLevelIf{};
             constexpr Register::FieldValue<decltype(atimerL)::Type,AtimerlVal::detectHighLevelIf> detectHighLevelIf{};
         }
-        }
         ///Level detect mode for RTC event.
         enum class RtclVal {
             detectLowLevelIf=0x00000000,     ///<Detect LOW level if bit 5 in the EDGE register is 0. Detect falling edge if bit 5 in the EDGE register is 1.
@@ -68,7 +63,6 @@ namespace Kvasir {
         namespace RtclValC{
             constexpr Register::FieldValue<decltype(rtcL)::Type,RtclVal::detectLowLevelIf> detectLowLevelIf{};
             constexpr Register::FieldValue<decltype(rtcL)::Type,RtclVal::detectHighLevelIf> detectHighLevelIf{};
-        }
         }
         ///Level detect mode for BOD event.
         enum class BodlVal {
@@ -80,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bodL)::Type,BodlVal::detectLowLevelIf> detectLowLevelIf{};
             constexpr Register::FieldValue<decltype(bodL)::Type,BodlVal::detectHighLevelIf> detectHighLevelIf{};
         }
-        }
         ///Level detect mode for WWDTD event.
         enum class WwdtlVal {
             detectLowLevelIf=0x00000000,     ///<Detect LOW level if bit 7 in the EDGE register is 0. Detect falling edge if bit 7 in the EDGE register is 1.
@@ -90,7 +83,6 @@ namespace Kvasir {
         namespace WwdtlValC{
             constexpr Register::FieldValue<decltype(wwdtL)::Type,WwdtlVal::detectLowLevelIf> detectLowLevelIf{};
             constexpr Register::FieldValue<decltype(wwdtL)::Type,WwdtlVal::detectHighLevelIf> detectHighLevelIf{};
-        }
         }
         ///Level detect mode for ethernet event.
         enum class EthlVal {
@@ -102,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ethL)::Type,EthlVal::detectLowLevelIf> detectLowLevelIf{};
             constexpr Register::FieldValue<decltype(ethL)::Type,EthlVal::detectHighLevelIf> detectHighLevelIf{};
         }
-        }
         ///Level detect mode for USB0 event.
         enum class Usb0lVal {
             detectLowLevelIf=0x00000000,     ///<Detect LOW level if bit 9 in the EDGE register is 0. Detect falling edge if bit 9 in the EDGE register is 1.
@@ -112,7 +103,6 @@ namespace Kvasir {
         namespace Usb0lValC{
             constexpr Register::FieldValue<decltype(usb0L)::Type,Usb0lVal::detectLowLevelIf> detectLowLevelIf{};
             constexpr Register::FieldValue<decltype(usb0L)::Type,Usb0lVal::detectHighLevelIf> detectHighLevelIf{};
-        }
         }
         ///Level detect mode for USB1 event.
         enum class Usb1lVal {
@@ -124,7 +114,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usb1L)::Type,Usb1lVal::detectLowLevelIf> detectLowLevelIf{};
             constexpr Register::FieldValue<decltype(usb1L)::Type,Usb1lVal::detectHighLevelIf> detectHighLevelIf{};
         }
-        }
         ///Level detect mode for C_CAN event.
         enum class CanlVal {
             detectLowLevelIf=0x00000000,     ///<Detect LOW level if bit 12 in the EDGE register is 0. Detect falling edge if bit 12 in the EDGE register is 1.
@@ -134,7 +123,6 @@ namespace Kvasir {
         namespace CanlValC{
             constexpr Register::FieldValue<decltype(canL)::Type,CanlVal::detectLowLevelIf> detectLowLevelIf{};
             constexpr Register::FieldValue<decltype(canL)::Type,CanlVal::detectHighLevelIf> detectHighLevelIf{};
-        }
         }
         ///Level detect mode for combined timer output 2 event.
         enum class Tim2lVal {
@@ -146,7 +134,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tim2L)::Type,Tim2lVal::detectLowLevelIf> detectLowLevelIf{};
             constexpr Register::FieldValue<decltype(tim2L)::Type,Tim2lVal::detectHighLevelIf> detectHighLevelIf{};
         }
-        }
         ///Level detect mode for combined timer output 6 event.
         enum class Tim6lVal {
             detectLowLevelIf=0x00000000,     ///<Detect LOW level if bit 14 in the EDGE register is 0. Detect falling edge if bit 14 in the EDGE register is 1.
@@ -156,7 +143,6 @@ namespace Kvasir {
         namespace Tim6lValC{
             constexpr Register::FieldValue<decltype(tim6L)::Type,Tim6lVal::detectLowLevelIf> detectLowLevelIf{};
             constexpr Register::FieldValue<decltype(tim6L)::Type,Tim6lVal::detectHighLevelIf> detectHighLevelIf{};
-        }
         }
         ///Level detect mode for QEI event.
         enum class QeilVal {
@@ -168,7 +154,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(qeiL)::Type,QeilVal::detectLowLevelIf> detectLowLevelIf{};
             constexpr Register::FieldValue<decltype(qeiL)::Type,QeilVal::detectHighLevelIf> detectHighLevelIf{};
         }
-        }
         ///Level detect mode for combined timer output 14 event.
         enum class Tim14lVal {
             detectLowLevelIf=0x00000000,     ///<Detect LOW level if bit 16 in the EDGE register is 0. Detect falling edge if bit 16 in the EDGE register is 1.
@@ -179,7 +164,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tim14L)::Type,Tim14lVal::detectLowLevelIf> detectLowLevelIf{};
             constexpr Register::FieldValue<decltype(tim14L)::Type,Tim14lVal::detectHighLevelIf> detectHighLevelIf{};
         }
-        }
         ///Level detect mode for RESET event.
         enum class ResetlVal {
             detectLowLevelIf=0x00000000,     ///<Detect LOW level if bit 17 in the EDGE register is 0. Detect falling edge if bit 17 in the EDGE register is 1.
@@ -189,7 +173,6 @@ namespace Kvasir {
         namespace ResetlValC{
             constexpr Register::FieldValue<decltype(resetL)::Type,ResetlVal::detectLowLevelIf> detectLowLevelIf{};
             constexpr Register::FieldValue<decltype(resetL)::Type,ResetlVal::detectHighLevelIf> detectHighLevelIf{};
-        }
         }
     }
     namespace Noneedge{    ///<Edge configuration
@@ -204,7 +187,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wakeup0E)::Type,Wakeup0eVal::levelDetect> levelDetect{};
             constexpr Register::FieldValue<decltype(wakeup0E)::Type,Wakeup0eVal::edgeDetectDetect> edgeDetectDetect{};
         }
-        }
         ///Edge/level detect mode for WAKEUP1 event. The corresponding bit in the EDGE register must be 0.
         enum class Wakeup1eVal {
             levelDetect=0x00000000,     ///<Level detect.
@@ -214,7 +196,6 @@ namespace Kvasir {
         namespace Wakeup1eValC{
             constexpr Register::FieldValue<decltype(wakeup1E)::Type,Wakeup1eVal::levelDetect> levelDetect{};
             constexpr Register::FieldValue<decltype(wakeup1E)::Type,Wakeup1eVal::edgeDetectDetect> edgeDetectDetect{};
-        }
         }
         ///Edge/level detect mode for WAKEUP2 event. The corresponding bit in the EDGE register must be 0.
         enum class Wakeup2eVal {
@@ -226,7 +207,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wakeup2E)::Type,Wakeup2eVal::levelDetect> levelDetect{};
             constexpr Register::FieldValue<decltype(wakeup2E)::Type,Wakeup2eVal::edgeDetectDetect> edgeDetectDetect{};
         }
-        }
         ///Edge/level detect mode for WAKEUP3 event. The corresponding bit in the EDGE register must be 0.
         enum class Wakeup3eVal {
             levelDetect=0x00000000,     ///<Level detect.
@@ -236,7 +216,6 @@ namespace Kvasir {
         namespace Wakeup3eValC{
             constexpr Register::FieldValue<decltype(wakeup3E)::Type,Wakeup3eVal::levelDetect> levelDetect{};
             constexpr Register::FieldValue<decltype(wakeup3E)::Type,Wakeup3eVal::edgeDetectDetect> edgeDetectDetect{};
-        }
         }
         ///Edge/level detect mode for alarm timer event. The corresponding bit in the EDGE register must be 0.
         enum class AtimereVal {
@@ -248,7 +227,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(atimerE)::Type,AtimereVal::levelDetect> levelDetect{};
             constexpr Register::FieldValue<decltype(atimerE)::Type,AtimereVal::edgeDetectDetect> edgeDetectDetect{};
         }
-        }
         ///Edge/level detect mode for RTC event. The corresponding bit in the EDGE register must be 0.
         enum class RtceVal {
             levelDetect=0x00000000,     ///<Level detect.
@@ -258,7 +236,6 @@ namespace Kvasir {
         namespace RtceValC{
             constexpr Register::FieldValue<decltype(rtcE)::Type,RtceVal::levelDetect> levelDetect{};
             constexpr Register::FieldValue<decltype(rtcE)::Type,RtceVal::edgeDetectDetect> edgeDetectDetect{};
-        }
         }
         ///Edge/level detect mode for BOD event. The corresponding bit in the EDGE register must be 0.
         enum class BodeVal {
@@ -270,7 +247,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bodE)::Type,BodeVal::levelDetect> levelDetect{};
             constexpr Register::FieldValue<decltype(bodE)::Type,BodeVal::edgeDetectDetect> edgeDetectDetect{};
         }
-        }
         ///Edge/level detect mode for WWDTD event. The corresponding bit in the EDGE register must be 0.
         enum class WwdteVal {
             levelDetect=0x00000000,     ///<Level detect.
@@ -280,7 +256,6 @@ namespace Kvasir {
         namespace WwdteValC{
             constexpr Register::FieldValue<decltype(wwdtE)::Type,WwdteVal::levelDetect> levelDetect{};
             constexpr Register::FieldValue<decltype(wwdtE)::Type,WwdteVal::edgeDetectDetect> edgeDetectDetect{};
-        }
         }
         ///Edge/level detect mode for ethernet event. The corresponding bit in the EDGE register must be 0.
         enum class EtheVal {
@@ -292,7 +267,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ethE)::Type,EtheVal::levelDetect> levelDetect{};
             constexpr Register::FieldValue<decltype(ethE)::Type,EtheVal::edgeDetectDetect> edgeDetectDetect{};
         }
-        }
         ///Edge/level detect mode for USB0 event. The corresponding bit in the EDGE register must be 0.
         enum class Usb0eVal {
             levelDetect=0x00000000,     ///<Level detect.
@@ -302,7 +276,6 @@ namespace Kvasir {
         namespace Usb0eValC{
             constexpr Register::FieldValue<decltype(usb0E)::Type,Usb0eVal::levelDetect> levelDetect{};
             constexpr Register::FieldValue<decltype(usb0E)::Type,Usb0eVal::edgeDetectDetect> edgeDetectDetect{};
-        }
         }
         ///Edge/level detect mode for USB1 event. The corresponding bit in the EDGE register must be 0.
         enum class Usb1eVal {
@@ -314,7 +287,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usb1E)::Type,Usb1eVal::levelDetect> levelDetect{};
             constexpr Register::FieldValue<decltype(usb1E)::Type,Usb1eVal::edgeDetectDetect> edgeDetectDetect{};
         }
-        }
         ///Edge/level detect mode for C_CAN event. The corresponding bit in the EDGE register must be 0.
         enum class CaneVal {
             levelDetect=0x00000000,     ///<Level detect.
@@ -324,7 +296,6 @@ namespace Kvasir {
         namespace CaneValC{
             constexpr Register::FieldValue<decltype(canE)::Type,CaneVal::levelDetect> levelDetect{};
             constexpr Register::FieldValue<decltype(canE)::Type,CaneVal::edgeDetectDetect> edgeDetectDetect{};
-        }
         }
         ///Edge/level detect mode for combined timer output 2 event. The corresponding bit in the EDGE register must be 0.
         enum class Tim2eVal {
@@ -336,7 +307,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tim2E)::Type,Tim2eVal::levelDetect> levelDetect{};
             constexpr Register::FieldValue<decltype(tim2E)::Type,Tim2eVal::edgeDetectDetect> edgeDetectDetect{};
         }
-        }
         ///Edge/level detect mode for combined timer output 6 event. The corresponding bit in the EDGE register must be 0.
         enum class Tim6eVal {
             levelDetect=0x00000000,     ///<Level detect.
@@ -346,7 +316,6 @@ namespace Kvasir {
         namespace Tim6eValC{
             constexpr Register::FieldValue<decltype(tim6E)::Type,Tim6eVal::levelDetect> levelDetect{};
             constexpr Register::FieldValue<decltype(tim6E)::Type,Tim6eVal::edgeDetectDetect> edgeDetectDetect{};
-        }
         }
         ///Edge/level detect mode for QEI interrupt signal. The corresponding bit in the EDGE register must be 0.
         enum class QeieVal {
@@ -358,7 +327,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(qeiE)::Type,QeieVal::levelDetect> levelDetect{};
             constexpr Register::FieldValue<decltype(qeiE)::Type,QeieVal::edgeDetectDetect> edgeDetectDetect{};
         }
-        }
         ///Edge/level detect mode for combined timer output 14 event. The corresponding bit in the EDGE register must be 0.
         enum class Tim14eVal {
             levelDetect=0x00000000,     ///<Level detect.
@@ -369,7 +337,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tim14E)::Type,Tim14eVal::levelDetect> levelDetect{};
             constexpr Register::FieldValue<decltype(tim14E)::Type,Tim14eVal::edgeDetectDetect> edgeDetectDetect{};
         }
-        }
         ///Edge/level detect mode for RESET event. The corresponding bit in the EDGE register must be 0.
         enum class ReseteVal {
             levelDetect=0x00000000,     ///<Level detect.
@@ -379,7 +346,6 @@ namespace Kvasir {
         namespace ReseteValC{
             constexpr Register::FieldValue<decltype(resetE)::Type,ReseteVal::levelDetect> levelDetect{};
             constexpr Register::FieldValue<decltype(resetE)::Type,ReseteVal::edgeDetectDetect> edgeDetectDetect{};
-        }
         }
     }
     namespace NoneclrEn{    ///<Event clear enable register

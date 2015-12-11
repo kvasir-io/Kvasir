@@ -16,7 +16,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(asynmode)::Type,AsynmodeVal::synchronousMode> synchronousMode{};
             constexpr Register::FieldValue<decltype(asynmode)::Type,AsynmodeVal::asynchronousMode> asynchronousMode{};
         }
-        }
         ///Select 10-bit conversion. In 10-bit mode higher conversion rates of up to 100 MHz are supported. A/D resolution is reduced to ten bits, but the clock rate (set via the CLKDIV field) can be increased up to 100 MHz to achieve a conversion rate of up to four million samples per second. The two LSBs of the result data are forced to zero.
         enum class Mode10bitVal {
             disabled=0x00000000,     ///<Disabled. The 10-bit/high-conversion rate mode is disabled.
@@ -27,7 +26,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode10bit)::Type,Mode10bitVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(mode10bit)::Type,Mode10bitVal::enabled> enabled{};
         }
-        }
         ///Select low-power ADC mode. The analog circuitry is automatically powered-down when no conversions are taking place. When any (hardware or software) triggering event is detected, the analog circuitry is enabled. After the required start-up time, the requested conversion will be launched. Once the conversion completes, the analog-circuitry will again be powered-down provided no further conversions are pending. Using this mode can save an appreciable amount of current (approximately 2.5 mA) when conversions are required relatively infrequently. The penalty for using this mode is an approximately 15 ADC clock delay (30 clocks in 10-bit mode), based on the frequency specified in the CLKDIV field, from the time the trigger event occurs until sampling of the A/D input commences. This mode will NOT power-up the A/D if the ADC_ENA bit is low.
         enum class LpwrmodeVal {
             disabled=0x00000000,     ///<Disabled. The low-power ADC mode is disabled.  The analog circuitry remains activated even when no conversions are requested.
@@ -37,7 +35,6 @@ namespace Kvasir {
         namespace LpwrmodeValC{
             constexpr Register::FieldValue<decltype(lpwrmode)::Type,LpwrmodeVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(lpwrmode)::Type,LpwrmodeVal::enabled> enabled{};
-        }
         }
         ///Writing a 1 to this bit initiates a self-calibration cycle. This bit will be automatically cleared by hardware after the calibration cycle is complete. Other bits of this register may be written to concurrently with setting this bit, however once this bit has been set no further writes to this register are permitted until the full calibration cycle has ended.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> calmode{}; 
@@ -62,7 +59,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ad0sel)::Type,Ad0selVal::vddadiv2> vddadiv2{};
             constexpr Register::FieldValue<decltype(ad0sel)::Type,Ad0selVal::noConnectionOrLoa> noConnectionOrLoa{};
         }
-        }
     }
     namespace NoneseqaCtrl{    ///<A/D Conversion Sequence-A control Register: Controls triggering and channel selection for conversion sequence-A. Also specifies interrupt mode for sequence-A.
         using Addr = Register::Address<0x40000008,0x03f30000,0,unsigned>;
@@ -80,7 +76,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::negativeEdge> negativeEdge{};
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::positiveEdge> positiveEdge{};
         }
-        }
         ///Setting this bit allows the hardware trigger input to bypass  synchronization flip-flops stages and therefore shorten the time between the trigger input signal and the start of a conversion. There are slightly different criteria for whether or not this bit can be set depending on the clock operating mode: Synchronous mode: Synchronization may be bypassed (this bit may be set) if the selected trigger source is already synchronous with the main system clock (eg. coming from an on-chip, system-clock-based timer). Whether this bit is set or not, a trigger pulse must be maintained for at least one system clock period. Asynchronous mode: Synchronization may be bypassed (this bit may be set) if it is certain that the duration of a trigger input pulse will be at least one cycle of the ADC clock (regardless of whether the trigger comes from and on-chip or off-chip source). If this bit is NOT set, the trigger pulse must at least be maintained for one system clock period.
         enum class SyncbypassVal {
             enableSynchronizati=0x00000000,     ///<Enable synchronization. The hardware trigger bypass is not enabled.
@@ -90,7 +85,6 @@ namespace Kvasir {
         namespace SyncbypassValC{
             constexpr Register::FieldValue<decltype(syncbypass)::Type,SyncbypassVal::enableSynchronizati> enableSynchronizati{};
             constexpr Register::FieldValue<decltype(syncbypass)::Type,SyncbypassVal::bypassSynchronizati> bypassSynchronizati{};
-        }
         }
         ///Writing a 1 to this field will launch one pass through this conversion sequence. The behavior will be identical to a sequence triggered by a hardware trigger. Do not write 1 to this bit if the BURST bit is set. This bit is only set to a 1 momentarily when written-to to launch a conversion sequence. It will consequently always read-back as a zero.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> start{}; 
@@ -108,7 +102,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lowprio)::Type,LowprioVal::lowPriority> lowPriority{};
             constexpr Register::FieldValue<decltype(lowprio)::Type,LowprioVal::highPriority> highPriority{};
         }
-        }
         ///Indicates whether the primary method for retrieving conversion results for this sequence will be accomplished via reading the global data register (SEQA_GDAT) at the end of each conversion, or the individual channel result registers at the end of the entire sequence.  Impacts when conversion-complete interrupt/DMA requests for sequence-A will be generated and which overrun conditions contribute to an overrun interrupt as described below:
         enum class ModeVal {
             endOfConversion=0x00000000,     ///<End of conversion. The sequence A interrupt/DMA flag will be set at the end of each individual A/D conversion performed under sequence A. This flag will mirror the DATAVALID bit in the SEQA_GDAT register. The OVERRUN bit in the SEQA_GDAT register will contribute to generation of an overrun interrupt/DMA request if enabled.
@@ -119,7 +112,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::endOfConversion> endOfConversion{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::endOfSequence> endOfSequence{};
         }
-        }
         ///Sequence Enable
         enum class SeqaenaVal {
             disabled=0x00000000,     ///<Disabled. Sequence A is disabled. Sequence A triggers are ignored. If this bit is cleared while sequence A is in progress, the sequence will be halted at the end of the current conversion. After the sequence is re-enabled, a new trigger will be required to restart the sequence beginning with the next enabled channel.
@@ -129,7 +121,6 @@ namespace Kvasir {
         namespace SeqaenaValC{
             constexpr Register::FieldValue<decltype(seqaEna)::Type,SeqaenaVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(seqaEna)::Type,SeqaenaVal::enabled> enabled{};
-        }
         }
     }
     namespace NoneseqbCtrl{    ///<A/D Conversion Sequence-B Control Register: Controls triggering and channel selection for conversion sequence-B. Also specifies interrupt mode for sequence-B.
@@ -148,7 +139,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::negativeEdge> negativeEdge{};
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::positiveEdge> positiveEdge{};
         }
-        }
         ///Setting this bit allows the hardware trigger input to bypass  synchronization flip-flops stages and therefore shorten the time between the trigger input signal and the start of a conversion. There are slightly different criteria for whether or not this bit can be set depending on the clock operating mode: Synchronous mode: Synchronization may be bypassed (this bit may be set) if the selected trigger source is already synchronous with the main system clock (eg. coming from an on-chip, system-clock-based timer). Whether this bit is set or not, a trigger pulse must be maintained for at least one system clock period. Asynchronous mode: Synchronization may be bypassed (this bit may be set) if it is certain that the duration of a trigger input pulse will be at least one cycle of the ADC clock (regardless of whether the trigger comes from and on-chip or off-chip source). If this bit is NOT set, the trigger pulse must at least be maintained for one system clock period.
         enum class SyncbypassVal {
             enableSynchronizati=0x00000000,     ///<Enable synchronization. The hardware trigger bypass is not enabled.
@@ -158,7 +148,6 @@ namespace Kvasir {
         namespace SyncbypassValC{
             constexpr Register::FieldValue<decltype(syncbypass)::Type,SyncbypassVal::enableSynchronizati> enableSynchronizati{};
             constexpr Register::FieldValue<decltype(syncbypass)::Type,SyncbypassVal::bypassSynchronizati> bypassSynchronizati{};
-        }
         }
         ///Writing a 1 to this field will launch one pass through this conversion sequence. The behavior will be identical to a sequence triggered by a hardware trigger. Do not write a 1 to this bit if the BURST bit is set.   This bit is only set to a 1 momentarily when written-to to launch a conversion sequence. It will consequently always read-back as a zero.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> start{}; 
@@ -176,7 +165,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::endOfConversion> endOfConversion{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::endOfSequence> endOfSequence{};
         }
-        }
         ///Sequence Enable
         enum class SeqbenaVal {
             disabled=0x00000000,     ///<Disabled. Sequence B is disabled. Sequence B triggers are ignored. If this bit is cleared while sequence B is in progress, the sequence will be halted at the end of the current conversion. After the sequence is re-enabled, a new trigger will be required to restart the sequence beginning with the next enabled channel.
@@ -186,7 +174,6 @@ namespace Kvasir {
         namespace SeqbenaValC{
             constexpr Register::FieldValue<decltype(seqbEna)::Type,SeqbenaVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(seqbEna)::Type,SeqbenaVal::enabled> enabled{};
-        }
         }
     }
     namespace NoneseqaGdat{    ///<A/D Sequence-A Global Data Register. This register contains the result of the most recent A/D conversion performed under sequence-A
@@ -431,7 +418,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0Thrsel)::Type,Ch0thrselVal::threshold0> threshold0{};
             constexpr Register::FieldValue<decltype(ch0Thrsel)::Type,Ch0thrselVal::threshold1> threshold1{};
         }
-        }
         ///Threshold select by channel.
         enum class Ch1thrselVal {
             threshold0=0x00000000,     ///<Threshold 0. Channel 1 results will be compared against the threshold levels indicated in the THR0_LOW and THR0_HIGH registers
@@ -441,7 +427,6 @@ namespace Kvasir {
         namespace Ch1thrselValC{
             constexpr Register::FieldValue<decltype(ch1Thrsel)::Type,Ch1thrselVal::threshold0> threshold0{};
             constexpr Register::FieldValue<decltype(ch1Thrsel)::Type,Ch1thrselVal::threshold1> threshold1{};
-        }
         }
         ///Threshold select by channel.
         enum class Ch2thrselVal {
@@ -453,7 +438,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2Thrsel)::Type,Ch2thrselVal::threshold0> threshold0{};
             constexpr Register::FieldValue<decltype(ch2Thrsel)::Type,Ch2thrselVal::threshold1> threshold1{};
         }
-        }
         ///Threshold select by channel.
         enum class Ch3thrselVal {
             threshold0=0x00000000,     ///<Threshold 0. Channel 3 results will be compared against the threshold levels indicated in the THR0_LOW and THR0_HIGH registers
@@ -463,7 +447,6 @@ namespace Kvasir {
         namespace Ch3thrselValC{
             constexpr Register::FieldValue<decltype(ch3Thrsel)::Type,Ch3thrselVal::threshold0> threshold0{};
             constexpr Register::FieldValue<decltype(ch3Thrsel)::Type,Ch3thrselVal::threshold1> threshold1{};
-        }
         }
         ///Threshold select by channel.
         enum class Ch4thrselVal {
@@ -475,7 +458,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4Thrsel)::Type,Ch4thrselVal::threshold0> threshold0{};
             constexpr Register::FieldValue<decltype(ch4Thrsel)::Type,Ch4thrselVal::threshold1> threshold1{};
         }
-        }
         ///Threshold select by channel.
         enum class Ch5thrselVal {
             threshold0=0x00000000,     ///<Threshold 0. Channel 5 results will be compared against the threshold levels indicated in the THR0_LOW and THR0_HIGH registers
@@ -485,7 +467,6 @@ namespace Kvasir {
         namespace Ch5thrselValC{
             constexpr Register::FieldValue<decltype(ch5Thrsel)::Type,Ch5thrselVal::threshold0> threshold0{};
             constexpr Register::FieldValue<decltype(ch5Thrsel)::Type,Ch5thrselVal::threshold1> threshold1{};
-        }
         }
         ///Threshold select by channel.
         enum class Ch6thrselVal {
@@ -497,7 +478,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch6Thrsel)::Type,Ch6thrselVal::threshold0> threshold0{};
             constexpr Register::FieldValue<decltype(ch6Thrsel)::Type,Ch6thrselVal::threshold1> threshold1{};
         }
-        }
         ///Threshold select by channel.
         enum class Ch7thrselVal {
             threshold0=0x00000000,     ///<Threshold 0. Channel 7 results will be compared against the threshold levels indicated in the THR0_LOW and THR0_HIGH registers
@@ -507,7 +487,6 @@ namespace Kvasir {
         namespace Ch7thrselValC{
             constexpr Register::FieldValue<decltype(ch7Thrsel)::Type,Ch7thrselVal::threshold0> threshold0{};
             constexpr Register::FieldValue<decltype(ch7Thrsel)::Type,Ch7thrselVal::threshold1> threshold1{};
-        }
         }
         ///Threshold select by channel.
         enum class Ch8thrselVal {
@@ -519,7 +498,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch8Thrsel)::Type,Ch8thrselVal::threshold0> threshold0{};
             constexpr Register::FieldValue<decltype(ch8Thrsel)::Type,Ch8thrselVal::threshold1> threshold1{};
         }
-        }
         ///Threshold select by channel.
         enum class Ch9thrselVal {
             threshold0=0x00000000,     ///<Threshold 0. Channel 9 results will be compared against the threshold levels indicated in the THR0_LOW and THR0_HIGH registers
@@ -529,7 +507,6 @@ namespace Kvasir {
         namespace Ch9thrselValC{
             constexpr Register::FieldValue<decltype(ch9Thrsel)::Type,Ch9thrselVal::threshold0> threshold0{};
             constexpr Register::FieldValue<decltype(ch9Thrsel)::Type,Ch9thrselVal::threshold1> threshold1{};
-        }
         }
         ///Threshold select by channel.
         enum class Ch10thrselVal {
@@ -541,7 +518,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch10Thrsel)::Type,Ch10thrselVal::threshold0> threshold0{};
             constexpr Register::FieldValue<decltype(ch10Thrsel)::Type,Ch10thrselVal::threshold1> threshold1{};
         }
-        }
         ///Threshold select by channel.
         enum class Ch11thrselVal {
             threshold0=0x00000000,     ///<Threshold 0. Channel 11 results will be compared against the threshold levels indicated in the THR0_LOW and THR0_HIGH registers
@@ -551,7 +527,6 @@ namespace Kvasir {
         namespace Ch11thrselValC{
             constexpr Register::FieldValue<decltype(ch11Thrsel)::Type,Ch11thrselVal::threshold0> threshold0{};
             constexpr Register::FieldValue<decltype(ch11Thrsel)::Type,Ch11thrselVal::threshold1> threshold1{};
-        }
         }
     }
     namespace Noneinten{    ///<A/D Interrupt Enable Register. This register contains enable bits that enable the sequence-A, sequence-B, threshold compare and data overrun interrupts to be generated.
@@ -566,7 +541,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(seqaInten)::Type,SeqaintenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(seqaInten)::Type,SeqaintenVal::enabled> enabled{};
         }
-        }
         ///Sequence B interrupt enable.
         enum class SeqbintenVal {
             disabled=0x00000000,     ///<Disabled. The sequence B interrupt/DMA request is disabled.
@@ -577,7 +551,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(seqbInten)::Type,SeqbintenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(seqbInten)::Type,SeqbintenVal::enabled> enabled{};
         }
-        }
         ///Overrun interrupt enable.
         enum class OvrintenVal {
             disabled=0x00000000,     ///<Disabled. The overrun interrupt is disabled.
@@ -587,7 +560,6 @@ namespace Kvasir {
         namespace OvrintenValC{
             constexpr Register::FieldValue<decltype(ovrInten)::Type,OvrintenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ovrInten)::Type,OvrintenVal::enabled> enabled{};
-        }
         }
         ///Threshold comparison interrupt enable.
         enum class Adcmpinten0Val {
@@ -601,7 +573,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adcmpinten0)::Type,Adcmpinten0Val::outsideThreshold> outsideThreshold{};
             constexpr Register::FieldValue<decltype(adcmpinten0)::Type,Adcmpinten0Val::crossingThreshold> crossingThreshold{};
         }
-        }
         ///Threshold comparison interrupt enable.
         enum class Adcmpinten1Val {
             disabled=0x00000000,     ///<Disabled.
@@ -613,7 +584,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adcmpinten1)::Type,Adcmpinten1Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(adcmpinten1)::Type,Adcmpinten1Val::outsideThreshold> outsideThreshold{};
             constexpr Register::FieldValue<decltype(adcmpinten1)::Type,Adcmpinten1Val::crossingThreshold> crossingThreshold{};
-        }
         }
         ///Threshold comparison interrupt enable.
         enum class Adcmpinten2Val {
@@ -627,7 +597,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adcmpinten2)::Type,Adcmpinten2Val::outsideThreshold> outsideThreshold{};
             constexpr Register::FieldValue<decltype(adcmpinten2)::Type,Adcmpinten2Val::crossingThreshold> crossingThreshold{};
         }
-        }
         ///Threshold comparison interrupt enable.
         enum class Adcmpinten3Val {
             disabled=0x00000000,     ///<Disabled.
@@ -639,7 +608,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adcmpinten3)::Type,Adcmpinten3Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(adcmpinten3)::Type,Adcmpinten3Val::outsideThreshold> outsideThreshold{};
             constexpr Register::FieldValue<decltype(adcmpinten3)::Type,Adcmpinten3Val::crossingThreshold> crossingThreshold{};
-        }
         }
         ///Threshold comparison interrupt enable.
         enum class Adcmpinten4Val {
@@ -653,7 +621,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adcmpinten4)::Type,Adcmpinten4Val::outsideThreshold> outsideThreshold{};
             constexpr Register::FieldValue<decltype(adcmpinten4)::Type,Adcmpinten4Val::crossingThreshold> crossingThreshold{};
         }
-        }
         ///Threshold comparison interrupt enable.
         enum class Adcmpinten5Val {
             disabled=0x00000000,     ///<Disabled.
@@ -665,7 +632,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adcmpinten5)::Type,Adcmpinten5Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(adcmpinten5)::Type,Adcmpinten5Val::outsideThreshold> outsideThreshold{};
             constexpr Register::FieldValue<decltype(adcmpinten5)::Type,Adcmpinten5Val::crossingThreshold> crossingThreshold{};
-        }
         }
         ///Threshold comparison interrupt enable.
         enum class Adcmpinten6Val {
@@ -679,7 +645,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adcmpinten6)::Type,Adcmpinten6Val::outsideThreshold> outsideThreshold{};
             constexpr Register::FieldValue<decltype(adcmpinten6)::Type,Adcmpinten6Val::crossingThreshold> crossingThreshold{};
         }
-        }
         ///Threshold comparison interrupt enable.
         enum class Adcmpinten7Val {
             disabled=0x00000000,     ///<Disabled.
@@ -691,7 +656,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adcmpinten7)::Type,Adcmpinten7Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(adcmpinten7)::Type,Adcmpinten7Val::outsideThreshold> outsideThreshold{};
             constexpr Register::FieldValue<decltype(adcmpinten7)::Type,Adcmpinten7Val::crossingThreshold> crossingThreshold{};
-        }
         }
         ///Threshold comparison interrupt enable.
         enum class Adcmpinten8Val {
@@ -705,7 +669,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adcmpinten8)::Type,Adcmpinten8Val::outsideThreshold> outsideThreshold{};
             constexpr Register::FieldValue<decltype(adcmpinten8)::Type,Adcmpinten8Val::crossingThreshold> crossingThreshold{};
         }
-        }
         ///Threshold comparison interrupt enable.
         enum class Adcmpinten9Val {
             disabled=0x00000000,     ///<Disabled.
@@ -717,7 +680,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adcmpinten9)::Type,Adcmpinten9Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(adcmpinten9)::Type,Adcmpinten9Val::outsideThreshold> outsideThreshold{};
             constexpr Register::FieldValue<decltype(adcmpinten9)::Type,Adcmpinten9Val::crossingThreshold> crossingThreshold{};
-        }
         }
         ///Threshold comparison interrupt enable.
         enum class Adcmpinten10Val {
@@ -731,7 +693,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adcmpinten10)::Type,Adcmpinten10Val::outsideThreshold> outsideThreshold{};
             constexpr Register::FieldValue<decltype(adcmpinten10)::Type,Adcmpinten10Val::crossingThreshold> crossingThreshold{};
         }
-        }
         ///Threshold comparison interrupt enable.
         enum class Adcmpinten11Val {
             disabled=0x00000000,     ///<Disabled.
@@ -743,7 +704,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adcmpinten11)::Type,Adcmpinten11Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(adcmpinten11)::Type,Adcmpinten11Val::outsideThreshold> outsideThreshold{};
             constexpr Register::FieldValue<decltype(adcmpinten11)::Type,Adcmpinten11Val::crossingThreshold> crossingThreshold{};
-        }
         }
     }
     namespace Noneflags{    ///<A/D Flags Register. Contains the four interrupt request flags and the individual component overrun and threshold-compare flags. (The overrun bits replicate information stored in the result registers).
@@ -820,7 +780,6 @@ namespace Kvasir {
         namespace VrangeValC{
             constexpr Register::FieldValue<decltype(vrange)::Type,VrangeVal::highVoltage> highVoltage{};
             constexpr Register::FieldValue<decltype(vrange)::Type,VrangeVal::lowVoltage> lowVoltage{};
-        }
         }
     }
 }

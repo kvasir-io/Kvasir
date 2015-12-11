@@ -19,7 +19,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(en1khz)::Type,En1khzVal::v1KhzOutputDisable> v1KhzOutputDisable{};
             constexpr Register::FieldValue<decltype(en1khz)::Type,En1khzVal::v1KhzOutputEnabled> v1KhzOutputEnabled{};
         }
-        }
         ///Enable 32 kHz output
         enum class En32khzVal {
             v32KhzOutputDisabl=0x00000000,     ///<32 kHz output disabled.
@@ -29,7 +28,6 @@ namespace Kvasir {
         namespace En32khzValC{
             constexpr Register::FieldValue<decltype(en32khz)::Type,En32khzVal::v32KhzOutputDisabl> v32KhzOutputDisabl{};
             constexpr Register::FieldValue<decltype(en32khz)::Type,En32khzVal::v32KhzOutputEnable> v32KhzOutputEnable{};
-        }
         }
         ///32 kHz oscillator reset
         enum class Reset32khzVal {
@@ -41,7 +39,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(reset32khz)::Type,Reset32khzVal::tbd> tbd{};
             constexpr Register::FieldValue<decltype(reset32khz)::Type,Reset32khzVal::tbd> tbd{};
         }
-        }
         ///32 kHz power control.
         enum class 32khzpdVal {
             on=0x00000000,     ///<32 kHz oscillator powered.
@@ -52,7 +49,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(32khzpd)::Type,32khzpdVal::on> on{};
             constexpr Register::FieldValue<decltype(32khzpd)::Type,32khzpdVal::off> off{};
         }
-        }
         ///USB0 PHY power control.
         enum class Usb0phyVal {
             on=0x00000000,     ///<USB0 PHY powered.
@@ -62,7 +58,6 @@ namespace Kvasir {
         namespace Usb0phyValC{
             constexpr Register::FieldValue<decltype(usb0phy)::Type,Usb0phyVal::on> on{};
             constexpr Register::FieldValue<decltype(usb0phy)::Type,Usb0phyVal::off> off{};
-        }
         }
         ///RTC_ALARM pin output control
         enum class AlarmctrlVal {
@@ -75,7 +70,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(alarmctrl)::Type,AlarmctrlVal::rtcAlarm> rtcAlarm{};
             constexpr Register::FieldValue<decltype(alarmctrl)::Type,AlarmctrlVal::eventRouterEvent> eventRouterEvent{};
             constexpr Register::FieldValue<decltype(alarmctrl)::Type,AlarmctrlVal::inactive> inactive{};
-        }
         }
         ///BOD trip level to generate an interrupt.
         enum class Bodlvl1Val {
@@ -91,7 +85,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bodlvl1)::Type,Bodlvl1Val::v295V> v295V{};
             constexpr Register::FieldValue<decltype(bodlvl1)::Type,Bodlvl1Val::v305V> v305V{};
         }
-        }
         ///BOD trip level to generate a reset.
         enum class Bodlvl2Val {
             v170V=0x00000000,     ///<1.70 V
@@ -106,7 +99,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bodlvl2)::Type,Bodlvl2Val::v190V> v190V{};
             constexpr Register::FieldValue<decltype(bodlvl2)::Type,Bodlvl2Val::v200V> v200V{};
         }
-        }
         ///WAKEUP0 pin input/output control
         enum class Wakeup0ctrlVal {
             inputToEventRoute=0x00000000,     ///<Input to event router.
@@ -119,7 +111,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wakeup0ctrl)::Type,Wakeup0ctrlVal::eventRouterEventO> eventRouterEventO{};
             constexpr Register::FieldValue<decltype(wakeup0ctrl)::Type,Wakeup0ctrlVal::inputToEventRoute> inputToEventRoute{};
         }
-        }
         ///WAKEUP1 pin input/output control
         enum class Wakeup1ctrlVal {
             inputToEventRoute=0x00000000,     ///<Input to event router.
@@ -131,7 +122,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wakeup1ctrl)::Type,Wakeup1ctrlVal::inputToEventRoute> inputToEventRoute{};
             constexpr Register::FieldValue<decltype(wakeup1ctrl)::Type,Wakeup1ctrlVal::eventRouterEventO> eventRouterEventO{};
             constexpr Register::FieldValue<decltype(wakeup1ctrl)::Type,Wakeup1ctrlVal::inputToEventRoute> inputToEventRoute{};
-        }
         }
     }
     namespace Nonepmucon{    ///<Power mode control register.
@@ -147,7 +137,6 @@ namespace Kvasir {
         namespace DynamicpwrctrlValC{
             constexpr Register::FieldValue<decltype(dynamicpwrctrl)::Type,DynamicpwrctrlVal::disableDynamicPowe> disableDynamicPowe{};
             constexpr Register::FieldValue<decltype(dynamicpwrctrl)::Type,DynamicpwrctrlVal::enableDynamicPower> enableDynamicPower{};
-        }
         }
     }
     namespace Nonem3memmap{    ///<ARM Cortex-M3 memory mapping
@@ -174,7 +163,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmamuxch0)::Type,Dmamuxch0Val::sctMatch2> sctMatch2{};
             constexpr Register::FieldValue<decltype(dmamuxch0)::Type,Dmamuxch0Val::t3Match1> t3Match1{};
         }
-        }
         ///Select DMA to peripheral connection for DMA peripheral 1
         enum class Dmamuxch1Val {
             timer0Match0=0x00000000,     ///<Timer 0 match 0
@@ -185,7 +173,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmamuxch1)::Type,Dmamuxch1Val::timer0Match0> timer0Match0{};
             constexpr Register::FieldValue<decltype(dmamuxch1)::Type,Dmamuxch1Val::usart0Transmit> usart0Transmit{};
         }
-        }
         ///Select DMA to peripheral connection for DMA peripheral 2.
         enum class Dmamuxch2Val {
             timer0Match1=0x00000000,     ///<Timer 0 match 1
@@ -195,7 +182,6 @@ namespace Kvasir {
         namespace Dmamuxch2ValC{
             constexpr Register::FieldValue<decltype(dmamuxch2)::Type,Dmamuxch2Val::timer0Match1> timer0Match1{};
             constexpr Register::FieldValue<decltype(dmamuxch2)::Type,Dmamuxch2Val::usart0Receive> usart0Receive{};
-        }
         }
         ///Select DMA to peripheral connection for DMA peripheral 3.
         enum class Dmamuxch3Val {
@@ -211,7 +197,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmamuxch3)::Type,Dmamuxch3Val::i2s1Channel0> i2s1Channel0{};
             constexpr Register::FieldValue<decltype(dmamuxch3)::Type,Dmamuxch3Val::ssp1Transmit> ssp1Transmit{};
         }
-        }
         ///Select DMA to peripheral connection for DMA peripheral 4.
         enum class Dmamuxch4Val {
             timer1Match1=0x00000000,     ///<Timer 1 match 1
@@ -226,7 +211,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmamuxch4)::Type,Dmamuxch4Val::i2s1Channel1> i2s1Channel1{};
             constexpr Register::FieldValue<decltype(dmamuxch4)::Type,Dmamuxch4Val::ssp1Receive> ssp1Receive{};
         }
-        }
         ///Select DMA to peripheral connection for DMA peripheral 5.
         enum class Dmamuxch5Val {
             timer2Match0=0x00000000,     ///<Timer 2 match 0
@@ -238,7 +222,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmamuxch5)::Type,Dmamuxch5Val::timer2Match0> timer2Match0{};
             constexpr Register::FieldValue<decltype(dmamuxch5)::Type,Dmamuxch5Val::usart2Transmit> usart2Transmit{};
             constexpr Register::FieldValue<decltype(dmamuxch5)::Type,Dmamuxch5Val::ssp1Transmit> ssp1Transmit{};
-        }
         }
         ///Selects DMA to peripheral connection for DMA peripheral 6.
         enum class Dmamuxch6Val {
@@ -252,7 +235,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmamuxch6)::Type,Dmamuxch6Val::usart2Receive> usart2Receive{};
             constexpr Register::FieldValue<decltype(dmamuxch6)::Type,Dmamuxch6Val::ssp1Receive> ssp1Receive{};
         }
-        }
         ///Selects DMA to peripheral connection for DMA peripheral 7.
         enum class Dmamuxch7Val {
             timer3MatchL0=0x00000000,     ///<Timer 3 match l 0
@@ -264,7 +246,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmamuxch7)::Type,Dmamuxch7Val::timer3MatchL0> timer3MatchL0{};
             constexpr Register::FieldValue<decltype(dmamuxch7)::Type,Dmamuxch7Val::usart3Transmit> usart3Transmit{};
             constexpr Register::FieldValue<decltype(dmamuxch7)::Type,Dmamuxch7Val::sctMatchOutput0> sctMatchOutput0{};
-        }
         }
         ///Select DMA to peripheral connection for DMA peripheral 8.
         enum class Dmamuxch8Val {
@@ -278,7 +259,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmamuxch8)::Type,Dmamuxch8Val::usart3Receive> usart3Receive{};
             constexpr Register::FieldValue<decltype(dmamuxch8)::Type,Dmamuxch8Val::sctMatchOutput1> sctMatchOutput1{};
         }
-        }
         ///Select DMA to peripheral connection for DMA peripheral 9.
         enum class Dmamuxch9Val {
             ssp0Receive=0x00000000,     ///<SSP0 receive
@@ -290,7 +270,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmamuxch9)::Type,Dmamuxch9Val::ssp0Receive> ssp0Receive{};
             constexpr Register::FieldValue<decltype(dmamuxch9)::Type,Dmamuxch9Val::i2s0Channel0> i2s0Channel0{};
             constexpr Register::FieldValue<decltype(dmamuxch9)::Type,Dmamuxch9Val::sctMatchOutput1> sctMatchOutput1{};
-        }
         }
         ///Select DMA to peripheral connection for DMA peripheral 10.
         enum class Dmamuxch10Val {
@@ -304,7 +283,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmamuxch10)::Type,Dmamuxch10Val::i2s0Channel1> i2s0Channel1{};
             constexpr Register::FieldValue<decltype(dmamuxch10)::Type,Dmamuxch10Val::sctMatchOutput0> sctMatchOutput0{};
         }
-        }
         ///Selects DMA to peripheral connection for DMA peripheral 11.
         enum class Dmamuxch11Val {
             ssp1Receive=0x00000000,     ///<SSP1 receive
@@ -315,7 +293,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmamuxch11)::Type,Dmamuxch11Val::ssp1Receive> ssp1Receive{};
             constexpr Register::FieldValue<decltype(dmamuxch11)::Type,Dmamuxch11Val::usart0Transmit> usart0Transmit{};
         }
-        }
         ///Select DMA to peripheral connection for DMA peripheral 12.
         enum class Dmamuxch12Val {
             ssp1Transmit=0x00000000,     ///<SSP1 transmit
@@ -325,7 +302,6 @@ namespace Kvasir {
         namespace Dmamuxch12ValC{
             constexpr Register::FieldValue<decltype(dmamuxch12)::Type,Dmamuxch12Val::ssp1Transmit> ssp1Transmit{};
             constexpr Register::FieldValue<decltype(dmamuxch12)::Type,Dmamuxch12Val::usart0Receive> usart0Receive{};
-        }
         }
         ///Select DMA to peripheral connection for DMA peripheral 13.
         enum class Dmamuxch13Val {
@@ -339,7 +315,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmamuxch13)::Type,Dmamuxch13Val::ssp1Receive> ssp1Receive{};
             constexpr Register::FieldValue<decltype(dmamuxch13)::Type,Dmamuxch13Val::usart3Receive> usart3Receive{};
         }
-        }
         ///Select DMA to peripheral connection for DMA peripheral 14.
         enum class Dmamuxch14Val {
             adc1=0x00000000,     ///<ADC1
@@ -351,7 +326,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmamuxch14)::Type,Dmamuxch14Val::adc1> adc1{};
             constexpr Register::FieldValue<decltype(dmamuxch14)::Type,Dmamuxch14Val::ssp1Transmit> ssp1Transmit{};
             constexpr Register::FieldValue<decltype(dmamuxch14)::Type,Dmamuxch14Val::usart3Transmit> usart3Transmit{};
-        }
         }
         ///Select DMA to peripheral connection for DMA peripheral 15.
         enum class Dmamuxch15Val {
@@ -365,7 +339,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmamuxch15)::Type,Dmamuxch15Val::sctMatchOutput3> sctMatchOutput3{};
             constexpr Register::FieldValue<decltype(dmamuxch15)::Type,Dmamuxch15Val::timer3Match0> timer3Match0{};
         }
-        }
     }
     namespace Noneetbcfg{    ///<ETB RAM configuration
         using Addr = Register::Address<0x40043128,0xfffffffe,0,unsigned>;
@@ -378,7 +351,6 @@ namespace Kvasir {
         namespace EtbValC{
             constexpr Register::FieldValue<decltype(etb)::Type,EtbVal::etbAccessesSramAt> etbAccessesSramAt{};
             constexpr Register::FieldValue<decltype(etb)::Type,EtbVal::ahbAccessesSramAt> ahbAccessesSramAt{};
-        }
         }
     }
     namespace Nonecreg6{    ///<Chip configuration register 6
@@ -395,7 +367,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timctrl)::Type,TimctrlVal::tbd> tbd{};
             constexpr Register::FieldValue<decltype(timctrl)::Type,TimctrlVal::tbd> tbd{};
         }
-        }
         ///I2S0_TX_SCK input select
         enum class I2s0txsckinselVal {
             i2SClockSelected=0x00000000,     ///<I2 S clock selected as defined by the I2S transmit mode register Table 753.
@@ -405,7 +376,6 @@ namespace Kvasir {
         namespace I2s0txsckinselValC{
             constexpr Register::FieldValue<decltype(i2s0TxSckInSel)::Type,I2s0txsckinselVal::i2SClockSelected> i2SClockSelected{};
             constexpr Register::FieldValue<decltype(i2s0TxSckInSel)::Type,I2s0txsckinselVal::audioPllForI2sTr> audioPllForI2sTr{};
-        }
         }
         ///I2S0_RX_SCK input select
         enum class I2s0rxsckinselVal {
@@ -417,7 +387,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2s0RxSckInSel)::Type,I2s0rxsckinselVal::i2SClockSelected> i2SClockSelected{};
             constexpr Register::FieldValue<decltype(i2s0RxSckInSel)::Type,I2s0rxsckinselVal::audioPllForI2sRe> audioPllForI2sRe{};
         }
-        }
         ///I2S1_TX_SCK input select
         enum class I2s1txsckinselVal {
             i2SClockSelected=0x00000000,     ///<I2 S clock selected as defined by the I2S transmit mode register Table 753.
@@ -427,7 +396,6 @@ namespace Kvasir {
         namespace I2s1txsckinselValC{
             constexpr Register::FieldValue<decltype(i2s1TxSckInSel)::Type,I2s1txsckinselVal::i2SClockSelected> i2SClockSelected{};
             constexpr Register::FieldValue<decltype(i2s1TxSckInSel)::Type,I2s1txsckinselVal::audioPllForI2sTr> audioPllForI2sTr{};
-        }
         }
         ///I2S1_RX_SCK input select
         enum class I2s1rxsckinselVal {
@@ -439,7 +407,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2s1RxSckInSel)::Type,I2s1rxsckinselVal::i2SClockSelected> i2SClockSelected{};
             constexpr Register::FieldValue<decltype(i2s1RxSckInSel)::Type,I2s1rxsckinselVal::audioPllForI2sRe> audioPllForI2sRe{};
         }
-        }
         ///EMC_CLK divided clock select (see Section 20.1).
         enum class EmcclkselVal {
             emcClkDivNotDivi=0x00000000,     ///<EMC_CLK_DIV not divided.
@@ -449,7 +416,6 @@ namespace Kvasir {
         namespace EmcclkselValC{
             constexpr Register::FieldValue<decltype(emcClkSel)::Type,EmcclkselVal::emcClkDivNotDivi> emcClkDivNotDivi{};
             constexpr Register::FieldValue<decltype(emcClkSel)::Type,EmcclkselVal::emcClkDivDivided> emcClkDivDivided{};
-        }
         }
     }
     namespace Nonechipid{    ///<Part ID

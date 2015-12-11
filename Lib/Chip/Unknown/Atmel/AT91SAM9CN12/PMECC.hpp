@@ -20,7 +20,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bchErr)::Type,BcherrVal::bchErr12> bchErr12{};
             constexpr Register::FieldValue<decltype(bchErr)::Type,BcherrVal::bchErr24> bchErr24{};
         }
-        }
         ///Sector Size
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> sectorsz{}; 
         ///Number of Sectors in the Page
@@ -36,7 +35,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pagesize)::Type,PagesizeVal::pagesize2sec> pagesize2sec{};
             constexpr Register::FieldValue<decltype(pagesize)::Type,PagesizeVal::pagesize4sec> pagesize4sec{};
             constexpr Register::FieldValue<decltype(pagesize)::Type,PagesizeVal::pagesize8sec> pagesize8sec{};
-        }
         }
         ///NAND Write Access
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> nandwr{}; 

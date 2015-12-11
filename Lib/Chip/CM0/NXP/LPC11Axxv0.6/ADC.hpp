@@ -18,7 +18,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::softwareControlled> softwareControlled{};
             constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::hardwareScanMode> hardwareScanMode{};
         }
-        }
         ///This field selects the number of clocks used for each conversion in Burst mode, and the number of bits of accuracy of the result in the LS bits of ADDR, between 11 clocks (10 bits) and 4 clocks (3 bits).
         enum class ClksVal {
             v11Clocks=0x00000000,     ///<11 clocks / 10 bits
@@ -41,7 +40,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v5Clocks> v5Clocks{};
             constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v4Clocks> v4Clocks{};
         }
-        }
         ///Single-burst mode
         enum class SingleburstVal {
             continuousBurst=0x00000000,     ///<Continuous. Burst mode can only be terminated via a software write to clear bit 16 in this register.
@@ -51,7 +49,6 @@ namespace Kvasir {
         namespace SingleburstValC{
             constexpr Register::FieldValue<decltype(singleburst)::Type,SingleburstVal::continuousBurst> continuousBurst{};
             constexpr Register::FieldValue<decltype(singleburst)::Type,SingleburstVal::singleBurst> singleBurst{};
-        }
         }
         ///When the BURST bit is 0, these bits control whether/when an A/D conversion is started. All other values are reserved.
         enum class StartVal {
@@ -77,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::startConversionWhe> startConversionWhe{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::startConversionWhe> startConversionWhe{};
         }
-        }
         ///This bit is significant only when the START field contains 0100-1110. In these cases:
         enum class EdgeVal {
             startConversionOn=0x00000000,     ///<Start conversion on a rising edge on the selected signal.
@@ -87,7 +83,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::startConversionOn> startConversionOn{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::startConversionOn> startConversionOn{};
-        }
         }
     }
     namespace Nonegdr{    ///<A/D Global Data Register. Contains the result of the most recent A/D conversion.
@@ -117,7 +112,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ad5sel)::Type,Ad5selVal::coreVoltageRegulat> coreVoltageRegulat{};
             constexpr Register::FieldValue<decltype(ad5sel)::Type,Ad5selVal::reservedDoNotPro> reservedDoNotPro{};
         }
-        }
         ///This field selects the source signal for channel 6.
         enum class Ad6selVal {
             ad6Pin=0x00000000,     ///<AD6 pin
@@ -132,7 +126,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ad6sel)::Type,Ad6selVal::internalVoltageRef> internalVoltageRef{};
             constexpr Register::FieldValue<decltype(ad6sel)::Type,Ad6selVal::reservedDoNotPro> reservedDoNotPro{};
         }
-        }
         ///This field selects the source signal for channel 7.
         enum class Ad7selVal {
             ad7Pin=0x00000000,     ///<AD7 pin
@@ -146,7 +139,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ad7sel)::Type,Ad7selVal::noConnectionOrLoa> noConnectionOrLoa{};
             constexpr Register::FieldValue<decltype(ad7sel)::Type,Ad7selVal::temperatureSensor> temperatureSensor{};
             constexpr Register::FieldValue<decltype(ad7sel)::Type,Ad7selVal::reservedDoNotPro> reservedDoNotPro{};
-        }
         }
     }
     namespace Nonestat{    ///<A/D Status Register. This register contains DONE and OVERRUN flags for all of the A/D channels, as well as the A/D interrupt flag.

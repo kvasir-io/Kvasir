@@ -17,7 +17,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wden)::Type,WdenVal::stop> stop{};
             constexpr Register::FieldValue<decltype(wden)::Type,WdenVal::run> run{};
         }
-        }
         ///Watchdog reset enable bit. Once this bit has been written
 								with a 1 it cannot be re-written with a 0.
         enum class WdresetVal {
@@ -30,7 +29,6 @@ namespace Kvasir {
         namespace WdresetValC{
             constexpr Register::FieldValue<decltype(wdreset)::Type,WdresetVal::interrupt> interrupt{};
             constexpr Register::FieldValue<decltype(wdreset)::Type,WdresetVal::reset> reset{};
-        }
         }
         ///Watchdog time-out flag. Set when the watchdog timer times
 								out, by a feed error, or by events associated with WDPROTECT.
@@ -53,7 +51,6 @@ namespace Kvasir {
         namespace WdprotectValC{
             constexpr Register::FieldValue<decltype(wdprotect)::Type,WdprotectVal::flexible> flexible{};
             constexpr Register::FieldValue<decltype(wdprotect)::Type,WdprotectVal::threshold> threshold{};
-        }
         }
         ///Once this bit is set to one and a watchdog feed is
 								performed, disabling or powering down the watchdog oscillator is

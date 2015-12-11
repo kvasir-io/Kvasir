@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -63,7 +59,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -73,7 +68,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -85,7 +79,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -95,7 +88,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -112,7 +104,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -122,7 +113,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -134,7 +124,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -144,7 +133,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -161,7 +149,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -171,7 +158,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -183,7 +169,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -193,7 +178,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -210,7 +194,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -220,7 +203,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -232,7 +214,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -242,7 +223,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -259,7 +239,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -269,7 +248,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -281,7 +259,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -291,7 +268,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -308,7 +284,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -318,7 +293,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -330,7 +304,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -340,7 +313,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -357,7 +329,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -367,7 +338,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -379,7 +349,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -389,7 +358,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -406,7 +374,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -416,7 +383,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -428,7 +394,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -438,7 +403,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x4 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -455,7 +419,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -465,7 +428,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -477,7 +439,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -487,7 +448,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x4 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -504,7 +464,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -514,7 +473,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -526,7 +484,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -536,7 +493,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x4 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -553,7 +509,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -563,7 +518,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -575,7 +529,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -585,7 +538,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -602,7 +554,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -612,7 +563,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -624,7 +574,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -634,7 +583,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -651,7 +599,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -661,7 +608,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -673,7 +619,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -683,7 +628,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x4 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -700,7 +644,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -710,7 +653,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -722,7 +664,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -732,7 +673,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x4 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -749,7 +689,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -759,7 +698,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -771,7 +709,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -781,7 +718,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x4 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -798,7 +734,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -808,7 +743,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -820,7 +754,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -830,7 +763,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -847,7 +779,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -857,7 +788,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -869,7 +799,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -879,7 +808,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -896,7 +824,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -906,7 +833,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -918,7 +844,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -928,7 +853,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -945,7 +869,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -955,7 +878,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -967,7 +889,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -977,7 +898,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x4 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -994,7 +914,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -1004,7 +923,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -1016,7 +934,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -1026,7 +943,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x4 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -1043,7 +959,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -1053,7 +968,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -1065,7 +979,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -1075,7 +988,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -1092,7 +1004,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -1102,7 +1013,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -1114,7 +1024,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -1124,7 +1033,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x4 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -1141,7 +1049,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -1151,7 +1058,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -1163,7 +1069,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -1173,7 +1078,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x4 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -1190,7 +1094,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -1200,7 +1103,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -1212,7 +1114,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -1222,7 +1123,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0xA to 0xF are reserved.
         enum class SelectVal {
@@ -1244,7 +1144,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(select)::Type,SelectVal::t0Mat0> t0Mat0{};
             constexpr Register::FieldValue<decltype(select)::Type,SelectVal::t2Mat0> t2Mat0{};
         }
-        }
     }
     namespace Noneeventrouter13In{    ///<Event router   input 13  multiplexer
         using Addr = Register::Address<0x400c7064,0xffffff00,0,unsigned>;
@@ -1258,7 +1157,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -1268,7 +1166,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -1280,7 +1177,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -1290,7 +1186,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -1307,7 +1202,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -1317,7 +1211,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -1329,7 +1222,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -1339,7 +1231,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x3 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -1356,7 +1247,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -1366,7 +1256,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -1378,7 +1267,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -1388,7 +1276,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x2 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -1405,7 +1292,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -1415,7 +1301,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -1427,7 +1312,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -1437,7 +1321,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x2 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 
@@ -1454,7 +1337,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::noinvert> noinvert{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::invert> invert{};
         }
-        }
         ///Enable rising edge detection
         enum class EdgeVal {
             noedge=0x00000000,     ///<No edge detection.
@@ -1464,7 +1346,6 @@ namespace Kvasir {
         namespace EdgeValC{
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::noedge> noedge{};
             constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::risingedge> risingedge{};
-        }
         }
         ///Enable 2ff synchronization
         enum class SynchVal {
@@ -1476,7 +1357,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::disable> disable{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::enable> enable{};
         }
-        }
         ///Enable single pulse generation.
         enum class PulseVal {
             disable=0x00000000,     ///<Disable single pulse generation.
@@ -1486,7 +1366,6 @@ namespace Kvasir {
         namespace PulseValC{
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::disable> disable{};
             constexpr Register::FieldValue<decltype(pulse)::Type,PulseVal::enable> enable{};
-        }
         }
         ///Select input. Values 0x2 to 0xF are reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> select{}; 

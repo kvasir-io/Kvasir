@@ -28,7 +28,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sramuap)::Type,SramuapVal::v10> v10{};
             constexpr Register::FieldValue<decltype(sramuap)::Type,SramuapVal::v11> v11{};
         }
-        }
         ///SRAM_U write protect
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> sramuwp{}; 
         ///SRAM_L arbitration priority
@@ -45,7 +44,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sramlap)::Type,SramlapVal::v10> v10{};
             constexpr Register::FieldValue<decltype(sramlap)::Type,SramlapVal::v11> v11{};
         }
-        }
         ///SRAM_L Write Protect
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> sramlwp{}; 
     }
@@ -61,7 +59,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irq)::Type,IrqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irq)::Type,IrqVal::v1> v1{};
         }
-        }
         ///Non-maskable Interrupt Pending
         enum class NmiVal {
             v0=0x00000000,     ///<No pending NMI
@@ -71,7 +68,6 @@ namespace Kvasir {
         namespace NmiValC{
             constexpr Register::FieldValue<decltype(nmi)::Type,NmiVal::v0> v0{};
             constexpr Register::FieldValue<decltype(nmi)::Type,NmiVal::v1> v1{};
-        }
         }
         ///Debug Halt Request Indicator
         enum class DhreqVal {
@@ -83,7 +79,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dhreq)::Type,DhreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dhreq)::Type,DhreqVal::v1> v1{};
         }
-        }
         ///FPU invalid operation interrupt status
         enum class FiocVal {
             v0=0x00000000,     ///<No interrupt
@@ -93,7 +88,6 @@ namespace Kvasir {
         namespace FiocValC{
             constexpr Register::FieldValue<decltype(fioc)::Type,FiocVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fioc)::Type,FiocVal::v1> v1{};
-        }
         }
         ///FPU divide-by-zero interrupt status
         enum class FdzcVal {
@@ -105,7 +99,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fdzc)::Type,FdzcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fdzc)::Type,FdzcVal::v1> v1{};
         }
-        }
         ///FPU overflow interrupt status
         enum class FofcVal {
             v0=0x00000000,     ///<No interrupt
@@ -115,7 +108,6 @@ namespace Kvasir {
         namespace FofcValC{
             constexpr Register::FieldValue<decltype(fofc)::Type,FofcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fofc)::Type,FofcVal::v1> v1{};
-        }
         }
         ///FPU underflow interrupt status
         enum class FufcVal {
@@ -127,7 +119,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fufc)::Type,FufcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fufc)::Type,FufcVal::v1> v1{};
         }
-        }
         ///FPU inexact interrupt status
         enum class FixcVal {
             v0=0x00000000,     ///<No interrupt
@@ -137,7 +128,6 @@ namespace Kvasir {
         namespace FixcValC{
             constexpr Register::FieldValue<decltype(fixc)::Type,FixcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fixc)::Type,FixcVal::v1> v1{};
-        }
         }
         ///FPU input denormal interrupt status
         enum class FidcVal {
@@ -149,7 +139,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fidc)::Type,FidcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fidc)::Type,FidcVal::v1> v1{};
         }
-        }
         ///FPU invalid operation interrupt enable
         enum class FioceVal {
             v0=0x00000000,     ///<Disable interrupt
@@ -159,7 +148,6 @@ namespace Kvasir {
         namespace FioceValC{
             constexpr Register::FieldValue<decltype(fioce)::Type,FioceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fioce)::Type,FioceVal::v1> v1{};
-        }
         }
         ///FPU divide-by-zero interrupt enable
         enum class FdzceVal {
@@ -171,7 +159,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fdzce)::Type,FdzceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fdzce)::Type,FdzceVal::v1> v1{};
         }
-        }
         ///FPU overflow interrupt enable
         enum class FofceVal {
             v0=0x00000000,     ///<Disable interrupt
@@ -181,7 +168,6 @@ namespace Kvasir {
         namespace FofceValC{
             constexpr Register::FieldValue<decltype(fofce)::Type,FofceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fofce)::Type,FofceVal::v1> v1{};
-        }
         }
         ///FPU underflow interrupt enable
         enum class FufceVal {
@@ -193,7 +179,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fufce)::Type,FufceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fufce)::Type,FufceVal::v1> v1{};
         }
-        }
         ///FPU inexact interrupt enable
         enum class FixceVal {
             v0=0x00000000,     ///<Disable interrupt
@@ -204,7 +189,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fixce)::Type,FixceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fixce)::Type,FixceVal::v1> v1{};
         }
-        }
         ///FPU input denormal interrupt enable
         enum class FidceVal {
             v0=0x00000000,     ///<Disable interrupt
@@ -214,7 +198,6 @@ namespace Kvasir {
         namespace FidceValC{
             constexpr Register::FieldValue<decltype(fidce)::Type,FidceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fidce)::Type,FidceVal::v1> v1{};
-        }
         }
     }
     namespace McmEtbcc{    ///<ETB Counter Control register
@@ -228,7 +211,6 @@ namespace Kvasir {
         namespace CntenValC{
             constexpr Register::FieldValue<decltype(cnten)::Type,CntenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cnten)::Type,CntenVal::v1> v1{};
-        }
         }
         ///Response Type
         enum class RsptVal {
@@ -244,7 +226,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rspt)::Type,RsptVal::v10> v10{};
             constexpr Register::FieldValue<decltype(rspt)::Type,RsptVal::v11> v11{};
         }
-        }
         ///Reload Request
         enum class RlrqVal {
             v0=0x00000000,     ///<No effect
@@ -254,7 +235,6 @@ namespace Kvasir {
         namespace RlrqValC{
             constexpr Register::FieldValue<decltype(rlrq)::Type,RlrqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rlrq)::Type,RlrqVal::v1> v1{};
-        }
         }
         ///ETM-To-TPIU Disable
         enum class EtdisVal {
@@ -266,7 +246,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(etdis)::Type,EtdisVal::v0> v0{};
             constexpr Register::FieldValue<decltype(etdis)::Type,EtdisVal::v1> v1{};
         }
-        }
         ///ITM-To-TPIU Disable
         enum class ItdisVal {
             v0=0x00000000,     ///<ITM-to-TPIU trace path enabled
@@ -276,7 +255,6 @@ namespace Kvasir {
         namespace ItdisValC{
             constexpr Register::FieldValue<decltype(itdis)::Type,ItdisVal::v0> v0{};
             constexpr Register::FieldValue<decltype(itdis)::Type,ItdisVal::v1> v1{};
-        }
         }
     }
     namespace McmEtbrl{    ///<ETB Reload register
@@ -306,7 +284,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(beda)::Type,BedaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(beda)::Type,BedaVal::v1> v1{};
         }
-        }
         ///Bus error privilege level
         enum class BemdVal {
             v0=0x00000000,     ///<User mode
@@ -316,7 +293,6 @@ namespace Kvasir {
         namespace BemdValC{
             constexpr Register::FieldValue<decltype(bemd)::Type,BemdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bemd)::Type,BemdVal::v1> v1{};
-        }
         }
         ///Bus error size
         enum class BeszVal {
@@ -332,7 +308,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(besz)::Type,BeszVal::v10> v10{};
             constexpr Register::FieldValue<decltype(besz)::Type,BeszVal::v11> v11{};
         }
-        }
         ///Bus error write
         enum class BewtVal {
             v0=0x00000000,     ///<Read access
@@ -342,7 +317,6 @@ namespace Kvasir {
         namespace BewtValC{
             constexpr Register::FieldValue<decltype(bewt)::Type,BewtVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bewt)::Type,BewtVal::v1> v1{};
-        }
         }
         ///Bus error master number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> bemn{}; 
@@ -355,7 +329,6 @@ namespace Kvasir {
         namespace BeovrValC{
             constexpr Register::FieldValue<decltype(beovr)::Type,BeovrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(beovr)::Type,BeovrVal::v1> v1{};
-        }
         }
     }
     namespace McmFdr{    ///<Fault data register
@@ -380,7 +353,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cporeq)::Type,CporeqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cporeq)::Type,CporeqVal::v1> v1{};
         }
-        }
         ///Compute Operation acknowledge
         enum class CpoackVal {
             v0=0x00000000,     ///<Compute operation entry has not completed or compute operation exit has completed.
@@ -391,7 +363,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpoack)::Type,CpoackVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cpoack)::Type,CpoackVal::v1> v1{};
         }
-        }
         ///Compute Operation wakeup on interrupt
         enum class CpowoiVal {
             v0=0x00000000,     ///<No effect.
@@ -401,7 +372,6 @@ namespace Kvasir {
         namespace CpowoiValC{
             constexpr Register::FieldValue<decltype(cpowoi)::Type,CpowoiVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cpowoi)::Type,CpowoiVal::v1> v1{};
-        }
         }
     }
 }

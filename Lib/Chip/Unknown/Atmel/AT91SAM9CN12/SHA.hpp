@@ -25,7 +25,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::autoStart> autoStart{};
             constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::idatar0Start> idatar0Start{};
         }
-        }
         ///Processing Delay
         enum class ProcdlyVal {
             shortest=0x00000000,     ///<SHA processing runtime is the shortest one
@@ -35,7 +34,6 @@ namespace Kvasir {
         namespace ProcdlyValC{
             constexpr Register::FieldValue<decltype(procdly)::Type,ProcdlyVal::shortest> shortest{};
             constexpr Register::FieldValue<decltype(procdly)::Type,ProcdlyVal::longest> longest{};
-        }
         }
         ///SHA Algorithm.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> algo{}; 
@@ -48,7 +46,6 @@ namespace Kvasir {
         namespace DualbuffValC{
             constexpr Register::FieldValue<decltype(dualbuff)::Type,DualbuffVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(dualbuff)::Type,DualbuffVal::active> active{};
-        }
         }
     }
     namespace ShaIer{    ///<Interrupt Enable Register

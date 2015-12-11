@@ -73,7 +73,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::output18bpp> output18bpp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::output24bpp> output24bpp{};
         }
-        }
         ///LCD Controller Vertical Synchronization Pulse Setup Configuration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> vspsu{}; 
         ///LCD Controller Vertical Synchronization Pulse Hold Configuration
@@ -308,7 +307,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(blen)::Type,BlenVal::ahbIncr8> ahbIncr8{};
             constexpr Register::FieldValue<decltype(blen)::Type,BlenVal::ahbIncr16> ahbIncr16{};
         }
-        }
         ///Defined Length Burst Only For Channel Bus Transaction.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> dlbo{}; 
     }
@@ -350,7 +348,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rgbmode)::Type,RgbmodeVal::v32bppArgb8888> v32bppArgb8888{};
             constexpr Register::FieldValue<decltype(rgbmode)::Type,RgbmodeVal::v32bppRgba8888> v32bppRgba8888{};
         }
-        }
         ///Color Lookup Table Input Mode Selection
         enum class ClutmodeVal {
             v1bpp=0x00000000,     ///<color lookup table mode set to 1 bit per pixel
@@ -364,7 +361,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clutmode)::Type,ClutmodeVal::v2bpp> v2bpp{};
             constexpr Register::FieldValue<decltype(clutmode)::Type,ClutmodeVal::v4bpp> v4bpp{};
             constexpr Register::FieldValue<decltype(clutmode)::Type,ClutmodeVal::v8bpp> v8bpp{};
-        }
         }
     }
     namespace LcdcBasecfg2{    ///<Base Layer Configuration Register 2

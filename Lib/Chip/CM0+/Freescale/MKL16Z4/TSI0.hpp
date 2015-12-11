@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cursw)::Type,CurswVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cursw)::Type,CurswVal::v1> v1{};
         }
-        }
         ///End of Scan Flag
         enum class EosfVal {
             v0=0x00000000,     ///<Scan not complete.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace EosfValC{
             constexpr Register::FieldValue<decltype(eosf)::Type,EosfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(eosf)::Type,EosfVal::v1> v1{};
-        }
         }
         ///Scan In Progress Status
         enum class ScnipVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(scnip)::Type,ScnipVal::v0> v0{};
             constexpr Register::FieldValue<decltype(scnip)::Type,ScnipVal::v1> v1{};
         }
-        }
         ///Scan Trigger Mode
         enum class StmVal {
             v0=0x00000000,     ///<Software trigger scan.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace StmValC{
             constexpr Register::FieldValue<decltype(stm)::Type,StmVal::v0> v0{};
             constexpr Register::FieldValue<decltype(stm)::Type,StmVal::v1> v1{};
-        }
         }
         ///TSI STOP Enable
         enum class StpeVal {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stpe)::Type,StpeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(stpe)::Type,StpeVal::v1> v1{};
         }
-        }
         ///Touch Sensing Input Interrupt Enable
         enum class TsiienVal {
             v0=0x00000000,     ///<TSI interrupt is disabled.
@@ -69,7 +64,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tsiien)::Type,TsiienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tsiien)::Type,TsiienVal::v1> v1{};
         }
-        }
         ///Touch Sensing Input Module Enable
         enum class TsienVal {
             v0=0x00000000,     ///<TSI module disabled.
@@ -79,7 +73,6 @@ namespace Kvasir {
         namespace TsienValC{
             constexpr Register::FieldValue<decltype(tsien)::Type,TsienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tsien)::Type,TsienVal::v1> v1{};
-        }
         }
         ///NSCN
         enum class NscnVal {
@@ -151,7 +144,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nscn)::Type,NscnVal::v11110> v11110{};
             constexpr Register::FieldValue<decltype(nscn)::Type,NscnVal::v11111> v11111{};
         }
-        }
         ///PS
         enum class PsVal {
             v000=0x00000000,     ///<Electrode Oscillator Frequency divided by 1
@@ -173,7 +165,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v101> v101{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v111> v111{};
-        }
         }
         ///EXTCHRG
         enum class ExtchrgVal {
@@ -197,7 +188,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(extchrg)::Type,ExtchrgVal::v110> v110{};
             constexpr Register::FieldValue<decltype(extchrg)::Type,ExtchrgVal::v111> v111{};
         }
-        }
         ///DVOLT
         enum class DvoltVal {
             v00=0x00000000,     ///<DV = 1.03 V; VP = 1.33 V; Vm = 0.30 V.
@@ -211,7 +201,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dvolt)::Type,DvoltVal::v01> v01{};
             constexpr Register::FieldValue<decltype(dvolt)::Type,DvoltVal::v10> v10{};
             constexpr Register::FieldValue<decltype(dvolt)::Type,DvoltVal::v11> v11{};
-        }
         }
         ///REFCHRG
         enum class RefchrgVal {
@@ -235,7 +224,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(refchrg)::Type,RefchrgVal::v110> v110{};
             constexpr Register::FieldValue<decltype(refchrg)::Type,RefchrgVal::v111> v111{};
         }
-        }
         ///TSI analog modes setup and status bits.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> mode{}; 
         ///End-of-scan or Out-of-Range Interrupt Selection
@@ -247,7 +235,6 @@ namespace Kvasir {
         namespace EsorValC{
             constexpr Register::FieldValue<decltype(esor)::Type,EsorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esor)::Type,EsorVal::v1> v1{};
-        }
         }
         ///Out of Range Flag.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> outrgf{}; 
@@ -266,7 +253,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swts)::Type,SwtsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swts)::Type,SwtsVal::v1> v1{};
         }
-        }
         ///DMA Transfer Enabled
         enum class DmaenVal {
             v0=0x00000000,     ///<Interrupt is selected when the interrupt enable bit is set and the corresponding TSI events assert.
@@ -276,7 +262,6 @@ namespace Kvasir {
         namespace DmaenValC{
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v1> v1{};
-        }
         }
         ///TSICH
         enum class TsichVal {
@@ -315,7 +300,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tsich)::Type,TsichVal::v1101> v1101{};
             constexpr Register::FieldValue<decltype(tsich)::Type,TsichVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(tsich)::Type,TsichVal::v1111> v1111{};
-        }
         }
     }
     namespace Tsi0Tshd{    ///<TSI Threshold Register

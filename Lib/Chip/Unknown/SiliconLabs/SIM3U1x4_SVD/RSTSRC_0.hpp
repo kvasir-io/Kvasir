@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vmonren)::Type,VmonrenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(vmonren)::Type,VmonrenVal::enabled> enabled{};
         }
-        }
         ///Missing Clock Detector Reset Enable. 
         enum class McdrenVal {
             disabled=0x00000000,     ///<Disable the Missing Clock Detector event as a reset source.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace McdrenValC{
             constexpr Register::FieldValue<decltype(mcdren)::Type,McdrenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(mcdren)::Type,McdrenVal::enabled> enabled{};
-        }
         }
         ///Watchdog Timer Reset Enable. 
         enum class WdtrenVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wdtren)::Type,WdtrenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(wdtren)::Type,WdtrenVal::enabled> enabled{};
         }
-        }
         ///Software Reset. 
         enum class SwrenVal {
             disabled=0x00000000,     ///<Do not generate a Software Reset.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace SwrenValC{
             constexpr Register::FieldValue<decltype(swren)::Type,SwrenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(swren)::Type,SwrenVal::enabled> enabled{};
-        }
         }
         ///Comparator 0 Reset Enable. 
         enum class Cmp0renVal {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp0ren)::Type,Cmp0renVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmp0ren)::Type,Cmp0renVal::enabled> enabled{};
         }
-        }
         ///Comparator 1 Reset Enable. 
         enum class Cmp1renVal {
             disabled=0x00000000,     ///<Disable the Comparator 1 event as a reset source.
@@ -68,7 +63,6 @@ namespace Kvasir {
         namespace Cmp1renValC{
             constexpr Register::FieldValue<decltype(cmp1ren)::Type,Cmp1renVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmp1ren)::Type,Cmp1renVal::enabled> enabled{};
-        }
         }
         ///USB0 Reset Enable. 
         enum class Usb0renVal {
@@ -80,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usb0ren)::Type,Usb0renVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(usb0ren)::Type,Usb0renVal::enabled> enabled{};
         }
-        }
         ///RTC0 Reset Enable. 
         enum class Rtc0renVal {
             disabled=0x00000000,     ///<Disable the RTC0 event as a reset source.
@@ -91,7 +84,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rtc0ren)::Type,Rtc0renVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rtc0ren)::Type,Rtc0renVal::enabled> enabled{};
         }
-        }
         ///PMU Wakeup Reset Enable. 
         enum class WakerenVal {
             enabled=0x00000001,     ///<Enable the PMU Wakeup event as a reset source.
@@ -99,7 +91,6 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,WakerenVal> wakeren{}; 
         namespace WakerenValC{
             constexpr Register::FieldValue<decltype(wakeren)::Type,WakerenVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneresetflag{    ///<System Reset Flags
@@ -114,7 +105,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pinrf)::Type,PinrfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(pinrf)::Type,PinrfVal::set> set{};
         }
-        }
         ///Power-On Reset Flag. 
         enum class PorrfVal {
             notSet=0x00000000,     ///<A Power-On Reset event did not cause the last system reset.
@@ -124,7 +114,6 @@ namespace Kvasir {
         namespace PorrfValC{
             constexpr Register::FieldValue<decltype(porrf)::Type,PorrfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(porrf)::Type,PorrfVal::set> set{};
-        }
         }
         ///Voltage Supply Monitor VDD Reset Flag. 
         enum class VmonrfVal {
@@ -136,7 +125,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vmonrf)::Type,VmonrfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(vmonrf)::Type,VmonrfVal::set> set{};
         }
-        }
         ///Core Reset Flag. 
         enum class CorerfVal {
             notSet=0x00000000,     ///<A Core Reset event did not cause the last system reset.
@@ -146,7 +134,6 @@ namespace Kvasir {
         namespace CorerfValC{
             constexpr Register::FieldValue<decltype(corerf)::Type,CorerfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(corerf)::Type,CorerfVal::set> set{};
-        }
         }
         ///Missing Clock Detector Reset Flag. 
         enum class McdrfVal {
@@ -158,7 +145,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mcdrf)::Type,McdrfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(mcdrf)::Type,McdrfVal::set> set{};
         }
-        }
         ///Watchdog Timer Reset Flag. 
         enum class WdtrfVal {
             notSet=0x00000000,     ///<A Watchdog Timer event did not cause the last system reset.
@@ -168,7 +154,6 @@ namespace Kvasir {
         namespace WdtrfValC{
             constexpr Register::FieldValue<decltype(wdtrf)::Type,WdtrfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(wdtrf)::Type,WdtrfVal::set> set{};
-        }
         }
         ///Software Reset Flag. 
         enum class SwrfVal {
@@ -180,7 +165,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swrf)::Type,SwrfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(swrf)::Type,SwrfVal::set> set{};
         }
-        }
         ///Comparator 0 Reset Flag. 
         enum class Cmp0rfVal {
             notSet=0x00000000,     ///<A Comparator 0 event did not cause the last system reset.
@@ -190,7 +174,6 @@ namespace Kvasir {
         namespace Cmp0rfValC{
             constexpr Register::FieldValue<decltype(cmp0rf)::Type,Cmp0rfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(cmp0rf)::Type,Cmp0rfVal::set> set{};
-        }
         }
         ///Comparator 1 Reset Flag. 
         enum class Cmp1rfVal {
@@ -202,7 +185,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp1rf)::Type,Cmp1rfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(cmp1rf)::Type,Cmp1rfVal::set> set{};
         }
-        }
         ///USB0 Reset Flag. 
         enum class Usb0rfVal {
             notSet=0x00000000,     ///<A USB0 Reset event did not cause the last system reset.
@@ -212,7 +194,6 @@ namespace Kvasir {
         namespace Usb0rfValC{
             constexpr Register::FieldValue<decltype(usb0rf)::Type,Usb0rfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(usb0rf)::Type,Usb0rfVal::set> set{};
-        }
         }
         ///RTC0 Reset Flag. 
         enum class Rtc0rfVal {
@@ -224,7 +205,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rtc0rf)::Type,Rtc0rfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rtc0rf)::Type,Rtc0rfVal::set> set{};
         }
-        }
         ///PMU Wakeup Reset Flag. 
         enum class WakerfVal {
             notSet=0x00000000,     ///<A PMU Wakeup event did not cause the last system reset.
@@ -234,7 +214,6 @@ namespace Kvasir {
         namespace WakerfValC{
             constexpr Register::FieldValue<decltype(wakerf)::Type,WakerfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(wakerf)::Type,WakerfVal::set> set{};
-        }
         }
     }
     namespace Noneconfig{    ///<Configuration Options
@@ -248,7 +227,6 @@ namespace Kvasir {
         namespace PmselValC{
             constexpr Register::FieldValue<decltype(pmsel)::Type,PmselVal::pm9Dis> pm9Dis{};
             constexpr Register::FieldValue<decltype(pmsel)::Type,PmselVal::pm9En> pm9En{};
-        }
         }
     }
 }

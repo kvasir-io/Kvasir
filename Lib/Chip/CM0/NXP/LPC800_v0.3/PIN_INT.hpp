@@ -64,7 +64,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(selPmatch)::Type,SelpmatchVal::pinInterruptInter> pinInterruptInter{};
             constexpr Register::FieldValue<decltype(selPmatch)::Type,SelpmatchVal::patternMatchInter> patternMatchInter{};
         }
-        }
         ///Enables the RxEv output to the ARM cpu and/or to a GPIO output when the specified boolean expression evaluates to true.
         enum class EnarxevVal {
             disabledRxevOutpu=0x00000000,     ///<Disabled. RxEv output to the cpu is disabled.
@@ -74,7 +73,6 @@ namespace Kvasir {
         namespace EnarxevValC{
             constexpr Register::FieldValue<decltype(enaRxev)::Type,EnarxevVal::disabledRxevOutpu> disabledRxevOutpu{};
             constexpr Register::FieldValue<decltype(enaRxev)::Type,EnarxevVal::enabledRxevOutput> enabledRxevOutput{};
-        }
         }
         ///This field displays the current state of pattern matches. A 1 in any bit of this field indicates that the corresponding product term is matched by the current state of the appropriate inputs.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pmat{}; 
@@ -103,7 +101,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src0)::Type,Src0Val::input6SelectsPin> input6SelectsPin{};
             constexpr Register::FieldValue<decltype(src0)::Type,Src0Val::input7SelectsPin> input7SelectsPin{};
         }
-        }
         ///Selects the input source for bit slice 1
         enum class Src1Val {
             input0SelectsPin=0x00000000,     ///<Input 0. Selects pin interrupt input 0 as the source to bit slice 1.
@@ -125,7 +122,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src1)::Type,Src1Val::input5SelectsPin> input5SelectsPin{};
             constexpr Register::FieldValue<decltype(src1)::Type,Src1Val::input6SelectsPin> input6SelectsPin{};
             constexpr Register::FieldValue<decltype(src1)::Type,Src1Val::input7SelectsPin> input7SelectsPin{};
-        }
         }
         ///Selects the input source for bit slice 2
         enum class Src2Val {
@@ -149,7 +145,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src2)::Type,Src2Val::input6SelectsPin> input6SelectsPin{};
             constexpr Register::FieldValue<decltype(src2)::Type,Src2Val::input7SelectsPin> input7SelectsPin{};
         }
-        }
         ///Selects the input source for bit slice 3
         enum class Src3Val {
             input0SelectsPin=0x00000000,     ///<Input 0. Selects pin interrupt input 0 as the source to bit slice 3.
@@ -171,7 +166,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src3)::Type,Src3Val::input5SelectsPin> input5SelectsPin{};
             constexpr Register::FieldValue<decltype(src3)::Type,Src3Val::input6SelectsPin> input6SelectsPin{};
             constexpr Register::FieldValue<decltype(src3)::Type,Src3Val::input7SelectsPin> input7SelectsPin{};
-        }
         }
         ///Selects the input source for bit slice 4
         enum class Src4Val {
@@ -195,7 +189,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src4)::Type,Src4Val::input6SelectsPin> input6SelectsPin{};
             constexpr Register::FieldValue<decltype(src4)::Type,Src4Val::input7SelectsPin> input7SelectsPin{};
         }
-        }
         ///Selects the input source for bit slice 5
         enum class Src5Val {
             input0SelectsPin=0x00000000,     ///<Input 0. Selects pin interrupt input 0 as the source to bit slice 5.
@@ -217,7 +210,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src5)::Type,Src5Val::input5SelectsPin> input5SelectsPin{};
             constexpr Register::FieldValue<decltype(src5)::Type,Src5Val::input6SelectsPin> input6SelectsPin{};
             constexpr Register::FieldValue<decltype(src5)::Type,Src5Val::input7SelectsPin> input7SelectsPin{};
-        }
         }
         ///Selects the input source for bit slice 6
         enum class Src6Val {
@@ -241,7 +233,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src6)::Type,Src6Val::input6SelectsPin> input6SelectsPin{};
             constexpr Register::FieldValue<decltype(src6)::Type,Src6Val::input7SelectsPin> input7SelectsPin{};
         }
-        }
         ///Selects the input source for bit slice 7
         enum class Src7Val {
             input0SelectsPin=0x00000000,     ///<Input 0. Selects pin interrupt input 0 as the source to bit slice 7.
@@ -263,7 +254,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src7)::Type,Src7Val::input5SelectsPin> input5SelectsPin{};
             constexpr Register::FieldValue<decltype(src7)::Type,Src7Val::input6SelectsPin> input6SelectsPin{};
             constexpr Register::FieldValue<decltype(src7)::Type,Src7Val::input7SelectsPin> input7SelectsPin{};
-        }
         }
     }
     namespace Nonepmcfg{    ///<GPIO pattern match interrupt bit slice configuration register
@@ -292,7 +282,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfg0)::Type,Cfg0Val::constant0ThisBit> constant0ThisBit{};
             constexpr Register::FieldValue<decltype(cfg0)::Type,Cfg0Val::eventMatchOccurs> eventMatchOccurs{};
         }
-        }
         ///Specifies the match-contribution condition for bit slice 1.
         enum class Cfg1Val {
             constant1ThisBit=0x00000000,     ///<Constant 1. This bit slice always contributes to a product term match.
@@ -314,7 +303,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfg1)::Type,Cfg1Val::lowLevelMatchOcc> lowLevelMatchOcc{};
             constexpr Register::FieldValue<decltype(cfg1)::Type,Cfg1Val::constant0ThisBit> constant0ThisBit{};
             constexpr Register::FieldValue<decltype(cfg1)::Type,Cfg1Val::eventMatchOccurs> eventMatchOccurs{};
-        }
         }
         ///Specifies the match-contribution condition for bit slice 2.
         enum class Cfg2Val {
@@ -338,7 +326,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfg2)::Type,Cfg2Val::constant0ThisBit> constant0ThisBit{};
             constexpr Register::FieldValue<decltype(cfg2)::Type,Cfg2Val::eventMatchOccurs> eventMatchOccurs{};
         }
-        }
         ///Specifies the match-contribution condition for bit slice 3.
         enum class Cfg3Val {
             constant1ThisBit=0x00000000,     ///<Constant 1. This bit slice always contributes to a product term match.
@@ -360,7 +347,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfg3)::Type,Cfg3Val::lowLevelMatchOcc> lowLevelMatchOcc{};
             constexpr Register::FieldValue<decltype(cfg3)::Type,Cfg3Val::constant0ThisBit> constant0ThisBit{};
             constexpr Register::FieldValue<decltype(cfg3)::Type,Cfg3Val::eventMatchOccurs> eventMatchOccurs{};
-        }
         }
         ///Specifies the match-contribution condition for bit slice 4.
         enum class Cfg4Val {
@@ -384,7 +370,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfg4)::Type,Cfg4Val::constant0ThisBit> constant0ThisBit{};
             constexpr Register::FieldValue<decltype(cfg4)::Type,Cfg4Val::eventMatchOccurs> eventMatchOccurs{};
         }
-        }
         ///Specifies the match-contribution condition for bit slice 5.
         enum class Cfg5Val {
             constant1ThisBit=0x00000000,     ///<Constant 1. This bit slice always contributes to a product term match.
@@ -406,7 +391,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfg5)::Type,Cfg5Val::lowLevelMatchOcc> lowLevelMatchOcc{};
             constexpr Register::FieldValue<decltype(cfg5)::Type,Cfg5Val::constant0ThisBit> constant0ThisBit{};
             constexpr Register::FieldValue<decltype(cfg5)::Type,Cfg5Val::eventMatchOccurs> eventMatchOccurs{};
-        }
         }
         ///Specifies the match-contribution condition for bit slice 6.
         enum class Cfg6Val {
@@ -430,7 +414,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfg6)::Type,Cfg6Val::constant0ThisBit> constant0ThisBit{};
             constexpr Register::FieldValue<decltype(cfg6)::Type,Cfg6Val::eventMatchOccurs> eventMatchOccurs{};
         }
-        }
         ///Specifies the match-contribution condition for bit slice 7.
         enum class Cfg7Val {
             constant1ThisBit=0x00000000,     ///<Constant 1. This bit slice always contributes to a product term match.
@@ -452,7 +435,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cfg7)::Type,Cfg7Val::lowLevelMatchOcc> lowLevelMatchOcc{};
             constexpr Register::FieldValue<decltype(cfg7)::Type,Cfg7Val::constant0ThisBit> constant0ThisBit{};
             constexpr Register::FieldValue<decltype(cfg7)::Type,Cfg7Val::eventMatchOccurs> eventMatchOccurs{};
-        }
         }
     }
 }

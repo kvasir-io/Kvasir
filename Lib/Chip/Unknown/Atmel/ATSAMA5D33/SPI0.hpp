@@ -152,7 +152,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v15Bit> v15Bit{};
             constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v16Bit> v16Bit{};
         }
-        }
         ///Serial Clock Baud Rate
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> scbr{}; 
         ///Delay Before SPCK
@@ -193,7 +192,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v14Bit> v14Bit{};
             constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v15Bit> v15Bit{};
             constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v16Bit> v16Bit{};
-        }
         }
         ///Serial Clock Baud Rate
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> scbr{}; 
@@ -236,7 +234,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v15Bit> v15Bit{};
             constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v16Bit> v16Bit{};
         }
-        }
         ///Serial Clock Baud Rate
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> scbr{}; 
         ///Delay Before SPCK
@@ -277,7 +274,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v14Bit> v14Bit{};
             constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v15Bit> v15Bit{};
             constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v16Bit> v16Bit{};
-        }
         }
         ///Serial Clock Baud Rate
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> scbr{}; 

@@ -16,7 +16,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
         }
-        }
         ///Master mode select.
         enum class MasterVal {
             slaveMode=0x00000000,     ///<Slave mode. The SPI will operate in slave mode.
@@ -31,7 +30,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(master)::Type,MasterVal::slaveMode> slaveMode{};
             constexpr Register::FieldValue<decltype(master)::Type,MasterVal::masterMode> masterMode{};
         }
-        }
         ///LSB First mode enable.
         enum class LsbfVal {
             standard=0x00000000,     ///<Standard. Data is transmitted and received in
@@ -43,7 +41,6 @@ namespace Kvasir {
         namespace LsbfValC{
             constexpr Register::FieldValue<decltype(lsbf)::Type,LsbfVal::standard> standard{};
             constexpr Register::FieldValue<decltype(lsbf)::Type,LsbfVal::reverse> reverse{};
-        }
         }
         ///Clock Phase select.
         enum class CphaVal {
@@ -61,7 +58,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::change> change{};
             constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::capture> capture{};
         }
-        }
         ///Clock Polarity select.
         enum class CpolVal {
             low=0x00000000,     ///<Low. The rest state of the clock (between
@@ -74,7 +70,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::low> low{};
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::high> high{};
         }
-        }
         ///Loopback mode enable. Loopback mode applies only to Master
 								mode, and connects transmit and receive data connected together to
 								allow simple software testing.
@@ -86,7 +81,6 @@ namespace Kvasir {
         namespace LoopValC{
             constexpr Register::FieldValue<decltype(loop)::Type,LoopVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(loop)::Type,LoopVal::enabled> enabled{};
-        }
         }
         ///SSEL0 Polarity select.
         enum class Spol0Val {
@@ -104,7 +98,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(spol0)::Type,Spol0Val::low> low{};
             constexpr Register::FieldValue<decltype(spol0)::Type,Spol0Val::high> high{};
         }
-        }
         ///SSEL1 Polarity select.
         enum class Spol1Val {
             low=0x00000000,     ///<Low. The SSEL1 pin is active low. The value in the
@@ -120,7 +113,6 @@ namespace Kvasir {
         namespace Spol1ValC{
             constexpr Register::FieldValue<decltype(spol1)::Type,Spol1Val::low> low{};
             constexpr Register::FieldValue<decltype(spol1)::Type,Spol1Val::high> high{};
-        }
         }
         ///SSEL2 Polarity select.
         enum class Spol2Val {
@@ -138,7 +130,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(spol2)::Type,Spol2Val::low> low{};
             constexpr Register::FieldValue<decltype(spol2)::Type,Spol2Val::high> high{};
         }
-        }
         ///SSEL3 Polarity select.
         enum class Spol3Val {
             low=0x00000000,     ///<Low. The SSEL3 pin is active low. The value in the
@@ -154,7 +145,6 @@ namespace Kvasir {
         namespace Spol3ValC{
             constexpr Register::FieldValue<decltype(spol3)::Type,Spol3Val::low> low{};
             constexpr Register::FieldValue<decltype(spol3)::Type,Spol3Val::high> high{};
-        }
         }
     }
     namespace Nonedly{    ///<SPI Delay register
@@ -265,7 +255,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxrdyen)::Type,RxrdyenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rxrdyen)::Type,RxrdyenVal::enabled> enabled{};
         }
-        }
         ///TX ready interrupt enable. Determines whether an interrupt
 								occurs when the transmitter holding register is
 								available.
@@ -279,7 +268,6 @@ namespace Kvasir {
         namespace TxrdyenValC{
             constexpr Register::FieldValue<decltype(txrdyen)::Type,TxrdyenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(txrdyen)::Type,TxrdyenVal::enabled> enabled{};
-        }
         }
         ///RX overrun interrupt enable. Determines whether an
 								interrupt occurs when a receiver overrun occurs. This happens in
@@ -299,7 +287,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxoven)::Type,RxovenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rxoven)::Type,RxovenVal::enabled> enabled{};
         }
-        }
         ///TX underrun interrupt enable. Determines whether an
 								interrupt occurs when a transmitter underrun occurs. This happens in
 								slave mode when there is a need to transmit data when none is
@@ -315,7 +302,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txuren)::Type,TxurenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(txuren)::Type,TxurenVal::enabled> enabled{};
         }
-        }
         ///Slave select assert interrupt enable. Determines whether an
 								interrupt occurs when the Slave Select is asserted.
         enum class SsaenVal {
@@ -330,7 +316,6 @@ namespace Kvasir {
         namespace SsaenValC{
             constexpr Register::FieldValue<decltype(ssaen)::Type,SsaenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ssaen)::Type,SsaenVal::enabled> enabled{};
-        }
         }
         ///Slave select deassert interrupt enable. Determines whether
 								an interrupt occurs when the Slave Select is
@@ -348,7 +333,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssden)::Type,SsdenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ssden)::Type,SsdenVal::enabled> enabled{};
         }
-        }
         ///Master idle interrupt enable
         enum class MstidleenVal {
             disabled=0x00000000,     ///<Disabled. No interrupt will be generated when the
@@ -360,7 +344,6 @@ namespace Kvasir {
         namespace MstidleenValC{
             constexpr Register::FieldValue<decltype(mstidleen)::Type,MstidleenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(mstidleen)::Type,MstidleenVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneintenclr{    ///<SPI Interrupt Enable Clear. Writing a 1 to any implemented bit
@@ -448,7 +431,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txssel0N)::Type,Txssel0nVal::ssel0Asserted> ssel0Asserted{};
             constexpr Register::FieldValue<decltype(txssel0N)::Type,Txssel0nVal::ssel0NotAsserted> ssel0NotAsserted{};
         }
-        }
         ///Transmit Slave Select. This field asserts SSEL1 in master
 								mode. The output on the pin is active LOW by default. The active
 								state of the SSEL1 pin is configured by bits in the CFG
@@ -461,7 +443,6 @@ namespace Kvasir {
         namespace Txssel1nValC{
             constexpr Register::FieldValue<decltype(txssel1N)::Type,Txssel1nVal::ssel1Asserted> ssel1Asserted{};
             constexpr Register::FieldValue<decltype(txssel1N)::Type,Txssel1nVal::ssel1NotAsserted> ssel1NotAsserted{};
-        }
         }
         ///Transmit Slave Select. This field asserts SSEL2 in master
 								mode. The output on the pin is active LOW by default. The active
@@ -476,7 +457,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txssel2N)::Type,Txssel2nVal::ssel2Asserted> ssel2Asserted{};
             constexpr Register::FieldValue<decltype(txssel2N)::Type,Txssel2nVal::ssel2NotAsserted> ssel2NotAsserted{};
         }
-        }
         ///Transmit Slave Select. This field asserts SSEL3 in master
 								mode. The output on the pin is active LOW by default. The active
 								state of the SSEL3 pin is configured by bits in the CFG
@@ -489,7 +469,6 @@ namespace Kvasir {
         namespace Txssel3nValC{
             constexpr Register::FieldValue<decltype(txssel3N)::Type,Txssel3nVal::ssel3Asserted> ssel3Asserted{};
             constexpr Register::FieldValue<decltype(txssel3N)::Type,Txssel3nVal::ssel3NotAsserted> ssel3NotAsserted{};
-        }
         }
         ///End of Transfer. The asserted SSEL will be deasserted at
 								the end of a transfer, and remain so for at least the time specified
@@ -506,7 +485,6 @@ namespace Kvasir {
         namespace EotValC{
             constexpr Register::FieldValue<decltype(eot)::Type,EotVal::sselNotDeasserted> sselNotDeasserted{};
             constexpr Register::FieldValue<decltype(eot)::Type,EotVal::sselDeasserted> sselDeasserted{};
-        }
         }
         ///End of Frame. Between frames, a delay may be inserted, as
 								defined by the FRAME_DELAY value in the DLY register. The end of a
@@ -525,7 +503,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eof)::Type,EofVal::dataNotEof> dataNotEof{};
             constexpr Register::FieldValue<decltype(eof)::Type,EofVal::dataEof> dataEof{};
         }
-        }
         ///Receive Ignore. This allows data to be transmitted using
 								the SPI without the need to read unneeded data from the
 								receiver.Setting this bit simplifies the transmit process and can be
@@ -543,7 +520,6 @@ namespace Kvasir {
         namespace RxignoreValC{
             constexpr Register::FieldValue<decltype(rxignore)::Type,RxignoreVal::readReceivedData> readReceivedData{};
             constexpr Register::FieldValue<decltype(rxignore)::Type,RxignoreVal::ignoreReceivedData> ignoreReceivedData{};
-        }
         }
         ///Data Length. Specifies the data length from 1 to 16 bits.
 								Note that transfer lengths greater than 16 bits are supported by

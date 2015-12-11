@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edbg)::Type,EdbgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(edbg)::Type,EdbgVal::v1> v1{};
         }
-        }
         ///Enable Round Robin Channel Arbitration
         enum class ErcaVal {
             v0=0x00000000,     ///<Fixed priority arbitration is used for channel selection within each group.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace ErcaValC{
             constexpr Register::FieldValue<decltype(erca)::Type,ErcaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(erca)::Type,ErcaVal::v1> v1{};
-        }
         }
         ///Enable Round Robin Group Arbitration
         enum class ErgaVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erga)::Type,ErgaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(erga)::Type,ErgaVal::v1> v1{};
         }
-        }
         ///Halt On Error
         enum class HoeVal {
             v0=0x00000000,     ///<Normal operation
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace HoeValC{
             constexpr Register::FieldValue<decltype(hoe)::Type,HoeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hoe)::Type,HoeVal::v1> v1{};
-        }
         }
         ///Halt DMA Operations
         enum class HaltVal {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(halt)::Type,HaltVal::v0> v0{};
             constexpr Register::FieldValue<decltype(halt)::Type,HaltVal::v1> v1{};
         }
-        }
         ///Continuous Link Mode
         enum class ClmVal {
             v0=0x00000000,     ///<A minor loop channel link made to itself goes through channel arbitration before being activated again.
@@ -69,7 +64,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clm)::Type,ClmVal::v0> v0{};
             constexpr Register::FieldValue<decltype(clm)::Type,ClmVal::v1> v1{};
         }
-        }
         ///Enable Minor Loop Mapping
         enum class EmlmVal {
             v0=0x00000000,     ///<Disabled. TCDn.word2 is defined as a 32-bit NBYTES field.
@@ -79,7 +73,6 @@ namespace Kvasir {
         namespace EmlmValC{
             constexpr Register::FieldValue<decltype(emlm)::Type,EmlmVal::v0> v0{};
             constexpr Register::FieldValue<decltype(emlm)::Type,EmlmVal::v1> v1{};
-        }
         }
         ///Channel Group 0 Priority
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> grp0pri{}; 
@@ -95,7 +88,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ecx)::Type,EcxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecx)::Type,EcxVal::v1> v1{};
         }
-        }
         ///Cancel Transfer
         enum class CxVal {
             v0=0x00000000,     ///<Normal operation
@@ -105,7 +97,6 @@ namespace Kvasir {
         namespace CxValC{
             constexpr Register::FieldValue<decltype(cx)::Type,CxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cx)::Type,CxVal::v1> v1{};
-        }
         }
     }
     namespace DmaEs{    ///<Error Status Register
@@ -120,7 +111,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dbe)::Type,DbeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dbe)::Type,DbeVal::v1> v1{};
         }
-        }
         ///Source Bus Error
         enum class SbeVal {
             v0=0x00000000,     ///<No source bus error
@@ -130,7 +120,6 @@ namespace Kvasir {
         namespace SbeValC{
             constexpr Register::FieldValue<decltype(sbe)::Type,SbeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sbe)::Type,SbeVal::v1> v1{};
-        }
         }
         ///Scatter/Gather Configuration Error
         enum class SgeVal {
@@ -142,7 +131,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sge)::Type,SgeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sge)::Type,SgeVal::v1> v1{};
         }
-        }
         ///NBYTES/CITER Configuration Error
         enum class NceVal {
             v0=0x00000000,     ///<No NBYTES/CITER configuration error
@@ -152,7 +140,6 @@ namespace Kvasir {
         namespace NceValC{
             constexpr Register::FieldValue<decltype(nce)::Type,NceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(nce)::Type,NceVal::v1> v1{};
-        }
         }
         ///Destination Offset Error
         enum class DoeVal {
@@ -164,7 +151,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(doe)::Type,DoeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(doe)::Type,DoeVal::v1> v1{};
         }
-        }
         ///Destination Address Error
         enum class DaeVal {
             v0=0x00000000,     ///<No destination address configuration error
@@ -174,7 +160,6 @@ namespace Kvasir {
         namespace DaeValC{
             constexpr Register::FieldValue<decltype(dae)::Type,DaeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dae)::Type,DaeVal::v1> v1{};
-        }
         }
         ///Source Offset Error
         enum class SoeVal {
@@ -186,7 +171,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(soe)::Type,SoeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(soe)::Type,SoeVal::v1> v1{};
         }
-        }
         ///Source Address Error
         enum class SaeVal {
             v0=0x00000000,     ///<No source address configuration error.
@@ -196,7 +180,6 @@ namespace Kvasir {
         namespace SaeValC{
             constexpr Register::FieldValue<decltype(sae)::Type,SaeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sae)::Type,SaeVal::v1> v1{};
-        }
         }
         ///Error Channel Number or Cancelled Channel Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> errchn{}; 
@@ -210,7 +193,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpe)::Type,CpeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cpe)::Type,CpeVal::v1> v1{};
         }
-        }
         ///Group Priority Error
         enum class GpeVal {
             v0=0x00000000,     ///<No group priority error
@@ -220,7 +202,6 @@ namespace Kvasir {
         namespace GpeValC{
             constexpr Register::FieldValue<decltype(gpe)::Type,GpeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(gpe)::Type,GpeVal::v1> v1{};
-        }
         }
         ///Transfer Cancelled
         enum class EcxVal {
@@ -232,7 +213,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ecx)::Type,EcxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecx)::Type,EcxVal::v1> v1{};
         }
-        }
         ///no description available
         enum class VldVal {
             v0=0x00000000,     ///<No ERR bits are set
@@ -242,7 +222,6 @@ namespace Kvasir {
         namespace VldValC{
             constexpr Register::FieldValue<decltype(vld)::Type,VldVal::v0> v0{};
             constexpr Register::FieldValue<decltype(vld)::Type,VldVal::v1> v1{};
-        }
         }
     }
     namespace DmaErq{    ///<Enable Request Register
@@ -257,7 +236,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erq0)::Type,Erq0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq0)::Type,Erq0Val::v1> v1{};
         }
-        }
         ///Enable DMA Request 1
         enum class Erq1Val {
             v0=0x00000000,     ///<The DMA request signal for the corresponding channel is disabled
@@ -267,7 +245,6 @@ namespace Kvasir {
         namespace Erq1ValC{
             constexpr Register::FieldValue<decltype(erq1)::Type,Erq1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq1)::Type,Erq1Val::v1> v1{};
-        }
         }
         ///Enable DMA Request 2
         enum class Erq2Val {
@@ -279,7 +256,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erq2)::Type,Erq2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq2)::Type,Erq2Val::v1> v1{};
         }
-        }
         ///Enable DMA Request 3
         enum class Erq3Val {
             v0=0x00000000,     ///<The DMA request signal for the corresponding channel is disabled
@@ -289,7 +265,6 @@ namespace Kvasir {
         namespace Erq3ValC{
             constexpr Register::FieldValue<decltype(erq3)::Type,Erq3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq3)::Type,Erq3Val::v1> v1{};
-        }
         }
         ///Enable DMA Request 4
         enum class Erq4Val {
@@ -301,7 +276,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erq4)::Type,Erq4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq4)::Type,Erq4Val::v1> v1{};
         }
-        }
         ///Enable DMA Request 5
         enum class Erq5Val {
             v0=0x00000000,     ///<The DMA request signal for the corresponding channel is disabled
@@ -311,7 +285,6 @@ namespace Kvasir {
         namespace Erq5ValC{
             constexpr Register::FieldValue<decltype(erq5)::Type,Erq5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq5)::Type,Erq5Val::v1> v1{};
-        }
         }
         ///Enable DMA Request 6
         enum class Erq6Val {
@@ -323,7 +296,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erq6)::Type,Erq6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq6)::Type,Erq6Val::v1> v1{};
         }
-        }
         ///Enable DMA Request 7
         enum class Erq7Val {
             v0=0x00000000,     ///<The DMA request signal for the corresponding channel is disabled
@@ -333,7 +305,6 @@ namespace Kvasir {
         namespace Erq7ValC{
             constexpr Register::FieldValue<decltype(erq7)::Type,Erq7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq7)::Type,Erq7Val::v1> v1{};
-        }
         }
         ///Enable DMA Request 8
         enum class Erq8Val {
@@ -345,7 +316,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erq8)::Type,Erq8Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq8)::Type,Erq8Val::v1> v1{};
         }
-        }
         ///Enable DMA Request 9
         enum class Erq9Val {
             v0=0x00000000,     ///<The DMA request signal for the corresponding channel is disabled
@@ -355,7 +325,6 @@ namespace Kvasir {
         namespace Erq9ValC{
             constexpr Register::FieldValue<decltype(erq9)::Type,Erq9Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq9)::Type,Erq9Val::v1> v1{};
-        }
         }
         ///Enable DMA Request 10
         enum class Erq10Val {
@@ -367,7 +336,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erq10)::Type,Erq10Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq10)::Type,Erq10Val::v1> v1{};
         }
-        }
         ///Enable DMA Request 11
         enum class Erq11Val {
             v0=0x00000000,     ///<The DMA request signal for the corresponding channel is disabled
@@ -377,7 +345,6 @@ namespace Kvasir {
         namespace Erq11ValC{
             constexpr Register::FieldValue<decltype(erq11)::Type,Erq11Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq11)::Type,Erq11Val::v1> v1{};
-        }
         }
         ///Enable DMA Request 12
         enum class Erq12Val {
@@ -389,7 +356,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erq12)::Type,Erq12Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq12)::Type,Erq12Val::v1> v1{};
         }
-        }
         ///Enable DMA Request 13
         enum class Erq13Val {
             v0=0x00000000,     ///<The DMA request signal for the corresponding channel is disabled
@@ -399,7 +365,6 @@ namespace Kvasir {
         namespace Erq13ValC{
             constexpr Register::FieldValue<decltype(erq13)::Type,Erq13Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq13)::Type,Erq13Val::v1> v1{};
-        }
         }
         ///Enable DMA Request 14
         enum class Erq14Val {
@@ -411,7 +376,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erq14)::Type,Erq14Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq14)::Type,Erq14Val::v1> v1{};
         }
-        }
         ///Enable DMA Request 15
         enum class Erq15Val {
             v0=0x00000000,     ///<The DMA request signal for the corresponding channel is disabled
@@ -421,7 +385,6 @@ namespace Kvasir {
         namespace Erq15ValC{
             constexpr Register::FieldValue<decltype(erq15)::Type,Erq15Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq15)::Type,Erq15Val::v1> v1{};
-        }
         }
         ///Enable DMA Request 16
         enum class Erq16Val {
@@ -433,7 +396,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erq16)::Type,Erq16Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq16)::Type,Erq16Val::v1> v1{};
         }
-        }
         ///Enable DMA Request 17
         enum class Erq17Val {
             v0=0x00000000,     ///<The DMA request signal for the corresponding channel is disabled
@@ -443,7 +405,6 @@ namespace Kvasir {
         namespace Erq17ValC{
             constexpr Register::FieldValue<decltype(erq17)::Type,Erq17Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq17)::Type,Erq17Val::v1> v1{};
-        }
         }
         ///Enable DMA Request 18
         enum class Erq18Val {
@@ -455,7 +416,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erq18)::Type,Erq18Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq18)::Type,Erq18Val::v1> v1{};
         }
-        }
         ///Enable DMA Request 19
         enum class Erq19Val {
             v0=0x00000000,     ///<The DMA request signal for the corresponding channel is disabled
@@ -465,7 +425,6 @@ namespace Kvasir {
         namespace Erq19ValC{
             constexpr Register::FieldValue<decltype(erq19)::Type,Erq19Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq19)::Type,Erq19Val::v1> v1{};
-        }
         }
         ///Enable DMA Request 20
         enum class Erq20Val {
@@ -477,7 +436,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erq20)::Type,Erq20Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq20)::Type,Erq20Val::v1> v1{};
         }
-        }
         ///Enable DMA Request 21
         enum class Erq21Val {
             v0=0x00000000,     ///<The DMA request signal for the corresponding channel is disabled
@@ -487,7 +445,6 @@ namespace Kvasir {
         namespace Erq21ValC{
             constexpr Register::FieldValue<decltype(erq21)::Type,Erq21Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq21)::Type,Erq21Val::v1> v1{};
-        }
         }
         ///Enable DMA Request 22
         enum class Erq22Val {
@@ -499,7 +456,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erq22)::Type,Erq22Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq22)::Type,Erq22Val::v1> v1{};
         }
-        }
         ///Enable DMA Request 23
         enum class Erq23Val {
             v0=0x00000000,     ///<The DMA request signal for the corresponding channel is disabled
@@ -509,7 +465,6 @@ namespace Kvasir {
         namespace Erq23ValC{
             constexpr Register::FieldValue<decltype(erq23)::Type,Erq23Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq23)::Type,Erq23Val::v1> v1{};
-        }
         }
         ///Enable DMA Request 24
         enum class Erq24Val {
@@ -521,7 +476,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erq24)::Type,Erq24Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq24)::Type,Erq24Val::v1> v1{};
         }
-        }
         ///Enable DMA Request 25
         enum class Erq25Val {
             v0=0x00000000,     ///<The DMA request signal for the corresponding channel is disabled
@@ -531,7 +485,6 @@ namespace Kvasir {
         namespace Erq25ValC{
             constexpr Register::FieldValue<decltype(erq25)::Type,Erq25Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq25)::Type,Erq25Val::v1> v1{};
-        }
         }
         ///Enable DMA Request 26
         enum class Erq26Val {
@@ -543,7 +496,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erq26)::Type,Erq26Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq26)::Type,Erq26Val::v1> v1{};
         }
-        }
         ///Enable DMA Request 27
         enum class Erq27Val {
             v0=0x00000000,     ///<The DMA request signal for the corresponding channel is disabled
@@ -553,7 +505,6 @@ namespace Kvasir {
         namespace Erq27ValC{
             constexpr Register::FieldValue<decltype(erq27)::Type,Erq27Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq27)::Type,Erq27Val::v1> v1{};
-        }
         }
         ///Enable DMA Request 28
         enum class Erq28Val {
@@ -565,7 +516,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erq28)::Type,Erq28Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq28)::Type,Erq28Val::v1> v1{};
         }
-        }
         ///Enable DMA Request 29
         enum class Erq29Val {
             v0=0x00000000,     ///<The DMA request signal for the corresponding channel is disabled
@@ -575,7 +525,6 @@ namespace Kvasir {
         namespace Erq29ValC{
             constexpr Register::FieldValue<decltype(erq29)::Type,Erq29Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq29)::Type,Erq29Val::v1> v1{};
-        }
         }
         ///Enable DMA Request 30
         enum class Erq30Val {
@@ -587,7 +536,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erq30)::Type,Erq30Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq30)::Type,Erq30Val::v1> v1{};
         }
-        }
         ///Enable DMA Request 31
         enum class Erq31Val {
             v0=0x00000000,     ///<The DMA request signal for the corresponding channel is disabled
@@ -597,7 +545,6 @@ namespace Kvasir {
         namespace Erq31ValC{
             constexpr Register::FieldValue<decltype(erq31)::Type,Erq31Val::v0> v0{};
             constexpr Register::FieldValue<decltype(erq31)::Type,Erq31Val::v1> v1{};
-        }
         }
     }
     namespace DmaEei{    ///<Enable Error Interrupt Register
@@ -612,7 +559,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eei0)::Type,Eei0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei0)::Type,Eei0Val::v1> v1{};
         }
-        }
         ///Enable Error Interrupt 1
         enum class Eei1Val {
             v0=0x00000000,     ///<The error signal for corresponding channel does not generate an error interrupt
@@ -622,7 +568,6 @@ namespace Kvasir {
         namespace Eei1ValC{
             constexpr Register::FieldValue<decltype(eei1)::Type,Eei1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei1)::Type,Eei1Val::v1> v1{};
-        }
         }
         ///Enable Error Interrupt 2
         enum class Eei2Val {
@@ -634,7 +579,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eei2)::Type,Eei2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei2)::Type,Eei2Val::v1> v1{};
         }
-        }
         ///Enable Error Interrupt 3
         enum class Eei3Val {
             v0=0x00000000,     ///<The error signal for corresponding channel does not generate an error interrupt
@@ -644,7 +588,6 @@ namespace Kvasir {
         namespace Eei3ValC{
             constexpr Register::FieldValue<decltype(eei3)::Type,Eei3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei3)::Type,Eei3Val::v1> v1{};
-        }
         }
         ///Enable Error Interrupt 4
         enum class Eei4Val {
@@ -656,7 +599,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eei4)::Type,Eei4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei4)::Type,Eei4Val::v1> v1{};
         }
-        }
         ///Enable Error Interrupt 5
         enum class Eei5Val {
             v0=0x00000000,     ///<The error signal for corresponding channel does not generate an error interrupt
@@ -666,7 +608,6 @@ namespace Kvasir {
         namespace Eei5ValC{
             constexpr Register::FieldValue<decltype(eei5)::Type,Eei5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei5)::Type,Eei5Val::v1> v1{};
-        }
         }
         ///Enable Error Interrupt 6
         enum class Eei6Val {
@@ -678,7 +619,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eei6)::Type,Eei6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei6)::Type,Eei6Val::v1> v1{};
         }
-        }
         ///Enable Error Interrupt 7
         enum class Eei7Val {
             v0=0x00000000,     ///<The error signal for corresponding channel does not generate an error interrupt
@@ -688,7 +628,6 @@ namespace Kvasir {
         namespace Eei7ValC{
             constexpr Register::FieldValue<decltype(eei7)::Type,Eei7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei7)::Type,Eei7Val::v1> v1{};
-        }
         }
         ///Enable Error Interrupt 8
         enum class Eei8Val {
@@ -700,7 +639,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eei8)::Type,Eei8Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei8)::Type,Eei8Val::v1> v1{};
         }
-        }
         ///Enable Error Interrupt 9
         enum class Eei9Val {
             v0=0x00000000,     ///<The error signal for corresponding channel does not generate an error interrupt
@@ -710,7 +648,6 @@ namespace Kvasir {
         namespace Eei9ValC{
             constexpr Register::FieldValue<decltype(eei9)::Type,Eei9Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei9)::Type,Eei9Val::v1> v1{};
-        }
         }
         ///Enable Error Interrupt 10
         enum class Eei10Val {
@@ -722,7 +659,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eei10)::Type,Eei10Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei10)::Type,Eei10Val::v1> v1{};
         }
-        }
         ///Enable Error Interrupt 11
         enum class Eei11Val {
             v0=0x00000000,     ///<The error signal for corresponding channel does not generate an error interrupt
@@ -732,7 +668,6 @@ namespace Kvasir {
         namespace Eei11ValC{
             constexpr Register::FieldValue<decltype(eei11)::Type,Eei11Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei11)::Type,Eei11Val::v1> v1{};
-        }
         }
         ///Enable Error Interrupt 12
         enum class Eei12Val {
@@ -744,7 +679,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eei12)::Type,Eei12Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei12)::Type,Eei12Val::v1> v1{};
         }
-        }
         ///Enable Error Interrupt 13
         enum class Eei13Val {
             v0=0x00000000,     ///<The error signal for corresponding channel does not generate an error interrupt
@@ -754,7 +688,6 @@ namespace Kvasir {
         namespace Eei13ValC{
             constexpr Register::FieldValue<decltype(eei13)::Type,Eei13Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei13)::Type,Eei13Val::v1> v1{};
-        }
         }
         ///Enable Error Interrupt 14
         enum class Eei14Val {
@@ -766,7 +699,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eei14)::Type,Eei14Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei14)::Type,Eei14Val::v1> v1{};
         }
-        }
         ///Enable Error Interrupt 15
         enum class Eei15Val {
             v0=0x00000000,     ///<The error signal for corresponding channel does not generate an error interrupt
@@ -776,7 +708,6 @@ namespace Kvasir {
         namespace Eei15ValC{
             constexpr Register::FieldValue<decltype(eei15)::Type,Eei15Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei15)::Type,Eei15Val::v1> v1{};
-        }
         }
         ///Enable Error Interrupt 16
         enum class Eei16Val {
@@ -788,7 +719,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eei16)::Type,Eei16Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei16)::Type,Eei16Val::v1> v1{};
         }
-        }
         ///Enable Error Interrupt 17
         enum class Eei17Val {
             v0=0x00000000,     ///<The error signal for corresponding channel does not generate an error interrupt
@@ -798,7 +728,6 @@ namespace Kvasir {
         namespace Eei17ValC{
             constexpr Register::FieldValue<decltype(eei17)::Type,Eei17Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei17)::Type,Eei17Val::v1> v1{};
-        }
         }
         ///Enable Error Interrupt 18
         enum class Eei18Val {
@@ -810,7 +739,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eei18)::Type,Eei18Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei18)::Type,Eei18Val::v1> v1{};
         }
-        }
         ///Enable Error Interrupt 19
         enum class Eei19Val {
             v0=0x00000000,     ///<The error signal for corresponding channel does not generate an error interrupt
@@ -820,7 +748,6 @@ namespace Kvasir {
         namespace Eei19ValC{
             constexpr Register::FieldValue<decltype(eei19)::Type,Eei19Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei19)::Type,Eei19Val::v1> v1{};
-        }
         }
         ///Enable Error Interrupt 20
         enum class Eei20Val {
@@ -832,7 +759,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eei20)::Type,Eei20Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei20)::Type,Eei20Val::v1> v1{};
         }
-        }
         ///Enable Error Interrupt 21
         enum class Eei21Val {
             v0=0x00000000,     ///<The error signal for corresponding channel does not generate an error interrupt
@@ -842,7 +768,6 @@ namespace Kvasir {
         namespace Eei21ValC{
             constexpr Register::FieldValue<decltype(eei21)::Type,Eei21Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei21)::Type,Eei21Val::v1> v1{};
-        }
         }
         ///Enable Error Interrupt 22
         enum class Eei22Val {
@@ -854,7 +779,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eei22)::Type,Eei22Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei22)::Type,Eei22Val::v1> v1{};
         }
-        }
         ///Enable Error Interrupt 23
         enum class Eei23Val {
             v0=0x00000000,     ///<The error signal for corresponding channel does not generate an error interrupt
@@ -864,7 +788,6 @@ namespace Kvasir {
         namespace Eei23ValC{
             constexpr Register::FieldValue<decltype(eei23)::Type,Eei23Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei23)::Type,Eei23Val::v1> v1{};
-        }
         }
         ///Enable Error Interrupt 24
         enum class Eei24Val {
@@ -876,7 +799,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eei24)::Type,Eei24Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei24)::Type,Eei24Val::v1> v1{};
         }
-        }
         ///Enable Error Interrupt 25
         enum class Eei25Val {
             v0=0x00000000,     ///<The error signal for corresponding channel does not generate an error interrupt
@@ -886,7 +808,6 @@ namespace Kvasir {
         namespace Eei25ValC{
             constexpr Register::FieldValue<decltype(eei25)::Type,Eei25Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei25)::Type,Eei25Val::v1> v1{};
-        }
         }
         ///Enable Error Interrupt 26
         enum class Eei26Val {
@@ -898,7 +819,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eei26)::Type,Eei26Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei26)::Type,Eei26Val::v1> v1{};
         }
-        }
         ///Enable Error Interrupt 27
         enum class Eei27Val {
             v0=0x00000000,     ///<The error signal for corresponding channel does not generate an error interrupt
@@ -908,7 +828,6 @@ namespace Kvasir {
         namespace Eei27ValC{
             constexpr Register::FieldValue<decltype(eei27)::Type,Eei27Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei27)::Type,Eei27Val::v1> v1{};
-        }
         }
         ///Enable Error Interrupt 28
         enum class Eei28Val {
@@ -920,7 +839,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eei28)::Type,Eei28Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei28)::Type,Eei28Val::v1> v1{};
         }
-        }
         ///Enable Error Interrupt 29
         enum class Eei29Val {
             v0=0x00000000,     ///<The error signal for corresponding channel does not generate an error interrupt
@@ -930,7 +848,6 @@ namespace Kvasir {
         namespace Eei29ValC{
             constexpr Register::FieldValue<decltype(eei29)::Type,Eei29Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei29)::Type,Eei29Val::v1> v1{};
-        }
         }
         ///Enable Error Interrupt 30
         enum class Eei30Val {
@@ -942,7 +859,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eei30)::Type,Eei30Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei30)::Type,Eei30Val::v1> v1{};
         }
-        }
         ///Enable Error Interrupt 31
         enum class Eei31Val {
             v0=0x00000000,     ///<The error signal for corresponding channel does not generate an error interrupt
@@ -952,7 +868,6 @@ namespace Kvasir {
         namespace Eei31ValC{
             constexpr Register::FieldValue<decltype(eei31)::Type,Eei31Val::v0> v0{};
             constexpr Register::FieldValue<decltype(eei31)::Type,Eei31Val::v1> v1{};
-        }
         }
     }
     namespace DmaCeei{    ///<Clear Enable Error Interrupt Register
@@ -969,7 +884,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(caee)::Type,CaeeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(caee)::Type,CaeeVal::v1> v1{};
         }
-        }
         ///no description available
         enum class NopVal {
             v0=0x00000000,     ///<Normal operation
@@ -979,7 +893,6 @@ namespace Kvasir {
         namespace NopValC{
             constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v0> v0{};
             constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v1> v1{};
-        }
         }
     }
     namespace DmaSeei{    ///<Set Enable Error Interrupt Register
@@ -996,7 +909,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(saee)::Type,SaeeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(saee)::Type,SaeeVal::v1> v1{};
         }
-        }
         ///no description available
         enum class NopVal {
             v0=0x00000000,     ///<Normal operation
@@ -1006,7 +918,6 @@ namespace Kvasir {
         namespace NopValC{
             constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v0> v0{};
             constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v1> v1{};
-        }
         }
     }
     namespace DmaCerq{    ///<Clear Enable Request Register
@@ -1023,7 +934,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(caer)::Type,CaerVal::v0> v0{};
             constexpr Register::FieldValue<decltype(caer)::Type,CaerVal::v1> v1{};
         }
-        }
         ///no description available
         enum class NopVal {
             v0=0x00000000,     ///<Normal operation
@@ -1033,7 +943,6 @@ namespace Kvasir {
         namespace NopValC{
             constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v0> v0{};
             constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v1> v1{};
-        }
         }
     }
     namespace DmaSerq{    ///<Set Enable Request Register
@@ -1050,7 +959,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(saer)::Type,SaerVal::v0> v0{};
             constexpr Register::FieldValue<decltype(saer)::Type,SaerVal::v1> v1{};
         }
-        }
         ///no description available
         enum class NopVal {
             v0=0x00000000,     ///<Normal operation
@@ -1060,7 +968,6 @@ namespace Kvasir {
         namespace NopValC{
             constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v0> v0{};
             constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v1> v1{};
-        }
         }
     }
     namespace DmaCdne{    ///<Clear DONE Status Bit Register
@@ -1077,7 +984,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cadn)::Type,CadnVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cadn)::Type,CadnVal::v1> v1{};
         }
-        }
         ///no description available
         enum class NopVal {
             v0=0x00000000,     ///<Normal operation
@@ -1087,7 +993,6 @@ namespace Kvasir {
         namespace NopValC{
             constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v0> v0{};
             constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v1> v1{};
-        }
         }
     }
     namespace DmaSsrt{    ///<Set START Bit Register
@@ -1104,7 +1009,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sast)::Type,SastVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sast)::Type,SastVal::v1> v1{};
         }
-        }
         ///no description available
         enum class NopVal {
             v0=0x00000000,     ///<Normal operation
@@ -1114,7 +1018,6 @@ namespace Kvasir {
         namespace NopValC{
             constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v0> v0{};
             constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v1> v1{};
-        }
         }
     }
     namespace DmaCerr{    ///<Clear Error Register
@@ -1131,7 +1034,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(caei)::Type,CaeiVal::v0> v0{};
             constexpr Register::FieldValue<decltype(caei)::Type,CaeiVal::v1> v1{};
         }
-        }
         ///no description available
         enum class NopVal {
             v0=0x00000000,     ///<Normal operation
@@ -1141,7 +1043,6 @@ namespace Kvasir {
         namespace NopValC{
             constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v0> v0{};
             constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v1> v1{};
-        }
         }
     }
     namespace DmaCint{    ///<Clear Interrupt Request Register
@@ -1158,7 +1059,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cair)::Type,CairVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cair)::Type,CairVal::v1> v1{};
         }
-        }
         ///no description available
         enum class NopVal {
             v0=0x00000000,     ///<Normal operation
@@ -1168,7 +1068,6 @@ namespace Kvasir {
         namespace NopValC{
             constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v0> v0{};
             constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v1> v1{};
-        }
         }
     }
     namespace DmaInt{    ///<Interrupt Request Register
@@ -1183,7 +1082,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(int0)::Type,Int0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int0)::Type,Int0Val::v1> v1{};
         }
-        }
         ///Interrupt Request 1
         enum class Int1Val {
             v0=0x00000000,     ///<The interrupt request for corresponding channel is cleared
@@ -1193,7 +1091,6 @@ namespace Kvasir {
         namespace Int1ValC{
             constexpr Register::FieldValue<decltype(int1)::Type,Int1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int1)::Type,Int1Val::v1> v1{};
-        }
         }
         ///Interrupt Request 2
         enum class Int2Val {
@@ -1205,7 +1102,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(int2)::Type,Int2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int2)::Type,Int2Val::v1> v1{};
         }
-        }
         ///Interrupt Request 3
         enum class Int3Val {
             v0=0x00000000,     ///<The interrupt request for corresponding channel is cleared
@@ -1215,7 +1111,6 @@ namespace Kvasir {
         namespace Int3ValC{
             constexpr Register::FieldValue<decltype(int3)::Type,Int3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int3)::Type,Int3Val::v1> v1{};
-        }
         }
         ///Interrupt Request 4
         enum class Int4Val {
@@ -1227,7 +1122,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(int4)::Type,Int4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int4)::Type,Int4Val::v1> v1{};
         }
-        }
         ///Interrupt Request 5
         enum class Int5Val {
             v0=0x00000000,     ///<The interrupt request for corresponding channel is cleared
@@ -1237,7 +1131,6 @@ namespace Kvasir {
         namespace Int5ValC{
             constexpr Register::FieldValue<decltype(int5)::Type,Int5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int5)::Type,Int5Val::v1> v1{};
-        }
         }
         ///Interrupt Request 6
         enum class Int6Val {
@@ -1249,7 +1142,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(int6)::Type,Int6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int6)::Type,Int6Val::v1> v1{};
         }
-        }
         ///Interrupt Request 7
         enum class Int7Val {
             v0=0x00000000,     ///<The interrupt request for corresponding channel is cleared
@@ -1259,7 +1151,6 @@ namespace Kvasir {
         namespace Int7ValC{
             constexpr Register::FieldValue<decltype(int7)::Type,Int7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int7)::Type,Int7Val::v1> v1{};
-        }
         }
         ///Interrupt Request 8
         enum class Int8Val {
@@ -1271,7 +1162,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(int8)::Type,Int8Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int8)::Type,Int8Val::v1> v1{};
         }
-        }
         ///Interrupt Request 9
         enum class Int9Val {
             v0=0x00000000,     ///<The interrupt request for corresponding channel is cleared
@@ -1281,7 +1171,6 @@ namespace Kvasir {
         namespace Int9ValC{
             constexpr Register::FieldValue<decltype(int9)::Type,Int9Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int9)::Type,Int9Val::v1> v1{};
-        }
         }
         ///Interrupt Request 10
         enum class Int10Val {
@@ -1293,7 +1182,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(int10)::Type,Int10Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int10)::Type,Int10Val::v1> v1{};
         }
-        }
         ///Interrupt Request 11
         enum class Int11Val {
             v0=0x00000000,     ///<The interrupt request for corresponding channel is cleared
@@ -1303,7 +1191,6 @@ namespace Kvasir {
         namespace Int11ValC{
             constexpr Register::FieldValue<decltype(int11)::Type,Int11Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int11)::Type,Int11Val::v1> v1{};
-        }
         }
         ///Interrupt Request 12
         enum class Int12Val {
@@ -1315,7 +1202,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(int12)::Type,Int12Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int12)::Type,Int12Val::v1> v1{};
         }
-        }
         ///Interrupt Request 13
         enum class Int13Val {
             v0=0x00000000,     ///<The interrupt request for corresponding channel is cleared
@@ -1325,7 +1211,6 @@ namespace Kvasir {
         namespace Int13ValC{
             constexpr Register::FieldValue<decltype(int13)::Type,Int13Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int13)::Type,Int13Val::v1> v1{};
-        }
         }
         ///Interrupt Request 14
         enum class Int14Val {
@@ -1337,7 +1222,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(int14)::Type,Int14Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int14)::Type,Int14Val::v1> v1{};
         }
-        }
         ///Interrupt Request 15
         enum class Int15Val {
             v0=0x00000000,     ///<The interrupt request for corresponding channel is cleared
@@ -1347,7 +1231,6 @@ namespace Kvasir {
         namespace Int15ValC{
             constexpr Register::FieldValue<decltype(int15)::Type,Int15Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int15)::Type,Int15Val::v1> v1{};
-        }
         }
         ///Interrupt Request 16
         enum class Int16Val {
@@ -1359,7 +1242,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(int16)::Type,Int16Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int16)::Type,Int16Val::v1> v1{};
         }
-        }
         ///Interrupt Request 17
         enum class Int17Val {
             v0=0x00000000,     ///<The interrupt request for corresponding channel is cleared
@@ -1369,7 +1251,6 @@ namespace Kvasir {
         namespace Int17ValC{
             constexpr Register::FieldValue<decltype(int17)::Type,Int17Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int17)::Type,Int17Val::v1> v1{};
-        }
         }
         ///Interrupt Request 18
         enum class Int18Val {
@@ -1381,7 +1262,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(int18)::Type,Int18Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int18)::Type,Int18Val::v1> v1{};
         }
-        }
         ///Interrupt Request 19
         enum class Int19Val {
             v0=0x00000000,     ///<The interrupt request for corresponding channel is cleared
@@ -1391,7 +1271,6 @@ namespace Kvasir {
         namespace Int19ValC{
             constexpr Register::FieldValue<decltype(int19)::Type,Int19Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int19)::Type,Int19Val::v1> v1{};
-        }
         }
         ///Interrupt Request 20
         enum class Int20Val {
@@ -1403,7 +1282,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(int20)::Type,Int20Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int20)::Type,Int20Val::v1> v1{};
         }
-        }
         ///Interrupt Request 21
         enum class Int21Val {
             v0=0x00000000,     ///<The interrupt request for corresponding channel is cleared
@@ -1413,7 +1291,6 @@ namespace Kvasir {
         namespace Int21ValC{
             constexpr Register::FieldValue<decltype(int21)::Type,Int21Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int21)::Type,Int21Val::v1> v1{};
-        }
         }
         ///Interrupt Request 22
         enum class Int22Val {
@@ -1425,7 +1302,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(int22)::Type,Int22Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int22)::Type,Int22Val::v1> v1{};
         }
-        }
         ///Interrupt Request 23
         enum class Int23Val {
             v0=0x00000000,     ///<The interrupt request for corresponding channel is cleared
@@ -1435,7 +1311,6 @@ namespace Kvasir {
         namespace Int23ValC{
             constexpr Register::FieldValue<decltype(int23)::Type,Int23Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int23)::Type,Int23Val::v1> v1{};
-        }
         }
         ///Interrupt Request 24
         enum class Int24Val {
@@ -1447,7 +1322,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(int24)::Type,Int24Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int24)::Type,Int24Val::v1> v1{};
         }
-        }
         ///Interrupt Request 25
         enum class Int25Val {
             v0=0x00000000,     ///<The interrupt request for corresponding channel is cleared
@@ -1457,7 +1331,6 @@ namespace Kvasir {
         namespace Int25ValC{
             constexpr Register::FieldValue<decltype(int25)::Type,Int25Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int25)::Type,Int25Val::v1> v1{};
-        }
         }
         ///Interrupt Request 26
         enum class Int26Val {
@@ -1469,7 +1342,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(int26)::Type,Int26Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int26)::Type,Int26Val::v1> v1{};
         }
-        }
         ///Interrupt Request 27
         enum class Int27Val {
             v0=0x00000000,     ///<The interrupt request for corresponding channel is cleared
@@ -1479,7 +1351,6 @@ namespace Kvasir {
         namespace Int27ValC{
             constexpr Register::FieldValue<decltype(int27)::Type,Int27Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int27)::Type,Int27Val::v1> v1{};
-        }
         }
         ///Interrupt Request 28
         enum class Int28Val {
@@ -1491,7 +1362,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(int28)::Type,Int28Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int28)::Type,Int28Val::v1> v1{};
         }
-        }
         ///Interrupt Request 29
         enum class Int29Val {
             v0=0x00000000,     ///<The interrupt request for corresponding channel is cleared
@@ -1501,7 +1371,6 @@ namespace Kvasir {
         namespace Int29ValC{
             constexpr Register::FieldValue<decltype(int29)::Type,Int29Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int29)::Type,Int29Val::v1> v1{};
-        }
         }
         ///Interrupt Request 30
         enum class Int30Val {
@@ -1513,7 +1382,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(int30)::Type,Int30Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int30)::Type,Int30Val::v1> v1{};
         }
-        }
         ///Interrupt Request 31
         enum class Int31Val {
             v0=0x00000000,     ///<The interrupt request for corresponding channel is cleared
@@ -1523,7 +1391,6 @@ namespace Kvasir {
         namespace Int31ValC{
             constexpr Register::FieldValue<decltype(int31)::Type,Int31Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int31)::Type,Int31Val::v1> v1{};
-        }
         }
     }
     namespace DmaErr{    ///<Error Register
@@ -1538,7 +1405,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(err0)::Type,Err0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err0)::Type,Err0Val::v1> v1{};
         }
-        }
         ///Error In Channel 1
         enum class Err1Val {
             v0=0x00000000,     ///<An error in the corresponding channel has not occurred
@@ -1548,7 +1414,6 @@ namespace Kvasir {
         namespace Err1ValC{
             constexpr Register::FieldValue<decltype(err1)::Type,Err1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err1)::Type,Err1Val::v1> v1{};
-        }
         }
         ///Error In Channel 2
         enum class Err2Val {
@@ -1560,7 +1425,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(err2)::Type,Err2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err2)::Type,Err2Val::v1> v1{};
         }
-        }
         ///Error In Channel 3
         enum class Err3Val {
             v0=0x00000000,     ///<An error in the corresponding channel has not occurred
@@ -1570,7 +1434,6 @@ namespace Kvasir {
         namespace Err3ValC{
             constexpr Register::FieldValue<decltype(err3)::Type,Err3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err3)::Type,Err3Val::v1> v1{};
-        }
         }
         ///Error In Channel 4
         enum class Err4Val {
@@ -1582,7 +1445,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(err4)::Type,Err4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err4)::Type,Err4Val::v1> v1{};
         }
-        }
         ///Error In Channel 5
         enum class Err5Val {
             v0=0x00000000,     ///<An error in the corresponding channel has not occurred
@@ -1592,7 +1454,6 @@ namespace Kvasir {
         namespace Err5ValC{
             constexpr Register::FieldValue<decltype(err5)::Type,Err5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err5)::Type,Err5Val::v1> v1{};
-        }
         }
         ///Error In Channel 6
         enum class Err6Val {
@@ -1604,7 +1465,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(err6)::Type,Err6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err6)::Type,Err6Val::v1> v1{};
         }
-        }
         ///Error In Channel 7
         enum class Err7Val {
             v0=0x00000000,     ///<An error in the corresponding channel has not occurred
@@ -1614,7 +1474,6 @@ namespace Kvasir {
         namespace Err7ValC{
             constexpr Register::FieldValue<decltype(err7)::Type,Err7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err7)::Type,Err7Val::v1> v1{};
-        }
         }
         ///Error In Channel 8
         enum class Err8Val {
@@ -1626,7 +1485,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(err8)::Type,Err8Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err8)::Type,Err8Val::v1> v1{};
         }
-        }
         ///Error In Channel 9
         enum class Err9Val {
             v0=0x00000000,     ///<An error in the corresponding channel has not occurred
@@ -1636,7 +1494,6 @@ namespace Kvasir {
         namespace Err9ValC{
             constexpr Register::FieldValue<decltype(err9)::Type,Err9Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err9)::Type,Err9Val::v1> v1{};
-        }
         }
         ///Error In Channel 10
         enum class Err10Val {
@@ -1648,7 +1505,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(err10)::Type,Err10Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err10)::Type,Err10Val::v1> v1{};
         }
-        }
         ///Error In Channel 11
         enum class Err11Val {
             v0=0x00000000,     ///<An error in the corresponding channel has not occurred
@@ -1658,7 +1514,6 @@ namespace Kvasir {
         namespace Err11ValC{
             constexpr Register::FieldValue<decltype(err11)::Type,Err11Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err11)::Type,Err11Val::v1> v1{};
-        }
         }
         ///Error In Channel 12
         enum class Err12Val {
@@ -1670,7 +1525,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(err12)::Type,Err12Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err12)::Type,Err12Val::v1> v1{};
         }
-        }
         ///Error In Channel 13
         enum class Err13Val {
             v0=0x00000000,     ///<An error in the corresponding channel has not occurred
@@ -1680,7 +1534,6 @@ namespace Kvasir {
         namespace Err13ValC{
             constexpr Register::FieldValue<decltype(err13)::Type,Err13Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err13)::Type,Err13Val::v1> v1{};
-        }
         }
         ///Error In Channel 14
         enum class Err14Val {
@@ -1692,7 +1545,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(err14)::Type,Err14Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err14)::Type,Err14Val::v1> v1{};
         }
-        }
         ///Error In Channel 15
         enum class Err15Val {
             v0=0x00000000,     ///<An error in the corresponding channel has not occurred
@@ -1702,7 +1554,6 @@ namespace Kvasir {
         namespace Err15ValC{
             constexpr Register::FieldValue<decltype(err15)::Type,Err15Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err15)::Type,Err15Val::v1> v1{};
-        }
         }
         ///Error In Channel 16
         enum class Err16Val {
@@ -1714,7 +1565,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(err16)::Type,Err16Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err16)::Type,Err16Val::v1> v1{};
         }
-        }
         ///Error In Channel 17
         enum class Err17Val {
             v0=0x00000000,     ///<An error in the corresponding channel has not occurred
@@ -1724,7 +1574,6 @@ namespace Kvasir {
         namespace Err17ValC{
             constexpr Register::FieldValue<decltype(err17)::Type,Err17Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err17)::Type,Err17Val::v1> v1{};
-        }
         }
         ///Error In Channel 18
         enum class Err18Val {
@@ -1736,7 +1585,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(err18)::Type,Err18Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err18)::Type,Err18Val::v1> v1{};
         }
-        }
         ///Error In Channel 19
         enum class Err19Val {
             v0=0x00000000,     ///<An error in the corresponding channel has not occurred
@@ -1746,7 +1594,6 @@ namespace Kvasir {
         namespace Err19ValC{
             constexpr Register::FieldValue<decltype(err19)::Type,Err19Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err19)::Type,Err19Val::v1> v1{};
-        }
         }
         ///Error In Channel 20
         enum class Err20Val {
@@ -1758,7 +1605,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(err20)::Type,Err20Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err20)::Type,Err20Val::v1> v1{};
         }
-        }
         ///Error In Channel 21
         enum class Err21Val {
             v0=0x00000000,     ///<An error in the corresponding channel has not occurred
@@ -1768,7 +1614,6 @@ namespace Kvasir {
         namespace Err21ValC{
             constexpr Register::FieldValue<decltype(err21)::Type,Err21Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err21)::Type,Err21Val::v1> v1{};
-        }
         }
         ///Error In Channel 22
         enum class Err22Val {
@@ -1780,7 +1625,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(err22)::Type,Err22Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err22)::Type,Err22Val::v1> v1{};
         }
-        }
         ///Error In Channel 23
         enum class Err23Val {
             v0=0x00000000,     ///<An error in the corresponding channel has not occurred
@@ -1790,7 +1634,6 @@ namespace Kvasir {
         namespace Err23ValC{
             constexpr Register::FieldValue<decltype(err23)::Type,Err23Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err23)::Type,Err23Val::v1> v1{};
-        }
         }
         ///Error In Channel 24
         enum class Err24Val {
@@ -1802,7 +1645,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(err24)::Type,Err24Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err24)::Type,Err24Val::v1> v1{};
         }
-        }
         ///Error In Channel 25
         enum class Err25Val {
             v0=0x00000000,     ///<An error in the corresponding channel has not occurred
@@ -1812,7 +1654,6 @@ namespace Kvasir {
         namespace Err25ValC{
             constexpr Register::FieldValue<decltype(err25)::Type,Err25Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err25)::Type,Err25Val::v1> v1{};
-        }
         }
         ///Error In Channel 26
         enum class Err26Val {
@@ -1824,7 +1665,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(err26)::Type,Err26Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err26)::Type,Err26Val::v1> v1{};
         }
-        }
         ///Error In Channel 27
         enum class Err27Val {
             v0=0x00000000,     ///<An error in the corresponding channel has not occurred
@@ -1834,7 +1674,6 @@ namespace Kvasir {
         namespace Err27ValC{
             constexpr Register::FieldValue<decltype(err27)::Type,Err27Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err27)::Type,Err27Val::v1> v1{};
-        }
         }
         ///Error In Channel 28
         enum class Err28Val {
@@ -1846,7 +1685,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(err28)::Type,Err28Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err28)::Type,Err28Val::v1> v1{};
         }
-        }
         ///Error In Channel 29
         enum class Err29Val {
             v0=0x00000000,     ///<An error in the corresponding channel has not occurred
@@ -1856,7 +1694,6 @@ namespace Kvasir {
         namespace Err29ValC{
             constexpr Register::FieldValue<decltype(err29)::Type,Err29Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err29)::Type,Err29Val::v1> v1{};
-        }
         }
         ///Error In Channel 30
         enum class Err30Val {
@@ -1868,7 +1705,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(err30)::Type,Err30Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err30)::Type,Err30Val::v1> v1{};
         }
-        }
         ///Error In Channel 31
         enum class Err31Val {
             v0=0x00000000,     ///<An error in the corresponding channel has not occurred
@@ -1878,7 +1714,6 @@ namespace Kvasir {
         namespace Err31ValC{
             constexpr Register::FieldValue<decltype(err31)::Type,Err31Val::v0> v0{};
             constexpr Register::FieldValue<decltype(err31)::Type,Err31Val::v1> v1{};
-        }
         }
     }
     namespace DmaHrs{    ///<Hardware Request Status Register
@@ -1893,7 +1728,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hrs0)::Type,Hrs0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs0)::Type,Hrs0Val::v1> v1{};
         }
-        }
         ///Hardware Request Status Channel 1
         enum class Hrs1Val {
             v0=0x00000000,     ///<A hardware service request for the corresponding channel is not present
@@ -1903,7 +1737,6 @@ namespace Kvasir {
         namespace Hrs1ValC{
             constexpr Register::FieldValue<decltype(hrs1)::Type,Hrs1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs1)::Type,Hrs1Val::v1> v1{};
-        }
         }
         ///Hardware Request Status Channel 2
         enum class Hrs2Val {
@@ -1915,7 +1748,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hrs2)::Type,Hrs2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs2)::Type,Hrs2Val::v1> v1{};
         }
-        }
         ///Hardware Request Status Channel 3
         enum class Hrs3Val {
             v0=0x00000000,     ///<A hardware service request for the corresponding channel is not present
@@ -1925,7 +1757,6 @@ namespace Kvasir {
         namespace Hrs3ValC{
             constexpr Register::FieldValue<decltype(hrs3)::Type,Hrs3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs3)::Type,Hrs3Val::v1> v1{};
-        }
         }
         ///Hardware Request Status Channel 4
         enum class Hrs4Val {
@@ -1937,7 +1768,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hrs4)::Type,Hrs4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs4)::Type,Hrs4Val::v1> v1{};
         }
-        }
         ///Hardware Request Status Channel 5
         enum class Hrs5Val {
             v0=0x00000000,     ///<A hardware service request for the corresponding channel is not present
@@ -1947,7 +1777,6 @@ namespace Kvasir {
         namespace Hrs5ValC{
             constexpr Register::FieldValue<decltype(hrs5)::Type,Hrs5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs5)::Type,Hrs5Val::v1> v1{};
-        }
         }
         ///Hardware Request Status Channel 6
         enum class Hrs6Val {
@@ -1959,7 +1788,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hrs6)::Type,Hrs6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs6)::Type,Hrs6Val::v1> v1{};
         }
-        }
         ///Hardware Request Status Channel 7
         enum class Hrs7Val {
             v0=0x00000000,     ///<A hardware service request for the corresponding channel is not present
@@ -1969,7 +1797,6 @@ namespace Kvasir {
         namespace Hrs7ValC{
             constexpr Register::FieldValue<decltype(hrs7)::Type,Hrs7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs7)::Type,Hrs7Val::v1> v1{};
-        }
         }
         ///Hardware Request Status Channel 8
         enum class Hrs8Val {
@@ -1981,7 +1808,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hrs8)::Type,Hrs8Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs8)::Type,Hrs8Val::v1> v1{};
         }
-        }
         ///Hardware Request Status Channel 9
         enum class Hrs9Val {
             v0=0x00000000,     ///<A hardware service request for the corresponding channel is not present
@@ -1991,7 +1817,6 @@ namespace Kvasir {
         namespace Hrs9ValC{
             constexpr Register::FieldValue<decltype(hrs9)::Type,Hrs9Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs9)::Type,Hrs9Val::v1> v1{};
-        }
         }
         ///Hardware Request Status Channel 10
         enum class Hrs10Val {
@@ -2003,7 +1828,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hrs10)::Type,Hrs10Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs10)::Type,Hrs10Val::v1> v1{};
         }
-        }
         ///Hardware Request Status Channel 11
         enum class Hrs11Val {
             v0=0x00000000,     ///<A hardware service request for the corresponding channel is not present
@@ -2013,7 +1837,6 @@ namespace Kvasir {
         namespace Hrs11ValC{
             constexpr Register::FieldValue<decltype(hrs11)::Type,Hrs11Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs11)::Type,Hrs11Val::v1> v1{};
-        }
         }
         ///Hardware Request Status Channel 12
         enum class Hrs12Val {
@@ -2025,7 +1848,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hrs12)::Type,Hrs12Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs12)::Type,Hrs12Val::v1> v1{};
         }
-        }
         ///Hardware Request Status Channel 13
         enum class Hrs13Val {
             v0=0x00000000,     ///<A hardware service request for the corresponding channel is not present
@@ -2035,7 +1857,6 @@ namespace Kvasir {
         namespace Hrs13ValC{
             constexpr Register::FieldValue<decltype(hrs13)::Type,Hrs13Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs13)::Type,Hrs13Val::v1> v1{};
-        }
         }
         ///Hardware Request Status Channel 14
         enum class Hrs14Val {
@@ -2047,7 +1868,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hrs14)::Type,Hrs14Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs14)::Type,Hrs14Val::v1> v1{};
         }
-        }
         ///Hardware Request Status Channel 15
         enum class Hrs15Val {
             v0=0x00000000,     ///<A hardware service request for the corresponding channel is not present
@@ -2057,7 +1877,6 @@ namespace Kvasir {
         namespace Hrs15ValC{
             constexpr Register::FieldValue<decltype(hrs15)::Type,Hrs15Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs15)::Type,Hrs15Val::v1> v1{};
-        }
         }
         ///Hardware Request Status Channel 16
         enum class Hrs16Val {
@@ -2069,7 +1888,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hrs16)::Type,Hrs16Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs16)::Type,Hrs16Val::v1> v1{};
         }
-        }
         ///Hardware Request Status Channel 17
         enum class Hrs17Val {
             v0=0x00000000,     ///<A hardware service request for the corresponding channel is not present
@@ -2079,7 +1897,6 @@ namespace Kvasir {
         namespace Hrs17ValC{
             constexpr Register::FieldValue<decltype(hrs17)::Type,Hrs17Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs17)::Type,Hrs17Val::v1> v1{};
-        }
         }
         ///Hardware Request Status Channel 18
         enum class Hrs18Val {
@@ -2091,7 +1908,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hrs18)::Type,Hrs18Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs18)::Type,Hrs18Val::v1> v1{};
         }
-        }
         ///Hardware Request Status Channel 19
         enum class Hrs19Val {
             v0=0x00000000,     ///<A hardware service request for the corresponding channel is not present
@@ -2101,7 +1917,6 @@ namespace Kvasir {
         namespace Hrs19ValC{
             constexpr Register::FieldValue<decltype(hrs19)::Type,Hrs19Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs19)::Type,Hrs19Val::v1> v1{};
-        }
         }
         ///Hardware Request Status Channel 20
         enum class Hrs20Val {
@@ -2113,7 +1928,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hrs20)::Type,Hrs20Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs20)::Type,Hrs20Val::v1> v1{};
         }
-        }
         ///Hardware Request Status Channel 21
         enum class Hrs21Val {
             v0=0x00000000,     ///<A hardware service request for the corresponding channel is not present
@@ -2123,7 +1937,6 @@ namespace Kvasir {
         namespace Hrs21ValC{
             constexpr Register::FieldValue<decltype(hrs21)::Type,Hrs21Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs21)::Type,Hrs21Val::v1> v1{};
-        }
         }
         ///Hardware Request Status Channel 22
         enum class Hrs22Val {
@@ -2135,7 +1948,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hrs22)::Type,Hrs22Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs22)::Type,Hrs22Val::v1> v1{};
         }
-        }
         ///Hardware Request Status Channel 23
         enum class Hrs23Val {
             v0=0x00000000,     ///<A hardware service request for the corresponding channel is not present
@@ -2145,7 +1957,6 @@ namespace Kvasir {
         namespace Hrs23ValC{
             constexpr Register::FieldValue<decltype(hrs23)::Type,Hrs23Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs23)::Type,Hrs23Val::v1> v1{};
-        }
         }
         ///Hardware Request Status Channel 24
         enum class Hrs24Val {
@@ -2157,7 +1968,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hrs24)::Type,Hrs24Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs24)::Type,Hrs24Val::v1> v1{};
         }
-        }
         ///Hardware Request Status Channel 25
         enum class Hrs25Val {
             v0=0x00000000,     ///<A hardware service request for the corresponding channel is not present
@@ -2167,7 +1977,6 @@ namespace Kvasir {
         namespace Hrs25ValC{
             constexpr Register::FieldValue<decltype(hrs25)::Type,Hrs25Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs25)::Type,Hrs25Val::v1> v1{};
-        }
         }
         ///Hardware Request Status Channel 26
         enum class Hrs26Val {
@@ -2179,7 +1988,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hrs26)::Type,Hrs26Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs26)::Type,Hrs26Val::v1> v1{};
         }
-        }
         ///Hardware Request Status Channel 27
         enum class Hrs27Val {
             v0=0x00000000,     ///<A hardware service request for the corresponding channel is not present
@@ -2189,7 +1997,6 @@ namespace Kvasir {
         namespace Hrs27ValC{
             constexpr Register::FieldValue<decltype(hrs27)::Type,Hrs27Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs27)::Type,Hrs27Val::v1> v1{};
-        }
         }
         ///Hardware Request Status Channel 28
         enum class Hrs28Val {
@@ -2201,7 +2008,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hrs28)::Type,Hrs28Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs28)::Type,Hrs28Val::v1> v1{};
         }
-        }
         ///Hardware Request Status Channel 29
         enum class Hrs29Val {
             v0=0x00000000,     ///<A hardware service request for the corresponding channel is not present
@@ -2211,7 +2017,6 @@ namespace Kvasir {
         namespace Hrs29ValC{
             constexpr Register::FieldValue<decltype(hrs29)::Type,Hrs29Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs29)::Type,Hrs29Val::v1> v1{};
-        }
         }
         ///Hardware Request Status Channel 30
         enum class Hrs30Val {
@@ -2223,7 +2028,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hrs30)::Type,Hrs30Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs30)::Type,Hrs30Val::v1> v1{};
         }
-        }
         ///Hardware Request Status Channel 31
         enum class Hrs31Val {
             v0=0x00000000,     ///<A hardware service request for the corresponding channel is not present
@@ -2233,7 +2037,6 @@ namespace Kvasir {
         namespace Hrs31ValC{
             constexpr Register::FieldValue<decltype(hrs31)::Type,Hrs31Val::v0> v0{};
             constexpr Register::FieldValue<decltype(hrs31)::Type,Hrs31Val::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri3{    ///<Channel n Priority Register
@@ -2252,7 +2055,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2262,7 +2064,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri2{    ///<Channel n Priority Register
@@ -2281,7 +2082,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2291,7 +2091,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri1{    ///<Channel n Priority Register
@@ -2310,7 +2109,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2320,7 +2118,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri0{    ///<Channel n Priority Register
@@ -2339,7 +2136,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2349,7 +2145,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri7{    ///<Channel n Priority Register
@@ -2368,7 +2163,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2378,7 +2172,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri6{    ///<Channel n Priority Register
@@ -2397,7 +2190,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2407,7 +2199,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri5{    ///<Channel n Priority Register
@@ -2426,7 +2217,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2436,7 +2226,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri4{    ///<Channel n Priority Register
@@ -2455,7 +2244,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2465,7 +2253,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri11{    ///<Channel n Priority Register
@@ -2484,7 +2271,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2494,7 +2280,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri10{    ///<Channel n Priority Register
@@ -2513,7 +2298,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2523,7 +2307,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri9{    ///<Channel n Priority Register
@@ -2542,7 +2325,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2552,7 +2334,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri8{    ///<Channel n Priority Register
@@ -2571,7 +2352,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2581,7 +2361,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri15{    ///<Channel n Priority Register
@@ -2600,7 +2379,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2610,7 +2388,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri14{    ///<Channel n Priority Register
@@ -2629,7 +2406,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2639,7 +2415,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri13{    ///<Channel n Priority Register
@@ -2658,7 +2433,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2668,7 +2442,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri12{    ///<Channel n Priority Register
@@ -2687,7 +2460,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2697,7 +2469,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri19{    ///<Channel n Priority Register
@@ -2716,7 +2487,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2726,7 +2496,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri18{    ///<Channel n Priority Register
@@ -2745,7 +2514,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2755,7 +2523,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri17{    ///<Channel n Priority Register
@@ -2774,7 +2541,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2784,7 +2550,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri16{    ///<Channel n Priority Register
@@ -2803,7 +2568,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2813,7 +2577,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri23{    ///<Channel n Priority Register
@@ -2832,7 +2595,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2842,7 +2604,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri22{    ///<Channel n Priority Register
@@ -2861,7 +2622,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2871,7 +2631,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri21{    ///<Channel n Priority Register
@@ -2890,7 +2649,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2900,7 +2658,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri20{    ///<Channel n Priority Register
@@ -2919,7 +2676,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2929,7 +2685,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri27{    ///<Channel n Priority Register
@@ -2948,7 +2703,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2958,7 +2712,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri26{    ///<Channel n Priority Register
@@ -2977,7 +2730,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -2987,7 +2739,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri25{    ///<Channel n Priority Register
@@ -3006,7 +2757,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -3016,7 +2766,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri24{    ///<Channel n Priority Register
@@ -3035,7 +2784,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -3045,7 +2793,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri31{    ///<Channel n Priority Register
@@ -3064,7 +2811,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -3074,7 +2820,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri30{    ///<Channel n Priority Register
@@ -3093,7 +2838,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -3103,7 +2847,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri29{    ///<Channel n Priority Register
@@ -3122,7 +2865,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -3132,7 +2874,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaDchpri28{    ///<Channel n Priority Register
@@ -3151,7 +2892,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
         }
-        }
         ///Enable Channel Preemption. This bit resets to zero.
         enum class EcpVal {
             v0=0x00000000,     ///<Channel n cannot be suspended by a higher priority channel's service request
@@ -3161,7 +2901,6 @@ namespace Kvasir {
         namespace EcpValC{
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd0Saddr{    ///<TCD Source Address
@@ -3512,7 +3251,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
         }
-        }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
     }
@@ -3543,7 +3281,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v101> v101{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
-        }
         }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
@@ -3576,7 +3313,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
         }
-        }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
     }
@@ -3607,7 +3343,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v101> v101{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
-        }
         }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
@@ -3640,7 +3375,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
         }
-        }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
     }
@@ -3671,7 +3405,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v101> v101{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
-        }
         }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
@@ -3704,7 +3437,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
         }
-        }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
     }
@@ -3735,7 +3467,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v101> v101{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
-        }
         }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
@@ -3768,7 +3499,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
         }
-        }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
     }
@@ -3799,7 +3529,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v101> v101{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
-        }
         }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
@@ -3832,7 +3561,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
         }
-        }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
     }
@@ -3863,7 +3591,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v101> v101{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
-        }
         }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
@@ -3896,7 +3623,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
         }
-        }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
     }
@@ -3927,7 +3653,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v101> v101{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
-        }
         }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
@@ -3960,7 +3685,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
         }
-        }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
     }
@@ -3991,7 +3715,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v101> v101{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
-        }
         }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
@@ -4024,7 +3747,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
         }
-        }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
     }
@@ -4055,7 +3777,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v101> v101{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
-        }
         }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
@@ -4088,7 +3809,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
         }
-        }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
     }
@@ -4119,7 +3839,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v101> v101{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
-        }
         }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
@@ -4152,7 +3871,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
         }
-        }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
     }
@@ -4183,7 +3901,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v101> v101{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
-        }
         }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
@@ -4216,7 +3933,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
         }
-        }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
     }
@@ -4247,7 +3963,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v101> v101{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
-        }
         }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
@@ -4280,7 +3995,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
         }
-        }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
     }
@@ -4311,7 +4025,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v101> v101{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
-        }
         }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
@@ -4344,7 +4057,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
         }
-        }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
     }
@@ -4375,7 +4087,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v101> v101{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
-        }
         }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
@@ -4408,7 +4119,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
         }
-        }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
     }
@@ -4439,7 +4149,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v101> v101{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
-        }
         }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
@@ -4472,7 +4181,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
         }
-        }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
     }
@@ -4504,7 +4212,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v110> v110{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v111> v111{};
         }
-        }
         ///Source Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
     }
@@ -4524,7 +4231,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -4534,7 +4240,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd1NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -4553,7 +4258,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -4563,7 +4267,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd2NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -4582,7 +4285,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -4592,7 +4294,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd3NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -4611,7 +4312,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -4621,7 +4321,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd4NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -4640,7 +4339,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -4650,7 +4348,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd5NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -4669,7 +4366,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -4679,7 +4375,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd6NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -4698,7 +4393,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -4708,7 +4402,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd7NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -4727,7 +4420,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -4737,7 +4429,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd8NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -4756,7 +4447,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -4766,7 +4456,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd9NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -4785,7 +4474,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -4795,7 +4483,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd10NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -4814,7 +4501,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -4824,7 +4510,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd11NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -4843,7 +4528,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -4853,7 +4537,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd12NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -4872,7 +4555,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -4882,7 +4564,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd13NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -4901,7 +4582,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -4911,7 +4591,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd14NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -4930,7 +4609,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -4940,7 +4618,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd15NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -4959,7 +4636,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -4969,7 +4645,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd16NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -4988,7 +4663,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -4998,7 +4672,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd17NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -5017,7 +4690,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5027,7 +4699,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd18NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -5046,7 +4717,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5056,7 +4726,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd19NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -5075,7 +4744,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5085,7 +4753,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd20NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -5104,7 +4771,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5114,7 +4780,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd21NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -5133,7 +4798,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5143,7 +4807,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd22NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -5162,7 +4825,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5172,7 +4834,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd23NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -5191,7 +4852,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5201,7 +4861,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd24NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -5220,7 +4879,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5230,7 +4888,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd25NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -5249,7 +4906,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5259,7 +4915,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd26NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -5278,7 +4933,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5288,7 +4942,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd27NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -5307,7 +4960,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5317,7 +4969,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd28NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -5336,7 +4987,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5346,7 +4996,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd29NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -5365,7 +5014,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5375,7 +5023,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd30NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -5394,7 +5041,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5404,7 +5050,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd31NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
@@ -5423,7 +5068,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5433,7 +5077,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd0NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -5450,7 +5093,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5460,7 +5102,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd1NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -5477,7 +5118,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5487,7 +5127,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd2NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -5504,7 +5143,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5514,7 +5152,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd3NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -5531,7 +5168,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5541,7 +5177,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd4NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -5558,7 +5193,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5568,7 +5202,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd5NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -5585,7 +5218,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5595,7 +5227,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd6NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -5612,7 +5243,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5622,7 +5252,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd7NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -5639,7 +5268,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5649,7 +5277,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd8NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -5666,7 +5293,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5676,7 +5302,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd9NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -5693,7 +5318,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5703,7 +5327,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd10NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -5720,7 +5343,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5730,7 +5352,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd11NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -5747,7 +5368,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5757,7 +5377,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd12NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -5774,7 +5393,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5784,7 +5402,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd13NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -5801,7 +5418,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5811,7 +5427,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd14NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -5828,7 +5443,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5838,7 +5452,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd15NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -5855,7 +5468,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5865,7 +5477,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd16NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -5882,7 +5493,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5892,7 +5502,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd17NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -5909,7 +5518,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5919,7 +5527,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd18NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -5936,7 +5543,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5946,7 +5552,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd19NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -5963,7 +5568,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -5973,7 +5577,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd20NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -5990,7 +5593,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -6000,7 +5602,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd21NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -6017,7 +5618,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -6027,7 +5627,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd22NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -6044,7 +5643,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -6054,7 +5652,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd23NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -6071,7 +5668,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -6081,7 +5677,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd24NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -6098,7 +5693,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -6108,7 +5702,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd25NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -6125,7 +5718,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -6135,7 +5727,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd26NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -6152,7 +5743,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -6162,7 +5752,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd27NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -6179,7 +5768,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -6189,7 +5777,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd28NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -6206,7 +5793,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -6216,7 +5802,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd29NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -6233,7 +5818,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -6243,7 +5827,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd30NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -6260,7 +5843,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -6270,7 +5852,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd31NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
@@ -6287,7 +5868,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
         }
-        }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the SADDR
@@ -6297,7 +5877,6 @@ namespace Kvasir {
         namespace SmloeValC{
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd0NbytesMlno{    ///<TCD Minor Byte Count (Minor Loop Disabled)
@@ -6956,7 +6535,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd1CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x40009036,0xffff4000,0,unsigned>;
@@ -6973,7 +6551,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd2CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -6992,7 +6569,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd3CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x40009076,0xffff4000,0,unsigned>;
@@ -7009,7 +6585,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd4CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -7028,7 +6603,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd5CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x400090b6,0xffff4000,0,unsigned>;
@@ -7045,7 +6619,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd6CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -7064,7 +6637,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd7CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x400090f6,0xffff4000,0,unsigned>;
@@ -7081,7 +6653,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd8CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -7100,7 +6671,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd9CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x40009136,0xffff4000,0,unsigned>;
@@ -7117,7 +6687,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd10CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -7136,7 +6705,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd11CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x40009176,0xffff4000,0,unsigned>;
@@ -7153,7 +6721,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd12CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -7172,7 +6739,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd13CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x400091b6,0xffff4000,0,unsigned>;
@@ -7189,7 +6755,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd14CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -7208,7 +6773,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd15CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x400091f6,0xffff4000,0,unsigned>;
@@ -7225,7 +6789,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd16CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -7244,7 +6807,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd17CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x40009236,0xffff4000,0,unsigned>;
@@ -7261,7 +6823,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd18CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -7280,7 +6841,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd19CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x40009276,0xffff4000,0,unsigned>;
@@ -7297,7 +6857,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd20CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -7316,7 +6875,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd21CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x400092b6,0xffff4000,0,unsigned>;
@@ -7333,7 +6891,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd22CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -7352,7 +6909,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd23CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x400092f6,0xffff4000,0,unsigned>;
@@ -7369,7 +6925,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd24CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -7388,7 +6943,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd25CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x40009336,0xffff4000,0,unsigned>;
@@ -7405,7 +6959,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd26CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -7424,7 +6977,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd27CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x40009376,0xffff4000,0,unsigned>;
@@ -7441,7 +6993,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd28CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -7460,7 +7011,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd29CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x400093b6,0xffff4000,0,unsigned>;
@@ -7477,7 +7027,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd30CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -7496,7 +7045,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd31CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x400093f6,0xffff4000,0,unsigned>;
@@ -7514,7 +7062,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd0CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x40009016,0xffff0000,0,unsigned>;
@@ -7529,7 +7076,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd1CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -7546,7 +7092,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd2CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x40009056,0xffff0000,0,unsigned>;
@@ -7561,7 +7106,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd3CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -7578,7 +7122,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd4CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x40009096,0xffff0000,0,unsigned>;
@@ -7593,7 +7136,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd5CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -7610,7 +7152,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd6CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x400090d6,0xffff0000,0,unsigned>;
@@ -7625,7 +7166,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd7CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -7642,7 +7182,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd8CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x40009116,0xffff0000,0,unsigned>;
@@ -7657,7 +7196,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd9CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -7674,7 +7212,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd10CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x40009156,0xffff0000,0,unsigned>;
@@ -7689,7 +7226,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd11CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -7706,7 +7242,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd12CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x40009196,0xffff0000,0,unsigned>;
@@ -7721,7 +7256,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd13CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -7738,7 +7272,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd14CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x400091d6,0xffff0000,0,unsigned>;
@@ -7753,7 +7286,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd15CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -7770,7 +7302,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd16CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x40009216,0xffff0000,0,unsigned>;
@@ -7785,7 +7316,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd17CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -7802,7 +7332,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd18CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x40009256,0xffff0000,0,unsigned>;
@@ -7817,7 +7346,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd19CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -7834,7 +7362,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd20CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x40009296,0xffff0000,0,unsigned>;
@@ -7849,7 +7376,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd21CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -7866,7 +7392,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd22CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x400092d6,0xffff0000,0,unsigned>;
@@ -7881,7 +7406,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd23CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -7898,7 +7422,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd24CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x40009316,0xffff0000,0,unsigned>;
@@ -7913,7 +7436,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd25CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -7930,7 +7452,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd26CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x40009356,0xffff0000,0,unsigned>;
@@ -7945,7 +7466,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd27CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -7962,7 +7482,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd28CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x40009396,0xffff0000,0,unsigned>;
@@ -7977,7 +7496,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd29CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -7994,7 +7512,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd30CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x400093d6,0xffff0000,0,unsigned>;
@@ -8010,7 +7527,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd31CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x400093f6,0xffff0000,0,unsigned>;
@@ -8025,7 +7541,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd0Dlastsga{    ///<TCD Last Destination Address Adjustment/Scatter Gather Address
@@ -8200,7 +7715,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -8210,7 +7724,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -8222,7 +7735,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -8232,7 +7744,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -8244,7 +7755,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -8254,7 +7764,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -8275,7 +7784,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd1Csr{    ///<TCD Control and Status
@@ -8290,7 +7798,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -8300,7 +7807,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -8312,7 +7818,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -8322,7 +7827,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -8334,7 +7838,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -8344,7 +7847,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -8365,7 +7867,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd2Csr{    ///<TCD Control and Status
@@ -8380,7 +7881,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -8390,7 +7890,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -8402,7 +7901,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -8412,7 +7910,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -8424,7 +7921,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -8434,7 +7930,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -8455,7 +7950,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd3Csr{    ///<TCD Control and Status
@@ -8470,7 +7964,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -8480,7 +7973,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -8492,7 +7984,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -8502,7 +7993,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -8514,7 +8004,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -8524,7 +8013,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -8545,7 +8033,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd4Csr{    ///<TCD Control and Status
@@ -8560,7 +8047,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -8570,7 +8056,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -8582,7 +8067,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -8592,7 +8076,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -8604,7 +8087,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -8614,7 +8096,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -8635,7 +8116,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd5Csr{    ///<TCD Control and Status
@@ -8650,7 +8130,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -8660,7 +8139,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -8672,7 +8150,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -8682,7 +8159,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -8694,7 +8170,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -8704,7 +8179,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -8725,7 +8199,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd6Csr{    ///<TCD Control and Status
@@ -8740,7 +8213,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -8750,7 +8222,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -8762,7 +8233,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -8772,7 +8242,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -8784,7 +8253,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -8794,7 +8262,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -8815,7 +8282,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd7Csr{    ///<TCD Control and Status
@@ -8830,7 +8296,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -8840,7 +8305,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -8852,7 +8316,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -8862,7 +8325,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -8874,7 +8336,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -8884,7 +8345,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -8905,7 +8365,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd8Csr{    ///<TCD Control and Status
@@ -8920,7 +8379,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -8930,7 +8388,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -8942,7 +8399,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -8952,7 +8408,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -8964,7 +8419,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -8974,7 +8428,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -8995,7 +8448,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd9Csr{    ///<TCD Control and Status
@@ -9010,7 +8462,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -9020,7 +8471,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -9032,7 +8482,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -9042,7 +8491,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -9054,7 +8502,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -9064,7 +8511,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -9085,7 +8531,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd10Csr{    ///<TCD Control and Status
@@ -9100,7 +8545,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -9110,7 +8554,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -9122,7 +8565,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -9132,7 +8574,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -9144,7 +8585,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -9154,7 +8594,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -9175,7 +8614,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd11Csr{    ///<TCD Control and Status
@@ -9190,7 +8628,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -9200,7 +8637,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -9212,7 +8648,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -9222,7 +8657,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -9234,7 +8668,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -9244,7 +8677,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -9265,7 +8697,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd12Csr{    ///<TCD Control and Status
@@ -9280,7 +8711,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -9290,7 +8720,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -9302,7 +8731,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -9312,7 +8740,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -9324,7 +8751,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -9334,7 +8760,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -9355,7 +8780,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd13Csr{    ///<TCD Control and Status
@@ -9370,7 +8794,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -9380,7 +8803,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -9392,7 +8814,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -9402,7 +8823,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -9414,7 +8834,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -9424,7 +8843,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -9445,7 +8863,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd14Csr{    ///<TCD Control and Status
@@ -9460,7 +8877,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -9470,7 +8886,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -9482,7 +8897,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -9492,7 +8906,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -9504,7 +8917,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -9514,7 +8926,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -9535,7 +8946,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd15Csr{    ///<TCD Control and Status
@@ -9550,7 +8960,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -9560,7 +8969,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -9572,7 +8980,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -9582,7 +8989,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -9594,7 +9000,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -9604,7 +9009,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -9625,7 +9029,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd16Csr{    ///<TCD Control and Status
@@ -9640,7 +9043,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -9650,7 +9052,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -9662,7 +9063,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -9672,7 +9072,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -9684,7 +9083,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -9694,7 +9092,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -9715,7 +9112,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd17Csr{    ///<TCD Control and Status
@@ -9730,7 +9126,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -9740,7 +9135,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -9752,7 +9146,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -9762,7 +9155,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -9774,7 +9166,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -9784,7 +9175,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -9805,7 +9195,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd18Csr{    ///<TCD Control and Status
@@ -9820,7 +9209,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -9830,7 +9218,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -9842,7 +9229,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -9852,7 +9238,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -9864,7 +9249,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -9874,7 +9258,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -9895,7 +9278,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd19Csr{    ///<TCD Control and Status
@@ -9910,7 +9292,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -9920,7 +9301,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -9932,7 +9312,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -9942,7 +9321,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -9954,7 +9332,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -9964,7 +9341,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -9985,7 +9361,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd20Csr{    ///<TCD Control and Status
@@ -10000,7 +9375,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -10010,7 +9384,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -10022,7 +9395,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -10032,7 +9404,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -10044,7 +9415,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -10054,7 +9424,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -10075,7 +9444,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd21Csr{    ///<TCD Control and Status
@@ -10090,7 +9458,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -10100,7 +9467,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -10112,7 +9478,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -10122,7 +9487,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -10134,7 +9498,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -10144,7 +9507,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -10165,7 +9527,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd22Csr{    ///<TCD Control and Status
@@ -10180,7 +9541,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -10190,7 +9550,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -10202,7 +9561,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -10212,7 +9570,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -10224,7 +9581,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -10234,7 +9590,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -10255,7 +9610,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd23Csr{    ///<TCD Control and Status
@@ -10270,7 +9624,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -10280,7 +9633,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -10292,7 +9644,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -10302,7 +9653,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -10314,7 +9664,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -10324,7 +9673,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -10345,7 +9693,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd24Csr{    ///<TCD Control and Status
@@ -10360,7 +9707,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -10370,7 +9716,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -10382,7 +9727,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -10392,7 +9736,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -10404,7 +9747,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -10414,7 +9756,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -10435,7 +9776,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd25Csr{    ///<TCD Control and Status
@@ -10450,7 +9790,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -10460,7 +9799,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -10472,7 +9810,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -10482,7 +9819,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -10494,7 +9830,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -10504,7 +9839,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -10525,7 +9859,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd26Csr{    ///<TCD Control and Status
@@ -10540,7 +9873,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -10550,7 +9882,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -10562,7 +9893,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -10572,7 +9902,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -10584,7 +9913,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -10594,7 +9922,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -10615,7 +9942,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd27Csr{    ///<TCD Control and Status
@@ -10630,7 +9956,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -10640,7 +9965,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -10652,7 +9976,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -10662,7 +9985,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -10674,7 +9996,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -10684,7 +10005,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -10705,7 +10025,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd28Csr{    ///<TCD Control and Status
@@ -10720,7 +10039,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -10730,7 +10048,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -10742,7 +10059,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -10752,7 +10068,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -10764,7 +10079,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -10774,7 +10088,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -10795,7 +10108,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd29Csr{    ///<TCD Control and Status
@@ -10810,7 +10122,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -10820,7 +10131,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -10832,7 +10142,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -10842,7 +10151,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -10854,7 +10162,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -10864,7 +10171,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -10885,7 +10191,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd30Csr{    ///<TCD Control and Status
@@ -10900,7 +10205,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -10910,7 +10214,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -10922,7 +10225,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -10932,7 +10234,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -10944,7 +10245,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -10954,7 +10254,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -10975,7 +10274,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd31Csr{    ///<TCD Control and Status
@@ -10990,7 +10288,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
             v0=0x00000000,     ///<The end-of-major loop interrupt is disabled
@@ -11000,7 +10297,6 @@ namespace Kvasir {
         namespace IntmajorValC{
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
-        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -11012,7 +10308,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<The channel's ERQ bit is not affected
@@ -11022,7 +10317,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -11034,7 +10328,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
         }
-        }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -11044,7 +10337,6 @@ namespace Kvasir {
         namespace MajorelinkValC{
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
-        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
@@ -11065,7 +10357,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v01> v01{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
             constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
-        }
         }
     }
     namespace DmaTcd0BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -11084,7 +10375,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd1BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x4000903e,0xffff4000,0,unsigned>;
@@ -11101,7 +10391,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd2BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -11120,7 +10409,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd3BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x4000907e,0xffff4000,0,unsigned>;
@@ -11137,7 +10425,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd4BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -11156,7 +10443,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd5BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x400090be,0xffff4000,0,unsigned>;
@@ -11173,7 +10459,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd6BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -11192,7 +10477,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd7BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x400090fe,0xffff4000,0,unsigned>;
@@ -11209,7 +10493,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd8BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -11228,7 +10511,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd9BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x4000913e,0xffff4000,0,unsigned>;
@@ -11245,7 +10527,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd10BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -11264,7 +10545,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd11BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x4000917e,0xffff4000,0,unsigned>;
@@ -11281,7 +10561,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd12BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -11300,7 +10579,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd13BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x400091be,0xffff4000,0,unsigned>;
@@ -11317,7 +10595,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd14BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -11336,7 +10613,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd15BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x400091fe,0xffff4000,0,unsigned>;
@@ -11353,7 +10629,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd16BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -11372,7 +10647,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd17BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x4000923e,0xffff4000,0,unsigned>;
@@ -11389,7 +10663,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd18BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -11408,7 +10681,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd19BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x4000927e,0xffff4000,0,unsigned>;
@@ -11425,7 +10697,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd20BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -11444,7 +10715,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd21BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x400092be,0xffff4000,0,unsigned>;
@@ -11461,7 +10731,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd22BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -11480,7 +10749,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd23BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x400092fe,0xffff4000,0,unsigned>;
@@ -11497,7 +10765,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd24BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -11516,7 +10783,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd25BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x4000933e,0xffff4000,0,unsigned>;
@@ -11533,7 +10799,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd26BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -11552,7 +10817,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd27BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x4000937e,0xffff4000,0,unsigned>;
@@ -11569,7 +10833,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd28BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -11588,7 +10851,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd29BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x400093be,0xffff4000,0,unsigned>;
@@ -11605,7 +10867,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd30BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
@@ -11624,7 +10885,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd31BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x400093fe,0xffff4000,0,unsigned>;
@@ -11642,7 +10902,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd0BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x4000901e,0xffff0000,0,unsigned>;
@@ -11657,7 +10916,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd1BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -11674,7 +10932,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd2BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x4000905e,0xffff0000,0,unsigned>;
@@ -11689,7 +10946,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd3BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -11706,7 +10962,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd4BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x4000909e,0xffff0000,0,unsigned>;
@@ -11721,7 +10976,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd5BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -11738,7 +10992,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd6BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x400090de,0xffff0000,0,unsigned>;
@@ -11753,7 +11006,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd7BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -11770,7 +11022,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd8BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x4000911e,0xffff0000,0,unsigned>;
@@ -11785,7 +11036,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd9BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -11802,7 +11052,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd10BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x4000915e,0xffff0000,0,unsigned>;
@@ -11817,7 +11066,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd11BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -11834,7 +11082,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd12BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x4000919e,0xffff0000,0,unsigned>;
@@ -11849,7 +11096,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd13BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -11866,7 +11112,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd14BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x400091de,0xffff0000,0,unsigned>;
@@ -11881,7 +11126,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd15BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -11898,7 +11142,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd16BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x4000921e,0xffff0000,0,unsigned>;
@@ -11913,7 +11156,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd17BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -11930,7 +11172,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd18BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x4000925e,0xffff0000,0,unsigned>;
@@ -11945,7 +11186,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd19BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -11962,7 +11202,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd20BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x4000929e,0xffff0000,0,unsigned>;
@@ -11977,7 +11216,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd21BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -11994,7 +11232,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd22BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x400092de,0xffff0000,0,unsigned>;
@@ -12009,7 +11246,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd23BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -12026,7 +11262,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd24BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x4000931e,0xffff0000,0,unsigned>;
@@ -12041,7 +11276,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd25BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -12058,7 +11292,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd26BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x4000935e,0xffff0000,0,unsigned>;
@@ -12073,7 +11306,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd27BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -12090,7 +11322,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd28BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x4000939e,0xffff0000,0,unsigned>;
@@ -12105,7 +11336,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
     namespace DmaTcd29BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
@@ -12122,7 +11352,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd30BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x400093de,0xffff0000,0,unsigned>;
@@ -12138,7 +11367,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
         }
-        }
     }
     namespace DmaTcd31BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x400093fe,0xffff0000,0,unsigned>;
@@ -12153,7 +11381,6 @@ namespace Kvasir {
         namespace ElinkValC{
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
-        }
         }
     }
 }

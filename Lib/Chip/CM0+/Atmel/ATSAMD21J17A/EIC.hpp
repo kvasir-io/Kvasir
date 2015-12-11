@@ -22,7 +22,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense0)::Type,Sense0Val::high> high{};
             constexpr Register::FieldValue<decltype(sense0)::Type,Sense0Val::low> low{};
         }
-        }
         ///Filter n Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> filten0{}; 
         ///Input Sense 1 Configuration
@@ -42,7 +41,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense1)::Type,Sense1Val::both> both{};
             constexpr Register::FieldValue<decltype(sense1)::Type,Sense1Val::high> high{};
             constexpr Register::FieldValue<decltype(sense1)::Type,Sense1Val::low> low{};
-        }
         }
         ///Filter 1 Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> filten1{}; 
@@ -64,7 +62,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense2)::Type,Sense2Val::high> high{};
             constexpr Register::FieldValue<decltype(sense2)::Type,Sense2Val::low> low{};
         }
-        }
         ///Filter 2 Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> filten2{}; 
         ///Input Sense 3 Configuration
@@ -84,7 +81,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense3)::Type,Sense3Val::both> both{};
             constexpr Register::FieldValue<decltype(sense3)::Type,Sense3Val::high> high{};
             constexpr Register::FieldValue<decltype(sense3)::Type,Sense3Val::low> low{};
-        }
         }
         ///Filter 3 Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> filten3{}; 
@@ -106,7 +102,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense4)::Type,Sense4Val::high> high{};
             constexpr Register::FieldValue<decltype(sense4)::Type,Sense4Val::low> low{};
         }
-        }
         ///Filter 4 Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> filten4{}; 
         ///Input Sense 5 Configuration
@@ -126,7 +121,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense5)::Type,Sense5Val::both> both{};
             constexpr Register::FieldValue<decltype(sense5)::Type,Sense5Val::high> high{};
             constexpr Register::FieldValue<decltype(sense5)::Type,Sense5Val::low> low{};
-        }
         }
         ///Filter 5 Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> filten5{}; 
@@ -148,7 +142,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense6)::Type,Sense6Val::high> high{};
             constexpr Register::FieldValue<decltype(sense6)::Type,Sense6Val::low> low{};
         }
-        }
         ///Filter 6 Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> filten6{}; 
         ///Input Sense 7 Configuration
@@ -168,7 +161,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense7)::Type,Sense7Val::both> both{};
             constexpr Register::FieldValue<decltype(sense7)::Type,Sense7Val::high> high{};
             constexpr Register::FieldValue<decltype(sense7)::Type,Sense7Val::low> low{};
-        }
         }
         ///Filter 7 Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> filten7{}; 
@@ -193,7 +185,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense0)::Type,Sense0Val::high> high{};
             constexpr Register::FieldValue<decltype(sense0)::Type,Sense0Val::low> low{};
         }
-        }
         ///Filter n Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> filten0{}; 
         ///Input Sense 1 Configuration
@@ -213,7 +204,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense1)::Type,Sense1Val::both> both{};
             constexpr Register::FieldValue<decltype(sense1)::Type,Sense1Val::high> high{};
             constexpr Register::FieldValue<decltype(sense1)::Type,Sense1Val::low> low{};
-        }
         }
         ///Filter 1 Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> filten1{}; 
@@ -235,7 +225,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense2)::Type,Sense2Val::high> high{};
             constexpr Register::FieldValue<decltype(sense2)::Type,Sense2Val::low> low{};
         }
-        }
         ///Filter 2 Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> filten2{}; 
         ///Input Sense 3 Configuration
@@ -255,7 +244,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense3)::Type,Sense3Val::both> both{};
             constexpr Register::FieldValue<decltype(sense3)::Type,Sense3Val::high> high{};
             constexpr Register::FieldValue<decltype(sense3)::Type,Sense3Val::low> low{};
-        }
         }
         ///Filter 3 Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> filten3{}; 
@@ -277,7 +265,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense4)::Type,Sense4Val::high> high{};
             constexpr Register::FieldValue<decltype(sense4)::Type,Sense4Val::low> low{};
         }
-        }
         ///Filter 4 Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> filten4{}; 
         ///Input Sense 5 Configuration
@@ -297,7 +284,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense5)::Type,Sense5Val::both> both{};
             constexpr Register::FieldValue<decltype(sense5)::Type,Sense5Val::high> high{};
             constexpr Register::FieldValue<decltype(sense5)::Type,Sense5Val::low> low{};
-        }
         }
         ///Filter 5 Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> filten5{}; 
@@ -319,7 +305,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense6)::Type,Sense6Val::high> high{};
             constexpr Register::FieldValue<decltype(sense6)::Type,Sense6Val::low> low{};
         }
-        }
         ///Filter 6 Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> filten6{}; 
         ///Input Sense 7 Configuration
@@ -339,7 +324,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sense7)::Type,Sense7Val::both> both{};
             constexpr Register::FieldValue<decltype(sense7)::Type,Sense7Val::high> high{};
             constexpr Register::FieldValue<decltype(sense7)::Type,Sense7Val::low> low{};
-        }
         }
         ///Filter 7 Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> filten7{}; 
@@ -510,7 +494,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nmisense)::Type,NmisenseVal::both> both{};
             constexpr Register::FieldValue<decltype(nmisense)::Type,NmisenseVal::high> high{};
             constexpr Register::FieldValue<decltype(nmisense)::Type,NmisenseVal::low> low{};
-        }
         }
         ///Non-Maskable Interrupt Filter Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> nmifilten{}; 

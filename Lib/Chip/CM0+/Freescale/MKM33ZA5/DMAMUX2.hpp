@@ -16,7 +16,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::v0> v0{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::v1> v1{};
         }
-        }
         ///DMA Channel Enable
         enum class EnblVal {
             v0=0x00000000,     ///<DMA channel is disabled. This mode is primarily used during configuration of the DMAMux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel.
@@ -26,7 +25,6 @@ namespace Kvasir {
         namespace EnblValC{
             constexpr Register::FieldValue<decltype(enbl)::Type,EnblVal::v0> v0{};
             constexpr Register::FieldValue<decltype(enbl)::Type,EnblVal::v1> v1{};
-        }
         }
     }
 }

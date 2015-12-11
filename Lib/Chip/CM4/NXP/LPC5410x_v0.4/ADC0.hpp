@@ -34,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(asynmode)::Type,AsynmodeVal::synchronousMode> synchronousMode{};
             constexpr Register::FieldValue<decltype(asynmode)::Type,AsynmodeVal::asynchronousMode> asynchronousMode{};
         }
-        }
         ///The number of bits of ADC resolution. Accuracy can be
 								reduced to achieve higher conversion rates. A single conversion
 								requires the selected number of bits of resolution plus 3 ADC
@@ -66,7 +65,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(resol)::Type,ResolVal::v10BitResolution> v10BitResolution{};
             constexpr Register::FieldValue<decltype(resol)::Type,ResolVal::v12BitResolution> v12BitResolution{};
         }
-        }
         ///Bypass Calibration. This bit may be set to avoid the need
 								to calibrate if offset error is not a concern in the
 								application.
@@ -86,7 +84,6 @@ namespace Kvasir {
         namespace BypasscalValC{
             constexpr Register::FieldValue<decltype(bypasscal)::Type,BypasscalVal::calibrate> calibrate{};
             constexpr Register::FieldValue<decltype(bypasscal)::Type,BypasscalVal::bypassCalibration> bypassCalibration{};
-        }
         }
         ///Sample Time. The default sampling period (TSAMP = 000) at
 								the start of each conversion is 2.5 ADC clock periods. Depending on
@@ -146,7 +143,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::negativeEdge> negativeEdge{};
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::positiveEdge> positiveEdge{};
         }
-        }
         ///Setting this bit allows the hardware trigger input to
 								bypass synchronization flip-flop stages and therefore shorten the
 								time between the trigger input signal and the start of a conversion.
@@ -174,7 +170,6 @@ namespace Kvasir {
         namespace SyncbypassValC{
             constexpr Register::FieldValue<decltype(syncbypass)::Type,SyncbypassVal::enableTriggerSynch> enableTriggerSynch{};
             constexpr Register::FieldValue<decltype(syncbypass)::Type,SyncbypassVal::bypassTriggerSynch> bypassTriggerSynch{};
-        }
         }
         ///Writing a 1 to this field will launch one pass through this
 								conversion sequence. The behavior will be identical to a sequence
@@ -220,7 +215,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lowprio)::Type,LowprioVal::lowPriority> lowPriority{};
             constexpr Register::FieldValue<decltype(lowprio)::Type,LowprioVal::highPriority> highPriority{};
         }
-        }
         ///Indicates whether the primary method for retrieving
 								conversion results for this sequence will be accomplished via
 								reading the global data register (SEQA_GDAT) at the end of each
@@ -250,7 +244,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::endOfConversion> endOfConversion{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::endOfSequence> endOfSequence{};
         }
-        }
         ///Sequence Enable. In order to avoid spuriously triggering
 								the sequence, care should be taken to only set the SEQA_ENA bit when
 								the selected trigger input is in its INACTIVE state (as defined by
@@ -274,7 +267,6 @@ namespace Kvasir {
         namespace SeqaenaValC{
             constexpr Register::FieldValue<decltype(seqaEna)::Type,SeqaenaVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(seqaEna)::Type,SeqaenaVal::enabled> enabled{};
-        }
         }
     }
     namespace NoneseqbCtrl{    ///<ADC Conversion Sequence-B Control Register: Controls triggering and
@@ -317,7 +309,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::negativeEdge> negativeEdge{};
             constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::positiveEdge> positiveEdge{};
         }
-        }
         ///Setting this bit allows the hardware trigger input to
 								bypass synchronization flip-flop stages and therefore shorten the
 								time between the trigger input signal and the start of a conversion.
@@ -345,7 +336,6 @@ namespace Kvasir {
         namespace SyncbypassValC{
             constexpr Register::FieldValue<decltype(syncbypass)::Type,SyncbypassVal::enableSynchronizati> enableSynchronizati{};
             constexpr Register::FieldValue<decltype(syncbypass)::Type,SyncbypassVal::bypassSynchronizati> bypassSynchronizati{};
-        }
         }
         ///Writing a 1 to this field will launch one pass through this
 								conversion sequence. The behavior will be identical to a sequence
@@ -399,7 +389,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::endOfConversion> endOfConversion{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::endOfSequence> endOfSequence{};
         }
-        }
         ///Sequence Enable. In order to avoid spuriously triggering
 								the sequence, care should be taken to only set the SEQB_ENA bit when
 								the selected trigger input is in its INACTIVE state (as defined by
@@ -423,7 +412,6 @@ namespace Kvasir {
         namespace SeqbenaValC{
             constexpr Register::FieldValue<decltype(seqbEna)::Type,SeqbenaVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(seqbEna)::Type,SeqbenaVal::enabled> enabled{};
-        }
         }
     }
     namespace NoneseqaGdat{    ///<ADC Sequence-A Global Data Register. This register contains the
@@ -1381,7 +1369,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0Thrsel)::Type,Ch0thrselVal::threshold0> threshold0{};
             constexpr Register::FieldValue<decltype(ch0Thrsel)::Type,Ch0thrselVal::threshold1> threshold1{};
         }
-        }
         ///Threshold select for channel 1. See description for channel
 								0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ch1Thrsel{}; 
@@ -1436,7 +1423,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(seqaInten)::Type,SeqaintenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(seqaInten)::Type,SeqaintenVal::enabled> enabled{};
         }
-        }
         ///Sequence B interrupt enable.
         enum class SeqbintenVal {
             disabled=0x00000000,     ///<Disabled. The sequence B interrupt/DMA trigger is
@@ -1452,7 +1438,6 @@ namespace Kvasir {
         namespace SeqbintenValC{
             constexpr Register::FieldValue<decltype(seqbInten)::Type,SeqbintenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(seqbInten)::Type,SeqbintenVal::enabled> enabled{};
-        }
         }
         ///Overrun interrupt enable.
         enum class OvrintenVal {
@@ -1471,7 +1456,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ovrInten)::Type,OvrintenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ovrInten)::Type,OvrintenVal::enabled> enabled{};
         }
-        }
         ///Threshold comparison interrupt enable for channel
 								0.
         enum class Adcmpinten0Val {
@@ -1484,7 +1468,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adcmpinten0)::Type,Adcmpinten0Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(adcmpinten0)::Type,Adcmpinten0Val::outsideThreshold> outsideThreshold{};
             constexpr Register::FieldValue<decltype(adcmpinten0)::Type,Adcmpinten0Val::crossingThreshold> crossingThreshold{};
-        }
         }
         ///Channel 1 threshold comparison interrupt enable. See
 								description for channel 0.

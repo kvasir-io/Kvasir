@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(init)::Type,InitVal::initializationIsSt> initializationIsSt{};
             constexpr Register::FieldValue<decltype(init)::Type,InitVal::normalOperation> normalOperation{};
         }
-        }
         ///Module interrupt enable
         enum class IeVal {
             enableCanInterrupt=0x00000001,     ///<Enable CAN interrupts. The interrupt line is set to LOW and remains LOW until all pending interrupts are cleared.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace IeValC{
             constexpr Register::FieldValue<decltype(ie)::Type,IeVal::enableCanInterrupt> enableCanInterrupt{};
             constexpr Register::FieldValue<decltype(ie)::Type,IeVal::disableCanInterrup> disableCanInterrup{};
-        }
         }
         ///Status change interrupt enable
         enum class SieVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sie)::Type,SieVal::enableStatusChange> enableStatusChange{};
             constexpr Register::FieldValue<decltype(sie)::Type,SieVal::disableStatusChang> disableStatusChang{};
         }
-        }
         ///Error interrupt enable
         enum class EieVal {
             enableErrorInterru=0x00000001,     ///<Enable error interrupt. A change in the bits BOFF or EWARN in the CANSTAT registers will generate an interrupt.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace EieValC{
             constexpr Register::FieldValue<decltype(eie)::Type,EieVal::enableErrorInterru> enableErrorInterru{};
             constexpr Register::FieldValue<decltype(eie)::Type,EieVal::disableErrorInterr> disableErrorInterr{};
-        }
         }
         ///Disable automatic retransmission
         enum class DarVal {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dar)::Type,DarVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dar)::Type,DarVal::enabled> enabled{};
         }
-        }
         ///Configuration change enable
         enum class CceVal {
             theCpuHasWriteAc=0x00000001,     ///<The CPU has write access to the CANBT register while the INIT bit is one.
@@ -69,7 +64,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cce)::Type,CceVal::theCpuHasWriteAc> theCpuHasWriteAc{};
             constexpr Register::FieldValue<decltype(cce)::Type,CceVal::theCpuHasNoWrite> theCpuHasNoWrite{};
         }
-        }
         ///Test mode enable
         enum class TestVal {
             testMode=0x00000001,     ///<Test mode.
@@ -79,7 +73,6 @@ namespace Kvasir {
         namespace TestValC{
             constexpr Register::FieldValue<decltype(test)::Type,TestVal::testMode> testMode{};
             constexpr Register::FieldValue<decltype(test)::Type,TestVal::normalOperation> normalOperation{};
-        }
         }
     }
     namespace Nonestat{    ///<Status register
@@ -106,7 +99,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lec)::Type,LecVal::crcerrorTheCrcCh> crcerrorTheCrcCh{};
             constexpr Register::FieldValue<decltype(lec)::Type,LecVal::unusedNoCanBusE> unusedNoCanBusE{};
         }
-        }
         ///Transmitted a message successfully This bit is reset by the CPU. It is never reset by the CAN controller.
         enum class TxokVal {
             msgtransfer=0x00000001,     ///<Since this bit was last reset by the CPU, a message has been successfully transmitted (error free and acknowledged by at least one other node).
@@ -116,7 +108,6 @@ namespace Kvasir {
         namespace TxokValC{
             constexpr Register::FieldValue<decltype(txok)::Type,TxokVal::msgtransfer> msgtransfer{};
             constexpr Register::FieldValue<decltype(txok)::Type,TxokVal::nomsgtransfer> nomsgtransfer{};
-        }
         }
         ///Received a message successfully This bit is reset by the CPU. It is never reset by the CAN controller.
         enum class RxokVal {
@@ -128,7 +119,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxok)::Type,RxokVal::msgtransfer> msgtransfer{};
             constexpr Register::FieldValue<decltype(rxok)::Type,RxokVal::nomsgtransfer> nomsgtransfer{};
         }
-        }
         ///Error passive
         enum class EpassVal {
             passive=0x00000001,     ///<The CAN controller is in the error passive state as defined in the  CAN 2.0 specification.
@@ -138,7 +128,6 @@ namespace Kvasir {
         namespace EpassValC{
             constexpr Register::FieldValue<decltype(epass)::Type,EpassVal::passive> passive{};
             constexpr Register::FieldValue<decltype(epass)::Type,EpassVal::active> active{};
-        }
         }
         ///Warning status
         enum class EwarnVal {
@@ -150,7 +139,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ewarn)::Type,EwarnVal::atLeastOneOfThe> atLeastOneOfThe{};
             constexpr Register::FieldValue<decltype(ewarn)::Type,EwarnVal::bothErrorCounters> bothErrorCounters{};
         }
-        }
         ///Busoff status
         enum class BoffVal {
             busoff=0x00000001,     ///<The CAN controller is in busoff state.
@@ -160,7 +148,6 @@ namespace Kvasir {
         namespace BoffValC{
             constexpr Register::FieldValue<decltype(boff)::Type,BoffVal::busoff> busoff{};
             constexpr Register::FieldValue<decltype(boff)::Type,BoffVal::nobusoff> nobusoff{};
-        }
         }
     }
     namespace Noneec{    ///<Error counter
@@ -178,7 +165,6 @@ namespace Kvasir {
         namespace RpValC{
             constexpr Register::FieldValue<decltype(rp)::Type,RpVal::passive> passive{};
             constexpr Register::FieldValue<decltype(rp)::Type,RpVal::belowpassive> belowpassive{};
-        }
         }
     }
     namespace Nonebt{    ///<Bit timing register
@@ -209,7 +195,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(basic)::Type,BasicVal::if1TxIf2Rx> if1TxIf2Rx{};
             constexpr Register::FieldValue<decltype(basic)::Type,BasicVal::basicModeDisabled> basicModeDisabled{};
         }
-        }
         ///Silent mode
         enum class SilentVal {
             silent=0x00000001,     ///<The module is in silent mode.
@@ -220,7 +205,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(silent)::Type,SilentVal::silent> silent{};
             constexpr Register::FieldValue<decltype(silent)::Type,SilentVal::normalOperation> normalOperation{};
         }
-        }
         ///Loop back mode
         enum class LbackVal {
             enabled=0x00000001,     ///<Loop back mode is enabled.
@@ -230,7 +214,6 @@ namespace Kvasir {
         namespace LbackValC{
             constexpr Register::FieldValue<decltype(lback)::Type,LbackVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(lback)::Type,LbackVal::disabled> disabled{};
-        }
         }
         ///Control of TD pins
         enum class Tx10Val {
@@ -246,7 +229,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tx10)::Type,Tx10Val::tdPinIsDrivenLow> tdPinIsDrivenLow{};
             constexpr Register::FieldValue<decltype(tx10)::Type,Tx10Val::tdPinIsDrivenHig> tdPinIsDrivenHig{};
         }
-        }
         ///Monitors the actual value of the RD Pin
         enum class RxVal {
             theCanBusIsReces=0x00000001,     ///<The CAN bus is recessive (RD = 1).
@@ -256,7 +238,6 @@ namespace Kvasir {
         namespace RxValC{
             constexpr Register::FieldValue<decltype(rx)::Type,RxVal::theCanBusIsReces> theCanBusIsReces{};
             constexpr Register::FieldValue<decltype(rx)::Type,RxVal::theCanBusIsDomin> theCanBusIsDomin{};
-        }
         }
     }
     namespace Nonebrpe{    ///<Baud rate prescaler extension register
@@ -290,7 +271,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::transferDataBytes> transferDataBytes{};
             constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::dataBytes47Uncha> dataBytes47Uncha{};
         }
-        }
         ///Access data bytes 0-3
         enum class DataaVal {
             transferDataBytes=0x00000001,     ///<Transfer data bytes 0-3 to message object.
@@ -301,7 +281,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::transferDataBytes> transferDataBytes{};
             constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::dataBytes03Uncha> dataBytes03Uncha{};
         }
-        }
         ///Access transmission request bit
         enum class TxrqstVal {
             requestATransmissi=0x00000001,     ///<Request a transmission. Set the TXRQST bit IF1/2_MCTRL.
@@ -311,7 +290,6 @@ namespace Kvasir {
         namespace TxrqstValC{
             constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::requestATransmissi> requestATransmissi{};
             constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::noTransmissionRequ> noTransmissionRequ{};
-        }
         }
         ///This bit is ignored in the write direction.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> clrintpnd{}; 
@@ -325,7 +303,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::transferControlBit> transferControlBit{};
             constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::controlBitsUnchang> controlBitsUnchang{};
         }
-        }
         ///Access arbitration bits
         enum class ArbVal {
             transferIdentifier=0x00000001,     ///<Transfer Identifier, DIR, XTD, and MSGVAL bits to message object.
@@ -336,7 +313,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::transferIdentifier> transferIdentifier{};
             constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::arbitrationBitsUnc> arbitrationBitsUnc{};
         }
-        }
         ///Access mask bits
         enum class MaskVal {
             transferIdentifier=0x00000001,     ///<Transfer Identifier MASK + MDIR + MXTD to message object.
@@ -346,7 +322,6 @@ namespace Kvasir {
         namespace MaskValC{
             constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::transferIdentifier> transferIdentifier{};
             constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::maskBitsUnchanged> maskBitsUnchanged{};
-        }
         }
         ///Write transfer Transfer data from the selected message buffer registers to the message object addressed by the command request register CANIFn_CMDREQ.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wrRd{}; 
@@ -363,7 +338,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::transferDataBytes> transferDataBytes{};
             constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::dataBytes47Uncha> dataBytes47Uncha{};
         }
-        }
         ///Access data bytes 0-3
         enum class DataaVal {
             transferDataBytes=0x00000001,     ///<Transfer data bytes 0-3 to message object.
@@ -374,7 +348,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::transferDataBytes> transferDataBytes{};
             constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::dataBytes03Uncha> dataBytes03Uncha{};
         }
-        }
         ///Access transmission request bit
         enum class TxrqstVal {
             requestATransmissi=0x00000001,     ///<Request a transmission. Set the TXRQST bit IF1/2_MCTRL.
@@ -384,7 +357,6 @@ namespace Kvasir {
         namespace TxrqstValC{
             constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::requestATransmissi> requestATransmissi{};
             constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::noTransmissionRequ> noTransmissionRequ{};
-        }
         }
         ///This bit is ignored in the write direction.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> clrintpnd{}; 
@@ -398,7 +370,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::transferControlBit> transferControlBit{};
             constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::controlBitsUnchang> controlBitsUnchang{};
         }
-        }
         ///Access arbitration bits
         enum class ArbVal {
             transferIdentifier=0x00000001,     ///<Transfer Identifier, DIR, XTD, and MSGVAL bits to message object.
@@ -409,7 +380,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::transferIdentifier> transferIdentifier{};
             constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::arbitrationBitsUnc> arbitrationBitsUnc{};
         }
-        }
         ///Access mask bits
         enum class MaskVal {
             transferIdentifier=0x00000001,     ///<Transfer Identifier MASK + MDIR + MXTD to message object.
@@ -419,7 +389,6 @@ namespace Kvasir {
         namespace MaskValC{
             constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::transferIdentifier> transferIdentifier{};
             constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::maskBitsUnchanged> maskBitsUnchanged{};
-        }
         }
         ///Write transfer Transfer data from the selected message buffer registers to the message object addressed by the command request register CANIFn_CMDREQ.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wrRd{}; 
@@ -436,7 +405,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::transferDataBytes> transferDataBytes{};
             constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::dataBytes47Uncha> dataBytes47Uncha{};
         }
-        }
         ///Access data bytes 0-3
         enum class DataaVal {
             transferDataBytes=0x00000001,     ///<Transfer data bytes 0-3 to IFx message buffer.
@@ -446,7 +414,6 @@ namespace Kvasir {
         namespace DataaValC{
             constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::transferDataBytes> transferDataBytes{};
             constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::dataBytes03Uncha> dataBytes03Uncha{};
-        }
         }
         ///Access new data bit
         enum class NewdatVal {
@@ -458,7 +425,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::clearNewdatBitIn> clearNewdatBitIn{};
             constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::newdatBitRemainsU> newdatBitRemainsU{};
         }
-        }
         ///Clear interrupt pending bit.
         enum class ClrintpndVal {
             clearIntpndBitIn=0x00000001,     ///<Clear INTPND bit in the message object.
@@ -468,7 +434,6 @@ namespace Kvasir {
         namespace ClrintpndValC{
             constexpr Register::FieldValue<decltype(clrintpnd)::Type,ClrintpndVal::clearIntpndBitIn> clearIntpndBitIn{};
             constexpr Register::FieldValue<decltype(clrintpnd)::Type,ClrintpndVal::intpndBitRemainsU> intpndBitRemainsU{};
-        }
         }
         ///Access control bits
         enum class CtrlVal {
@@ -480,7 +445,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::transferControlBit> transferControlBit{};
             constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::controlBitsUnchang> controlBitsUnchang{};
         }
-        }
         ///Access arbitration bits
         enum class ArbVal {
             transferIdentifier=0x00000001,     ///<Transfer Identifier, DIR, XTD, and MSGVAL bits to IFx message buffer register.
@@ -491,7 +455,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::transferIdentifier> transferIdentifier{};
             constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::arbitrationBitsUnc> arbitrationBitsUnc{};
         }
-        }
         ///Access mask bits
         enum class MaskVal {
             transferIdentifier=0x00000001,     ///<Transfer Identifier MASK + MDIR + MXTD to IFx message buffer register.
@@ -501,7 +464,6 @@ namespace Kvasir {
         namespace MaskValC{
             constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::transferIdentifier> transferIdentifier{};
             constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::maskBitsUnchanged> maskBitsUnchanged{};
-        }
         }
         ///Read transfer Transfer data from the message object addressed by the command request register to the selected message buffer registers CANIFn_CMDREQ.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wrRd{}; 
@@ -518,7 +480,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::transferDataBytes> transferDataBytes{};
             constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::dataBytes47Uncha> dataBytes47Uncha{};
         }
-        }
         ///Access data bytes 0-3
         enum class DataaVal {
             transferDataBytes=0x00000001,     ///<Transfer data bytes 0-3 to IFx message buffer.
@@ -528,7 +489,6 @@ namespace Kvasir {
         namespace DataaValC{
             constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::transferDataBytes> transferDataBytes{};
             constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::dataBytes03Uncha> dataBytes03Uncha{};
-        }
         }
         ///Access new data bit
         enum class NewdatVal {
@@ -540,7 +500,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::clearNewdatBitIn> clearNewdatBitIn{};
             constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::newdatBitRemainsU> newdatBitRemainsU{};
         }
-        }
         ///Clear interrupt pending bit.
         enum class ClrintpndVal {
             clearIntpndBitIn=0x00000001,     ///<Clear INTPND bit in the message object.
@@ -550,7 +509,6 @@ namespace Kvasir {
         namespace ClrintpndValC{
             constexpr Register::FieldValue<decltype(clrintpnd)::Type,ClrintpndVal::clearIntpndBitIn> clearIntpndBitIn{};
             constexpr Register::FieldValue<decltype(clrintpnd)::Type,ClrintpndVal::intpndBitRemainsU> intpndBitRemainsU{};
-        }
         }
         ///Access control bits
         enum class CtrlVal {
@@ -562,7 +520,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::transferControlBit> transferControlBit{};
             constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::controlBitsUnchang> controlBitsUnchang{};
         }
-        }
         ///Access arbitration bits
         enum class ArbVal {
             transferIdentifier=0x00000001,     ///<Transfer Identifier, DIR, XTD, and MSGVAL bits to IFx message buffer register.
@@ -573,7 +530,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::transferIdentifier> transferIdentifier{};
             constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::arbitrationBitsUnc> arbitrationBitsUnc{};
         }
-        }
         ///Access mask bits
         enum class MaskVal {
             transferIdentifier=0x00000001,     ///<Transfer Identifier MASK + MDIR + MXTD to IFx message buffer register.
@@ -583,7 +539,6 @@ namespace Kvasir {
         namespace MaskValC{
             constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::transferIdentifier> transferIdentifier{};
             constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::maskBitsUnchanged> maskBitsUnchanged{};
-        }
         }
         ///Read transfer Transfer data from the message object addressed by the command request register to the selected message buffer registers CANIFn_CMDREQ.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wrRd{}; 
@@ -612,7 +567,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mdir)::Type,MdirVal::theMessageDirectio> theMessageDirectio{};
             constexpr Register::FieldValue<decltype(mdir)::Type,MdirVal::theMessageDirectio> theMessageDirectio{};
         }
-        }
         ///Mask extend identifier
         enum class MxtdVal {
             theExtendedIdentif=0x00000001,     ///<The extended identifier bit (IDE) is used for acceptance filtering.
@@ -622,7 +576,6 @@ namespace Kvasir {
         namespace MxtdValC{
             constexpr Register::FieldValue<decltype(mxtd)::Type,MxtdVal::theExtendedIdentif> theExtendedIdentif{};
             constexpr Register::FieldValue<decltype(mxtd)::Type,MxtdVal::theExtendedIdentif> theExtendedIdentif{};
-        }
         }
     }
     namespace Noneif2Msk2{    ///<Message interface 1 mask 2
@@ -639,7 +592,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mdir)::Type,MdirVal::theMessageDirectio> theMessageDirectio{};
             constexpr Register::FieldValue<decltype(mdir)::Type,MdirVal::theMessageDirectio> theMessageDirectio{};
         }
-        }
         ///Mask extend identifier
         enum class MxtdVal {
             theExtendedIdentif=0x00000001,     ///<The extended identifier bit (IDE) is used for acceptance filtering.
@@ -649,7 +601,6 @@ namespace Kvasir {
         namespace MxtdValC{
             constexpr Register::FieldValue<decltype(mxtd)::Type,MxtdVal::theExtendedIdentif> theExtendedIdentif{};
             constexpr Register::FieldValue<decltype(mxtd)::Type,MxtdVal::theExtendedIdentif> theExtendedIdentif{};
-        }
         }
     }
     namespace Noneif1Arb1{    ///<Message interface 1 arbitration 1
@@ -676,7 +627,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::directionEqTransmit> directionEqTransmit{};
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::directionEqReceive> directionEqReceive{};
         }
-        }
         ///Extend identifier
         enum class XtdVal {
             the29BitExtended=0x00000001,     ///<The 29-bit extended identifier will be used for this message object.
@@ -687,7 +637,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(xtd)::Type,XtdVal::the29BitExtended> the29BitExtended{};
             constexpr Register::FieldValue<decltype(xtd)::Type,XtdVal::the11BitStandard> the11BitStandard{};
         }
-        }
         ///Message valid The CPU must reset the MSGVAL bit of all unused Messages Objects during the initialization before it resets bit INIT in the CAN Control Register. This bit must also be reset before the identifier ID28:0, the control bits XTD, DIR, or the Data Length Code DLC3:0 are modified, or if the Messages Object is no longer required.
         enum class MsgvalVal {
             theMessageObjectI=0x00000001,     ///<The message object is configured and should be considered by the message handler.
@@ -697,7 +646,6 @@ namespace Kvasir {
         namespace MsgvalValC{
             constexpr Register::FieldValue<decltype(msgval)::Type,MsgvalVal::theMessageObjectI> theMessageObjectI{};
             constexpr Register::FieldValue<decltype(msgval)::Type,MsgvalVal::theMessageObjectI> theMessageObjectI{};
-        }
         }
     }
     namespace Noneif2Arb2{    ///<Message interface 1 arbitration 2
@@ -714,7 +662,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::directionEqTransmit> directionEqTransmit{};
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::directionEqReceive> directionEqReceive{};
         }
-        }
         ///Extend identifier
         enum class XtdVal {
             the29BitExtended=0x00000001,     ///<The 29-bit extended identifier will be used for this message object.
@@ -725,7 +672,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(xtd)::Type,XtdVal::the29BitExtended> the29BitExtended{};
             constexpr Register::FieldValue<decltype(xtd)::Type,XtdVal::the11BitStandard> the11BitStandard{};
         }
-        }
         ///Message valid The CPU must reset the MSGVAL bit of all unused Messages Objects during the initialization before it resets bit INIT in the CAN Control Register. This bit must also be reset before the identifier ID28:0, the control bits XTD, DIR, or the Data Length Code DLC3:0 are modified, or if the Messages Object is no longer required.
         enum class MsgvalVal {
             theMessageObjectI=0x00000001,     ///<The message object is configured and should be considered by the message handler.
@@ -735,7 +681,6 @@ namespace Kvasir {
         namespace MsgvalValC{
             constexpr Register::FieldValue<decltype(msgval)::Type,MsgvalVal::theMessageObjectI> theMessageObjectI{};
             constexpr Register::FieldValue<decltype(msgval)::Type,MsgvalVal::theMessageObjectI> theMessageObjectI{};
-        }
         }
     }
     namespace Noneif1Mctrl{    ///<Message interface 1 message control
@@ -752,7 +697,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eob)::Type,EobVal::singleMessageObjec> singleMessageObjec{};
             constexpr Register::FieldValue<decltype(eob)::Type,EobVal::messageObjectBelon> messageObjectBelon{};
         }
-        }
         ///Transmit request
         enum class TxrqstVal {
             request=0x00000001,     ///<The transmission of this message object is requested and is not yet done
@@ -762,7 +706,6 @@ namespace Kvasir {
         namespace TxrqstValC{
             constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::request> request{};
             constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::wait> wait{};
-        }
         }
         ///Remote enable
         enum class RmtenVal {
@@ -774,7 +717,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rmten)::Type,RmtenVal::txrqstset> txrqstset{};
             constexpr Register::FieldValue<decltype(rmten)::Type,RmtenVal::unchanged> unchanged{};
         }
-        }
         ///Receive interrupt enable
         enum class RxieVal {
             intpndset=0x00000001,     ///<INTPND will be set after successful reception of a frame.
@@ -784,7 +726,6 @@ namespace Kvasir {
         namespace RxieValC{
             constexpr Register::FieldValue<decltype(rxie)::Type,RxieVal::intpndset> intpndset{};
             constexpr Register::FieldValue<decltype(rxie)::Type,RxieVal::unchanged> unchanged{};
-        }
         }
         ///Transmit interrupt enable
         enum class TxieVal {
@@ -796,7 +737,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txie)::Type,TxieVal::intpndset> intpndset{};
             constexpr Register::FieldValue<decltype(txie)::Type,TxieVal::unchanged> unchanged{};
         }
-        }
         ///Use acceptance mask If UMASK is set to 1, the message object's mask bits have to be programmed during initialization of the message object before MAGVAL is set to 1.
         enum class UmaskVal {
             useMaskMsk280=0x00000001,     ///<Use mask (MSK[28:0], MXTD, and MDIR) for acceptance filtering.
@@ -806,7 +746,6 @@ namespace Kvasir {
         namespace UmaskValC{
             constexpr Register::FieldValue<decltype(umask)::Type,UmaskVal::useMaskMsk280> useMaskMsk280{};
             constexpr Register::FieldValue<decltype(umask)::Type,UmaskVal::maskIgnored> maskIgnored{};
-        }
         }
         ///Interrupt pending
         enum class IntpndVal {
@@ -818,7 +757,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intpnd)::Type,IntpndVal::intsource> intsource{};
             constexpr Register::FieldValue<decltype(intpnd)::Type,IntpndVal::nointsource> nointsource{};
         }
-        }
         ///Message lost (only valid for message objects in the direction receive).
         enum class MsglstVal {
             theMessageHandler=0x00000001,     ///<The Message Handler stored a new message into this object when NEWDAT was still set, the CPU has lost a message.
@@ -829,7 +767,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(msglst)::Type,MsglstVal::theMessageHandler> theMessageHandler{};
             constexpr Register::FieldValue<decltype(msglst)::Type,MsglstVal::noMessageLostSinc> noMessageLostSinc{};
         }
-        }
         ///New data
         enum class NewdatVal {
             theMessageHandler=0x00000001,     ///<The message handler or the CPU has written new data into the data portion of this message object.
@@ -839,7 +776,6 @@ namespace Kvasir {
         namespace NewdatValC{
             constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::theMessageHandler> theMessageHandler{};
             constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::noNewDataHasBeen> noNewDataHasBeen{};
-        }
         }
     }
     namespace Noneif2Mctrl{    ///<Message interface 1 message control
@@ -856,7 +792,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eob)::Type,EobVal::singleMessageObjec> singleMessageObjec{};
             constexpr Register::FieldValue<decltype(eob)::Type,EobVal::messageObjectBelon> messageObjectBelon{};
         }
-        }
         ///Transmit request
         enum class TxrqstVal {
             request=0x00000001,     ///<The transmission of this message object is requested and is not yet done
@@ -866,7 +801,6 @@ namespace Kvasir {
         namespace TxrqstValC{
             constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::request> request{};
             constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::wait> wait{};
-        }
         }
         ///Remote enable
         enum class RmtenVal {
@@ -878,7 +812,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rmten)::Type,RmtenVal::txrqstset> txrqstset{};
             constexpr Register::FieldValue<decltype(rmten)::Type,RmtenVal::unchanged> unchanged{};
         }
-        }
         ///Receive interrupt enable
         enum class RxieVal {
             intpndset=0x00000001,     ///<INTPND will be set after successful reception of a frame.
@@ -888,7 +821,6 @@ namespace Kvasir {
         namespace RxieValC{
             constexpr Register::FieldValue<decltype(rxie)::Type,RxieVal::intpndset> intpndset{};
             constexpr Register::FieldValue<decltype(rxie)::Type,RxieVal::unchanged> unchanged{};
-        }
         }
         ///Transmit interrupt enable
         enum class TxieVal {
@@ -900,7 +832,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txie)::Type,TxieVal::intpndset> intpndset{};
             constexpr Register::FieldValue<decltype(txie)::Type,TxieVal::unchanged> unchanged{};
         }
-        }
         ///Use acceptance mask If UMASK is set to 1, the message object's mask bits have to be programmed during initialization of the message object before MAGVAL is set to 1.
         enum class UmaskVal {
             useMaskMsk280=0x00000001,     ///<Use mask (MSK[28:0], MXTD, and MDIR) for acceptance filtering.
@@ -910,7 +841,6 @@ namespace Kvasir {
         namespace UmaskValC{
             constexpr Register::FieldValue<decltype(umask)::Type,UmaskVal::useMaskMsk280> useMaskMsk280{};
             constexpr Register::FieldValue<decltype(umask)::Type,UmaskVal::maskIgnored> maskIgnored{};
-        }
         }
         ///Interrupt pending
         enum class IntpndVal {
@@ -922,7 +852,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intpnd)::Type,IntpndVal::intsource> intsource{};
             constexpr Register::FieldValue<decltype(intpnd)::Type,IntpndVal::nointsource> nointsource{};
         }
-        }
         ///Message lost (only valid for message objects in the direction receive).
         enum class MsglstVal {
             theMessageHandler=0x00000001,     ///<The Message Handler stored a new message into this object when NEWDAT was still set, the CPU has lost a message.
@@ -933,7 +862,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(msglst)::Type,MsglstVal::theMessageHandler> theMessageHandler{};
             constexpr Register::FieldValue<decltype(msglst)::Type,MsglstVal::noMessageLostSinc> noMessageLostSinc{};
         }
-        }
         ///New data
         enum class NewdatVal {
             theMessageHandler=0x00000001,     ///<The message handler or the CPU has written new data into the data portion of this message object.
@@ -943,7 +871,6 @@ namespace Kvasir {
         namespace NewdatValC{
             constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::theMessageHandler> theMessageHandler{};
             constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::noNewDataHasBeen> noNewDataHasBeen{};
-        }
         }
     }
     namespace Noneif1Da1{    ///<Message interface  data A1

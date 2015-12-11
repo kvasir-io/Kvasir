@@ -53,7 +53,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare0Clear)::Type,Compare0clearVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(compare0Clear)::Type,Compare0clearVal::enabled> enabled{};
         }
-        }
         ///Shortcut between CC[1] event and the CLEAR task.
         enum class Compare1clearVal {
             disabled=0x00000000,     ///<Shortcut disabled.
@@ -63,7 +62,6 @@ namespace Kvasir {
         namespace Compare1clearValC{
             constexpr Register::FieldValue<decltype(compare1Clear)::Type,Compare1clearVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(compare1Clear)::Type,Compare1clearVal::enabled> enabled{};
-        }
         }
         ///Shortcut between CC[2] event and the CLEAR task.
         enum class Compare2clearVal {
@@ -75,7 +73,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare2Clear)::Type,Compare2clearVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(compare2Clear)::Type,Compare2clearVal::enabled> enabled{};
         }
-        }
         ///Shortcut between CC[3] event and the CLEAR task.
         enum class Compare3clearVal {
             disabled=0x00000000,     ///<Shortcut disabled.
@@ -85,7 +82,6 @@ namespace Kvasir {
         namespace Compare3clearValC{
             constexpr Register::FieldValue<decltype(compare3Clear)::Type,Compare3clearVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(compare3Clear)::Type,Compare3clearVal::enabled> enabled{};
-        }
         }
         ///Shortcut between CC[0] event and the STOP task.
         enum class Compare0stopVal {
@@ -97,7 +93,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare0Stop)::Type,Compare0stopVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(compare0Stop)::Type,Compare0stopVal::enabled> enabled{};
         }
-        }
         ///Shortcut between CC[1] event and the STOP task.
         enum class Compare1stopVal {
             disabled=0x00000000,     ///<Shortcut disabled.
@@ -107,7 +102,6 @@ namespace Kvasir {
         namespace Compare1stopValC{
             constexpr Register::FieldValue<decltype(compare1Stop)::Type,Compare1stopVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(compare1Stop)::Type,Compare1stopVal::enabled> enabled{};
-        }
         }
         ///Shortcut between CC[2] event and the STOP task.
         enum class Compare2stopVal {
@@ -119,7 +113,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare2Stop)::Type,Compare2stopVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(compare2Stop)::Type,Compare2stopVal::enabled> enabled{};
         }
-        }
         ///Shortcut between CC[3] event and the STOP task.
         enum class Compare3stopVal {
             disabled=0x00000000,     ///<Shortcut disabled.
@@ -129,7 +122,6 @@ namespace Kvasir {
         namespace Compare3stopValC{
             constexpr Register::FieldValue<decltype(compare3Stop)::Type,Compare3stopVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(compare3Stop)::Type,Compare3stopVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneintenset{    ///<Interrupt enable set register.
@@ -146,7 +138,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare0)::Type,Compare0Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(compare0)::Type,Compare0Val::set> set{};
         }
-        }
         ///Enable interrupt on COMPARE[1]
         enum class Compare1Val {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -158,7 +149,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare1)::Type,Compare1Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(compare1)::Type,Compare1Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(compare1)::Type,Compare1Val::set> set{};
-        }
         }
         ///Enable interrupt on COMPARE[2]
         enum class Compare2Val {
@@ -172,7 +162,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare2)::Type,Compare2Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(compare2)::Type,Compare2Val::set> set{};
         }
-        }
         ///Enable interrupt on COMPARE[3]
         enum class Compare3Val {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -184,7 +173,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::set> set{};
-        }
         }
     }
     namespace Noneintenclr{    ///<Interrupt enable clear register.
@@ -201,7 +189,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare0)::Type,Compare0Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(compare0)::Type,Compare0Val::clear> clear{};
         }
-        }
         ///Disable interrupt on COMPARE[1]
         enum class Compare1Val {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -213,7 +200,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare1)::Type,Compare1Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(compare1)::Type,Compare1Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(compare1)::Type,Compare1Val::clear> clear{};
-        }
         }
         ///Disable interrupt on COMPARE[2]
         enum class Compare2Val {
@@ -227,7 +213,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare2)::Type,Compare2Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(compare2)::Type,Compare2Val::clear> clear{};
         }
-        }
         ///Disable interrupt on COMPARE[3]
         enum class Compare3Val {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -239,7 +224,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::clear> clear{};
-        }
         }
     }
     namespace Nonemode{    ///<Timer Mode selection.
@@ -253,7 +237,6 @@ namespace Kvasir {
         namespace ModeValC{
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::counter> counter{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::timer> timer{};
-        }
         }
     }
     namespace Nonebitmode{    ///<Sets timer behaviour.
@@ -271,7 +254,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bitmode)::Type,BitmodeVal::v08bit> v08bit{};
             constexpr Register::FieldValue<decltype(bitmode)::Type,BitmodeVal::v24bit> v24bit{};
             constexpr Register::FieldValue<decltype(bitmode)::Type,BitmodeVal::v32bit> v32bit{};
-        }
         }
     }
     namespace Noneprescaler{    ///<4-bit prescaler to source clock frequency (max value 9). Source clock frequency is divided by 2^SCALE.
@@ -302,7 +284,6 @@ namespace Kvasir {
         namespace PowerValC{
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::enabled> enabled{};
-        }
         }
     }
 }

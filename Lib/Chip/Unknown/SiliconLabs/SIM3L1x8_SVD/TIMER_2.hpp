@@ -18,7 +18,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lclk)::Type,LclkVal::timerClkdiv> timerClkdiv{};
             constexpr Register::FieldValue<decltype(lclk)::Type,LclkVal::ctFallingEdge> ctFallingEdge{};
         }
-        }
         ///Low Run Master Enable. 
         enum class LmstrenVal {
             disabled=0x00000000,     ///<MSTRUN does not need to be set for the low timer to run.
@@ -28,7 +27,6 @@ namespace Kvasir {
         namespace LmstrenValC{
             constexpr Register::FieldValue<decltype(lmstren)::Type,LmstrenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(lmstren)::Type,LmstrenVal::enabled> enabled{};
-        }
         }
         ///Split Mode Enable. 
         enum class SplitenVal {
@@ -40,7 +38,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(spliten)::Type,SplitenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(spliten)::Type,SplitenVal::enabled> enabled{};
         }
-        }
         ///Low Timer Extra Interrupt Enable. 
         enum class LexienVal {
             disabled=0x00000000,     ///<The state of the LEXI flag does not affect the low timer interrupt.
@@ -51,7 +48,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lexien)::Type,LexienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(lexien)::Type,LexienVal::enabled> enabled{};
         }
-        }
         ///Low Timer Overflow Interrupt Enable. 
         enum class LovfienVal {
             disabled=0x00000000,     ///<The state of LOVFI does not affect the low timer interrupt.
@@ -61,7 +57,6 @@ namespace Kvasir {
         namespace LovfienValC{
             constexpr Register::FieldValue<decltype(lovfien)::Type,LovfienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(lovfien)::Type,LovfienVal::enabled> enabled{};
-        }
         }
         ///Low Timer Mode. 
         enum class LmdVal {
@@ -85,7 +80,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lmd)::Type,LmdVal::dcCapture> dcCapture{};
             constexpr Register::FieldValue<decltype(lmd)::Type,LmdVal::oneshot> oneshot{};
         }
-        }
         ///Low Multi Purpose State Indicator. 
         enum class LstateVal {
             notSet=0x00000000,     ///<None
@@ -95,7 +89,6 @@ namespace Kvasir {
         namespace LstateValC{
             constexpr Register::FieldValue<decltype(lstate)::Type,LstateVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(lstate)::Type,LstateVal::set> set{};
-        }
         }
         ///Run Control Low. 
         enum class LrunVal {
@@ -107,7 +100,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lrun)::Type,LrunVal::stop> stop{};
             constexpr Register::FieldValue<decltype(lrun)::Type,LrunVal::start> start{};
         }
-        }
         ///Low Timer Extra Interrupt Flag. 
         enum class LexiVal {
             notSet=0x00000000,     ///<Read: A low timer extra interrupt is not pending. Write: Clear the interrupt.
@@ -118,7 +110,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lexi)::Type,LexiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(lexi)::Type,LexiVal::set> set{};
         }
-        }
         ///Low Timer Overflow Interrupt. 
         enum class LovfiVal {
             notSet=0x00000000,     ///<Read: A low timer overflow interrupt is not pending. Write: Clear the interrupt.
@@ -128,7 +119,6 @@ namespace Kvasir {
         namespace LovfiValC{
             constexpr Register::FieldValue<decltype(lovfi)::Type,LovfiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(lovfi)::Type,LovfiVal::set> set{};
-        }
         }
         ///High Clock Source. 
         enum class HclkVal {
@@ -144,7 +134,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hclk)::Type,HclkVal::timerClkdiv> timerClkdiv{};
             constexpr Register::FieldValue<decltype(hclk)::Type,HclkVal::ctFallingEdge> ctFallingEdge{};
         }
-        }
         ///Master Run Control. 
         enum class MstrunVal {
             stop=0x00000000,     ///<Disable the master run control for all timers.
@@ -154,7 +143,6 @@ namespace Kvasir {
         namespace MstrunValC{
             constexpr Register::FieldValue<decltype(mstrun)::Type,MstrunVal::stop> stop{};
             constexpr Register::FieldValue<decltype(mstrun)::Type,MstrunVal::start> start{};
-        }
         }
         ///High Master Enable. 
         enum class HmstrenVal {
@@ -166,7 +154,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hmstren)::Type,HmstrenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hmstren)::Type,HmstrenVal::enabled> enabled{};
         }
-        }
         ///Timer Debug Mode. 
         enum class DbgmdVal {
             run=0x00000000,     ///<The Timer will continue to operate while the core is halted in debug mode.
@@ -176,7 +163,6 @@ namespace Kvasir {
         namespace DbgmdValC{
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::run> run{};
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::halt> halt{};
-        }
         }
         ///High Timer Extra Interrupt Enable. 
         enum class HexienVal {
@@ -188,7 +174,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hexien)::Type,HexienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hexien)::Type,HexienVal::enabled> enabled{};
         }
-        }
         ///High Timer Overflow Interrupt Enable. 
         enum class HovfienVal {
             disabled=0x00000000,     ///<The state of HOVFI does not affect the high timer interrupt.
@@ -198,7 +183,6 @@ namespace Kvasir {
         namespace HovfienValC{
             constexpr Register::FieldValue<decltype(hovfien)::Type,HovfienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(hovfien)::Type,HovfienVal::enabled> enabled{};
-        }
         }
         ///High Timer Mode. 
         enum class HmdVal {
@@ -226,7 +210,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hmd)::Type,HmdVal::toggle> toggle{};
             constexpr Register::FieldValue<decltype(hmd)::Type,HmdVal::pwm> pwm{};
         }
-        }
         ///High Multi Purpose State Indicator. 
         enum class HstateVal {
             notSet=0x00000000,     ///<None
@@ -236,7 +219,6 @@ namespace Kvasir {
         namespace HstateValC{
             constexpr Register::FieldValue<decltype(hstate)::Type,HstateVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(hstate)::Type,HstateVal::set> set{};
-        }
         }
         ///High Run Control. 
         enum class HrunVal {
@@ -248,7 +230,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hrun)::Type,HrunVal::stop> stop{};
             constexpr Register::FieldValue<decltype(hrun)::Type,HrunVal::start> start{};
         }
-        }
         ///High Timer Extra Interrupt Flag. 
         enum class HexiVal {
             notSet=0x00000000,     ///<Read: A high timer extra interrupt is not pending. Write: Clear the interrupt.
@@ -259,7 +240,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hexi)::Type,HexiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(hexi)::Type,HexiVal::set> set{};
         }
-        }
         ///High Timer Overflow Interrupt Flag. 
         enum class HovfiVal {
             notSet=0x00000000,     ///<Read: A high timer overflow interrupt is not pending. Write: Clear the interrupt.
@@ -269,7 +249,6 @@ namespace Kvasir {
         namespace HovfiValC{
             constexpr Register::FieldValue<decltype(hovfi)::Type,HovfiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(hovfi)::Type,HovfiVal::set> set{};
-        }
         }
     }
     namespace Noneclkdiv{    ///<Module Clock Divider Control

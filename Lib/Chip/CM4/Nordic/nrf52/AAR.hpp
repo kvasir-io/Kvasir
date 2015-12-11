@@ -31,7 +31,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_RESOLVED event
         enum class ResolvedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -44,7 +43,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(resolved)::Type,ResolvedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(resolved)::Type,ResolvedVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_NOTRESOLVED event
         enum class NotresolvedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -56,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(notresolved)::Type,NotresolvedVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(notresolved)::Type,NotresolvedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(notresolved)::Type,NotresolvedVal::set> set{};
-        }
         }
     }
     namespace Noneintenclr{    ///<Disable interrupt
@@ -73,7 +70,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_RESOLVED event
         enum class ResolvedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -86,7 +82,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(resolved)::Type,ResolvedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(resolved)::Type,ResolvedVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_NOTRESOLVED event
         enum class NotresolvedVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -98,7 +93,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(notresolved)::Type,NotresolvedVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(notresolved)::Type,NotresolvedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(notresolved)::Type,NotresolvedVal::clear> clear{};
-        }
         }
     }
     namespace Nonestatus{    ///<Resolution status
@@ -117,7 +111,6 @@ namespace Kvasir {
         namespace EnableValC{
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonenirk{    ///<Number of IRKs

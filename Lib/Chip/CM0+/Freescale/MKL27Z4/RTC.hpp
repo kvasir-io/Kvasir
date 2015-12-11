@@ -35,7 +35,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tcr)::Type,TcrVal::v1> v1{};
             constexpr Register::FieldValue<decltype(tcr)::Type,TcrVal::v1111111> v1111111{};
         }
-        }
         ///Compensation Interval Register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> cir{}; 
         ///Time Compensation Value
@@ -55,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swr)::Type,SwrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swr)::Type,SwrVal::v1> v1{};
         }
-        }
         ///Wakeup Pin Enable
         enum class WpeVal {
             v0=0x00000000,     ///<Wakeup pin is disabled.
@@ -65,7 +63,6 @@ namespace Kvasir {
         namespace WpeValC{
             constexpr Register::FieldValue<decltype(wpe)::Type,WpeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wpe)::Type,WpeVal::v1> v1{};
-        }
         }
         ///Supervisor Access
         enum class SupVal {
@@ -77,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sup)::Type,SupVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sup)::Type,SupVal::v1> v1{};
         }
-        }
         ///Update Mode
         enum class UmVal {
             v0=0x00000000,     ///<Registers cannot be written when locked.
@@ -87,7 +83,6 @@ namespace Kvasir {
         namespace UmValC{
             constexpr Register::FieldValue<decltype(um)::Type,UmVal::v0> v0{};
             constexpr Register::FieldValue<decltype(um)::Type,UmVal::v1> v1{};
-        }
         }
         ///Wakeup Pin Select
         enum class WpsVal {
@@ -99,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wps)::Type,WpsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wps)::Type,WpsVal::v1> v1{};
         }
-        }
         ///Oscillator Enable
         enum class OsceVal {
             v0=0x00000000,     ///<32.768 kHz oscillator is disabled.
@@ -109,7 +103,6 @@ namespace Kvasir {
         namespace OsceValC{
             constexpr Register::FieldValue<decltype(osce)::Type,OsceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(osce)::Type,OsceVal::v1> v1{};
-        }
         }
         ///Clock Output
         enum class ClkoVal {
@@ -121,7 +114,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clko)::Type,ClkoVal::v0> v0{};
             constexpr Register::FieldValue<decltype(clko)::Type,ClkoVal::v1> v1{};
         }
-        }
         ///Oscillator 16pF Load Configure
         enum class Sc16pVal {
             v0=0x00000000,     ///<Disable the load.
@@ -131,7 +123,6 @@ namespace Kvasir {
         namespace Sc16pValC{
             constexpr Register::FieldValue<decltype(sc16p)::Type,Sc16pVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sc16p)::Type,Sc16pVal::v1> v1{};
-        }
         }
         ///Oscillator 8pF Load Configure
         enum class Sc8pVal {
@@ -143,7 +134,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sc8p)::Type,Sc8pVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sc8p)::Type,Sc8pVal::v1> v1{};
         }
-        }
         ///Oscillator 4pF Load Configure
         enum class Sc4pVal {
             v0=0x00000000,     ///<Disable the load.
@@ -154,7 +144,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sc4p)::Type,Sc4pVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sc4p)::Type,Sc4pVal::v1> v1{};
         }
-        }
         ///Oscillator 2pF Load Configure
         enum class Sc2pVal {
             v0=0x00000000,     ///<Disable the load.
@@ -164,7 +153,6 @@ namespace Kvasir {
         namespace Sc2pValC{
             constexpr Register::FieldValue<decltype(sc2p)::Type,Sc2pVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sc2p)::Type,Sc2pVal::v1> v1{};
-        }
         }
     }
     namespace RtcSr{    ///<RTC Status Register
@@ -179,7 +167,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v1> v1{};
         }
-        }
         ///Time Overflow Flag
         enum class TofVal {
             v0=0x00000000,     ///<Time overflow has not occurred.
@@ -189,7 +176,6 @@ namespace Kvasir {
         namespace TofValC{
             constexpr Register::FieldValue<decltype(tof)::Type,TofVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tof)::Type,TofVal::v1> v1{};
-        }
         }
         ///Time Alarm Flag
         enum class TafVal {
@@ -201,7 +187,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(taf)::Type,TafVal::v0> v0{};
             constexpr Register::FieldValue<decltype(taf)::Type,TafVal::v1> v1{};
         }
-        }
         ///Time Counter Enable
         enum class TceVal {
             v0=0x00000000,     ///<Time counter is disabled.
@@ -211,7 +196,6 @@ namespace Kvasir {
         namespace TceValC{
             constexpr Register::FieldValue<decltype(tce)::Type,TceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tce)::Type,TceVal::v1> v1{};
-        }
         }
     }
     namespace RtcLr{    ///<RTC Lock Register
@@ -226,7 +210,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tcl)::Type,TclVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tcl)::Type,TclVal::v1> v1{};
         }
-        }
         ///Control Register Lock
         enum class CrlVal {
             v0=0x00000000,     ///<Control Register is locked and writes are ignored.
@@ -236,7 +219,6 @@ namespace Kvasir {
         namespace CrlValC{
             constexpr Register::FieldValue<decltype(crl)::Type,CrlVal::v0> v0{};
             constexpr Register::FieldValue<decltype(crl)::Type,CrlVal::v1> v1{};
-        }
         }
         ///Status Register Lock
         enum class SrlVal {
@@ -248,7 +230,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srl)::Type,SrlVal::v0> v0{};
             constexpr Register::FieldValue<decltype(srl)::Type,SrlVal::v1> v1{};
         }
-        }
         ///Lock Register Lock
         enum class LrlVal {
             v0=0x00000000,     ///<Lock Register is locked and writes are ignored.
@@ -258,7 +239,6 @@ namespace Kvasir {
         namespace LrlValC{
             constexpr Register::FieldValue<decltype(lrl)::Type,LrlVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lrl)::Type,LrlVal::v1> v1{};
-        }
         }
     }
     namespace RtcIer{    ///<RTC Interrupt Enable Register
@@ -273,7 +253,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tiie)::Type,TiieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tiie)::Type,TiieVal::v1> v1{};
         }
-        }
         ///Time Overflow Interrupt Enable
         enum class ToieVal {
             v0=0x00000000,     ///<Time overflow flag does not generate an interrupt.
@@ -283,7 +262,6 @@ namespace Kvasir {
         namespace ToieValC{
             constexpr Register::FieldValue<decltype(toie)::Type,ToieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(toie)::Type,ToieVal::v1> v1{};
-        }
         }
         ///Time Alarm Interrupt Enable
         enum class TaieVal {
@@ -295,7 +273,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(taie)::Type,TaieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(taie)::Type,TaieVal::v1> v1{};
         }
-        }
         ///Time Seconds Interrupt Enable
         enum class TsieVal {
             v0=0x00000000,     ///<Seconds interrupt is disabled.
@@ -306,7 +283,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tsie)::Type,TsieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tsie)::Type,TsieVal::v1> v1{};
         }
-        }
         ///Wakeup Pin On
         enum class WponVal {
             v0=0x00000000,     ///<No effect.
@@ -316,7 +292,6 @@ namespace Kvasir {
         namespace WponValC{
             constexpr Register::FieldValue<decltype(wpon)::Type,WponVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wpon)::Type,WponVal::v1> v1{};
-        }
         }
     }
 }

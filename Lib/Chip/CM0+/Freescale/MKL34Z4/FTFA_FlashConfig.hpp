@@ -74,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sec)::Type,SecVal::v10> v10{};
             constexpr Register::FieldValue<decltype(sec)::Type,SecVal::v11> v11{};
         }
-        }
         ///Freescale Failure Analysis Access Code
         enum class FslaccVal {
             v10=0x00000002,     ///<Freescale factory access denied
@@ -84,7 +83,6 @@ namespace Kvasir {
         namespace FslaccValC{
             constexpr Register::FieldValue<decltype(fslacc)::Type,FslaccVal::v10> v10{};
             constexpr Register::FieldValue<decltype(fslacc)::Type,FslaccVal::v11> v11{};
-        }
         }
         ///no description available
         enum class MeenVal {
@@ -96,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(meen)::Type,MeenVal::v10> v10{};
             constexpr Register::FieldValue<decltype(meen)::Type,MeenVal::v11> v11{};
         }
-        }
         ///Backdoor Key Security Enable
         enum class KeyenVal {
             v10=0x00000002,     ///<Backdoor key access enabled
@@ -106,7 +103,6 @@ namespace Kvasir {
         namespace KeyenValC{
             constexpr Register::FieldValue<decltype(keyen)::Type,KeyenVal::v10> v10{};
             constexpr Register::FieldValue<decltype(keyen)::Type,KeyenVal::v11> v11{};
-        }
         }
     }
     namespace NvFopt{    ///<Non-volatile Flash Option Register
@@ -121,7 +117,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lpboot0)::Type,Lpboot0Val::v00> v00{};
             constexpr Register::FieldValue<decltype(lpboot0)::Type,Lpboot0Val::v01> v01{};
         }
-        }
         ///no description available
         enum class NmidisVal {
             v00=0x00000000,     ///<NMI interrupts are always blocked
@@ -131,7 +126,6 @@ namespace Kvasir {
         namespace NmidisValC{
             constexpr Register::FieldValue<decltype(nmiDis)::Type,NmidisVal::v00> v00{};
             constexpr Register::FieldValue<decltype(nmiDis)::Type,NmidisVal::v01> v01{};
-        }
         }
         ///no description available
         enum class ResetpincfgVal {
@@ -143,7 +137,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(resetPinCfg)::Type,ResetpincfgVal::v00> v00{};
             constexpr Register::FieldValue<decltype(resetPinCfg)::Type,ResetpincfgVal::v01> v01{};
         }
-        }
         ///no description available
         enum class Lpboot1Val {
             v00=0x00000000,     ///<Core and system clock divider (OUTDIV1) is 0x7 (divide by 8) when LPBOOT0=0 or 0x3 (divide by 4) when LPBOOT0=1.
@@ -154,7 +147,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lpboot1)::Type,Lpboot1Val::v00> v00{};
             constexpr Register::FieldValue<decltype(lpboot1)::Type,Lpboot1Val::v01> v01{};
         }
-        }
         ///no description available
         enum class FastinitVal {
             v00=0x00000000,     ///<Slower initialization
@@ -164,7 +156,6 @@ namespace Kvasir {
         namespace FastinitValC{
             constexpr Register::FieldValue<decltype(fastInit)::Type,FastinitVal::v00> v00{};
             constexpr Register::FieldValue<decltype(fastInit)::Type,FastinitVal::v01> v01{};
-        }
         }
     }
 }

@@ -28,7 +28,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(waynum)::Type,WaynumVal::arch4way> arch4way{};
             constexpr Register::FieldValue<decltype(waynum)::Type,WaynumVal::arch8way> arch8way{};
         }
-        }
         ///Lock Down Supported
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> lckdown{}; 
         ///Cache Size
@@ -74,7 +73,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(way)::Type,WayVal::way2> way2{};
             constexpr Register::FieldValue<decltype(way)::Type,WayVal::way3> way3{};
         }
-        }
     }
     namespace CmccMcfg{    ///<Cache Monitor Configuration Register
         using Addr = Register::Address<0x4007c028,0xfffffffc,0,unsigned>;
@@ -89,7 +87,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::cycleCount> cycleCount{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::ihitCount> ihitCount{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::dhitCount> dhitCount{};
-        }
         }
     }
     namespace CmccMen{    ///<Cache Monitor Enable Register

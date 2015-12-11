@@ -24,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -36,7 +35,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -46,7 +44,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -59,7 +56,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -74,7 +70,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -85,7 +80,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio01{    ///<Digital I/O control for port 0 pins PIO0_0 to
@@ -110,7 +104,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -122,7 +115,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -132,7 +124,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -145,7 +136,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -160,7 +150,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -171,7 +160,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio02{    ///<Digital I/O control for port 0 pins PIO0_0 to
@@ -196,7 +184,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -208,7 +195,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -218,7 +204,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -231,7 +216,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -246,7 +230,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -257,7 +240,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio03{    ///<Digital I/O control for port 0 pins PIO0_0 to
@@ -282,7 +264,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -294,7 +275,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -304,7 +284,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -317,7 +296,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -332,7 +310,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -343,7 +320,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio04{    ///<Digital I/O control for port 0 pins PIO0_0 to
@@ -368,7 +344,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -380,7 +355,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -390,7 +364,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -403,7 +376,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -418,7 +390,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -429,7 +400,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio05{    ///<Digital I/O control for port 0 pins PIO0_0 to
@@ -454,7 +424,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -466,7 +435,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -476,7 +444,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -489,7 +456,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -504,7 +470,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -515,7 +480,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio06{    ///<Digital I/O control for port 0 pins PIO0_0 to
@@ -540,7 +504,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -552,7 +515,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -562,7 +524,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -575,7 +536,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -590,7 +550,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -601,7 +560,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio07{    ///<Digital I/O control for port 0 pins PIO0_0 to
@@ -626,7 +584,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -638,7 +595,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -648,7 +604,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -661,7 +616,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -676,7 +630,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -687,7 +640,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio08{    ///<Digital I/O control for port 0 pins PIO0_0 to
@@ -712,7 +664,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -724,7 +675,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -734,7 +684,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -747,7 +696,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -762,7 +710,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -773,7 +720,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio09{    ///<Digital I/O control for port 0 pins PIO0_0 to
@@ -798,7 +744,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -810,7 +755,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -820,7 +764,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -833,7 +776,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -848,7 +790,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -859,7 +800,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio010{    ///<Digital I/O control for port 0 pins PIO0_0 to
@@ -884,7 +824,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -896,7 +835,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -906,7 +844,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -919,7 +856,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -934,7 +870,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -945,7 +880,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio011{    ///<Digital I/O control for port 0 pins PIO0_0 to
@@ -970,7 +904,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -982,7 +915,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -992,7 +924,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -1005,7 +936,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -1020,7 +950,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -1031,7 +960,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio012{    ///<Digital I/O control for port 0 pins PIO0_0 to
@@ -1056,7 +984,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -1068,7 +995,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -1078,7 +1004,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -1091,7 +1016,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -1106,7 +1030,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -1117,7 +1040,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio013{    ///<Digital I/O control for port 0 pins PIO0_0 to
@@ -1142,7 +1064,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -1154,7 +1075,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -1164,7 +1084,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -1177,7 +1096,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -1192,7 +1110,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -1203,7 +1120,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio014{    ///<Digital I/O control for port 0 pins PIO0_0 to
@@ -1228,7 +1144,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -1240,7 +1155,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -1250,7 +1164,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -1263,7 +1176,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -1278,7 +1190,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -1289,7 +1200,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio015{    ///<Digital I/O control for port 0 pins PIO0_0 to
@@ -1314,7 +1224,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -1326,7 +1235,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -1336,7 +1244,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -1349,7 +1256,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -1364,7 +1270,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -1375,7 +1280,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio016{    ///<Digital I/O control for port 0 pins PIO0_16 to
@@ -1400,7 +1304,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -1412,7 +1315,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -1422,7 +1324,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -1435,7 +1336,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -1450,7 +1350,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -1461,7 +1360,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio017{    ///<Digital I/O control for port 0 pins PIO0_16 to
@@ -1486,7 +1384,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -1498,7 +1395,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -1508,7 +1404,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -1521,7 +1416,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -1536,7 +1430,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -1547,7 +1440,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio018{    ///<Digital I/O control for port 0 pins PIO0_18 to
@@ -1572,7 +1464,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -1584,7 +1475,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -1594,7 +1484,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -1607,7 +1496,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -1622,7 +1510,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -1633,7 +1520,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio019{    ///<Digital I/O control for port 0 pins PIO0_18 to
@@ -1658,7 +1544,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -1670,7 +1555,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -1680,7 +1564,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -1693,7 +1576,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -1708,7 +1590,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -1719,7 +1600,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio020{    ///<Digital I/O control for port 0 pins PIO0_18 to
@@ -1744,7 +1624,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -1756,7 +1635,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -1766,7 +1644,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -1779,7 +1656,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -1794,7 +1670,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -1805,7 +1680,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio021{    ///<Digital I/O control for port 0 pins PIO0_18 to
@@ -1830,7 +1704,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -1842,7 +1715,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -1852,7 +1724,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -1865,7 +1736,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -1880,7 +1750,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -1891,7 +1760,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio022{    ///<Digital I/O control for port 0 pins PIO0_18 to
@@ -1916,7 +1784,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -1928,7 +1795,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -1938,7 +1804,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -1951,7 +1816,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -1966,7 +1830,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -1977,7 +1840,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio023{    ///<Digital I/O control for port 0 pins PIO0_23 to PIO0_28. These pins
@@ -1996,7 +1858,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2cslew)::Type,I2cslewVal::i2cMode> i2cMode{};
             constexpr Register::FieldValue<decltype(i2cslew)::Type,I2cslewVal::gpioMode> gpioMode{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -2008,7 +1869,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -2018,7 +1878,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -2031,7 +1890,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Controls the current sink capability of the
 								pin.
@@ -2047,7 +1905,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2cdrive)::Type,I2cdriveVal::lowDrive> lowDrive{};
             constexpr Register::FieldValue<decltype(i2cdrive)::Type,I2cdriveVal::highDrive> highDrive{};
         }
-        }
         ///Configures I2C features for standard mode, fast mode, and
 								Fast Mode Plus operation.
         enum class I2cfilterVal {
@@ -2060,7 +1917,6 @@ namespace Kvasir {
         namespace I2cfilterValC{
             constexpr Register::FieldValue<decltype(i2cfilter)::Type,I2cfilterVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(i2cfilter)::Type,I2cfilterVal::disabled> disabled{};
-        }
         }
     }
     namespace Nonepio024{    ///<Digital I/O control for port 0 pins PIO0_23 to PIO0_28. These pins
@@ -2079,7 +1935,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2cslew)::Type,I2cslewVal::i2cMode> i2cMode{};
             constexpr Register::FieldValue<decltype(i2cslew)::Type,I2cslewVal::gpioMode> gpioMode{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -2091,7 +1946,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -2101,7 +1955,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -2114,7 +1967,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Controls the current sink capability of the
 								pin.
@@ -2130,7 +1982,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2cdrive)::Type,I2cdriveVal::lowDrive> lowDrive{};
             constexpr Register::FieldValue<decltype(i2cdrive)::Type,I2cdriveVal::highDrive> highDrive{};
         }
-        }
         ///Configures I2C features for standard mode, fast mode, and
 								Fast Mode Plus operation.
         enum class I2cfilterVal {
@@ -2143,7 +1994,6 @@ namespace Kvasir {
         namespace I2cfilterValC{
             constexpr Register::FieldValue<decltype(i2cfilter)::Type,I2cfilterVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(i2cfilter)::Type,I2cfilterVal::disabled> disabled{};
-        }
         }
     }
     namespace Nonepio025{    ///<Digital I/O control for port 0 pins PIO0_23 to PIO0_28. These pins
@@ -2162,7 +2012,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2cslew)::Type,I2cslewVal::i2cMode> i2cMode{};
             constexpr Register::FieldValue<decltype(i2cslew)::Type,I2cslewVal::gpioMode> gpioMode{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -2174,7 +2023,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -2184,7 +2032,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -2197,7 +2044,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Controls the current sink capability of the
 								pin.
@@ -2213,7 +2059,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2cdrive)::Type,I2cdriveVal::lowDrive> lowDrive{};
             constexpr Register::FieldValue<decltype(i2cdrive)::Type,I2cdriveVal::highDrive> highDrive{};
         }
-        }
         ///Configures I2C features for standard mode, fast mode, and
 								Fast Mode Plus operation.
         enum class I2cfilterVal {
@@ -2226,7 +2071,6 @@ namespace Kvasir {
         namespace I2cfilterValC{
             constexpr Register::FieldValue<decltype(i2cfilter)::Type,I2cfilterVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(i2cfilter)::Type,I2cfilterVal::disabled> disabled{};
-        }
         }
     }
     namespace Nonepio026{    ///<Digital I/O control for port 0 pins PIO0_23 to PIO0_28. These pins
@@ -2245,7 +2089,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2cslew)::Type,I2cslewVal::i2cMode> i2cMode{};
             constexpr Register::FieldValue<decltype(i2cslew)::Type,I2cslewVal::gpioMode> gpioMode{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -2257,7 +2100,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -2267,7 +2109,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -2280,7 +2121,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Controls the current sink capability of the
 								pin.
@@ -2296,7 +2136,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2cdrive)::Type,I2cdriveVal::lowDrive> lowDrive{};
             constexpr Register::FieldValue<decltype(i2cdrive)::Type,I2cdriveVal::highDrive> highDrive{};
         }
-        }
         ///Configures I2C features for standard mode, fast mode, and
 								Fast Mode Plus operation.
         enum class I2cfilterVal {
@@ -2309,7 +2148,6 @@ namespace Kvasir {
         namespace I2cfilterValC{
             constexpr Register::FieldValue<decltype(i2cfilter)::Type,I2cfilterVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(i2cfilter)::Type,I2cfilterVal::disabled> disabled{};
-        }
         }
     }
     namespace Nonepio027{    ///<Digital I/O control for port 0 pins PIO0_23 to PIO0_28. These pins
@@ -2328,7 +2166,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2cslew)::Type,I2cslewVal::i2cMode> i2cMode{};
             constexpr Register::FieldValue<decltype(i2cslew)::Type,I2cslewVal::gpioMode> gpioMode{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -2340,7 +2177,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -2350,7 +2186,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -2363,7 +2198,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Controls the current sink capability of the
 								pin.
@@ -2379,7 +2213,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2cdrive)::Type,I2cdriveVal::lowDrive> lowDrive{};
             constexpr Register::FieldValue<decltype(i2cdrive)::Type,I2cdriveVal::highDrive> highDrive{};
         }
-        }
         ///Configures I2C features for standard mode, fast mode, and
 								Fast Mode Plus operation.
         enum class I2cfilterVal {
@@ -2392,7 +2225,6 @@ namespace Kvasir {
         namespace I2cfilterValC{
             constexpr Register::FieldValue<decltype(i2cfilter)::Type,I2cfilterVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(i2cfilter)::Type,I2cfilterVal::disabled> disabled{};
-        }
         }
     }
     namespace Nonepio028{    ///<Digital I/O control for port 0 pins PIO0_23 to PIO0_28. These pins
@@ -2411,7 +2243,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2cslew)::Type,I2cslewVal::i2cMode> i2cMode{};
             constexpr Register::FieldValue<decltype(i2cslew)::Type,I2cslewVal::gpioMode> gpioMode{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -2423,7 +2254,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -2433,7 +2263,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -2446,7 +2275,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Controls the current sink capability of the
 								pin.
@@ -2462,7 +2290,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2cdrive)::Type,I2cdriveVal::lowDrive> lowDrive{};
             constexpr Register::FieldValue<decltype(i2cdrive)::Type,I2cdriveVal::highDrive> highDrive{};
         }
-        }
         ///Configures I2C features for standard mode, fast mode, and
 								Fast Mode Plus operation.
         enum class I2cfilterVal {
@@ -2475,7 +2302,6 @@ namespace Kvasir {
         namespace I2cfilterValC{
             constexpr Register::FieldValue<decltype(i2cfilter)::Type,I2cfilterVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(i2cfilter)::Type,I2cfilterVal::disabled> disabled{};
-        }
         }
     }
     namespace Nonepio029{    ///<Digital I/O control for port 0 pins PIO0_29 to PIO0_31. These pins
@@ -2500,7 +2326,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -2512,7 +2337,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -2522,7 +2346,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -2536,7 +2359,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -2547,7 +2369,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio030{    ///<Digital I/O control for port 0 pins PIO0_29 to PIO0_31. These pins
@@ -2572,7 +2393,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -2584,7 +2404,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -2594,7 +2413,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -2608,7 +2426,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -2619,7 +2436,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio031{    ///<Digital I/O control for port 0 pins PIO0_29 to PIO0_31. These pins
@@ -2644,7 +2460,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -2656,7 +2471,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -2666,7 +2480,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -2680,7 +2493,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -2691,7 +2503,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio10{    ///<Digital I/O control for port 1 pins PIO0_0 to PIO0_8. These pins
@@ -2716,7 +2527,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -2728,7 +2538,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -2738,7 +2547,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -2752,7 +2560,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -2763,7 +2570,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio11{    ///<Digital I/O control for port 1 pins PIO0_0 to PIO0_8. These pins
@@ -2788,7 +2594,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -2800,7 +2605,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -2810,7 +2614,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -2824,7 +2627,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -2835,7 +2637,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio12{    ///<Digital I/O control for port 1 pins PIO0_0 to PIO0_8. These pins
@@ -2860,7 +2661,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -2872,7 +2672,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -2882,7 +2681,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -2896,7 +2694,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -2907,7 +2704,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio13{    ///<Digital I/O control for port 1 pins PIO0_0 to PIO0_8. These pins
@@ -2932,7 +2728,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -2944,7 +2739,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -2954,7 +2748,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -2968,7 +2761,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -2979,7 +2771,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio14{    ///<Digital I/O control for port 1 pins PIO0_0 to PIO0_8. These pins
@@ -3004,7 +2795,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -3016,7 +2806,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -3026,7 +2815,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -3040,7 +2828,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -3051,7 +2838,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio15{    ///<Digital I/O control for port 1 pins PIO0_0 to PIO0_8. These pins
@@ -3076,7 +2862,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -3088,7 +2873,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -3098,7 +2882,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -3112,7 +2895,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -3123,7 +2905,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio16{    ///<Digital I/O control for port 1 pins PIO0_0 to PIO0_8. These pins
@@ -3148,7 +2929,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -3160,7 +2940,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -3170,7 +2949,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -3184,7 +2962,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -3195,7 +2972,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio17{    ///<Digital I/O control for port 1 pins PIO0_0 to PIO0_8. These pins
@@ -3220,7 +2996,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -3232,7 +3007,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -3242,7 +3016,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -3256,7 +3029,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -3267,7 +3039,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio18{    ///<Digital I/O control for port 1 pins PIO0_0 to PIO0_8. These pins
@@ -3292,7 +3063,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -3304,7 +3074,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -3314,7 +3083,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -3328,7 +3096,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -3339,7 +3106,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio19{    ///<Digital I/O control for port 1 pins PIO1_9 to
@@ -3364,7 +3130,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -3376,7 +3141,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -3386,7 +3150,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -3399,7 +3162,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -3414,7 +3176,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -3425,7 +3186,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio110{    ///<Digital I/O control for port 1 pins PIO1_9 to
@@ -3450,7 +3210,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -3462,7 +3221,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -3472,7 +3230,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -3485,7 +3242,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -3500,7 +3256,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -3511,7 +3266,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio111{    ///<Digital I/O control for port 1 pins PIO1_9 to
@@ -3536,7 +3290,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -3548,7 +3301,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -3558,7 +3310,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -3571,7 +3322,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -3586,7 +3336,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -3597,7 +3346,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio112{    ///<Digital I/O control for port 1 pins PIO1_9 to
@@ -3622,7 +3370,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -3634,7 +3381,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -3644,7 +3390,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -3657,7 +3402,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -3672,7 +3416,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -3683,7 +3426,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio113{    ///<Digital I/O control for port 1 pins PIO1_9 to
@@ -3708,7 +3450,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -3720,7 +3461,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -3730,7 +3470,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -3743,7 +3482,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -3758,7 +3496,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -3769,7 +3506,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio114{    ///<Digital I/O control for port 1 pins PIO1_9 to
@@ -3794,7 +3530,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -3806,7 +3541,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -3816,7 +3550,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -3829,7 +3562,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -3844,7 +3576,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -3855,7 +3586,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio115{    ///<Digital I/O control for port 1 pins PIO1_9 to
@@ -3880,7 +3610,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -3892,7 +3621,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -3902,7 +3630,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -3915,7 +3642,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -3930,7 +3656,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -3941,7 +3666,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio116{    ///<Digital I/O control for port 1 pins PIO1_9 to
@@ -3966,7 +3690,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -3978,7 +3701,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -3988,7 +3710,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -4001,7 +3722,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -4016,7 +3736,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -4027,7 +3746,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
     namespace Nonepio117{    ///<Digital I/O control for port 1 pins PIO1_9 to
@@ -4052,7 +3770,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUp> pullUp{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeater> repeater{};
         }
-        }
         ///Input polarity.
         enum class InvertVal {
             disabled=0x00000000,     ///<Disabled. Input function is not
@@ -4064,7 +3781,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(invert)::Type,InvertVal::enabled> enabled{};
         }
-        }
         ///Select Analog/Digital mode.
         enum class DigimodeVal {
             analogMode=0x00000000,     ///<Analog mode.
@@ -4074,7 +3790,6 @@ namespace Kvasir {
         namespace DigimodeValC{
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::analogMode> analogMode{};
             constexpr Register::FieldValue<decltype(digimode)::Type,DigimodeVal::digitalMode> digitalMode{};
-        }
         }
         ///Controls input glitch filter.
         enum class FilteroffVal {
@@ -4087,7 +3802,6 @@ namespace Kvasir {
         namespace FilteroffValC{
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterEnabled> filterEnabled{};
             constexpr Register::FieldValue<decltype(filteroff)::Type,FilteroffVal::filterDisabled> filterDisabled{};
-        }
         }
         ///Driver slew rate.
         enum class SlewVal {
@@ -4102,7 +3816,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::standardMode> standardMode{};
             constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fastMode> fastMode{};
         }
-        }
         ///Controls open-drain mode.
         enum class OdVal {
             normal=0x00000000,     ///<Normal. Normal push-pull output
@@ -4113,7 +3826,6 @@ namespace Kvasir {
         namespace OdValC{
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrain> openDrain{};
-        }
         }
     }
 }

@@ -94,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v1> v1{};
         }
-        }
         ///no description available
         enum class DpeVal {
             v0=0x00000000,     ///<No error detected
@@ -104,7 +103,6 @@ namespace Kvasir {
         namespace DpeValC{
             constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v1> v1{};
-        }
         }
         ///CAU version
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
@@ -171,7 +169,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v1> v1{};
         }
-        }
         ///no description available
         enum class DpeVal {
             v0=0x00000000,     ///<No error detected
@@ -181,7 +178,6 @@ namespace Kvasir {
         namespace DpeValC{
             constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v1> v1{};
-        }
         }
         ///CAU version
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
@@ -248,7 +244,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v1> v1{};
         }
-        }
         ///no description available
         enum class DpeVal {
             v0=0x00000000,     ///<No error detected
@@ -258,7 +253,6 @@ namespace Kvasir {
         namespace DpeValC{
             constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v1> v1{};
-        }
         }
         ///CAU version
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
@@ -325,7 +319,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v1> v1{};
         }
-        }
         ///no description available
         enum class DpeVal {
             v0=0x00000000,     ///<No error detected
@@ -335,7 +328,6 @@ namespace Kvasir {
         namespace DpeValC{
             constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v1> v1{};
-        }
         }
         ///CAU version
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
@@ -402,7 +394,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v1> v1{};
         }
-        }
         ///no description available
         enum class DpeVal {
             v0=0x00000000,     ///<No error detected
@@ -412,7 +403,6 @@ namespace Kvasir {
         namespace DpeValC{
             constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v1> v1{};
-        }
         }
         ///CAU version
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
@@ -479,7 +469,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v1> v1{};
         }
-        }
         ///no description available
         enum class DpeVal {
             v0=0x00000000,     ///<No error detected
@@ -489,7 +478,6 @@ namespace Kvasir {
         namespace DpeValC{
             constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v1> v1{};
-        }
         }
         ///CAU version
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
@@ -556,7 +544,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v1> v1{};
         }
-        }
         ///no description available
         enum class DpeVal {
             v0=0x00000000,     ///<No error detected
@@ -566,7 +553,6 @@ namespace Kvasir {
         namespace DpeValC{
             constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v1> v1{};
-        }
         }
         ///CAU version
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
@@ -633,7 +619,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v1> v1{};
         }
-        }
         ///no description available
         enum class DpeVal {
             v0=0x00000000,     ///<No error detected
@@ -643,7 +628,6 @@ namespace Kvasir {
         namespace DpeValC{
             constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v1> v1{};
-        }
         }
         ///CAU version
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 

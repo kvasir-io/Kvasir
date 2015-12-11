@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hwTrg)::Type,HwtrgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hwTrg)::Type,HwtrgVal::v1> v1{};
         }
-        }
         ///Decimator Clock Input Select
         enum class DecclkinpselVal {
             v0=0x00000000,     ///<On the chip modulator clock will be used
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace DecclkinpselValC{
             constexpr Register::FieldValue<decltype(decClkInpSel)::Type,DecclkinpselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(decClkInpSel)::Type,DecclkinpselVal::v1> v1{};
-        }
         }
         ///Decimator Clock Edge Select
         enum class DecclkedgeselVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(decClkEdgeSel)::Type,DecclkedgeselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(decClkEdgeSel)::Type,DecclkedgeselVal::v1> v1{};
         }
-        }
         ///Continuous Conversion/Single Conversion Mode Select
         enum class CcVal {
             v0=0x00000000,     ///<One conversion following a triggering event
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace CcValC{
             constexpr Register::FieldValue<decltype(cc)::Type,CcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cc)::Type,CcVal::v1> v1{};
-        }
         }
         ///Decimation Filter enable
         enum class DecenVal {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(decEn)::Type,DecenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(decEn)::Type,DecenVal::v1> v1{};
         }
-        }
         ///Sigma Delta Modulator enable
         enum class SdmodenVal {
             v0=0x00000000,     ///<SD ADC1 is disabled
@@ -69,7 +64,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sdModEn)::Type,SdmodenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sdModEn)::Type,SdmodenVal::v1> v1{};
         }
-        }
         ///AFE Channel0 bypass mode
         enum class BypmodeVal {
             v0=0x00000000,     ///<Normal mode
@@ -79,7 +73,6 @@ namespace Kvasir {
         namespace BypmodeValC{
             constexpr Register::FieldValue<decltype(bypMode)::Type,BypmodeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bypMode)::Type,BypmodeVal::v1> v1{};
-        }
         }
         ///PGA Gain Select
         enum class PgagainselVal {
@@ -99,7 +92,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pgaGainSel)::Type,PgagainselVal::v101> v101{};
             constexpr Register::FieldValue<decltype(pgaGainSel)::Type,PgagainselVal::v110> v110{};
         }
-        }
         ///PGA enable
         enum class PgaenVal {
             v0=0x00000000,     ///<PGA disabled
@@ -109,7 +101,6 @@ namespace Kvasir {
         namespace PgaenValC{
             constexpr Register::FieldValue<decltype(pgaEn)::Type,PgaenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pgaEn)::Type,PgaenVal::v1> v1{};
-        }
         }
         ///Decimator OverSampling Ratio select
         enum class DecosrVal {
@@ -128,7 +119,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(decOsr)::Type,DecosrVal::v011> v011{};
             constexpr Register::FieldValue<decltype(decOsr)::Type,DecosrVal::v100> v100{};
             constexpr Register::FieldValue<decltype(decOsr)::Type,DecosrVal::v101> v101{};
-        }
         }
     }
     namespace AfeCh1Cfr{    ///<Channel1 Configuration Register
@@ -143,7 +133,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hwTrg)::Type,HwtrgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hwTrg)::Type,HwtrgVal::v1> v1{};
         }
-        }
         ///Decimator Clock Input Select
         enum class DecclkinpselVal {
             v0=0x00000000,     ///<On the chip modulator clock will be used
@@ -153,7 +142,6 @@ namespace Kvasir {
         namespace DecclkinpselValC{
             constexpr Register::FieldValue<decltype(decClkInpSel)::Type,DecclkinpselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(decClkInpSel)::Type,DecclkinpselVal::v1> v1{};
-        }
         }
         ///Decimator Clock Edge Select
         enum class DecclkedgeselVal {
@@ -165,7 +153,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(decClkEdgeSel)::Type,DecclkedgeselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(decClkEdgeSel)::Type,DecclkedgeselVal::v1> v1{};
         }
-        }
         ///Continuous Conversion/Single Conversion Mode Select
         enum class CcVal {
             v0=0x00000000,     ///<One conversion following a triggering event
@@ -175,7 +162,6 @@ namespace Kvasir {
         namespace CcValC{
             constexpr Register::FieldValue<decltype(cc)::Type,CcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cc)::Type,CcVal::v1> v1{};
-        }
         }
         ///Decimation Filter enable
         enum class DecenVal {
@@ -187,7 +173,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(decEn)::Type,DecenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(decEn)::Type,DecenVal::v1> v1{};
         }
-        }
         ///Sigma Delta Modulator enable
         enum class SdmodenVal {
             v0=0x00000000,     ///<SD ADC1 is disabled
@@ -198,7 +183,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sdModEn)::Type,SdmodenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sdModEn)::Type,SdmodenVal::v1> v1{};
         }
-        }
         ///AFE Channel1 bypass mode
         enum class BypmodeVal {
             v0=0x00000000,     ///<Normal mode
@@ -208,7 +192,6 @@ namespace Kvasir {
         namespace BypmodeValC{
             constexpr Register::FieldValue<decltype(bypMode)::Type,BypmodeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bypMode)::Type,BypmodeVal::v1> v1{};
-        }
         }
         ///PGA Gain Select
         enum class PgagainselVal {
@@ -228,7 +211,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pgaGainSel)::Type,PgagainselVal::v101> v101{};
             constexpr Register::FieldValue<decltype(pgaGainSel)::Type,PgagainselVal::v110> v110{};
         }
-        }
         ///PGA enable
         enum class PgaenVal {
             v0=0x00000000,     ///<PGA disabled
@@ -238,7 +220,6 @@ namespace Kvasir {
         namespace PgaenValC{
             constexpr Register::FieldValue<decltype(pgaEn)::Type,PgaenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pgaEn)::Type,PgaenVal::v1> v1{};
-        }
         }
         ///Decimator OverSampling Ratio select
         enum class DecosrVal {
@@ -257,7 +238,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(decOsr)::Type,DecosrVal::v011> v011{};
             constexpr Register::FieldValue<decltype(decOsr)::Type,DecosrVal::v100> v100{};
             constexpr Register::FieldValue<decltype(decOsr)::Type,DecosrVal::v101> v101{};
-        }
         }
     }
     namespace AfeCh2Cfr{    ///<Channel2 Configuration Register
@@ -272,7 +252,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hwTrg)::Type,HwtrgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hwTrg)::Type,HwtrgVal::v1> v1{};
         }
-        }
         ///Decimator Clock Input Select
         enum class DecclkinpselVal {
             v0=0x00000000,     ///<On the chip modulator clock will be used.
@@ -282,7 +261,6 @@ namespace Kvasir {
         namespace DecclkinpselValC{
             constexpr Register::FieldValue<decltype(decClkInpSel)::Type,DecclkinpselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(decClkInpSel)::Type,DecclkinpselVal::v1> v1{};
-        }
         }
         ///Decimator Clock Edge Select
         enum class DecclkedgeselVal {
@@ -294,7 +272,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(decClkEdgeSel)::Type,DecclkedgeselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(decClkEdgeSel)::Type,DecclkedgeselVal::v1> v1{};
         }
-        }
         ///Continuous Conversion/Single Conversion Mode Select
         enum class CcVal {
             v0=0x00000000,     ///<One conversion following a triggering event
@@ -304,7 +281,6 @@ namespace Kvasir {
         namespace CcValC{
             constexpr Register::FieldValue<decltype(cc)::Type,CcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cc)::Type,CcVal::v1> v1{};
-        }
         }
         ///Decimation Filter enable
         enum class DecenVal {
@@ -316,7 +292,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(decEn)::Type,DecenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(decEn)::Type,DecenVal::v1> v1{};
         }
-        }
         ///Sigma Delta Modulator enable
         enum class SdmodenVal {
             v0=0x00000000,     ///<SD ADC3 is disabled
@@ -327,7 +302,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sdModEn)::Type,SdmodenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sdModEn)::Type,SdmodenVal::v1> v1{};
         }
-        }
         ///AFE Channel2 bypass mode
         enum class BypmodeVal {
             v0=0x00000000,     ///<Normal mode
@@ -337,7 +311,6 @@ namespace Kvasir {
         namespace BypmodeValC{
             constexpr Register::FieldValue<decltype(bypMode)::Type,BypmodeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bypMode)::Type,BypmodeVal::v1> v1{};
-        }
         }
         ///Decimator OverSampling Ratio select
         enum class DecosrVal {
@@ -356,7 +329,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(decOsr)::Type,DecosrVal::v011> v011{};
             constexpr Register::FieldValue<decltype(decOsr)::Type,DecosrVal::v100> v100{};
             constexpr Register::FieldValue<decltype(decOsr)::Type,DecosrVal::v101> v101{};
-        }
         }
     }
     namespace AfeCh3Cfr{    ///<Channel3 Configuration Register
@@ -371,7 +343,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hwTrg)::Type,HwtrgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hwTrg)::Type,HwtrgVal::v1> v1{};
         }
-        }
         ///Decimator Clock Input Select
         enum class DecclkinpselVal {
             v0=0x00000000,     ///<On the chip modulator clock will be used.
@@ -381,7 +352,6 @@ namespace Kvasir {
         namespace DecclkinpselValC{
             constexpr Register::FieldValue<decltype(decClkInpSel)::Type,DecclkinpselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(decClkInpSel)::Type,DecclkinpselVal::v1> v1{};
-        }
         }
         ///Decimator Clock Edge Select
         enum class DecclkedgeselVal {
@@ -393,7 +363,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(decClkEdgeSel)::Type,DecclkedgeselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(decClkEdgeSel)::Type,DecclkedgeselVal::v1> v1{};
         }
-        }
         ///Continuous Conversion/Single Conversion Mode Select
         enum class CcVal {
             v0=0x00000000,     ///<One conversion following a triggering event
@@ -403,7 +372,6 @@ namespace Kvasir {
         namespace CcValC{
             constexpr Register::FieldValue<decltype(cc)::Type,CcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cc)::Type,CcVal::v1> v1{};
-        }
         }
         ///Decimation Filter enable
         enum class DecenVal {
@@ -415,7 +383,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(decEn)::Type,DecenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(decEn)::Type,DecenVal::v1> v1{};
         }
-        }
         ///Sigma Delta Modulator enable
         enum class SdmodenVal {
             v0=0x00000000,     ///<SD ADC3 is disabled
@@ -426,7 +393,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sdModEn)::Type,SdmodenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sdModEn)::Type,SdmodenVal::v1> v1{};
         }
-        }
         ///AFE Channel3 bypass mode
         enum class BypmodeVal {
             v0=0x00000000,     ///<Normal mode
@@ -436,7 +402,6 @@ namespace Kvasir {
         namespace BypmodeValC{
             constexpr Register::FieldValue<decltype(bypMode)::Type,BypmodeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bypMode)::Type,BypmodeVal::v1> v1{};
-        }
         }
         ///Decimator OverSampling Ratio select
         enum class DecosrVal {
@@ -455,7 +420,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(decOsr)::Type,DecosrVal::v011> v011{};
             constexpr Register::FieldValue<decltype(decOsr)::Type,DecosrVal::v100> v100{};
             constexpr Register::FieldValue<decltype(decOsr)::Type,DecosrVal::v101> v101{};
-        }
         }
     }
     namespace AfeCr{    ///<Control Register
@@ -472,7 +436,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(resultFormat)::Type,ResultformatVal::v0> v0{};
             constexpr Register::FieldValue<decltype(resultFormat)::Type,ResultformatVal::v1> v1{};
         }
-        }
         ///Delay OK
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> dlyOk{}; 
         ///Software Reset
@@ -485,7 +448,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rstB)::Type,RstbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rstB)::Type,RstbVal::v1> v1{};
         }
-        }
         ///Low power Mode enable
         enum class LpmenVal {
             v0=0x00000000,     ///<AFE will be in normal mode
@@ -495,7 +457,6 @@ namespace Kvasir {
         namespace LpmenValC{
             constexpr Register::FieldValue<decltype(lpmEn)::Type,LpmenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lpmEn)::Type,LpmenVal::v1> v1{};
-        }
         }
         ///Software Trigger3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> softTrg3{}; 
@@ -515,7 +476,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mstrEn)::Type,MstrenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(mstrEn)::Type,MstrenVal::v1> v1{};
         }
-        }
     }
     namespace AfeCkr{    ///<Clock Configuration Register
         using Addr = Register::Address<0x4003001c,0x0f9fffff,0,unsigned>;
@@ -532,7 +492,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cls)::Type,ClsVal::v01> v01{};
             constexpr Register::FieldValue<decltype(cls)::Type,ClsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(cls)::Type,ClsVal::v11> v11{};
-        }
         }
         ///Clock Divider Select
         enum class DivVal {
@@ -557,7 +516,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(div)::Type,DivVal::v0110> v0110{};
             constexpr Register::FieldValue<decltype(div)::Type,DivVal::v0111> v0111{};
             constexpr Register::FieldValue<decltype(div)::Type,DivVal::v1xxx> v1xxx{};
-        }
         }
     }
     namespace AfeDi{    ///<DMA and Interrupt Register
@@ -639,7 +597,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rdy3)::Type,Rdy3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(rdy3)::Type,Rdy3Val::v1> v1{};
         }
-        }
         ///AFE Ready3
         enum class Rdy2Val {
             v0=0x00000000,     ///<AFE Channel2 is disabled or has not completed its start up period
@@ -649,7 +606,6 @@ namespace Kvasir {
         namespace Rdy2ValC{
             constexpr Register::FieldValue<decltype(rdy2)::Type,Rdy2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(rdy2)::Type,Rdy2Val::v1> v1{};
-        }
         }
         ///AFE Ready2
         enum class Rdy1Val {
@@ -661,7 +617,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rdy1)::Type,Rdy1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(rdy1)::Type,Rdy1Val::v1> v1{};
         }
-        }
         ///AFE Ready1
         enum class Rdy0Val {
             v0=0x00000000,     ///<AFE Channel0 is disabled or has not completed its start up period
@@ -671,7 +626,6 @@ namespace Kvasir {
         namespace Rdy0ValC{
             constexpr Register::FieldValue<decltype(rdy0)::Type,Rdy0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(rdy0)::Type,Rdy0Val::v1> v1{};
-        }
         }
         ///Overflow Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> ovr3{}; 

@@ -80,7 +80,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(evact)::Type,EvactVal::resume> resume{};
             constexpr Register::FieldValue<decltype(evact)::Type,EvactVal::sskip> sskip{};
         }
-        }
         ///Channel Event Input Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> evie{}; 
         ///Channel Event Output Enable
@@ -101,7 +100,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trigact)::Type,TrigactVal::beat> beat{};
             constexpr Register::FieldValue<decltype(trigact)::Type,TrigactVal::transaction> transaction{};
         }
-        }
         ///Software Command
         enum class CmdVal {
             noact=0x00000000,     ///<No action
@@ -113,7 +111,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmd)::Type,CmdVal::noact> noact{};
             constexpr Register::FieldValue<decltype(cmd)::Type,CmdVal::suspend> suspend{};
             constexpr Register::FieldValue<decltype(cmd)::Type,CmdVal::resume> resume{};
-        }
         }
     }
     namespace DmacChid{    ///<Channel ID
@@ -176,7 +173,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(crcbeatsize)::Type,CrcbeatsizeVal::hword> hword{};
             constexpr Register::FieldValue<decltype(crcbeatsize)::Type,CrcbeatsizeVal::word> word{};
         }
-        }
         ///CRC Polynomial Type
         enum class CrcpolyVal {
             crc16=0x00000000,     ///<CRC-16 (CRC-CCITT)
@@ -186,7 +182,6 @@ namespace Kvasir {
         namespace CrcpolyValC{
             constexpr Register::FieldValue<decltype(crcpoly)::Type,CrcpolyVal::crc16> crc16{};
             constexpr Register::FieldValue<decltype(crcpoly)::Type,CrcpolyVal::crc32> crc32{};
-        }
         }
         ///CRC Input Source
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,8),Register::ReadWriteAccess,unsigned> crcsrc{}; 

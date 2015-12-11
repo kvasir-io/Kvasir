@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lvd)::Type,LvdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lvd)::Type,LvdVal::v1> v1{};
         }
-        }
         ///Internal Clock Source Module Reset
         enum class LocVal {
             v0=0x00000000,     ///<Reset is not caused by the ICS module.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace LocValC{
             constexpr Register::FieldValue<decltype(loc)::Type,LocVal::v0> v0{};
             constexpr Register::FieldValue<decltype(loc)::Type,LocVal::v1> v1{};
-        }
         }
         ///Watchdog (WDOG)
         enum class WdogVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wdog)::Type,WdogVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wdog)::Type,WdogVal::v1> v1{};
         }
-        }
         ///External Reset Pin
         enum class PinVal {
             v0=0x00000000,     ///<Reset is not caused by external reset pin.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace PinValC{
             constexpr Register::FieldValue<decltype(pin)::Type,PinVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pin)::Type,PinVal::v1> v1{};
-        }
         }
         ///Power-On Reset
         enum class PorVal {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(por)::Type,PorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(por)::Type,PorVal::v1> v1{};
         }
-        }
         ///Core Lockup
         enum class LockupVal {
             v0=0x00000000,     ///<Reset is not caused by core LOCKUP event.
@@ -68,7 +63,6 @@ namespace Kvasir {
         namespace LockupValC{
             constexpr Register::FieldValue<decltype(lockup)::Type,LockupVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lockup)::Type,LockupVal::v1> v1{};
-        }
         }
         ///Software
         enum class SwVal {
@@ -80,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sw)::Type,SwVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sw)::Type,SwVal::v1> v1{};
         }
-        }
         ///MDM-AP System Reset Request
         enum class MdmapVal {
             v0=0x00000000,     ///<Reset is not caused by host debugger system setting of the System Reset Request bit.
@@ -91,7 +84,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mdmap)::Type,MdmapVal::v0> v0{};
             constexpr Register::FieldValue<decltype(mdmap)::Type,MdmapVal::v1> v1{};
         }
-        }
         ///Stop Mode Acknowledge Error Reset
         enum class SackerrVal {
             v0=0x00000000,     ///<Reset is not caused by peripheral failure to acknowledge attempt to enter Stop mode.
@@ -101,7 +93,6 @@ namespace Kvasir {
         namespace SackerrValC{
             constexpr Register::FieldValue<decltype(sackerr)::Type,SackerrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sackerr)::Type,SackerrVal::v1> v1{};
-        }
         }
         ///Device Pin ID
         enum class PinidVal {
@@ -129,7 +120,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pinid)::Type,PinidVal::v1000> v1000{};
             constexpr Register::FieldValue<decltype(pinid)::Type,PinidVal::v1010> v1010{};
         }
-        }
         ///Device Revision Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> revid{}; 
         ///Kinetis sub-family ID
@@ -149,7 +139,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nmie)::Type,NmieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(nmie)::Type,NmieVal::v1> v1{};
         }
-        }
         ///RESET Pin Enable
         enum class RstpeVal {
             v0=0x00000000,     ///<PTA5/IRQ/FTM0_CLK/RESET pin functions as PTA5, IRQ, or FTM0_CLK.
@@ -160,7 +149,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rstpe)::Type,RstpeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rstpe)::Type,RstpeVal::v1> v1{};
         }
-        }
         ///Single Wire Debug Port Pin Enable
         enum class SwdeVal {
             v0=0x00000000,     ///<PTA4/ACMP0_OUT/SWD_DIO as PTA4 or ACMP0_OUT function, PTC4/RTCO/FTM1_CH0/ACMP0_IN2/SWD_CLK as PTC4, RTCO, FTM1_CH0, or ACMP0_IN2 function.
@@ -170,7 +158,6 @@ namespace Kvasir {
         namespace SwdeValC{
             constexpr Register::FieldValue<decltype(swde)::Type,SwdeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swde)::Type,SwdeVal::v1> v1{};
-        }
         }
         ///ADC Hardware Trigger Source
         enum class AdhwtVal {
@@ -186,7 +173,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adhwt)::Type,AdhwtVal::v10> v10{};
             constexpr Register::FieldValue<decltype(adhwt)::Type,AdhwtVal::v11> v11{};
         }
-        }
         ///Real-Time Counter Capture
         enum class RtccVal {
             v0=0x00000000,     ///<RTC overflow is not connected to FTM1 input channel 1.
@@ -196,7 +182,6 @@ namespace Kvasir {
         namespace RtccValC{
             constexpr Register::FieldValue<decltype(rtcc)::Type,RtccVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rtcc)::Type,RtccVal::v1> v1{};
-        }
         }
         ///Analog Comparator to Input Capture Enable
         enum class AcicVal {
@@ -208,7 +193,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acic)::Type,AcicVal::v0> v0{};
             constexpr Register::FieldValue<decltype(acic)::Type,AcicVal::v1> v1{};
         }
-        }
         ///UART0_RX Capture Select
         enum class RxdceVal {
             v0=0x00000000,     ///<UART0_RX input signal is connected to the UART0 module only.
@@ -218,7 +202,6 @@ namespace Kvasir {
         namespace RxdceValC{
             constexpr Register::FieldValue<decltype(rxdce)::Type,RxdceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxdce)::Type,RxdceVal::v1> v1{};
-        }
         }
         ///UART0_RX Filter Select
         enum class RxdfeVal {
@@ -230,7 +213,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxdfe)::Type,RxdfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxdfe)::Type,RxdfeVal::v1> v1{};
         }
-        }
         ///FTM2 Synchronization Select
         enum class FtmsyncVal {
             v0=0x00000000,     ///<No synchronization triggered.
@@ -241,7 +223,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ftmsync)::Type,FtmsyncVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ftmsync)::Type,FtmsyncVal::v1> v1{};
         }
-        }
         ///UART0_TX Modulation Select
         enum class TxdmeVal {
             v0=0x00000000,     ///<UART0_TX output is connected to pinout directly.
@@ -251,7 +232,6 @@ namespace Kvasir {
         namespace TxdmeValC{
             constexpr Register::FieldValue<decltype(txdme)::Type,TxdmeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txdme)::Type,TxdmeVal::v1> v1{};
-        }
         }
         ///BUS Clock Output select
         enum class BusrefVal {
@@ -275,7 +255,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busref)::Type,BusrefVal::v110> v110{};
             constexpr Register::FieldValue<decltype(busref)::Type,BusrefVal::v111> v111{};
         }
-        }
         ///Bus Clock Output Enable
         enum class ClkoeVal {
             v0=0x00000000,     ///<Bus clock output is disabled on PTH2.
@@ -286,7 +265,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkoe)::Type,ClkoeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(clkoe)::Type,ClkoeVal::v1> v1{};
         }
-        }
         ///FTM2 Trigger Delay Active
         enum class DlyactVal {
             v0=0x00000000,     ///<The delay is inactive.
@@ -296,7 +274,6 @@ namespace Kvasir {
         namespace DlyactValC{
             constexpr Register::FieldValue<decltype(dlyact)::Type,DlyactVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dlyact)::Type,DlyactVal::v1> v1{};
-        }
         }
         ///FTM2 Trigger Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> delay{}; 
@@ -313,7 +290,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rtcps)::Type,RtcpsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rtcps)::Type,RtcpsVal::v1> v1{};
         }
-        }
         ///I2C0 Port Pin Select
         enum class I2c0psVal {
             v0=0x00000000,     ///<I2C0_SCL and I2C0_SDA are mapped on PTA3 and PTA2, respectively.
@@ -323,7 +299,6 @@ namespace Kvasir {
         namespace I2c0psValC{
             constexpr Register::FieldValue<decltype(i2c0ps)::Type,I2c0psVal::v0> v0{};
             constexpr Register::FieldValue<decltype(i2c0ps)::Type,I2c0psVal::v1> v1{};
-        }
         }
         ///SPI0 Pin Select
         enum class Spi0psVal {
@@ -335,7 +310,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(spi0ps)::Type,Spi0psVal::v0> v0{};
             constexpr Register::FieldValue<decltype(spi0ps)::Type,Spi0psVal::v1> v1{};
         }
-        }
         ///UART0 Pin Select
         enum class Uart0psVal {
             v0=0x00000000,     ///<UART0_RX and UART0_TX are mapped on PTB0 and PTB1.
@@ -345,7 +319,6 @@ namespace Kvasir {
         namespace Uart0psValC{
             constexpr Register::FieldValue<decltype(uart0ps)::Type,Uart0psVal::v0> v0{};
             constexpr Register::FieldValue<decltype(uart0ps)::Type,Uart0psVal::v1> v1{};
-        }
         }
         ///FTM0[0] Port Pin Select
         enum class Ftm0ps0Val {
@@ -357,7 +330,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ftm0ps0)::Type,Ftm0ps0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ftm0ps0)::Type,Ftm0ps0Val::v1> v1{};
         }
-        }
         ///FTM0[1] Port Pin Select
         enum class Ftm0ps1Val {
             v0=0x00000000,     ///<FTM0[1] channels are mapped on PTA1.
@@ -367,7 +339,6 @@ namespace Kvasir {
         namespace Ftm0ps1ValC{
             constexpr Register::FieldValue<decltype(ftm0ps1)::Type,Ftm0ps1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ftm0ps1)::Type,Ftm0ps1Val::v1> v1{};
-        }
         }
         ///FTM1[0] Port Pin Select
         enum class Ftm1ps0Val {
@@ -379,7 +350,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ftm1ps0)::Type,Ftm1ps0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ftm1ps0)::Type,Ftm1ps0Val::v1> v1{};
         }
-        }
         ///FTM1[1] Port Pin Select
         enum class Ftm1ps1Val {
             v0=0x00000000,     ///<FTM1[1] channels are mapped on PTC5.
@@ -389,7 +359,6 @@ namespace Kvasir {
         namespace Ftm1ps1ValC{
             constexpr Register::FieldValue<decltype(ftm1ps1)::Type,Ftm1ps1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ftm1ps1)::Type,Ftm1ps1Val::v1> v1{};
-        }
         }
         ///FTM2[0] Port Pin Select
         enum class Ftm2ps0Val {
@@ -401,7 +370,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ftm2ps0)::Type,Ftm2ps0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ftm2ps0)::Type,Ftm2ps0Val::v1> v1{};
         }
-        }
         ///FTM2[1] Port Pin Select
         enum class Ftm2ps1Val {
             v0=0x00000000,     ///<FTM2[1] channels are mapped on PTC1.
@@ -411,7 +379,6 @@ namespace Kvasir {
         namespace Ftm2ps1ValC{
             constexpr Register::FieldValue<decltype(ftm2ps1)::Type,Ftm2ps1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ftm2ps1)::Type,Ftm2ps1Val::v1> v1{};
-        }
         }
         ///FTM2[2] Port Pin Select
         enum class Ftm2ps2Val {
@@ -423,7 +390,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ftm2ps2)::Type,Ftm2ps2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ftm2ps2)::Type,Ftm2ps2Val::v1> v1{};
         }
-        }
         ///FTM2[3] Port Pin Select
         enum class Ftm2ps3Val {
             v0=0x00000000,     ///<FTM2[3] channels are mapped on PTC3.
@@ -433,7 +399,6 @@ namespace Kvasir {
         namespace Ftm2ps3ValC{
             constexpr Register::FieldValue<decltype(ftm2ps3)::Type,Ftm2ps3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ftm2ps3)::Type,Ftm2ps3Val::v1> v1{};
-        }
         }
     }
     namespace SimScgc{    ///<System Clock Gating Control Register
@@ -448,7 +413,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rtc)::Type,RtcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rtc)::Type,RtcVal::v1> v1{};
         }
-        }
         ///PIT Clock Gate Control
         enum class PitVal {
             v0=0x00000000,     ///<Bus clock to the PIT module is disabled.
@@ -458,7 +422,6 @@ namespace Kvasir {
         namespace PitValC{
             constexpr Register::FieldValue<decltype(pit)::Type,PitVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pit)::Type,PitVal::v1> v1{};
-        }
         }
         ///FTM0 Clock Gate Control
         enum class Ftm0Val {
@@ -470,7 +433,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ftm0)::Type,Ftm0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ftm0)::Type,Ftm0Val::v1> v1{};
         }
-        }
         ///FTM1 Clock Gate Control
         enum class Ftm1Val {
             v0=0x00000000,     ///<Bus clock to the FTM1 module is disabled.
@@ -480,7 +442,6 @@ namespace Kvasir {
         namespace Ftm1ValC{
             constexpr Register::FieldValue<decltype(ftm1)::Type,Ftm1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ftm1)::Type,Ftm1Val::v1> v1{};
-        }
         }
         ///FTM2 Clock Gate Control
         enum class Ftm2Val {
@@ -492,7 +453,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ftm2)::Type,Ftm2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ftm2)::Type,Ftm2Val::v1> v1{};
         }
-        }
         ///CRC Clock Gate Control
         enum class CrcVal {
             v0=0x00000000,     ///<Bus clock to the CRC module is disabled.
@@ -502,7 +462,6 @@ namespace Kvasir {
         namespace CrcValC{
             constexpr Register::FieldValue<decltype(crc)::Type,CrcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(crc)::Type,CrcVal::v1> v1{};
-        }
         }
         ///Flash Clock Gate Control
         enum class FlashVal {
@@ -514,7 +473,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flash)::Type,FlashVal::v0> v0{};
             constexpr Register::FieldValue<decltype(flash)::Type,FlashVal::v1> v1{};
         }
-        }
         ///SWD (single wire debugger) Clock Gate Control
         enum class SwdVal {
             v0=0x00000000,     ///<Bus clock to the SWD module is disabled.
@@ -524,7 +482,6 @@ namespace Kvasir {
         namespace SwdValC{
             constexpr Register::FieldValue<decltype(swd)::Type,SwdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swd)::Type,SwdVal::v1> v1{};
-        }
         }
         ///I2C Clock Gate Control
         enum class I2cVal {
@@ -536,7 +493,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2c)::Type,I2cVal::v0> v0{};
             constexpr Register::FieldValue<decltype(i2c)::Type,I2cVal::v1> v1{};
         }
-        }
         ///SPI0 Clock Gate Control
         enum class Spi0Val {
             v0=0x00000000,     ///<Bus clock to the SPI0 module is disabled.
@@ -546,7 +502,6 @@ namespace Kvasir {
         namespace Spi0ValC{
             constexpr Register::FieldValue<decltype(spi0)::Type,Spi0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(spi0)::Type,Spi0Val::v1> v1{};
-        }
         }
         ///SPI1 Clock Gate Control
         enum class Spi1Val {
@@ -558,7 +513,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(spi1)::Type,Spi1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(spi1)::Type,Spi1Val::v1> v1{};
         }
-        }
         ///UART0 Clock Gate Control
         enum class Uart0Val {
             v0=0x00000000,     ///<Bus clock to the UART0 module is disabled.
@@ -568,7 +522,6 @@ namespace Kvasir {
         namespace Uart0ValC{
             constexpr Register::FieldValue<decltype(uart0)::Type,Uart0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(uart0)::Type,Uart0Val::v1> v1{};
-        }
         }
         ///UART1 Clock Gate Control
         enum class Uart1Val {
@@ -580,7 +533,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(uart1)::Type,Uart1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(uart1)::Type,Uart1Val::v1> v1{};
         }
-        }
         ///UART2 Clock Gate Control
         enum class Uart2Val {
             v0=0x00000000,     ///<Bus clock to the UART2 module is disabled.
@@ -590,7 +542,6 @@ namespace Kvasir {
         namespace Uart2ValC{
             constexpr Register::FieldValue<decltype(uart2)::Type,Uart2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(uart2)::Type,Uart2Val::v1> v1{};
-        }
         }
         ///KBI0 Clock Gate Control
         enum class Kbi0Val {
@@ -602,7 +553,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(kbi0)::Type,Kbi0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(kbi0)::Type,Kbi0Val::v1> v1{};
         }
-        }
         ///KBI1 Clock Gate Control
         enum class Kbi1Val {
             v0=0x00000000,     ///<Bus clock to the KBI1 module is disabled.
@@ -612,7 +562,6 @@ namespace Kvasir {
         namespace Kbi1ValC{
             constexpr Register::FieldValue<decltype(kbi1)::Type,Kbi1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(kbi1)::Type,Kbi1Val::v1> v1{};
-        }
         }
         ///IRQ Clock Gate Control
         enum class IrqVal {
@@ -624,7 +573,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irq)::Type,IrqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irq)::Type,IrqVal::v1> v1{};
         }
-        }
         ///ADC Clock Gate Control
         enum class AdcVal {
             v0=0x00000000,     ///<Bus clock to the ADC module is disabled.
@@ -634,7 +582,6 @@ namespace Kvasir {
         namespace AdcValC{
             constexpr Register::FieldValue<decltype(adc)::Type,AdcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(adc)::Type,AdcVal::v1> v1{};
-        }
         }
         ///ACMP0 Clock Gate Control
         enum class Acmp0Val {
@@ -646,7 +593,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acmp0)::Type,Acmp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(acmp0)::Type,Acmp0Val::v1> v1{};
         }
-        }
         ///ACMP1 Clock Gate Control
         enum class Acmp1Val {
             v0=0x00000000,     ///<Bus clock to the ACMP1 module is disabled.
@@ -656,7 +602,6 @@ namespace Kvasir {
         namespace Acmp1ValC{
             constexpr Register::FieldValue<decltype(acmp1)::Type,Acmp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(acmp1)::Type,Acmp1Val::v1> v1{};
-        }
         }
     }
     namespace SimUuidl{    ///<Universally Unique Identifier Low Register
@@ -680,7 +625,6 @@ namespace Kvasir {
         namespace BusdivValC{
             constexpr Register::FieldValue<decltype(busdiv)::Type,BusdivVal::v0> v0{};
             constexpr Register::FieldValue<decltype(busdiv)::Type,BusdivVal::v1> v1{};
-        }
         }
     }
 }

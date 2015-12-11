@@ -26,7 +26,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(endAcquire)::Type,EndacquireVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(endAcquire)::Type,EndacquireVal::enabled> enabled{};
         }
-        }
     }
     namespace Noneintenset{    ///<Interrupt enable set register.
         using Addr = Register::Address<0x40004304,0xfffffbfd,0,unsigned>;
@@ -42,7 +41,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::set> set{};
         }
-        }
         ///Enable interrupt on ACQUIRED event.
         enum class AcquiredVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -54,7 +52,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acquired)::Type,AcquiredVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(acquired)::Type,AcquiredVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(acquired)::Type,AcquiredVal::set> set{};
-        }
         }
     }
     namespace Noneintenclr{    ///<Interrupt enable clear register.
@@ -71,7 +68,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(end)::Type,EndVal::clear> clear{};
         }
-        }
         ///Disable interrupt on ACQUIRED event.
         enum class AcquiredVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -83,7 +79,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acquired)::Type,AcquiredVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(acquired)::Type,AcquiredVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(acquired)::Type,AcquiredVal::clear> clear{};
-        }
         }
     }
     namespace Nonesemstat{    ///<Semaphore status.
@@ -102,7 +97,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(semstat)::Type,SemstatVal::spis> spis{};
             constexpr Register::FieldValue<decltype(semstat)::Type,SemstatVal::cpupending> cpupending{};
         }
-        }
     }
     namespace Nonestatus{    ///<Status from last transaction.
         using Addr = Register::Address<0x40004440,0xfffffffc,0,unsigned>;
@@ -118,7 +112,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(overread)::Type,OverreadVal::present> present{};
             constexpr Register::FieldValue<decltype(overread)::Type,OverreadVal::clear> clear{};
         }
-        }
         ///RX buffer overflow detected, and prevented.
         enum class OverflowVal {
             notpresent=0x00000000,     ///<Error not present.
@@ -130,7 +123,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(overflow)::Type,OverflowVal::notpresent> notpresent{};
             constexpr Register::FieldValue<decltype(overflow)::Type,OverflowVal::present> present{};
             constexpr Register::FieldValue<decltype(overflow)::Type,OverflowVal::clear> clear{};
-        }
         }
     }
     namespace Noneenable{    ///<Enable SPIS.
@@ -188,7 +180,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(order)::Type,OrderVal::msbfirst> msbfirst{};
             constexpr Register::FieldValue<decltype(order)::Type,OrderVal::lsbfirst> lsbfirst{};
         }
-        }
         ///Serial clock (SCK) phase.
         enum class CphaVal {
             leading=0x00000000,     ///<Sample on leading edge of the clock. Shift serial data on trailing edge.
@@ -199,7 +190,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::leading> leading{};
             constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::trailing> trailing{};
         }
-        }
         ///Serial clock (SCK) polarity.
         enum class CpolVal {
             activehigh=0x00000000,     ///<Active high.
@@ -209,7 +199,6 @@ namespace Kvasir {
         namespace CpolValC{
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::activehigh> activehigh{};
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::activelow> activelow{};
-        }
         }
     }
     namespace Nonedef{    ///<Default character.
@@ -233,7 +222,6 @@ namespace Kvasir {
         namespace PowerValC{
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::enabled> enabled{};
-        }
         }
     }
 }

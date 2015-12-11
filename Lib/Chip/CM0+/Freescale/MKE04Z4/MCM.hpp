@@ -26,7 +26,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dfcda)::Type,DfcdaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dfcda)::Type,DfcdaVal::v1> v1{};
         }
-        }
         ///Disable Flash Controller Instruction Caching
         enum class DfcicVal {
             v0=0x00000000,     ///<Enable flash controller instruction caching.
@@ -36,7 +35,6 @@ namespace Kvasir {
         namespace DfcicValC{
             constexpr Register::FieldValue<decltype(dfcic)::Type,DfcicVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dfcic)::Type,DfcicVal::v1> v1{};
-        }
         }
         ///Disable Flash Controller Cache
         enum class DfccVal {
@@ -48,7 +46,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dfcc)::Type,DfccVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dfcc)::Type,DfccVal::v1> v1{};
         }
-        }
         ///Enable Flash Data Speculation
         enum class EfdsVal {
             v0=0x00000000,     ///<Disable flash data speculation.
@@ -58,7 +55,6 @@ namespace Kvasir {
         namespace EfdsValC{
             constexpr Register::FieldValue<decltype(efds)::Type,EfdsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(efds)::Type,EfdsVal::v1> v1{};
-        }
         }
         ///Disable Flash Controller Speculation
         enum class DfcsVal {
@@ -70,7 +66,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dfcs)::Type,DfcsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dfcs)::Type,DfcsVal::v1> v1{};
         }
-        }
         ///Enable Stalling Flash Controller
         enum class EsfcVal {
             v0=0x00000000,     ///<Disable stalling flash controller when flash is busy.
@@ -80,7 +75,6 @@ namespace Kvasir {
         namespace EsfcValC{
             constexpr Register::FieldValue<decltype(esfc)::Type,EsfcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(esfc)::Type,EsfcVal::v1> v1{};
-        }
         }
     }
 }

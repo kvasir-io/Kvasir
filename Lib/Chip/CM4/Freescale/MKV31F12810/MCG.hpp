@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irefsten)::Type,IrefstenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irefsten)::Type,IrefstenVal::v1> v1{};
         }
-        }
         ///Internal Reference Clock Enable
         enum class IrclkenVal {
             v0=0x00000000,     ///<MCGIRCLK inactive.
@@ -25,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irclken)::Type,IrclkenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irclken)::Type,IrclkenVal::v1> v1{};
         }
-        }
         ///Internal Reference Select
         enum class IrefsVal {
             v0=0x00000000,     ///<External reference clock is selected.
@@ -35,7 +33,6 @@ namespace Kvasir {
         namespace IrefsValC{
             constexpr Register::FieldValue<decltype(irefs)::Type,IrefsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irefs)::Type,IrefsVal::v1> v1{};
-        }
         }
         ///FLL External Reference Divider
         enum class FrdivVal {
@@ -59,7 +56,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frdiv)::Type,FrdivVal::v110> v110{};
             constexpr Register::FieldValue<decltype(frdiv)::Type,FrdivVal::v111> v111{};
         }
-        }
         ///Clock Source Select
         enum class ClksVal {
             v00=0x00000000,     ///<Encoding 0 - Output of FLL is selected.
@@ -74,7 +70,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v10> v10{};
             constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v11> v11{};
         }
-        }
     }
     namespace McgC2{    ///<MCG Control 2 Register
         using Addr = Register::Address<0x40064001,0xffffff00,0,unsigned char>;
@@ -88,7 +83,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ircs)::Type,IrcsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ircs)::Type,IrcsVal::v1> v1{};
         }
-        }
         ///Low Power Select
         enum class LpVal {
             v0=0x00000000,     ///<FLL is not disabled in bypass modes.
@@ -98,7 +92,6 @@ namespace Kvasir {
         namespace LpValC{
             constexpr Register::FieldValue<decltype(lp)::Type,LpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lp)::Type,LpVal::v1> v1{};
-        }
         }
         ///External Reference Select
         enum class ErefsVal {
@@ -110,7 +103,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erefs)::Type,ErefsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(erefs)::Type,ErefsVal::v1> v1{};
         }
-        }
         ///High Gain Oscillator Select
         enum class HgoVal {
             v0=0x00000000,     ///<Configure crystal oscillator for low-power operation.
@@ -121,7 +113,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hgo)::Type,HgoVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hgo)::Type,HgoVal::v1> v1{};
         }
-        }
         ///Frequency Range Select
         enum class RangeVal {
             v00=0x00000000,     ///<Encoding 0 - Low frequency range selected for the crystal oscillator .
@@ -131,7 +122,6 @@ namespace Kvasir {
         namespace RangeValC{
             constexpr Register::FieldValue<decltype(range)::Type,RangeVal::v00> v00{};
             constexpr Register::FieldValue<decltype(range)::Type,RangeVal::v01> v01{};
-        }
         }
         ///Fast Internal Reference Clock Fine Trim
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> fcftrim{}; 
@@ -144,7 +134,6 @@ namespace Kvasir {
         namespace Locre0ValC{
             constexpr Register::FieldValue<decltype(locre0)::Type,Locre0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(locre0)::Type,Locre0Val::v1> v1{};
-        }
         }
     }
     namespace McgC3{    ///<MCG Control 3 Register
@@ -172,7 +161,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drstDrs)::Type,DrstdrsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(drstDrs)::Type,DrstdrsVal::v11> v11{};
         }
-        }
         ///DCO Maximum Frequency with 32.768 kHz Reference
         enum class Dmx32Val {
             v0=0x00000000,     ///<DCO has a default range of 25%.
@@ -182,7 +170,6 @@ namespace Kvasir {
         namespace Dmx32ValC{
             constexpr Register::FieldValue<decltype(dmx32)::Type,Dmx32Val::v0> v0{};
             constexpr Register::FieldValue<decltype(dmx32)::Type,Dmx32Val::v1> v1{};
-        }
         }
     }
     namespace McgC5{    ///<MCG Control 5 Register
@@ -200,7 +187,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cme)::Type,CmeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cme)::Type,CmeVal::v1> v1{};
         }
-        }
     }
     namespace McgS{    ///<MCG Status Register
         using Addr = Register::Address<0x40064006,0xffffffe0,0,unsigned char>;
@@ -213,7 +199,6 @@ namespace Kvasir {
         namespace IrcstValC{
             constexpr Register::FieldValue<decltype(ircst)::Type,IrcstVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ircst)::Type,IrcstVal::v1> v1{};
-        }
         }
         ///OSC Initialization
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> oscinit0{}; 
@@ -229,7 +214,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkst)::Type,ClkstVal::v01> v01{};
             constexpr Register::FieldValue<decltype(clkst)::Type,ClkstVal::v10> v10{};
         }
-        }
         ///Internal Reference Status
         enum class IrefstVal {
             v0=0x00000000,     ///<Source of FLL reference clock is the external reference clock.
@@ -239,7 +223,6 @@ namespace Kvasir {
         namespace IrefstValC{
             constexpr Register::FieldValue<decltype(irefst)::Type,IrefstVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irefst)::Type,IrefstVal::v1> v1{};
-        }
         }
     }
     namespace McgSc{    ///<MCG Status and Control Register
@@ -253,7 +236,6 @@ namespace Kvasir {
         namespace Locs0ValC{
             constexpr Register::FieldValue<decltype(locs0)::Type,Locs0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(locs0)::Type,Locs0Val::v1> v1{};
-        }
         }
         ///Fast Clock Internal Reference Divider
         enum class FcrdivVal {
@@ -277,7 +259,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fcrdiv)::Type,FcrdivVal::v110> v110{};
             constexpr Register::FieldValue<decltype(fcrdiv)::Type,FcrdivVal::v111> v111{};
         }
-        }
         ///FLL Filter Preserve Enable
         enum class FltprsrvVal {
             v0=0x00000000,     ///<FLL filter and FLL frequency will reset on changes to currect clock mode.
@@ -287,7 +268,6 @@ namespace Kvasir {
         namespace FltprsrvValC{
             constexpr Register::FieldValue<decltype(fltprsrv)::Type,FltprsrvVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fltprsrv)::Type,FltprsrvVal::v1> v1{};
-        }
         }
         ///Automatic Trim Machine Fail Flag
         enum class AtmfVal {
@@ -299,7 +279,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(atmf)::Type,AtmfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(atmf)::Type,AtmfVal::v1> v1{};
         }
-        }
         ///Automatic Trim Machine Select
         enum class AtmsVal {
             v0=0x00000000,     ///<32 kHz Internal Reference Clock selected.
@@ -310,7 +289,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(atms)::Type,AtmsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(atms)::Type,AtmsVal::v1> v1{};
         }
-        }
         ///Automatic Trim Machine Enable
         enum class AtmeVal {
             v0=0x00000000,     ///<Auto Trim Machine disabled.
@@ -320,7 +298,6 @@ namespace Kvasir {
         namespace AtmeValC{
             constexpr Register::FieldValue<decltype(atme)::Type,AtmeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(atme)::Type,AtmeVal::v1> v1{};
-        }
         }
     }
     namespace McgAtcvh{    ///<MCG Auto Trim Compare Value High Register
@@ -347,7 +324,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oscsel)::Type,OscselVal::v01> v01{};
             constexpr Register::FieldValue<decltype(oscsel)::Type,OscselVal::v10> v10{};
         }
-        }
     }
     namespace McgC8{    ///<MCG Control 8 Register
         using Addr = Register::Address<0x4006400d,0xffffff5e,0,unsigned char>;
@@ -361,7 +337,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(locs1)::Type,Locs1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(locs1)::Type,Locs1Val::v1> v1{};
         }
-        }
         ///Clock Monitor Enable1
         enum class Cme1Val {
             v0=0x00000000,     ///<External clock monitor is disabled for RTC clock.
@@ -372,7 +347,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cme1)::Type,Cme1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(cme1)::Type,Cme1Val::v1> v1{};
         }
-        }
         ///Loss of Clock Reset Enable
         enum class Locre1Val {
             v0=0x00000000,     ///<Interrupt request is generated on a loss of RTC external reference clock.
@@ -382,7 +356,6 @@ namespace Kvasir {
         namespace Locre1ValC{
             constexpr Register::FieldValue<decltype(locre1)::Type,Locre1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(locre1)::Type,Locre1Val::v1> v1{};
-        }
         }
     }
 }

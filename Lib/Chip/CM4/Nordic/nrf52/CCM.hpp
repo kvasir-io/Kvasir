@@ -32,7 +32,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(endksgenCrypt)::Type,EndksgencryptVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(endksgenCrypt)::Type,EndksgencryptVal::enabled> enabled{};
         }
-        }
     }
     namespace Noneintenset{    ///<Enable interrupt
         using Addr = Register::Address<0x4000f304,0xfffffff8,0,unsigned>;
@@ -48,7 +47,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(endksgen)::Type,EndksgenVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(endksgen)::Type,EndksgenVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_ENDCRYPT event
         enum class EndcryptVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -61,7 +59,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(endcrypt)::Type,EndcryptVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(endcrypt)::Type,EndcryptVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_ERROR event
         enum class ErrorVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -73,7 +70,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::set> set{};
-        }
         }
     }
     namespace Noneintenclr{    ///<Disable interrupt
@@ -90,7 +86,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(endksgen)::Type,EndksgenVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(endksgen)::Type,EndksgenVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_ENDCRYPT event
         enum class EndcryptVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -103,7 +98,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(endcrypt)::Type,EndcryptVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(endcrypt)::Type,EndcryptVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_ERROR event
         enum class ErrorVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -115,7 +109,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::clear> clear{};
-        }
         }
     }
     namespace Nonemicstatus{    ///<MIC check result
@@ -130,7 +123,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(micstatus)::Type,MicstatusVal::checkfailed> checkfailed{};
             constexpr Register::FieldValue<decltype(micstatus)::Type,MicstatusVal::checkpassed> checkpassed{};
         }
-        }
     }
     namespace Noneenable{    ///<Enable
         using Addr = Register::Address<0x4000f500,0xfffffffc,0,unsigned>;
@@ -143,7 +135,6 @@ namespace Kvasir {
         namespace EnableValC{
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonemode{    ///<Operation mode
@@ -158,7 +149,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::encryption> encryption{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::decryption> decryption{};
         }
-        }
         ///Data rate that the CCM shall run in synch with
         enum class DatarateVal {
             v1mbit=0x00000000,     ///<In synch with 1 Mbit data rate
@@ -169,7 +159,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(datarate)::Type,DatarateVal::v1mbit> v1mbit{};
             constexpr Register::FieldValue<decltype(datarate)::Type,DatarateVal::v2mbit> v2mbit{};
         }
-        }
         ///Packet length configuration
         enum class LengthVal {
             default_=0x00000000,     ///<Default length. Effective length of LENGTH field is 5-bit
@@ -179,7 +168,6 @@ namespace Kvasir {
         namespace LengthValC{
             constexpr Register::FieldValue<decltype(length)::Type,LengthVal::default_> default_{};
             constexpr Register::FieldValue<decltype(length)::Type,LengthVal::extended> extended{};
-        }
         }
     }
     namespace Nonecnfptr{    ///<Pointer to data structure holding AES key and NONCE vector

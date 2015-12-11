@@ -34,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch0sel)::Type,Ch0selVal::dma0t0Fall> dma0t0Fall{};
             constexpr Register::FieldValue<decltype(ch0sel)::Type,Ch0selVal::unassigned> unassigned{};
         }
-        }
         ///DMA Channel 1 Peripheral Select. 
         enum class Ch1selVal {
             dtm0B=0x00000000,     ///<Service DTM0 B data requests.
@@ -64,7 +63,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch1sel)::Type,Ch1selVal::dma0t1Rise> dma0t1Rise{};
             constexpr Register::FieldValue<decltype(ch1sel)::Type,Ch1selVal::dma0t1Fall> dma0t1Fall{};
             constexpr Register::FieldValue<decltype(ch1sel)::Type,Ch1selVal::unassigned> unassigned{};
-        }
         }
         ///DMA Channel 2 Peripheral Select. 
         enum class Ch2selVal {
@@ -98,7 +96,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch2sel)::Type,Ch2selVal::dma0t0Fall> dma0t0Fall{};
             constexpr Register::FieldValue<decltype(ch2sel)::Type,Ch2selVal::unassigned> unassigned{};
         }
-        }
         ///DMA Channel 3 Peripheral Select. 
         enum class Ch3selVal {
             dtm0D=0x00000000,     ///<Service DTM0 D data requests.
@@ -129,7 +126,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch3sel)::Type,Ch3selVal::dma0t1Fall> dma0t1Fall{};
             constexpr Register::FieldValue<decltype(ch3sel)::Type,Ch3selVal::unassigned> unassigned{};
         }
-        }
         ///DMA Channel 4 Peripheral Select. 
         enum class Ch4selVal {
             dtm1A=0x00000000,     ///<Service DTM1 A data requests.
@@ -159,7 +155,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch4sel)::Type,Ch4selVal::dma0t0Rise> dma0t0Rise{};
             constexpr Register::FieldValue<decltype(ch4sel)::Type,Ch4selVal::dma0t0Fall> dma0t0Fall{};
             constexpr Register::FieldValue<decltype(ch4sel)::Type,Ch4selVal::unassigned> unassigned{};
-        }
         }
         ///DMA Channel 5 Peripheral Select. 
         enum class Ch5selVal {
@@ -193,7 +188,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch5sel)::Type,Ch5selVal::dma0t1Fall> dma0t1Fall{};
             constexpr Register::FieldValue<decltype(ch5sel)::Type,Ch5selVal::unassigned> unassigned{};
         }
-        }
         ///DMA Channel 6 Peripheral Select. 
         enum class Ch6selVal {
             dtm1C=0x00000000,     ///<Service DTM1 C data requests.
@@ -226,7 +220,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch6sel)::Type,Ch6selVal::dma0t0Fall> dma0t0Fall{};
             constexpr Register::FieldValue<decltype(ch6sel)::Type,Ch6selVal::unassigned> unassigned{};
         }
-        }
         ///DMA Channel 7 Peripheral Select. 
         enum class Ch7selVal {
             dtm1D=0x00000000,     ///<Service DTM1 D data requests.
@@ -254,7 +247,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch7sel)::Type,Ch7selVal::dma0t1Rise> dma0t1Rise{};
             constexpr Register::FieldValue<decltype(ch7sel)::Type,Ch7selVal::dma0t1Fall> dma0t1Fall{};
             constexpr Register::FieldValue<decltype(ch7sel)::Type,Ch7selVal::unassigned> unassigned{};
-        }
         }
     }
     namespace Nonedmaxbar1{    ///<Channel 8-15 Trigger Select
@@ -289,7 +281,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch8sel)::Type,Ch8selVal::dma0t0Fall> dma0t0Fall{};
             constexpr Register::FieldValue<decltype(ch8sel)::Type,Ch8selVal::unassigned> unassigned{};
         }
-        }
         ///DMA Channel 9 Peripheral Select. 
         enum class Ch9selVal {
             dtm2D=0x00000000,     ///<Service DTM2 D data requests.
@@ -319,7 +310,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ch9sel)::Type,Ch9selVal::dma0t1Rise> dma0t1Rise{};
             constexpr Register::FieldValue<decltype(ch9sel)::Type,Ch9selVal::dma0t1Fall> dma0t1Fall{};
             constexpr Register::FieldValue<decltype(ch9sel)::Type,Ch9selVal::unassigned> unassigned{};
-        }
         }
     }
 }

@@ -18,7 +18,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slotsize)::Type,SlotsizeVal::v24> v24{};
             constexpr Register::FieldValue<decltype(slotsize)::Type,SlotsizeVal::v32> v32{};
         }
-        }
         ///Number of Slots in Frame
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,2),Register::ReadWriteAccess,unsigned> nbslots{}; 
         ///Frame Sync Width
@@ -35,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fswidth)::Type,FswidthVal::bit> bit{};
             constexpr Register::FieldValue<decltype(fswidth)::Type,FswidthVal::burst> burst{};
         }
-        }
         ///Data Delay from Frame Sync
         enum class BitdelayVal {
             lj=0x00000000,     ///<Left Justified (0 Bit Delay)
@@ -46,7 +44,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bitdelay)::Type,BitdelayVal::lj> lj{};
             constexpr Register::FieldValue<decltype(bitdelay)::Type,BitdelayVal::i2s> i2s{};
         }
-        }
         ///Frame Sync Select
         enum class FsselVal {
             sckdiv=0x00000000,     ///<Divided Serial Clock n is used as Frame Sync n source
@@ -56,7 +53,6 @@ namespace Kvasir {
         namespace FsselValC{
             constexpr Register::FieldValue<decltype(fssel)::Type,FsselVal::sckdiv> sckdiv{};
             constexpr Register::FieldValue<decltype(fssel)::Type,FsselVal::fspin> fspin{};
-        }
         }
         ///Frame Sync Invert
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> fsinv{}; 
@@ -70,7 +66,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(scksel)::Type,SckselVal::mckdiv> mckdiv{};
             constexpr Register::FieldValue<decltype(scksel)::Type,SckselVal::sckpin> sckpin{};
         }
-        }
         ///Master Clock Select
         enum class MckselVal {
             gclk=0x00000000,     ///<clk_gen_n is used as Master Clock n source
@@ -80,7 +75,6 @@ namespace Kvasir {
         namespace MckselValC{
             constexpr Register::FieldValue<decltype(mcksel)::Type,MckselVal::gclk> gclk{};
             constexpr Register::FieldValue<decltype(mcksel)::Type,MckselVal::mckpin> mckpin{};
-        }
         }
         ///Master Clock Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> mcken{}; 
@@ -111,7 +105,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(slotsize)::Type,SlotsizeVal::v24> v24{};
             constexpr Register::FieldValue<decltype(slotsize)::Type,SlotsizeVal::v32> v32{};
         }
-        }
         ///Number of Slots in Frame
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,2),Register::ReadWriteAccess,unsigned> nbslots{}; 
         ///Frame Sync Width
@@ -128,7 +121,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fswidth)::Type,FswidthVal::bit> bit{};
             constexpr Register::FieldValue<decltype(fswidth)::Type,FswidthVal::burst> burst{};
         }
-        }
         ///Data Delay from Frame Sync
         enum class BitdelayVal {
             lj=0x00000000,     ///<Left Justified (0 Bit Delay)
@@ -139,7 +131,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bitdelay)::Type,BitdelayVal::lj> lj{};
             constexpr Register::FieldValue<decltype(bitdelay)::Type,BitdelayVal::i2s> i2s{};
         }
-        }
         ///Frame Sync Select
         enum class FsselVal {
             sckdiv=0x00000000,     ///<Divided Serial Clock n is used as Frame Sync n source
@@ -149,7 +140,6 @@ namespace Kvasir {
         namespace FsselValC{
             constexpr Register::FieldValue<decltype(fssel)::Type,FsselVal::sckdiv> sckdiv{};
             constexpr Register::FieldValue<decltype(fssel)::Type,FsselVal::fspin> fspin{};
-        }
         }
         ///Frame Sync Invert
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> fsinv{}; 
@@ -163,7 +153,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(scksel)::Type,SckselVal::mckdiv> mckdiv{};
             constexpr Register::FieldValue<decltype(scksel)::Type,SckselVal::sckpin> sckpin{};
         }
-        }
         ///Master Clock Select
         enum class MckselVal {
             gclk=0x00000000,     ///<clk_gen_n is used as Master Clock n source
@@ -173,7 +162,6 @@ namespace Kvasir {
         namespace MckselValC{
             constexpr Register::FieldValue<decltype(mcksel)::Type,MckselVal::gclk> gclk{};
             constexpr Register::FieldValue<decltype(mcksel)::Type,MckselVal::mckpin> mckpin{};
-        }
         }
         ///Master Clock Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> mcken{}; 
@@ -284,7 +272,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sermode)::Type,SermodeVal::tx> tx{};
             constexpr Register::FieldValue<decltype(sermode)::Type,SermodeVal::pdm2> pdm2{};
         }
-        }
         ///Line Default Line when Slot Disabled
         enum class TxdefaultVal {
             zero=0x00000000,     ///<Output Default Value is 0
@@ -297,7 +284,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txdefault)::Type,TxdefaultVal::one> one{};
             constexpr Register::FieldValue<decltype(txdefault)::Type,TxdefaultVal::hiz> hiz{};
         }
-        }
         ///Transmit Data when Underrun
         enum class TxsameVal {
             zero=0x00000000,     ///<Zero data transmitted in case of underrun
@@ -307,7 +293,6 @@ namespace Kvasir {
         namespace TxsameValC{
             constexpr Register::FieldValue<decltype(txsame)::Type,TxsameVal::zero> zero{};
             constexpr Register::FieldValue<decltype(txsame)::Type,TxsameVal::same> same{};
-        }
         }
         ///Clock Unit Selection
         enum class ClkselVal {
@@ -319,7 +304,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::clk0> clk0{};
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::clk1> clk1{};
         }
-        }
         ///Data Slot Formatting Adjust
         enum class SlotadjVal {
             right=0x00000000,     ///<Data is right adjusted in slot
@@ -329,7 +313,6 @@ namespace Kvasir {
         namespace SlotadjValC{
             constexpr Register::FieldValue<decltype(slotadj)::Type,SlotadjVal::right> right{};
             constexpr Register::FieldValue<decltype(slotadj)::Type,SlotadjVal::left> left{};
-        }
         }
         ///Data Word Size
         enum class DatasizeVal {
@@ -353,7 +336,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(datasize)::Type,DatasizeVal::v8> v8{};
             constexpr Register::FieldValue<decltype(datasize)::Type,DatasizeVal::v8c> v8c{};
         }
-        }
         ///Data Word Formatting Adjust
         enum class WordadjVal {
             right=0x00000000,     ///<Data is right adjusted in word
@@ -363,7 +345,6 @@ namespace Kvasir {
         namespace WordadjValC{
             constexpr Register::FieldValue<decltype(wordadj)::Type,WordadjVal::right> right{};
             constexpr Register::FieldValue<decltype(wordadj)::Type,WordadjVal::left> left{};
-        }
         }
         ///Data Formatting Bit Extension
         enum class ExtendVal {
@@ -379,7 +360,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(extend)::Type,ExtendVal::msbit> msbit{};
             constexpr Register::FieldValue<decltype(extend)::Type,ExtendVal::lsbit> lsbit{};
         }
-        }
         ///Data Formatting Bit Reverse
         enum class BitrevVal {
             msbit=0x00000000,     ///<Transfer Data Most Significant Bit (MSB) first (default for I2S protocol)
@@ -389,7 +369,6 @@ namespace Kvasir {
         namespace BitrevValC{
             constexpr Register::FieldValue<decltype(bitrev)::Type,BitrevVal::msbit> msbit{};
             constexpr Register::FieldValue<decltype(bitrev)::Type,BitrevVal::lsbit> lsbit{};
-        }
         }
         ///Slot 0 Disabled for this Serializer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> slotdis0{}; 
@@ -417,7 +396,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mono)::Type,MonoVal::stereo> stereo{};
             constexpr Register::FieldValue<decltype(mono)::Type,MonoVal::mono> mono{};
         }
-        }
         ///Single or Multiple DMA Channels
         enum class DmaVal {
             single=0x00000000,     ///<Single DMA channel
@@ -427,7 +405,6 @@ namespace Kvasir {
         namespace DmaValC{
             constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::single> single{};
             constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::multiple> multiple{};
-        }
         }
         ///Loop-back Test Mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> rxloop{}; 
@@ -446,7 +423,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sermode)::Type,SermodeVal::tx> tx{};
             constexpr Register::FieldValue<decltype(sermode)::Type,SermodeVal::pdm2> pdm2{};
         }
-        }
         ///Line Default Line when Slot Disabled
         enum class TxdefaultVal {
             zero=0x00000000,     ///<Output Default Value is 0
@@ -459,7 +435,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txdefault)::Type,TxdefaultVal::one> one{};
             constexpr Register::FieldValue<decltype(txdefault)::Type,TxdefaultVal::hiz> hiz{};
         }
-        }
         ///Transmit Data when Underrun
         enum class TxsameVal {
             zero=0x00000000,     ///<Zero data transmitted in case of underrun
@@ -469,7 +444,6 @@ namespace Kvasir {
         namespace TxsameValC{
             constexpr Register::FieldValue<decltype(txsame)::Type,TxsameVal::zero> zero{};
             constexpr Register::FieldValue<decltype(txsame)::Type,TxsameVal::same> same{};
-        }
         }
         ///Clock Unit Selection
         enum class ClkselVal {
@@ -481,7 +455,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::clk0> clk0{};
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::clk1> clk1{};
         }
-        }
         ///Data Slot Formatting Adjust
         enum class SlotadjVal {
             right=0x00000000,     ///<Data is right adjusted in slot
@@ -491,7 +464,6 @@ namespace Kvasir {
         namespace SlotadjValC{
             constexpr Register::FieldValue<decltype(slotadj)::Type,SlotadjVal::right> right{};
             constexpr Register::FieldValue<decltype(slotadj)::Type,SlotadjVal::left> left{};
-        }
         }
         ///Data Word Size
         enum class DatasizeVal {
@@ -515,7 +487,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(datasize)::Type,DatasizeVal::v8> v8{};
             constexpr Register::FieldValue<decltype(datasize)::Type,DatasizeVal::v8c> v8c{};
         }
-        }
         ///Data Word Formatting Adjust
         enum class WordadjVal {
             right=0x00000000,     ///<Data is right adjusted in word
@@ -525,7 +496,6 @@ namespace Kvasir {
         namespace WordadjValC{
             constexpr Register::FieldValue<decltype(wordadj)::Type,WordadjVal::right> right{};
             constexpr Register::FieldValue<decltype(wordadj)::Type,WordadjVal::left> left{};
-        }
         }
         ///Data Formatting Bit Extension
         enum class ExtendVal {
@@ -541,7 +511,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(extend)::Type,ExtendVal::msbit> msbit{};
             constexpr Register::FieldValue<decltype(extend)::Type,ExtendVal::lsbit> lsbit{};
         }
-        }
         ///Data Formatting Bit Reverse
         enum class BitrevVal {
             msbit=0x00000000,     ///<Transfer Data Most Significant Bit (MSB) first (default for I2S protocol)
@@ -551,7 +520,6 @@ namespace Kvasir {
         namespace BitrevValC{
             constexpr Register::FieldValue<decltype(bitrev)::Type,BitrevVal::msbit> msbit{};
             constexpr Register::FieldValue<decltype(bitrev)::Type,BitrevVal::lsbit> lsbit{};
-        }
         }
         ///Slot 0 Disabled for this Serializer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> slotdis0{}; 
@@ -579,7 +547,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mono)::Type,MonoVal::stereo> stereo{};
             constexpr Register::FieldValue<decltype(mono)::Type,MonoVal::mono> mono{};
         }
-        }
         ///Single or Multiple DMA Channels
         enum class DmaVal {
             single=0x00000000,     ///<Single DMA channel
@@ -589,7 +556,6 @@ namespace Kvasir {
         namespace DmaValC{
             constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::single> single{};
             constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::multiple> multiple{};
-        }
         }
         ///Loop-back Test Mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> rxloop{}; 

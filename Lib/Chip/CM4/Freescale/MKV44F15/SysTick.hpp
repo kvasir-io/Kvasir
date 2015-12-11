@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::v0> v0{};
             constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::v1> v1{};
         }
-        }
         ///no description available
         enum class TickintVal {
             v0=0x00000000,     ///<counting down to 0 does not assert the SysTick exception request
@@ -25,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tickint)::Type,TickintVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tickint)::Type,TickintVal::v1> v1{};
         }
-        }
         ///no description available
         enum class ClksourceVal {
             v0=0x00000000,     ///<external clock
@@ -35,7 +33,6 @@ namespace Kvasir {
         namespace ClksourceValC{
             constexpr Register::FieldValue<decltype(clksource)::Type,ClksourceVal::v0> v0{};
             constexpr Register::FieldValue<decltype(clksource)::Type,ClksourceVal::v1> v1{};
-        }
         }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> countflag{}; 
@@ -64,7 +61,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(skew)::Type,SkewVal::v0> v0{};
             constexpr Register::FieldValue<decltype(skew)::Type,SkewVal::v1> v1{};
         }
-        }
         ///no description available
         enum class NorefVal {
             v0=0x00000000,     ///<The reference clock is provided
@@ -74,7 +70,6 @@ namespace Kvasir {
         namespace NorefValC{
             constexpr Register::FieldValue<decltype(noref)::Type,NorefVal::v0> v0{};
             constexpr Register::FieldValue<decltype(noref)::Type,NorefVal::v1> v1{};
-        }
         }
     }
 }

@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mpl6)::Type,Mpl6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mpl6)::Type,Mpl6Val::v1> v1{};
         }
-        }
         ///Master 6 Trusted for Writes
         enum class Mtw6Val {
             v0=0x00000000,     ///<This master is not trusted for write accesses.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace Mtw6ValC{
             constexpr Register::FieldValue<decltype(mtw6)::Type,Mtw6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mtw6)::Type,Mtw6Val::v1> v1{};
-        }
         }
         ///Master 6 Trusted for Read
         enum class Mtr6Val {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mtr6)::Type,Mtr6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mtr6)::Type,Mtr6Val::v1> v1{};
         }
-        }
         ///Master 5 Privilege Level
         enum class Mpl5Val {
             v0=0x00000000,     ///<Accesses from this master are forced to user-mode.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace Mpl5ValC{
             constexpr Register::FieldValue<decltype(mpl5)::Type,Mpl5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mpl5)::Type,Mpl5Val::v1> v1{};
-        }
         }
         ///Master 5 Trusted For Writes
         enum class Mtw5Val {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mtw5)::Type,Mtw5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mtw5)::Type,Mtw5Val::v1> v1{};
         }
-        }
         ///Master 5 Trusted For Read
         enum class Mtr5Val {
             v0=0x00000000,     ///<This master is not trusted for read accesses.
@@ -68,7 +63,6 @@ namespace Kvasir {
         namespace Mtr5ValC{
             constexpr Register::FieldValue<decltype(mtr5)::Type,Mtr5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mtr5)::Type,Mtr5Val::v1> v1{};
-        }
         }
         ///Master 4 Privilege Level
         enum class Mpl4Val {
@@ -80,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mpl4)::Type,Mpl4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mpl4)::Type,Mpl4Val::v1> v1{};
         }
-        }
         ///Master 4 Trusted For Writes
         enum class Mtw4Val {
             v0=0x00000000,     ///<This master is not trusted for write accesses.
@@ -90,7 +83,6 @@ namespace Kvasir {
         namespace Mtw4ValC{
             constexpr Register::FieldValue<decltype(mtw4)::Type,Mtw4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mtw4)::Type,Mtw4Val::v1> v1{};
-        }
         }
         ///Master 4 Trusted For Read
         enum class Mtr4Val {
@@ -102,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mtr4)::Type,Mtr4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mtr4)::Type,Mtr4Val::v1> v1{};
         }
-        }
         ///Master 3 Privilege Level
         enum class Mpl3Val {
             v0=0x00000000,     ///<Accesses from this master are forced to user-mode.
@@ -112,7 +103,6 @@ namespace Kvasir {
         namespace Mpl3ValC{
             constexpr Register::FieldValue<decltype(mpl3)::Type,Mpl3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mpl3)::Type,Mpl3Val::v1> v1{};
-        }
         }
         ///Master 3 Trusted For Writes
         enum class Mtw3Val {
@@ -124,7 +114,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mtw3)::Type,Mtw3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mtw3)::Type,Mtw3Val::v1> v1{};
         }
-        }
         ///Master 3 Trusted For Read
         enum class Mtr3Val {
             v0=0x00000000,     ///<This master is not trusted for read accesses.
@@ -134,7 +123,6 @@ namespace Kvasir {
         namespace Mtr3ValC{
             constexpr Register::FieldValue<decltype(mtr3)::Type,Mtr3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mtr3)::Type,Mtr3Val::v1> v1{};
-        }
         }
         ///Master 2 Privilege Level
         enum class Mpl2Val {
@@ -146,7 +134,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mpl2)::Type,Mpl2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mpl2)::Type,Mpl2Val::v1> v1{};
         }
-        }
         ///Master 2 Trusted For Writes
         enum class Mtw2Val {
             v0=0x00000000,     ///<This master is not trusted for write accesses.
@@ -156,7 +143,6 @@ namespace Kvasir {
         namespace Mtw2ValC{
             constexpr Register::FieldValue<decltype(mtw2)::Type,Mtw2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mtw2)::Type,Mtw2Val::v1> v1{};
-        }
         }
         ///Master 2 Trusted For Read
         enum class Mtr2Val {
@@ -168,7 +154,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mtr2)::Type,Mtr2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mtr2)::Type,Mtr2Val::v1> v1{};
         }
-        }
         ///Master 1 Privilege Level
         enum class Mpl1Val {
             v0=0x00000000,     ///<Accesses from this master are forced to user-mode.
@@ -178,7 +163,6 @@ namespace Kvasir {
         namespace Mpl1ValC{
             constexpr Register::FieldValue<decltype(mpl1)::Type,Mpl1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mpl1)::Type,Mpl1Val::v1> v1{};
-        }
         }
         ///Master 1 Trusted for Writes
         enum class Mtw1Val {
@@ -190,7 +174,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mtw1)::Type,Mtw1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mtw1)::Type,Mtw1Val::v1> v1{};
         }
-        }
         ///Master 1 Trusted for Read
         enum class Mtr1Val {
             v0=0x00000000,     ///<This master is not trusted for read accesses.
@@ -200,7 +183,6 @@ namespace Kvasir {
         namespace Mtr1ValC{
             constexpr Register::FieldValue<decltype(mtr1)::Type,Mtr1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mtr1)::Type,Mtr1Val::v1> v1{};
-        }
         }
         ///Master 0 Privilege Level
         enum class Mpl0Val {
@@ -212,7 +194,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mpl0)::Type,Mpl0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mpl0)::Type,Mpl0Val::v1> v1{};
         }
-        }
         ///Master 0 Trusted For Writes
         enum class Mtw0Val {
             v0=0x00000000,     ///<This master is not trusted for write accesses.
@@ -223,7 +204,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mtw0)::Type,Mtw0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mtw0)::Type,Mtw0Val::v1> v1{};
         }
-        }
         ///Master 0 Trusted For Read
         enum class Mtr0Val {
             v0=0x00000000,     ///<This master is not trusted for read accesses.
@@ -233,7 +213,6 @@ namespace Kvasir {
         namespace Mtr0ValC{
             constexpr Register::FieldValue<decltype(mtr0)::Type,Mtr0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(mtr0)::Type,Mtr0Val::v1> v1{};
-        }
         }
     }
     namespace Aips1Pacra{    ///<Peripheral Access Control Register
@@ -248,7 +227,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -258,7 +236,6 @@ namespace Kvasir {
         namespace Wp7ValC{
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp7Val {
@@ -270,7 +247,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -280,7 +256,6 @@ namespace Kvasir {
         namespace Tp6ValC{
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp6Val {
@@ -292,7 +267,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -302,7 +276,6 @@ namespace Kvasir {
         namespace Sp6ValC{
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp5Val {
@@ -314,7 +287,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -324,7 +296,6 @@ namespace Kvasir {
         namespace Wp5ValC{
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp5Val {
@@ -336,7 +307,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -346,7 +316,6 @@ namespace Kvasir {
         namespace Tp4ValC{
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp4Val {
@@ -358,7 +327,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -368,7 +336,6 @@ namespace Kvasir {
         namespace Sp4ValC{
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp3Val {
@@ -380,7 +347,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -390,7 +356,6 @@ namespace Kvasir {
         namespace Wp3ValC{
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp3Val {
@@ -402,7 +367,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -412,7 +376,6 @@ namespace Kvasir {
         namespace Tp2ValC{
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp2Val {
@@ -424,7 +387,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -434,7 +396,6 @@ namespace Kvasir {
         namespace Sp2ValC{
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp1Val {
@@ -446,7 +407,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -456,7 +416,6 @@ namespace Kvasir {
         namespace Wp1ValC{
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp1Val {
@@ -468,7 +427,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -478,7 +436,6 @@ namespace Kvasir {
         namespace Tp0ValC{
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp0Val {
@@ -490,7 +447,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -500,7 +456,6 @@ namespace Kvasir {
         namespace Sp0ValC{
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v1> v1{};
-        }
         }
     }
     namespace Aips1Pacrb{    ///<Peripheral Access Control Register
@@ -515,7 +470,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -525,7 +479,6 @@ namespace Kvasir {
         namespace Wp7ValC{
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp7Val {
@@ -537,7 +490,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -547,7 +499,6 @@ namespace Kvasir {
         namespace Tp6ValC{
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp6Val {
@@ -559,7 +510,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -569,7 +519,6 @@ namespace Kvasir {
         namespace Sp6ValC{
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp5Val {
@@ -581,7 +530,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -591,7 +539,6 @@ namespace Kvasir {
         namespace Wp5ValC{
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp5Val {
@@ -603,7 +550,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -613,7 +559,6 @@ namespace Kvasir {
         namespace Tp4ValC{
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp4Val {
@@ -625,7 +570,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -635,7 +579,6 @@ namespace Kvasir {
         namespace Sp4ValC{
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp3Val {
@@ -647,7 +590,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -657,7 +599,6 @@ namespace Kvasir {
         namespace Wp3ValC{
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp3Val {
@@ -669,7 +610,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -679,7 +619,6 @@ namespace Kvasir {
         namespace Tp2ValC{
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp2Val {
@@ -691,7 +630,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -701,7 +639,6 @@ namespace Kvasir {
         namespace Sp2ValC{
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp1Val {
@@ -713,7 +650,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -723,7 +659,6 @@ namespace Kvasir {
         namespace Wp1ValC{
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp1Val {
@@ -735,7 +670,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -745,7 +679,6 @@ namespace Kvasir {
         namespace Tp0ValC{
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp0Val {
@@ -757,7 +690,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -767,7 +699,6 @@ namespace Kvasir {
         namespace Sp0ValC{
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v1> v1{};
-        }
         }
     }
     namespace Aips1Pacrc{    ///<Peripheral Access Control Register
@@ -782,7 +713,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -792,7 +722,6 @@ namespace Kvasir {
         namespace Wp7ValC{
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp7Val {
@@ -804,7 +733,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -814,7 +742,6 @@ namespace Kvasir {
         namespace Tp6ValC{
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp6Val {
@@ -826,7 +753,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -836,7 +762,6 @@ namespace Kvasir {
         namespace Sp6ValC{
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp5Val {
@@ -848,7 +773,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -858,7 +782,6 @@ namespace Kvasir {
         namespace Wp5ValC{
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp5Val {
@@ -870,7 +793,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -880,7 +802,6 @@ namespace Kvasir {
         namespace Tp4ValC{
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp4Val {
@@ -892,7 +813,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -902,7 +822,6 @@ namespace Kvasir {
         namespace Sp4ValC{
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp3Val {
@@ -914,7 +833,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -924,7 +842,6 @@ namespace Kvasir {
         namespace Wp3ValC{
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp3Val {
@@ -936,7 +853,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -946,7 +862,6 @@ namespace Kvasir {
         namespace Tp2ValC{
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp2Val {
@@ -958,7 +873,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -968,7 +882,6 @@ namespace Kvasir {
         namespace Sp2ValC{
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp1Val {
@@ -980,7 +893,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -990,7 +902,6 @@ namespace Kvasir {
         namespace Wp1ValC{
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp1Val {
@@ -1002,7 +913,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -1012,7 +922,6 @@ namespace Kvasir {
         namespace Tp0ValC{
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp0Val {
@@ -1024,7 +933,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -1034,7 +942,6 @@ namespace Kvasir {
         namespace Sp0ValC{
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v1> v1{};
-        }
         }
     }
     namespace Aips1Pacrd{    ///<Peripheral Access Control Register
@@ -1049,7 +956,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -1059,7 +965,6 @@ namespace Kvasir {
         namespace Wp7ValC{
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp7Val {
@@ -1071,7 +976,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -1081,7 +985,6 @@ namespace Kvasir {
         namespace Tp6ValC{
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp6Val {
@@ -1093,7 +996,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -1103,7 +1005,6 @@ namespace Kvasir {
         namespace Sp6ValC{
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp5Val {
@@ -1115,7 +1016,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -1125,7 +1025,6 @@ namespace Kvasir {
         namespace Wp5ValC{
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp5Val {
@@ -1137,7 +1036,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -1147,7 +1045,6 @@ namespace Kvasir {
         namespace Tp4ValC{
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp4Val {
@@ -1159,7 +1056,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -1169,7 +1065,6 @@ namespace Kvasir {
         namespace Sp4ValC{
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp3Val {
@@ -1181,7 +1076,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -1191,7 +1085,6 @@ namespace Kvasir {
         namespace Wp3ValC{
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp3Val {
@@ -1203,7 +1096,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -1213,7 +1105,6 @@ namespace Kvasir {
         namespace Tp2ValC{
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp2Val {
@@ -1225,7 +1116,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -1235,7 +1125,6 @@ namespace Kvasir {
         namespace Sp2ValC{
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp1Val {
@@ -1247,7 +1136,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -1257,7 +1145,6 @@ namespace Kvasir {
         namespace Wp1ValC{
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp1Val {
@@ -1269,7 +1156,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -1279,7 +1165,6 @@ namespace Kvasir {
         namespace Tp0ValC{
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp0Val {
@@ -1291,7 +1176,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -1301,7 +1185,6 @@ namespace Kvasir {
         namespace Sp0ValC{
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v1> v1{};
-        }
         }
     }
     namespace Aips1Pacre{    ///<Peripheral Access Control Register
@@ -1316,7 +1199,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -1326,7 +1208,6 @@ namespace Kvasir {
         namespace Wp7ValC{
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp7Val {
@@ -1338,7 +1219,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -1348,7 +1228,6 @@ namespace Kvasir {
         namespace Tp6ValC{
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp6Val {
@@ -1360,7 +1239,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -1370,7 +1248,6 @@ namespace Kvasir {
         namespace Sp6ValC{
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp5Val {
@@ -1382,7 +1259,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -1392,7 +1268,6 @@ namespace Kvasir {
         namespace Wp5ValC{
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp5Val {
@@ -1404,7 +1279,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -1414,7 +1288,6 @@ namespace Kvasir {
         namespace Tp4ValC{
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp4Val {
@@ -1426,7 +1299,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -1436,7 +1308,6 @@ namespace Kvasir {
         namespace Sp4ValC{
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp3Val {
@@ -1448,7 +1319,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -1458,7 +1328,6 @@ namespace Kvasir {
         namespace Wp3ValC{
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp3Val {
@@ -1470,7 +1339,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -1480,7 +1348,6 @@ namespace Kvasir {
         namespace Tp2ValC{
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp2Val {
@@ -1492,7 +1359,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -1502,7 +1368,6 @@ namespace Kvasir {
         namespace Sp2ValC{
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp1Val {
@@ -1514,7 +1379,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -1524,7 +1388,6 @@ namespace Kvasir {
         namespace Wp1ValC{
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp1Val {
@@ -1536,7 +1399,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -1546,7 +1408,6 @@ namespace Kvasir {
         namespace Tp0ValC{
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp0Val {
@@ -1558,7 +1419,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -1568,7 +1428,6 @@ namespace Kvasir {
         namespace Sp0ValC{
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v1> v1{};
-        }
         }
     }
     namespace Aips1Pacrf{    ///<Peripheral Access Control Register
@@ -1583,7 +1442,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -1593,7 +1451,6 @@ namespace Kvasir {
         namespace Wp7ValC{
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp7Val {
@@ -1605,7 +1462,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -1615,7 +1471,6 @@ namespace Kvasir {
         namespace Tp6ValC{
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp6Val {
@@ -1627,7 +1482,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -1637,7 +1491,6 @@ namespace Kvasir {
         namespace Sp6ValC{
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp5Val {
@@ -1649,7 +1502,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -1659,7 +1511,6 @@ namespace Kvasir {
         namespace Wp5ValC{
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp5Val {
@@ -1671,7 +1522,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -1681,7 +1531,6 @@ namespace Kvasir {
         namespace Tp4ValC{
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp4Val {
@@ -1693,7 +1542,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -1703,7 +1551,6 @@ namespace Kvasir {
         namespace Sp4ValC{
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp3Val {
@@ -1715,7 +1562,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -1725,7 +1571,6 @@ namespace Kvasir {
         namespace Wp3ValC{
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp3Val {
@@ -1737,7 +1582,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -1747,7 +1591,6 @@ namespace Kvasir {
         namespace Tp2ValC{
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp2Val {
@@ -1759,7 +1602,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -1769,7 +1611,6 @@ namespace Kvasir {
         namespace Sp2ValC{
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp1Val {
@@ -1781,7 +1622,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -1791,7 +1631,6 @@ namespace Kvasir {
         namespace Wp1ValC{
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp1Val {
@@ -1803,7 +1642,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -1813,7 +1651,6 @@ namespace Kvasir {
         namespace Tp0ValC{
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp0Val {
@@ -1825,7 +1662,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -1835,7 +1671,6 @@ namespace Kvasir {
         namespace Sp0ValC{
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v1> v1{};
-        }
         }
     }
     namespace Aips1Pacrg{    ///<Peripheral Access Control Register
@@ -1850,7 +1685,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -1860,7 +1694,6 @@ namespace Kvasir {
         namespace Wp7ValC{
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp7Val {
@@ -1872,7 +1705,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -1882,7 +1714,6 @@ namespace Kvasir {
         namespace Tp6ValC{
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp6Val {
@@ -1894,7 +1725,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -1904,7 +1734,6 @@ namespace Kvasir {
         namespace Sp6ValC{
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp5Val {
@@ -1916,7 +1745,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -1926,7 +1754,6 @@ namespace Kvasir {
         namespace Wp5ValC{
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp5Val {
@@ -1938,7 +1765,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -1948,7 +1774,6 @@ namespace Kvasir {
         namespace Tp4ValC{
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp4Val {
@@ -1960,7 +1785,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -1970,7 +1794,6 @@ namespace Kvasir {
         namespace Sp4ValC{
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp3Val {
@@ -1982,7 +1805,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -1992,7 +1814,6 @@ namespace Kvasir {
         namespace Wp3ValC{
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp3Val {
@@ -2004,7 +1825,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -2014,7 +1834,6 @@ namespace Kvasir {
         namespace Tp2ValC{
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp2Val {
@@ -2026,7 +1845,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -2036,7 +1854,6 @@ namespace Kvasir {
         namespace Sp2ValC{
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp1Val {
@@ -2048,7 +1865,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -2058,7 +1874,6 @@ namespace Kvasir {
         namespace Wp1ValC{
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp1Val {
@@ -2070,7 +1885,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -2080,7 +1894,6 @@ namespace Kvasir {
         namespace Tp0ValC{
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp0Val {
@@ -2092,7 +1905,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -2102,7 +1914,6 @@ namespace Kvasir {
         namespace Sp0ValC{
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v1> v1{};
-        }
         }
     }
     namespace Aips1Pacrh{    ///<Peripheral Access Control Register
@@ -2117,7 +1928,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -2127,7 +1937,6 @@ namespace Kvasir {
         namespace Wp7ValC{
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp7Val {
@@ -2139,7 +1948,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -2149,7 +1957,6 @@ namespace Kvasir {
         namespace Tp6ValC{
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp6Val {
@@ -2161,7 +1968,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -2171,7 +1977,6 @@ namespace Kvasir {
         namespace Sp6ValC{
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp5Val {
@@ -2183,7 +1988,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -2193,7 +1997,6 @@ namespace Kvasir {
         namespace Wp5ValC{
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp5Val {
@@ -2205,7 +2008,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -2215,7 +2017,6 @@ namespace Kvasir {
         namespace Tp4ValC{
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp4Val {
@@ -2227,7 +2028,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -2237,7 +2037,6 @@ namespace Kvasir {
         namespace Sp4ValC{
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp3Val {
@@ -2249,7 +2048,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -2259,7 +2057,6 @@ namespace Kvasir {
         namespace Wp3ValC{
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp3Val {
@@ -2271,7 +2068,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -2281,7 +2077,6 @@ namespace Kvasir {
         namespace Tp2ValC{
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp2Val {
@@ -2293,7 +2088,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -2303,7 +2097,6 @@ namespace Kvasir {
         namespace Sp2ValC{
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp1Val {
@@ -2315,7 +2108,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -2325,7 +2117,6 @@ namespace Kvasir {
         namespace Wp1ValC{
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp1Val {
@@ -2337,7 +2128,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -2347,7 +2137,6 @@ namespace Kvasir {
         namespace Tp0ValC{
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp0Val {
@@ -2359,7 +2148,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -2369,7 +2157,6 @@ namespace Kvasir {
         namespace Sp0ValC{
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v1> v1{};
-        }
         }
     }
     namespace Aips1Pacri{    ///<Peripheral Access Control Register
@@ -2384,7 +2171,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -2394,7 +2180,6 @@ namespace Kvasir {
         namespace Wp7ValC{
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp7Val {
@@ -2406,7 +2191,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -2416,7 +2200,6 @@ namespace Kvasir {
         namespace Tp6ValC{
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp6Val {
@@ -2428,7 +2211,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -2438,7 +2220,6 @@ namespace Kvasir {
         namespace Sp6ValC{
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp5Val {
@@ -2450,7 +2231,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -2460,7 +2240,6 @@ namespace Kvasir {
         namespace Wp5ValC{
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp5Val {
@@ -2472,7 +2251,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -2482,7 +2260,6 @@ namespace Kvasir {
         namespace Tp4ValC{
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp4Val {
@@ -2494,7 +2271,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -2504,7 +2280,6 @@ namespace Kvasir {
         namespace Sp4ValC{
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp3Val {
@@ -2516,7 +2291,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -2526,7 +2300,6 @@ namespace Kvasir {
         namespace Wp3ValC{
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp3Val {
@@ -2538,7 +2311,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -2548,7 +2320,6 @@ namespace Kvasir {
         namespace Tp2ValC{
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp2Val {
@@ -2560,7 +2331,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -2570,7 +2340,6 @@ namespace Kvasir {
         namespace Sp2ValC{
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp1Val {
@@ -2582,7 +2351,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -2592,7 +2360,6 @@ namespace Kvasir {
         namespace Wp1ValC{
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp1Val {
@@ -2604,7 +2371,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -2614,7 +2380,6 @@ namespace Kvasir {
         namespace Tp0ValC{
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp0Val {
@@ -2626,7 +2391,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -2636,7 +2400,6 @@ namespace Kvasir {
         namespace Sp0ValC{
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v1> v1{};
-        }
         }
     }
     namespace Aips1Pacrj{    ///<Peripheral Access Control Register
@@ -2651,7 +2414,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -2661,7 +2423,6 @@ namespace Kvasir {
         namespace Wp7ValC{
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp7Val {
@@ -2673,7 +2434,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -2683,7 +2443,6 @@ namespace Kvasir {
         namespace Tp6ValC{
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp6Val {
@@ -2695,7 +2454,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -2705,7 +2463,6 @@ namespace Kvasir {
         namespace Sp6ValC{
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp5Val {
@@ -2717,7 +2474,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -2727,7 +2483,6 @@ namespace Kvasir {
         namespace Wp5ValC{
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp5Val {
@@ -2739,7 +2494,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -2749,7 +2503,6 @@ namespace Kvasir {
         namespace Tp4ValC{
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp4Val {
@@ -2761,7 +2514,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -2771,7 +2523,6 @@ namespace Kvasir {
         namespace Sp4ValC{
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp3Val {
@@ -2783,7 +2534,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -2793,7 +2543,6 @@ namespace Kvasir {
         namespace Wp3ValC{
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp3Val {
@@ -2805,7 +2554,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -2815,7 +2563,6 @@ namespace Kvasir {
         namespace Tp2ValC{
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp2Val {
@@ -2827,7 +2574,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -2837,7 +2583,6 @@ namespace Kvasir {
         namespace Sp2ValC{
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp1Val {
@@ -2849,7 +2594,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -2859,7 +2603,6 @@ namespace Kvasir {
         namespace Wp1ValC{
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp1Val {
@@ -2871,7 +2614,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -2881,7 +2623,6 @@ namespace Kvasir {
         namespace Tp0ValC{
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp0Val {
@@ -2893,7 +2634,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -2903,7 +2643,6 @@ namespace Kvasir {
         namespace Sp0ValC{
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v1> v1{};
-        }
         }
     }
     namespace Aips1Pacrk{    ///<Peripheral Access Control Register
@@ -2918,7 +2657,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -2928,7 +2666,6 @@ namespace Kvasir {
         namespace Wp7ValC{
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp7Val {
@@ -2940,7 +2677,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -2950,7 +2686,6 @@ namespace Kvasir {
         namespace Tp6ValC{
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp6Val {
@@ -2962,7 +2697,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -2972,7 +2706,6 @@ namespace Kvasir {
         namespace Sp6ValC{
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp5Val {
@@ -2984,7 +2717,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -2994,7 +2726,6 @@ namespace Kvasir {
         namespace Wp5ValC{
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp5Val {
@@ -3006,7 +2737,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -3016,7 +2746,6 @@ namespace Kvasir {
         namespace Tp4ValC{
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp4Val {
@@ -3028,7 +2757,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -3038,7 +2766,6 @@ namespace Kvasir {
         namespace Sp4ValC{
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp3Val {
@@ -3050,7 +2777,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -3060,7 +2786,6 @@ namespace Kvasir {
         namespace Wp3ValC{
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp3Val {
@@ -3072,7 +2797,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -3082,7 +2806,6 @@ namespace Kvasir {
         namespace Tp2ValC{
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp2Val {
@@ -3094,7 +2817,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -3104,7 +2826,6 @@ namespace Kvasir {
         namespace Sp2ValC{
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp1Val {
@@ -3116,7 +2837,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -3126,7 +2846,6 @@ namespace Kvasir {
         namespace Wp1ValC{
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp1Val {
@@ -3138,7 +2857,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -3148,7 +2866,6 @@ namespace Kvasir {
         namespace Tp0ValC{
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp0Val {
@@ -3160,7 +2877,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -3170,7 +2886,6 @@ namespace Kvasir {
         namespace Sp0ValC{
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v1> v1{};
-        }
         }
     }
     namespace Aips1Pacrl{    ///<Peripheral Access Control Register
@@ -3185,7 +2900,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -3195,7 +2909,6 @@ namespace Kvasir {
         namespace Wp7ValC{
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp7Val {
@@ -3207,7 +2920,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -3217,7 +2929,6 @@ namespace Kvasir {
         namespace Tp6ValC{
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp6Val {
@@ -3229,7 +2940,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -3239,7 +2949,6 @@ namespace Kvasir {
         namespace Sp6ValC{
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp5Val {
@@ -3251,7 +2960,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -3261,7 +2969,6 @@ namespace Kvasir {
         namespace Wp5ValC{
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp5Val {
@@ -3273,7 +2980,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -3283,7 +2989,6 @@ namespace Kvasir {
         namespace Tp4ValC{
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp4Val {
@@ -3295,7 +3000,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -3305,7 +3009,6 @@ namespace Kvasir {
         namespace Sp4ValC{
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp3Val {
@@ -3317,7 +3020,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -3327,7 +3029,6 @@ namespace Kvasir {
         namespace Wp3ValC{
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp3Val {
@@ -3339,7 +3040,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -3349,7 +3049,6 @@ namespace Kvasir {
         namespace Tp2ValC{
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp2Val {
@@ -3361,7 +3060,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -3371,7 +3069,6 @@ namespace Kvasir {
         namespace Sp2ValC{
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp1Val {
@@ -3383,7 +3080,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -3393,7 +3089,6 @@ namespace Kvasir {
         namespace Wp1ValC{
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp1Val {
@@ -3405,7 +3100,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -3415,7 +3109,6 @@ namespace Kvasir {
         namespace Tp0ValC{
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp0Val {
@@ -3427,7 +3120,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -3437,7 +3129,6 @@ namespace Kvasir {
         namespace Sp0ValC{
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v1> v1{};
-        }
         }
     }
     namespace Aips1Pacrm{    ///<Peripheral Access Control Register
@@ -3452,7 +3143,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -3462,7 +3152,6 @@ namespace Kvasir {
         namespace Wp7ValC{
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp7Val {
@@ -3474,7 +3163,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -3484,7 +3172,6 @@ namespace Kvasir {
         namespace Tp6ValC{
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp6Val {
@@ -3496,7 +3183,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -3506,7 +3192,6 @@ namespace Kvasir {
         namespace Sp6ValC{
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp5Val {
@@ -3518,7 +3203,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -3528,7 +3212,6 @@ namespace Kvasir {
         namespace Wp5ValC{
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp5Val {
@@ -3540,7 +3223,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -3550,7 +3232,6 @@ namespace Kvasir {
         namespace Tp4ValC{
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp4Val {
@@ -3562,7 +3243,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -3572,7 +3252,6 @@ namespace Kvasir {
         namespace Sp4ValC{
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp3Val {
@@ -3584,7 +3263,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -3594,7 +3272,6 @@ namespace Kvasir {
         namespace Wp3ValC{
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp3Val {
@@ -3606,7 +3283,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -3616,7 +3292,6 @@ namespace Kvasir {
         namespace Tp2ValC{
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp2Val {
@@ -3628,7 +3303,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -3638,7 +3312,6 @@ namespace Kvasir {
         namespace Sp2ValC{
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp1Val {
@@ -3650,7 +3323,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -3660,7 +3332,6 @@ namespace Kvasir {
         namespace Wp1ValC{
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp1Val {
@@ -3672,7 +3343,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -3682,7 +3352,6 @@ namespace Kvasir {
         namespace Tp0ValC{
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp0Val {
@@ -3694,7 +3363,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -3704,7 +3372,6 @@ namespace Kvasir {
         namespace Sp0ValC{
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v1> v1{};
-        }
         }
     }
     namespace Aips1Pacrn{    ///<Peripheral Access Control Register
@@ -3719,7 +3386,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -3729,7 +3395,6 @@ namespace Kvasir {
         namespace Wp7ValC{
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp7Val {
@@ -3741,7 +3406,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -3751,7 +3415,6 @@ namespace Kvasir {
         namespace Tp6ValC{
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp6Val {
@@ -3763,7 +3426,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -3773,7 +3435,6 @@ namespace Kvasir {
         namespace Sp6ValC{
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp5Val {
@@ -3785,7 +3446,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -3795,7 +3455,6 @@ namespace Kvasir {
         namespace Wp5ValC{
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp5Val {
@@ -3807,7 +3466,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -3817,7 +3475,6 @@ namespace Kvasir {
         namespace Tp4ValC{
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp4Val {
@@ -3829,7 +3486,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -3839,7 +3495,6 @@ namespace Kvasir {
         namespace Sp4ValC{
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp3Val {
@@ -3851,7 +3506,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -3861,7 +3515,6 @@ namespace Kvasir {
         namespace Wp3ValC{
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp3Val {
@@ -3873,7 +3526,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -3883,7 +3535,6 @@ namespace Kvasir {
         namespace Tp2ValC{
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp2Val {
@@ -3895,7 +3546,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -3905,7 +3555,6 @@ namespace Kvasir {
         namespace Sp2ValC{
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp1Val {
@@ -3917,7 +3566,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -3927,7 +3575,6 @@ namespace Kvasir {
         namespace Wp1ValC{
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp1Val {
@@ -3939,7 +3586,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -3949,7 +3595,6 @@ namespace Kvasir {
         namespace Tp0ValC{
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp0Val {
@@ -3961,7 +3606,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -3971,7 +3615,6 @@ namespace Kvasir {
         namespace Sp0ValC{
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v1> v1{};
-        }
         }
     }
     namespace Aips1Pacro{    ///<Peripheral Access Control Register
@@ -3986,7 +3629,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -3996,7 +3638,6 @@ namespace Kvasir {
         namespace Wp7ValC{
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp7Val {
@@ -4008,7 +3649,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -4018,7 +3658,6 @@ namespace Kvasir {
         namespace Tp6ValC{
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp6Val {
@@ -4030,7 +3669,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -4040,7 +3678,6 @@ namespace Kvasir {
         namespace Sp6ValC{
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp5Val {
@@ -4052,7 +3689,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -4062,7 +3698,6 @@ namespace Kvasir {
         namespace Wp5ValC{
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp5Val {
@@ -4074,7 +3709,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -4084,7 +3718,6 @@ namespace Kvasir {
         namespace Tp4ValC{
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp4Val {
@@ -4096,7 +3729,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -4106,7 +3738,6 @@ namespace Kvasir {
         namespace Sp4ValC{
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp3Val {
@@ -4118,7 +3749,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -4128,7 +3758,6 @@ namespace Kvasir {
         namespace Wp3ValC{
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp3Val {
@@ -4140,7 +3769,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -4150,7 +3778,6 @@ namespace Kvasir {
         namespace Tp2ValC{
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp2Val {
@@ -4162,7 +3789,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -4172,7 +3798,6 @@ namespace Kvasir {
         namespace Sp2ValC{
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp1Val {
@@ -4184,7 +3809,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -4194,7 +3818,6 @@ namespace Kvasir {
         namespace Wp1ValC{
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp1Val {
@@ -4206,7 +3829,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -4216,7 +3838,6 @@ namespace Kvasir {
         namespace Tp0ValC{
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp0Val {
@@ -4228,7 +3849,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -4238,7 +3858,6 @@ namespace Kvasir {
         namespace Sp0ValC{
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v1> v1{};
-        }
         }
     }
     namespace Aips1Pacrp{    ///<Peripheral Access Control Register
@@ -4253,7 +3872,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp7)::Type,Tp7Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp7Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -4263,7 +3881,6 @@ namespace Kvasir {
         namespace Wp7ValC{
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp7)::Type,Wp7Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp7Val {
@@ -4275,7 +3892,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp7)::Type,Sp7Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp6Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -4285,7 +3901,6 @@ namespace Kvasir {
         namespace Tp6ValC{
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp6)::Type,Tp6Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp6Val {
@@ -4297,7 +3912,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp6)::Type,Wp6Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp6Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -4307,7 +3921,6 @@ namespace Kvasir {
         namespace Sp6ValC{
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp6)::Type,Sp6Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp5Val {
@@ -4319,7 +3932,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp5)::Type,Tp5Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp5Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -4329,7 +3941,6 @@ namespace Kvasir {
         namespace Wp5ValC{
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp5)::Type,Wp5Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp5Val {
@@ -4341,7 +3952,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp5)::Type,Sp5Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp4Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -4351,7 +3961,6 @@ namespace Kvasir {
         namespace Tp4ValC{
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp4)::Type,Tp4Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp4Val {
@@ -4363,7 +3972,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp4)::Type,Wp4Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp4Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -4373,7 +3981,6 @@ namespace Kvasir {
         namespace Sp4ValC{
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp4)::Type,Sp4Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp3Val {
@@ -4385,7 +3992,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp3)::Type,Tp3Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp3Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -4395,7 +4001,6 @@ namespace Kvasir {
         namespace Wp3ValC{
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp3)::Type,Wp3Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp3Val {
@@ -4407,7 +4012,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp3)::Type,Sp3Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp2Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -4417,7 +4021,6 @@ namespace Kvasir {
         namespace Tp2ValC{
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp2)::Type,Tp2Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp2Val {
@@ -4429,7 +4032,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp2)::Type,Wp2Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp2Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -4439,7 +4041,6 @@ namespace Kvasir {
         namespace Sp2ValC{
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp2)::Type,Sp2Val::v1> v1{};
-        }
         }
         ///Trusted Protect
         enum class Tp1Val {
@@ -4451,7 +4052,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp1)::Type,Tp1Val::v1> v1{};
         }
-        }
         ///Write Protect
         enum class Wp1Val {
             v0=0x00000000,     ///<This peripheral allows write accesses.
@@ -4461,7 +4061,6 @@ namespace Kvasir {
         namespace Wp1ValC{
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp1)::Type,Wp1Val::v1> v1{};
-        }
         }
         ///Supervisor Protect
         enum class Sp1Val {
@@ -4473,7 +4072,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp1)::Type,Sp1Val::v1> v1{};
         }
-        }
         ///Trusted Protect
         enum class Tp0Val {
             v0=0x00000000,     ///<Accesses from an untrusted master are allowed.
@@ -4483,7 +4081,6 @@ namespace Kvasir {
         namespace Tp0ValC{
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(tp0)::Type,Tp0Val::v1> v1{};
-        }
         }
         ///Write Protect
         enum class Wp0Val {
@@ -4495,7 +4092,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(wp0)::Type,Wp0Val::v1> v1{};
         }
-        }
         ///Supervisor Protect
         enum class Sp0Val {
             v0=0x00000000,     ///<This peripheral does not require supervisor privilege level for accesses.
@@ -4505,7 +4101,6 @@ namespace Kvasir {
         namespace Sp0ValC{
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sp0)::Type,Sp0Val::v1> v1{};
-        }
         }
     }
 }

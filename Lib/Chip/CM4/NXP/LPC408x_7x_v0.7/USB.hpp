@@ -58,7 +58,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(portsel)::Type,PortselVal::portu1> portu1{};
             constexpr Register::FieldValue<decltype(portsel)::Type,PortselVal::portu2> portu2{};
         }
-        }
         ///Timer scale selection. This field determines the duration of each timer count. 00: 10 ms (100 KHz) 01: 100 ms (10 KHz) 10: 1000 ms (1 KHz) 11: Reserved
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> tmrScale{}; 
         ///Timer mode selection. 0: monoshot 1: free running
@@ -185,7 +184,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frame)::Type,FrameVal::lp> lp{};
             constexpr Register::FieldValue<decltype(frame)::Type,FrameVal::hp> hp{};
         }
-        }
         ///Fast endpoint interrupt routing
         enum class EpfastVal {
             lp=0x00000000,     ///<EP_FAST interrupt is routed to USB_INT_REQ_LP.
@@ -195,7 +193,6 @@ namespace Kvasir {
         namespace EpfastValC{
             constexpr Register::FieldValue<decltype(epFast)::Type,EpfastVal::lp> lp{};
             constexpr Register::FieldValue<decltype(epFast)::Type,EpfastVal::hp> hp{};
-        }
         }
     }
     namespace Noneepintst{    ///<USB Endpoint Interrupt Status
@@ -629,7 +626,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dv)::Type,DvVal::dataIsInvalid> dataIsInvalid{};
             constexpr Register::FieldValue<decltype(dv)::Type,DvVal::dataIsValid> dataIsValid{};
         }
-        }
         ///The PKT_LNGTH field is valid and the packet is ready for reading.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> pktRdy{}; 
     }
@@ -655,7 +651,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rdEn)::Type,RdenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rdEn)::Type,RdenVal::enabled> enabled{};
         }
-        }
         ///Write mode control. Enables writing data to the IN endpoint buffer for the endpoint specified in the LOG_ENDPOINT field using the USBTxData register. This bit is cleared by hardware when the number of bytes in USBTxLen have been sent.
         enum class WrenVal {
             disabled=0x00000000,     ///<Disabled.
@@ -665,7 +660,6 @@ namespace Kvasir {
         namespace WrenValC{
             constexpr Register::FieldValue<decltype(wrEn)::Type,WrenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(wrEn)::Type,WrenVal::enabled> enabled{};
-        }
         }
         ///Logical Endpoint number.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,2),Register::ReadWriteAccess,unsigned> logEndpoint{}; 
@@ -1043,7 +1037,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eot)::Type,EotVal::allBitsInTheUsbe> allBitsInTheUsbe{};
             constexpr Register::FieldValue<decltype(eot)::Type,EotVal::atLeastOneBitIn> atLeastOneBitIn{};
         }
-        }
         ///New DD Request Interrupt bit.
         enum class NddrVal {
             allBitsInTheUsbn=0x00000000,     ///<All bits in the USBNDDRIntSt register are 0.
@@ -1054,7 +1047,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nddr)::Type,NddrVal::allBitsInTheUsbn> allBitsInTheUsbn{};
             constexpr Register::FieldValue<decltype(nddr)::Type,NddrVal::atLeastOneBitIn> atLeastOneBitIn{};
         }
-        }
         ///System Error Interrupt bit.
         enum class ErrVal {
             allBitsInTheUsbs=0x00000000,     ///<All bits in the USBSysErrIntSt register are 0.
@@ -1064,7 +1056,6 @@ namespace Kvasir {
         namespace ErrValC{
             constexpr Register::FieldValue<decltype(err)::Type,ErrVal::allBitsInTheUsbs> allBitsInTheUsbs{};
             constexpr Register::FieldValue<decltype(err)::Type,ErrVal::atLeastOneBitIn> atLeastOneBitIn{};
-        }
         }
     }
     namespace Nonedmainten{    ///<USB DMA Interrupt Enable
@@ -1079,7 +1070,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eot)::Type,EotVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(eot)::Type,EotVal::enabled> enabled{};
         }
-        }
         ///New DD Request Interrupt enable bit.
         enum class NddrVal {
             disabled=0x00000000,     ///<Disabled.
@@ -1090,7 +1080,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nddr)::Type,NddrVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(nddr)::Type,NddrVal::enabled> enabled{};
         }
-        }
         ///System Error Interrupt enable bit.
         enum class ErrVal {
             disabled=0x00000000,     ///<Disabled.
@@ -1100,7 +1089,6 @@ namespace Kvasir {
         namespace ErrValC{
             constexpr Register::FieldValue<decltype(err)::Type,ErrVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(err)::Type,ErrVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneeotintst{    ///<USB End of Transfer Interrupt Status
@@ -1732,7 +1720,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tdi)::Type,TdiVal::transactionHasNot> transactionHasNot{};
             constexpr Register::FieldValue<decltype(tdi)::Type,TdiVal::transactionComplete> transactionComplete{};
         }
-        }
         ///Arbitration Failure Interrupt. When transmitting, if the SDA is low when SDAOUT is high, then this I2C has lost the arbitration to another device on the bus. The Arbitration Failure bit is set when this happens. It is cleared by writing a one to bit 1 of the status register.
         enum class AfiVal {
             noArbitrationFailu=0x00000000,     ///<No arbitration failure on last transmission.
@@ -1742,7 +1729,6 @@ namespace Kvasir {
         namespace AfiValC{
             constexpr Register::FieldValue<decltype(afi)::Type,AfiVal::noArbitrationFailu> noArbitrationFailu{};
             constexpr Register::FieldValue<decltype(afi)::Type,AfiVal::arbitrationFailure> arbitrationFailure{};
-        }
         }
         ///No Acknowledge Interrupt. After every byte of data is sent, the transmitter expects an acknowledge from the receiver. This bit is set if the acknowledge is not received. It is cleared when a byte is written to the master TX FIFO.
         enum class NaiVal {
@@ -1754,7 +1740,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nai)::Type,NaiVal::lastTransmissionRe> lastTransmissionRe{};
             constexpr Register::FieldValue<decltype(nai)::Type,NaiVal::lastTransmissionDi> lastTransmissionDi{};
         }
-        }
         ///Master Data Request Interrupt. Once a transmission is started, the transmitter must have data to transmit as long as it isn't followed by a stop condition or it will hold SCL low until more data is available. The Master Data Request bit is set when the master transmitter is data-starved. If the master TX FIFO is empty and the last byte did not have a STOP condition flag, then SCL is held low until the CPU writes another byte to transmit. This bit is cleared when a byte is written to the master TX FIFO.
         enum class DrmiVal {
             masterTransmitterD=0x00000000,     ///<Master transmitter does not need data.
@@ -1765,7 +1750,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drmi)::Type,DrmiVal::masterTransmitterD> masterTransmitterD{};
             constexpr Register::FieldValue<decltype(drmi)::Type,DrmiVal::masterTransmitterN> masterTransmitterN{};
         }
-        }
         ///Slave Data Request Interrupt. Once a transmission is started, the transmitter must have data to transmit as long as it isn't followed by a STOP condition or it will hold SCL low until more data is available. The Slave Data Request bit is set when the slave transmitter is data-starved. If the slave TX FIFO is empty and the last byte transmitted was acknowledged, then SCL is held low until the CPU writes another byte to transmit. This bit is cleared when a byte is written to the slave Tx FIFO.
         enum class DrsiVal {
             slaveTransmitterDo=0x00000000,     ///<Slave transmitter does not need data.
@@ -1775,7 +1759,6 @@ namespace Kvasir {
         namespace DrsiValC{
             constexpr Register::FieldValue<decltype(drsi)::Type,DrsiVal::slaveTransmitterDo> slaveTransmitterDo{};
             constexpr Register::FieldValue<decltype(drsi)::Type,DrsiVal::slaveTransmitterNe> slaveTransmitterNe{};
-        }
         }
         ///Indicates whether the bus is busy. This bit is set when a START condition has been seen. It is cleared when a STOP condition is seen..
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> active{}; 
@@ -1793,7 +1776,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rff)::Type,RffVal::rxFifoIsNotFull> rxFifoIsNotFull{};
             constexpr Register::FieldValue<decltype(rff)::Type,RffVal::rxFifoIsFull> rxFifoIsFull{};
         }
-        }
         ///Receive FIFO Empty. RFE is set when the RX FIFO is empty and is cleared when the RX FIFO contains valid data.
         enum class RfeVal {
             rxFifoContainsDat=0x00000000,     ///<RX FIFO contains data.
@@ -1803,7 +1785,6 @@ namespace Kvasir {
         namespace RfeValC{
             constexpr Register::FieldValue<decltype(rfe)::Type,RfeVal::rxFifoContainsDat> rxFifoContainsDat{};
             constexpr Register::FieldValue<decltype(rfe)::Type,RfeVal::rxFifoIsEmpty> rxFifoIsEmpty{};
-        }
         }
         ///Transmit FIFO Full. TFF is set when the TX FIFO is full and is cleared when the TX FIFO is not full.
         enum class TffVal {
@@ -1815,7 +1796,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tff)::Type,TffVal::txFifoIsNotFull> txFifoIsNotFull{};
             constexpr Register::FieldValue<decltype(tff)::Type,TffVal::txFifoIsFull> txFifoIsFull{};
         }
-        }
         ///Transmit FIFO Empty. TFE is set when the TX FIFO is empty and is cleared when the TX FIFO contains valid data.
         enum class TfeVal {
             txFifoContainsVal=0x00000000,     ///<TX FIFO contains valid data.
@@ -1825,7 +1805,6 @@ namespace Kvasir {
         namespace TfeValC{
             constexpr Register::FieldValue<decltype(tfe)::Type,TfeVal::txFifoContainsVal> txFifoContainsVal{};
             constexpr Register::FieldValue<decltype(tfe)::Type,TfeVal::txFifoIsEmpty> txFifoIsEmpty{};
-        }
         }
     }
     namespace Nonei2cCtl{    ///<I2C Control
@@ -1840,7 +1819,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tdie)::Type,TdieVal::disableTheTdiInte> disableTheTdiInte{};
             constexpr Register::FieldValue<decltype(tdie)::Type,TdieVal::enableTheTdiInter> enableTheTdiInter{};
         }
-        }
         ///Transmitter Arbitration Failure Interrupt Enable. This enables the AFI interrupt which is asserted during transmission when trying to set SDA high, but the bus is driven low by another device.
         enum class AfieVal {
             disableTheAfi=0x00000000,     ///<Disable the AFI.
@@ -1850,7 +1828,6 @@ namespace Kvasir {
         namespace AfieValC{
             constexpr Register::FieldValue<decltype(afie)::Type,AfieVal::disableTheAfi> disableTheAfi{};
             constexpr Register::FieldValue<decltype(afie)::Type,AfieVal::enableTheAfi> enableTheAfi{};
-        }
         }
         ///Transmitter No Acknowledge Interrupt Enable. This enables the NAI interrupt signalling that transmitted byte was not acknowledged.
         enum class NaieVal {
@@ -1862,7 +1839,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(naie)::Type,NaieVal::disableTheNai> disableTheNai{};
             constexpr Register::FieldValue<decltype(naie)::Type,NaieVal::enableTheNai> enableTheNai{};
         }
-        }
         ///Master Transmitter Data Request Interrupt Enable. This enables the DRMI interrupt which signals that the master transmitter has run out of data, has not issued a STOP, and is holding the SCL line low.
         enum class DrmieVal {
             disableTheDrmiInt=0x00000000,     ///<Disable the DRMI interrupt.
@@ -1872,7 +1848,6 @@ namespace Kvasir {
         namespace DrmieValC{
             constexpr Register::FieldValue<decltype(drmie)::Type,DrmieVal::disableTheDrmiInt> disableTheDrmiInt{};
             constexpr Register::FieldValue<decltype(drmie)::Type,DrmieVal::enableTheDrmiInte> enableTheDrmiInte{};
-        }
         }
         ///Slave Transmitter Data Request Interrupt Enable. This enables the DRSI interrupt which signals that the slave transmitter has run out of data and the last byte was acknowledged, so the SCL line is being held low.
         enum class DrsieVal {
@@ -1884,7 +1859,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(drsie)::Type,DrsieVal::disableTheDrsiInt> disableTheDrsiInt{};
             constexpr Register::FieldValue<decltype(drsie)::Type,DrsieVal::enableTheDrsiInte> enableTheDrsiInte{};
         }
-        }
         ///Receive FIFO Full Interrupt Enable. This enables the Receive FIFO Full interrupt to indicate that the receive FIFO cannot accept any more data.
         enum class RefieVal {
             disableTheRffi=0x00000000,     ///<Disable the RFFI.
@@ -1894,7 +1868,6 @@ namespace Kvasir {
         namespace RefieValC{
             constexpr Register::FieldValue<decltype(refie)::Type,RefieVal::disableTheRffi> disableTheRffi{};
             constexpr Register::FieldValue<decltype(refie)::Type,RefieVal::enableTheRffi> enableTheRffi{};
-        }
         }
         ///Receive Data Available Interrupt Enable. This enables the DAI interrupt to indicate that data is available in the receive FIFO (i.e. not empty).
         enum class RfdaieVal {
@@ -1906,7 +1879,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rfdaie)::Type,RfdaieVal::disableTheDai> disableTheDai{};
             constexpr Register::FieldValue<decltype(rfdaie)::Type,RfdaieVal::enableTheDai> enableTheDai{};
         }
-        }
         ///Transmit FIFO Not Full Interrupt Enable. This enables the Transmit FIFO Not Full interrupt to indicate that the more data can be written to the transmit FIFO. Note that this is not full. It is intended help the CPU to write to the I2C block only when there is room in the FIFO and do this without polling the status register.
         enum class TffieVal {
             disableTheTffi=0x00000000,     ///<Disable the TFFI.
@@ -1917,7 +1889,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tffie)::Type,TffieVal::disableTheTffi> disableTheTffi{};
             constexpr Register::FieldValue<decltype(tffie)::Type,TffieVal::enableTheTffi> enableTheTffi{};
         }
-        }
         ///Soft reset. This is only needed in unusual circumstances. If a device issues a start condition without issuing a stop condition. A system timer may be used to reset the I2C if the bus remains busy longer than the time-out period. On a soft reset, the Tx and Rx FIFOs are flushed, I2C_STS register is cleared, and all internal state machines are reset to appear idle. The I2C_CLKHI, I2C_CLKLO and I2C_CTL (except Soft Reset Bit) are NOT modified by a soft reset.
         enum class SrstVal {
             seeTheText=0x00000000,     ///<See the text.
@@ -1927,7 +1898,6 @@ namespace Kvasir {
         namespace SrstValC{
             constexpr Register::FieldValue<decltype(srst)::Type,SrstVal::seeTheText> seeTheText{};
             constexpr Register::FieldValue<decltype(srst)::Type,SrstVal::resetTheI2cToIdl> resetTheI2cToIdl{};
-        }
         }
     }
     namespace Nonei2cClkhi{    ///<I2C Clock High
@@ -1952,7 +1922,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hostClkEn)::Type,HostclkenVal::disableTheHostClo> disableTheHostClo{};
             constexpr Register::FieldValue<decltype(hostClkEn)::Type,HostclkenVal::enableTheHostCloc> enableTheHostCloc{};
         }
-        }
         ///Device clock enable
         enum class DevclkenVal {
             disableTheDeviceC=0x00000000,     ///<Disable the Device clock.
@@ -1962,7 +1931,6 @@ namespace Kvasir {
         namespace DevclkenValC{
             constexpr Register::FieldValue<decltype(devClkEn)::Type,DevclkenVal::disableTheDeviceC> disableTheDeviceC{};
             constexpr Register::FieldValue<decltype(devClkEn)::Type,DevclkenVal::enableTheDeviceCl> enableTheDeviceCl{};
-        }
         }
         ///I2C clock enable
         enum class I2cclkenVal {
@@ -1974,7 +1942,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2cClkEn)::Type,I2cclkenVal::disableTheI2cCloc> disableTheI2cCloc{};
             constexpr Register::FieldValue<decltype(i2cClkEn)::Type,I2cclkenVal::enableTheI2cClock> enableTheI2cClock{};
         }
-        }
         ///OTG clock enable. In device-only applications, this bit enables access to the PORTSEL register.
         enum class OtgclkenVal {
             disableTheOtgCloc=0x00000000,     ///<Disable the OTG clock.
@@ -1985,7 +1952,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(otgClkEn)::Type,OtgclkenVal::disableTheOtgCloc> disableTheOtgCloc{};
             constexpr Register::FieldValue<decltype(otgClkEn)::Type,OtgclkenVal::enableTheOtgClock> enableTheOtgClock{};
         }
-        }
         ///AHB master clock enable
         enum class AhbclkenVal {
             disableTheAhbCloc=0x00000000,     ///<Disable the AHB clock.
@@ -1995,7 +1961,6 @@ namespace Kvasir {
         namespace AhbclkenValC{
             constexpr Register::FieldValue<decltype(ahbClkEn)::Type,AhbclkenVal::disableTheAhbCloc> disableTheAhbCloc{};
             constexpr Register::FieldValue<decltype(ahbClkEn)::Type,AhbclkenVal::enableTheAhbClock> enableTheAhbClock{};
-        }
         }
     }
     namespace Noneotgclkst{    ///<OTG clock status
@@ -2010,7 +1975,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hostClkOn)::Type,HostclkonVal::hostClockIsNotAv> hostClockIsNotAv{};
             constexpr Register::FieldValue<decltype(hostClkOn)::Type,HostclkonVal::hostClockIsAvaila> hostClockIsAvaila{};
         }
-        }
         ///Device clock status.
         enum class DevclkonVal {
             deviceClockIsNot=0x00000000,     ///<Device clock is not available.
@@ -2020,7 +1984,6 @@ namespace Kvasir {
         namespace DevclkonValC{
             constexpr Register::FieldValue<decltype(devClkOn)::Type,DevclkonVal::deviceClockIsNot> deviceClockIsNot{};
             constexpr Register::FieldValue<decltype(devClkOn)::Type,DevclkonVal::deviceClockIsAvai> deviceClockIsAvai{};
-        }
         }
         ///I2C clock status.
         enum class I2cclkonVal {
@@ -2032,7 +1995,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2cClkOn)::Type,I2cclkonVal::i2cClockIsNotAva> i2cClockIsNotAva{};
             constexpr Register::FieldValue<decltype(i2cClkOn)::Type,I2cclkonVal::i2cClockIsAvailab> i2cClockIsAvailab{};
         }
-        }
         ///OTG clock status.
         enum class OtgclkonVal {
             otgClockIsNotAva=0x00000000,     ///<OTG clock is not available.
@@ -2043,7 +2005,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(otgClkOn)::Type,OtgclkonVal::otgClockIsNotAva> otgClockIsNotAva{};
             constexpr Register::FieldValue<decltype(otgClkOn)::Type,OtgclkonVal::otgClockIsAvailab> otgClockIsAvailab{};
         }
-        }
         ///AHB master clock status.
         enum class AhbclkonVal {
             ahbClockIsNotAva=0x00000000,     ///<AHB clock is not available.
@@ -2053,7 +2014,6 @@ namespace Kvasir {
         namespace AhbclkonValC{
             constexpr Register::FieldValue<decltype(ahbClkOn)::Type,AhbclkonVal::ahbClockIsNotAva> ahbClockIsNotAva{};
             constexpr Register::FieldValue<decltype(ahbClkOn)::Type,AhbclkonVal::ahbClockIsAvailab> ahbClockIsAvailab{};
-        }
         }
     }
 }

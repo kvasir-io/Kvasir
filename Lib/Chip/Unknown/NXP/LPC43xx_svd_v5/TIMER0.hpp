@@ -55,7 +55,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mr0i)::Type,Mr0iVal::interruptIsGenerat> interruptIsGenerat{};
             constexpr Register::FieldValue<decltype(mr0i)::Type,Mr0iVal::interruptIsDisable> interruptIsDisable{};
         }
-        }
         ///Reset on MR0
         enum class Mr0rVal {
             tcWillBeResetIf=0x00000001,     ///<TC will be reset if MR0 matches it.
@@ -65,7 +64,6 @@ namespace Kvasir {
         namespace Mr0rValC{
             constexpr Register::FieldValue<decltype(mr0r)::Type,Mr0rVal::tcWillBeResetIf> tcWillBeResetIf{};
             constexpr Register::FieldValue<decltype(mr0r)::Type,Mr0rVal::featureDisabled> featureDisabled{};
-        }
         }
         ///Stop on MR0
         enum class Mr0sVal {
@@ -77,7 +75,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mr0s)::Type,Mr0sVal::tcAndPcWillBeSt> tcAndPcWillBeSt{};
             constexpr Register::FieldValue<decltype(mr0s)::Type,Mr0sVal::featureDisabled> featureDisabled{};
         }
-        }
         ///Interrupt on MR1
         enum class Mr1iVal {
             interruptIsGenerat=0x00000001,     ///<Interrupt is generated when MR1 matches the value in the TC.
@@ -87,7 +84,6 @@ namespace Kvasir {
         namespace Mr1iValC{
             constexpr Register::FieldValue<decltype(mr1i)::Type,Mr1iVal::interruptIsGenerat> interruptIsGenerat{};
             constexpr Register::FieldValue<decltype(mr1i)::Type,Mr1iVal::interruptIsDisable> interruptIsDisable{};
-        }
         }
         ///Reset on MR1
         enum class Mr1rVal {
@@ -99,7 +95,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mr1r)::Type,Mr1rVal::tcWillBeResetIf> tcWillBeResetIf{};
             constexpr Register::FieldValue<decltype(mr1r)::Type,Mr1rVal::featureDisabled> featureDisabled{};
         }
-        }
         ///Stop on MR1
         enum class Mr1sVal {
             tcAndPcWillBeSt=0x00000001,     ///<TC and PC will be stopped and TCR[0] will be set to 0 if MR1 matches the TC.
@@ -109,7 +104,6 @@ namespace Kvasir {
         namespace Mr1sValC{
             constexpr Register::FieldValue<decltype(mr1s)::Type,Mr1sVal::tcAndPcWillBeSt> tcAndPcWillBeSt{};
             constexpr Register::FieldValue<decltype(mr1s)::Type,Mr1sVal::featureDisabled> featureDisabled{};
-        }
         }
         ///Interrupt on MR2
         enum class Mr2iVal {
@@ -121,7 +115,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mr2i)::Type,Mr2iVal::interruptIsGenerat> interruptIsGenerat{};
             constexpr Register::FieldValue<decltype(mr2i)::Type,Mr2iVal::interruptIsDisable> interruptIsDisable{};
         }
-        }
         ///Reset on MR2
         enum class Mr2rVal {
             tcWillBeResetIf=0x00000001,     ///<TC will be reset if MR2 matches it.
@@ -131,7 +124,6 @@ namespace Kvasir {
         namespace Mr2rValC{
             constexpr Register::FieldValue<decltype(mr2r)::Type,Mr2rVal::tcWillBeResetIf> tcWillBeResetIf{};
             constexpr Register::FieldValue<decltype(mr2r)::Type,Mr2rVal::featureDisabled> featureDisabled{};
-        }
         }
         ///Stop on MR2.
         enum class Mr2sVal {
@@ -143,7 +135,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mr2s)::Type,Mr2sVal::tcAndPcWillBeSt> tcAndPcWillBeSt{};
             constexpr Register::FieldValue<decltype(mr2s)::Type,Mr2sVal::featureDisabled> featureDisabled{};
         }
-        }
         ///Interrupt on MR3
         enum class Mr3iVal {
             interruptIsGenerat=0x00000001,     ///<Interrupt is generated when MR3 matches the value in the TC.
@@ -153,7 +144,6 @@ namespace Kvasir {
         namespace Mr3iValC{
             constexpr Register::FieldValue<decltype(mr3i)::Type,Mr3iVal::interruptIsGenerat> interruptIsGenerat{};
             constexpr Register::FieldValue<decltype(mr3i)::Type,Mr3iVal::thisInterruptIsDi> thisInterruptIsDi{};
-        }
         }
         ///Reset on MR3
         enum class Mr3rVal {
@@ -165,7 +155,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mr3r)::Type,Mr3rVal::tcWillBeResetIf> tcWillBeResetIf{};
             constexpr Register::FieldValue<decltype(mr3r)::Type,Mr3rVal::featureDisabled> featureDisabled{};
         }
-        }
         ///Stop on MR3
         enum class Mr3sVal {
             tcAndPcWillBeSt=0x00000001,     ///<TC and PC will be stopped and TCR[0] will be set to 0 if MR3 matches the TC.
@@ -175,7 +164,6 @@ namespace Kvasir {
         namespace Mr3sValC{
             constexpr Register::FieldValue<decltype(mr3s)::Type,Mr3sVal::tcAndPcWillBeSt> tcAndPcWillBeSt{};
             constexpr Register::FieldValue<decltype(mr3s)::Type,Mr3sVal::featureDisabled> featureDisabled{};
-        }
         }
     }
     namespace Nonemr0{    ///<Match Register. MR can be enabled through the MCR to reset the TC, stop both the TC and PC, and/or generate an interrupt every time MR matches the TC.
@@ -210,7 +198,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cap0re)::Type,Cap0reVal::aSequenceOf0Then> aSequenceOf0Then{};
             constexpr Register::FieldValue<decltype(cap0re)::Type,Cap0reVal::thisFeatureIsDisa> thisFeatureIsDisa{};
         }
-        }
         ///Capture on CAPn.0 falling edge
         enum class Cap0feVal {
             aSequenceOf1Then=0x00000001,     ///<A sequence of 1 then 0 on CAPn.0 will cause CR0 to be loaded with the contents of TC.
@@ -220,7 +207,6 @@ namespace Kvasir {
         namespace Cap0feValC{
             constexpr Register::FieldValue<decltype(cap0fe)::Type,Cap0feVal::aSequenceOf1Then> aSequenceOf1Then{};
             constexpr Register::FieldValue<decltype(cap0fe)::Type,Cap0feVal::thisFeatureIsDisa> thisFeatureIsDisa{};
-        }
         }
         ///Interrupt on CAPn.0 event
         enum class Cap0iVal {
@@ -232,7 +218,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cap0i)::Type,Cap0iVal::aCr0LoadDueToA> aCr0LoadDueToA{};
             constexpr Register::FieldValue<decltype(cap0i)::Type,Cap0iVal::thisFeatureIsDisa> thisFeatureIsDisa{};
         }
-        }
         ///Capture on CAPn.1 rising edge
         enum class Cap1reVal {
             aSequenceOf0Then=0x00000001,     ///<A sequence of 0 then 1 on CAPn.1 will cause CR1 to be loaded with the contents of TC.
@@ -242,7 +227,6 @@ namespace Kvasir {
         namespace Cap1reValC{
             constexpr Register::FieldValue<decltype(cap1re)::Type,Cap1reVal::aSequenceOf0Then> aSequenceOf0Then{};
             constexpr Register::FieldValue<decltype(cap1re)::Type,Cap1reVal::thisFeatureIsDisa> thisFeatureIsDisa{};
-        }
         }
         ///Capture on CAPn.1 falling edge
         enum class Cap1feVal {
@@ -254,7 +238,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cap1fe)::Type,Cap1feVal::aSequenceOf1Then> aSequenceOf1Then{};
             constexpr Register::FieldValue<decltype(cap1fe)::Type,Cap1feVal::thisFeatureIsDisa> thisFeatureIsDisa{};
         }
-        }
         ///Interrupt on CAPn.1 event
         enum class Cap1iVal {
             aCr1LoadDueToA=0x00000001,     ///<A CR1 load due to a CAPn.1 event will generate an interrupt.
@@ -264,7 +247,6 @@ namespace Kvasir {
         namespace Cap1iValC{
             constexpr Register::FieldValue<decltype(cap1i)::Type,Cap1iVal::aCr1LoadDueToA> aCr1LoadDueToA{};
             constexpr Register::FieldValue<decltype(cap1i)::Type,Cap1iVal::thisFeatureIsDisa> thisFeatureIsDisa{};
-        }
         }
         ///Capture on CAPn.2 rising edge
         enum class Cap2reVal {
@@ -276,7 +258,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cap2re)::Type,Cap2reVal::aSequenceOf0Then> aSequenceOf0Then{};
             constexpr Register::FieldValue<decltype(cap2re)::Type,Cap2reVal::thisFeatureIsDisa> thisFeatureIsDisa{};
         }
-        }
         ///Capture on CAPn.2 falling edge:
         enum class Cap2feVal {
             aSequenceOf1Then=0x00000001,     ///<A sequence of 1 then 0 on CAPn.2 will cause CR2 to be loaded with the contents of TC.
@@ -286,7 +267,6 @@ namespace Kvasir {
         namespace Cap2feValC{
             constexpr Register::FieldValue<decltype(cap2fe)::Type,Cap2feVal::aSequenceOf1Then> aSequenceOf1Then{};
             constexpr Register::FieldValue<decltype(cap2fe)::Type,Cap2feVal::thisFeatureIsDisa> thisFeatureIsDisa{};
-        }
         }
         ///Interrupt on CAPn.2 event
         enum class Cap2iVal {
@@ -298,7 +278,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cap2i)::Type,Cap2iVal::aCr2LoadDueToA> aCr2LoadDueToA{};
             constexpr Register::FieldValue<decltype(cap2i)::Type,Cap2iVal::thisFeatureIsDisa> thisFeatureIsDisa{};
         }
-        }
         ///Capture on CAPn.3 rising edge
         enum class Cap3reVal {
             aSequenceOf0Then=0x00000001,     ///<A sequence of 0 then 1 on CAPn.3 will cause CR3 to be loaded with the contents of TC.
@@ -308,7 +287,6 @@ namespace Kvasir {
         namespace Cap3reValC{
             constexpr Register::FieldValue<decltype(cap3re)::Type,Cap3reVal::aSequenceOf0Then> aSequenceOf0Then{};
             constexpr Register::FieldValue<decltype(cap3re)::Type,Cap3reVal::thisFeatureIsDisa> thisFeatureIsDisa{};
-        }
         }
         ///Capture on CAPn.3 falling edge
         enum class Cap3feVal {
@@ -320,7 +298,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cap3fe)::Type,Cap3feVal::aSequenceOf1Then> aSequenceOf1Then{};
             constexpr Register::FieldValue<decltype(cap3fe)::Type,Cap3feVal::thisFeatureIsDisa> thisFeatureIsDisa{};
         }
-        }
         ///Interrupt on CAPn.3 event:
         enum class Cap3iVal {
             aCr3LoadDueToA=0x00000001,     ///<A CR3 load due to a CAPn.3 event will generate an interrupt.
@@ -330,7 +307,6 @@ namespace Kvasir {
         namespace Cap3iValC{
             constexpr Register::FieldValue<decltype(cap3i)::Type,Cap3iVal::aCr3LoadDueToA> aCr3LoadDueToA{};
             constexpr Register::FieldValue<decltype(cap3i)::Type,Cap3iVal::thisFeatureIsDisa> thisFeatureIsDisa{};
-        }
         }
     }
     namespace Nonecr0{    ///<Capture Register. CR is loaded with the value of TC when there is an event on the CAPn.0 input.
@@ -377,7 +353,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(emc0)::Type,Emc0Val::setTheCorrespondin> setTheCorrespondin{};
             constexpr Register::FieldValue<decltype(emc0)::Type,Emc0Val::toggleTheCorrespon> toggleTheCorrespon{};
         }
-        }
         ///External Match Control 1. Determines the functionality of External Match 1.
         enum class Emc1Val {
             doNothing=0x00000000,     ///<Do Nothing.
@@ -391,7 +366,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(emc1)::Type,Emc1Val::clearTheCorrespond> clearTheCorrespond{};
             constexpr Register::FieldValue<decltype(emc1)::Type,Emc1Val::setTheCorrespondin> setTheCorrespondin{};
             constexpr Register::FieldValue<decltype(emc1)::Type,Emc1Val::toggleTheCorrespon> toggleTheCorrespon{};
-        }
         }
         ///External Match Control 2. Determines the functionality of External Match 2.
         enum class Emc2Val {
@@ -407,7 +381,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(emc2)::Type,Emc2Val::setTheCorrespondin> setTheCorrespondin{};
             constexpr Register::FieldValue<decltype(emc2)::Type,Emc2Val::toggleTheCorrespon> toggleTheCorrespon{};
         }
-        }
         ///External Match Control 3. Determines the functionality of External Match 3.
         enum class Emc3Val {
             doNothing=0x00000000,     ///<Do Nothing.
@@ -421,7 +394,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(emc3)::Type,Emc3Val::clearTheCorrespond> clearTheCorrespond{};
             constexpr Register::FieldValue<decltype(emc3)::Type,Emc3Val::setTheCorrespondin> setTheCorrespondin{};
             constexpr Register::FieldValue<decltype(emc3)::Type,Emc3Val::toggleTheCorrespon> toggleTheCorrespon{};
-        }
         }
     }
     namespace Nonectcr{    ///<Count Control Register. The CTCR selects between Timer and Counter mode, and in Counter mode selects the signal and edge(s) for counting.
@@ -440,7 +412,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ctmode)::Type,CtmodeVal::counterModeTcIs> counterModeTcIs{};
             constexpr Register::FieldValue<decltype(ctmode)::Type,CtmodeVal::counterModeTcIs> counterModeTcIs{};
         }
-        }
         ///Count Input Select When bits 1:0 in this register are not 00, these bits select which CAP pin is sampled for clocking:
         enum class CinselVal {
             capn0ForTimern=0x00000000,     ///<CAPn.0 for TIMERn
@@ -454,7 +425,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cinsel)::Type,CinselVal::capn1ForTimern> capn1ForTimern{};
             constexpr Register::FieldValue<decltype(cinsel)::Type,CinselVal::capn2ForTimern> capn2ForTimern{};
             constexpr Register::FieldValue<decltype(cinsel)::Type,CinselVal::capn3ForTimernNo> capn3ForTimernNo{};
-        }
         }
     }
 }

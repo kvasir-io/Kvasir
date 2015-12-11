@@ -74,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11110> v11110{};
             constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11111> v11111{};
         }
-        }
         ///Differential mode enable
         enum class DiffVal {
             v0=0x00000000,     ///<Single-ended conversions and input channels are selected.
@@ -84,7 +83,6 @@ namespace Kvasir {
         namespace DiffValC{
             constexpr Register::FieldValue<decltype(diff)::Type,DiffVal::v0> v0{};
             constexpr Register::FieldValue<decltype(diff)::Type,DiffVal::v1> v1{};
-        }
         }
         ///Interrupt enable
         enum class AienVal {
@@ -96,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v1> v1{};
         }
-        }
         ///Conversion complete flag
         enum class CocoVal {
             v0=0x00000000,     ///<Conversion not completed.
@@ -106,7 +103,6 @@ namespace Kvasir {
         namespace CocoValC{
             constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v0> v0{};
             constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v1> v1{};
-        }
         }
     }
     namespace Adc3Sc1b{    ///<ADC status and control registers 1
@@ -181,7 +177,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11110> v11110{};
             constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11111> v11111{};
         }
-        }
         ///Differential mode enable
         enum class DiffVal {
             v0=0x00000000,     ///<Single-ended conversions and input channels are selected.
@@ -191,7 +186,6 @@ namespace Kvasir {
         namespace DiffValC{
             constexpr Register::FieldValue<decltype(diff)::Type,DiffVal::v0> v0{};
             constexpr Register::FieldValue<decltype(diff)::Type,DiffVal::v1> v1{};
-        }
         }
         ///Interrupt enable
         enum class AienVal {
@@ -203,7 +197,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v1> v1{};
         }
-        }
         ///Conversion complete flag
         enum class CocoVal {
             v0=0x00000000,     ///<Conversion not completed.
@@ -213,7 +206,6 @@ namespace Kvasir {
         namespace CocoValC{
             constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v0> v0{};
             constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v1> v1{};
-        }
         }
     }
     namespace Adc3Cfg1{    ///<ADC configuration register 1
@@ -232,7 +224,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adiclk)::Type,AdiclkVal::v10> v10{};
             constexpr Register::FieldValue<decltype(adiclk)::Type,AdiclkVal::v11> v11{};
         }
-        }
         ///Conversion mode selection
         enum class ModeVal {
             v00=0x00000000,     ///<When DIFF=0: It is single-ended 8-bit conversion; when DIFF=1, it is differential 9-bit conversion with 2's complement output.
@@ -247,7 +238,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::v10> v10{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::v11> v11{};
         }
-        }
         ///Sample time configuration
         enum class AdlsmpVal {
             v0=0x00000000,     ///<Short sample time.
@@ -257,7 +247,6 @@ namespace Kvasir {
         namespace AdlsmpValC{
             constexpr Register::FieldValue<decltype(adlsmp)::Type,AdlsmpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(adlsmp)::Type,AdlsmpVal::v1> v1{};
-        }
         }
         ///Clock divide select
         enum class AdivVal {
@@ -273,7 +262,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adiv)::Type,AdivVal::v10> v10{};
             constexpr Register::FieldValue<decltype(adiv)::Type,AdivVal::v11> v11{};
         }
-        }
         ///Low-power configuration
         enum class AdlpcVal {
             v0=0x00000000,     ///<Normal power configuration.
@@ -283,7 +271,6 @@ namespace Kvasir {
         namespace AdlpcValC{
             constexpr Register::FieldValue<decltype(adlpc)::Type,AdlpcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(adlpc)::Type,AdlpcVal::v1> v1{};
-        }
         }
     }
     namespace Adc3Cfg2{    ///<Configuration register 2
@@ -302,7 +289,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adlsts)::Type,AdlstsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(adlsts)::Type,AdlstsVal::v11> v11{};
         }
-        }
         ///High speed configuration
         enum class AdhscVal {
             v0=0x00000000,     ///<Normal conversion sequence selected.
@@ -312,7 +298,6 @@ namespace Kvasir {
         namespace AdhscValC{
             constexpr Register::FieldValue<decltype(adhsc)::Type,AdhscVal::v0> v0{};
             constexpr Register::FieldValue<decltype(adhsc)::Type,AdhscVal::v1> v1{};
-        }
         }
         ///Asynchronous clock output enable
         enum class AdackenVal {
@@ -324,7 +309,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adacken)::Type,AdackenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(adacken)::Type,AdackenVal::v1> v1{};
         }
-        }
         ///ADC Mux select
         enum class MuxselVal {
             v0=0x00000000,     ///<ADxxa channels are selected.
@@ -334,7 +318,6 @@ namespace Kvasir {
         namespace MuxselValC{
             constexpr Register::FieldValue<decltype(muxsel)::Type,MuxselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(muxsel)::Type,MuxselVal::v1> v1{};
-        }
         }
     }
     namespace Adc3Ra{    ///<ADC data result register
@@ -373,7 +356,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::v10> v10{};
             constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::v11> v11{};
         }
-        }
         ///DMA enable
         enum class DmaenVal {
             v0=0x00000000,     ///<DMA is disabled.
@@ -383,7 +365,6 @@ namespace Kvasir {
         namespace DmaenValC{
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v1> v1{};
-        }
         }
         ///Compare function range enable
         enum class AcrenVal {
@@ -395,7 +376,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acren)::Type,AcrenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(acren)::Type,AcrenVal::v1> v1{};
         }
-        }
         ///Compare function greater than enable
         enum class AcfgtVal {
             v0=0x00000000,     ///<Configures less than threshold, outside range not inclusive and inside range not inclusive functionality based on the values placed in the CV1 and CV2 registers.
@@ -405,7 +385,6 @@ namespace Kvasir {
         namespace AcfgtValC{
             constexpr Register::FieldValue<decltype(acfgt)::Type,AcfgtVal::v0> v0{};
             constexpr Register::FieldValue<decltype(acfgt)::Type,AcfgtVal::v1> v1{};
-        }
         }
         ///Compare function enable
         enum class AcfeVal {
@@ -417,7 +396,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(acfe)::Type,AcfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(acfe)::Type,AcfeVal::v1> v1{};
         }
-        }
         ///Conversion trigger select
         enum class AdtrgVal {
             v0=0x00000000,     ///<Software trigger selected.
@@ -428,7 +406,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adtrg)::Type,AdtrgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(adtrg)::Type,AdtrgVal::v1> v1{};
         }
-        }
         ///Conversion active
         enum class AdactVal {
             v0=0x00000000,     ///<Conversion not in progress.
@@ -438,7 +415,6 @@ namespace Kvasir {
         namespace AdactValC{
             constexpr Register::FieldValue<decltype(adact)::Type,AdactVal::v0> v0{};
             constexpr Register::FieldValue<decltype(adact)::Type,AdactVal::v1> v1{};
-        }
         }
     }
     namespace Adc3Sc3{    ///<Status and control register 3
@@ -457,7 +433,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(avgs)::Type,AvgsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(avgs)::Type,AvgsVal::v11> v11{};
         }
-        }
         ///Hardware average enable
         enum class AvgeVal {
             v0=0x00000000,     ///<Hardware average function disabled.
@@ -467,7 +442,6 @@ namespace Kvasir {
         namespace AvgeValC{
             constexpr Register::FieldValue<decltype(avge)::Type,AvgeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(avge)::Type,AvgeVal::v1> v1{};
-        }
         }
         ///Continuous conversion enable
         enum class AdcoVal {
@@ -479,7 +453,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(adco)::Type,AdcoVal::v0> v0{};
             constexpr Register::FieldValue<decltype(adco)::Type,AdcoVal::v1> v1{};
         }
-        }
         ///Calibration failed flag
         enum class CalfVal {
             v0=0x00000000,     ///<Calibration completed normally.
@@ -489,7 +462,6 @@ namespace Kvasir {
         namespace CalfValC{
             constexpr Register::FieldValue<decltype(calf)::Type,CalfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(calf)::Type,CalfVal::v1> v1{};
-        }
         }
         ///Calibration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> cal{}; 
@@ -556,7 +528,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pgaofsm)::Type,PgaofsmVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pgaofsm)::Type,PgaofsmVal::v1> v1{};
         }
-        }
         ///PGA gain setting
         enum class PgagVal {
             v0000=0x00000000,     ///<1
@@ -595,7 +566,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pgag)::Type,PgagVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(pgag)::Type,PgagVal::v1111> v1111{};
         }
-        }
         ///PGA low-power mode control
         enum class PgalpbVal {
             v0=0x00000000,     ///<PGA runs in low power mode.
@@ -605,7 +575,6 @@ namespace Kvasir {
         namespace PgalpbValC{
             constexpr Register::FieldValue<decltype(pgalpb)::Type,PgalpbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pgalpb)::Type,PgalpbVal::v1> v1{};
-        }
         }
         ///PGA chopping control
         enum class PgachpbVal {
@@ -617,7 +586,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pgachpb)::Type,PgachpbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pgachpb)::Type,PgachpbVal::v1> v1{};
         }
-        }
         ///PGA enable
         enum class PgaenVal {
             v0=0x00000000,     ///<PGA disabled.
@@ -627,7 +595,6 @@ namespace Kvasir {
         namespace PgaenValC{
             constexpr Register::FieldValue<decltype(pgaen)::Type,PgaenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pgaen)::Type,PgaenVal::v1> v1{};
-        }
         }
     }
     namespace Adc3Clmd{    ///<ADC minus-side general calibration value register

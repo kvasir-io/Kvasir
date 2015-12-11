@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v1> v1{};
         }
-        }
         ///Timer Mode Select
         enum class TmsVal {
             v0=0x00000000,     ///<Time Counter mode.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace TmsValC{
             constexpr Register::FieldValue<decltype(tms)::Type,TmsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tms)::Type,TmsVal::v1> v1{};
-        }
         }
         ///Timer Free-Running Counter
         enum class TfcVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tfc)::Type,TfcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tfc)::Type,TfcVal::v1> v1{};
         }
-        }
         ///Timer Pin Polarity
         enum class TppVal {
             v0=0x00000000,     ///<Pulse Counter input source is active-high, and the CNR will increment on the rising-edge.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace TppValC{
             constexpr Register::FieldValue<decltype(tpp)::Type,TppVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tpp)::Type,TppVal::v1> v1{};
-        }
         }
         ///Timer Pin Select
         enum class TpsVal {
@@ -62,7 +58,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tps)::Type,TpsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(tps)::Type,TpsVal::v11> v11{};
         }
-        }
         ///Timer Interrupt Enable
         enum class TieVal {
             v0=0x00000000,     ///<Timer interrupt disabled.
@@ -73,7 +68,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v1> v1{};
         }
-        }
         ///Timer Compare Flag
         enum class TcfVal {
             v0=0x00000000,     ///<The value of CNR is not equal to CMR and increments.
@@ -83,7 +77,6 @@ namespace Kvasir {
         namespace TcfValC{
             constexpr Register::FieldValue<decltype(tcf)::Type,TcfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tcf)::Type,TcfVal::v1> v1{};
-        }
         }
     }
     namespace LptmrPsr{    ///<Low Power Timer Prescale Register
@@ -102,7 +95,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pcs)::Type,PcsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(pcs)::Type,PcsVal::v11> v11{};
         }
-        }
         ///Prescaler Bypass
         enum class PbypVal {
             v0=0x00000000,     ///<Prescaler/glitch filter is enabled.
@@ -112,7 +104,6 @@ namespace Kvasir {
         namespace PbypValC{
             constexpr Register::FieldValue<decltype(pbyp)::Type,PbypVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pbyp)::Type,PbypVal::v1> v1{};
-        }
         }
         ///Prescale Value
         enum class PrescaleVal {
@@ -151,7 +142,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prescale)::Type,PrescaleVal::v1101> v1101{};
             constexpr Register::FieldValue<decltype(prescale)::Type,PrescaleVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(prescale)::Type,PrescaleVal::v1111> v1111{};
-        }
         }
     }
     namespace LptmrCmr{    ///<Low Power Timer Compare Register

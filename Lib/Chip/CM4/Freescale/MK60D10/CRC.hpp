@@ -92,7 +92,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tcrc)::Type,TcrcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tcrc)::Type,TcrcVal::v1> v1{};
         }
-        }
         ///Write CRC Data Register As Seed
         enum class WasVal {
             v0=0x00000000,     ///<Writes to the CRC data register are data values.
@@ -103,7 +102,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(was)::Type,WasVal::v0> v0{};
             constexpr Register::FieldValue<decltype(was)::Type,WasVal::v1> v1{};
         }
-        }
         ///Complement Read Of CRC Data Register
         enum class FxorVal {
             v0=0x00000000,     ///<No XOR on reading.
@@ -113,7 +111,6 @@ namespace Kvasir {
         namespace FxorValC{
             constexpr Register::FieldValue<decltype(fxor)::Type,FxorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fxor)::Type,FxorVal::v1> v1{};
-        }
         }
         ///Type Of Transpose For Read
         enum class TotrVal {
@@ -129,7 +126,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(totr)::Type,TotrVal::v10> v10{};
             constexpr Register::FieldValue<decltype(totr)::Type,TotrVal::v11> v11{};
         }
-        }
         ///Type Of Transpose For Writes
         enum class TotVal {
             v00=0x00000000,     ///<No transposition.
@@ -144,7 +140,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tot)::Type,TotVal::v10> v10{};
             constexpr Register::FieldValue<decltype(tot)::Type,TotVal::v11> v11{};
         }
-        }
     }
     namespace CrcCtrlhu{    ///<CRC_CTRLHU register.
         using Addr = Register::Address<0x4003200b,0xffffff08,0,unsigned char>;
@@ -158,7 +153,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tcrc)::Type,TcrcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tcrc)::Type,TcrcVal::v1> v1{};
         }
-        }
         ///no description available
         enum class WasVal {
             v0=0x00000000,     ///<Writes to CRC data register are data values.
@@ -169,7 +163,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(was)::Type,WasVal::v0> v0{};
             constexpr Register::FieldValue<decltype(was)::Type,WasVal::v1> v1{};
         }
-        }
         ///no description available
         enum class FxorVal {
             v0=0x00000000,     ///<No XOR on reading.
@@ -179,7 +172,6 @@ namespace Kvasir {
         namespace FxorValC{
             constexpr Register::FieldValue<decltype(fxor)::Type,FxorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fxor)::Type,FxorVal::v1> v1{};
-        }
         }
         ///no description available
         enum class TotrVal {
@@ -195,7 +187,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(totr)::Type,TotrVal::v10> v10{};
             constexpr Register::FieldValue<decltype(totr)::Type,TotrVal::v11> v11{};
         }
-        }
         ///no description available
         enum class TotVal {
             v00=0x00000000,     ///<No Transposition.
@@ -209,7 +200,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tot)::Type,TotVal::v01> v01{};
             constexpr Register::FieldValue<decltype(tot)::Type,TotVal::v10> v10{};
             constexpr Register::FieldValue<decltype(tot)::Type,TotVal::v11> v11{};
-        }
         }
     }
 }

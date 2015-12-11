@@ -48,7 +48,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inhssel)::Type,InhsselVal::dtmninh14> dtmninh14{};
             constexpr Register::FieldValue<decltype(inhssel)::Type,InhsselVal::dtmninh15> dtmninh15{};
         }
-        }
         ///Debug Mode. 
         enum class DbgmdVal {
             run=0x00000000,     ///<The DTM module will continue to operate while the core is halted in debug mode.
@@ -58,7 +57,6 @@ namespace Kvasir {
         namespace DbgmdValC{
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::run> run{};
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::halt> halt{};
-        }
         }
         ///Inhibit Status Flag. 
         enum class InhfVal {
@@ -70,7 +68,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(inhf)::Type,InhfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(inhf)::Type,InhfVal::set> set{};
         }
-        }
         ///Destination Peripheral DMA Request Status Flag. 
         enum class DstreqfVal {
             notSet=0x00000000,     ///<The destination peripheral did not request a DMA transfer.
@@ -80,7 +77,6 @@ namespace Kvasir {
         namespace DstreqfValC{
             constexpr Register::FieldValue<decltype(dstreqf)::Type,DstreqfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(dstreqf)::Type,DstreqfVal::set> set{};
-        }
         }
         ///Source Peripheral DMA Request Status Flag. 
         enum class SrcreqfVal {
@@ -92,7 +88,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcreqf)::Type,SrcreqfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(srcreqf)::Type,SrcreqfVal::set> set{};
         }
-        }
         ///DTM Module Inhibit. 
         enum class DtminhVal {
             inactive=0x00000000,     ///<The DTM module does not ignore DMA requests.
@@ -102,7 +97,6 @@ namespace Kvasir {
         namespace DtminhValC{
             constexpr Register::FieldValue<decltype(dtminh)::Type,DtminhVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(dtminh)::Type,DtminhVal::active> active{};
-        }
         }
         ///Timeout Error Interrupt Flag. 
         enum class ToerriVal {
@@ -114,7 +108,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(toerri)::Type,ToerriVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(toerri)::Type,ToerriVal::set> set{};
         }
-        }
         ///DMA Error Interrupt Flag. 
         enum class DmaerriVal {
             notSet=0x00000000,     ///<A DMA error has not occurred.
@@ -124,7 +117,6 @@ namespace Kvasir {
         namespace DmaerriValC{
             constexpr Register::FieldValue<decltype(dmaerri)::Type,DmaerriVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(dmaerri)::Type,DmaerriVal::set> set{};
-        }
         }
         ///Module Interrupt Flag. 
         enum class DtmiVal {
@@ -136,7 +128,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtmi)::Type,DtmiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(dtmi)::Type,DtmiVal::set> set{};
         }
-        }
         ///Module Enable. 
         enum class DtmenVal {
             disabled=0x00000000,     ///<Disable the DTM module.
@@ -146,7 +137,6 @@ namespace Kvasir {
         namespace DtmenValC{
             constexpr Register::FieldValue<decltype(dtmen)::Type,DtmenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dtmen)::Type,DtmenVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonetimeout{    ///<Module Timeout
@@ -212,7 +202,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstmod)::Type,DstmodVal::dtmndst14> dtmndst14{};
             constexpr Register::FieldValue<decltype(dstmod)::Type,DstmodVal::dtmndst15> dtmndst15{};
         }
-        }
         ///Source Module. 
         enum class SrcmodVal {
             dtmnsrc0=0x00000000,     ///<Select source module DTMnSRC.0.
@@ -251,7 +240,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcmod)::Type,SrcmodVal::dtmnsrc14> dtmnsrc14{};
             constexpr Register::FieldValue<decltype(srcmod)::Type,SrcmodVal::dtmnsrc15> dtmnsrc15{};
         }
-        }
         ///DTM Channel Select. 
         enum class DtmchselVal {
             chA=0x00000000,     ///<Select DTMn channel A for this state.
@@ -266,7 +254,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtmchsel)::Type,DtmchselVal::chC> chC{};
             constexpr Register::FieldValue<decltype(dtmchsel)::Type,DtmchselVal::chD> chD{};
         }
-        }
         ///Inhibit Signal Polarity. 
         enum class InhspolVal {
             activeLow=0x00000000,     ///<A logic low on the pin selected by INHSEL will allow the DTM to proceed.
@@ -276,7 +263,6 @@ namespace Kvasir {
         namespace InhspolValC{
             constexpr Register::FieldValue<decltype(inhspol)::Type,InhspolVal::activeLow> activeLow{};
             constexpr Register::FieldValue<decltype(inhspol)::Type,InhspolVal::activeHigh> activeHigh{};
-        }
         }
         ///Module Inhibit Enable. 
         enum class DtminhVal {
@@ -288,7 +274,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dtminh)::Type,DtminhVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(dtminh)::Type,DtminhVal::active> active{};
         }
-        }
         ///Master Decrement Enable. 
         enum class MstdecenVal {
             disabled=0x00000000,     ///<Disable master counter decrements.
@@ -298,7 +283,6 @@ namespace Kvasir {
         namespace MstdecenValC{
             constexpr Register::FieldValue<decltype(mstdecen)::Type,MstdecenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(mstdecen)::Type,MstdecenVal::enabled> enabled{};
-        }
         }
         ///Timeout Enable. 
         enum class ToerrienVal {
@@ -310,7 +294,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(toerrien)::Type,ToerrienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(toerrien)::Type,ToerrienVal::enabled> enabled{};
         }
-        }
         ///Secondary State Transition Interrupt Enable. 
         enum class SecstienVal {
             disabled=0x00000000,     ///<Disable secondary state transition interrupts.
@@ -321,7 +304,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(secstien)::Type,SecstienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(secstien)::Type,SecstienVal::enabled> enabled{};
         }
-        }
         ///Primary State Transition Interrupt Enable. 
         enum class PristienVal {
             disabled=0x00000000,     ///<Disable primary state transition interrupts.
@@ -331,7 +313,6 @@ namespace Kvasir {
         namespace PristienValC{
             constexpr Register::FieldValue<decltype(pristien)::Type,PristienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pristien)::Type,PristienVal::enabled> enabled{};
-        }
         }
     }
 }

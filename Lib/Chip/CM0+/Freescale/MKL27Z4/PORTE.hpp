@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -47,7 +44,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -57,7 +53,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -79,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::cmp0Out> cmp0Out{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::i2c1Sda> i2c1Sda{};
         }
-        }
         ///Interrupt Configuration
         enum class IrqcVal {
             v0000=0x00000000,     ///<Interrupt/DMA request disabled.
@@ -104,7 +98,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -114,7 +107,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr1{    ///<Pin Control Register n
@@ -129,7 +121,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -139,7 +130,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -151,7 +141,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -162,7 +151,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -172,7 +160,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -195,7 +182,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -221,7 +207,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -231,7 +216,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr2{    ///<Pin Control Register n
@@ -246,7 +230,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -256,7 +239,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -268,7 +250,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -279,7 +260,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -289,7 +269,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -312,7 +291,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -338,7 +316,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -348,7 +325,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr3{    ///<Pin Control Register n
@@ -363,7 +339,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -373,7 +348,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -385,7 +359,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -396,7 +369,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -406,7 +378,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -429,7 +400,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -455,7 +425,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -465,7 +434,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr4{    ///<Pin Control Register n
@@ -480,7 +448,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -490,7 +457,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -502,7 +468,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -513,7 +478,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -523,7 +487,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -546,7 +509,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -572,7 +534,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -582,7 +543,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr5{    ///<Pin Control Register n
@@ -597,7 +557,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -607,7 +566,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -619,7 +577,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -630,7 +587,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -640,7 +596,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -663,7 +618,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -689,7 +643,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -699,7 +652,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr6{    ///<Pin Control Register n
@@ -714,7 +666,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -724,7 +675,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -736,7 +686,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -747,7 +696,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -757,7 +705,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -780,7 +727,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -806,7 +752,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -816,7 +761,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr7{    ///<Pin Control Register n
@@ -831,7 +775,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -841,7 +784,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -853,7 +795,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -864,7 +805,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -874,7 +814,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -897,7 +836,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -923,7 +861,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -933,7 +870,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr8{    ///<Pin Control Register n
@@ -948,7 +884,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -958,7 +893,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -970,7 +904,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -981,7 +914,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -991,7 +923,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -1014,7 +945,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -1040,7 +970,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -1050,7 +979,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr9{    ///<Pin Control Register n
@@ -1065,7 +993,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -1075,7 +1002,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -1087,7 +1013,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -1098,7 +1023,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -1108,7 +1032,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -1131,7 +1054,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -1157,7 +1079,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -1167,7 +1088,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr10{    ///<Pin Control Register n
@@ -1182,7 +1102,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -1192,7 +1111,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -1204,7 +1122,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -1215,7 +1132,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -1225,7 +1141,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -1248,7 +1163,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -1274,7 +1188,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -1284,7 +1197,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr11{    ///<Pin Control Register n
@@ -1299,7 +1211,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -1309,7 +1220,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -1321,7 +1231,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -1332,7 +1241,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -1342,7 +1250,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -1365,7 +1272,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -1391,7 +1297,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -1401,7 +1306,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr12{    ///<Pin Control Register n
@@ -1416,7 +1320,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -1426,7 +1329,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -1438,7 +1340,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -1449,7 +1350,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -1459,7 +1359,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -1482,7 +1381,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -1508,7 +1406,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -1518,7 +1415,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr13{    ///<Pin Control Register n
@@ -1533,7 +1429,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -1543,7 +1438,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -1555,7 +1449,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -1566,7 +1459,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -1576,7 +1468,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -1599,7 +1490,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -1625,7 +1515,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -1635,7 +1524,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr14{    ///<Pin Control Register n
@@ -1650,7 +1538,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -1660,7 +1547,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -1672,7 +1558,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -1683,7 +1568,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -1693,7 +1577,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -1716,7 +1599,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -1742,7 +1624,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -1752,7 +1633,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr15{    ///<Pin Control Register n
@@ -1767,7 +1647,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -1777,7 +1656,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -1789,7 +1667,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -1800,7 +1677,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -1810,7 +1686,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -1833,7 +1708,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -1859,7 +1733,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -1869,7 +1742,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr16{    ///<Pin Control Register n
@@ -1884,7 +1756,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -1894,7 +1765,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -1906,7 +1776,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -1917,7 +1786,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -1927,7 +1795,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -1950,7 +1817,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -1976,7 +1842,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -1986,7 +1851,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr17{    ///<Pin Control Register n
@@ -2001,7 +1865,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -2011,7 +1874,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -2023,7 +1885,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -2034,7 +1895,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -2044,7 +1904,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -2067,7 +1926,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -2093,7 +1951,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -2103,7 +1960,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr18{    ///<Pin Control Register n
@@ -2118,7 +1974,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -2128,7 +1983,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -2140,7 +1994,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -2151,7 +2004,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -2161,7 +2013,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -2184,7 +2035,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -2210,7 +2060,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -2220,7 +2069,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr19{    ///<Pin Control Register n
@@ -2235,7 +2083,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -2245,7 +2092,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -2257,7 +2103,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -2268,7 +2113,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -2278,7 +2122,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -2301,7 +2144,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -2327,7 +2169,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -2337,7 +2178,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr20{    ///<Pin Control Register n
@@ -2352,7 +2192,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -2362,7 +2201,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -2374,7 +2212,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -2385,7 +2222,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -2395,7 +2231,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -2418,7 +2253,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -2444,7 +2278,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -2454,7 +2287,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr21{    ///<Pin Control Register n
@@ -2469,7 +2301,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -2479,7 +2310,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -2491,7 +2321,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -2502,7 +2331,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -2512,7 +2340,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -2535,7 +2362,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -2561,7 +2387,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -2571,7 +2396,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr22{    ///<Pin Control Register n
@@ -2586,7 +2410,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -2596,7 +2419,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -2608,7 +2430,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -2619,7 +2440,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -2629,7 +2449,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -2652,7 +2471,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -2678,7 +2496,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -2688,7 +2505,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr23{    ///<Pin Control Register n
@@ -2703,7 +2519,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -2713,7 +2528,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -2725,7 +2539,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -2736,7 +2549,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -2746,7 +2558,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -2769,7 +2580,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -2795,7 +2605,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -2805,7 +2614,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr24{    ///<Pin Control Register n
@@ -2820,7 +2628,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -2830,7 +2637,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -2842,7 +2648,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -2853,7 +2658,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -2863,7 +2667,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -2886,7 +2689,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -2912,7 +2714,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -2922,7 +2723,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr25{    ///<Pin Control Register n
@@ -2937,7 +2737,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -2947,7 +2746,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -2959,7 +2757,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -2970,7 +2767,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -2980,7 +2776,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -3003,7 +2798,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -3029,7 +2823,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -3039,7 +2832,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr26{    ///<Pin Control Register n
@@ -3054,7 +2846,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -3064,7 +2855,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -3076,7 +2866,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -3087,7 +2876,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -3097,7 +2885,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -3120,7 +2907,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -3146,7 +2932,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -3156,7 +2941,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr27{    ///<Pin Control Register n
@@ -3171,7 +2955,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -3181,7 +2964,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -3193,7 +2975,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -3204,7 +2985,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -3214,7 +2994,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -3237,7 +3016,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -3263,7 +3041,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -3273,7 +3050,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr28{    ///<Pin Control Register n
@@ -3288,7 +3064,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -3298,7 +3073,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -3310,7 +3084,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -3321,7 +3094,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -3331,7 +3103,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -3354,7 +3125,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -3380,7 +3150,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -3390,7 +3159,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr29{    ///<Pin Control Register n
@@ -3405,7 +3173,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -3415,7 +3182,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -3427,7 +3193,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -3438,7 +3203,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -3448,7 +3212,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -3471,7 +3234,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v101> v101{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
-        }
         }
         ///Interrupt Configuration
         enum class IrqcVal {
@@ -3497,7 +3259,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -3507,7 +3268,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr30{    ///<Pin Control Register n
@@ -3522,7 +3282,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -3532,7 +3291,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -3544,7 +3302,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -3555,7 +3312,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -3565,7 +3321,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -3585,7 +3340,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::lpuart1Tx> lpuart1Tx{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::lptmr0Alt1> lptmr0Alt1{};
         }
-        }
         ///Interrupt Configuration
         enum class IrqcVal {
             v0000=0x00000000,     ///<Interrupt/DMA request disabled.
@@ -3610,7 +3364,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -3620,7 +3373,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PortePcr31{    ///<Pin Control Register n
@@ -3635,7 +3387,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::v1> v1{};
         }
-        }
         ///Pull Enable
         enum class PeVal {
             v0=0x00000000,     ///<Internal pullup or pulldown resistor is not enabled on the corresponding pin.
@@ -3645,7 +3396,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::v1> v1{};
-        }
         }
         ///Slew Rate Enable
         enum class SreVal {
@@ -3657,7 +3407,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sre)::Type,SreVal::v1> v1{};
         }
-        }
         ///Passive Filter Enable
         enum class PfeVal {
             v0=0x00000000,     ///<Passive input filter is disabled on the corresponding pin.
@@ -3668,7 +3417,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pfe)::Type,PfeVal::v1> v1{};
         }
-        }
         ///Drive Strength Enable
         enum class DseVal {
             v0=0x00000000,     ///<Low drive strength is configured on the corresponding pin, if pin is configured as a digital output.
@@ -3678,7 +3426,6 @@ namespace Kvasir {
         namespace DseValC{
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dse)::Type,DseVal::v1> v1{};
-        }
         }
         ///Pin Mux Control
         enum class MuxVal {
@@ -3702,7 +3449,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v110> v110{};
             constexpr Register::FieldValue<decltype(mux)::Type,MuxVal::v111> v111{};
         }
-        }
         ///Interrupt Configuration
         enum class IrqcVal {
             v0000=0x00000000,     ///<Interrupt/DMA request disabled.
@@ -3727,7 +3473,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1011> v1011{};
             constexpr Register::FieldValue<decltype(irqc)::Type,IrqcVal::v1100> v1100{};
         }
-        }
         ///Interrupt Status Flag
         enum class IsfVal {
             v0=0x00000000,     ///<Configured interrupt is not detected.
@@ -3737,7 +3482,6 @@ namespace Kvasir {
         namespace IsfValC{
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(isf)::Type,IsfVal::v1> v1{};
-        }
         }
     }
     namespace PorteGpclr{    ///<Global Pin Control Low Register

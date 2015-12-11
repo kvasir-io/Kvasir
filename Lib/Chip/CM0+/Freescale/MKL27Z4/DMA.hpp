@@ -26,7 +26,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(done)::Type,DoneVal::v0> v0{};
             constexpr Register::FieldValue<decltype(done)::Type,DoneVal::v1> v1{};
         }
-        }
         ///Busy
         enum class BsyVal {
             v0=0x00000000,     ///<DMA channel is inactive. Cleared when the DMA has finished the last transaction.
@@ -36,7 +35,6 @@ namespace Kvasir {
         namespace BsyValC{
             constexpr Register::FieldValue<decltype(bsy)::Type,BsyVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bsy)::Type,BsyVal::v1> v1{};
-        }
         }
         ///Request
         enum class ReqVal {
@@ -48,7 +46,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(req)::Type,ReqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(req)::Type,ReqVal::v1> v1{};
         }
-        }
         ///Bus Error on Destination
         enum class BedVal {
             v0=0x00000000,     ///<No bus error occurred.
@@ -58,7 +55,6 @@ namespace Kvasir {
         namespace BedValC{
             constexpr Register::FieldValue<decltype(bed)::Type,BedVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bed)::Type,BedVal::v1> v1{};
-        }
         }
         ///Bus Error on Source
         enum class BesVal {
@@ -70,7 +66,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bes)::Type,BesVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bes)::Type,BesVal::v1> v1{};
         }
-        }
         ///Configuration Error
         enum class CeVal {
             v0=0x00000000,     ///<No configuration error exists.
@@ -80,7 +75,6 @@ namespace Kvasir {
         namespace CeValC{
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::v1> v1{};
-        }
         }
     }
     namespace DmaDsr0{    ///<DMA_DSR0 register.
@@ -102,7 +96,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lch2)::Type,Lch2Val::v10> v10{};
             constexpr Register::FieldValue<decltype(lch2)::Type,Lch2Val::v11> v11{};
         }
-        }
         ///Link Channel 1
         enum class Lch1Val {
             v00=0x00000000,     ///<DMA Channel 0
@@ -116,7 +109,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lch1)::Type,Lch1Val::v01> v01{};
             constexpr Register::FieldValue<decltype(lch1)::Type,Lch1Val::v10> v10{};
             constexpr Register::FieldValue<decltype(lch1)::Type,Lch1Val::v11> v11{};
-        }
         }
         ///Link Channel Control
         enum class LinkccVal {
@@ -132,7 +124,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(linkcc)::Type,LinkccVal::v10> v10{};
             constexpr Register::FieldValue<decltype(linkcc)::Type,LinkccVal::v11> v11{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<ERQ bit is not affected.
@@ -142,7 +133,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dReq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dReq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Destination Address Modulo
         enum class DmodVal {
@@ -182,7 +172,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmod)::Type,DmodVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(dmod)::Type,DmodVal::v1111> v1111{};
         }
-        }
         ///Source Address Modulo
         enum class SmodVal {
             v0000=0x00000000,     ///<Buffer disabled
@@ -221,7 +210,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v1111> v1111{};
         }
-        }
         ///Start Transfer
         enum class StartVal {
             v0=0x00000000,     ///<DMA inactive
@@ -231,7 +219,6 @@ namespace Kvasir {
         namespace StartValC{
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
-        }
         }
         ///Destination Size
         enum class DsizeVal {
@@ -247,7 +234,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dsize)::Type,DsizeVal::v10> v10{};
             constexpr Register::FieldValue<decltype(dsize)::Type,DsizeVal::v11> v11{};
         }
-        }
         ///Destination Increment
         enum class DincVal {
             v0=0x00000000,     ///<No change to the DAR after a successful transfer.
@@ -257,7 +243,6 @@ namespace Kvasir {
         namespace DincValC{
             constexpr Register::FieldValue<decltype(dinc)::Type,DincVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dinc)::Type,DincVal::v1> v1{};
-        }
         }
         ///Source Size
         enum class SsizeVal {
@@ -273,7 +258,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v10> v10{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v11> v11{};
         }
-        }
         ///Source Increment
         enum class SincVal {
             v0=0x00000000,     ///<No change to SAR after a successful transfer.
@@ -283,7 +267,6 @@ namespace Kvasir {
         namespace SincValC{
             constexpr Register::FieldValue<decltype(sinc)::Type,SincVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sinc)::Type,SincVal::v1> v1{};
-        }
         }
         ///Enable asynchronous DMA requests
         enum class EadreqVal {
@@ -295,7 +278,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eadreq)::Type,EadreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(eadreq)::Type,EadreqVal::v1> v1{};
         }
-        }
         ///Auto-align
         enum class AaVal {
             v0=0x00000000,     ///<Auto-align disabled
@@ -305,7 +287,6 @@ namespace Kvasir {
         namespace AaValC{
             constexpr Register::FieldValue<decltype(aa)::Type,AaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(aa)::Type,AaVal::v1> v1{};
-        }
         }
         ///Cycle Steal
         enum class CsVal {
@@ -317,7 +298,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cs)::Type,CsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cs)::Type,CsVal::v1> v1{};
         }
-        }
         ///Enable Peripheral Request
         enum class ErqVal {
             v0=0x00000000,     ///<Peripheral request is ignored.
@@ -328,7 +308,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erq)::Type,ErqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(erq)::Type,ErqVal::v1> v1{};
         }
-        }
         ///Enable Interrupt on Completion of Transfer
         enum class EintVal {
             v0=0x00000000,     ///<No interrupt is generated.
@@ -338,7 +317,6 @@ namespace Kvasir {
         namespace EintValC{
             constexpr Register::FieldValue<decltype(eint)::Type,EintVal::v0> v0{};
             constexpr Register::FieldValue<decltype(eint)::Type,EintVal::v1> v1{};
-        }
         }
     }
     namespace DmaSar1{    ///<Source Address Register
@@ -365,7 +343,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(done)::Type,DoneVal::v0> v0{};
             constexpr Register::FieldValue<decltype(done)::Type,DoneVal::v1> v1{};
         }
-        }
         ///Busy
         enum class BsyVal {
             v0=0x00000000,     ///<DMA channel is inactive. Cleared when the DMA has finished the last transaction.
@@ -375,7 +352,6 @@ namespace Kvasir {
         namespace BsyValC{
             constexpr Register::FieldValue<decltype(bsy)::Type,BsyVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bsy)::Type,BsyVal::v1> v1{};
-        }
         }
         ///Request
         enum class ReqVal {
@@ -387,7 +363,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(req)::Type,ReqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(req)::Type,ReqVal::v1> v1{};
         }
-        }
         ///Bus Error on Destination
         enum class BedVal {
             v0=0x00000000,     ///<No bus error occurred.
@@ -397,7 +372,6 @@ namespace Kvasir {
         namespace BedValC{
             constexpr Register::FieldValue<decltype(bed)::Type,BedVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bed)::Type,BedVal::v1> v1{};
-        }
         }
         ///Bus Error on Source
         enum class BesVal {
@@ -409,7 +383,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bes)::Type,BesVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bes)::Type,BesVal::v1> v1{};
         }
-        }
         ///Configuration Error
         enum class CeVal {
             v0=0x00000000,     ///<No configuration error exists.
@@ -419,7 +392,6 @@ namespace Kvasir {
         namespace CeValC{
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::v1> v1{};
-        }
         }
     }
     namespace DmaDsr1{    ///<DMA_DSR1 register.
@@ -441,7 +413,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lch2)::Type,Lch2Val::v10> v10{};
             constexpr Register::FieldValue<decltype(lch2)::Type,Lch2Val::v11> v11{};
         }
-        }
         ///Link Channel 1
         enum class Lch1Val {
             v00=0x00000000,     ///<DMA Channel 0
@@ -455,7 +426,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lch1)::Type,Lch1Val::v01> v01{};
             constexpr Register::FieldValue<decltype(lch1)::Type,Lch1Val::v10> v10{};
             constexpr Register::FieldValue<decltype(lch1)::Type,Lch1Val::v11> v11{};
-        }
         }
         ///Link Channel Control
         enum class LinkccVal {
@@ -471,7 +441,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(linkcc)::Type,LinkccVal::v10> v10{};
             constexpr Register::FieldValue<decltype(linkcc)::Type,LinkccVal::v11> v11{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<ERQ bit is not affected.
@@ -481,7 +450,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dReq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dReq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Destination Address Modulo
         enum class DmodVal {
@@ -521,7 +489,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmod)::Type,DmodVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(dmod)::Type,DmodVal::v1111> v1111{};
         }
-        }
         ///Source Address Modulo
         enum class SmodVal {
             v0000=0x00000000,     ///<Buffer disabled
@@ -560,7 +527,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v1111> v1111{};
         }
-        }
         ///Start Transfer
         enum class StartVal {
             v0=0x00000000,     ///<DMA inactive
@@ -570,7 +536,6 @@ namespace Kvasir {
         namespace StartValC{
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
-        }
         }
         ///Destination Size
         enum class DsizeVal {
@@ -586,7 +551,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dsize)::Type,DsizeVal::v10> v10{};
             constexpr Register::FieldValue<decltype(dsize)::Type,DsizeVal::v11> v11{};
         }
-        }
         ///Destination Increment
         enum class DincVal {
             v0=0x00000000,     ///<No change to the DAR after a successful transfer.
@@ -596,7 +560,6 @@ namespace Kvasir {
         namespace DincValC{
             constexpr Register::FieldValue<decltype(dinc)::Type,DincVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dinc)::Type,DincVal::v1> v1{};
-        }
         }
         ///Source Size
         enum class SsizeVal {
@@ -612,7 +575,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v10> v10{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v11> v11{};
         }
-        }
         ///Source Increment
         enum class SincVal {
             v0=0x00000000,     ///<No change to SAR after a successful transfer.
@@ -622,7 +584,6 @@ namespace Kvasir {
         namespace SincValC{
             constexpr Register::FieldValue<decltype(sinc)::Type,SincVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sinc)::Type,SincVal::v1> v1{};
-        }
         }
         ///Enable asynchronous DMA requests
         enum class EadreqVal {
@@ -634,7 +595,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eadreq)::Type,EadreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(eadreq)::Type,EadreqVal::v1> v1{};
         }
-        }
         ///Auto-align
         enum class AaVal {
             v0=0x00000000,     ///<Auto-align disabled
@@ -644,7 +604,6 @@ namespace Kvasir {
         namespace AaValC{
             constexpr Register::FieldValue<decltype(aa)::Type,AaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(aa)::Type,AaVal::v1> v1{};
-        }
         }
         ///Cycle Steal
         enum class CsVal {
@@ -656,7 +615,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cs)::Type,CsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cs)::Type,CsVal::v1> v1{};
         }
-        }
         ///Enable Peripheral Request
         enum class ErqVal {
             v0=0x00000000,     ///<Peripheral request is ignored.
@@ -667,7 +625,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erq)::Type,ErqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(erq)::Type,ErqVal::v1> v1{};
         }
-        }
         ///Enable Interrupt on Completion of Transfer
         enum class EintVal {
             v0=0x00000000,     ///<No interrupt is generated.
@@ -677,7 +634,6 @@ namespace Kvasir {
         namespace EintValC{
             constexpr Register::FieldValue<decltype(eint)::Type,EintVal::v0> v0{};
             constexpr Register::FieldValue<decltype(eint)::Type,EintVal::v1> v1{};
-        }
         }
     }
     namespace DmaSar2{    ///<Source Address Register
@@ -704,7 +660,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(done)::Type,DoneVal::v0> v0{};
             constexpr Register::FieldValue<decltype(done)::Type,DoneVal::v1> v1{};
         }
-        }
         ///Busy
         enum class BsyVal {
             v0=0x00000000,     ///<DMA channel is inactive. Cleared when the DMA has finished the last transaction.
@@ -714,7 +669,6 @@ namespace Kvasir {
         namespace BsyValC{
             constexpr Register::FieldValue<decltype(bsy)::Type,BsyVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bsy)::Type,BsyVal::v1> v1{};
-        }
         }
         ///Request
         enum class ReqVal {
@@ -726,7 +680,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(req)::Type,ReqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(req)::Type,ReqVal::v1> v1{};
         }
-        }
         ///Bus Error on Destination
         enum class BedVal {
             v0=0x00000000,     ///<No bus error occurred.
@@ -736,7 +689,6 @@ namespace Kvasir {
         namespace BedValC{
             constexpr Register::FieldValue<decltype(bed)::Type,BedVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bed)::Type,BedVal::v1> v1{};
-        }
         }
         ///Bus Error on Source
         enum class BesVal {
@@ -748,7 +700,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bes)::Type,BesVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bes)::Type,BesVal::v1> v1{};
         }
-        }
         ///Configuration Error
         enum class CeVal {
             v0=0x00000000,     ///<No configuration error exists.
@@ -758,7 +709,6 @@ namespace Kvasir {
         namespace CeValC{
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::v1> v1{};
-        }
         }
     }
     namespace DmaDsr2{    ///<DMA_DSR2 register.
@@ -780,7 +730,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lch2)::Type,Lch2Val::v10> v10{};
             constexpr Register::FieldValue<decltype(lch2)::Type,Lch2Val::v11> v11{};
         }
-        }
         ///Link Channel 1
         enum class Lch1Val {
             v00=0x00000000,     ///<DMA Channel 0
@@ -794,7 +743,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lch1)::Type,Lch1Val::v01> v01{};
             constexpr Register::FieldValue<decltype(lch1)::Type,Lch1Val::v10> v10{};
             constexpr Register::FieldValue<decltype(lch1)::Type,Lch1Val::v11> v11{};
-        }
         }
         ///Link Channel Control
         enum class LinkccVal {
@@ -810,7 +758,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(linkcc)::Type,LinkccVal::v10> v10{};
             constexpr Register::FieldValue<decltype(linkcc)::Type,LinkccVal::v11> v11{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<ERQ bit is not affected.
@@ -820,7 +767,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dReq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dReq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Destination Address Modulo
         enum class DmodVal {
@@ -860,7 +806,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmod)::Type,DmodVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(dmod)::Type,DmodVal::v1111> v1111{};
         }
-        }
         ///Source Address Modulo
         enum class SmodVal {
             v0000=0x00000000,     ///<Buffer disabled
@@ -899,7 +844,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v1111> v1111{};
         }
-        }
         ///Start Transfer
         enum class StartVal {
             v0=0x00000000,     ///<DMA inactive
@@ -909,7 +853,6 @@ namespace Kvasir {
         namespace StartValC{
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
-        }
         }
         ///Destination Size
         enum class DsizeVal {
@@ -925,7 +868,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dsize)::Type,DsizeVal::v10> v10{};
             constexpr Register::FieldValue<decltype(dsize)::Type,DsizeVal::v11> v11{};
         }
-        }
         ///Destination Increment
         enum class DincVal {
             v0=0x00000000,     ///<No change to the DAR after a successful transfer.
@@ -935,7 +877,6 @@ namespace Kvasir {
         namespace DincValC{
             constexpr Register::FieldValue<decltype(dinc)::Type,DincVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dinc)::Type,DincVal::v1> v1{};
-        }
         }
         ///Source Size
         enum class SsizeVal {
@@ -951,7 +892,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v10> v10{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v11> v11{};
         }
-        }
         ///Source Increment
         enum class SincVal {
             v0=0x00000000,     ///<No change to SAR after a successful transfer.
@@ -961,7 +901,6 @@ namespace Kvasir {
         namespace SincValC{
             constexpr Register::FieldValue<decltype(sinc)::Type,SincVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sinc)::Type,SincVal::v1> v1{};
-        }
         }
         ///Enable asynchronous DMA requests
         enum class EadreqVal {
@@ -973,7 +912,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eadreq)::Type,EadreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(eadreq)::Type,EadreqVal::v1> v1{};
         }
-        }
         ///Auto-align
         enum class AaVal {
             v0=0x00000000,     ///<Auto-align disabled
@@ -983,7 +921,6 @@ namespace Kvasir {
         namespace AaValC{
             constexpr Register::FieldValue<decltype(aa)::Type,AaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(aa)::Type,AaVal::v1> v1{};
-        }
         }
         ///Cycle Steal
         enum class CsVal {
@@ -995,7 +932,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cs)::Type,CsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cs)::Type,CsVal::v1> v1{};
         }
-        }
         ///Enable Peripheral Request
         enum class ErqVal {
             v0=0x00000000,     ///<Peripheral request is ignored.
@@ -1006,7 +942,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erq)::Type,ErqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(erq)::Type,ErqVal::v1> v1{};
         }
-        }
         ///Enable Interrupt on Completion of Transfer
         enum class EintVal {
             v0=0x00000000,     ///<No interrupt is generated.
@@ -1016,7 +951,6 @@ namespace Kvasir {
         namespace EintValC{
             constexpr Register::FieldValue<decltype(eint)::Type,EintVal::v0> v0{};
             constexpr Register::FieldValue<decltype(eint)::Type,EintVal::v1> v1{};
-        }
         }
     }
     namespace DmaSar3{    ///<Source Address Register
@@ -1043,7 +977,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(done)::Type,DoneVal::v0> v0{};
             constexpr Register::FieldValue<decltype(done)::Type,DoneVal::v1> v1{};
         }
-        }
         ///Busy
         enum class BsyVal {
             v0=0x00000000,     ///<DMA channel is inactive. Cleared when the DMA has finished the last transaction.
@@ -1053,7 +986,6 @@ namespace Kvasir {
         namespace BsyValC{
             constexpr Register::FieldValue<decltype(bsy)::Type,BsyVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bsy)::Type,BsyVal::v1> v1{};
-        }
         }
         ///Request
         enum class ReqVal {
@@ -1065,7 +997,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(req)::Type,ReqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(req)::Type,ReqVal::v1> v1{};
         }
-        }
         ///Bus Error on Destination
         enum class BedVal {
             v0=0x00000000,     ///<No bus error occurred.
@@ -1075,7 +1006,6 @@ namespace Kvasir {
         namespace BedValC{
             constexpr Register::FieldValue<decltype(bed)::Type,BedVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bed)::Type,BedVal::v1> v1{};
-        }
         }
         ///Bus Error on Source
         enum class BesVal {
@@ -1087,7 +1017,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bes)::Type,BesVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bes)::Type,BesVal::v1> v1{};
         }
-        }
         ///Configuration Error
         enum class CeVal {
             v0=0x00000000,     ///<No configuration error exists.
@@ -1097,7 +1026,6 @@ namespace Kvasir {
         namespace CeValC{
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::v1> v1{};
-        }
         }
     }
     namespace DmaDsr3{    ///<DMA_DSR3 register.
@@ -1119,7 +1047,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lch2)::Type,Lch2Val::v10> v10{};
             constexpr Register::FieldValue<decltype(lch2)::Type,Lch2Val::v11> v11{};
         }
-        }
         ///Link Channel 1
         enum class Lch1Val {
             v00=0x00000000,     ///<DMA Channel 0
@@ -1133,7 +1060,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lch1)::Type,Lch1Val::v01> v01{};
             constexpr Register::FieldValue<decltype(lch1)::Type,Lch1Val::v10> v10{};
             constexpr Register::FieldValue<decltype(lch1)::Type,Lch1Val::v11> v11{};
-        }
         }
         ///Link Channel Control
         enum class LinkccVal {
@@ -1149,7 +1075,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(linkcc)::Type,LinkccVal::v10> v10{};
             constexpr Register::FieldValue<decltype(linkcc)::Type,LinkccVal::v11> v11{};
         }
-        }
         ///Disable Request
         enum class DreqVal {
             v0=0x00000000,     ///<ERQ bit is not affected.
@@ -1159,7 +1084,6 @@ namespace Kvasir {
         namespace DreqValC{
             constexpr Register::FieldValue<decltype(dReq)::Type,DreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dReq)::Type,DreqVal::v1> v1{};
-        }
         }
         ///Destination Address Modulo
         enum class DmodVal {
@@ -1199,7 +1123,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dmod)::Type,DmodVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(dmod)::Type,DmodVal::v1111> v1111{};
         }
-        }
         ///Source Address Modulo
         enum class SmodVal {
             v0000=0x00000000,     ///<Buffer disabled
@@ -1238,7 +1161,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v1111> v1111{};
         }
-        }
         ///Start Transfer
         enum class StartVal {
             v0=0x00000000,     ///<DMA inactive
@@ -1248,7 +1170,6 @@ namespace Kvasir {
         namespace StartValC{
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
-        }
         }
         ///Destination Size
         enum class DsizeVal {
@@ -1264,7 +1185,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dsize)::Type,DsizeVal::v10> v10{};
             constexpr Register::FieldValue<decltype(dsize)::Type,DsizeVal::v11> v11{};
         }
-        }
         ///Destination Increment
         enum class DincVal {
             v0=0x00000000,     ///<No change to the DAR after a successful transfer.
@@ -1274,7 +1194,6 @@ namespace Kvasir {
         namespace DincValC{
             constexpr Register::FieldValue<decltype(dinc)::Type,DincVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dinc)::Type,DincVal::v1> v1{};
-        }
         }
         ///Source Size
         enum class SsizeVal {
@@ -1290,7 +1209,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v10> v10{};
             constexpr Register::FieldValue<decltype(ssize)::Type,SsizeVal::v11> v11{};
         }
-        }
         ///Source Increment
         enum class SincVal {
             v0=0x00000000,     ///<No change to SAR after a successful transfer.
@@ -1300,7 +1218,6 @@ namespace Kvasir {
         namespace SincValC{
             constexpr Register::FieldValue<decltype(sinc)::Type,SincVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sinc)::Type,SincVal::v1> v1{};
-        }
         }
         ///Enable asynchronous DMA requests
         enum class EadreqVal {
@@ -1312,7 +1229,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eadreq)::Type,EadreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(eadreq)::Type,EadreqVal::v1> v1{};
         }
-        }
         ///Auto-align
         enum class AaVal {
             v0=0x00000000,     ///<Auto-align disabled
@@ -1322,7 +1238,6 @@ namespace Kvasir {
         namespace AaValC{
             constexpr Register::FieldValue<decltype(aa)::Type,AaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(aa)::Type,AaVal::v1> v1{};
-        }
         }
         ///Cycle Steal
         enum class CsVal {
@@ -1334,7 +1249,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cs)::Type,CsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cs)::Type,CsVal::v1> v1{};
         }
-        }
         ///Enable Peripheral Request
         enum class ErqVal {
             v0=0x00000000,     ///<Peripheral request is ignored.
@@ -1345,7 +1259,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erq)::Type,ErqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(erq)::Type,ErqVal::v1> v1{};
         }
-        }
         ///Enable Interrupt on Completion of Transfer
         enum class EintVal {
             v0=0x00000000,     ///<No interrupt is generated.
@@ -1355,7 +1268,6 @@ namespace Kvasir {
         namespace EintValC{
             constexpr Register::FieldValue<decltype(eint)::Type,EintVal::v0> v0{};
             constexpr Register::FieldValue<decltype(eint)::Type,EintVal::v1> v1{};
-        }
         }
     }
 }

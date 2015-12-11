@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vreginsen)::Type,VreginsenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(vreginsen)::Type,VreginsenVal::enabled> enabled{};
         }
-        }
         ///VREGIN Low Interrupt Flag. 
         enum class VreginliVal {
             vreginIsLow=0x00000000,     ///<VREGIN is not above the interrupt threshold.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace VreginliValC{
             constexpr Register::FieldValue<decltype(vreginli)::Type,VreginliVal::vreginIsLow> vreginIsLow{};
             constexpr Register::FieldValue<decltype(vreginli)::Type,VreginliVal::vreginIsOk> vreginIsOk{};
-        }
         }
         ///VDD Reset Threshold Status Flag. 
         enum class VddrstfVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vddrstf)::Type,VddrstfVal::vddIsBelowReset> vddIsBelowReset{};
             constexpr Register::FieldValue<decltype(vddrstf)::Type,VddrstfVal::vddIsAboveReset> vddIsAboveReset{};
         }
-        }
         ///VDD Low Interrupt Flag. 
         enum class VddliVal {
             vddIsLow=0x00000000,     ///<The VDD voltage is below the early warning threshold.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace VddliValC{
             constexpr Register::FieldValue<decltype(vddli)::Type,VddliVal::vddIsLow> vddIsLow{};
             constexpr Register::FieldValue<decltype(vddli)::Type,VddliVal::vddIsOk> vddIsOk{};
-        }
         }
         ///VDD High Threshold Enable. 
         enum class VddhithenVal {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vddhithen)::Type,VddhithenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(vddhithen)::Type,VddhithenVal::enabled> enabled{};
         }
-        }
         ///VDD Low Interrupt Enable. 
         enum class VddlienVal {
             disabled=0x00000000,     ///<Disable the VDD low interrupt.
@@ -68,7 +63,6 @@ namespace Kvasir {
         namespace VddlienValC{
             constexpr Register::FieldValue<decltype(vddlien)::Type,VddlienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(vddlien)::Type,VddlienVal::enabled> enabled{};
-        }
         }
         ///VREGIN Low Interrupt Enable. 
         enum class VreginlienVal {
@@ -80,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vreginlien)::Type,VreginlienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(vreginlien)::Type,VreginlienVal::enabled> enabled{};
         }
-        }
         ///VDD Supply Monitor Enable. 
         enum class VmonenVal {
             disabled=0x00000000,     ///<Disable the VDD supply monitor.
@@ -90,7 +83,6 @@ namespace Kvasir {
         namespace VmonenValC{
             constexpr Register::FieldValue<decltype(vmonen)::Type,VmonenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(vmonen)::Type,VmonenVal::enabled> enabled{};
-        }
         }
     }
 }

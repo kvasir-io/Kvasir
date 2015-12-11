@@ -23,7 +23,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::rising> rising{};
             constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::falling> falling{};
         }
-        }
         ///Permits bypassing of one synchronization flip-flop, if not required. Does not apply if the TRIG_SRC field is set to 0.
         enum class SyncbypassVal {
             synchronize=0x00000000,     ///<Synchronize. The selected trigger input will be synchronized to the system clock prior to edge-detection.
@@ -33,7 +32,6 @@ namespace Kvasir {
         namespace SyncbypassValC{
             constexpr Register::FieldValue<decltype(syncBypass)::Type,SyncbypassVal::synchronize> synchronize{};
             constexpr Register::FieldValue<decltype(syncBypass)::Type,SyncbypassVal::notSynchronize> notSynchronize{};
-        }
         }
         ///Timer Enable
         enum class TimerenaVal {
@@ -45,7 +43,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timerEna)::Type,TimerenaVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(timerEna)::Type,TimerenaVal::enabled> enabled{};
         }
-        }
         ///Double-Buffer Enable.
         enum class DblbufenaVal {
             disabled=0x00000000,     ///<Disabled. Double-buffering of the DACVAL register is disabled. Software writes to the DACVAL address will directly modify the DAC data presented to the D/A converter. Hardware trigger events, if selected, will not affect the DACVAL contents.
@@ -56,7 +53,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dblbufEna)::Type,DblbufenaVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dblbufEna)::Type,DblbufenaVal::enabled> enabled{};
         }
-        }
         ///Shutoff Enable
         enum class ShutoffenaVal {
             disabled=0x00000000,     ///<Disabled. The hardware DAC-shutoff feature is disabled.
@@ -66,7 +62,6 @@ namespace Kvasir {
         namespace ShutoffenaValC{
             constexpr Register::FieldValue<decltype(shutoffEna)::Type,ShutoffenaVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(shutoffEna)::Type,ShutoffenaVal::enabled> enabled{};
-        }
         }
         ///Shutoff Flag. This is a read-only bit. Reflects the state of the DAC_SHUTOFF input if the Shutoff feature is enabled. 0 = DAC_SHUTOFF (port pin) input is low. DAC is outputting the voltage specified in the DAC VAL register. 1 = DAC_SHUTOFF (port pin) input is high. The DAC output is forced to zero. This bit serves as a flag only, If a processor interrupt is desired when a DAC shutoff condition occurrs, that can be accomplished by enabling the port pin selected as the DAC_SHUTOFF pin to directly generate a port interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> shutoffFlag{}; 

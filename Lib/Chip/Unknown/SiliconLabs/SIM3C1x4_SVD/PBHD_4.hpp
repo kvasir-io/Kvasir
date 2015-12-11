@@ -38,7 +38,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pbpuen)::Type,PbpuenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pbpuen)::Type,PbpuenVal::enabled> enabled{};
         }
-        }
         ///Port Low Voltage Mode. 
         enum class PblvmdVal {
             normal=0x00000000,     ///<Port configured for normal mode.
@@ -48,7 +47,6 @@ namespace Kvasir {
         namespace PblvmdValC{
             constexpr Register::FieldValue<decltype(pblvmd)::Type,PblvmdVal::normal> normal{};
             constexpr Register::FieldValue<decltype(pblvmd)::Type,PblvmdVal::low> low{};
-        }
         }
         ///Port Slew Control. 
         enum class PbslewVal {
@@ -64,7 +62,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pbslew)::Type,PbslewVal::slower> slower{};
             constexpr Register::FieldValue<decltype(pbslew)::Type,PbslewVal::slowest> slowest{};
         }
-        }
         ///Port Bias Enable. 
         enum class PbbiasenVal {
             disabled=0x00000000,     ///<Disable the biasing to the port pins.
@@ -74,7 +71,6 @@ namespace Kvasir {
         namespace PbbiasenValC{
             constexpr Register::FieldValue<decltype(pbbiasen)::Type,PbbiasenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pbbiasen)::Type,PbbiasenVal::enabled> enabled{};
-        }
         }
         ///Port Drive Enable. 
         enum class PbdrvenVal {
@@ -86,7 +82,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pbdrven)::Type,PbdrvenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pbdrven)::Type,PbdrvenVal::enabled> enabled{};
         }
-        }
         ///Port Voltage Supply Tracking Enable. 
         enum class PbvtrkenVal {
             disabled=0x00000000,     ///<Disable VIOHD tracking.
@@ -96,7 +91,6 @@ namespace Kvasir {
         namespace PbvtrkenValC{
             constexpr Register::FieldValue<decltype(pbvtrken)::Type,PbvtrkenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pbvtrken)::Type,PbvtrkenVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonepbilimit{    ///<Current Limit
@@ -141,7 +135,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nilimit)::Type,NilimitVal::mode14> mode14{};
             constexpr Register::FieldValue<decltype(nilimit)::Type,NilimitVal::mode15> mode15{};
         }
-        }
         ///P-Channel Current Limit. 
         enum class PilimitVal {
             mode0=0x00000000,     ///<Set source limit to mode 0.
@@ -180,7 +173,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pilimit)::Type,PilimitVal::mode14> mode14{};
             constexpr Register::FieldValue<decltype(pilimit)::Type,PilimitVal::mode15> mode15{};
         }
-        }
     }
     namespace Nonepbfsel{    ///<Function Select
         using Addr = Register::Address<0x4002a430,0xffffe000,0,unsigned>;
@@ -196,7 +188,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pb0sel)::Type,Pb0selVal::pmls> pmls{};
             constexpr Register::FieldValue<decltype(pb0sel)::Type,Pb0selVal::epca0> epca0{};
         }
-        }
         ///Port Bank n.1 Function Select. 
         enum class Pb1selVal {
             gpio=0x00000000,     ///<Pin configured for GPIO.
@@ -208,7 +199,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pb1sel)::Type,Pb1selVal::gpio> gpio{};
             constexpr Register::FieldValue<decltype(pb1sel)::Type,Pb1selVal::pmls> pmls{};
             constexpr Register::FieldValue<decltype(pb1sel)::Type,Pb1selVal::epca0> epca0{};
-        }
         }
         ///Port Bank n.2 Function Select. 
         enum class Pb2selVal {
@@ -224,7 +214,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pb2sel)::Type,Pb2selVal::epca0> epca0{};
             constexpr Register::FieldValue<decltype(pb2sel)::Type,Pb2selVal::uart1> uart1{};
         }
-        }
         ///Port Bank n.3 Function Select. 
         enum class Pb3selVal {
             gpio=0x00000000,     ///<Pin configured for GPIO.
@@ -239,7 +228,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pb3sel)::Type,Pb3selVal::epca0> epca0{};
             constexpr Register::FieldValue<decltype(pb3sel)::Type,Pb3selVal::uart1> uart1{};
         }
-        }
         ///Port Bank n.4 Function Select. 
         enum class Pb4selVal {
             gpio=0x00000000,     ///<Pin configured for GPIO.
@@ -253,7 +241,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pb4sel)::Type,Pb4selVal::pmls> pmls{};
             constexpr Register::FieldValue<decltype(pb4sel)::Type,Pb4selVal::epca0> epca0{};
             constexpr Register::FieldValue<decltype(pb4sel)::Type,Pb4selVal::uart1> uart1{};
-        }
         }
         ///Port Bank n.5 Function Select. 
         enum class Pb5selVal {
@@ -270,7 +257,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pb5sel)::Type,Pb5selVal::epca0> epca0{};
             constexpr Register::FieldValue<decltype(pb5sel)::Type,Pb5selVal::uart1> uart1{};
             constexpr Register::FieldValue<decltype(pb5sel)::Type,Pb5selVal::lptimer0> lptimer0{};
-        }
         }
     }
     namespace Nonepbss{    ///<Safe State Control
@@ -289,7 +275,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pb0sssel)::Type,Pb0ssselVal::low> low{};
             constexpr Register::FieldValue<decltype(pb0sssel)::Type,Pb0ssselVal::disabled> disabled{};
         }
-        }
         ///Port Bank n.1 Safe State Select. 
         enum class Pb1ssselVal {
             hiz=0x00000000,     ///<Place PBn.1 in a High Impedance state.
@@ -303,7 +288,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pb1sssel)::Type,Pb1ssselVal::high> high{};
             constexpr Register::FieldValue<decltype(pb1sssel)::Type,Pb1ssselVal::low> low{};
             constexpr Register::FieldValue<decltype(pb1sssel)::Type,Pb1ssselVal::disabled> disabled{};
-        }
         }
         ///Port Bank n.2 Safe State Select. 
         enum class Pb2ssselVal {
@@ -319,7 +303,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pb2sssel)::Type,Pb2ssselVal::low> low{};
             constexpr Register::FieldValue<decltype(pb2sssel)::Type,Pb2ssselVal::disabled> disabled{};
         }
-        }
         ///Port Bank n.3 Safe State Select. 
         enum class Pb3ssselVal {
             hiz=0x00000000,     ///<Place PBn.3 in a High Impedance state.
@@ -333,7 +316,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pb3sssel)::Type,Pb3ssselVal::high> high{};
             constexpr Register::FieldValue<decltype(pb3sssel)::Type,Pb3ssselVal::low> low{};
             constexpr Register::FieldValue<decltype(pb3sssel)::Type,Pb3ssselVal::disabled> disabled{};
-        }
         }
         ///Port Bank n.4 Safe State Select. 
         enum class Pb4ssselVal {
@@ -349,7 +331,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pb4sssel)::Type,Pb4ssselVal::low> low{};
             constexpr Register::FieldValue<decltype(pb4sssel)::Type,Pb4ssselVal::disabled> disabled{};
         }
-        }
         ///Port Bank n.5 Safe State Select. 
         enum class Pb5ssselVal {
             hiz=0x00000000,     ///<Place PBn.5 in a High Impedance state.
@@ -364,7 +345,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pb5sssel)::Type,Pb5ssselVal::low> low{};
             constexpr Register::FieldValue<decltype(pb5sssel)::Type,Pb5ssselVal::disabled> disabled{};
         }
-        }
         ///Enter Safe State Mode. 
         enum class SsmdenVal {
             disabled=0x00000000,     ///<Disable Safe State.
@@ -375,7 +355,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssmden)::Type,SsmdenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ssmden)::Type,SsmdenVal::enabled> enabled{};
         }
-        }
         ///Safe State Signal Mode. 
         enum class PbsssmdVal {
             deglitch=0x00000000,     ///<Enable deglitching on the kill signal input. The kill signal must be asserted for two APB clocks to be recognized.
@@ -385,7 +364,6 @@ namespace Kvasir {
         namespace PbsssmdValC{
             constexpr Register::FieldValue<decltype(pbsssmd)::Type,PbsssmdVal::deglitch> deglitch{};
             constexpr Register::FieldValue<decltype(pbsssmd)::Type,PbsssmdVal::immediate> immediate{};
-        }
         }
     }
     namespace Nonepblock{    ///<Lock Control

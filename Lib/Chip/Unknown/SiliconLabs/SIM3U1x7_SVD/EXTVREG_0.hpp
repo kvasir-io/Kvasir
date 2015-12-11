@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(saen)::Type,SaenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(saen)::Type,SaenVal::enabled> enabled{};
         }
-        }
         ///Weak Pull Up/Down Enable. 
         enum class WpullenVal {
             disabled=0x00000000,     ///<Disable the external regulator weak pull-up/down resistor on the EXREGBD pin and weak pull-down resistor on the EXREGOUT pin.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace WpullenValC{
             constexpr Register::FieldValue<decltype(wpullen)::Type,WpullenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(wpullen)::Type,WpullenVal::enabled> enabled{};
-        }
         }
         ///Foldback Limiting Enable. 
         enum class FblenVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fblen)::Type,FblenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(fblen)::Type,FblenVal::enabled> enabled{};
         }
-        }
         ///NPN/PNP Type Select. 
         enum class PnselVal {
             npn=0x00000000,     ///<Select NPN Mode.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace PnselValC{
             constexpr Register::FieldValue<decltype(pnsel)::Type,PnselVal::npn> npn{};
             constexpr Register::FieldValue<decltype(pnsel)::Type,PnselVal::pnp> pnp{};
-        }
         }
         ///Foldback Sensing Pin Select. 
         enum class FbpinselVal {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fbpinsel)::Type,FbpinselVal::exregsn> exregsn{};
             constexpr Register::FieldValue<decltype(fbpinsel)::Type,FbpinselVal::vregin> vregin{};
         }
-        }
         ///External Regulator Enable. 
         enum class EvregenVal {
             disabled=0x00000000,     ///<Disable the external regulator.
@@ -68,7 +63,6 @@ namespace Kvasir {
         namespace EvregenValC{
             constexpr Register::FieldValue<decltype(evregen)::Type,EvregenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(evregen)::Type,EvregenVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneconfig{    ///<Module Configuration
@@ -86,7 +80,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iminfine)::Type,IminfineVal::v0p25Ua> v0p25Ua{};
             constexpr Register::FieldValue<decltype(iminfine)::Type,IminfineVal::v0p5Ua> v0p5Ua{};
             constexpr Register::FieldValue<decltype(iminfine)::Type,IminfineVal::v0p75Ua> v0p75Ua{};
-        }
         }
         ///Minimum Current Select. 
         enum class IminVal {
@@ -110,7 +103,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(imin)::Type,IminVal::v7Ua> v7Ua{};
             constexpr Register::FieldValue<decltype(imin)::Type,IminVal::v8Ua> v8Ua{};
         }
-        }
         ///Foldback Voltage Offset Select. 
         enum class FbvoselVal {
             v0V=0x00000000,     ///<Foldback voltage offset is 0 V.
@@ -133,7 +125,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fbvosel)::Type,FbvoselVal::v3V> v3V{};
             constexpr Register::FieldValue<decltype(fbvosel)::Type,FbvoselVal::v3p5V> v3p5V{};
         }
-        }
         ///Voltage Sense Gain Multiplier. 
         enum class FbrateVal {
             v4UaPerV=0x00000000,     ///<Set the foldback rate to 4 uA/V.
@@ -153,7 +144,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fbrate)::Type,FbrateVal::v8UaPerV> v8UaPerV{};
             constexpr Register::FieldValue<decltype(fbrate)::Type,FbrateVal::v16UaPerV> v16UaPerV{};
             constexpr Register::FieldValue<decltype(fbrate)::Type,FbrateVal::v32UaPerV> v32UaPerV{};
-        }
         }
         ///Maximum Current Select. 
         enum class ImaxVal {
@@ -177,7 +167,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(imax)::Type,ImaxVal::v8Ua> v8Ua{};
             constexpr Register::FieldValue<decltype(imax)::Type,ImaxVal::v9Ua> v9Ua{};
         }
-        }
         ///Regulator Output Voltage Select. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,24),Register::ReadWriteAccess,unsigned> voutsel{}; 
     }
@@ -193,7 +182,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fbmaxf)::Type,FbmaxfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(fbmaxf)::Type,FbmaxfVal::set> set{};
         }
-        }
     }
     namespace Nonecscontrol{    ///<Current Sense Control
         using Addr = Register::Address<0x40042040,0x3fffffff,0,unsigned>;
@@ -207,7 +195,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(isnsen)::Type,IsnsenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(isnsen)::Type,IsnsenVal::enabled> enabled{};
         }
-        }
         ///ADC Current Sense Enable. 
         enum class AdcisnsenVal {
             disabled=0x00000000,     ///<Disable ADC current sensing.
@@ -217,7 +204,6 @@ namespace Kvasir {
         namespace AdcisnsenValC{
             constexpr Register::FieldValue<decltype(adcisnsen)::Type,AdcisnsenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(adcisnsen)::Type,AdcisnsenVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonecsconfig{    ///<Current Sense Configuration
@@ -238,7 +224,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(isadcgain)::Type,IsadcgainVal::v2x> v2x{};
             constexpr Register::FieldValue<decltype(isadcgain)::Type,IsadcgainVal::v1x> v1x{};
         }
-        }
         ///External Regulator Current Sense Gain. 
         enum class IsogainVal {
             v16x=0x00000000,     ///<External regulator current sensing gain is 16.
@@ -255,7 +240,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(isogain)::Type,IsogainVal::v2x> v2x{};
             constexpr Register::FieldValue<decltype(isogain)::Type,IsogainVal::v1x> v1x{};
         }
-        }
         ///External Regulator Current Sense Input Select. 
         enum class IsinselVal {
             mode0=0x00000000,     ///<Select external regulator current sensing mode 0.
@@ -267,7 +251,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(isinsel)::Type,IsinselVal::mode0> mode0{};
             constexpr Register::FieldValue<decltype(isinsel)::Type,IsinselVal::mode1> mode1{};
             constexpr Register::FieldValue<decltype(isinsel)::Type,IsinselVal::mode2> mode2{};
-        }
         }
     }
 }

@@ -21,7 +21,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clken)::Type,ClkenVal::theTimeCountersAr> theTimeCountersAr{};
             constexpr Register::FieldValue<decltype(clken)::Type,ClkenVal::theTimeCountersAr> theTimeCountersAr{};
         }
-        }
         ///CTC Reset.
         enum class CtcrstVal {
             reset=0x00000001,     ///<When one, the elements in the internal oscillator divider are reset, and remain reset until CCR[1] is changed to zero. This is the divider that generates the 1 Hz clock from the 32.768 kHz crystal. The state of the divider is not visible to software.
@@ -32,7 +31,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ctcrst)::Type,CtcrstVal::reset> reset{};
             constexpr Register::FieldValue<decltype(ctcrst)::Type,CtcrstVal::noEffect> noEffect{};
         }
-        }
         ///Calibration counter enable.
         enum class CcalenVal {
             theCalibrationCoun=0x00000001,     ///<The calibration counter is disabled and reset to zero.
@@ -42,7 +40,6 @@ namespace Kvasir {
         namespace CcalenValC{
             constexpr Register::FieldValue<decltype(ccalen)::Type,CcalenVal::theCalibrationCoun> theCalibrationCoun{};
             constexpr Register::FieldValue<decltype(ccalen)::Type,CcalenVal::theCalibrationCoun> theCalibrationCoun{};
-        }
         }
     }
     namespace Noneciir{    ///<Counter Increment Interrupt Register
@@ -162,7 +159,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(caldir)::Type,CaldirVal::backwardCalibration> backwardCalibration{};
             constexpr Register::FieldValue<decltype(caldir)::Type,CaldirVal::forwardCalibration> forwardCalibration{};
         }
-        }
     }
     namespace Nonegpreg0{    ///<General Purpose Register 0
         using Addr = Register::Address<0x40024044,0x00000000,0,unsigned>;
@@ -253,7 +249,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intwakeEn0)::Type,Intwakeen0Val::noInterruptOrWake> noInterruptOrWake{};
             constexpr Register::FieldValue<decltype(intwakeEn0)::Type,Intwakeen0Val::anEventInChannel> anEventInChannel{};
         }
-        }
         ///Enables automatically clearing the RTC general purpose registers when an event occurs on channel 0.
         enum class Gpclearen0Val {
             nogpreg=0x00000000,     ///<Channel 0 has no influence on the general purpose registers.
@@ -263,7 +258,6 @@ namespace Kvasir {
         namespace Gpclearen0ValC{
             constexpr Register::FieldValue<decltype(gpclearEn0)::Type,Gpclearen0Val::nogpreg> nogpreg{};
             constexpr Register::FieldValue<decltype(gpclearEn0)::Type,Gpclearen0Val::clrgpreg> clrgpreg{};
-        }
         }
         ///Selects the polarity of an event on input pin RTC_EV0.
         enum class Pol0Val {
@@ -275,7 +269,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pol0)::Type,Pol0Val::neg> neg{};
             constexpr Register::FieldValue<decltype(pol0)::Type,Pol0Val::pos> pos{};
         }
-        }
         ///Event enable control for channel 0.[1]
         enum class Ev0inputenVal {
             disabled=0x00000000,     ///<Event 0 input is disabled and forced high internally.
@@ -285,7 +278,6 @@ namespace Kvasir {
         namespace Ev0inputenValC{
             constexpr Register::FieldValue<decltype(ev0InputEn)::Type,Ev0inputenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ev0InputEn)::Type,Ev0inputenVal::enabled> enabled{};
-        }
         }
         ///Interrupt and wakeup enable for channel 1.
         enum class Intwakeen1Val {
@@ -297,7 +289,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intwakeEn1)::Type,Intwakeen1Val::noInterruptOrWake> noInterruptOrWake{};
             constexpr Register::FieldValue<decltype(intwakeEn1)::Type,Intwakeen1Val::wakeup> wakeup{};
         }
-        }
         ///Enables automatically clearing the RTC general purpose registers when an event occurs on channel 1.
         enum class Gpclearen1Val {
             nogpreg=0x00000000,     ///<Channel 1 has no influence on the general purpose registers.
@@ -307,7 +298,6 @@ namespace Kvasir {
         namespace Gpclearen1ValC{
             constexpr Register::FieldValue<decltype(gpclearEn1)::Type,Gpclearen1Val::nogpreg> nogpreg{};
             constexpr Register::FieldValue<decltype(gpclearEn1)::Type,Gpclearen1Val::clrgpreg> clrgpreg{};
-        }
         }
         ///Selects the polarity of an event on input pin RTC_EV1.
         enum class Pol1Val {
@@ -319,7 +309,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pol1)::Type,Pol1Val::neg> neg{};
             constexpr Register::FieldValue<decltype(pol1)::Type,Pol1Val::pos> pos{};
         }
-        }
         ///Event enable control for channel 1.[1]
         enum class Ev1inputenVal {
             disabled=0x00000000,     ///<Event 1 input is disabled and forced high internally.
@@ -329,7 +318,6 @@ namespace Kvasir {
         namespace Ev1inputenValC{
             constexpr Register::FieldValue<decltype(ev1InputEn)::Type,Ev1inputenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ev1InputEn)::Type,Ev1inputenVal::enabled> enabled{};
-        }
         }
         ///Interrupt and wakeup enable for channel 2.
         enum class Intwakeen2Val {
@@ -341,7 +329,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intwakeEn2)::Type,Intwakeen2Val::noInterruptOrWake> noInterruptOrWake{};
             constexpr Register::FieldValue<decltype(intwakeEn2)::Type,Intwakeen2Val::wakeup> wakeup{};
         }
-        }
         ///Enables automatically clearing the RTC general purpose registers when an event occurs on channel 2.
         enum class Gpclearen2Val {
             nogpreg=0x00000000,     ///<Channel 2 has no influence on the general purpose registers.
@@ -351,7 +338,6 @@ namespace Kvasir {
         namespace Gpclearen2ValC{
             constexpr Register::FieldValue<decltype(gpclearEn2)::Type,Gpclearen2Val::nogpreg> nogpreg{};
             constexpr Register::FieldValue<decltype(gpclearEn2)::Type,Gpclearen2Val::clrgpreg> clrgpreg{};
-        }
         }
         ///Selects the polarity of an event on input pin RTC_EV2.
         enum class Pol2Val {
@@ -363,7 +349,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pol2)::Type,Pol2Val::neg> neg{};
             constexpr Register::FieldValue<decltype(pol2)::Type,Pol2Val::pos> pos{};
         }
-        }
         ///Event enable control for channel 2.[1]
         enum class Ev2inputenVal {
             disabled=0x00000000,     ///<Event 2 input is disabled and forced high internally.
@@ -373,7 +358,6 @@ namespace Kvasir {
         namespace Ev2inputenValC{
             constexpr Register::FieldValue<decltype(ev2InputEn)::Type,Ev2inputenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ev2InputEn)::Type,Ev2inputenVal::enabled> enabled{};
-        }
         }
         ///Controls enabling the Event Monitor/Recorder and selecting its operating frequency.[2]
         enum class ErmodeVal {
@@ -389,7 +373,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ermode)::Type,ErmodeVal::enableEventMonitor64hz> enableEventMonitor64hz{};
             constexpr Register::FieldValue<decltype(ermode)::Type,ErmodeVal::enableEventMonitor1khz> enableEventMonitor1khz{};
         }
-        }
     }
     namespace Noneerstatus{    ///<Event Monitor/Recorder Status register. Contains status flags for event channels and other Event Monitor/Recorder conditions.
         using Addr = Register::Address<0x40024080,0x7ffffff0,0,unsigned>;
@@ -403,7 +386,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ev0)::Type,Ev0Val::noEventChangeOnC> noEventChangeOnC{};
             constexpr Register::FieldValue<decltype(ev0)::Type,Ev0Val::atLeastOneEventH> atLeastOneEventH{};
         }
-        }
         ///Event flag for channel 1 (RTC_EV1 pin). Set at the end of any second if there has been an event during the preceding second. This bit is cleared by writing a 1 to it. Writing 0 has no effect.
         enum class Ev1Val {
             noEventChangeOnC=0x00000000,     ///<No event change on channel 1.
@@ -413,7 +395,6 @@ namespace Kvasir {
         namespace Ev1ValC{
             constexpr Register::FieldValue<decltype(ev1)::Type,Ev1Val::noEventChangeOnC> noEventChangeOnC{};
             constexpr Register::FieldValue<decltype(ev1)::Type,Ev1Val::atLeastOneEventH> atLeastOneEventH{};
-        }
         }
         ///Event flag for channel 2 (RTC_EV2 pin). Set at the end of any second if there has been an event during the preceding second. This bit is cleared by writing a 1 to it. Writing 0 has no effect.
         enum class Ev2Val {
@@ -425,7 +406,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ev2)::Type,Ev2Val::noEventChangeOnC> noEventChangeOnC{};
             constexpr Register::FieldValue<decltype(ev2)::Type,Ev2Val::atLeastOneEventH> atLeastOneEventH{};
         }
-        }
         ///General purpose register asynchronous clear flag. This bit is cleared by writing a 1 to it. Writing 0 has no effect.
         enum class GpclearedVal {
             nogpclr=0x00000000,     ///<General purpose registers have not been asynchronous cleared.
@@ -436,7 +416,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gpCleared)::Type,GpclearedVal::nogpclr> nogpclr{};
             constexpr Register::FieldValue<decltype(gpCleared)::Type,GpclearedVal::gpclr> gpclr{};
         }
-        }
         ///Interrupt/wakeup request flag (Read-only). This bit is cleared by writing a 1 to it. Writing 0 has no effect.
         enum class WakeupVal {
             noInterruptwakeup=0x00000000,     ///<No interrupt/wakeup request is pending
@@ -446,7 +425,6 @@ namespace Kvasir {
         namespace WakeupValC{
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::noInterruptwakeup> noInterruptwakeup{};
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::intwakeupPend> intwakeupPend{};
-        }
         }
     }
     namespace Noneercounters{    ///<Event Monitor/Recorder Counters register. Allows reading the counters associated with the event channels.

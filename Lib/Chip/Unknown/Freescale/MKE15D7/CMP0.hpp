@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hystctr)::Type,HystctrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hystctr)::Type,HystctrVal::v1> v1{};
         }
-        }
         ///Filter Sample Count
         enum class FiltercntVal {
             v000=0x00000000,     ///<Filter is disabled. If SE = 1, then COUT is a logic zero (this is not a legal state, and is not recommended). If SE = 0, COUT = COUTA.
@@ -37,7 +36,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(filterCnt)::Type,FiltercntVal::v110> v110{};
             constexpr Register::FieldValue<decltype(filterCnt)::Type,FiltercntVal::v111> v111{};
         }
-        }
     }
     namespace Cmp0Cr1{    ///<CMP Control Register 1
         using Addr = Register::Address<0x40050001,0xffffff20,0,unsigned char>;
@@ -51,7 +49,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(en)::Type,EnVal::v0> v0{};
             constexpr Register::FieldValue<decltype(en)::Type,EnVal::v1> v1{};
         }
-        }
         ///Comparator Output Pin Enable
         enum class OpeVal {
             v0=0x00000000,     ///<The comparator output (CMPO) is not available on the associated CMPO output pin. The pin is available for use by other on-chip functions.
@@ -61,7 +58,6 @@ namespace Kvasir {
         namespace OpeValC{
             constexpr Register::FieldValue<decltype(ope)::Type,OpeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ope)::Type,OpeVal::v1> v1{};
-        }
         }
         ///Comparator Output Select
         enum class CosVal {
@@ -73,7 +69,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cos)::Type,CosVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cos)::Type,CosVal::v1> v1{};
         }
-        }
         ///Comparator INVERT
         enum class InvVal {
             v0=0x00000000,     ///<Does not invert the comparator output.
@@ -83,7 +78,6 @@ namespace Kvasir {
         namespace InvValC{
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::v0> v0{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::v1> v1{};
-        }
         }
         ///Power Mode Select
         enum class PmodeVal {
@@ -95,7 +89,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmode)::Type,PmodeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pmode)::Type,PmodeVal::v1> v1{};
         }
-        }
         ///Windowing Enable
         enum class WeVal {
             v0=0x00000000,     ///<Windowing mode not selected.
@@ -106,7 +99,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(we)::Type,WeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(we)::Type,WeVal::v1> v1{};
         }
-        }
         ///Sample Enable
         enum class SeVal {
             v0=0x00000000,     ///<Sampling mode not selected.
@@ -116,7 +108,6 @@ namespace Kvasir {
         namespace SeValC{
             constexpr Register::FieldValue<decltype(se)::Type,SeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(se)::Type,SeVal::v1> v1{};
-        }
         }
     }
     namespace Cmp0Fpr{    ///<CMP Filter Period Register
@@ -138,7 +129,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cff)::Type,CffVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cff)::Type,CffVal::v1> v1{};
         }
-        }
         ///Analog Comparator Flag Rising
         enum class CfrVal {
             v0=0x00000000,     ///<Rising edge on COUT has not been detected.
@@ -148,7 +138,6 @@ namespace Kvasir {
         namespace CfrValC{
             constexpr Register::FieldValue<decltype(cfr)::Type,CfrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cfr)::Type,CfrVal::v1> v1{};
-        }
         }
         ///Comparator Interrupt Enable Falling
         enum class IefVal {
@@ -160,7 +149,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ief)::Type,IefVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ief)::Type,IefVal::v1> v1{};
         }
-        }
         ///Comparator Interrupt Enable Rising
         enum class IerVal {
             v0=0x00000000,     ///<Interrupt disabled.
@@ -171,7 +159,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ier)::Type,IerVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ier)::Type,IerVal::v1> v1{};
         }
-        }
         ///DMA Enable Control
         enum class DmaenVal {
             v0=0x00000000,     ///<DMA disabled.
@@ -181,7 +168,6 @@ namespace Kvasir {
         namespace DmaenValC{
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v1> v1{};
-        }
         }
     }
     namespace Cmp0Daccr{    ///<DAC Control Register
@@ -198,7 +184,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(vrsel)::Type,VrselVal::v0> v0{};
             constexpr Register::FieldValue<decltype(vrsel)::Type,VrselVal::v1> v1{};
         }
-        }
         ///DAC Enable
         enum class DacenVal {
             v0=0x00000000,     ///<DAC is disabled.
@@ -208,7 +193,6 @@ namespace Kvasir {
         namespace DacenValC{
             constexpr Register::FieldValue<decltype(dacen)::Type,DacenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dacen)::Type,DacenVal::v1> v1{};
-        }
         }
     }
     namespace Cmp0Muxcr{    ///<MUX Control Register
@@ -227,7 +211,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(msel)::Type,MselVal::v10> v10{};
             constexpr Register::FieldValue<decltype(msel)::Type,MselVal::v11> v11{};
         }
-        }
         ///Plus Input MUX Control
         enum class PselVal {
             v00=0x00000000,     ///<IN0
@@ -241,7 +224,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(psel)::Type,PselVal::v01> v01{};
             constexpr Register::FieldValue<decltype(psel)::Type,PselVal::v10> v10{};
             constexpr Register::FieldValue<decltype(psel)::Type,PselVal::v11> v11{};
-        }
         }
     }
     namespace Cmp0Muxpe{    ///<MUX Pin Enable Register

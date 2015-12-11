@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dpden)::Type,DpdenVal::sleepDeepsleep> sleepDeepsleep{};
             constexpr Register::FieldValue<decltype(dpden)::Type,DpdenVal::deeppowerdown> deeppowerdown{};
         }
-        }
         ///Sleep mode flag
         enum class SleepflagVal {
             noPowerDown=0x00000000,     ///<Read: No power-down mode entered. LPC13xx is in Run mode. Write: No effect.
@@ -25,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sleepflag)::Type,SleepflagVal::noPowerDown> noPowerDown{};
             constexpr Register::FieldValue<decltype(sleepflag)::Type,SleepflagVal::powerdown> powerdown{};
         }
-        }
         ///Deep power-down flag
         enum class DpdflagVal {
             noDeeppowerdown=0x00000000,     ///<Read: Deep power-down mode  not entered. Write: No effect.
@@ -35,7 +33,6 @@ namespace Kvasir {
         namespace DpdflagValC{
             constexpr Register::FieldValue<decltype(dpdflag)::Type,DpdflagVal::noDeeppowerdown> noDeeppowerdown{};
             constexpr Register::FieldValue<decltype(dpdflag)::Type,DpdflagVal::deeppowerdown> deeppowerdown{};
-        }
         }
     }
     namespace Nonegpreg0{    ///<General purpose register 
@@ -69,7 +66,6 @@ namespace Kvasir {
         namespace WakeuphysValC{
             constexpr Register::FieldValue<decltype(wakeuphys)::Type,WakeuphysVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(wakeuphys)::Type,WakeuphysVal::enabled> enabled{};
-        }
         }
         ///Data retained during Deep power-down mode.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,11),Register::ReadWriteAccess,unsigned> gpdata{}; 

@@ -22,7 +22,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(timevsel)::Type,TimevselVal::midnight> midnight{};
             constexpr Register::FieldValue<decltype(timevsel)::Type,TimevselVal::noon> noon{};
         }
-        }
         ///Calendar Event Selection
         enum class CalevselVal {
             week=0x00000000,     ///<Week change (every Monday at time 00:00:00)
@@ -34,7 +33,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(calevsel)::Type,CalevselVal::week> week{};
             constexpr Register::FieldValue<decltype(calevsel)::Type,CalevselVal::month> month{};
             constexpr Register::FieldValue<decltype(calevsel)::Type,CalevselVal::year> year{};
-        }
         }
     }
     namespace RtcMr{    ///<Mode Register

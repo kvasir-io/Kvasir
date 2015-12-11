@@ -720,7 +720,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::h> h{};
         }
-        }
         ///Peripheral Multiplexing Odd
         enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
@@ -742,7 +741,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::f> f{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::h> h{};
-        }
         }
     }
     namespace PortPmux01{    ///<Peripheral Multiplexing n - Group 0
@@ -769,7 +767,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::h> h{};
         }
-        }
         ///Peripheral Multiplexing Odd
         enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
@@ -791,7 +788,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::f> f{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::h> h{};
-        }
         }
     }
     namespace PortPmux02{    ///<Peripheral Multiplexing n - Group 0
@@ -818,7 +814,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::h> h{};
         }
-        }
         ///Peripheral Multiplexing Odd
         enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
@@ -840,7 +835,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::f> f{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::h> h{};
-        }
         }
     }
     namespace PortPmux03{    ///<Peripheral Multiplexing n - Group 0
@@ -867,7 +861,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::h> h{};
         }
-        }
         ///Peripheral Multiplexing Odd
         enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
@@ -889,7 +882,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::f> f{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::h> h{};
-        }
         }
     }
     namespace PortPmux04{    ///<Peripheral Multiplexing n - Group 0
@@ -916,7 +908,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::h> h{};
         }
-        }
         ///Peripheral Multiplexing Odd
         enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
@@ -938,7 +929,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::f> f{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::h> h{};
-        }
         }
     }
     namespace PortPmux05{    ///<Peripheral Multiplexing n - Group 0
@@ -965,7 +955,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::h> h{};
         }
-        }
         ///Peripheral Multiplexing Odd
         enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
@@ -987,7 +976,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::f> f{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::h> h{};
-        }
         }
     }
     namespace PortPmux06{    ///<Peripheral Multiplexing n - Group 0
@@ -1014,7 +1002,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::h> h{};
         }
-        }
         ///Peripheral Multiplexing Odd
         enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
@@ -1036,7 +1023,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::f> f{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::h> h{};
-        }
         }
     }
     namespace PortPmux07{    ///<Peripheral Multiplexing n - Group 0
@@ -1063,7 +1049,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::h> h{};
         }
-        }
         ///Peripheral Multiplexing Odd
         enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
@@ -1085,7 +1070,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::f> f{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::h> h{};
-        }
         }
     }
     namespace PortPmux08{    ///<Peripheral Multiplexing n - Group 0
@@ -1112,7 +1096,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::h> h{};
         }
-        }
         ///Peripheral Multiplexing Odd
         enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
@@ -1134,7 +1117,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::f> f{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::h> h{};
-        }
         }
     }
     namespace PortPmux09{    ///<Peripheral Multiplexing n - Group 0
@@ -1161,7 +1143,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::h> h{};
         }
-        }
         ///Peripheral Multiplexing Odd
         enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
@@ -1183,7 +1164,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::f> f{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::h> h{};
-        }
         }
     }
     namespace PortPmux010{    ///<Peripheral Multiplexing n - Group 0
@@ -1210,7 +1190,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::h> h{};
         }
-        }
         ///Peripheral Multiplexing Odd
         enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
@@ -1232,7 +1211,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::f> f{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::h> h{};
-        }
         }
     }
     namespace PortPmux011{    ///<Peripheral Multiplexing n - Group 0
@@ -1259,7 +1237,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::h> h{};
         }
-        }
         ///Peripheral Multiplexing Odd
         enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
@@ -1281,7 +1258,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::f> f{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::h> h{};
-        }
         }
     }
     namespace PortPmux012{    ///<Peripheral Multiplexing n - Group 0
@@ -1308,7 +1284,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::h> h{};
         }
-        }
         ///Peripheral Multiplexing Odd
         enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
@@ -1330,7 +1305,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::f> f{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::h> h{};
-        }
         }
     }
     namespace PortPmux013{    ///<Peripheral Multiplexing n - Group 0
@@ -1357,7 +1331,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::h> h{};
         }
-        }
         ///Peripheral Multiplexing Odd
         enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
@@ -1379,7 +1352,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::f> f{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::h> h{};
-        }
         }
     }
     namespace PortPmux014{    ///<Peripheral Multiplexing n - Group 0
@@ -1406,7 +1378,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::h> h{};
         }
-        }
         ///Peripheral Multiplexing Odd
         enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
@@ -1428,7 +1399,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::f> f{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::h> h{};
-        }
         }
     }
     namespace PortPmux015{    ///<Peripheral Multiplexing n - Group 0
@@ -1455,7 +1425,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxe)::Type,PmuxeVal::h> h{};
         }
-        }
         ///Peripheral Multiplexing Odd
         enum class PmuxoVal {
             a=0x00000000,     ///<Peripheral function A selected
@@ -1477,7 +1446,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::f> f{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::g> g{};
             constexpr Register::FieldValue<decltype(pmuxo)::Type,PmuxoVal::h> h{};
-        }
         }
     }
     namespace PortPmux10{    ///<Peripheral Multiplexing n - Group 1

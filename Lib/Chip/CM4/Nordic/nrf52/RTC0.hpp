@@ -46,7 +46,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tick)::Type,TickVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(tick)::Type,TickVal::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_OVRFLW event
         enum class OvrflwVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -58,7 +57,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ovrflw)::Type,OvrflwVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ovrflw)::Type,OvrflwVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ovrflw)::Type,OvrflwVal::set> set{};
-        }
         }
         ///Write '1' to Enable interrupt on EVENTS_COMPARE[0] event
         enum class Compare0Val {
@@ -72,7 +70,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare0)::Type,Compare0Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(compare0)::Type,Compare0Val::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_COMPARE[1] event
         enum class Compare1Val {
             disabled=0x00000000,     ///<Read: Disabled
@@ -84,7 +81,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare1)::Type,Compare1Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(compare1)::Type,Compare1Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(compare1)::Type,Compare1Val::set> set{};
-        }
         }
         ///Write '1' to Enable interrupt on EVENTS_COMPARE[2] event
         enum class Compare2Val {
@@ -98,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare2)::Type,Compare2Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(compare2)::Type,Compare2Val::set> set{};
         }
-        }
         ///Write '1' to Enable interrupt on EVENTS_COMPARE[3] event
         enum class Compare3Val {
             disabled=0x00000000,     ///<Read: Disabled
@@ -110,7 +105,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::set> set{};
-        }
         }
     }
     namespace Noneintenclr{    ///<Disable interrupt
@@ -127,7 +121,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tick)::Type,TickVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(tick)::Type,TickVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_OVRFLW event
         enum class OvrflwVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -139,7 +132,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ovrflw)::Type,OvrflwVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ovrflw)::Type,OvrflwVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ovrflw)::Type,OvrflwVal::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_COMPARE[0] event
         enum class Compare0Val {
@@ -153,7 +145,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare0)::Type,Compare0Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(compare0)::Type,Compare0Val::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_COMPARE[1] event
         enum class Compare1Val {
             disabled=0x00000000,     ///<Read: Disabled
@@ -165,7 +156,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare1)::Type,Compare1Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(compare1)::Type,Compare1Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(compare1)::Type,Compare1Val::clear> clear{};
-        }
         }
         ///Write '1' to Clear interrupt on EVENTS_COMPARE[2] event
         enum class Compare2Val {
@@ -179,7 +169,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare2)::Type,Compare2Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(compare2)::Type,Compare2Val::clear> clear{};
         }
-        }
         ///Write '1' to Clear interrupt on EVENTS_COMPARE[3] event
         enum class Compare3Val {
             disabled=0x00000000,     ///<Read: Disabled
@@ -191,7 +180,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::clear> clear{};
-        }
         }
     }
     namespace Noneevten{    ///<Enable or disable event routing
@@ -206,7 +194,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tick)::Type,TickVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(tick)::Type,TickVal::enabled> enabled{};
         }
-        }
         ///Enable or disable event routing on EVENTS_OVRFLW event
         enum class OvrflwVal {
             disabled=0x00000000,     ///<Disable
@@ -216,7 +203,6 @@ namespace Kvasir {
         namespace OvrflwValC{
             constexpr Register::FieldValue<decltype(ovrflw)::Type,OvrflwVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ovrflw)::Type,OvrflwVal::enabled> enabled{};
-        }
         }
         ///Enable or disable event routing on EVENTS_COMPARE[0] event
         enum class Compare0Val {
@@ -228,7 +214,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare0)::Type,Compare0Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(compare0)::Type,Compare0Val::enabled> enabled{};
         }
-        }
         ///Enable or disable event routing on EVENTS_COMPARE[1] event
         enum class Compare1Val {
             disabled=0x00000000,     ///<Disable
@@ -238,7 +223,6 @@ namespace Kvasir {
         namespace Compare1ValC{
             constexpr Register::FieldValue<decltype(compare1)::Type,Compare1Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(compare1)::Type,Compare1Val::enabled> enabled{};
-        }
         }
         ///Enable or disable event routing on EVENTS_COMPARE[2] event
         enum class Compare2Val {
@@ -250,7 +234,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare2)::Type,Compare2Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(compare2)::Type,Compare2Val::enabled> enabled{};
         }
-        }
         ///Enable or disable event routing on EVENTS_COMPARE[3] event
         enum class Compare3Val {
             disabled=0x00000000,     ///<Disable
@@ -260,7 +243,6 @@ namespace Kvasir {
         namespace Compare3ValC{
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::enabled> enabled{};
-        }
         }
     }
     namespace Noneevtenset{    ///<Enable event routing
@@ -277,7 +259,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tick)::Type,TickVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(tick)::Type,TickVal::set> set{};
         }
-        }
         ///Write '1' to Enable event routing on EVENTS_OVRFLW event
         enum class OvrflwVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -289,7 +270,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ovrflw)::Type,OvrflwVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ovrflw)::Type,OvrflwVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ovrflw)::Type,OvrflwVal::set> set{};
-        }
         }
         ///Write '1' to Enable event routing on EVENTS_COMPARE[0] event
         enum class Compare0Val {
@@ -303,7 +283,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare0)::Type,Compare0Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(compare0)::Type,Compare0Val::set> set{};
         }
-        }
         ///Write '1' to Enable event routing on EVENTS_COMPARE[1] event
         enum class Compare1Val {
             disabled=0x00000000,     ///<Read: Disabled
@@ -315,7 +294,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare1)::Type,Compare1Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(compare1)::Type,Compare1Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(compare1)::Type,Compare1Val::set> set{};
-        }
         }
         ///Write '1' to Enable event routing on EVENTS_COMPARE[2] event
         enum class Compare2Val {
@@ -329,7 +307,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare2)::Type,Compare2Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(compare2)::Type,Compare2Val::set> set{};
         }
-        }
         ///Write '1' to Enable event routing on EVENTS_COMPARE[3] event
         enum class Compare3Val {
             disabled=0x00000000,     ///<Read: Disabled
@@ -341,7 +318,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::set> set{};
-        }
         }
     }
     namespace Noneevtenclr{    ///<Disable event routing
@@ -358,7 +334,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tick)::Type,TickVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(tick)::Type,TickVal::clear> clear{};
         }
-        }
         ///Write '1' to Clear event routing on EVENTS_OVRFLW event
         enum class OvrflwVal {
             disabled=0x00000000,     ///<Read: Disabled
@@ -370,7 +345,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ovrflw)::Type,OvrflwVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ovrflw)::Type,OvrflwVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ovrflw)::Type,OvrflwVal::clear> clear{};
-        }
         }
         ///Write '1' to Clear event routing on EVENTS_COMPARE[0] event
         enum class Compare0Val {
@@ -384,7 +358,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare0)::Type,Compare0Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(compare0)::Type,Compare0Val::clear> clear{};
         }
-        }
         ///Write '1' to Clear event routing on EVENTS_COMPARE[1] event
         enum class Compare1Val {
             disabled=0x00000000,     ///<Read: Disabled
@@ -396,7 +369,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare1)::Type,Compare1Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(compare1)::Type,Compare1Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(compare1)::Type,Compare1Val::clear> clear{};
-        }
         }
         ///Write '1' to Clear event routing on EVENTS_COMPARE[2] event
         enum class Compare2Val {
@@ -410,7 +382,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare2)::Type,Compare2Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(compare2)::Type,Compare2Val::clear> clear{};
         }
-        }
         ///Write '1' to Clear event routing on EVENTS_COMPARE[3] event
         enum class Compare3Val {
             disabled=0x00000000,     ///<Read: Disabled
@@ -422,7 +393,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::disabled> disabled{};
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::enabled> enabled{};
             constexpr Register::FieldValue<decltype(compare3)::Type,Compare3Val::clear> clear{};
-        }
         }
     }
     namespace Nonecounter{    ///<Current COUNTER value

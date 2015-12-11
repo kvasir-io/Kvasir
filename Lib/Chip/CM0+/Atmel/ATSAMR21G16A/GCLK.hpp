@@ -28,7 +28,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gen)::Type,GenVal::gclk6> gclk6{};
             constexpr Register::FieldValue<decltype(gen)::Type,GenVal::gclk7> gclk7{};
         }
-        }
         ///Clock Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> clken{}; 
         ///Write Lock
@@ -64,7 +63,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(src)::Type,SrcVal::xosc32k> xosc32k{};
             constexpr Register::FieldValue<decltype(src)::Type,SrcVal::osc8m> osc8m{};
             constexpr Register::FieldValue<decltype(src)::Type,SrcVal::dfll48m> dfll48m{};
-        }
         }
         ///Generic Clock Generator Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> genen{}; 

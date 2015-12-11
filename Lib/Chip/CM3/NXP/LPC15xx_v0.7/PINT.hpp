@@ -205,7 +205,6 @@ and pattern match (PINT)
             constexpr Register::FieldValue<decltype(selPmatch)::Type,SelpmatchVal::pinInterruptInter> pinInterruptInter{};
             constexpr Register::FieldValue<decltype(selPmatch)::Type,SelpmatchVal::patternMatchInter> patternMatchInter{};
         }
-        }
         ///Enables the RXEV output to the ARM cpu and/or to a GPIO output when the specified boolean expression evaluates to true.
         enum class EnarxevVal {
             disabledRxevOutpu=0x00000000,     ///<Disabled. RXEV output to the cpu is disabled.
@@ -215,7 +214,6 @@ and pattern match (PINT)
         namespace EnarxevValC{
             constexpr Register::FieldValue<decltype(enaRxev)::Type,EnarxevVal::disabledRxevOutpu> disabledRxevOutpu{};
             constexpr Register::FieldValue<decltype(enaRxev)::Type,EnarxevVal::enabledRxevOutput> enabledRxevOutput{};
-        }
         }
         ///This field displays the current state of pattern matches. A 1 in any bit of this field indicates that the corresponding product term is matched by the current state of the appropriate inputs.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pmat{}; 
@@ -244,7 +242,6 @@ and pattern match (PINT)
             constexpr Register::FieldValue<decltype(src0)::Type,Src0Val::input6SelectsPin> input6SelectsPin{};
             constexpr Register::FieldValue<decltype(src0)::Type,Src0Val::input7SelectsPin> input7SelectsPin{};
         }
-        }
         ///Selects the input source for bit slice 1
         enum class Src1Val {
             input0SelectsPin=0x00000000,     ///<Input 0. Selects pin interrupt input 0 as the source to bit slice 1.
@@ -266,7 +263,6 @@ and pattern match (PINT)
             constexpr Register::FieldValue<decltype(src1)::Type,Src1Val::input5SelectsPin> input5SelectsPin{};
             constexpr Register::FieldValue<decltype(src1)::Type,Src1Val::input6SelectsPin> input6SelectsPin{};
             constexpr Register::FieldValue<decltype(src1)::Type,Src1Val::input7SelectsPin> input7SelectsPin{};
-        }
         }
         ///Selects the input source for bit slice 2
         enum class Src2Val {
@@ -290,7 +286,6 @@ and pattern match (PINT)
             constexpr Register::FieldValue<decltype(src2)::Type,Src2Val::input6SelectsPin> input6SelectsPin{};
             constexpr Register::FieldValue<decltype(src2)::Type,Src2Val::input7SelectsPin> input7SelectsPin{};
         }
-        }
         ///Selects the input source for bit slice 3
         enum class Src3Val {
             input0SelectsPin=0x00000000,     ///<Input 0. Selects pin interrupt input 0 as the source to bit slice 3.
@@ -312,7 +307,6 @@ and pattern match (PINT)
             constexpr Register::FieldValue<decltype(src3)::Type,Src3Val::input5SelectsPin> input5SelectsPin{};
             constexpr Register::FieldValue<decltype(src3)::Type,Src3Val::input6SelectsPin> input6SelectsPin{};
             constexpr Register::FieldValue<decltype(src3)::Type,Src3Val::input7SelectsPin> input7SelectsPin{};
-        }
         }
         ///Selects the input source for bit slice 4
         enum class Src4Val {
@@ -336,7 +330,6 @@ and pattern match (PINT)
             constexpr Register::FieldValue<decltype(src4)::Type,Src4Val::input6SelectsPin> input6SelectsPin{};
             constexpr Register::FieldValue<decltype(src4)::Type,Src4Val::input7SelectsPin> input7SelectsPin{};
         }
-        }
         ///Selects the input source for bit slice 5
         enum class Src5Val {
             input0SelectsPin=0x00000000,     ///<Input 0. Selects pin interrupt input 0 as the source to bit slice 5.
@@ -358,7 +351,6 @@ and pattern match (PINT)
             constexpr Register::FieldValue<decltype(src5)::Type,Src5Val::input5SelectsPin> input5SelectsPin{};
             constexpr Register::FieldValue<decltype(src5)::Type,Src5Val::input6SelectsPin> input6SelectsPin{};
             constexpr Register::FieldValue<decltype(src5)::Type,Src5Val::input7SelectsPin> input7SelectsPin{};
-        }
         }
         ///Selects the input source for bit slice 6
         enum class Src6Val {
@@ -382,7 +374,6 @@ and pattern match (PINT)
             constexpr Register::FieldValue<decltype(src6)::Type,Src6Val::input6SelectsPin> input6SelectsPin{};
             constexpr Register::FieldValue<decltype(src6)::Type,Src6Val::input7SelectsPin> input7SelectsPin{};
         }
-        }
         ///Selects the input source for bit slice 7
         enum class Src7Val {
             input0SelectsPin=0x00000000,     ///<Input 0. Selects pin interrupt input 0 as the source to bit slice 7.
@@ -404,7 +395,6 @@ and pattern match (PINT)
             constexpr Register::FieldValue<decltype(src7)::Type,Src7Val::input5SelectsPin> input5SelectsPin{};
             constexpr Register::FieldValue<decltype(src7)::Type,Src7Val::input6SelectsPin> input6SelectsPin{};
             constexpr Register::FieldValue<decltype(src7)::Type,Src7Val::input7SelectsPin> input7SelectsPin{};
-        }
         }
     }
     namespace Nonepmcfg{    ///<Pattern match interrupt bit slice configuration register
@@ -433,7 +423,6 @@ and pattern match (PINT)
             constexpr Register::FieldValue<decltype(cfg0)::Type,Cfg0Val::constant0ThisBit> constant0ThisBit{};
             constexpr Register::FieldValue<decltype(cfg0)::Type,Cfg0Val::eventNonStickyRi> eventNonStickyRi{};
         }
-        }
         ///Specifies the match contribution condition for bit slice 1.
         enum class Cfg1Val {
             constantHighThis=0x00000000,     ///<Constant HIGH. This bit slice always contributes to a product term match.
@@ -455,7 +444,6 @@ and pattern match (PINT)
             constexpr Register::FieldValue<decltype(cfg1)::Type,Cfg1Val::lowLevelMatchOcc> lowLevelMatchOcc{};
             constexpr Register::FieldValue<decltype(cfg1)::Type,Cfg1Val::constant0ThisBit> constant0ThisBit{};
             constexpr Register::FieldValue<decltype(cfg1)::Type,Cfg1Val::eventNonStickyRi> eventNonStickyRi{};
-        }
         }
         ///Specifies the match contribution condition for bit slice 2.
         enum class Cfg2Val {
@@ -479,7 +467,6 @@ and pattern match (PINT)
             constexpr Register::FieldValue<decltype(cfg2)::Type,Cfg2Val::constant0ThisBit> constant0ThisBit{};
             constexpr Register::FieldValue<decltype(cfg2)::Type,Cfg2Val::eventNonStickyRi> eventNonStickyRi{};
         }
-        }
         ///Specifies the match contribution condition for bit slice 3.
         enum class Cfg3Val {
             constantHighThis=0x00000000,     ///<Constant HIGH. This bit slice always contributes to a product term match.
@@ -501,7 +488,6 @@ and pattern match (PINT)
             constexpr Register::FieldValue<decltype(cfg3)::Type,Cfg3Val::lowLevelMatchOcc> lowLevelMatchOcc{};
             constexpr Register::FieldValue<decltype(cfg3)::Type,Cfg3Val::constant0ThisBit> constant0ThisBit{};
             constexpr Register::FieldValue<decltype(cfg3)::Type,Cfg3Val::eventNonStickyRi> eventNonStickyRi{};
-        }
         }
         ///Specifies the match contribution condition for bit slice 4.
         enum class Cfg4Val {
@@ -525,7 +511,6 @@ and pattern match (PINT)
             constexpr Register::FieldValue<decltype(cfg4)::Type,Cfg4Val::constant0ThisBit> constant0ThisBit{};
             constexpr Register::FieldValue<decltype(cfg4)::Type,Cfg4Val::eventNonStickyRi> eventNonStickyRi{};
         }
-        }
         ///Specifies the match contribution condition for bit slice 5.
         enum class Cfg5Val {
             constantHighThis=0x00000000,     ///<Constant HIGH. This bit slice always contributes to a product term match.
@@ -547,7 +532,6 @@ and pattern match (PINT)
             constexpr Register::FieldValue<decltype(cfg5)::Type,Cfg5Val::lowLevelMatchOcc> lowLevelMatchOcc{};
             constexpr Register::FieldValue<decltype(cfg5)::Type,Cfg5Val::constant0ThisBit> constant0ThisBit{};
             constexpr Register::FieldValue<decltype(cfg5)::Type,Cfg5Val::eventNonStickyRi> eventNonStickyRi{};
-        }
         }
         ///Specifies the match contribution condition for bit slice 6.
         enum class Cfg6Val {
@@ -571,7 +555,6 @@ and pattern match (PINT)
             constexpr Register::FieldValue<decltype(cfg6)::Type,Cfg6Val::constant0ThisBit> constant0ThisBit{};
             constexpr Register::FieldValue<decltype(cfg6)::Type,Cfg6Val::eventNonStickyRi> eventNonStickyRi{};
         }
-        }
         ///Specifies the match contribution condition for bit slice 7.
         enum class Cfg7Val {
             constantHighThis=0x00000000,     ///<Constant HIGH. This bit slice always contributes to a product term match.
@@ -593,7 +576,6 @@ and pattern match (PINT)
             constexpr Register::FieldValue<decltype(cfg7)::Type,Cfg7Val::lowLevelMatchOcc> lowLevelMatchOcc{};
             constexpr Register::FieldValue<decltype(cfg7)::Type,Cfg7Val::constant0ThisBit> constant0ThisBit{};
             constexpr Register::FieldValue<decltype(cfg7)::Type,Cfg7Val::eventNonStickyRi> eventNonStickyRi{};
-        }
         }
     }
 }

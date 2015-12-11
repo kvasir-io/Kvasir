@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busyf)::Type,BusyfVal::idle> idle{};
             constexpr Register::FieldValue<decltype(busyf)::Type,BusyfVal::busy> busy{};
         }
-        }
         ///Module Enable. 
         enum class CsenVal {
             disabled=0x00000000,     ///<Disable the capacitive sensing module.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace CsenValC{
             constexpr Register::FieldValue<decltype(csen)::Type,CsenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(csen)::Type,CsenVal::enabled> enabled{};
-        }
         }
         ///Bias Enable. 
         enum class BiasenVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(biasen)::Type,BiasenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(biasen)::Type,BiasenVal::enabled> enabled{};
         }
-        }
         ///Digital Comparator Polarity Select. 
         enum class CmppolVal {
             gt=0x00000000,     ///<The digital comparator generates an interrupt if the conversion is greater than the CSTH threshold.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace CmppolValC{
             constexpr Register::FieldValue<decltype(cmppol)::Type,CmppolVal::gt> gt{};
             constexpr Register::FieldValue<decltype(cmppol)::Type,CmppolVal::lte> lte{};
-        }
         }
         ///Conversion Mode Select. 
         enum class CmdVal {
@@ -62,7 +58,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmd)::Type,CmdVal::contSingle> contSingle{};
             constexpr Register::FieldValue<decltype(cmd)::Type,CmdVal::contScan> contScan{};
         }
-        }
         ///Conversion Rate. 
         enum class CnvrVal {
             v12bit=0x00000000,     ///<Conversions last 12 internal CAPSENSE clocks and results are 12 bits in length.
@@ -76,7 +71,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cnvr)::Type,CnvrVal::v13bit> v13bit{};
             constexpr Register::FieldValue<decltype(cnvr)::Type,CnvrVal::v14bit> v14bit{};
             constexpr Register::FieldValue<decltype(cnvr)::Type,CnvrVal::v16bit> v16bit{};
-        }
         }
         ///Accumulator Mode Select. 
         enum class AccmdVal {
@@ -96,7 +90,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(accmd)::Type,AccmdVal::acc32> acc32{};
             constexpr Register::FieldValue<decltype(accmd)::Type,AccmdVal::acc64> acc64{};
         }
-        }
         ///Multiple Channel Enable. 
         enum class McenVal {
             disabled=0x00000000,     ///<Disable the multiple channel measurement feature.
@@ -106,7 +99,6 @@ namespace Kvasir {
         namespace McenValC{
             constexpr Register::FieldValue<decltype(mcen)::Type,McenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(mcen)::Type,McenVal::enabled> enabled{};
-        }
         }
         ///Start of Conversion Mode Select. 
         enum class CscmVal {
@@ -146,7 +138,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cscm)::Type,CscmVal::csnt14> csnt14{};
             constexpr Register::FieldValue<decltype(cscm)::Type,CscmVal::csnt15> csnt15{};
         }
-        }
         ///Pin Monitor Mode. 
         enum class PmmdVal {
             alwaysRetry=0x00000000,     ///<Always retry on a pin state change.
@@ -161,7 +152,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmmd)::Type,PmmdVal::retryFourTimes> retryFourTimes{};
             constexpr Register::FieldValue<decltype(pmmd)::Type,PmmdVal::doNotRetry> doNotRetry{};
         }
-        }
         ///Pin Monitor Event Flag. 
         enum class PmefVal {
             notSet=0x00000000,     ///<A retry did not occur due to a pin monitor event during the last conversion.
@@ -171,7 +161,6 @@ namespace Kvasir {
         namespace PmefValC{
             constexpr Register::FieldValue<decltype(pmef)::Type,PmefVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(pmef)::Type,PmefVal::set> set{};
-        }
         }
         ///Threshold Comparator Enable. 
         enum class CmpenVal {
@@ -183,7 +172,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmpen)::Type,CmpenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmpen)::Type,CmpenVal::enabled> enabled{};
         }
-        }
         ///Conversion Done Interrupt Enable. 
         enum class CdienVal {
             disabled=0x00000000,     ///<Disable the single conversion done interrupt.
@@ -193,7 +181,6 @@ namespace Kvasir {
         namespace CdienValC{
             constexpr Register::FieldValue<decltype(cdien)::Type,CdienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cdien)::Type,CdienVal::enabled> enabled{};
-        }
         }
         ///End-of-Scan Interrupt Enable. 
         enum class EosienVal {
@@ -205,7 +192,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eosien)::Type,EosienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(eosien)::Type,EosienVal::enabled> enabled{};
         }
-        }
         ///Threshold Comparator Interrupt Flag. 
         enum class CmpiVal {
             notSet=0x00000000,     ///<The capacitive sensing result did not cause a compare threshold interrupt.
@@ -215,7 +201,6 @@ namespace Kvasir {
         namespace CmpiValC{
             constexpr Register::FieldValue<decltype(cmpi)::Type,CmpiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(cmpi)::Type,CmpiVal::set> set{};
-        }
         }
         ///Conversion Done Interrupt Flag. 
         enum class CdiVal {
@@ -227,7 +212,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cdi)::Type,CdiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(cdi)::Type,CdiVal::set> set{};
         }
-        }
         ///End-of-Scan Interrupt Flag. 
         enum class EosiVal {
             notSet=0x00000000,     ///<The CAPSENSEn module has not completed a scan since the last time EOSI was cleared.
@@ -237,7 +221,6 @@ namespace Kvasir {
         namespace EosiValC{
             constexpr Register::FieldValue<decltype(eosi)::Type,EosiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(eosi)::Type,EosiVal::set> set{};
-        }
         }
     }
     namespace Nonemode{    ///<Measurement Mode
@@ -310,7 +293,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(csmx)::Type,CsmxVal::csn14> csn14{};
             constexpr Register::FieldValue<decltype(csmx)::Type,CsmxVal::csn15> csn15{};
         }
-        }
         ///Channel Disconnect. 
         enum class CsdiscVal {
             connect=0x00000000,     ///<Connect the capacitive sensing circuit to the selected channel.
@@ -320,7 +302,6 @@ namespace Kvasir {
         namespace CsdiscValC{
             constexpr Register::FieldValue<decltype(csdisc)::Type,CsdiscVal::connect> connect{};
             constexpr Register::FieldValue<decltype(csdisc)::Type,CsdiscVal::disconnect> disconnect{};
-        }
         }
     }
 }

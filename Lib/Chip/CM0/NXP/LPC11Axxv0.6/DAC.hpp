@@ -16,7 +16,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bias)::Type,BiasVal::fast> fast{};
             constexpr Register::FieldValue<decltype(bias)::Type,BiasVal::slow> slow{};
         }
-        }
         ///The value written to this field determines whether conversion begins immediately after this register is written, or whether conversion is delayed until a selected event occurs.
         enum class TrigVal {
             immediate=0x00000000,     ///<Conversion begins when this register is written, and AOUT begins to change to the new voltage immediately. For all other values in this field, AOUT remains at its previous voltage until the selected event has occurred.
@@ -39,7 +38,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::ct16b1Mat0edge> ct16b1Mat0edge{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::ct16b1Mat1edge> ct16b1Mat1edge{};
         }
-        }
         ///For non-zero values of TRIG, this field selects when the conversion is triggered:
         enum class EdgeselVal {
             falling=0x00000000,     ///<Falling edges
@@ -53,7 +51,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edgesel)::Type,EdgeselVal::risings> risings{};
             constexpr Register::FieldValue<decltype(edgesel)::Type,EdgeselVal::dualedge> dualedge{};
             constexpr Register::FieldValue<decltype(edgesel)::Type,EdgeselVal::dualedge> dualedge{};
-        }
         }
         ///If the TRIG field (above) is non-zero, this bit is set when a conversion is triggered, and is cleared by any write to this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> trigerd{}; 

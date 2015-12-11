@@ -19,7 +19,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::set> set{};
         }
-        }
     }
     namespace Noneintenclr{    ///<Interrupt enable clear register.
         using Addr = Register::Address<0x40003308,0xfffffffb,0,unsigned>;
@@ -34,7 +33,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::clear> clear{};
-        }
         }
     }
     namespace Noneenable{    ///<Enable SPI.
@@ -83,7 +81,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frequency)::Type,FrequencyVal::m4> m4{};
             constexpr Register::FieldValue<decltype(frequency)::Type,FrequencyVal::m8> m8{};
         }
-        }
     }
     namespace Noneconfig{    ///<Configuration register.
         using Addr = Register::Address<0x40003554,0xfffffff8,0,unsigned>;
@@ -97,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(order)::Type,OrderVal::msbfirst> msbfirst{};
             constexpr Register::FieldValue<decltype(order)::Type,OrderVal::lsbfirst> lsbfirst{};
         }
-        }
         ///Serial clock (SCK) phase.
         enum class CphaVal {
             leading=0x00000000,     ///<Sample on leading edge of the clock. Shift serial data on trailing edge.
@@ -108,7 +104,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::leading> leading{};
             constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::trailing> trailing{};
         }
-        }
         ///Serial clock (SCK) polarity.
         enum class CpolVal {
             activehigh=0x00000000,     ///<Active high.
@@ -118,7 +113,6 @@ namespace Kvasir {
         namespace CpolValC{
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::activehigh> activehigh{};
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::activelow> activelow{};
-        }
         }
     }
     namespace Nonepower{    ///<Peripheral power control.
@@ -132,7 +126,6 @@ namespace Kvasir {
         namespace PowerValC{
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::enabled> enabled{};
-        }
         }
     }
 }

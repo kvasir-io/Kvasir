@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(siniten)::Type,SinitenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(siniten)::Type,SinitenVal::enabled> enabled{};
         }
-        }
         ///Seed Setting. 
         enum class SeedVal {
             allZeroes=0x00000000,     ///<CRC seed value is all 0's (0x00000000)
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace SeedValC{
             constexpr Register::FieldValue<decltype(seed)::Type,SeedVal::allZeroes> allZeroes{};
             constexpr Register::FieldValue<decltype(seed)::Type,SeedVal::allOnes> allOnes{};
-        }
         }
         ///CRC Enable. 
         enum class CrcenVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(crcen)::Type,CrcenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(crcen)::Type,CrcenVal::enabled> enabled{};
         }
-        }
         ///Polynomial Selection. 
         enum class PolyselVal {
             crc32Fixed=0x00000000,     ///<Select the fixed 32-bit polynomial: 0x04C11DB7.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace PolyselValC{
             constexpr Register::FieldValue<decltype(polysel)::Type,PolyselVal::crc32Fixed> crc32Fixed{};
             constexpr Register::FieldValue<decltype(polysel)::Type,PolyselVal::crc16Prog> crc16Prog{};
-        }
         }
         ///Byte Mode Enable. 
         enum class BmdenVal {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bmden)::Type,BmdenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(bmden)::Type,BmdenVal::enabled> enabled{};
         }
-        }
         ///Byte-Level Bit Reversal Enable. 
         enum class BbrenVal {
             disabled=0x00000000,     ///<No byte-level bit reversal (input is same order as written).
@@ -68,7 +63,6 @@ namespace Kvasir {
         namespace BbrenValC{
             constexpr Register::FieldValue<decltype(bbren)::Type,BbrenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(bbren)::Type,BbrenVal::enabled> enabled{};
-        }
         }
         ///Input Processing Order. 
         enum class OrderVal {
@@ -82,7 +76,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(order)::Type,OrderVal::bigEndian16> bigEndian16{};
             constexpr Register::FieldValue<decltype(order)::Type,OrderVal::bigEndian32> bigEndian32{};
         }
-        }
         ///Automatic Seed Enable. 
         enum class AseedenVal {
             disabled=0x00000000,     ///<Disable automatic seeding.
@@ -93,7 +86,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aseeden)::Type,AseedenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(aseeden)::Type,AseedenVal::enabled> enabled{};
         }
-        }
         ///Automatic Seed Byte Select. 
         enum class AseedselVal {
             lsbRead=0x00000000,     ///<Select a read of the least-significant byte (DATA[7:0]) for automatic re-seeding.
@@ -103,7 +95,6 @@ namespace Kvasir {
         namespace AseedselValC{
             constexpr Register::FieldValue<decltype(aseedsel)::Type,AseedselVal::lsbRead> lsbRead{};
             constexpr Register::FieldValue<decltype(aseedsel)::Type,AseedselVal::msbRead> msbRead{};
-        }
         }
     }
     namespace Nonepoly{    ///<16-bit Programmable Polynomial
@@ -138,7 +129,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sen)::Type,SenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(sen)::Type,SenVal::enabled> enabled{};
         }
-        }
         ///Snooping Direction Select. 
         enum class SdirselVal {
             writes=0x00000000,     ///<ECRC will snoop writes to the selected peripheral.
@@ -148,7 +138,6 @@ namespace Kvasir {
         namespace SdirselValC{
             constexpr Register::FieldValue<decltype(sdirsel)::Type,SdirselVal::writes> writes{};
             constexpr Register::FieldValue<decltype(sdirsel)::Type,SdirselVal::reads> reads{};
-        }
         }
         ///Snooping Peripheral Select. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> sperisel{}; 

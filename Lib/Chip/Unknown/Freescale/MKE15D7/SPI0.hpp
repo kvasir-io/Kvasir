@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lsbfe)::Type,LsbfeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lsbfe)::Type,LsbfeVal::v1> v1{};
         }
-        }
         ///Slave select output enable
         enum class SsoeVal {
             v0=0x00000000,     ///<When MODFEN is 0: In master mode, SS pin function is general-purpose I/O (not SPI). In slave mode, SS pin function is slave select input. When MODFEN is 1: In master mode, SS pin function is SS input for mode fault. In slave mode, SS pin function is slave select input.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace SsoeValC{
             constexpr Register::FieldValue<decltype(ssoe)::Type,SsoeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ssoe)::Type,SsoeVal::v1> v1{};
-        }
         }
         ///Clock phase
         enum class CphaVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::v1> v1{};
         }
-        }
         ///Clock polarity
         enum class CpolVal {
             v0=0x00000000,     ///<Active-high SPI clock (idles low)
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace CpolValC{
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::v1> v1{};
-        }
         }
         ///Master/slave mode select
         enum class MstrVal {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mstr)::Type,MstrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(mstr)::Type,MstrVal::v1> v1{};
         }
-        }
         ///SPI transmit interrupt enable
         enum class SptieVal {
             v0=0x00000000,     ///<Interrupts from SPTEF inhibited (use polling)
@@ -68,7 +63,6 @@ namespace Kvasir {
         namespace SptieValC{
             constexpr Register::FieldValue<decltype(sptie)::Type,SptieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sptie)::Type,SptieVal::v1> v1{};
-        }
         }
         ///SPI system enable
         enum class SpeVal {
@@ -80,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(spe)::Type,SpeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(spe)::Type,SpeVal::v1> v1{};
         }
-        }
         ///SPI interrupt enable: for SPRF and MODF (when FIFO is not supported or not enabled) or for read FIFO (when FIFO is supported and enabled)
         enum class SpieVal {
             v0=0x00000000,     ///<Interrupts from SPRF and MODF are inhibited-use polling (when FIFOMODE is not present or is 0) or Read FIFO Full Interrupts are disabled (when FIFOMODE is 1)
@@ -90,7 +83,6 @@ namespace Kvasir {
         namespace SpieValC{
             constexpr Register::FieldValue<decltype(spie)::Type,SpieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(spie)::Type,SpieVal::v1> v1{};
-        }
         }
     }
     namespace Spi0C2{    ///<SPI control register 2
@@ -105,7 +97,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(spc0)::Type,Spc0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(spc0)::Type,Spc0Val::v1> v1{};
         }
-        }
         ///SPI stop in wait mode
         enum class SpiswaiVal {
             v0=0x00000000,     ///<SPI clocks continue to operate in wait mode
@@ -115,7 +106,6 @@ namespace Kvasir {
         namespace SpiswaiValC{
             constexpr Register::FieldValue<decltype(spiswai)::Type,SpiswaiVal::v0> v0{};
             constexpr Register::FieldValue<decltype(spiswai)::Type,SpiswaiVal::v1> v1{};
-        }
         }
         ///Receive DMA enable
         enum class RxdmaeVal {
@@ -127,7 +117,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxdmae)::Type,RxdmaeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxdmae)::Type,RxdmaeVal::v1> v1{};
         }
-        }
         ///Bidirectional mode output enable
         enum class BidiroeVal {
             v0=0x00000000,     ///<Output driver disabled so SPI data I/O pin acts as an input
@@ -137,7 +126,6 @@ namespace Kvasir {
         namespace BidiroeValC{
             constexpr Register::FieldValue<decltype(bidiroe)::Type,BidiroeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bidiroe)::Type,BidiroeVal::v1> v1{};
-        }
         }
         ///Master mode-fault function enable
         enum class ModfenVal {
@@ -149,7 +137,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(modfen)::Type,ModfenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(modfen)::Type,ModfenVal::v1> v1{};
         }
-        }
         ///Transmit DMA enable
         enum class TxdmaeVal {
             v0=0x00000000,     ///<DMA request for transmit is disabled and interrupt from SPTEF is allowed
@@ -159,7 +146,6 @@ namespace Kvasir {
         namespace TxdmaeValC{
             constexpr Register::FieldValue<decltype(txdmae)::Type,TxdmaeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txdmae)::Type,TxdmaeVal::v1> v1{};
-        }
         }
         ///SPI 8-bit or 16-bit mode
         enum class SpimodeVal {
@@ -171,7 +157,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(spimode)::Type,SpimodeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(spimode)::Type,SpimodeVal::v1> v1{};
         }
-        }
         ///SPI match interrupt enable
         enum class SpmieVal {
             v0=0x00000000,     ///<Interrupts from SPMF inhibited (use polling)
@@ -181,7 +166,6 @@ namespace Kvasir {
         namespace SpmieValC{
             constexpr Register::FieldValue<decltype(spmie)::Type,SpmieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(spmie)::Type,SpmieVal::v1> v1{};
-        }
         }
     }
     namespace Spi0Br{    ///<SPI baud rate register
@@ -210,7 +194,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(spr)::Type,SprVal::v0111> v0111{};
             constexpr Register::FieldValue<decltype(spr)::Type,SprVal::v1000> v1000{};
         }
-        }
         ///SPI baud rate prescale divisor
         enum class SpprVal {
             v000=0x00000000,     ///<Baud rate prescaler divisor is 1
@@ -233,7 +216,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sppr)::Type,SpprVal::v110> v110{};
             constexpr Register::FieldValue<decltype(sppr)::Type,SpprVal::v111> v111{};
         }
-        }
     }
     namespace Spi0S{    ///<SPI status register
         using Addr = Register::Address<0x4004e003,0xffffff00,0,unsigned char>;
@@ -247,7 +229,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rfifoef)::Type,RfifoefVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rfifoef)::Type,RfifoefVal::v1> v1{};
         }
-        }
         ///Transmit FIFO full flag
         enum class TxfullfVal {
             v0=0x00000000,     ///<Transmit FIFO has less than 8 bytes
@@ -257,7 +238,6 @@ namespace Kvasir {
         namespace TxfullfValC{
             constexpr Register::FieldValue<decltype(txfullf)::Type,TxfullfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txfullf)::Type,TxfullfVal::v1> v1{};
-        }
         }
         ///Transmit FIFO nearly empty flag
         enum class TnearefVal {
@@ -269,7 +249,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tnearef)::Type,TnearefVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tnearef)::Type,TnearefVal::v1> v1{};
         }
-        }
         ///Receive FIFO nearly full flag
         enum class RnfullfVal {
             v0=0x00000000,     ///<Receive FIFO has received less than 48 bits (when C3[4] is 0) or less than 32 bits (when C3[4] is 1)
@@ -279,7 +258,6 @@ namespace Kvasir {
         namespace RnfullfValC{
             constexpr Register::FieldValue<decltype(rnfullf)::Type,RnfullfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rnfullf)::Type,RnfullfVal::v1> v1{};
-        }
         }
         ///Master mode fault flag
         enum class ModfVal {
@@ -291,7 +269,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(modf)::Type,ModfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(modf)::Type,ModfVal::v1> v1{};
         }
-        }
         ///SPI transmit buffer empty flag (when FIFO is not supported or not enabled) or SPI transmit FIFO empty flag (when FIFO is supported and enabled)
         enum class SptefVal {
             v0=0x00000000,     ///<SPI transmit buffer not empty (when FIFOMODE is not present or is 0) or SPI FIFO not empty (when FIFOMODE is 1)
@@ -301,7 +278,6 @@ namespace Kvasir {
         namespace SptefValC{
             constexpr Register::FieldValue<decltype(sptef)::Type,SptefVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sptef)::Type,SptefVal::v1> v1{};
-        }
         }
         ///SPI match flag
         enum class SpmfVal {
@@ -313,7 +289,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(spmf)::Type,SpmfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(spmf)::Type,SpmfVal::v1> v1{};
         }
-        }
         ///SPI read buffer full flag (when FIFO is not supported or not enabled) or SPI read FIFO FULL flag (when FIFO is supported and enabled)
         enum class SprfVal {
             v0=0x00000000,     ///<No data available in the receive data buffer (when FIFOMODE is not present or is 0) or Read FIFO is not full (when FIFOMODE is 1)
@@ -323,7 +298,6 @@ namespace Kvasir {
         namespace SprfValC{
             constexpr Register::FieldValue<decltype(sprf)::Type,SprfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sprf)::Type,SprfVal::v1> v1{};
-        }
         }
     }
     namespace Spi0Dh{    ///<SPI data register high
@@ -358,7 +332,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fifomode)::Type,FifomodeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fifomode)::Type,FifomodeVal::v1> v1{};
         }
-        }
         ///Receive FIFO nearly full interrupt enable
         enum class RnfullienVal {
             v0=0x00000000,     ///<No interrupt upon RNFULLF being set
@@ -368,7 +341,6 @@ namespace Kvasir {
         namespace RnfullienValC{
             constexpr Register::FieldValue<decltype(rnfullien)::Type,RnfullienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rnfullien)::Type,RnfullienVal::v1> v1{};
-        }
         }
         ///Transmit FIFO nearly empty interrupt enable
         enum class TnearienVal {
@@ -380,7 +352,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tnearien)::Type,TnearienVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tnearien)::Type,TnearienVal::v1> v1{};
         }
-        }
         ///Interrupt clearing mechanism select
         enum class IntclrVal {
             v0=0x00000000,     ///<These interrupts are cleared when the corresponding flags are cleared depending on the state of the FIFOs
@@ -390,7 +361,6 @@ namespace Kvasir {
         namespace IntclrValC{
             constexpr Register::FieldValue<decltype(intclr)::Type,IntclrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intclr)::Type,IntclrVal::v1> v1{};
-        }
         }
         ///Receive FIFO nearly full watermark
         enum class RnfullfmarkVal {
@@ -402,7 +372,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rnfullfMark)::Type,RnfullfmarkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rnfullfMark)::Type,RnfullfmarkVal::v1> v1{};
         }
-        }
         ///Transmit FIFO nearly empty watermark
         enum class TnearefmarkVal {
             v0=0x00000000,     ///<TNEAREF is set when the transmit FIFO has 16 bits or less
@@ -412,7 +381,6 @@ namespace Kvasir {
         namespace TnearefmarkValC{
             constexpr Register::FieldValue<decltype(tnearefMark)::Type,TnearefmarkVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tnearefMark)::Type,TnearefmarkVal::v1> v1{};
-        }
         }
     }
     namespace Spi0Ci{    ///<SPI clear interrupt register
@@ -435,7 +403,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxfof)::Type,RxfofVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxfof)::Type,RxfofVal::v1> v1{};
         }
-        }
         ///Transmit FIFO overflow flag
         enum class TxfofVal {
             v0=0x00000000,     ///<Transmit FIFO overflow condition has not occurred
@@ -445,7 +412,6 @@ namespace Kvasir {
         namespace TxfofValC{
             constexpr Register::FieldValue<decltype(txfof)::Type,TxfofVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txfof)::Type,TxfofVal::v1> v1{};
-        }
         }
         ///Receive FIFO error flag
         enum class RxferrVal {
@@ -457,7 +423,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxferr)::Type,RxferrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxferr)::Type,RxferrVal::v1> v1{};
         }
-        }
         ///Transmit FIFO error flag
         enum class TxferrVal {
             v0=0x00000000,     ///<No transmit FIFO error occurred
@@ -467,7 +432,6 @@ namespace Kvasir {
         namespace TxferrValC{
             constexpr Register::FieldValue<decltype(txferr)::Type,TxferrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txferr)::Type,TxferrVal::v1> v1{};
-        }
         }
     }
 }

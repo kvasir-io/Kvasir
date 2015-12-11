@@ -34,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iropen)::Type,IropenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(iropen)::Type,IropenVal::v1> v1{};
         }
-        }
         ///CMT Output Polarity
         enum class CmtpolVal {
             v0=0x00000000,     ///<The IRO signal is active-low.
@@ -44,7 +43,6 @@ namespace Kvasir {
         namespace CmtpolValC{
             constexpr Register::FieldValue<decltype(cmtpol)::Type,CmtpolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cmtpol)::Type,CmtpolVal::v1> v1{};
-        }
         }
         ///IRO Latch Control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> irol{}; 
@@ -61,7 +59,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mcgen)::Type,McgenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(mcgen)::Type,McgenVal::v1> v1{};
         }
-        }
         ///End of Cycle Interrupt Enable
         enum class EocieVal {
             v0=0x00000000,     ///<CPU interrupt is disabled.
@@ -71,7 +68,6 @@ namespace Kvasir {
         namespace EocieValC{
             constexpr Register::FieldValue<decltype(eocie)::Type,EocieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(eocie)::Type,EocieVal::v1> v1{};
-        }
         }
         ///FSK Mode Select
         enum class FskVal {
@@ -83,7 +79,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fsk)::Type,FskVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fsk)::Type,FskVal::v1> v1{};
         }
-        }
         ///Baseband Enable
         enum class BaseVal {
             v0=0x00000000,     ///<Baseband mode is disabled.
@@ -94,7 +89,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(base)::Type,BaseVal::v0> v0{};
             constexpr Register::FieldValue<decltype(base)::Type,BaseVal::v1> v1{};
         }
-        }
         ///Extended Space Enable
         enum class ExspcVal {
             v0=0x00000000,     ///<Extended space is disabled.
@@ -104,7 +98,6 @@ namespace Kvasir {
         namespace ExspcValC{
             constexpr Register::FieldValue<decltype(exspc)::Type,ExspcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(exspc)::Type,ExspcVal::v1> v1{};
-        }
         }
         ///CMT Clock Divide Prescaler
         enum class CmtdivVal {
@@ -120,7 +113,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmtdiv)::Type,CmtdivVal::v10> v10{};
             constexpr Register::FieldValue<decltype(cmtdiv)::Type,CmtdivVal::v11> v11{};
         }
-        }
         ///End Of Cycle Status Flag
         enum class EocfVal {
             v0=0x00000000,     ///<End of modulation cycle has not occured since the flag last cleared.
@@ -130,7 +122,6 @@ namespace Kvasir {
         namespace EocfValC{
             constexpr Register::FieldValue<decltype(eocf)::Type,EocfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(eocf)::Type,EocfVal::v1> v1{};
-        }
         }
     }
     namespace CmtCmd1{    ///<CMT Modulator Data Register Mark High
@@ -193,7 +184,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ppsdiv)::Type,PpsdivVal::v1110> v1110{};
             constexpr Register::FieldValue<decltype(ppsdiv)::Type,PpsdivVal::v1111> v1111{};
         }
-        }
     }
     namespace CmtDma{    ///<CMT Direct Memory Access Register
         using Addr = Register::Address<0x4006200b,0xfffffffe,0,unsigned char>;
@@ -206,7 +196,6 @@ namespace Kvasir {
         namespace DmaValC{
             constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dma)::Type,DmaVal::v1> v1{};
-        }
         }
     }
 }

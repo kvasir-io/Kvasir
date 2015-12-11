@@ -16,7 +16,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(chopen)::Type,ChopenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(chopen)::Type,ChopenVal::v1> v1{};
         }
-        }
     }
     namespace VrefSc{    ///<VREF Status and Control Register
         using Addr = Register::Address<0x40074001,0xffffff18,0,unsigned char>;
@@ -34,7 +33,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(modeLv)::Type,ModelvVal::v10> v10{};
             constexpr Register::FieldValue<decltype(modeLv)::Type,ModelvVal::v11> v11{};
         }
-        }
         ///Internal Voltage Reference stable
         enum class VrefstVal {
             v0=0x00000000,     ///<The module is disabled or not stable.
@@ -44,7 +42,6 @@ namespace Kvasir {
         namespace VrefstValC{
             constexpr Register::FieldValue<decltype(vrefst)::Type,VrefstVal::v0> v0{};
             constexpr Register::FieldValue<decltype(vrefst)::Type,VrefstVal::v1> v1{};
-        }
         }
         ///Second order curvature compensation enable
         enum class IcompenVal {
@@ -56,7 +53,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(icompen)::Type,IcompenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(icompen)::Type,IcompenVal::v1> v1{};
         }
-        }
         ///Regulator enable
         enum class RegenVal {
             v0=0x00000000,     ///<Internal 1.75 V regulator is disabled.
@@ -67,7 +63,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(regen)::Type,RegenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(regen)::Type,RegenVal::v1> v1{};
         }
-        }
         ///Internal Voltage Reference enable
         enum class VrefenVal {
             v0=0x00000000,     ///<The module is disabled.
@@ -77,7 +72,6 @@ namespace Kvasir {
         namespace VrefenValC{
             constexpr Register::FieldValue<decltype(vrefen)::Type,VrefenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(vrefen)::Type,VrefenVal::v1> v1{};
-        }
         }
     }
 }

@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::v1> v1{};
         }
-        }
         ///Low-Voltage Detect Reset
         enum class LvdVal {
             v0=0x00000000,     ///<Reset not caused by LVD trip or POR
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace LvdValC{
             constexpr Register::FieldValue<decltype(lvd)::Type,LvdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lvd)::Type,LvdVal::v1> v1{};
-        }
         }
         ///Loss-of-Clock Reset
         enum class LocVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(loc)::Type,LocVal::v0> v0{};
             constexpr Register::FieldValue<decltype(loc)::Type,LocVal::v1> v1{};
         }
-        }
         ///Watchdog
         enum class WdogVal {
             v0=0x00000000,     ///<Reset not caused by watchdog timeout
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace WdogValC{
             constexpr Register::FieldValue<decltype(wdog)::Type,WdogVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wdog)::Type,WdogVal::v1> v1{};
-        }
         }
         ///External Reset Pin
         enum class PinVal {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin)::Type,PinVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pin)::Type,PinVal::v1> v1{};
         }
-        }
         ///Power-On Reset
         enum class PorVal {
             v0=0x00000000,     ///<Reset not caused by POR
@@ -68,7 +63,6 @@ namespace Kvasir {
         namespace PorValC{
             constexpr Register::FieldValue<decltype(por)::Type,PorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(por)::Type,PorVal::v1> v1{};
-        }
         }
     }
     namespace RcmSrs1{    ///<System Reset Status Register 1
@@ -83,7 +77,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(jtag)::Type,JtagVal::v0> v0{};
             constexpr Register::FieldValue<decltype(jtag)::Type,JtagVal::v1> v1{};
         }
-        }
         ///Core Lockup
         enum class LockupVal {
             v0=0x00000000,     ///<Reset not caused by core LOCKUP event
@@ -93,7 +86,6 @@ namespace Kvasir {
         namespace LockupValC{
             constexpr Register::FieldValue<decltype(lockup)::Type,LockupVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lockup)::Type,LockupVal::v1> v1{};
-        }
         }
         ///Software
         enum class SwVal {
@@ -105,7 +97,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sw)::Type,SwVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sw)::Type,SwVal::v1> v1{};
         }
-        }
         ///MDM-AP System Reset Request
         enum class MdmapVal {
             v0=0x00000000,     ///<Reset not caused by host debugger system setting of the System Reset Request bit
@@ -116,7 +107,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(mdmAp)::Type,MdmapVal::v0> v0{};
             constexpr Register::FieldValue<decltype(mdmAp)::Type,MdmapVal::v1> v1{};
         }
-        }
         ///Stop Mode Acknowledge Error Reset
         enum class SackerrVal {
             v0=0x00000000,     ///<Reset not caused by peripheral failure to acknowledge attempt to enter stop mode
@@ -126,7 +116,6 @@ namespace Kvasir {
         namespace SackerrValC{
             constexpr Register::FieldValue<decltype(sackerr)::Type,SackerrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sackerr)::Type,SackerrVal::v1> v1{};
-        }
         }
     }
     namespace RcmRpfc{    ///<Reset Pin Filter Control register
@@ -143,7 +132,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rstfltsrw)::Type,RstfltsrwVal::v01> v01{};
             constexpr Register::FieldValue<decltype(rstfltsrw)::Type,RstfltsrwVal::v10> v10{};
         }
-        }
         ///Reset Pin Filter Select in Stop Mode
         enum class RstfltssVal {
             v0=0x00000000,     ///<All filtering disabled
@@ -153,7 +141,6 @@ namespace Kvasir {
         namespace RstfltssValC{
             constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v1> v1{};
-        }
         }
     }
     namespace RcmRpfw{    ///<Reset Pin Filter Width register
@@ -228,7 +215,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rstfltsel)::Type,RstfltselVal::v11110> v11110{};
             constexpr Register::FieldValue<decltype(rstfltsel)::Type,RstfltselVal::v11111> v11111{};
         }
-        }
     }
     namespace RcmSsrs0{    ///<Sticky System Reset Status Register 0
         using Addr = Register::Address<0x4007f008,0xffffff18,0,unsigned char>;
@@ -242,7 +228,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swakeup)::Type,SwakeupVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swakeup)::Type,SwakeupVal::v1> v1{};
         }
-        }
         ///Sticky Low-Voltage Detect Reset
         enum class SlvdVal {
             v0=0x00000000,     ///<Reset not caused by LVD trip or POR
@@ -252,7 +237,6 @@ namespace Kvasir {
         namespace SlvdValC{
             constexpr Register::FieldValue<decltype(slvd)::Type,SlvdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(slvd)::Type,SlvdVal::v1> v1{};
-        }
         }
         ///Sticky Loss-of-Clock Reset
         enum class SlocVal {
@@ -264,7 +248,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sloc)::Type,SlocVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sloc)::Type,SlocVal::v1> v1{};
         }
-        }
         ///Sticky Watchdog
         enum class SwdogVal {
             v0=0x00000000,     ///<Reset not caused by watchdog timeout
@@ -274,7 +257,6 @@ namespace Kvasir {
         namespace SwdogValC{
             constexpr Register::FieldValue<decltype(swdog)::Type,SwdogVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swdog)::Type,SwdogVal::v1> v1{};
-        }
         }
         ///Sticky External Reset Pin
         enum class SpinVal {
@@ -286,7 +268,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(spin)::Type,SpinVal::v0> v0{};
             constexpr Register::FieldValue<decltype(spin)::Type,SpinVal::v1> v1{};
         }
-        }
         ///Sticky Power-On Reset
         enum class SporVal {
             v0=0x00000000,     ///<Reset not caused by POR
@@ -296,7 +277,6 @@ namespace Kvasir {
         namespace SporValC{
             constexpr Register::FieldValue<decltype(spor)::Type,SporVal::v0> v0{};
             constexpr Register::FieldValue<decltype(spor)::Type,SporVal::v1> v1{};
-        }
         }
     }
     namespace RcmSsrs1{    ///<Sticky System Reset Status Register 1
@@ -311,7 +291,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sjtag)::Type,SjtagVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sjtag)::Type,SjtagVal::v1> v1{};
         }
-        }
         ///Sticky Core Lockup
         enum class SlockupVal {
             v0=0x00000000,     ///<Reset not caused by core LOCKUP event
@@ -321,7 +300,6 @@ namespace Kvasir {
         namespace SlockupValC{
             constexpr Register::FieldValue<decltype(slockup)::Type,SlockupVal::v0> v0{};
             constexpr Register::FieldValue<decltype(slockup)::Type,SlockupVal::v1> v1{};
-        }
         }
         ///Sticky Software
         enum class SswVal {
@@ -333,7 +311,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ssw)::Type,SswVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ssw)::Type,SswVal::v1> v1{};
         }
-        }
         ///Sticky MDM-AP System Reset Request
         enum class SmdmapVal {
             v0=0x00000000,     ///<Reset not caused by host debugger system setting of the System Reset Request bit
@@ -344,7 +321,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(smdmAp)::Type,SmdmapVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smdmAp)::Type,SmdmapVal::v1> v1{};
         }
-        }
         ///Sticky Stop Mode Acknowledge Error Reset
         enum class SsackerrVal {
             v0=0x00000000,     ///<Reset not caused by peripheral failure to acknowledge attempt to enter stop mode
@@ -354,7 +330,6 @@ namespace Kvasir {
         namespace SsackerrValC{
             constexpr Register::FieldValue<decltype(ssackerr)::Type,SsackerrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ssackerr)::Type,SsackerrVal::v1> v1{};
-        }
         }
     }
 }

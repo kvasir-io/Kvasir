@@ -38,7 +38,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cen)::Type,CenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cen)::Type,CenVal::enabled> enabled{};
         }
-        }
         ///Counter reset.
         enum class CrstVal {
             disabled=0x00000000,     ///<Disabled. Do nothing.
@@ -51,7 +50,6 @@ namespace Kvasir {
         namespace CrstValC{
             constexpr Register::FieldValue<decltype(crst)::Type,CrstVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(crst)::Type,CrstVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonetc{    ///<Timer Counter. The 32 bit TC is incremented every PR+1 cycles of
@@ -274,7 +272,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(emc0)::Type,Emc0Val::set> set{};
             constexpr Register::FieldValue<decltype(emc0)::Type,Emc0Val::toggle> toggle{};
         }
-        }
         ///External Match Control 1. Determines the functionality of
 								External Match 1.
         enum class Emc1Val {
@@ -294,7 +291,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(emc1)::Type,Emc1Val::clear> clear{};
             constexpr Register::FieldValue<decltype(emc1)::Type,Emc1Val::set> set{};
             constexpr Register::FieldValue<decltype(emc1)::Type,Emc1Val::toggle> toggle{};
-        }
         }
         ///External Match Control 2. Determines the functionality of
 								External Match 2.
@@ -316,7 +312,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(emc2)::Type,Emc2Val::set> set{};
             constexpr Register::FieldValue<decltype(emc2)::Type,Emc2Val::toggle> toggle{};
         }
-        }
         ///External Match Control 3. Determines the functionality of
 								External Match 3.
         enum class Emc3Val {
@@ -336,7 +331,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(emc3)::Type,Emc3Val::clear> clear{};
             constexpr Register::FieldValue<decltype(emc3)::Type,Emc3Val::set> set{};
             constexpr Register::FieldValue<decltype(emc3)::Type,Emc3Val::toggle> toggle{};
-        }
         }
     }
     namespace Nonectcr{    ///<Count Control Register. The CTCR selects between Timer and Counter
@@ -366,7 +360,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ctmode)::Type,CtmodeVal::counterModeFalling> counterModeFalling{};
             constexpr Register::FieldValue<decltype(ctmode)::Type,CtmodeVal::counterModeDualEd> counterModeDualEd{};
         }
-        }
         ///Count Input Select When bits 1:0 in this register are not
 								00, these bits select which CAP pin is sampled for clocking. Note:
 								If Counter mode is selected for a particular CAPn input in the CTCR,
@@ -386,7 +379,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cinsel)::Type,CinselVal::channel1> channel1{};
             constexpr Register::FieldValue<decltype(cinsel)::Type,CinselVal::channel2> channel2{};
             constexpr Register::FieldValue<decltype(cinsel)::Type,CinselVal::channel3> channel3{};
-        }
         }
         ///Setting this bit to 1 enables clearing of the timer and the
 								prescaler when the capture-edge event specified in bits 7:5
@@ -425,7 +417,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(selcc)::Type,SelccVal::channel2RisingEdg> channel2RisingEdg{};
             constexpr Register::FieldValue<decltype(selcc)::Type,SelccVal::channel2FallingEd> channel2FallingEd{};
         }
-        }
     }
     namespace Nonepwmc{    ///<PWM Control Register. The PWMCON enables PWM mode for the external
 						match pins.
@@ -442,7 +433,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmen0)::Type,Pwmen0Val::match> match{};
             constexpr Register::FieldValue<decltype(pwmen0)::Type,Pwmen0Val::pwm> pwm{};
         }
-        }
         ///PWM mode enable for channel1.
         enum class Pwmen1Val {
             match=0x00000000,     ///<Match. CT32Bn_MAT01 is controlled by
@@ -454,7 +444,6 @@ namespace Kvasir {
         namespace Pwmen1ValC{
             constexpr Register::FieldValue<decltype(pwmen1)::Type,Pwmen1Val::match> match{};
             constexpr Register::FieldValue<decltype(pwmen1)::Type,Pwmen1Val::pwm> pwm{};
-        }
         }
         ///PWM mode enable for channel2.
         enum class Pwmen2Val {
@@ -468,7 +457,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pwmen2)::Type,Pwmen2Val::match> match{};
             constexpr Register::FieldValue<decltype(pwmen2)::Type,Pwmen2Val::pwm> pwm{};
         }
-        }
         ///PWM mode enable for channel3. Note: It is recommended to
 								use match channel 3 to set the PWM cycle.
         enum class Pwmen3Val {
@@ -481,7 +469,6 @@ namespace Kvasir {
         namespace Pwmen3ValC{
             constexpr Register::FieldValue<decltype(pwmen3)::Type,Pwmen3Val::match> match{};
             constexpr Register::FieldValue<decltype(pwmen3)::Type,Pwmen3Val::pwm> pwm{};
-        }
         }
     }
 }

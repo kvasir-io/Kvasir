@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(int_)::Type,Int_Val::noInterruptRequest> noInterruptRequest{};
             constexpr Register::FieldValue<decltype(int_)::Type,Int_Val::interruptRequestIs> interruptRequestIs{};
         }
-        }
         ///Combine enabled inputs for group interrupt
         enum class CombVal {
             orFunctionalityA=0x00000000,     ///<OR functionality: A grouped interrupt is generated when any one of the enabled inputs is active (based on its programmed polarity).
@@ -25,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(comb)::Type,CombVal::orFunctionalityA> orFunctionalityA{};
             constexpr Register::FieldValue<decltype(comb)::Type,CombVal::andFunctionalityA> andFunctionalityA{};
         }
-        }
         ///Group interrupt trigger
         enum class TrigVal {
             edgeTriggered=0x00000000,     ///<Edge-triggered
@@ -35,7 +33,6 @@ namespace Kvasir {
         namespace TrigValC{
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::edgeTriggered> edgeTriggered{};
             constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::levelTriggered> levelTriggered{};
-        }
         }
     }
     namespace NoneportPol0{    ///<GPIO grouped interrupt port 0 polarity register

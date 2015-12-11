@@ -97,7 +97,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clk)::Type,ClkVal::mck128> mck128{};
             constexpr Register::FieldValue<decltype(clk)::Type,ClkVal::mck224> mck224{};
         }
-        }
         ///Data Bus Width
         enum class DbwVal {
             dbw32=0x00000000,     ///<32-bit data bus width
@@ -107,7 +106,6 @@ namespace Kvasir {
         namespace DbwValC{
             constexpr Register::FieldValue<decltype(dbw)::Type,DbwVal::dbw32> dbw32{};
             constexpr Register::FieldValue<decltype(dbw)::Type,DbwVal::dbw64> dbw64{};
-        }
         }
         ///Disable Copy of Pause Frames
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> dcpf{}; 
@@ -161,7 +159,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxbms)::Type,RxbmsVal::quarter> quarter{};
             constexpr Register::FieldValue<decltype(rxbms)::Type,RxbmsVal::half> half{};
             constexpr Register::FieldValue<decltype(rxbms)::Type,RxbmsVal::full> full{};
-        }
         }
         ///Transmitter Packet Buffer Memory Size Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txpbms{}; 

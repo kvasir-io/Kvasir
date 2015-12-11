@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ldoibias)::Type,LdoibiasVal::highbias> highbias{};
             constexpr Register::FieldValue<decltype(ldoibias)::Type,LdoibiasVal::lowbias> lowbias{};
         }
-        }
         ///LDO Analog Enable. 
         enum class LdoaenVal {
             disable=0x00000000,     ///<LDO0 analog output disabled.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace LdoaenValC{
             constexpr Register::FieldValue<decltype(ldoaen)::Type,LdoaenVal::disable> disable{};
             constexpr Register::FieldValue<decltype(ldoaen)::Type,LdoaenVal::enable> enable{};
-        }
         }
     }
 }

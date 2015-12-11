@@ -37,7 +37,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ritint)::Type,RitintVal::match> match{};
             constexpr Register::FieldValue<decltype(ritint)::Type,RitintVal::nomtch> nomtch{};
         }
-        }
         ///Timer enable clear
         enum class RitenclrVal {
             clear=0x00000001,     ///<The timer will be cleared to 0 whenever the counter
@@ -52,7 +51,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ritenclr)::Type,RitenclrVal::clear> clear{};
             constexpr Register::FieldValue<decltype(ritenclr)::Type,RitenclrVal::noclear> noclear{};
         }
-        }
         ///Timer enable for debug
         enum class RitenbrVal {
             halt=0x00000001,     ///<The timer is halted when the processor is halted
@@ -65,7 +63,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ritenbr)::Type,RitenbrVal::halt> halt{};
             constexpr Register::FieldValue<decltype(ritenbr)::Type,RitenbrVal::debug> debug{};
         }
-        }
         ///Timer enable.
         enum class RitenVal {
             timerEnabled=0x00000001,     ///<Timer enabled. This can be overruled by a debug
@@ -76,7 +73,6 @@ namespace Kvasir {
         namespace RitenValC{
             constexpr Register::FieldValue<decltype(riten)::Type,RitenVal::timerEnabled> timerEnabled{};
             constexpr Register::FieldValue<decltype(riten)::Type,RitenVal::timerDisabled> timerDisabled{};
-        }
         }
     }
     namespace Nonecounter{    ///<Counter LSB register. 32 LSBs of the counter.

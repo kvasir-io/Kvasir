@@ -15,7 +15,6 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
             constexpr Register::FieldValue<decltype(init)::Type,InitVal::normalOperation> normalOperation{};
             constexpr Register::FieldValue<decltype(init)::Type,InitVal::initialization> initialization{};
         }
-        }
         ///Module interrupt enable
         enum class IeVal {
             disableCanInterrup=0x00000000,     ///<Disable CAN interrupts. The interrupt line is always HIGH.
@@ -25,7 +24,6 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         namespace IeValC{
             constexpr Register::FieldValue<decltype(ie)::Type,IeVal::disableCanInterrup> disableCanInterrup{};
             constexpr Register::FieldValue<decltype(ie)::Type,IeVal::enableCanInterrupt> enableCanInterrupt{};
-        }
         }
         ///Status change interrupt enable
         enum class SieVal {
@@ -37,7 +35,6 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
             constexpr Register::FieldValue<decltype(sie)::Type,SieVal::disableStatusChang> disableStatusChang{};
             constexpr Register::FieldValue<decltype(sie)::Type,SieVal::enableStatusChange> enableStatusChange{};
         }
-        }
         ///Error interrupt enable
         enum class EieVal {
             disableErrorInterr=0x00000000,     ///<Disable error interrupt. No error status interrupt will be generated.
@@ -47,7 +44,6 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         namespace EieValC{
             constexpr Register::FieldValue<decltype(eie)::Type,EieVal::disableErrorInterr> disableErrorInterr{};
             constexpr Register::FieldValue<decltype(eie)::Type,EieVal::enableErrorInterru> enableErrorInterru{};
-        }
         }
         ///Disable automatic retransmission
         enum class DarVal {
@@ -59,7 +55,6 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
             constexpr Register::FieldValue<decltype(dar)::Type,DarVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(dar)::Type,DarVal::disabled> disabled{};
         }
-        }
         ///Configuration change enable
         enum class CceVal {
             noaccess=0x00000000,     ///<The CPU has no write access to the bit timing register.
@@ -70,7 +65,6 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
             constexpr Register::FieldValue<decltype(cce)::Type,CceVal::noaccess> noaccess{};
             constexpr Register::FieldValue<decltype(cce)::Type,CceVal::access> access{};
         }
-        }
         ///Test mode enable
         enum class TestVal {
             normalOperation=0x00000000,     ///<Normal operation.
@@ -80,7 +74,6 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         namespace TestValC{
             constexpr Register::FieldValue<decltype(test)::Type,TestVal::normalOperation> normalOperation{};
             constexpr Register::FieldValue<decltype(test)::Type,TestVal::testMode> testMode{};
-        }
         }
     }
     namespace Nonecanstat{    ///<Status register
@@ -107,7 +100,6 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
             constexpr Register::FieldValue<decltype(lec)::Type,LecVal::crcerror> crcerror{};
             constexpr Register::FieldValue<decltype(lec)::Type,LecVal::unused> unused{};
         }
-        }
         ///Transmitted a message successfully This bit is reset by the CPU. It is never reset by the CAN controller.
         enum class TxokVal {
             notransmit=0x00000000,     ///<Since this bit was reset by the CPU, no message has been successfully transmitted.
@@ -117,7 +109,6 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         namespace TxokValC{
             constexpr Register::FieldValue<decltype(txok)::Type,TxokVal::notransmit> notransmit{};
             constexpr Register::FieldValue<decltype(txok)::Type,TxokVal::transmit> transmit{};
-        }
         }
         ///Received a message successfully This bit is reset by the CPU. It is never reset by the CAN controller.
         enum class RxokVal {
@@ -129,7 +120,6 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
             constexpr Register::FieldValue<decltype(rxok)::Type,RxokVal::notransmit> notransmit{};
             constexpr Register::FieldValue<decltype(rxok)::Type,RxokVal::transmit> transmit{};
         }
-        }
         ///Error passive
         enum class EpassVal {
             active=0x00000000,     ///<The CAN controller is in the error active state.
@@ -139,7 +129,6 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         namespace EpassValC{
             constexpr Register::FieldValue<decltype(epass)::Type,EpassVal::active> active{};
             constexpr Register::FieldValue<decltype(epass)::Type,EpassVal::passive> passive{};
-        }
         }
         ///Warning status
         enum class EwarnVal {
@@ -151,7 +140,6 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
             constexpr Register::FieldValue<decltype(ewarn)::Type,EwarnVal::belowwarninglim> belowwarninglim{};
             constexpr Register::FieldValue<decltype(ewarn)::Type,EwarnVal::warninglim> warninglim{};
         }
-        }
         ///Busoff status
         enum class BoffVal {
             notbusoff=0x00000000,     ///<The CAN module is not in busoff.
@@ -161,7 +149,6 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         namespace BoffValC{
             constexpr Register::FieldValue<decltype(boff)::Type,BoffVal::notbusoff> notbusoff{};
             constexpr Register::FieldValue<decltype(boff)::Type,BoffVal::busoff> busoff{};
-        }
         }
     }
     namespace Nonecanec{    ///<Error counter
@@ -179,7 +166,6 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         namespace RpValC{
             constexpr Register::FieldValue<decltype(rp)::Type,RpVal::belowerrorpassive> belowerrorpassive{};
             constexpr Register::FieldValue<decltype(rp)::Type,RpVal::errorpassive> errorpassive{};
-        }
         }
     }
     namespace Nonecanbt{    ///<Bit timing register
@@ -210,7 +196,6 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
             constexpr Register::FieldValue<decltype(basic)::Type,BasicVal::basicModeDisabled> basicModeDisabled{};
             constexpr Register::FieldValue<decltype(basic)::Type,BasicVal::txrx> txrx{};
         }
-        }
         ///Silent mode
         enum class SilentVal {
             normalOperation=0x00000000,     ///<Normal operation.
@@ -221,7 +206,6 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
             constexpr Register::FieldValue<decltype(silent)::Type,SilentVal::normalOperation> normalOperation{};
             constexpr Register::FieldValue<decltype(silent)::Type,SilentVal::silent> silent{};
         }
-        }
         ///Loop back mode
         enum class LbackVal {
             disabled=0x00000000,     ///<Loop back mode is disabled.
@@ -231,7 +215,6 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         namespace LbackValC{
             constexpr Register::FieldValue<decltype(lback)::Type,LbackVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(lback)::Type,LbackVal::enabled> enabled{};
-        }
         }
         ///Control of CAN_TXD pins
         enum class TxVal {
@@ -247,7 +230,6 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
             constexpr Register::FieldValue<decltype(tx)::Type,TxVal::low> low{};
             constexpr Register::FieldValue<decltype(tx)::Type,TxVal::high> high{};
         }
-        }
         ///Monitors the actual value of the CAN_RXD pin.
         enum class RxVal {
             recessive=0x00000000,     ///<The CAN bus is recessive (CAN_RXD = 1).
@@ -257,7 +239,6 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         namespace RxValC{
             constexpr Register::FieldValue<decltype(rx)::Type,RxVal::recessive> recessive{};
             constexpr Register::FieldValue<decltype(rx)::Type,RxVal::dormant> dormant{};
-        }
         }
     }
     namespace Nonecanbrpe{    ///<Baud rate prescaler extension register
@@ -279,7 +260,6 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
             constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::zero> zero{};
             constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::one> one{};
         }
-        }
     }
     namespace Nonecanif2Cmdreq{    ///<Message interface  command request
         using Addr = Register::Address<0x40050080,0xffff7fc0,0,unsigned>;
@@ -295,7 +275,6 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
             constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::zero> zero{};
             constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::one> one{};
         }
-        }
     }
     namespace Nonecanif1CmdmskW{    ///<Message interface 
 command mask - write direction
@@ -310,7 +289,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::dataBytes47Uncha> dataBytes47Uncha{};
             constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::transferDataBytes> transferDataBytes{};
         }
-        }
         ///Access data bytes 0-3
         enum class DataaVal {
             dataBytes03Uncha=0x00000000,     ///<Data bytes 0-3 unchanged.
@@ -321,7 +299,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::dataBytes03Uncha> dataBytes03Uncha{};
             constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::transferDataBytes> transferDataBytes{};
         }
-        }
         ///Access transmission request bit
         enum class TxrqstVal {
             noTransmissionRequ=0x00000000,     ///<No transmission request. TXRQSRT bit unchanged in IF1/2_MCTRL. If a transmission is requested by programming this bit, the TXRQST bit in the CANIFn_MCTRL register is ignored.
@@ -331,7 +308,6 @@ command mask - write direction
         namespace TxrqstValC{
             constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::noTransmissionRequ> noTransmissionRequ{};
             constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::requestATransmissi> requestATransmissi{};
-        }
         }
         ///This bit is ignored in the write direction.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> clrintpnd{}; 
@@ -345,7 +321,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::unchanged> unchanged{};
             constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::transferControlBit> transferControlBit{};
         }
-        }
         ///Access arbitration bits
         enum class ArbVal {
             unchanged=0x00000000,     ///<Arbitration bits unchanged.
@@ -356,7 +331,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::unchanged> unchanged{};
             constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::transferIdentifier> transferIdentifier{};
         }
-        }
         ///Access mask bits
         enum class MaskVal {
             unchanged=0x00000000,     ///<Mask bits unchanged.
@@ -366,7 +340,6 @@ command mask - write direction
         namespace MaskValC{
             constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::unchanged> unchanged{};
             constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::transferIdentifier> transferIdentifier{};
-        }
         }
         ///Write transfer Transfer data from the selected message buffer registers to the message object addressed by the command request register CANIFn_CMDREQ.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wrRd{}; 
@@ -384,7 +357,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::dataBytes47Uncha> dataBytes47Uncha{};
             constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::transferDataBytes> transferDataBytes{};
         }
-        }
         ///Access data bytes 0-3
         enum class DataaVal {
             dataBytes03Uncha=0x00000000,     ///<Data bytes 0-3 unchanged.
@@ -395,7 +367,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::dataBytes03Uncha> dataBytes03Uncha{};
             constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::transferDataBytes> transferDataBytes{};
         }
-        }
         ///Access transmission request bit
         enum class TxrqstVal {
             noTransmissionRequ=0x00000000,     ///<No transmission request. TXRQSRT bit unchanged in IF1/2_MCTRL. If a transmission is requested by programming this bit, the TXRQST bit in the CANIFn_MCTRL register is ignored.
@@ -405,7 +376,6 @@ command mask - write direction
         namespace TxrqstValC{
             constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::noTransmissionRequ> noTransmissionRequ{};
             constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::requestATransmissi> requestATransmissi{};
-        }
         }
         ///This bit is ignored in the write direction.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> clrintpnd{}; 
@@ -419,7 +389,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::unchanged> unchanged{};
             constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::transferControlBit> transferControlBit{};
         }
-        }
         ///Access arbitration bits
         enum class ArbVal {
             unchanged=0x00000000,     ///<Arbitration bits unchanged.
@@ -430,7 +399,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::unchanged> unchanged{};
             constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::transferIdentifier> transferIdentifier{};
         }
-        }
         ///Access mask bits
         enum class MaskVal {
             unchanged=0x00000000,     ///<Mask bits unchanged.
@@ -440,7 +408,6 @@ command mask - write direction
         namespace MaskValC{
             constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::unchanged> unchanged{};
             constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::transferIdentifier> transferIdentifier{};
-        }
         }
         ///Write transfer Transfer data from the selected message buffer registers to the message object addressed by the command request register CANIFn_CMDREQ.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wrRd{}; 
@@ -457,7 +424,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::unchanged> unchanged{};
             constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::transferDataBytes> transferDataBytes{};
         }
-        }
         ///Access data bytes 0-3
         enum class DataaVal {
             unchanged=0x00000000,     ///<Data bytes 0-3 unchanged.
@@ -467,7 +433,6 @@ command mask - write direction
         namespace DataaValC{
             constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::unchanged> unchanged{};
             constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::transferDataBytes> transferDataBytes{};
-        }
         }
         ///Access new data bit
         enum class NewdatVal {
@@ -479,7 +444,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::unchanged> unchanged{};
             constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::clearNewdatBitIn> clearNewdatBitIn{};
         }
-        }
         ///Clear interrupt pending bit.
         enum class ClrintpndVal {
             unchanged=0x00000000,     ///<INTPND bit remains unchanged.
@@ -489,7 +453,6 @@ command mask - write direction
         namespace ClrintpndValC{
             constexpr Register::FieldValue<decltype(clrintpnd)::Type,ClrintpndVal::unchanged> unchanged{};
             constexpr Register::FieldValue<decltype(clrintpnd)::Type,ClrintpndVal::clearIntpndBitIn> clearIntpndBitIn{};
-        }
         }
         ///Access control bits
         enum class CtrlVal {
@@ -501,7 +464,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::unchanged> unchanged{};
             constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::transferControlBit> transferControlBit{};
         }
-        }
         ///Access arbitration bits
         enum class ArbVal {
             unchanged=0x00000000,     ///<Arbitration bits unchanged.
@@ -512,7 +474,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::unchanged> unchanged{};
             constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::transferIdentifier> transferIdentifier{};
         }
-        }
         ///Access mask bits
         enum class MaskVal {
             unchanged=0x00000000,     ///<Mask bits unchanged.
@@ -522,7 +483,6 @@ command mask - write direction
         namespace MaskValC{
             constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::unchanged> unchanged{};
             constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::transferIdentifier> transferIdentifier{};
-        }
         }
         ///Read transfer Transfer data from the message object addressed by the command request register to the selected message buffer registers CANIFn_CMDREQ.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wrRd{}; 
@@ -539,7 +499,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::unchanged> unchanged{};
             constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::transferDataBytes> transferDataBytes{};
         }
-        }
         ///Access data bytes 0-3
         enum class DataaVal {
             unchanged=0x00000000,     ///<Data bytes 0-3 unchanged.
@@ -549,7 +508,6 @@ command mask - write direction
         namespace DataaValC{
             constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::unchanged> unchanged{};
             constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::transferDataBytes> transferDataBytes{};
-        }
         }
         ///Access new data bit
         enum class NewdatVal {
@@ -561,7 +519,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::unchanged> unchanged{};
             constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::clearNewdatBitIn> clearNewdatBitIn{};
         }
-        }
         ///Clear interrupt pending bit.
         enum class ClrintpndVal {
             unchanged=0x00000000,     ///<INTPND bit remains unchanged.
@@ -571,7 +528,6 @@ command mask - write direction
         namespace ClrintpndValC{
             constexpr Register::FieldValue<decltype(clrintpnd)::Type,ClrintpndVal::unchanged> unchanged{};
             constexpr Register::FieldValue<decltype(clrintpnd)::Type,ClrintpndVal::clearIntpndBitIn> clearIntpndBitIn{};
-        }
         }
         ///Access control bits
         enum class CtrlVal {
@@ -583,7 +539,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::unchanged> unchanged{};
             constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::transferControlBit> transferControlBit{};
         }
-        }
         ///Access arbitration bits
         enum class ArbVal {
             unchanged=0x00000000,     ///<Arbitration bits unchanged.
@@ -594,7 +549,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::unchanged> unchanged{};
             constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::transferIdentifier> transferIdentifier{};
         }
-        }
         ///Access mask bits
         enum class MaskVal {
             unchanged=0x00000000,     ///<Mask bits unchanged.
@@ -604,7 +558,6 @@ command mask - write direction
         namespace MaskValC{
             constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::unchanged> unchanged{};
             constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::transferIdentifier> transferIdentifier{};
-        }
         }
         ///Read transfer Transfer data from the message object addressed by the command request register to the selected message buffer registers CANIFn_CMDREQ.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wrRd{}; 
@@ -633,7 +586,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(mdir)::Type,MdirVal::noeffect> noeffect{};
             constexpr Register::FieldValue<decltype(mdir)::Type,MdirVal::acceptancefiltering> acceptancefiltering{};
         }
-        }
         ///Mask extend identifier
         enum class MxtdVal {
             noeffect=0x00000000,     ///<The extended identifier bit (XTD) has no effect on acceptance filtering.
@@ -643,7 +595,6 @@ command mask - write direction
         namespace MxtdValC{
             constexpr Register::FieldValue<decltype(mxtd)::Type,MxtdVal::noeffect> noeffect{};
             constexpr Register::FieldValue<decltype(mxtd)::Type,MxtdVal::acceptancefiltering> acceptancefiltering{};
-        }
         }
     }
     namespace Nonecanif2Msk2{    ///<Message interface 1 mask 2
@@ -660,7 +611,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(mdir)::Type,MdirVal::noeffect> noeffect{};
             constexpr Register::FieldValue<decltype(mdir)::Type,MdirVal::acceptancefiltering> acceptancefiltering{};
         }
-        }
         ///Mask extend identifier
         enum class MxtdVal {
             noeffect=0x00000000,     ///<The extended identifier bit (XTD) has no effect on acceptance filtering.
@@ -670,7 +620,6 @@ command mask - write direction
         namespace MxtdValC{
             constexpr Register::FieldValue<decltype(mxtd)::Type,MxtdVal::noeffect> noeffect{};
             constexpr Register::FieldValue<decltype(mxtd)::Type,MxtdVal::acceptancefiltering> acceptancefiltering{};
-        }
         }
     }
     namespace Nonecanif1Arb1{    ///<Message interface 1 arbitration 1
@@ -697,7 +646,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::receive> receive{};
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::transmit> transmit{};
         }
-        }
         ///Extend identifier
         enum class XtdVal {
             v11BitStandard=0x00000000,     ///<The 11-bit standard identifier will be used for this message object.
@@ -708,7 +656,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(xtd)::Type,XtdVal::v11BitStandard> v11BitStandard{};
             constexpr Register::FieldValue<decltype(xtd)::Type,XtdVal::v29BitExtended> v29BitExtended{};
         }
-        }
         ///Message valid The CPU must reset the MSGVAL bit of all unused Messages Objects during the initialization before it resets bit INIT in the CAN Control Register. This bit must also be reset before the identifier ID28:0, the control bits XTD, DIR, or the Data Length Code DLC3:0 are modified, or if the Messages Object is no longer required.
         enum class MsgvalVal {
             ignore=0x00000000,     ///<The message object is ignored by the message handler.
@@ -718,7 +665,6 @@ command mask - write direction
         namespace MsgvalValC{
             constexpr Register::FieldValue<decltype(msgval)::Type,MsgvalVal::ignore> ignore{};
             constexpr Register::FieldValue<decltype(msgval)::Type,MsgvalVal::configured> configured{};
-        }
         }
     }
     namespace Nonecanif2Arb2{    ///<Message interface 1 arbitration 2
@@ -735,7 +681,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::receive> receive{};
             constexpr Register::FieldValue<decltype(dir)::Type,DirVal::transmit> transmit{};
         }
-        }
         ///Extend identifier
         enum class XtdVal {
             v11BitStandard=0x00000000,     ///<The 11-bit standard identifier will be used for this message object.
@@ -746,7 +691,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(xtd)::Type,XtdVal::v11BitStandard> v11BitStandard{};
             constexpr Register::FieldValue<decltype(xtd)::Type,XtdVal::v29BitExtended> v29BitExtended{};
         }
-        }
         ///Message valid The CPU must reset the MSGVAL bit of all unused Messages Objects during the initialization before it resets bit INIT in the CAN Control Register. This bit must also be reset before the identifier ID28:0, the control bits XTD, DIR, or the Data Length Code DLC3:0 are modified, or if the Messages Object is no longer required.
         enum class MsgvalVal {
             ignore=0x00000000,     ///<The message object is ignored by the message handler.
@@ -756,7 +700,6 @@ command mask - write direction
         namespace MsgvalValC{
             constexpr Register::FieldValue<decltype(msgval)::Type,MsgvalVal::ignore> ignore{};
             constexpr Register::FieldValue<decltype(msgval)::Type,MsgvalVal::configured> configured{};
-        }
         }
     }
     namespace Nonecanif1Mctrl{    ///<Message interface 1 message control
@@ -773,7 +716,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(eob)::Type,EobVal::fifo> fifo{};
             constexpr Register::FieldValue<decltype(eob)::Type,EobVal::singelast> singelast{};
         }
-        }
         ///Transmit request
         enum class TxrqstVal {
             nowait=0x00000000,     ///<This message object is not waiting for transmission.
@@ -783,7 +725,6 @@ command mask - write direction
         namespace TxrqstValC{
             constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::nowait> nowait{};
             constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::wait> wait{};
-        }
         }
         ///Remote enable
         enum class RmtenVal {
@@ -795,7 +736,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(rmten)::Type,RmtenVal::nochange> nochange{};
             constexpr Register::FieldValue<decltype(rmten)::Type,RmtenVal::set> set{};
         }
-        }
         ///Receive interrupt enable
         enum class RxieVal {
             nochange=0x00000000,     ///<INTPND will be left unchanged after successful reception of a frame.
@@ -805,7 +745,6 @@ command mask - write direction
         namespace RxieValC{
             constexpr Register::FieldValue<decltype(rxie)::Type,RxieVal::nochange> nochange{};
             constexpr Register::FieldValue<decltype(rxie)::Type,RxieVal::set> set{};
-        }
         }
         ///Transmit interrupt enable
         enum class TxieVal {
@@ -817,7 +756,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(txie)::Type,TxieVal::nochange> nochange{};
             constexpr Register::FieldValue<decltype(txie)::Type,TxieVal::set> set{};
         }
-        }
         ///Use acceptance mask If UMASK is set to 1, the message object's mask bits have to be programmed during initialization of the message object before MAGVAL is set to 1.
         enum class UmaskVal {
             ignore=0x00000000,     ///<Mask ignored.
@@ -827,7 +765,6 @@ command mask - write direction
         namespace UmaskValC{
             constexpr Register::FieldValue<decltype(umask)::Type,UmaskVal::ignore> ignore{};
             constexpr Register::FieldValue<decltype(umask)::Type,UmaskVal::usemask> usemask{};
-        }
         }
         ///Interrupt pending
         enum class IntpndVal {
@@ -839,7 +776,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(intpnd)::Type,IntpndVal::nointsource> nointsource{};
             constexpr Register::FieldValue<decltype(intpnd)::Type,IntpndVal::intsource> intsource{};
         }
-        }
         ///Message lost (only valid for message objects in the direction receive).
         enum class MsglstVal {
             nolost=0x00000000,     ///<No message lost since this bit was reset last by the CPU.
@@ -850,7 +786,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(msglst)::Type,MsglstVal::nolost> nolost{};
             constexpr Register::FieldValue<decltype(msglst)::Type,MsglstVal::newmessage> newmessage{};
         }
-        }
         ///New data
         enum class NewdatVal {
             nonewdata=0x00000000,     ///<No new data has been written into the data portion of this message object by the message handler since this flag was cleared last by the CPU.
@@ -860,7 +795,6 @@ command mask - write direction
         namespace NewdatValC{
             constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::nonewdata> nonewdata{};
             constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::newdata> newdata{};
-        }
         }
     }
     namespace Nonecanif2Mctrl{    ///<Message interface 1 message control
@@ -877,7 +811,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(eob)::Type,EobVal::fifo> fifo{};
             constexpr Register::FieldValue<decltype(eob)::Type,EobVal::singelast> singelast{};
         }
-        }
         ///Transmit request
         enum class TxrqstVal {
             nowait=0x00000000,     ///<This message object is not waiting for transmission.
@@ -887,7 +820,6 @@ command mask - write direction
         namespace TxrqstValC{
             constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::nowait> nowait{};
             constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::wait> wait{};
-        }
         }
         ///Remote enable
         enum class RmtenVal {
@@ -899,7 +831,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(rmten)::Type,RmtenVal::nochange> nochange{};
             constexpr Register::FieldValue<decltype(rmten)::Type,RmtenVal::set> set{};
         }
-        }
         ///Receive interrupt enable
         enum class RxieVal {
             nochange=0x00000000,     ///<INTPND will be left unchanged after successful reception of a frame.
@@ -909,7 +840,6 @@ command mask - write direction
         namespace RxieValC{
             constexpr Register::FieldValue<decltype(rxie)::Type,RxieVal::nochange> nochange{};
             constexpr Register::FieldValue<decltype(rxie)::Type,RxieVal::set> set{};
-        }
         }
         ///Transmit interrupt enable
         enum class TxieVal {
@@ -921,7 +851,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(txie)::Type,TxieVal::nochange> nochange{};
             constexpr Register::FieldValue<decltype(txie)::Type,TxieVal::set> set{};
         }
-        }
         ///Use acceptance mask If UMASK is set to 1, the message object's mask bits have to be programmed during initialization of the message object before MAGVAL is set to 1.
         enum class UmaskVal {
             ignore=0x00000000,     ///<Mask ignored.
@@ -931,7 +860,6 @@ command mask - write direction
         namespace UmaskValC{
             constexpr Register::FieldValue<decltype(umask)::Type,UmaskVal::ignore> ignore{};
             constexpr Register::FieldValue<decltype(umask)::Type,UmaskVal::usemask> usemask{};
-        }
         }
         ///Interrupt pending
         enum class IntpndVal {
@@ -943,7 +871,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(intpnd)::Type,IntpndVal::nointsource> nointsource{};
             constexpr Register::FieldValue<decltype(intpnd)::Type,IntpndVal::intsource> intsource{};
         }
-        }
         ///Message lost (only valid for message objects in the direction receive).
         enum class MsglstVal {
             nolost=0x00000000,     ///<No message lost since this bit was reset last by the CPU.
@@ -954,7 +881,6 @@ command mask - write direction
             constexpr Register::FieldValue<decltype(msglst)::Type,MsglstVal::nolost> nolost{};
             constexpr Register::FieldValue<decltype(msglst)::Type,MsglstVal::newmessage> newmessage{};
         }
-        }
         ///New data
         enum class NewdatVal {
             nonewdata=0x00000000,     ///<No new data has been written into the data portion of this message object by the message handler since this flag was cleared last by the CPU.
@@ -964,7 +890,6 @@ command mask - write direction
         namespace NewdatValC{
             constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::nonewdata> nonewdata{};
             constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::newdata> newdata{};
-        }
         }
     }
     namespace Nonecanif1Da1{    ///<Message interface 1 data A1

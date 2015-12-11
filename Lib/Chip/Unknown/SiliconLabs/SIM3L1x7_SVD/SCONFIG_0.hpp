@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fdmaen)::Type,FdmaenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(fdmaen)::Type,FdmaenVal::enabled> enabled{};
         }
-        }
         ///Power Mode 8 Debug Enable. 
         enum class Pm8dbgenVal {
             disabled=0x00000000,     ///<Disable debugging through Power Mode 8.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace Pm8dbgenValC{
             constexpr Register::FieldValue<decltype(pm8dbgen)::Type,Pm8dbgenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pm8dbgen)::Type,Pm8dbgenVal::enabled> enabled{};
-        }
         }
     }
 }

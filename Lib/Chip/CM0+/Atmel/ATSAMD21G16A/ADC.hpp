@@ -32,7 +32,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(samplenum)::Type,SamplenumVal::v512> v512{};
             constexpr Register::FieldValue<decltype(samplenum)::Type,SamplenumVal::v1024> v1024{};
         }
-        }
         ///Adjusting Result / Division Coefficient
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> adjres{}; 
     }
@@ -76,7 +75,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ressel)::Type,ResselVal::v10bit> v10bit{};
             constexpr Register::FieldValue<decltype(ressel)::Type,ResselVal::v8bit> v8bit{};
         }
-        }
         ///Prescaler Configuration
         enum class PrescalerVal {
             div4=0x00000000,     ///<Peripheral clock divided by 4
@@ -98,7 +96,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prescaler)::Type,PrescalerVal::div128> div128{};
             constexpr Register::FieldValue<decltype(prescaler)::Type,PrescalerVal::div256> div256{};
             constexpr Register::FieldValue<decltype(prescaler)::Type,PrescalerVal::div512> div512{};
-        }
         }
     }
     namespace AdcDbgctrl{    ///<Debug Control
@@ -180,7 +177,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(muxpos)::Type,MuxposVal::scalediovcc> scalediovcc{};
             constexpr Register::FieldValue<decltype(muxpos)::Type,MuxposVal::dac> dac{};
         }
-        }
         ///Negative Mux Input Selection
         enum class MuxnegVal {
             pin0=0x00000000,     ///<ADC AIN0 Pin
@@ -207,7 +203,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(muxneg)::Type,MuxnegVal::gnd> gnd{};
             constexpr Register::FieldValue<decltype(muxneg)::Type,MuxnegVal::iognd> iognd{};
         }
-        }
         ///Number of Input Channels Included in Scan
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> inputscan{}; 
         ///Positive Mux Setting Offset
@@ -229,7 +224,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(gain)::Type,GainVal::v8x> v8x{};
             constexpr Register::FieldValue<decltype(gain)::Type,GainVal::v16x> v16x{};
             constexpr Register::FieldValue<decltype(gain)::Type,GainVal::div2> div2{};
-        }
         }
     }
     namespace AdcIntenclr{    ///<Interrupt Enable Clear
@@ -288,7 +282,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::arefa> arefa{};
             constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::arefb> arefb{};
         }
-        }
         ///Reference Buffer Offset Compensation Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> refcomp{}; 
     }
@@ -331,7 +324,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(winmode)::Type,WinmodeVal::mode2> mode2{};
             constexpr Register::FieldValue<decltype(winmode)::Type,WinmodeVal::mode3> mode3{};
             constexpr Register::FieldValue<decltype(winmode)::Type,WinmodeVal::mode4> mode4{};
-        }
         }
     }
     namespace AdcWinlt{    ///<Window Monitor Lower Threshold

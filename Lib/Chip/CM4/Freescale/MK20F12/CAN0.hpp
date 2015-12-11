@@ -20,7 +20,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(idam)::Type,IdamVal::v10> v10{};
             constexpr Register::FieldValue<decltype(idam)::Type,IdamVal::v11> v11{};
         }
-        }
         ///Abort Enable
         enum class AenVal {
             v0=0x00000000,     ///<Abort disabled
@@ -30,7 +29,6 @@ namespace Kvasir {
         namespace AenValC{
             constexpr Register::FieldValue<decltype(aen)::Type,AenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(aen)::Type,AenVal::v1> v1{};
-        }
         }
         ///Local Priority Enable
         enum class LprioenVal {
@@ -42,7 +40,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lprioen)::Type,LprioenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lprioen)::Type,LprioenVal::v1> v1{};
         }
-        }
         ///Individual Rx Masking and Queue Enable
         enum class IrmqVal {
             v0=0x00000000,     ///<Individual Rx masking and queue feature are disabled. For backward compatibility, the reading of C/S word locks the MB even if it is EMPTY.
@@ -52,7 +49,6 @@ namespace Kvasir {
         namespace IrmqValC{
             constexpr Register::FieldValue<decltype(irmq)::Type,IrmqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(irmq)::Type,IrmqVal::v1> v1{};
-        }
         }
         ///Self Reception Disable
         enum class SrxdisVal {
@@ -64,7 +60,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srxdis)::Type,SrxdisVal::v0> v0{};
             constexpr Register::FieldValue<decltype(srxdis)::Type,SrxdisVal::v1> v1{};
         }
-        }
         ///Low Power Mode Acknowledge
         enum class LpmackVal {
             v0=0x00000000,     ///<FlexCAN is not in a low power mode.
@@ -74,7 +69,6 @@ namespace Kvasir {
         namespace LpmackValC{
             constexpr Register::FieldValue<decltype(lpmack)::Type,LpmackVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lpmack)::Type,LpmackVal::v1> v1{};
-        }
         }
         ///Warning Interrupt Enable
         enum class WrnenVal {
@@ -86,7 +80,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wrnen)::Type,WrnenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wrnen)::Type,WrnenVal::v1> v1{};
         }
-        }
         ///Self Wake Up
         enum class SlfwakVal {
             v0=0x00000000,     ///<FlexCAN Self Wake Up feature is disabled.
@@ -96,7 +89,6 @@ namespace Kvasir {
         namespace SlfwakValC{
             constexpr Register::FieldValue<decltype(slfwak)::Type,SlfwakVal::v0> v0{};
             constexpr Register::FieldValue<decltype(slfwak)::Type,SlfwakVal::v1> v1{};
-        }
         }
         ///Supervisor Mode
         enum class SupvVal {
@@ -108,7 +100,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(supv)::Type,SupvVal::v0> v0{};
             constexpr Register::FieldValue<decltype(supv)::Type,SupvVal::v1> v1{};
         }
-        }
         ///Freeze Mode Acknowledge
         enum class FrzackVal {
             v0=0x00000000,     ///<FlexCAN not in Freeze Mode, prescaler running
@@ -118,7 +109,6 @@ namespace Kvasir {
         namespace FrzackValC{
             constexpr Register::FieldValue<decltype(frzack)::Type,FrzackVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frzack)::Type,FrzackVal::v1> v1{};
-        }
         }
         ///Soft Reset
         enum class SoftrstVal {
@@ -130,7 +120,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(softrst)::Type,SoftrstVal::v0> v0{};
             constexpr Register::FieldValue<decltype(softrst)::Type,SoftrstVal::v1> v1{};
         }
-        }
         ///Wake Up Interrupt Mask
         enum class WakmskVal {
             v0=0x00000000,     ///<Wake Up Interrupt is disabled.
@@ -140,7 +129,6 @@ namespace Kvasir {
         namespace WakmskValC{
             constexpr Register::FieldValue<decltype(wakmsk)::Type,WakmskVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wakmsk)::Type,WakmskVal::v1> v1{};
-        }
         }
         ///FlexCAN Not Ready
         enum class NotrdyVal {
@@ -152,7 +140,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(notrdy)::Type,NotrdyVal::v0> v0{};
             constexpr Register::FieldValue<decltype(notrdy)::Type,NotrdyVal::v1> v1{};
         }
-        }
         ///Halt FlexCAN
         enum class HaltVal {
             v0=0x00000000,     ///<No Freeze Mode request.
@@ -162,7 +149,6 @@ namespace Kvasir {
         namespace HaltValC{
             constexpr Register::FieldValue<decltype(halt)::Type,HaltVal::v0> v0{};
             constexpr Register::FieldValue<decltype(halt)::Type,HaltVal::v1> v1{};
-        }
         }
         ///Rx FIFO Enable
         enum class RfenVal {
@@ -174,7 +160,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rfen)::Type,RfenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rfen)::Type,RfenVal::v1> v1{};
         }
-        }
         ///Freeze Enable
         enum class FrzVal {
             v0=0x00000000,     ///<Not enabled to enter Freeze Mode
@@ -185,7 +170,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frz)::Type,FrzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frz)::Type,FrzVal::v1> v1{};
         }
-        }
         ///Module Disable
         enum class MdisVal {
             v0=0x00000000,     ///<Enable the FlexCAN module.
@@ -195,7 +179,6 @@ namespace Kvasir {
         namespace MdisValC{
             constexpr Register::FieldValue<decltype(mdis)::Type,MdisVal::v0> v0{};
             constexpr Register::FieldValue<decltype(mdis)::Type,MdisVal::v1> v1{};
-        }
         }
     }
     namespace Can0Ctrl1{    ///<Control 1 Register
@@ -212,7 +195,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lom)::Type,LomVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lom)::Type,LomVal::v1> v1{};
         }
-        }
         ///Lowest Buffer Transmitted First
         enum class LbufVal {
             v0=0x00000000,     ///<Buffer with highest priority is transmitted first.
@@ -222,7 +204,6 @@ namespace Kvasir {
         namespace LbufValC{
             constexpr Register::FieldValue<decltype(lbuf)::Type,LbufVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lbuf)::Type,LbufVal::v1> v1{};
-        }
         }
         ///Timer Sync
         enum class TsynVal {
@@ -234,7 +215,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tsyn)::Type,TsynVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tsyn)::Type,TsynVal::v1> v1{};
         }
-        }
         ///Bus Off Recovery
         enum class BoffrecVal {
             v0=0x00000000,     ///<Automatic recovering from Bus Off state enabled, according to CAN Spec 2.0 part B
@@ -244,7 +224,6 @@ namespace Kvasir {
         namespace BoffrecValC{
             constexpr Register::FieldValue<decltype(boffrec)::Type,BoffrecVal::v0> v0{};
             constexpr Register::FieldValue<decltype(boffrec)::Type,BoffrecVal::v1> v1{};
-        }
         }
         ///CAN Bit Sampling
         enum class SmpVal {
@@ -256,7 +235,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(smp)::Type,SmpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(smp)::Type,SmpVal::v1> v1{};
         }
-        }
         ///Rx Warning Interrupt Mask
         enum class RwrnmskVal {
             v0=0x00000000,     ///<Rx Warning Interrupt disabled
@@ -266,7 +244,6 @@ namespace Kvasir {
         namespace RwrnmskValC{
             constexpr Register::FieldValue<decltype(rwrnmsk)::Type,RwrnmskVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rwrnmsk)::Type,RwrnmskVal::v1> v1{};
-        }
         }
         ///Tx Warning Interrupt Mask
         enum class TwrnmskVal {
@@ -278,7 +255,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(twrnmsk)::Type,TwrnmskVal::v0> v0{};
             constexpr Register::FieldValue<decltype(twrnmsk)::Type,TwrnmskVal::v1> v1{};
         }
-        }
         ///Loop Back Mode
         enum class LpbVal {
             v0=0x00000000,     ///<Loop Back disabled
@@ -288,7 +264,6 @@ namespace Kvasir {
         namespace LpbValC{
             constexpr Register::FieldValue<decltype(lpb)::Type,LpbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lpb)::Type,LpbVal::v1> v1{};
-        }
         }
         ///CAN Engine Clock Source
         enum class ClksrcVal {
@@ -300,7 +275,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clksrc)::Type,ClksrcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(clksrc)::Type,ClksrcVal::v1> v1{};
         }
-        }
         ///Error Mask
         enum class ErrmskVal {
             v0=0x00000000,     ///<Error interrupt disabled
@@ -311,7 +285,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(errmsk)::Type,ErrmskVal::v0> v0{};
             constexpr Register::FieldValue<decltype(errmsk)::Type,ErrmskVal::v1> v1{};
         }
-        }
         ///Bus Off Mask
         enum class BoffmskVal {
             v0=0x00000000,     ///<Bus Off interrupt disabled
@@ -321,7 +294,6 @@ namespace Kvasir {
         namespace BoffmskValC{
             constexpr Register::FieldValue<decltype(boffmsk)::Type,BoffmskVal::v0> v0{};
             constexpr Register::FieldValue<decltype(boffmsk)::Type,BoffmskVal::v1> v1{};
-        }
         }
         ///Phase Segment 2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> pseg2{}; 
@@ -371,7 +343,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wakint)::Type,WakintVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wakint)::Type,WakintVal::v1> v1{};
         }
-        }
         ///Error Interrupt
         enum class ErrintVal {
             v0=0x00000000,     ///<No such occurrence
@@ -381,7 +352,6 @@ namespace Kvasir {
         namespace ErrintValC{
             constexpr Register::FieldValue<decltype(errint)::Type,ErrintVal::v0> v0{};
             constexpr Register::FieldValue<decltype(errint)::Type,ErrintVal::v1> v1{};
-        }
         }
         ///'Bus Off' Interrupt
         enum class BoffintVal {
@@ -393,7 +363,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(boffint)::Type,BoffintVal::v0> v0{};
             constexpr Register::FieldValue<decltype(boffint)::Type,BoffintVal::v1> v1{};
         }
-        }
         ///FlexCAN in Reception
         enum class RxVal {
             v0=0x00000000,     ///<FlexCAN is not receiving a message.
@@ -403,7 +372,6 @@ namespace Kvasir {
         namespace RxValC{
             constexpr Register::FieldValue<decltype(rx)::Type,RxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rx)::Type,RxVal::v1> v1{};
-        }
         }
         ///Fault Confinement State
         enum class FltconfVal {
@@ -417,7 +385,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fltconf)::Type,FltconfVal::v01> v01{};
             constexpr Register::FieldValue<decltype(fltconf)::Type,FltconfVal::v1x> v1x{};
         }
-        }
         ///FlexCAN in Transmission
         enum class TxVal {
             v0=0x00000000,     ///<FlexCAN is not transmitting a message.
@@ -427,7 +394,6 @@ namespace Kvasir {
         namespace TxValC{
             constexpr Register::FieldValue<decltype(tx)::Type,TxVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tx)::Type,TxVal::v1> v1{};
-        }
         }
         ///no description available
         enum class IdleVal {
@@ -439,7 +405,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(idle)::Type,IdleVal::v0> v0{};
             constexpr Register::FieldValue<decltype(idle)::Type,IdleVal::v1> v1{};
         }
-        }
         ///Rx Error Warning
         enum class RxwrnVal {
             v0=0x00000000,     ///<No such occurrence
@@ -449,7 +414,6 @@ namespace Kvasir {
         namespace RxwrnValC{
             constexpr Register::FieldValue<decltype(rxwrn)::Type,RxwrnVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxwrn)::Type,RxwrnVal::v1> v1{};
-        }
         }
         ///TX Error Warning
         enum class TxwrnVal {
@@ -461,7 +425,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txwrn)::Type,TxwrnVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txwrn)::Type,TxwrnVal::v1> v1{};
         }
-        }
         ///Stuffing Error
         enum class StferrVal {
             v0=0x00000000,     ///<No such occurrence
@@ -471,7 +434,6 @@ namespace Kvasir {
         namespace StferrValC{
             constexpr Register::FieldValue<decltype(stferr)::Type,StferrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(stferr)::Type,StferrVal::v1> v1{};
-        }
         }
         ///Form Error
         enum class FrmerrVal {
@@ -483,7 +445,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(frmerr)::Type,FrmerrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(frmerr)::Type,FrmerrVal::v1> v1{};
         }
-        }
         ///Cyclic Redundancy Check Error
         enum class CrcerrVal {
             v0=0x00000000,     ///<No such occurrence
@@ -493,7 +454,6 @@ namespace Kvasir {
         namespace CrcerrValC{
             constexpr Register::FieldValue<decltype(crcerr)::Type,CrcerrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(crcerr)::Type,CrcerrVal::v1> v1{};
-        }
         }
         ///Acknowledge Error
         enum class AckerrVal {
@@ -505,7 +465,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ackerr)::Type,AckerrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ackerr)::Type,AckerrVal::v1> v1{};
         }
-        }
         ///Bit0 Error
         enum class Bit0errVal {
             v0=0x00000000,     ///<No such occurrence
@@ -515,7 +474,6 @@ namespace Kvasir {
         namespace Bit0errValC{
             constexpr Register::FieldValue<decltype(bit0err)::Type,Bit0errVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bit0err)::Type,Bit0errVal::v1> v1{};
-        }
         }
         ///Bit1 Error
         enum class Bit1errVal {
@@ -527,7 +485,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bit1err)::Type,Bit1errVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bit1err)::Type,Bit1errVal::v1> v1{};
         }
-        }
         ///Rx Warning Interrupt Flag
         enum class RwrnintVal {
             v0=0x00000000,     ///<No such occurrence
@@ -537,7 +494,6 @@ namespace Kvasir {
         namespace RwrnintValC{
             constexpr Register::FieldValue<decltype(rwrnint)::Type,RwrnintVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rwrnint)::Type,RwrnintVal::v1> v1{};
-        }
         }
         ///Tx Warning Interrupt Flag
         enum class TwrnintVal {
@@ -549,7 +505,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(twrnint)::Type,TwrnintVal::v0> v0{};
             constexpr Register::FieldValue<decltype(twrnint)::Type,TwrnintVal::v1> v1{};
         }
-        }
         ///CAN Synchronization Status
         enum class SynchVal {
             v0=0x00000000,     ///<FlexCAN is not synchronized to the CAN bus.
@@ -559,7 +514,6 @@ namespace Kvasir {
         namespace SynchValC{
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::v0> v0{};
             constexpr Register::FieldValue<decltype(synch)::Type,SynchVal::v1> v1{};
-        }
         }
     }
     namespace Can0Imask2{    ///<Interrupt Masks 2 Register
@@ -591,7 +545,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(buf5i)::Type,Buf5iVal::v0> v0{};
             constexpr Register::FieldValue<decltype(buf5i)::Type,Buf5iVal::v1> v1{};
         }
-        }
         ///Buffer MB6 Interrupt or "Rx FIFO Warning"
         enum class Buf6iVal {
             v0=0x00000000,     ///<No occurrence of MB6 completing transmission/reception (when MCR[RFEN]=0) or of Rx FIFO almost full (when MCR[RFEN]=1)
@@ -602,7 +555,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(buf6i)::Type,Buf6iVal::v0> v0{};
             constexpr Register::FieldValue<decltype(buf6i)::Type,Buf6iVal::v1> v1{};
         }
-        }
         ///Buffer MB7 Interrupt or "Rx FIFO Overflow"
         enum class Buf7iVal {
             v0=0x00000000,     ///<No occurrence of MB7 completing transmission/reception (when MCR[RFEN]=0) or of Rx FIFO overflow (when MCR[RFEN]=1)
@@ -612,7 +564,6 @@ namespace Kvasir {
         namespace Buf7iValC{
             constexpr Register::FieldValue<decltype(buf7i)::Type,Buf7iVal::v0> v0{};
             constexpr Register::FieldValue<decltype(buf7i)::Type,Buf7iVal::v1> v1{};
-        }
         }
         ///Buffer MBi Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> buf31to8i{}; 
@@ -629,7 +580,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(eacen)::Type,EacenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(eacen)::Type,EacenVal::v1> v1{};
         }
-        }
         ///Remote Request Storing
         enum class RrsVal {
             v0=0x00000000,     ///<Remote Response Frame is generated.
@@ -640,7 +590,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rrs)::Type,RrsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rrs)::Type,RrsVal::v1> v1{};
         }
-        }
         ///Mailboxes Reception Priority
         enum class MrpVal {
             v0=0x00000000,     ///<Matching starts from Rx FIFO and continues on Mailboxes.
@@ -650,7 +599,6 @@ namespace Kvasir {
         namespace MrpValC{
             constexpr Register::FieldValue<decltype(mrp)::Type,MrpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(mrp)::Type,MrpVal::v1> v1{};
-        }
         }
         ///Tx Arbitration Start Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,19),Register::ReadWriteAccess,unsigned> tasd{}; 
@@ -666,7 +614,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wrmfrz)::Type,WrmfrzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wrmfrz)::Type,WrmfrzVal::v1> v1{};
         }
-        }
     }
     namespace Can0Esr2{    ///<Error and Status 2 Register
         using Addr = Register::Address<0x40024038,0xff809fff,0,unsigned>;
@@ -680,7 +627,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(imb)::Type,ImbVal::v0> v0{};
             constexpr Register::FieldValue<decltype(imb)::Type,ImbVal::v1> v1{};
         }
-        }
         ///Valid Priority Status
         enum class VpsVal {
             v0=0x00000000,     ///<Contents of IMB and LPTM are invalid.
@@ -690,7 +636,6 @@ namespace Kvasir {
         namespace VpsValC{
             constexpr Register::FieldValue<decltype(vps)::Type,VpsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(vps)::Type,VpsVal::v1> v1{};
-        }
         }
         ///Lowest Priority Tx Mailbox
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> lptm{}; 

@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::v1> v1{};
         }
-        }
         ///Low-Voltage Detect Reset
         enum class LvdVal {
             v0=0x00000000,     ///<Reset not caused by LVD trip or POR
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace LvdValC{
             constexpr Register::FieldValue<decltype(lvd)::Type,LvdVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lvd)::Type,LvdVal::v1> v1{};
-        }
         }
         ///Loss-of-Clock Reset
         enum class LocVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(loc)::Type,LocVal::v0> v0{};
             constexpr Register::FieldValue<decltype(loc)::Type,LocVal::v1> v1{};
         }
-        }
         ///Loss-of-Lock Reset
         enum class LolVal {
             v0=0x00000000,     ///<Reset not caused by a loss of lock in the PLL
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace LolValC{
             constexpr Register::FieldValue<decltype(lol)::Type,LolVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lol)::Type,LolVal::v1> v1{};
-        }
         }
         ///Watchdog
         enum class WdogVal {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wdog)::Type,WdogVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wdog)::Type,WdogVal::v1> v1{};
         }
-        }
         ///External Reset Pin
         enum class PinVal {
             v0=0x00000000,     ///<Reset not caused by external reset pin
@@ -69,7 +64,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pin)::Type,PinVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pin)::Type,PinVal::v1> v1{};
         }
-        }
         ///Power-On Reset
         enum class PorVal {
             v0=0x00000000,     ///<Reset not caused by POR
@@ -79,7 +73,6 @@ namespace Kvasir {
         namespace PorValC{
             constexpr Register::FieldValue<decltype(por)::Type,PorVal::v0> v0{};
             constexpr Register::FieldValue<decltype(por)::Type,PorVal::v1> v1{};
-        }
         }
     }
     namespace RcmSrs1{    ///<System Reset Status Register 1
@@ -94,7 +87,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(jtag)::Type,JtagVal::v0> v0{};
             constexpr Register::FieldValue<decltype(jtag)::Type,JtagVal::v1> v1{};
         }
-        }
         ///Core Lockup
         enum class LockupVal {
             v0=0x00000000,     ///<Reset not caused by core LOCKUP event
@@ -104,7 +96,6 @@ namespace Kvasir {
         namespace LockupValC{
             constexpr Register::FieldValue<decltype(lockup)::Type,LockupVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lockup)::Type,LockupVal::v1> v1{};
-        }
         }
         ///Software
         enum class SwVal {
@@ -116,7 +107,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sw)::Type,SwVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sw)::Type,SwVal::v1> v1{};
         }
-        }
         ///MDM-AP System Reset Request
         enum class MdmapVal {
             v0=0x00000000,     ///<Reset not caused by host debugger system setting of the System Reset Request bit
@@ -126,7 +116,6 @@ namespace Kvasir {
         namespace MdmapValC{
             constexpr Register::FieldValue<decltype(mdmAp)::Type,MdmapVal::v0> v0{};
             constexpr Register::FieldValue<decltype(mdmAp)::Type,MdmapVal::v1> v1{};
-        }
         }
         ///EzPort Reset
         enum class EzptVal {
@@ -138,7 +127,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ezpt)::Type,EzptVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ezpt)::Type,EzptVal::v1> v1{};
         }
-        }
         ///Stop Mode Acknowledge Error Reset
         enum class SackerrVal {
             v0=0x00000000,     ///<Reset not caused by peripheral failure to acknowledge attempt to enter stop mode
@@ -149,7 +137,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sackerr)::Type,SackerrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sackerr)::Type,SackerrVal::v1> v1{};
         }
-        }
         ///Tamper detect
         enum class TamperVal {
             v0=0x00000000,     ///<Reset not caused by tamper detect
@@ -159,7 +146,6 @@ namespace Kvasir {
         namespace TamperValC{
             constexpr Register::FieldValue<decltype(tamper)::Type,TamperVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tamper)::Type,TamperVal::v1> v1{};
-        }
         }
     }
     namespace RcmRpfc{    ///<Reset Pin Filter Control register
@@ -178,7 +164,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rstfltsrw)::Type,RstfltsrwVal::v10> v10{};
             constexpr Register::FieldValue<decltype(rstfltsrw)::Type,RstfltsrwVal::v11> v11{};
         }
-        }
         ///Reset Pin Filter Select in Stop Mode
         enum class RstfltssVal {
             v0=0x00000000,     ///<All filtering disabled
@@ -188,7 +173,6 @@ namespace Kvasir {
         namespace RstfltssValC{
             constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v1> v1{};
-        }
         }
     }
     namespace RcmRpfw{    ///<Reset Pin Filter Width register
@@ -263,7 +247,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rstfltsel)::Type,RstfltselVal::v11110> v11110{};
             constexpr Register::FieldValue<decltype(rstfltsel)::Type,RstfltselVal::v11111> v11111{};
         }
-        }
     }
     namespace RcmMr{    ///<Mode Register
         using Addr = Register::Address<0x4007f007,0xfffffffd,0,unsigned char>;
@@ -276,7 +259,6 @@ namespace Kvasir {
         namespace EzpmsValC{
             constexpr Register::FieldValue<decltype(ezpMs)::Type,EzpmsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ezpMs)::Type,EzpmsVal::v1> v1{};
-        }
         }
     }
 }

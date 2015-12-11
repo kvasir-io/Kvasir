@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stop)::Type,StopVal::v0> v0{};
             constexpr Register::FieldValue<decltype(stop)::Type,StopVal::v1> v1{};
         }
-        }
         ///Wait Enable
         enum class WaitVal {
             v0=0x00000000,     ///<Watchdog disabled in chip wait mode.
@@ -25,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wait)::Type,WaitVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wait)::Type,WaitVal::v1> v1{};
         }
-        }
         ///Debug Enable
         enum class DbgVal {
             v0=0x00000000,     ///<Watchdog disabled in chip debug mode.
@@ -35,7 +33,6 @@ namespace Kvasir {
         namespace DbgValC{
             constexpr Register::FieldValue<decltype(dbg)::Type,DbgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dbg)::Type,DbgVal::v1> v1{};
-        }
         }
         ///Watchdog Test
         enum class TstVal {
@@ -51,7 +48,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tst)::Type,TstVal::v10> v10{};
             constexpr Register::FieldValue<decltype(tst)::Type,TstVal::v11> v11{};
         }
-        }
         ///Allow updates
         enum class UpdateVal {
             v0=0x00000000,     ///<Updates not allowed. After the initial configuration, the watchdog cannot be later modified without forcing a reset.
@@ -61,7 +57,6 @@ namespace Kvasir {
         namespace UpdateValC{
             constexpr Register::FieldValue<decltype(update)::Type,UpdateVal::v0> v0{};
             constexpr Register::FieldValue<decltype(update)::Type,UpdateVal::v1> v1{};
-        }
         }
         ///Watchdog Interrupt
         enum class Int_Val {
@@ -73,7 +68,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(int_)::Type,Int_Val::v0> v0{};
             constexpr Register::FieldValue<decltype(int_)::Type,Int_Val::v1> v1{};
         }
-        }
         ///Watchdog Enable
         enum class EnVal {
             v0=0x00000000,     ///<Watchdog disabled.
@@ -83,7 +77,6 @@ namespace Kvasir {
         namespace EnValC{
             constexpr Register::FieldValue<decltype(en)::Type,EnVal::v0> v0{};
             constexpr Register::FieldValue<decltype(en)::Type,EnVal::v1> v1{};
-        }
         }
     }
     namespace WdogCs2{    ///<Watchdog Control and Status Register 2
@@ -102,7 +95,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clk)::Type,ClkVal::v10> v10{};
             constexpr Register::FieldValue<decltype(clk)::Type,ClkVal::v11> v11{};
         }
-        }
         ///Watchdog Prescalar
         enum class PresVal {
             v0=0x00000000,     ///<256 prescalar disabled.
@@ -112,7 +104,6 @@ namespace Kvasir {
         namespace PresValC{
             constexpr Register::FieldValue<decltype(pres)::Type,PresVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pres)::Type,PresVal::v1> v1{};
-        }
         }
         ///Watchdog Interrupt Flag
         enum class FlgVal {
@@ -124,7 +115,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flg)::Type,FlgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(flg)::Type,FlgVal::v1> v1{};
         }
-        }
         ///Watchdog Window
         enum class WinVal {
             v0=0x00000000,     ///<Window mode disabled.
@@ -134,7 +124,6 @@ namespace Kvasir {
         namespace WinValC{
             constexpr Register::FieldValue<decltype(win)::Type,WinVal::v0> v0{};
             constexpr Register::FieldValue<decltype(win)::Type,WinVal::v1> v1{};
-        }
         }
     }
     namespace WdogCnt{    ///<Watchdog Counter Register.

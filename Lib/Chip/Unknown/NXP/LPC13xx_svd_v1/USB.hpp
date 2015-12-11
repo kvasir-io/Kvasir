@@ -163,7 +163,6 @@ controller Modification date=4/20/2011 Major revision=2 Minor revision=1
             constexpr Register::FieldValue<decltype(dv)::Type,DvVal::dataIsInvalid> dataIsInvalid{};
             constexpr Register::FieldValue<decltype(dv)::Type,DvVal::dataIsValid> dataIsValid{};
         }
-        }
     }
     namespace Nonetxplenn{    ///<USB Transmit Packet Length
         using Addr = Register::Address<0x40020024,0xfffffc00,0,unsigned>;
@@ -182,7 +181,6 @@ controller Modification date=4/20/2011 Major revision=2 Minor revision=1
             constexpr Register::FieldValue<decltype(rdEn)::Type,RdenVal::readModeIsDisable> readModeIsDisable{};
             constexpr Register::FieldValue<decltype(rdEn)::Type,RdenVal::readModeIsEnabled> readModeIsEnabled{};
         }
-        }
         ///Write mode control. Enables writing data to the IN endpoint buffer for the endpoint specified in the LOG_ENDPOINT field using the USBTxData register. This bit is cleared by hardware when the number of bytes in USBTxLen have been sent.
         enum class WrenVal {
             writeModeIsDisabl=0x00000000,     ///<Write mode is disabled.
@@ -192,7 +190,6 @@ controller Modification date=4/20/2011 Major revision=2 Minor revision=1
         namespace WrenValC{
             constexpr Register::FieldValue<decltype(wrEn)::Type,WrenVal::writeModeIsDisabl> writeModeIsDisabl{};
             constexpr Register::FieldValue<decltype(wrEn)::Type,WrenVal::writeModeIsEnable> writeModeIsEnable{};
-        }
         }
         ///Logical Endpoint number.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,2),Register::ReadWriteAccess,unsigned> logEndpoint{}; 
@@ -209,7 +206,6 @@ controller Modification date=4/20/2011 Major revision=2 Minor revision=1
             constexpr Register::FieldValue<decltype(frame)::Type,FrameVal::lowpriority> lowpriority{};
             constexpr Register::FieldValue<decltype(frame)::Type,FrameVal::highpriority> highpriority{};
         }
-        }
         ///Interrupt routing for bulk out endpoints  For logical endpoint 3 (physical endpoints 6 and 7) only.
         enum class BulkoutVal {
             lowpriority=0x00000000,     ///<BULKOUT interrupt will be routed to the low-priority interrupt line IRQ.
@@ -220,7 +216,6 @@ controller Modification date=4/20/2011 Major revision=2 Minor revision=1
             constexpr Register::FieldValue<decltype(bulkout)::Type,BulkoutVal::lowpriority> lowpriority{};
             constexpr Register::FieldValue<decltype(bulkout)::Type,BulkoutVal::highpriority> highpriority{};
         }
-        }
         ///Interrupt routing for bulk in endpoints  For logical endpoint 3 (physical endpoints 6 and 7) only.
         enum class BulkinVal {
             lowpriority=0x00000000,     ///<BULKIN interrupt will be routed to the low-priority interrupt line IRQ.
@@ -230,7 +225,6 @@ controller Modification date=4/20/2011 Major revision=2 Minor revision=1
         namespace BulkinValC{
             constexpr Register::FieldValue<decltype(bulkin)::Type,BulkinVal::lowpriority> lowpriority{};
             constexpr Register::FieldValue<decltype(bulkin)::Type,BulkinVal::highpriority> highpriority{};
-        }
         }
     }
 }

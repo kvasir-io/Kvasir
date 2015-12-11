@@ -131,7 +131,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(den0)::Type,Den0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(den0)::Type,Den0Val::v1> v1{};
         }
-        }
         ///Interrupt Enable for XBAR_OUT0
         enum class Ien0Val {
             v0=0x00000000,     ///<Interrupt disabled
@@ -141,7 +140,6 @@ namespace Kvasir {
         namespace Ien0ValC{
             constexpr Register::FieldValue<decltype(ien0)::Type,Ien0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(ien0)::Type,Ien0Val::v1> v1{};
-        }
         }
         ///Active edge for edge detection on XBAR_OUT0
         enum class Edge0Val {
@@ -157,7 +155,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edge0)::Type,Edge0Val::v10> v10{};
             constexpr Register::FieldValue<decltype(edge0)::Type,Edge0Val::v11> v11{};
         }
-        }
         ///Edge detection status for XBAR_OUT0
         enum class Sts0Val {
             v0=0x00000000,     ///<Active edge not yet detected on XBAR_OUT0
@@ -167,7 +164,6 @@ namespace Kvasir {
         namespace Sts0ValC{
             constexpr Register::FieldValue<decltype(sts0)::Type,Sts0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(sts0)::Type,Sts0Val::v1> v1{};
-        }
         }
     }
 }

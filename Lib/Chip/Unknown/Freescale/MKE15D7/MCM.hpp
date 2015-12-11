@@ -24,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cbrr)::Type,CbrrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cbrr)::Type,CbrrVal::v1> v1{};
         }
-        }
         ///SRAM_U arbitration priority
         enum class SramuapVal {
             v00=0x00000000,     ///<Round robin
@@ -38,7 +37,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sramuap)::Type,SramuapVal::v01> v01{};
             constexpr Register::FieldValue<decltype(sramuap)::Type,SramuapVal::v10> v10{};
             constexpr Register::FieldValue<decltype(sramuap)::Type,SramuapVal::v11> v11{};
-        }
         }
         ///SRAM_U write protect
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> sramuwp{}; 
@@ -55,7 +53,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sramlap)::Type,SramlapVal::v01> v01{};
             constexpr Register::FieldValue<decltype(sramlap)::Type,SramlapVal::v10> v10{};
             constexpr Register::FieldValue<decltype(sramlap)::Type,SramlapVal::v11> v11{};
-        }
         }
         ///SRAM_L Write Protect
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> sramlwp{}; 

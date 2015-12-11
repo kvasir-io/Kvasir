@@ -16,7 +16,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enbl)::Type,EnblVal::v0> v0{};
             constexpr Register::FieldValue<decltype(enbl)::Type,EnblVal::v1> v1{};
         }
-        }
     }
     namespace DmamuxChcfg1{    ///<Channel Configuration register
         using Addr = Register::Address<0x40021001,0xffffff40,0,unsigned char>;
@@ -31,7 +30,6 @@ namespace Kvasir {
         namespace EnblValC{
             constexpr Register::FieldValue<decltype(enbl)::Type,EnblVal::v0> v0{};
             constexpr Register::FieldValue<decltype(enbl)::Type,EnblVal::v1> v1{};
-        }
         }
     }
     namespace DmamuxChcfg2{    ///<Channel Configuration register
@@ -48,7 +46,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(enbl)::Type,EnblVal::v0> v0{};
             constexpr Register::FieldValue<decltype(enbl)::Type,EnblVal::v1> v1{};
         }
-        }
     }
     namespace DmamuxChcfg3{    ///<Channel Configuration register
         using Addr = Register::Address<0x40021003,0xffffff40,0,unsigned char>;
@@ -63,7 +60,6 @@ namespace Kvasir {
         namespace EnblValC{
             constexpr Register::FieldValue<decltype(enbl)::Type,EnblVal::v0> v0{};
             constexpr Register::FieldValue<decltype(enbl)::Type,EnblVal::v1> v1{};
-        }
         }
     }
 }

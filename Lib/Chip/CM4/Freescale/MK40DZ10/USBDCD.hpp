@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iack)::Type,IackVal::v0> v0{};
             constexpr Register::FieldValue<decltype(iack)::Type,IackVal::v1> v1{};
         }
-        }
         ///Interrupt Flag
         enum class If_Val {
             v0=0x00000000,     ///<No interrupt is pending.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace If_ValC{
             constexpr Register::FieldValue<decltype(if_)::Type,If_Val::v0> v0{};
             constexpr Register::FieldValue<decltype(if_)::Type,If_Val::v1> v1{};
-        }
         }
         ///Interrupt Enable
         enum class IeVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ie)::Type,IeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ie)::Type,IeVal::v1> v1{};
         }
-        }
         ///Start Change Detection Sequence
         enum class StartVal {
             v0=0x00000000,     ///<Do not start the sequence. Writes of this value have no effect.
@@ -47,7 +44,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
         }
-        }
         ///Software Reset
         enum class SrVal {
             v0=0x00000000,     ///<Do not perform a software reset.
@@ -57,7 +53,6 @@ namespace Kvasir {
         namespace SrValC{
             constexpr Register::FieldValue<decltype(sr)::Type,SrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sr)::Type,SrVal::v1> v1{};
-        }
         }
     }
     namespace UsbdcdClock{    ///<Clock Register
@@ -71,7 +66,6 @@ namespace Kvasir {
         namespace ClockunitValC{
             constexpr Register::FieldValue<decltype(clockUnit)::Type,ClockunitVal::v0> v0{};
             constexpr Register::FieldValue<decltype(clockUnit)::Type,ClockunitVal::v1> v1{};
-        }
         }
         ///Numerical Value of Clock Speed in Binary
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,2),Register::ReadWriteAccess,unsigned> clockSpeed{}; 
@@ -92,7 +86,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(seqRes)::Type,SeqresVal::v10> v10{};
             constexpr Register::FieldValue<decltype(seqRes)::Type,SeqresVal::v11> v11{};
         }
-        }
         ///Charger Detection Sequence Status
         enum class SeqstatVal {
             v00=0x00000000,     ///<The module is either not enabled, or the module is enabled but the data pins have not yet been detected.
@@ -107,7 +100,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(seqStat)::Type,SeqstatVal::v10> v10{};
             constexpr Register::FieldValue<decltype(seqStat)::Type,SeqstatVal::v11> v11{};
         }
-        }
         ///Error Flag
         enum class ErrVal {
             v0=0x00000000,     ///<No sequence errors.
@@ -117,7 +109,6 @@ namespace Kvasir {
         namespace ErrValC{
             constexpr Register::FieldValue<decltype(err)::Type,ErrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(err)::Type,ErrVal::v1> v1{};
-        }
         }
         ///Timeout Flag
         enum class ToVal {
@@ -129,7 +120,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(to)::Type,ToVal::v0> v0{};
             constexpr Register::FieldValue<decltype(to)::Type,ToVal::v1> v1{};
         }
-        }
         ///Active Status Indicator
         enum class ActiveVal {
             v0=0x00000000,     ///<The sequence is not running.
@@ -139,7 +129,6 @@ namespace Kvasir {
         namespace ActiveValC{
             constexpr Register::FieldValue<decltype(active)::Type,ActiveVal::v0> v0{};
             constexpr Register::FieldValue<decltype(active)::Type,ActiveVal::v1> v1{};
-        }
         }
     }
     namespace UsbdcdTimer0{    ///<TIMER0 Register

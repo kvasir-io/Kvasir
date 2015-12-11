@@ -16,7 +16,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(faddrupd)::Type,FaddrupdVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(faddrupd)::Type,FaddrupdVal::set> set{};
         }
-        }
     }
     namespace Nonepower{    ///<Power Control
         using Addr = Register::Address<0x40018010,0xffffff40,0,unsigned>;
@@ -30,7 +29,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(susden)::Type,SusdenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(susden)::Type,SusdenVal::enabled> enabled{};
         }
-        }
         ///Suspend Mode Flag. 
         enum class SusmdfVal {
             notSet=0x00000000,     ///<The USB module is not in suspend mode.
@@ -40,7 +38,6 @@ namespace Kvasir {
         namespace SusmdfValC{
             constexpr Register::FieldValue<decltype(susmdf)::Type,SusmdfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(susmdf)::Type,SusmdfVal::set> set{};
-        }
         }
         ///Force Resume. 
         enum class ResumeVal {
@@ -52,7 +49,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(resume)::Type,ResumeVal::stop> stop{};
             constexpr Register::FieldValue<decltype(resume)::Type,ResumeVal::generate> generate{};
         }
-        }
         ///Reset Detect Flag. 
         enum class RstdetfVal {
             notSet=0x00000000,     ///<Reset signaling is not present on the bus.
@@ -62,7 +58,6 @@ namespace Kvasir {
         namespace RstdetfValC{
             constexpr Register::FieldValue<decltype(rstdetf)::Type,RstdetfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rstdetf)::Type,RstdetfVal::set> set{};
-        }
         }
         ///USB Inhibit. 
         enum class UsbinhVal {
@@ -74,7 +69,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usbinh)::Type,UsbinhVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(usbinh)::Type,UsbinhVal::active> active{};
         }
-        }
         ///USB Dither Enable. 
         enum class DithenVal {
             disabled=0x00000000,     ///<Disable automatic USB dithering.
@@ -85,7 +79,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dithen)::Type,DithenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dithen)::Type,DithenVal::enabled> enabled{};
         }
-        }
         ///ISO Update Mode. 
         enum class IsoupdmdVal {
             sendOnIn=0x00000000,     ///<When software writes IPRDYI = 1, USB will send the packet when the next IN token is received.
@@ -95,7 +88,6 @@ namespace Kvasir {
         namespace IsoupdmdValC{
             constexpr Register::FieldValue<decltype(isoupdmd)::Type,IsoupdmdVal::sendOnIn> sendOnIn{};
             constexpr Register::FieldValue<decltype(isoupdmd)::Type,IsoupdmdVal::sendOnSof> sendOnSof{};
-        }
         }
     }
     namespace Noneioint{    ///<IN/OUT Endpoint Interrupt Flags
@@ -110,7 +102,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ep0i)::Type,Ep0iVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(ep0i)::Type,Ep0iVal::set> set{};
         }
-        }
         ///IN Endpoint 1 Interrupt Flag. 
         enum class In1iVal {
             notSet=0x00000000,     ///<Read: IN Endpoint 1 interrupt has not occurred. Write: No effect.
@@ -120,7 +111,6 @@ namespace Kvasir {
         namespace In1iValC{
             constexpr Register::FieldValue<decltype(in1i)::Type,In1iVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(in1i)::Type,In1iVal::set> set{};
-        }
         }
         ///IN Endpoint 2 Interrupt Flag. 
         enum class In2iVal {
@@ -132,7 +122,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in2i)::Type,In2iVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(in2i)::Type,In2iVal::set> set{};
         }
-        }
         ///IN Endpoint 3 Interrupt Flag. 
         enum class In3iVal {
             notSet=0x00000000,     ///<Read: IN Endpoint 3 interrupt has not occurred. Write: No effect.
@@ -142,7 +131,6 @@ namespace Kvasir {
         namespace In3iValC{
             constexpr Register::FieldValue<decltype(in3i)::Type,In3iVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(in3i)::Type,In3iVal::set> set{};
-        }
         }
         ///IN Endpoint 4 Interrupt Flag. 
         enum class In4iVal {
@@ -154,7 +142,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in4i)::Type,In4iVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(in4i)::Type,In4iVal::set> set{};
         }
-        }
         ///OUT Endpoint 1 Interrupt Flag. 
         enum class Out1iVal {
             notSet=0x00000000,     ///<Read: OUT Endpoint 1 interrupt has not occurred. Write: No effect.
@@ -164,7 +151,6 @@ namespace Kvasir {
         namespace Out1iValC{
             constexpr Register::FieldValue<decltype(out1i)::Type,Out1iVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(out1i)::Type,Out1iVal::set> set{};
-        }
         }
         ///OUT Endpoint 2 Interrupt Flag. 
         enum class Out2iVal {
@@ -176,7 +162,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(out2i)::Type,Out2iVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(out2i)::Type,Out2iVal::set> set{};
         }
-        }
         ///OUT Endpoint 3 Interrupt Flag. 
         enum class Out3iVal {
             notSet=0x00000000,     ///<Read: OUT Endpoint 3 interrupt has not occurred. Write: No effect.
@@ -187,7 +172,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(out3i)::Type,Out3iVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(out3i)::Type,Out3iVal::set> set{};
         }
-        }
         ///OUT Endpoint 4 Interrupt Flag. 
         enum class Out4iVal {
             notSet=0x00000000,     ///<Read: OUT Endpoint 4 interrupt has not occurred. Write: No effect.
@@ -197,7 +181,6 @@ namespace Kvasir {
         namespace Out4iValC{
             constexpr Register::FieldValue<decltype(out4i)::Type,Out4iVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(out4i)::Type,Out4iVal::set> set{};
-        }
         }
     }
     namespace Nonecmint{    ///<Common Interrupt Flags
@@ -212,7 +195,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(susi)::Type,SusiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(susi)::Type,SusiVal::set> set{};
         }
-        }
         ///Resume Interrupt Flag. 
         enum class ResiVal {
             notSet=0x00000000,     ///<Read: Resume interrupt has not occurred. Write: No effect.
@@ -222,7 +204,6 @@ namespace Kvasir {
         namespace ResiValC{
             constexpr Register::FieldValue<decltype(resi)::Type,ResiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(resi)::Type,ResiVal::set> set{};
-        }
         }
         ///Reset Interrupt Flag. 
         enum class RstiVal {
@@ -234,7 +215,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rsti)::Type,RstiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(rsti)::Type,RstiVal::set> set{};
         }
-        }
         ///Start of Frame Interrupt Flag. 
         enum class SofiVal {
             notSet=0x00000000,     ///<Read: SOF interrupt has not occurred. Write: No effect.
@@ -244,7 +224,6 @@ namespace Kvasir {
         namespace SofiValC{
             constexpr Register::FieldValue<decltype(sofi)::Type,SofiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(sofi)::Type,SofiVal::set> set{};
-        }
         }
     }
     namespace Noneiointe{    ///<IN/OUT Endpoint Interrupt Control
@@ -259,7 +238,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ep0ien)::Type,Ep0ienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ep0ien)::Type,Ep0ienVal::enabled> enabled{};
         }
-        }
         ///IN Endpoint 1 Interrupt Enable. 
         enum class In1ienVal {
             disabled=0x00000000,     ///<Disable the IN Endpoint 1 interrupt.
@@ -269,7 +247,6 @@ namespace Kvasir {
         namespace In1ienValC{
             constexpr Register::FieldValue<decltype(in1ien)::Type,In1ienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(in1ien)::Type,In1ienVal::enabled> enabled{};
-        }
         }
         ///IN Endpoint 2 Interrupt Enable. 
         enum class In2ienVal {
@@ -281,7 +258,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in2ien)::Type,In2ienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(in2ien)::Type,In2ienVal::enabled> enabled{};
         }
-        }
         ///IN Endpoint 3 Interrupt Enable. 
         enum class In3ienVal {
             disabled=0x00000000,     ///<Disable the IN Endpoint 3 interrupt.
@@ -291,7 +267,6 @@ namespace Kvasir {
         namespace In3ienValC{
             constexpr Register::FieldValue<decltype(in3ien)::Type,In3ienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(in3ien)::Type,In3ienVal::enabled> enabled{};
-        }
         }
         ///IN Endpoint 4 Interrupt Enable. 
         enum class In4ienVal {
@@ -303,7 +278,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(in4ien)::Type,In4ienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(in4ien)::Type,In4ienVal::enabled> enabled{};
         }
-        }
         ///OUT Endpoint 1 Interrupt Enable. 
         enum class Out1ienVal {
             disabled=0x00000000,     ///<Disable the OUT Endpoint 1 interrupt.
@@ -313,7 +287,6 @@ namespace Kvasir {
         namespace Out1ienValC{
             constexpr Register::FieldValue<decltype(out1ien)::Type,Out1ienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(out1ien)::Type,Out1ienVal::enabled> enabled{};
-        }
         }
         ///OUT Endpoint 2 Interrupt Enable. 
         enum class Out2ienVal {
@@ -325,7 +298,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(out2ien)::Type,Out2ienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(out2ien)::Type,Out2ienVal::enabled> enabled{};
         }
-        }
         ///OUT Endpoint 3 Interrupt Enable. 
         enum class Out3ienVal {
             disabled=0x00000000,     ///<Disable the OUT Endpoint 3 interrupt.
@@ -336,7 +308,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(out3ien)::Type,Out3ienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(out3ien)::Type,Out3ienVal::enabled> enabled{};
         }
-        }
         ///OUT Endpoint 4 Interrupt Enable. 
         enum class Out4ienVal {
             disabled=0x00000000,     ///<Disable the OUT Endpoint 4 interrupt.
@@ -346,7 +317,6 @@ namespace Kvasir {
         namespace Out4ienValC{
             constexpr Register::FieldValue<decltype(out4ien)::Type,Out4ienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(out4ien)::Type,Out4ienVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonecmintepe{    ///<Common Interrupt and Endpoint Control
@@ -361,7 +331,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(susien)::Type,SusienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(susien)::Type,SusienVal::enabled> enabled{};
         }
-        }
         ///Resume Interrupt Enable. 
         enum class ResienVal {
             disabled=0x00000000,     ///<Disable the Resume interrupt.
@@ -371,7 +340,6 @@ namespace Kvasir {
         namespace ResienValC{
             constexpr Register::FieldValue<decltype(resien)::Type,ResienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(resien)::Type,ResienVal::enabled> enabled{};
-        }
         }
         ///Reset Interrupt Enable. 
         enum class RstienVal {
@@ -383,7 +351,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rstien)::Type,RstienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rstien)::Type,RstienVal::enabled> enabled{};
         }
-        }
         ///Start of Frame Interrupt Enable. 
         enum class SofienVal {
             disabled=0x00000000,     ///<Disable the SOF interrupt.
@@ -393,7 +360,6 @@ namespace Kvasir {
         namespace SofienValC{
             constexpr Register::FieldValue<decltype(sofien)::Type,SofienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(sofien)::Type,SofienVal::enabled> enabled{};
-        }
         }
         ///Endpoint 0 Enable. 
         enum class Ep0enVal {
@@ -405,7 +371,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ep0en)::Type,Ep0enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ep0en)::Type,Ep0enVal::enabled> enabled{};
         }
-        }
         ///Endpoint 1 Enable. 
         enum class Ep1enVal {
             disabled=0x00000000,     ///<Disable Endpoint 1 (no NACK, ACK, or STALL on the USB network).
@@ -415,7 +380,6 @@ namespace Kvasir {
         namespace Ep1enValC{
             constexpr Register::FieldValue<decltype(ep1en)::Type,Ep1enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ep1en)::Type,Ep1enVal::enabled> enabled{};
-        }
         }
         ///Endpoint 2 Enable. 
         enum class Ep2enVal {
@@ -427,7 +391,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ep2en)::Type,Ep2enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ep2en)::Type,Ep2enVal::enabled> enabled{};
         }
-        }
         ///Endpoint 3 Enable. 
         enum class Ep3enVal {
             disabled=0x00000000,     ///<Disable Endpoint 3 (no NACK, ACK, or STALL on the USB network).
@@ -438,7 +401,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ep3en)::Type,Ep3enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ep3en)::Type,Ep3enVal::enabled> enabled{};
         }
-        }
         ///Endpoint 4 Enable. 
         enum class Ep4enVal {
             disabled=0x00000000,     ///<Disable Endpoint 4 (no NACK, ACK, or STALL on the USB network).
@@ -448,7 +410,6 @@ namespace Kvasir {
         namespace Ep4enValC{
             constexpr Register::FieldValue<decltype(ep4en)::Type,Ep4enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ep4en)::Type,Ep4enVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonecrcontrol{    ///<Clock Recovery Control
@@ -463,7 +424,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(olen)::Type,OlenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(olen)::Type,OlenVal::enabled> enabled{};
         }
-        }
         ///Low Speed Clock Recovery Mode. 
         enum class LscrmdVal {
             fullSpeed=0x00000000,     ///<Full Speed Mode.
@@ -473,7 +433,6 @@ namespace Kvasir {
         namespace LscrmdValC{
             constexpr Register::FieldValue<decltype(lscrmd)::Type,LscrmdVal::fullSpeed> fullSpeed{};
             constexpr Register::FieldValue<decltype(lscrmd)::Type,LscrmdVal::lowSpeed> lowSpeed{};
-        }
         }
         ///Clock Recovery Single Step Enable. 
         enum class CrssenVal {
@@ -485,7 +444,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(crssen)::Type,CrssenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(crssen)::Type,CrssenVal::enabled> enabled{};
         }
-        }
         ///Clock Recovery Enable. 
         enum class CrenVal {
             disabled=0x00000000,     ///<Disable clock recovery.
@@ -495,7 +453,6 @@ namespace Kvasir {
         namespace CrenValC{
             constexpr Register::FieldValue<decltype(cren)::Type,CrenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cren)::Type,CrenVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneframe{    ///<Frame Number
@@ -515,7 +472,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dn)::Type,DnVal::logic0> logic0{};
             constexpr Register::FieldValue<decltype(dn)::Type,DnVal::logic1> logic1{};
         }
-        }
         ///D+ Signal State. 
         enum class DpVal {
             logic0=0x00000000,     ///<D+ signal currently at logic 0.
@@ -526,7 +482,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dp)::Type,DpVal::logic0> logic0{};
             constexpr Register::FieldValue<decltype(dp)::Type,DpVal::logic1> logic1{};
         }
-        }
         ///Differential Receiver State. 
         enum class DfrecVal {
             diff0=0x00000000,     ///<Differential 0 signalling is present on the bus.
@@ -536,7 +491,6 @@ namespace Kvasir {
         namespace DfrecValC{
             constexpr Register::FieldValue<decltype(dfrec)::Type,DfrecVal::diff0> diff0{};
             constexpr Register::FieldValue<decltype(dfrec)::Type,DfrecVal::diff1> diff1{};
-        }
         }
         ///Physical Layer Test. 
         enum class PhytstVal {
@@ -552,7 +506,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(phytst)::Type,PhytstVal::mode2> mode2{};
             constexpr Register::FieldValue<decltype(phytst)::Type,PhytstVal::mode3> mode3{};
         }
-        }
         ///USB Speed Select. 
         enum class SselVal {
             lowSpeed=0x00000000,     ///<USB operates as a Low Speed device. If enabled, the internal pull-up resistor appears on the D- line.
@@ -562,7 +515,6 @@ namespace Kvasir {
         namespace SselValC{
             constexpr Register::FieldValue<decltype(ssel)::Type,SselVal::lowSpeed> lowSpeed{};
             constexpr Register::FieldValue<decltype(ssel)::Type,SselVal::fullSpeed> fullSpeed{};
-        }
         }
         ///Physical Layer Enable. 
         enum class PhyenVal {
@@ -574,7 +526,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(phyen)::Type,PhyenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(phyen)::Type,PhyenVal::enabled> enabled{};
         }
-        }
         ///Internal Pull-up Resistor Enable. 
         enum class PuenVal {
             disabled=0x00000000,     ///<Disable the internal pull-up resistor (device effectively detached from the USB network).
@@ -584,7 +535,6 @@ namespace Kvasir {
         namespace PuenValC{
             constexpr Register::FieldValue<decltype(puen)::Type,PuenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(puen)::Type,PuenVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneclksel{    ///<Module Clock Select
@@ -601,7 +551,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::pllnosc> pllnosc{};
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::extoscn> extoscn{};
         }
-        }
         ///USB Clock Divider. 
         enum class ClkdivVal {
             div1=0x00000000,     ///<The USB module uses the selected input clock divided by 1.
@@ -616,7 +565,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::div4> div4{};
             constexpr Register::FieldValue<decltype(clkdiv)::Type,ClkdivVal::div8> div8{};
         }
-        }
         ///USB Reset. 
         enum class ResetVal {
             notSet=0x00000000,     ///<Do not reset the USB module.
@@ -626,7 +574,6 @@ namespace Kvasir {
         namespace ResetValC{
             constexpr Register::FieldValue<decltype(reset)::Type,ResetVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(reset)::Type,ResetVal::set> set{};
-        }
         }
     }
     namespace Noneosccontrol{    ///<Oscillator Control
@@ -641,7 +588,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(suspend)::Type,SuspendVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(suspend)::Type,SuspendVal::enabled> enabled{};
         }
-        }
         ///USB Oscillator Enable. 
         enum class OscenVal {
             disabled=0x00000000,     ///<Disable the USB oscillator.
@@ -651,7 +597,6 @@ namespace Kvasir {
         namespace OscenValC{
             constexpr Register::FieldValue<decltype(oscen)::Type,OscenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(oscen)::Type,OscenVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneafadjust{    ///<Oscillator Additional Frequency Adjust
@@ -667,7 +612,6 @@ namespace Kvasir {
         namespace DithenValC{
             constexpr Register::FieldValue<decltype(dithen)::Type,DithenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dithen)::Type,DithenVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonefadjust{    ///<Oscillator Frequency Adjust
@@ -692,7 +636,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::run> run{};
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::halt> halt{};
         }
-        }
         ///Timeout Error Flag. 
         enum class TerrfVal {
             notSet=0x00000000,     ///<A timeout error has not occurred.
@@ -702,7 +645,6 @@ namespace Kvasir {
         namespace TerrfValC{
             constexpr Register::FieldValue<decltype(terrf)::Type,TerrfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(terrf)::Type,TerrfVal::set> set{};
-        }
         }
         ///USB DMA Busy Flag. 
         enum class DbusyfVal {
@@ -714,7 +656,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dbusyf)::Type,DbusyfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(dbusyf)::Type,DbusyfVal::set> set{};
         }
-        }
         ///USB DMA Buffer Flush Control. 
         enum class DfifoflVal {
             set=0x00000001,     ///<Flush the USB DMA buffer.
@@ -722,7 +663,6 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,DfifoflVal> dfifofl{}; 
         namespace DfifoflValC{
             constexpr Register::FieldValue<decltype(dfifofl)::Type,DfifoflVal::set> set{};
-        }
         }
     }
     namespace Noneep0control{    ///<Endpoint 0 Control
@@ -737,7 +677,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oprdyi)::Type,OprdyiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(oprdyi)::Type,OprdyiVal::set> set{};
         }
-        }
         ///IN Packet Ready Indicator. 
         enum class IprdyiVal {
             notSet=0x00000000,     ///<A packet is not ready for transmission to host.
@@ -747,7 +686,6 @@ namespace Kvasir {
         namespace IprdyiValC{
             constexpr Register::FieldValue<decltype(iprdyi)::Type,IprdyiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(iprdyi)::Type,IprdyiVal::set> set{};
-        }
         }
         ///Sent Stall Interrupt Flag. 
         enum class StstliVal {
@@ -759,7 +697,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ststli)::Type,StstliVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(ststli)::Type,StstliVal::set> set{};
         }
-        }
         ///Data End. 
         enum class DendVal {
             notSet=0x00000000,     ///<The current packet is not the last packet of the transfer.
@@ -769,7 +706,6 @@ namespace Kvasir {
         namespace DendValC{
             constexpr Register::FieldValue<decltype(dend)::Type,DendVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(dend)::Type,DendVal::set> set{};
-        }
         }
         ///Setup End Interrupt Flag. 
         enum class SuendiVal {
@@ -781,7 +717,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(suendi)::Type,SuendiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(suendi)::Type,SuendiVal::set> set{};
         }
-        }
         ///Send Stall. 
         enum class SdstlVal {
             notSet=0x00000000,     ///<The STALL handshake has been transmitted or not triggered.
@@ -791,7 +726,6 @@ namespace Kvasir {
         namespace SdstlValC{
             constexpr Register::FieldValue<decltype(sdstl)::Type,SdstlVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(sdstl)::Type,SdstlVal::set> set{};
-        }
         }
         ///Serviced Out Packet Ready Interrupt Flag. 
         enum class OprdyisVal {
@@ -803,7 +737,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oprdyis)::Type,OprdyisVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(oprdyis)::Type,OprdyisVal::set> set{};
         }
-        }
         ///Serviced Setup End Interrupt Flag. 
         enum class SuendisVal {
             notSet=0x00000000,     ///<Setup end has not been serviced.
@@ -813,7 +746,6 @@ namespace Kvasir {
         namespace SuendisValC{
             constexpr Register::FieldValue<decltype(suendis)::Type,SuendisVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(suendis)::Type,SuendisVal::set> set{};
-        }
         }
     }
     namespace Noneep0count{    ///<Endpoint 0 Data Count
@@ -845,7 +777,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iprdyi)::Type,IprdyiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(iprdyi)::Type,IprdyiVal::set> set{};
         }
-        }
         ///IN FIFO Not Empty Flag. 
         enum class IfifonefVal {
             notSet=0x00000000,     ///<The IN Endpoint FIFO is empty.
@@ -855,7 +786,6 @@ namespace Kvasir {
         namespace IfifonefValC{
             constexpr Register::FieldValue<decltype(ififonef)::Type,IfifonefVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(ififonef)::Type,IfifonefVal::set> set{};
-        }
         }
         ///IN FIFO Underrun Flag. 
         enum class IurfVal {
@@ -867,7 +797,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iurf)::Type,IurfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(iurf)::Type,IurfVal::set> set{};
         }
-        }
         ///IN FIFO Flush. 
         enum class IfifoflVal {
             set=0x00000001,     ///<Flush the IN FIFO.
@@ -875,7 +804,6 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,IfifoflVal> ififofl{}; 
         namespace IfifoflValC{
             constexpr Register::FieldValue<decltype(ififofl)::Type,IfifoflVal::set> set{};
-        }
         }
         ///IN Send Stall. 
         enum class IsdstlVal {
@@ -887,7 +815,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(isdstl)::Type,IsdstlVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(isdstl)::Type,IsdstlVal::set> set{};
         }
-        }
         ///IN Sent Stall Interrupt Flag. 
         enum class IststliVal {
             notSet=0x00000000,     ///<Read: A stall condition has not been sent since this bit was last cleared. Write: Clear the interrupt. 
@@ -897,7 +824,6 @@ namespace Kvasir {
         namespace IststliValC{
             constexpr Register::FieldValue<decltype(iststli)::Type,IststliVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(iststli)::Type,IststliVal::set> set{};
-        }
         }
         ///IN Clear Data Toggle. 
         enum class IclrdtVal {
@@ -909,7 +835,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iclrdt)::Type,IclrdtVal::noReset> noReset{};
             constexpr Register::FieldValue<decltype(iclrdt)::Type,IclrdtVal::reset> reset{};
         }
-        }
         ///FIFO Split Enable. 
         enum class SplitenVal {
             disabled=0x00000000,     ///<Do not split the endpoint FIFO.
@@ -919,7 +844,6 @@ namespace Kvasir {
         namespace SplitenValC{
             constexpr Register::FieldValue<decltype(spliten)::Type,SplitenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(spliten)::Type,SplitenVal::enabled> enabled{};
-        }
         }
         ///Force Data Toggle Enable. 
         enum class FdtenVal {
@@ -931,7 +855,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fdten)::Type,FdtenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(fdten)::Type,FdtenVal::enabled> enabled{};
         }
-        }
         ///IN Endpoint DMA Enable. 
         enum class IdmaenVal {
             disabled=0x00000000,     ///<Disable the DMA request for the IN endpoint.
@@ -941,7 +864,6 @@ namespace Kvasir {
         namespace IdmaenValC{
             constexpr Register::FieldValue<decltype(idmaen)::Type,IdmaenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(idmaen)::Type,IdmaenVal::enabled> enabled{};
-        }
         }
         ///Endpoint Direction Select. 
         enum class DirselVal {
@@ -953,7 +875,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dirsel)::Type,DirselVal::out> out{};
             constexpr Register::FieldValue<decltype(dirsel)::Type,DirselVal::in> in{};
         }
-        }
         ///IN Isochronous Transfer Enable. 
         enum class IisoenVal {
             bulkInt=0x00000000,     ///<Configure the endpoint for Bulk/Interrupt transfers.
@@ -963,7 +884,6 @@ namespace Kvasir {
         namespace IisoenValC{
             constexpr Register::FieldValue<decltype(iisoen)::Type,IisoenVal::bulkInt> bulkInt{};
             constexpr Register::FieldValue<decltype(iisoen)::Type,IisoenVal::iso> iso{};
-        }
         }
         ///IN Endpoint IPRDYI Automatic Set Enable. 
         enum class AutosetenVal {
@@ -975,7 +895,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoseten)::Type,AutosetenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(autoseten)::Type,AutosetenVal::enabled> enabled{};
         }
-        }
         ///OUT Packet Ready. 
         enum class OprdyiVal {
             notSet=0x00000000,     ///<A data packet is not available.
@@ -985,7 +904,6 @@ namespace Kvasir {
         namespace OprdyiValC{
             constexpr Register::FieldValue<decltype(oprdyi)::Type,OprdyiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(oprdyi)::Type,OprdyiVal::set> set{};
-        }
         }
         ///OUT FIFO Full. 
         enum class OfifoffVal {
@@ -997,7 +915,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ofifoff)::Type,OfifoffVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(ofifoff)::Type,OfifoffVal::set> set{};
         }
-        }
         ///OUT FIFO Overrun Flag. 
         enum class OorfVal {
             notSet=0x00000000,     ///<No data overrun.
@@ -1007,7 +924,6 @@ namespace Kvasir {
         namespace OorfValC{
             constexpr Register::FieldValue<decltype(oorf)::Type,OorfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(oorf)::Type,OorfVal::set> set{};
-        }
         }
         ///OUT Data Error Flag. 
         enum class OderrfVal {
@@ -1019,7 +935,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oderrf)::Type,OderrfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(oderrf)::Type,OderrfVal::set> set{};
         }
-        }
         ///OUT FIFO Flush. 
         enum class OfifoflVal {
             set=0x00000001,     ///<Flush the OUT FIFO.
@@ -1027,7 +942,6 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,OfifoflVal> ofifofl{}; 
         namespace OfifoflValC{
             constexpr Register::FieldValue<decltype(ofifofl)::Type,OfifoflVal::set> set{};
-        }
         }
         ///OUT Send Stall. 
         enum class OsdstlVal {
@@ -1039,7 +953,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(osdstl)::Type,OsdstlVal::stop> stop{};
             constexpr Register::FieldValue<decltype(osdstl)::Type,OsdstlVal::send> send{};
         }
-        }
         ///OUT Sent Stall Interrupt Flag. 
         enum class OststliVal {
             notSet=0x00000000,     ///<Read: A stall condition has not been sent since this bit was last cleared. Write: Clear the interrupt.
@@ -1049,7 +962,6 @@ namespace Kvasir {
         namespace OststliValC{
             constexpr Register::FieldValue<decltype(oststli)::Type,OststliVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(oststli)::Type,OststliVal::set> set{};
-        }
         }
         ///OUT Clear Data Toggle. 
         enum class OclrdtVal {
@@ -1061,7 +973,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oclrdt)::Type,OclrdtVal::noReset> noReset{};
             constexpr Register::FieldValue<decltype(oclrdt)::Type,OclrdtVal::reset> reset{};
         }
-        }
         ///OUT Endpoint DMA Mode. 
         enum class OdmamdVal {
             autoDma=0x00000000,     ///<Automatic DMA service is requested on the last packet of the transfer until less than four bytes remain in the packet. At this time, an interrupt is generated. The firmware must read or write the last few bytes of the packet, if any remain.
@@ -1071,7 +982,6 @@ namespace Kvasir {
         namespace OdmamdValC{
             constexpr Register::FieldValue<decltype(odmamd)::Type,OdmamdVal::autoDma> autoDma{};
             constexpr Register::FieldValue<decltype(odmamd)::Type,OdmamdVal::noDma> noDma{};
-        }
         }
         ///OUT Endpoint DMA Enable. 
         enum class OdmaenVal {
@@ -1083,7 +993,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(odmaen)::Type,OdmaenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(odmaen)::Type,OdmaenVal::enabled> enabled{};
         }
-        }
         ///OUT Isochronous Transfer Enable. 
         enum class OisoenVal {
             bulkInt=0x00000000,     ///<Configure the endpoint for Bulk/Interrupt transfers.
@@ -1094,7 +1003,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oisoen)::Type,OisoenVal::bulkInt> bulkInt{};
             constexpr Register::FieldValue<decltype(oisoen)::Type,OisoenVal::iso> iso{};
         }
-        }
         ///OUT Endpoint OPRDYI Auto-Clear Enable. 
         enum class AutoclrenVal {
             disabled=0x00000000,     ///<The OPRDYI bit is not automatically cleared by hardware.
@@ -1104,7 +1012,6 @@ namespace Kvasir {
         namespace AutoclrenValC{
             constexpr Register::FieldValue<decltype(autoclren)::Type,AutoclrenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(autoclren)::Type,AutoclrenVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneepcount1{    ///<Endpoint Data Count
@@ -1136,7 +1043,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iprdyi)::Type,IprdyiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(iprdyi)::Type,IprdyiVal::set> set{};
         }
-        }
         ///IN FIFO Not Empty Flag. 
         enum class IfifonefVal {
             notSet=0x00000000,     ///<The IN Endpoint FIFO is empty.
@@ -1146,7 +1052,6 @@ namespace Kvasir {
         namespace IfifonefValC{
             constexpr Register::FieldValue<decltype(ififonef)::Type,IfifonefVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(ififonef)::Type,IfifonefVal::set> set{};
-        }
         }
         ///IN FIFO Underrun Flag. 
         enum class IurfVal {
@@ -1158,7 +1063,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iurf)::Type,IurfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(iurf)::Type,IurfVal::set> set{};
         }
-        }
         ///IN FIFO Flush. 
         enum class IfifoflVal {
             set=0x00000001,     ///<Flush the IN FIFO.
@@ -1166,7 +1070,6 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,IfifoflVal> ififofl{}; 
         namespace IfifoflValC{
             constexpr Register::FieldValue<decltype(ififofl)::Type,IfifoflVal::set> set{};
-        }
         }
         ///IN Send Stall. 
         enum class IsdstlVal {
@@ -1178,7 +1081,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(isdstl)::Type,IsdstlVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(isdstl)::Type,IsdstlVal::set> set{};
         }
-        }
         ///IN Sent Stall Interrupt Flag. 
         enum class IststliVal {
             notSet=0x00000000,     ///<Read: A stall condition has not been sent since this bit was last cleared. Write: Clear the interrupt. 
@@ -1188,7 +1090,6 @@ namespace Kvasir {
         namespace IststliValC{
             constexpr Register::FieldValue<decltype(iststli)::Type,IststliVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(iststli)::Type,IststliVal::set> set{};
-        }
         }
         ///IN Clear Data Toggle. 
         enum class IclrdtVal {
@@ -1200,7 +1101,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iclrdt)::Type,IclrdtVal::noReset> noReset{};
             constexpr Register::FieldValue<decltype(iclrdt)::Type,IclrdtVal::reset> reset{};
         }
-        }
         ///FIFO Split Enable. 
         enum class SplitenVal {
             disabled=0x00000000,     ///<Do not split the endpoint FIFO.
@@ -1210,7 +1110,6 @@ namespace Kvasir {
         namespace SplitenValC{
             constexpr Register::FieldValue<decltype(spliten)::Type,SplitenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(spliten)::Type,SplitenVal::enabled> enabled{};
-        }
         }
         ///Force Data Toggle Enable. 
         enum class FdtenVal {
@@ -1222,7 +1121,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fdten)::Type,FdtenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(fdten)::Type,FdtenVal::enabled> enabled{};
         }
-        }
         ///IN Endpoint DMA Enable. 
         enum class IdmaenVal {
             disabled=0x00000000,     ///<Disable the DMA request for the IN endpoint.
@@ -1232,7 +1130,6 @@ namespace Kvasir {
         namespace IdmaenValC{
             constexpr Register::FieldValue<decltype(idmaen)::Type,IdmaenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(idmaen)::Type,IdmaenVal::enabled> enabled{};
-        }
         }
         ///Endpoint Direction Select. 
         enum class DirselVal {
@@ -1244,7 +1141,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dirsel)::Type,DirselVal::out> out{};
             constexpr Register::FieldValue<decltype(dirsel)::Type,DirselVal::in> in{};
         }
-        }
         ///IN Isochronous Transfer Enable. 
         enum class IisoenVal {
             bulkInt=0x00000000,     ///<Configure the endpoint for Bulk/Interrupt transfers.
@@ -1254,7 +1150,6 @@ namespace Kvasir {
         namespace IisoenValC{
             constexpr Register::FieldValue<decltype(iisoen)::Type,IisoenVal::bulkInt> bulkInt{};
             constexpr Register::FieldValue<decltype(iisoen)::Type,IisoenVal::iso> iso{};
-        }
         }
         ///IN Endpoint IPRDYI Automatic Set Enable. 
         enum class AutosetenVal {
@@ -1266,7 +1161,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoseten)::Type,AutosetenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(autoseten)::Type,AutosetenVal::enabled> enabled{};
         }
-        }
         ///OUT Packet Ready. 
         enum class OprdyiVal {
             notSet=0x00000000,     ///<A data packet is not available.
@@ -1276,7 +1170,6 @@ namespace Kvasir {
         namespace OprdyiValC{
             constexpr Register::FieldValue<decltype(oprdyi)::Type,OprdyiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(oprdyi)::Type,OprdyiVal::set> set{};
-        }
         }
         ///OUT FIFO Full. 
         enum class OfifoffVal {
@@ -1288,7 +1181,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ofifoff)::Type,OfifoffVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(ofifoff)::Type,OfifoffVal::set> set{};
         }
-        }
         ///OUT FIFO Overrun Flag. 
         enum class OorfVal {
             notSet=0x00000000,     ///<No data overrun.
@@ -1298,7 +1190,6 @@ namespace Kvasir {
         namespace OorfValC{
             constexpr Register::FieldValue<decltype(oorf)::Type,OorfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(oorf)::Type,OorfVal::set> set{};
-        }
         }
         ///OUT Data Error Flag. 
         enum class OderrfVal {
@@ -1310,7 +1201,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oderrf)::Type,OderrfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(oderrf)::Type,OderrfVal::set> set{};
         }
-        }
         ///OUT FIFO Flush. 
         enum class OfifoflVal {
             set=0x00000001,     ///<Flush the OUT FIFO.
@@ -1318,7 +1208,6 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,OfifoflVal> ofifofl{}; 
         namespace OfifoflValC{
             constexpr Register::FieldValue<decltype(ofifofl)::Type,OfifoflVal::set> set{};
-        }
         }
         ///OUT Send Stall. 
         enum class OsdstlVal {
@@ -1330,7 +1219,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(osdstl)::Type,OsdstlVal::stop> stop{};
             constexpr Register::FieldValue<decltype(osdstl)::Type,OsdstlVal::send> send{};
         }
-        }
         ///OUT Sent Stall Interrupt Flag. 
         enum class OststliVal {
             notSet=0x00000000,     ///<Read: A stall condition has not been sent since this bit was last cleared. Write: Clear the interrupt.
@@ -1340,7 +1228,6 @@ namespace Kvasir {
         namespace OststliValC{
             constexpr Register::FieldValue<decltype(oststli)::Type,OststliVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(oststli)::Type,OststliVal::set> set{};
-        }
         }
         ///OUT Clear Data Toggle. 
         enum class OclrdtVal {
@@ -1352,7 +1239,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oclrdt)::Type,OclrdtVal::noReset> noReset{};
             constexpr Register::FieldValue<decltype(oclrdt)::Type,OclrdtVal::reset> reset{};
         }
-        }
         ///OUT Endpoint DMA Mode. 
         enum class OdmamdVal {
             autoDma=0x00000000,     ///<Automatic DMA service is requested on the last packet of the transfer until less than four bytes remain in the packet. At this time, an interrupt is generated. The firmware must read or write the last few bytes of the packet, if any remain.
@@ -1362,7 +1248,6 @@ namespace Kvasir {
         namespace OdmamdValC{
             constexpr Register::FieldValue<decltype(odmamd)::Type,OdmamdVal::autoDma> autoDma{};
             constexpr Register::FieldValue<decltype(odmamd)::Type,OdmamdVal::noDma> noDma{};
-        }
         }
         ///OUT Endpoint DMA Enable. 
         enum class OdmaenVal {
@@ -1374,7 +1259,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(odmaen)::Type,OdmaenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(odmaen)::Type,OdmaenVal::enabled> enabled{};
         }
-        }
         ///OUT Isochronous Transfer Enable. 
         enum class OisoenVal {
             bulkInt=0x00000000,     ///<Configure the endpoint for Bulk/Interrupt transfers.
@@ -1385,7 +1269,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oisoen)::Type,OisoenVal::bulkInt> bulkInt{};
             constexpr Register::FieldValue<decltype(oisoen)::Type,OisoenVal::iso> iso{};
         }
-        }
         ///OUT Endpoint OPRDYI Auto-Clear Enable. 
         enum class AutoclrenVal {
             disabled=0x00000000,     ///<The OPRDYI bit is not automatically cleared by hardware.
@@ -1395,7 +1278,6 @@ namespace Kvasir {
         namespace AutoclrenValC{
             constexpr Register::FieldValue<decltype(autoclren)::Type,AutoclrenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(autoclren)::Type,AutoclrenVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneepcount2{    ///<Endpoint Data Count
@@ -1427,7 +1309,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iprdyi)::Type,IprdyiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(iprdyi)::Type,IprdyiVal::set> set{};
         }
-        }
         ///IN FIFO Not Empty Flag. 
         enum class IfifonefVal {
             notSet=0x00000000,     ///<The IN Endpoint FIFO is empty.
@@ -1437,7 +1318,6 @@ namespace Kvasir {
         namespace IfifonefValC{
             constexpr Register::FieldValue<decltype(ififonef)::Type,IfifonefVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(ififonef)::Type,IfifonefVal::set> set{};
-        }
         }
         ///IN FIFO Underrun Flag. 
         enum class IurfVal {
@@ -1449,7 +1329,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iurf)::Type,IurfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(iurf)::Type,IurfVal::set> set{};
         }
-        }
         ///IN FIFO Flush. 
         enum class IfifoflVal {
             set=0x00000001,     ///<Flush the IN FIFO.
@@ -1457,7 +1336,6 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,IfifoflVal> ififofl{}; 
         namespace IfifoflValC{
             constexpr Register::FieldValue<decltype(ififofl)::Type,IfifoflVal::set> set{};
-        }
         }
         ///IN Send Stall. 
         enum class IsdstlVal {
@@ -1469,7 +1347,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(isdstl)::Type,IsdstlVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(isdstl)::Type,IsdstlVal::set> set{};
         }
-        }
         ///IN Sent Stall Interrupt Flag. 
         enum class IststliVal {
             notSet=0x00000000,     ///<Read: A stall condition has not been sent since this bit was last cleared. Write: Clear the interrupt. 
@@ -1479,7 +1356,6 @@ namespace Kvasir {
         namespace IststliValC{
             constexpr Register::FieldValue<decltype(iststli)::Type,IststliVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(iststli)::Type,IststliVal::set> set{};
-        }
         }
         ///IN Clear Data Toggle. 
         enum class IclrdtVal {
@@ -1491,7 +1367,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iclrdt)::Type,IclrdtVal::noReset> noReset{};
             constexpr Register::FieldValue<decltype(iclrdt)::Type,IclrdtVal::reset> reset{};
         }
-        }
         ///FIFO Split Enable. 
         enum class SplitenVal {
             disabled=0x00000000,     ///<Do not split the endpoint FIFO.
@@ -1501,7 +1376,6 @@ namespace Kvasir {
         namespace SplitenValC{
             constexpr Register::FieldValue<decltype(spliten)::Type,SplitenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(spliten)::Type,SplitenVal::enabled> enabled{};
-        }
         }
         ///Force Data Toggle Enable. 
         enum class FdtenVal {
@@ -1513,7 +1387,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fdten)::Type,FdtenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(fdten)::Type,FdtenVal::enabled> enabled{};
         }
-        }
         ///IN Endpoint DMA Enable. 
         enum class IdmaenVal {
             disabled=0x00000000,     ///<Disable the DMA request for the IN endpoint.
@@ -1523,7 +1396,6 @@ namespace Kvasir {
         namespace IdmaenValC{
             constexpr Register::FieldValue<decltype(idmaen)::Type,IdmaenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(idmaen)::Type,IdmaenVal::enabled> enabled{};
-        }
         }
         ///Endpoint Direction Select. 
         enum class DirselVal {
@@ -1535,7 +1407,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dirsel)::Type,DirselVal::out> out{};
             constexpr Register::FieldValue<decltype(dirsel)::Type,DirselVal::in> in{};
         }
-        }
         ///IN Isochronous Transfer Enable. 
         enum class IisoenVal {
             bulkInt=0x00000000,     ///<Configure the endpoint for Bulk/Interrupt transfers.
@@ -1545,7 +1416,6 @@ namespace Kvasir {
         namespace IisoenValC{
             constexpr Register::FieldValue<decltype(iisoen)::Type,IisoenVal::bulkInt> bulkInt{};
             constexpr Register::FieldValue<decltype(iisoen)::Type,IisoenVal::iso> iso{};
-        }
         }
         ///IN Endpoint IPRDYI Automatic Set Enable. 
         enum class AutosetenVal {
@@ -1557,7 +1427,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoseten)::Type,AutosetenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(autoseten)::Type,AutosetenVal::enabled> enabled{};
         }
-        }
         ///OUT Packet Ready. 
         enum class OprdyiVal {
             notSet=0x00000000,     ///<A data packet is not available.
@@ -1567,7 +1436,6 @@ namespace Kvasir {
         namespace OprdyiValC{
             constexpr Register::FieldValue<decltype(oprdyi)::Type,OprdyiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(oprdyi)::Type,OprdyiVal::set> set{};
-        }
         }
         ///OUT FIFO Full. 
         enum class OfifoffVal {
@@ -1579,7 +1447,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ofifoff)::Type,OfifoffVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(ofifoff)::Type,OfifoffVal::set> set{};
         }
-        }
         ///OUT FIFO Overrun Flag. 
         enum class OorfVal {
             notSet=0x00000000,     ///<No data overrun.
@@ -1589,7 +1456,6 @@ namespace Kvasir {
         namespace OorfValC{
             constexpr Register::FieldValue<decltype(oorf)::Type,OorfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(oorf)::Type,OorfVal::set> set{};
-        }
         }
         ///OUT Data Error Flag. 
         enum class OderrfVal {
@@ -1601,7 +1467,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oderrf)::Type,OderrfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(oderrf)::Type,OderrfVal::set> set{};
         }
-        }
         ///OUT FIFO Flush. 
         enum class OfifoflVal {
             set=0x00000001,     ///<Flush the OUT FIFO.
@@ -1609,7 +1474,6 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,OfifoflVal> ofifofl{}; 
         namespace OfifoflValC{
             constexpr Register::FieldValue<decltype(ofifofl)::Type,OfifoflVal::set> set{};
-        }
         }
         ///OUT Send Stall. 
         enum class OsdstlVal {
@@ -1621,7 +1485,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(osdstl)::Type,OsdstlVal::stop> stop{};
             constexpr Register::FieldValue<decltype(osdstl)::Type,OsdstlVal::send> send{};
         }
-        }
         ///OUT Sent Stall Interrupt Flag. 
         enum class OststliVal {
             notSet=0x00000000,     ///<Read: A stall condition has not been sent since this bit was last cleared. Write: Clear the interrupt.
@@ -1631,7 +1494,6 @@ namespace Kvasir {
         namespace OststliValC{
             constexpr Register::FieldValue<decltype(oststli)::Type,OststliVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(oststli)::Type,OststliVal::set> set{};
-        }
         }
         ///OUT Clear Data Toggle. 
         enum class OclrdtVal {
@@ -1643,7 +1505,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oclrdt)::Type,OclrdtVal::noReset> noReset{};
             constexpr Register::FieldValue<decltype(oclrdt)::Type,OclrdtVal::reset> reset{};
         }
-        }
         ///OUT Endpoint DMA Mode. 
         enum class OdmamdVal {
             autoDma=0x00000000,     ///<Automatic DMA service is requested on the last packet of the transfer until less than four bytes remain in the packet. At this time, an interrupt is generated. The firmware must read or write the last few bytes of the packet, if any remain.
@@ -1653,7 +1514,6 @@ namespace Kvasir {
         namespace OdmamdValC{
             constexpr Register::FieldValue<decltype(odmamd)::Type,OdmamdVal::autoDma> autoDma{};
             constexpr Register::FieldValue<decltype(odmamd)::Type,OdmamdVal::noDma> noDma{};
-        }
         }
         ///OUT Endpoint DMA Enable. 
         enum class OdmaenVal {
@@ -1665,7 +1525,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(odmaen)::Type,OdmaenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(odmaen)::Type,OdmaenVal::enabled> enabled{};
         }
-        }
         ///OUT Isochronous Transfer Enable. 
         enum class OisoenVal {
             bulkInt=0x00000000,     ///<Configure the endpoint for Bulk/Interrupt transfers.
@@ -1676,7 +1535,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oisoen)::Type,OisoenVal::bulkInt> bulkInt{};
             constexpr Register::FieldValue<decltype(oisoen)::Type,OisoenVal::iso> iso{};
         }
-        }
         ///OUT Endpoint OPRDYI Auto-Clear Enable. 
         enum class AutoclrenVal {
             disabled=0x00000000,     ///<The OPRDYI bit is not automatically cleared by hardware.
@@ -1686,7 +1544,6 @@ namespace Kvasir {
         namespace AutoclrenValC{
             constexpr Register::FieldValue<decltype(autoclren)::Type,AutoclrenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(autoclren)::Type,AutoclrenVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneepcount3{    ///<Endpoint Data Count
@@ -1718,7 +1575,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iprdyi)::Type,IprdyiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(iprdyi)::Type,IprdyiVal::set> set{};
         }
-        }
         ///IN FIFO Not Empty Flag. 
         enum class IfifonefVal {
             notSet=0x00000000,     ///<The IN Endpoint FIFO is empty.
@@ -1728,7 +1584,6 @@ namespace Kvasir {
         namespace IfifonefValC{
             constexpr Register::FieldValue<decltype(ififonef)::Type,IfifonefVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(ififonef)::Type,IfifonefVal::set> set{};
-        }
         }
         ///IN FIFO Underrun Flag. 
         enum class IurfVal {
@@ -1740,7 +1595,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iurf)::Type,IurfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(iurf)::Type,IurfVal::set> set{};
         }
-        }
         ///IN FIFO Flush. 
         enum class IfifoflVal {
             set=0x00000001,     ///<Flush the IN FIFO.
@@ -1748,7 +1602,6 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,IfifoflVal> ififofl{}; 
         namespace IfifoflValC{
             constexpr Register::FieldValue<decltype(ififofl)::Type,IfifoflVal::set> set{};
-        }
         }
         ///IN Send Stall. 
         enum class IsdstlVal {
@@ -1760,7 +1613,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(isdstl)::Type,IsdstlVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(isdstl)::Type,IsdstlVal::set> set{};
         }
-        }
         ///IN Sent Stall Interrupt Flag. 
         enum class IststliVal {
             notSet=0x00000000,     ///<Read: A stall condition has not been sent since this bit was last cleared. Write: Clear the interrupt. 
@@ -1770,7 +1622,6 @@ namespace Kvasir {
         namespace IststliValC{
             constexpr Register::FieldValue<decltype(iststli)::Type,IststliVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(iststli)::Type,IststliVal::set> set{};
-        }
         }
         ///IN Clear Data Toggle. 
         enum class IclrdtVal {
@@ -1782,7 +1633,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iclrdt)::Type,IclrdtVal::noReset> noReset{};
             constexpr Register::FieldValue<decltype(iclrdt)::Type,IclrdtVal::reset> reset{};
         }
-        }
         ///FIFO Split Enable. 
         enum class SplitenVal {
             disabled=0x00000000,     ///<Do not split the endpoint FIFO.
@@ -1792,7 +1642,6 @@ namespace Kvasir {
         namespace SplitenValC{
             constexpr Register::FieldValue<decltype(spliten)::Type,SplitenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(spliten)::Type,SplitenVal::enabled> enabled{};
-        }
         }
         ///Force Data Toggle Enable. 
         enum class FdtenVal {
@@ -1804,7 +1653,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fdten)::Type,FdtenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(fdten)::Type,FdtenVal::enabled> enabled{};
         }
-        }
         ///IN Endpoint DMA Enable. 
         enum class IdmaenVal {
             disabled=0x00000000,     ///<Disable the DMA request for the IN endpoint.
@@ -1814,7 +1662,6 @@ namespace Kvasir {
         namespace IdmaenValC{
             constexpr Register::FieldValue<decltype(idmaen)::Type,IdmaenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(idmaen)::Type,IdmaenVal::enabled> enabled{};
-        }
         }
         ///Endpoint Direction Select. 
         enum class DirselVal {
@@ -1826,7 +1673,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dirsel)::Type,DirselVal::out> out{};
             constexpr Register::FieldValue<decltype(dirsel)::Type,DirselVal::in> in{};
         }
-        }
         ///IN Isochronous Transfer Enable. 
         enum class IisoenVal {
             bulkInt=0x00000000,     ///<Configure the endpoint for Bulk/Interrupt transfers.
@@ -1836,7 +1682,6 @@ namespace Kvasir {
         namespace IisoenValC{
             constexpr Register::FieldValue<decltype(iisoen)::Type,IisoenVal::bulkInt> bulkInt{};
             constexpr Register::FieldValue<decltype(iisoen)::Type,IisoenVal::iso> iso{};
-        }
         }
         ///IN Endpoint IPRDYI Automatic Set Enable. 
         enum class AutosetenVal {
@@ -1848,7 +1693,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autoseten)::Type,AutosetenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(autoseten)::Type,AutosetenVal::enabled> enabled{};
         }
-        }
         ///OUT Packet Ready. 
         enum class OprdyiVal {
             notSet=0x00000000,     ///<A data packet is not available.
@@ -1858,7 +1702,6 @@ namespace Kvasir {
         namespace OprdyiValC{
             constexpr Register::FieldValue<decltype(oprdyi)::Type,OprdyiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(oprdyi)::Type,OprdyiVal::set> set{};
-        }
         }
         ///OUT FIFO Full. 
         enum class OfifoffVal {
@@ -1870,7 +1713,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ofifoff)::Type,OfifoffVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(ofifoff)::Type,OfifoffVal::set> set{};
         }
-        }
         ///OUT FIFO Overrun Flag. 
         enum class OorfVal {
             notSet=0x00000000,     ///<No data overrun.
@@ -1880,7 +1722,6 @@ namespace Kvasir {
         namespace OorfValC{
             constexpr Register::FieldValue<decltype(oorf)::Type,OorfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(oorf)::Type,OorfVal::set> set{};
-        }
         }
         ///OUT Data Error Flag. 
         enum class OderrfVal {
@@ -1892,7 +1733,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oderrf)::Type,OderrfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(oderrf)::Type,OderrfVal::set> set{};
         }
-        }
         ///OUT FIFO Flush. 
         enum class OfifoflVal {
             set=0x00000001,     ///<Flush the OUT FIFO.
@@ -1900,7 +1740,6 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,OfifoflVal> ofifofl{}; 
         namespace OfifoflValC{
             constexpr Register::FieldValue<decltype(ofifofl)::Type,OfifoflVal::set> set{};
-        }
         }
         ///OUT Send Stall. 
         enum class OsdstlVal {
@@ -1912,7 +1751,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(osdstl)::Type,OsdstlVal::stop> stop{};
             constexpr Register::FieldValue<decltype(osdstl)::Type,OsdstlVal::send> send{};
         }
-        }
         ///OUT Sent Stall Interrupt Flag. 
         enum class OststliVal {
             notSet=0x00000000,     ///<Read: A stall condition has not been sent since this bit was last cleared. Write: Clear the interrupt.
@@ -1922,7 +1760,6 @@ namespace Kvasir {
         namespace OststliValC{
             constexpr Register::FieldValue<decltype(oststli)::Type,OststliVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(oststli)::Type,OststliVal::set> set{};
-        }
         }
         ///OUT Clear Data Toggle. 
         enum class OclrdtVal {
@@ -1934,7 +1771,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oclrdt)::Type,OclrdtVal::noReset> noReset{};
             constexpr Register::FieldValue<decltype(oclrdt)::Type,OclrdtVal::reset> reset{};
         }
-        }
         ///OUT Endpoint DMA Mode. 
         enum class OdmamdVal {
             autoDma=0x00000000,     ///<Automatic DMA service is requested on the last packet of the transfer until less than four bytes remain in the packet. At this time, an interrupt is generated. The firmware must read or write the last few bytes of the packet, if any remain.
@@ -1944,7 +1780,6 @@ namespace Kvasir {
         namespace OdmamdValC{
             constexpr Register::FieldValue<decltype(odmamd)::Type,OdmamdVal::autoDma> autoDma{};
             constexpr Register::FieldValue<decltype(odmamd)::Type,OdmamdVal::noDma> noDma{};
-        }
         }
         ///OUT Endpoint DMA Enable. 
         enum class OdmaenVal {
@@ -1956,7 +1791,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(odmaen)::Type,OdmaenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(odmaen)::Type,OdmaenVal::enabled> enabled{};
         }
-        }
         ///OUT Isochronous Transfer Enable. 
         enum class OisoenVal {
             bulkInt=0x00000000,     ///<Configure the endpoint for Bulk/Interrupt transfers.
@@ -1967,7 +1801,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oisoen)::Type,OisoenVal::bulkInt> bulkInt{};
             constexpr Register::FieldValue<decltype(oisoen)::Type,OisoenVal::iso> iso{};
         }
-        }
         ///OUT Endpoint OPRDYI Auto-Clear Enable. 
         enum class AutoclrenVal {
             disabled=0x00000000,     ///<The OPRDYI bit is not automatically cleared by hardware.
@@ -1977,7 +1810,6 @@ namespace Kvasir {
         namespace AutoclrenValC{
             constexpr Register::FieldValue<decltype(autoclren)::Type,AutoclrenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(autoclren)::Type,AutoclrenVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneepcount4{    ///<Endpoint Data Count

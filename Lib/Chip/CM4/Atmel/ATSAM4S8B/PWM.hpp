@@ -144,7 +144,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(updm)::Type,UpdmVal::mode1> mode1{};
             constexpr Register::FieldValue<decltype(updm)::Type,UpdmVal::mode2> mode2{};
         }
-        }
         ///PDC Transfer Request Mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> ptrm{}; 
         ///PDC Transfer Request Comparison Selection
@@ -957,7 +956,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpre)::Type,CpreVal::clka> clka{};
             constexpr Register::FieldValue<decltype(cpre)::Type,CpreVal::clkb> clkb{};
         }
-        }
         ///Channel Alignment
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> calg{}; 
         ///Channel Polarity
@@ -1043,7 +1041,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpre)::Type,CpreVal::mckDiv1024> mckDiv1024{};
             constexpr Register::FieldValue<decltype(cpre)::Type,CpreVal::clka> clka{};
             constexpr Register::FieldValue<decltype(cpre)::Type,CpreVal::clkb> clkb{};
-        }
         }
         ///Channel Alignment
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> calg{}; 
@@ -1131,7 +1128,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpre)::Type,CpreVal::clka> clka{};
             constexpr Register::FieldValue<decltype(cpre)::Type,CpreVal::clkb> clkb{};
         }
-        }
         ///Channel Alignment
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> calg{}; 
         ///Channel Polarity
@@ -1217,7 +1213,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpre)::Type,CpreVal::mckDiv1024> mckDiv1024{};
             constexpr Register::FieldValue<decltype(cpre)::Type,CpreVal::clka> clka{};
             constexpr Register::FieldValue<decltype(cpre)::Type,CpreVal::clkb> clkb{};
-        }
         }
         ///Channel Alignment
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> calg{}; 

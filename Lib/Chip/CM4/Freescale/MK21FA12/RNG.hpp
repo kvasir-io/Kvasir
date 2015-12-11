@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(go)::Type,GoVal::v0> v0{};
             constexpr Register::FieldValue<decltype(go)::Type,GoVal::v1> v1{};
         }
-        }
         ///High Assurance
         enum class HaVal {
             v0=0x00000000,     ///<Disabled
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace HaValC{
             constexpr Register::FieldValue<decltype(ha)::Type,HaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ha)::Type,HaVal::v1> v1{};
-        }
         }
         ///Interrupt Mask
         enum class IntmVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intm)::Type,IntmVal::v0> v0{};
             constexpr Register::FieldValue<decltype(intm)::Type,IntmVal::v1> v1{};
         }
-        }
         ///Clear Interrupt
         enum class ClriVal {
             v0=0x00000000,     ///<Do not clear the interrupt.
@@ -47,7 +44,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clri)::Type,ClriVal::v0> v0{};
             constexpr Register::FieldValue<decltype(clri)::Type,ClriVal::v1> v1{};
         }
-        }
         ///Sleep
         enum class SlpVal {
             v0=0x00000000,     ///<Normal mode
@@ -57,7 +53,6 @@ namespace Kvasir {
         namespace SlpValC{
             constexpr Register::FieldValue<decltype(slp)::Type,SlpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(slp)::Type,SlpVal::v1> v1{};
-        }
         }
     }
     namespace RngSr{    ///<RNGA Status Register
@@ -72,7 +67,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(secv)::Type,SecvVal::v0> v0{};
             constexpr Register::FieldValue<decltype(secv)::Type,SecvVal::v1> v1{};
         }
-        }
         ///Last Read Status
         enum class LrsVal {
             v0=0x00000000,     ///<No underflow
@@ -82,7 +76,6 @@ namespace Kvasir {
         namespace LrsValC{
             constexpr Register::FieldValue<decltype(lrs)::Type,LrsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(lrs)::Type,LrsVal::v1> v1{};
-        }
         }
         ///Output Register Underflow
         enum class OruVal {
@@ -94,7 +87,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oru)::Type,OruVal::v0> v0{};
             constexpr Register::FieldValue<decltype(oru)::Type,OruVal::v1> v1{};
         }
-        }
         ///Error Interrupt
         enum class ErriVal {
             v0=0x00000000,     ///<No underflow
@@ -105,7 +97,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erri)::Type,ErriVal::v0> v0{};
             constexpr Register::FieldValue<decltype(erri)::Type,ErriVal::v1> v1{};
         }
-        }
         ///Sleep
         enum class SlpVal {
             v0=0x00000000,     ///<Normal mode
@@ -115,7 +106,6 @@ namespace Kvasir {
         namespace SlpValC{
             constexpr Register::FieldValue<decltype(slp)::Type,SlpVal::v0> v0{};
             constexpr Register::FieldValue<decltype(slp)::Type,SlpVal::v1> v1{};
-        }
         }
         ///Output Register Level
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> oregLvl{}; 

@@ -47,7 +47,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bbSuspend)::Type,BbsuspendVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(bbSuspend)::Type,BbsuspendVal::enabled> enabled{};
         }
-        }
         ///Shortcut between BB event and the STOP task.
         enum class BbstopVal {
             disabled=0x00000000,     ///<Shortcut disabled.
@@ -57,7 +56,6 @@ namespace Kvasir {
         namespace BbstopValC{
             constexpr Register::FieldValue<decltype(bbStop)::Type,BbstopVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(bbStop)::Type,BbstopVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneintenset{    ///<Interrupt enable set register.
@@ -74,7 +72,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::set> set{};
         }
-        }
         ///Enable interrupt on READY event.
         enum class RxdreadyVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -86,7 +83,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxdready)::Type,RxdreadyVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rxdready)::Type,RxdreadyVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(rxdready)::Type,RxdreadyVal::set> set{};
-        }
         }
         ///Enable interrupt on TXDSENT event.
         enum class TxdsentVal {
@@ -100,7 +96,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txdsent)::Type,TxdsentVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(txdsent)::Type,TxdsentVal::set> set{};
         }
-        }
         ///Enable interrupt on ERROR event.
         enum class ErrorVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -112,7 +107,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::set> set{};
-        }
         }
         ///Enable interrupt on BB event.
         enum class BbVal {
@@ -126,7 +120,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bb)::Type,BbVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(bb)::Type,BbVal::set> set{};
         }
-        }
         ///Enable interrupt on SUSPENDED event.
         enum class SuspendedVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -138,7 +131,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(suspended)::Type,SuspendedVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(suspended)::Type,SuspendedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(suspended)::Type,SuspendedVal::set> set{};
-        }
         }
     }
     namespace Noneintenclr{    ///<Interrupt enable clear register.
@@ -155,7 +147,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::clear> clear{};
         }
-        }
         ///Disable interrupt on RXDREADY event.
         enum class RxdreadyVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -167,7 +158,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxdready)::Type,RxdreadyVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(rxdready)::Type,RxdreadyVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(rxdready)::Type,RxdreadyVal::clear> clear{};
-        }
         }
         ///Disable interrupt on TXDSENT event.
         enum class TxdsentVal {
@@ -181,7 +171,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(txdsent)::Type,TxdsentVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(txdsent)::Type,TxdsentVal::clear> clear{};
         }
-        }
         ///Disable interrupt on ERROR event.
         enum class ErrorVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -193,7 +182,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::clear> clear{};
-        }
         }
         ///Disable interrupt on BB event.
         enum class BbVal {
@@ -207,7 +195,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bb)::Type,BbVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(bb)::Type,BbVal::clear> clear{};
         }
-        }
         ///Disable interrupt on SUSPENDED event.
         enum class SuspendedVal {
             disabled=0x00000000,     ///<Interrupt disabled.
@@ -219,7 +206,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(suspended)::Type,SuspendedVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(suspended)::Type,SuspendedVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(suspended)::Type,SuspendedVal::clear> clear{};
-        }
         }
     }
     namespace Noneerrorsrc{    ///<Two-wire error source. Write error field to 1 to clear error.
@@ -236,7 +222,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(overrun)::Type,OverrunVal::present> present{};
             constexpr Register::FieldValue<decltype(overrun)::Type,OverrunVal::clear> clear{};
         }
-        }
         ///NACK received after sending the address.
         enum class AnackVal {
             notpresent=0x00000000,     ///<Error not present.
@@ -249,7 +234,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(anack)::Type,AnackVal::present> present{};
             constexpr Register::FieldValue<decltype(anack)::Type,AnackVal::clear> clear{};
         }
-        }
         ///NACK received after sending a data byte.
         enum class DnackVal {
             notpresent=0x00000000,     ///<Error not present.
@@ -261,7 +245,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dnack)::Type,DnackVal::notpresent> notpresent{};
             constexpr Register::FieldValue<decltype(dnack)::Type,DnackVal::present> present{};
             constexpr Register::FieldValue<decltype(dnack)::Type,DnackVal::clear> clear{};
-        }
         }
     }
     namespace Noneenable{    ///<Enable two-wire master.
@@ -306,7 +289,6 @@ namespace Kvasir {
         namespace PowerValC{
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(power)::Type,PowerVal::enabled> enabled{};
-        }
         }
     }
 }

@@ -20,6 +20,5 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(oscsel)::Type,OscselVal::rc> rc{};
             constexpr Register::FieldValue<decltype(oscsel)::Type,OscselVal::xtal> xtal{};
         }
-        }
     }
 }

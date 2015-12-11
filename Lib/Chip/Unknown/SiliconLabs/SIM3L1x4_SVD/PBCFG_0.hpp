@@ -42,7 +42,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(int0sel)::Type,Int0selVal::int014> int014{};
             constexpr Register::FieldValue<decltype(int0sel)::Type,Int0selVal::int015> int015{};
         }
-        }
         ///External Interrupt 0 Polarity. 
         enum class Int0polVal {
             low=0x00000000,     ///<A low value or falling edge on the selected pin will cause interrupt.
@@ -52,7 +51,6 @@ namespace Kvasir {
         namespace Int0polValC{
             constexpr Register::FieldValue<decltype(int0pol)::Type,Int0polVal::low> low{};
             constexpr Register::FieldValue<decltype(int0pol)::Type,Int0polVal::high> high{};
-        }
         }
         ///External Interrupt 0 Mode. 
         enum class Int0mdVal {
@@ -66,7 +64,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(int0md)::Type,Int0mdVal::edge> edge{};
             constexpr Register::FieldValue<decltype(int0md)::Type,Int0mdVal::dualEdge> dualEdge{};
         }
-        }
         ///External Interrupt 0 Enable. 
         enum class Int0enVal {
             disabled=0x00000000,     ///<Disable external interrupt 0.
@@ -76,7 +73,6 @@ namespace Kvasir {
         namespace Int0enValC{
             constexpr Register::FieldValue<decltype(int0en)::Type,Int0enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(int0en)::Type,Int0enVal::enabled> enabled{};
-        }
         }
         ///External Interrupt 1 Pin Selection. 
         enum class Int1selVal {
@@ -116,7 +112,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(int1sel)::Type,Int1selVal::int114> int114{};
             constexpr Register::FieldValue<decltype(int1sel)::Type,Int1selVal::int115> int115{};
         }
-        }
         ///External Interrupt 1 Polarity. 
         enum class Int1polVal {
             low=0x00000000,     ///<A low value or falling edge on the selected pin will cause interrupt.
@@ -126,7 +121,6 @@ namespace Kvasir {
         namespace Int1polValC{
             constexpr Register::FieldValue<decltype(int1pol)::Type,Int1polVal::low> low{};
             constexpr Register::FieldValue<decltype(int1pol)::Type,Int1polVal::high> high{};
-        }
         }
         ///External Interrupt 1 Mode. 
         enum class Int1mdVal {
@@ -140,7 +134,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(int1md)::Type,Int1mdVal::edge> edge{};
             constexpr Register::FieldValue<decltype(int1md)::Type,Int1mdVal::dualEdge> dualEdge{};
         }
-        }
         ///External Interrupt 1 Enable. 
         enum class Int1enVal {
             disabled=0x00000000,     ///<Disable external interrupt 1.
@@ -150,7 +143,6 @@ namespace Kvasir {
         namespace Int1enValC{
             constexpr Register::FieldValue<decltype(int1en)::Type,Int1enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(int1en)::Type,Int1enVal::enabled> enabled{};
-        }
         }
         ///Pulse Generator Timer. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> pgtimer{}; 
@@ -163,7 +155,6 @@ namespace Kvasir {
         namespace PgdonefValC{
             constexpr Register::FieldValue<decltype(pgdonef)::Type,PgdonefVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(pgdonef)::Type,PgdonefVal::set> set{};
-        }
         }
     }
     namespace Nonecontrol1{    ///<Global Port Control 1
@@ -178,7 +169,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(jtagen)::Type,JtagenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(jtagen)::Type,JtagenVal::enabled> enabled{};
         }
-        }
         ///ETM Enable. 
         enum class EtmenVal {
             disabled=0x00000000,     ///<ETM not pinned out.
@@ -188,7 +178,6 @@ namespace Kvasir {
         namespace EtmenValC{
             constexpr Register::FieldValue<decltype(etmen)::Type,EtmenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(etmen)::Type,EtmenVal::enabled> enabled{};
-        }
         }
         ///SWV Enable. 
         enum class SwvenVal {
@@ -200,7 +189,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(swven)::Type,SwvenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(swven)::Type,SwvenVal::enabled> enabled{};
         }
-        }
         ///SPI1 Fixed Port Selection. 
         enum class Spi1selVal {
             disabled=0x00000000,     ///<Disconnect SPI1 from the dedicated pins.
@@ -210,7 +198,6 @@ namespace Kvasir {
         namespace Spi1selValC{
             constexpr Register::FieldValue<decltype(spi1sel)::Type,Spi1selVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(spi1sel)::Type,Spi1selVal::enabled> enabled{};
-        }
         }
         ///Port Match Interrupt Enable. 
         enum class PmatchenVal {
@@ -222,7 +209,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pmatchen)::Type,PmatchenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(pmatchen)::Type,PmatchenVal::enabled> enabled{};
         }
-        }
         ///Low Power Timer Output Pin Select. 
         enum class LptoselVal {
             lpt0out0=0x00000000,     ///<Route the Low Power Timer output to LPT0OUT0. 
@@ -233,7 +219,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lptosel)::Type,LptoselVal::lpt0out0> lpt0out0{};
             constexpr Register::FieldValue<decltype(lptosel)::Type,LptoselVal::lpt0out1> lpt0out1{};
         }
-        }
         ///Port Bank Configuration Lock. 
         enum class LockVal {
             unlocked=0x00000000,     ///<Port Bank Configuration and Control registers are unlocked.
@@ -243,7 +228,6 @@ namespace Kvasir {
         namespace LockValC{
             constexpr Register::FieldValue<decltype(lock)::Type,LockVal::unlocked> unlocked{};
             constexpr Register::FieldValue<decltype(lock)::Type,LockVal::locked> locked{};
-        }
         }
     }
     namespace Nonexbar0{    ///<Crossbar 0 Control
@@ -258,7 +242,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usart0en)::Type,Usart0enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(usart0en)::Type,Usart0enVal::enabled> enabled{};
         }
-        }
         ///USART0 Flow Control Enable. 
         enum class Usart0fcenVal {
             disabled=0x00000000,     ///<Disable USART0 flow control on Crossbar 0.
@@ -268,7 +251,6 @@ namespace Kvasir {
         namespace Usart0fcenValC{
             constexpr Register::FieldValue<decltype(usart0fcen)::Type,Usart0fcenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(usart0fcen)::Type,Usart0fcenVal::enabled> enabled{};
-        }
         }
         ///USART0 Clock Signal Enable. 
         enum class Usart0cenVal {
@@ -280,7 +262,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(usart0cen)::Type,Usart0cenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(usart0cen)::Type,Usart0cenVal::enabled> enabled{};
         }
-        }
         ///DMA Trigger 0 Enable. 
         enum class Dma0t0enVal {
             disabled=0x00000000,     ///<Disable the DMA trigger 0 on Crossbar 0.
@@ -290,7 +271,6 @@ namespace Kvasir {
         namespace Dma0t0enValC{
             constexpr Register::FieldValue<decltype(dma0t0en)::Type,Dma0t0enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dma0t0en)::Type,Dma0t0enVal::enabled> enabled{};
-        }
         }
         ///DMA Trigger 1 Enabled. 
         enum class Dma0t1enVal {
@@ -302,7 +282,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dma0t1en)::Type,Dma0t1enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(dma0t1en)::Type,Dma0t1enVal::enabled> enabled{};
         }
-        }
         ///IDAC0 Trigger Enable. 
         enum class Idac0tenVal {
             disabled=0x00000000,     ///<Disable the IDAC0 trigger on Crossbar 0.
@@ -312,7 +291,6 @@ namespace Kvasir {
         namespace Idac0tenValC{
             constexpr Register::FieldValue<decltype(idac0ten)::Type,Idac0tenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(idac0ten)::Type,Idac0tenVal::enabled> enabled{};
-        }
         }
         ///SPI0 Enable. 
         enum class Spi0enVal {
@@ -324,7 +302,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(spi0en)::Type,Spi0enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(spi0en)::Type,Spi0enVal::enabled> enabled{};
         }
-        }
         ///SPI0 NSS Pin Enable. 
         enum class Spi0nssenVal {
             disabled=0x00000000,     ///<Disable SPI0 NSS on Crossbar 0.
@@ -334,7 +311,6 @@ namespace Kvasir {
         namespace Spi0nssenValC{
             constexpr Register::FieldValue<decltype(spi0nssen)::Type,Spi0nssenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(spi0nssen)::Type,Spi0nssenVal::enabled> enabled{};
-        }
         }
         ///EPCA0 Channel Enable. 
         enum class Epca0enVal {
@@ -356,7 +332,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(epca0en)::Type,Epca0enVal::cex04> cex04{};
             constexpr Register::FieldValue<decltype(epca0en)::Type,Epca0enVal::cex05> cex05{};
         }
-        }
         ///EPCA0 ECI Enable. 
         enum class Eeci0enVal {
             disabled=0x00000000,     ///<Disable EPCA0 ECI on Crossbar 0.
@@ -366,7 +341,6 @@ namespace Kvasir {
         namespace Eeci0enValC{
             constexpr Register::FieldValue<decltype(eeci0en)::Type,Eeci0enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(eeci0en)::Type,Eeci0enVal::enabled> enabled{};
-        }
         }
         ///I2C0 Enable. 
         enum class I2c0enVal {
@@ -378,7 +352,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(i2c0en)::Type,I2c0enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(i2c0en)::Type,I2c0enVal::enabled> enabled{};
         }
-        }
         ///Comparator 0 Synchronous Output (CMP0S) Enable. 
         enum class Cmp0senVal {
             disabled=0x00000000,     ///<Disable Comparator 0 Synchronous Output (CMP0S) on Crossbar 0.
@@ -388,7 +361,6 @@ namespace Kvasir {
         namespace Cmp0senValC{
             constexpr Register::FieldValue<decltype(cmp0sen)::Type,Cmp0senVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmp0sen)::Type,Cmp0senVal::enabled> enabled{};
-        }
         }
         ///Comparator 0 Asynchronous Output (CMP0A) Enable. 
         enum class Cmp0aenVal {
@@ -400,7 +372,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp0aen)::Type,Cmp0aenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmp0aen)::Type,Cmp0aenVal::enabled> enabled{};
         }
-        }
         ///Comparator 1 Synchronous Output (CMP1S) Enable. 
         enum class Cmp1senVal {
             disabled=0x00000000,     ///<Disable Comparator 1 Synchronous Output (CMP1S) on Crossbar 0.
@@ -410,7 +381,6 @@ namespace Kvasir {
         namespace Cmp1senValC{
             constexpr Register::FieldValue<decltype(cmp1sen)::Type,Cmp1senVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmp1sen)::Type,Cmp1senVal::enabled> enabled{};
-        }
         }
         ///Comparator 1 Asynchronous Output (CMP1A) Enable. 
         enum class Cmp1aenVal {
@@ -422,7 +392,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmp1aen)::Type,Cmp1aenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cmp1aen)::Type,Cmp1aenVal::enabled> enabled{};
         }
-        }
         ///TIMER0 T0CT Enable. 
         enum class Tmr0ctenVal {
             disabled=0x00000000,     ///<Disable TIMER0 CT on Crossbar 0.
@@ -432,7 +401,6 @@ namespace Kvasir {
         namespace Tmr0ctenValC{
             constexpr Register::FieldValue<decltype(tmr0cten)::Type,Tmr0ctenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(tmr0cten)::Type,Tmr0ctenVal::enabled> enabled{};
-        }
         }
         ///TIMER0 T0EX Enable. 
         enum class Tmr0exenVal {
@@ -444,7 +412,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tmr0exen)::Type,Tmr0exenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(tmr0exen)::Type,Tmr0exenVal::enabled> enabled{};
         }
-        }
         ///TIMER1 T1CT Enable. 
         enum class Tmr1ctenVal {
             disabled=0x00000000,     ///<Disable TIMER1 CT on Crossbar 0.
@@ -454,7 +421,6 @@ namespace Kvasir {
         namespace Tmr1ctenValC{
             constexpr Register::FieldValue<decltype(tmr1cten)::Type,Tmr1ctenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(tmr1cten)::Type,Tmr1ctenVal::enabled> enabled{};
-        }
         }
         ///TIMER1 T1EX Enable. 
         enum class Tmr1exenVal {
@@ -466,7 +432,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tmr1exen)::Type,Tmr1exenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(tmr1exen)::Type,Tmr1exenVal::enabled> enabled{};
         }
-        }
         ///SARADC0 Trigger Enable. 
         enum class Saradc0tenVal {
             disabled=0x00000000,     ///<Disable SARADC0 conversion start trigger on Crossbar 0.
@@ -476,7 +441,6 @@ namespace Kvasir {
         namespace Saradc0tenValC{
             constexpr Register::FieldValue<decltype(saradc0ten)::Type,Saradc0tenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(saradc0ten)::Type,Saradc0tenVal::enabled> enabled{};
-        }
         }
         ///AHB Clock Output Enable. 
         enum class AhbenVal {
@@ -488,7 +452,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ahben)::Type,AhbenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ahben)::Type,AhbenVal::enabled> enabled{};
         }
-        }
         ///Crossbar 0 Enable. 
         enum class Xbar0enVal {
             disabled=0x00000000,     ///<Disable Crossbar 0.
@@ -498,7 +461,6 @@ namespace Kvasir {
         namespace Xbar0enValC{
             constexpr Register::FieldValue<decltype(xbar0en)::Type,Xbar0enVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(xbar0en)::Type,Xbar0enVal::enabled> enabled{};
-        }
         }
     }
     namespace Nonepbkey{    ///<Global Port Key

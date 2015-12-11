@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sc16p)::Type,Sc16pVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sc16p)::Type,Sc16pVal::v1> v1{};
         }
-        }
         ///Oscillator 8 pF Capacitor Load Configure
         enum class Sc8pVal {
             v0=0x00000000,     ///<Disable the selection.
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace Sc8pValC{
             constexpr Register::FieldValue<decltype(sc8p)::Type,Sc8pVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sc8p)::Type,Sc8pVal::v1> v1{};
-        }
         }
         ///Oscillator 4 pF Capacitor Load Configure
         enum class Sc4pVal {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sc4p)::Type,Sc4pVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sc4p)::Type,Sc4pVal::v1> v1{};
         }
-        }
         ///Oscillator 2 pF Capacitor Load Configure
         enum class Sc2pVal {
             v0=0x00000000,     ///<Disable the selection.
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace Sc2pValC{
             constexpr Register::FieldValue<decltype(sc2p)::Type,Sc2pVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sc2p)::Type,Sc2pVal::v1> v1{};
-        }
         }
         ///External Reference Stop Enable
         enum class ErefstenVal {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erefsten)::Type,ErefstenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(erefsten)::Type,ErefstenVal::v1> v1{};
         }
-        }
         ///External Reference Enable
         enum class ErclkenVal {
             v0=0x00000000,     ///<External reference clock is inactive.
@@ -68,7 +63,6 @@ namespace Kvasir {
         namespace ErclkenValC{
             constexpr Register::FieldValue<decltype(erclken)::Type,ErclkenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(erclken)::Type,ErclkenVal::v1> v1{};
-        }
         }
     }
     namespace OscDiv{    ///<OSC_DIV
@@ -86,7 +80,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(erps)::Type,ErpsVal::v01> v01{};
             constexpr Register::FieldValue<decltype(erps)::Type,ErpsVal::v10> v10{};
             constexpr Register::FieldValue<decltype(erps)::Type,ErpsVal::v11> v11{};
-        }
         }
     }
 }

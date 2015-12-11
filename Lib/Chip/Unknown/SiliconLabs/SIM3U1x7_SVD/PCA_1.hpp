@@ -22,7 +22,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::extoscn> extoscn{};
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::eci> eci{};
         }
-        }
     }
     namespace Nonecontrol{    ///<Module Control
         using Addr = Register::Address<0x40010190,0x001fffbe,0,unsigned>;
@@ -36,7 +35,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ovfien)::Type,OvfienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ovfien)::Type,OvfienVal::enabled> enabled{};
         }
-        }
         ///PCA Debug Mode. 
         enum class DbgmdVal {
             halt=0x00000000,     ///<A debug breakpoint will cause the PCA to halt.
@@ -47,7 +45,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::halt> halt{};
             constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::run> run{};
         }
-        }
         ///Clock Divider Output State. 
         enum class DivstVal {
             outputHigh=0x00000000,     ///<The clock divider is currently in the first half-cycle.
@@ -57,7 +54,6 @@ namespace Kvasir {
         namespace DivstValC{
             constexpr Register::FieldValue<decltype(divst)::Type,DivstVal::outputHigh> outputHigh{};
             constexpr Register::FieldValue<decltype(divst)::Type,DivstVal::outputLow> outputLow{};
-        }
         }
         ///Current Clock Divider Count. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,22),Register::ReadWriteAccess,unsigned> div{}; 
@@ -74,7 +70,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(c0cci)::Type,C0cciVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(c0cci)::Type,C0cciVal::set> set{};
         }
-        }
         ///Channel 1 Capture/Compare Interrupt Flag. 
         enum class C1cciVal {
             notSet=0x00000000,     ///<A Channel 1 match or capture event did not occur.
@@ -84,7 +79,6 @@ namespace Kvasir {
         namespace C1cciValC{
             constexpr Register::FieldValue<decltype(c1cci)::Type,C1cciVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(c1cci)::Type,C1cciVal::set> set{};
-        }
         }
         ///Counter/Timer Run. 
         enum class RunVal {
@@ -96,7 +90,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(run)::Type,RunVal::stop> stop{};
             constexpr Register::FieldValue<decltype(run)::Type,RunVal::start> start{};
         }
-        }
         ///Counter/Timer Overflow/Limit Interrupt Flag. 
         enum class OvfiVal {
             notSet=0x00000000,     ///<A PCA Counter/Timer overflow/limit event did not occur.
@@ -106,7 +99,6 @@ namespace Kvasir {
         namespace OvfiValC{
             constexpr Register::FieldValue<decltype(ovfi)::Type,OvfiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(ovfi)::Type,OvfiVal::set> set{};
-        }
         }
         ///Channel 0 Intermediate Overflow Interrupt Flag. 
         enum class C0iovfiVal {
@@ -118,7 +110,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(c0iovfi)::Type,C0iovfiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(c0iovfi)::Type,C0iovfiVal::set> set{};
         }
-        }
         ///Channel 1 Intermediate Overflow Interrupt Flag. 
         enum class C1iovfiVal {
             notSet=0x00000000,     ///<Channel 1 did not count past the channel n-bit mode limit.
@@ -128,7 +119,6 @@ namespace Kvasir {
         namespace C1iovfiValC{
             constexpr Register::FieldValue<decltype(c1iovfi)::Type,C1iovfiVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(c1iovfi)::Type,C1iovfiVal::set> set{};
-        }
         }
     }
     namespace Nonecounter{    ///<Module Counter/Timer
@@ -157,7 +147,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cosel)::Type,CoselVal::clearOutput> clearOutput{};
             constexpr Register::FieldValue<decltype(cosel)::Type,CoselVal::noChange> noChange{};
         }
-        }
         ///PWM N-Bit Mode. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,2),Register::ReadWriteAccess,unsigned> pwmmd{}; 
         ///Channel Operating Mode. 
@@ -176,7 +165,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmd)::Type,CmdVal::timerCapture> timerCapture{};
             constexpr Register::FieldValue<decltype(cmd)::Type,CmdVal::nBitPwm> nBitPwm{};
         }
-        }
     }
     namespace Nonecontrol0{    ///<Channel Capture/Compare Control
         using Addr = Register::Address<0x40010010,0xfffff6f0,0,unsigned>;
@@ -190,7 +178,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(coutst)::Type,CoutstVal::low> low{};
             constexpr Register::FieldValue<decltype(coutst)::Type,CoutstVal::high> high{};
         }
-        }
         ///Positive Edge Input Capture Enable. 
         enum class CpcapenVal {
             disabled=0x00000000,     ///<Disable positive-edge input capture.
@@ -200,7 +187,6 @@ namespace Kvasir {
         namespace CpcapenValC{
             constexpr Register::FieldValue<decltype(cpcapen)::Type,CpcapenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cpcapen)::Type,CpcapenVal::enabled> enabled{};
-        }
         }
         ///Negative Edge Input Capture Enable. 
         enum class CncapenVal {
@@ -212,7 +198,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cncapen)::Type,CncapenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cncapen)::Type,CncapenVal::enabled> enabled{};
         }
-        }
         ///Channel Register Update Complete Flag. 
         enum class CupdcfVal {
             notSet=0x00000000,     ///<A PCA channel register update completed or is not pending.
@@ -222,7 +207,6 @@ namespace Kvasir {
         namespace CupdcfValC{
             constexpr Register::FieldValue<decltype(cupdcf)::Type,CupdcfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(cupdcf)::Type,CupdcfVal::set> set{};
-        }
         }
         ///Capture/Compare Interrupt Enable. 
         enum class CcienVal {
@@ -234,7 +218,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ccien)::Type,CcienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ccien)::Type,CcienVal::enabled> enabled{};
         }
-        }
         ///Intermediate Overflow Interrupt Enable. 
         enum class CiovfienVal {
             disabled=0x00000000,     ///<Disable the channel intermediate overflow interrupt.
@@ -244,7 +227,6 @@ namespace Kvasir {
         namespace CiovfienValC{
             constexpr Register::FieldValue<decltype(ciovfien)::Type,CiovfienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ciovfien)::Type,CiovfienVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneccapv0{    ///<Channel Compare Value
@@ -273,7 +255,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cosel)::Type,CoselVal::clearOutput> clearOutput{};
             constexpr Register::FieldValue<decltype(cosel)::Type,CoselVal::noChange> noChange{};
         }
-        }
         ///PWM N-Bit Mode. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,2),Register::ReadWriteAccess,unsigned> pwmmd{}; 
         ///Channel Operating Mode. 
@@ -292,7 +273,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cmd)::Type,CmdVal::timerCapture> timerCapture{};
             constexpr Register::FieldValue<decltype(cmd)::Type,CmdVal::nBitPwm> nBitPwm{};
         }
-        }
     }
     namespace Nonecontrol1{    ///<Channel Capture/Compare Control
         using Addr = Register::Address<0x40010050,0xfffff6f0,0,unsigned>;
@@ -306,7 +286,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(coutst)::Type,CoutstVal::low> low{};
             constexpr Register::FieldValue<decltype(coutst)::Type,CoutstVal::high> high{};
         }
-        }
         ///Positive Edge Input Capture Enable. 
         enum class CpcapenVal {
             disabled=0x00000000,     ///<Disable positive-edge input capture.
@@ -316,7 +295,6 @@ namespace Kvasir {
         namespace CpcapenValC{
             constexpr Register::FieldValue<decltype(cpcapen)::Type,CpcapenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cpcapen)::Type,CpcapenVal::enabled> enabled{};
-        }
         }
         ///Negative Edge Input Capture Enable. 
         enum class CncapenVal {
@@ -328,7 +306,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cncapen)::Type,CncapenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(cncapen)::Type,CncapenVal::enabled> enabled{};
         }
-        }
         ///Channel Register Update Complete Flag. 
         enum class CupdcfVal {
             notSet=0x00000000,     ///<A PCA channel register update completed or is not pending.
@@ -338,7 +315,6 @@ namespace Kvasir {
         namespace CupdcfValC{
             constexpr Register::FieldValue<decltype(cupdcf)::Type,CupdcfVal::notSet> notSet{};
             constexpr Register::FieldValue<decltype(cupdcf)::Type,CupdcfVal::set> set{};
-        }
         }
         ///Capture/Compare Interrupt Enable. 
         enum class CcienVal {
@@ -350,7 +326,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ccien)::Type,CcienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ccien)::Type,CcienVal::enabled> enabled{};
         }
-        }
         ///Intermediate Overflow Interrupt Enable. 
         enum class CiovfienVal {
             disabled=0x00000000,     ///<Disable the channel intermediate overflow interrupt.
@@ -360,7 +335,6 @@ namespace Kvasir {
         namespace CiovfienValC{
             constexpr Register::FieldValue<decltype(ciovfien)::Type,CiovfienVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(ciovfien)::Type,CiovfienVal::enabled> enabled{};
-        }
         }
     }
     namespace Noneccapv1{    ///<Channel Compare Value

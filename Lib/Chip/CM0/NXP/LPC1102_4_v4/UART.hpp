@@ -34,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rbrie)::Type,RbrieVal::disableTheRdaInte> disableTheRdaInte{};
             constexpr Register::FieldValue<decltype(rbrie)::Type,RbrieVal::enableTheRdaInter> enableTheRdaInter{};
         }
-        }
         ///THRE Interrupt Enable. Enables the THRE interrupt for UART. The status of this interrupt can be read from LSR[5].
         enum class ThreieVal {
             disableTheThreInt=0x00000000,     ///<Disable the THRE interrupt.
@@ -44,7 +43,6 @@ namespace Kvasir {
         namespace ThreieValC{
             constexpr Register::FieldValue<decltype(threie)::Type,ThreieVal::disableTheThreInt> disableTheThreInt{};
             constexpr Register::FieldValue<decltype(threie)::Type,ThreieVal::enableTheThreInte> enableTheThreInte{};
-        }
         }
         ///RX Line Interrupt Enable. Enables the UART RX line status interrupts. The status of this interrupt can be read from LSR[4:1].
         enum class RxlieVal {
@@ -56,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxlie)::Type,RxlieVal::disableTheRxLine> disableTheRxLine{};
             constexpr Register::FieldValue<decltype(rxlie)::Type,RxlieVal::enableTheRxLineS> enableTheRxLineS{};
         }
-        }
         ///Enables the end of auto-baud interrupt.
         enum class AbeointenVal {
             disableEndOfAuto=0x00000000,     ///<Disable end of auto-baud Interrupt.
@@ -67,7 +64,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(abeointen)::Type,AbeointenVal::disableEndOfAuto> disableEndOfAuto{};
             constexpr Register::FieldValue<decltype(abeointen)::Type,AbeointenVal::enableEndOfAutoB> enableEndOfAutoB{};
         }
-        }
         ///Enables the auto-baud time-out interrupt.
         enum class AbtointenVal {
             disableAutoBaudTi=0x00000000,     ///<Disable auto-baud time-out Interrupt.
@@ -77,7 +73,6 @@ namespace Kvasir {
         namespace AbtointenValC{
             constexpr Register::FieldValue<decltype(abtointen)::Type,AbtointenVal::disableAutoBaudTi> disableAutoBaudTi{};
             constexpr Register::FieldValue<decltype(abtointen)::Type,AbtointenVal::enableAutoBaudTim> enableAutoBaudTim{};
-        }
         }
     }
     namespace Noneiir{    ///<Interrupt ID Register. Identifies which interrupt(s) are pending.
@@ -91,7 +86,6 @@ namespace Kvasir {
         namespace IntstatusValC{
             constexpr Register::FieldValue<decltype(intstatus)::Type,IntstatusVal::pending> pending{};
             constexpr Register::FieldValue<decltype(intstatus)::Type,IntstatusVal::noInterruptIsPend> noInterruptIsPend{};
-        }
         }
         ///Interrupt identification. IER[3:1] identifies an interrupt corresponding to the UART Rx FIFO. All other combinations of IER[3:1] not listed below are reserved (100,101,111).
         enum class IntidVal {
@@ -108,7 +102,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(intid)::Type,IntidVal::v2bCharacterTime> v2bCharacterTime{};
             constexpr Register::FieldValue<decltype(intid)::Type,IntidVal::v3ThreInterrupt> v3ThreInterrupt{};
             constexpr Register::FieldValue<decltype(intid)::Type,IntidVal::v4ModemInterrup> v4ModemInterrup{};
-        }
         }
         ///These bits are equivalent to FCR[0].
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> fifoenable{}; 
@@ -129,7 +122,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fifoen)::Type,FifoenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(fifoen)::Type,FifoenVal::enabled> enabled{};
         }
-        }
         ///RX FIFO Reset
         enum class RxfiforesVal {
             noImpactOnEither=0x00000000,     ///<No impact on either of UART FIFOs.
@@ -140,7 +132,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxfifores)::Type,RxfiforesVal::noImpactOnEither> noImpactOnEither{};
             constexpr Register::FieldValue<decltype(rxfifores)::Type,RxfiforesVal::clear> clear{};
         }
-        }
         ///TX FIFO Reset
         enum class TxfiforesVal {
             noImpactOnEither=0x00000000,     ///<No impact on either of UART FIFOs.
@@ -150,7 +141,6 @@ namespace Kvasir {
         namespace TxfiforesValC{
             constexpr Register::FieldValue<decltype(txfifores)::Type,TxfiforesVal::noImpactOnEither> noImpactOnEither{};
             constexpr Register::FieldValue<decltype(txfifores)::Type,TxfiforesVal::clear> clear{};
-        }
         }
         ///RX Trigger Level. These two bits determine how many receiver UART FIFO characters must be written before an interrupt is activated.
         enum class RxtlVal {
@@ -165,7 +155,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rxtl)::Type,RxtlVal::triggerLevel14C> triggerLevel14C{};
             constexpr Register::FieldValue<decltype(rxtl)::Type,RxtlVal::triggerLevel28C> triggerLevel28C{};
             constexpr Register::FieldValue<decltype(rxtl)::Type,RxtlVal::triggerLevel314> triggerLevel314{};
-        }
         }
     }
     namespace Nonelcr{    ///<Line Control Register. Contains controls for frame formatting and break generation.
@@ -184,7 +173,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wls)::Type,WlsVal::v7BitCharacterLeng> v7BitCharacterLeng{};
             constexpr Register::FieldValue<decltype(wls)::Type,WlsVal::v8BitCharacterLeng> v8BitCharacterLeng{};
         }
-        }
         ///Stop Bit Select
         enum class SbsVal {
             v1StopBit=0x00000000,     ///<1 stop bit.
@@ -195,7 +183,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sbs)::Type,SbsVal::v1StopBit> v1StopBit{};
             constexpr Register::FieldValue<decltype(sbs)::Type,SbsVal::v2StopBits> v2StopBits{};
         }
-        }
         ///Parity Enable
         enum class PeVal {
             disableParityGener=0x00000000,     ///<Disable parity generation and checking.
@@ -205,7 +192,6 @@ namespace Kvasir {
         namespace PeValC{
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::disableParityGener> disableParityGener{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::enableParityGenera> enableParityGenera{};
-        }
         }
         ///Parity Select
         enum class PsVal {
@@ -221,7 +207,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::forced1StickParit> forced1StickParit{};
             constexpr Register::FieldValue<decltype(ps)::Type,PsVal::forced0StickParit> forced0StickParit{};
         }
-        }
         ///Break Control
         enum class BcVal {
             disableBreakTransm=0x00000000,     ///<Disable break transmission.
@@ -232,7 +217,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bc)::Type,BcVal::disableBreakTransm> disableBreakTransm{};
             constexpr Register::FieldValue<decltype(bc)::Type,BcVal::enableBreakTransmi> enableBreakTransmi{};
         }
-        }
         ///Divisor Latch Access Bit
         enum class DlabVal {
             disableAccessToDi=0x00000000,     ///<Disable access to Divisor Latches.
@@ -242,7 +226,6 @@ namespace Kvasir {
         namespace DlabValC{
             constexpr Register::FieldValue<decltype(dlab)::Type,DlabVal::disableAccessToDi> disableAccessToDi{};
             constexpr Register::FieldValue<decltype(dlab)::Type,DlabVal::enableAccessToDiv> enableAccessToDiv{};
-        }
         }
     }
     namespace Nonelsr{    ///<Line Status Register. Contains flags for transmit and receive status, including line errors.
@@ -257,7 +240,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rdr)::Type,RdrVal::empty> empty{};
             constexpr Register::FieldValue<decltype(rdr)::Type,RdrVal::valid> valid{};
         }
-        }
         ///Overrun Error. The overrun error condition is set as soon as it occurs. A LSR read clears LSR[1]. LSR[1] is set when UART RSR has a new character assembled and the UART RBR FIFO is full. In this case, the UART RBR FIFO will not be overwritten and the character in the UART RSR will be lost.
         enum class OeVal {
             inactive=0x00000000,     ///<Overrun error status is inactive.
@@ -267,7 +249,6 @@ namespace Kvasir {
         namespace OeValC{
             constexpr Register::FieldValue<decltype(oe)::Type,OeVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(oe)::Type,OeVal::active> active{};
-        }
         }
         ///Parity Error. When the parity bit of a received character is in the wrong state, a parity error occurs. A LSR read clears LSR[2]. Time of parity error detection is dependent on FCR[0]. Note: A parity error is associated with the character at the top of the UART RBR FIFO.
         enum class PeVal {
@@ -279,7 +260,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(pe)::Type,PeVal::active> active{};
         }
-        }
         ///Framing Error. When the stop bit of a received character is a logic 0, a framing error occurs. A LSR read clears LSR[3]. The time of the framing error detection is dependent on FCR0. Upon detection of a framing error, the RX will attempt to re-synchronize to the data and assume that the bad stop bit is actually an early start bit. However, it cannot be assumed that the next received byte will be correct even if there is no Framing Error. Note: A framing error is associated with the character at the top of the UART RBR FIFO.
         enum class FeVal {
             inactive=0x00000000,     ///<Framing error status is inactive.
@@ -289,7 +269,6 @@ namespace Kvasir {
         namespace FeValC{
             constexpr Register::FieldValue<decltype(fe)::Type,FeVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(fe)::Type,FeVal::active> active{};
-        }
         }
         ///Break Interrupt. When RXD1 is held in the spacing state (all zeros) for one full character transmission (start, data, parity, stop), a break interrupt occurs. Once the break condition has been detected, the receiver goes idle until RXD1 goes to marking state (all ones). A LSR read clears this status bit. The time of break detection is dependent on FCR[0]. Note: The break interrupt is associated with the character at the top of the UART RBR FIFO.
         enum class BiVal {
@@ -301,7 +280,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bi)::Type,BiVal::inactive> inactive{};
             constexpr Register::FieldValue<decltype(bi)::Type,BiVal::active> active{};
         }
-        }
         ///Transmitter Holding Register Empty. THRE is set immediately upon detection of an empty UART THR and is cleared on a THR write.
         enum class ThreVal {
             valid=0x00000000,     ///<THR contains valid data.
@@ -311,7 +289,6 @@ namespace Kvasir {
         namespace ThreValC{
             constexpr Register::FieldValue<decltype(thre)::Type,ThreVal::valid> valid{};
             constexpr Register::FieldValue<decltype(thre)::Type,ThreVal::empty> empty{};
-        }
         }
         ///Transmitter Empty. TEMT is set when both THR and TSR are empty; TEMT is cleared when either the TSR or the THR contain valid data.
         enum class TemtVal {
@@ -323,7 +300,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(temt)::Type,TemtVal::valid> valid{};
             constexpr Register::FieldValue<decltype(temt)::Type,TemtVal::empty> empty{};
         }
-        }
         ///Error in RX FIFO. LSR[7] is set when a character with a RX error such as framing error, parity error or break interrupt, is loaded into the RBR. This bit is cleared when the LSR register is read and there are no subsequent errors in the UART FIFO.
         enum class RxfeVal {
             noerror=0x00000000,     ///<RBR contains no UART RX errors or FCR[0]=0.
@@ -333,7 +309,6 @@ namespace Kvasir {
         namespace RxfeValC{
             constexpr Register::FieldValue<decltype(rxfe)::Type,RxfeVal::noerror> noerror{};
             constexpr Register::FieldValue<decltype(rxfe)::Type,RxfeVal::error> error{};
-        }
         }
     }
     namespace Nonescr{    ///<Scratch Pad Register. Eight-bit temporary storage for software.
@@ -353,7 +328,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::stop> stop{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::start> start{};
         }
-        }
         ///Auto-baud mode select
         enum class ModeVal {
             mode0=0x00000000,     ///<Mode 0.
@@ -363,7 +337,6 @@ namespace Kvasir {
         namespace ModeValC{
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::mode0> mode0{};
             constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::mode1> mode1{};
-        }
         }
         ///Restart enable
         enum class AutorestartVal {
@@ -375,7 +348,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(autorestart)::Type,AutorestartVal::noRestart> noRestart{};
             constexpr Register::FieldValue<decltype(autorestart)::Type,AutorestartVal::restartInCaseOfT> restartInCaseOfT{};
         }
-        }
         ///End of auto-baud interrupt clear (write only accessible)
         enum class AbeointclrVal {
             noimpact=0x00000000,     ///<Writing a 0 has no impact.
@@ -386,7 +358,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(abeointclr)::Type,AbeointclrVal::noimpact> noimpact{};
             constexpr Register::FieldValue<decltype(abeointclr)::Type,AbeointclrVal::clear> clear{};
         }
-        }
         ///Auto-baud time-out interrupt clear (write only accessible)
         enum class AbtointclrVal {
             noimpact=0x00000000,     ///<Writing a 0 has no impact.
@@ -396,7 +367,6 @@ namespace Kvasir {
         namespace AbtointclrValC{
             constexpr Register::FieldValue<decltype(abtointclr)::Type,AbtointclrVal::noimpact> noimpact{};
             constexpr Register::FieldValue<decltype(abtointclr)::Type,AbtointclrVal::clear> clear{};
-        }
         }
     }
     namespace Nonefdr{    ///<Fractional Divider Register. Generates a clock input for the baud rate divider.
@@ -423,7 +393,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nmmen)::Type,NmmenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(nmmen)::Type,NmmenVal::enabled> enabled{};
         }
-        }
         ///Receiver enable.
         enum class RxdisVal {
             enabled=0x00000000,     ///<The receiver is enabled.
@@ -433,7 +402,6 @@ namespace Kvasir {
         namespace RxdisValC{
             constexpr Register::FieldValue<decltype(rxdis)::Type,RxdisVal::enabled> enabled{};
             constexpr Register::FieldValue<decltype(rxdis)::Type,RxdisVal::disabled> disabled{};
-        }
         }
         ///AAD enable.
         enum class AadenVal {
@@ -445,7 +413,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(aaden)::Type,AadenVal::disabled> disabled{};
             constexpr Register::FieldValue<decltype(aaden)::Type,AadenVal::enabled> enabled{};
         }
-        }
         ///Select direction control pin
         enum class SelVal {
             rts=0x00000000,     ///<If direction control is enabled (bit DCTRL = 1), pin RTS is used for direction control.
@@ -455,7 +422,6 @@ namespace Kvasir {
         namespace SelValC{
             constexpr Register::FieldValue<decltype(sel)::Type,SelVal::rts> rts{};
             constexpr Register::FieldValue<decltype(sel)::Type,SelVal::dtr> dtr{};
-        }
         }
         ///Auto direction control enable.
         enum class DctrlVal {
@@ -467,7 +433,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dctrl)::Type,DctrlVal::disableAutoDirecti> disableAutoDirecti{};
             constexpr Register::FieldValue<decltype(dctrl)::Type,DctrlVal::enableAutoDirectio> enableAutoDirectio{};
         }
-        }
         ///Polarity control. This bit reverses the polarity of the direction control signal on the RTS (or DTR) pin.
         enum class OinvVal {
             low=0x00000000,     ///<The direction control pin will be driven to logic 0 when the transmitter has data to be sent. It will be driven to logic 1 after the last bit of data has been transmitted.
@@ -477,7 +442,6 @@ namespace Kvasir {
         namespace OinvValC{
             constexpr Register::FieldValue<decltype(oinv)::Type,OinvVal::low> low{};
             constexpr Register::FieldValue<decltype(oinv)::Type,OinvVal::high> high{};
-        }
         }
     }
     namespace Noners485adrmatch{    ///<RS-485/EIA-485 address match. Contains the address match value for RS-485/EIA-485 mode.

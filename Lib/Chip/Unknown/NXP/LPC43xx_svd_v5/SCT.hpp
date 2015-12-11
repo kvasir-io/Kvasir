@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(unify)::Type,UnifyVal::v16BitCounters> v16BitCounters{};
             constexpr Register::FieldValue<decltype(unify)::Type,UnifyVal::v32BitUnified> v32BitUnified{};
         }
-        }
         ///SCT clock mode
         enum class ClkmodeVal {
             busClock=0x00000000,     ///<The SCT and prescaler(s) are clocked by the bus clock.
@@ -28,7 +27,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkmode)::Type,ClkmodeVal::highPerformance> highPerformance{};
             constexpr Register::FieldValue<decltype(clkmode)::Type,ClkmodeVal::lowPower> lowPower{};
             constexpr Register::FieldValue<decltype(clkmode)::Type,ClkmodeVal::inputEdge> inputEdge{};
-        }
         }
         ///SCT clock select
         enum class ClkselVal {
@@ -68,7 +66,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::inp7Rising> inp7Rising{};
             constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::inp7Falling> inp7Falling{};
         }
-        }
         ///A 1 in this bit prevents the lower match registers from being  reloaded from their respective reload registers. Software can  write to set or clear this bit at any time. This bit applies to both the  higher and lower registers when the UNIFY bit is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> norelaodlNoreloadu{}; 
         ///A 1 in this bit prevents the higher match registers from being  reloaded from their respective reload registers. Software can  write to set or clear this bit at any time. This bit is not used when  the UNIFY bit is set.
@@ -96,7 +93,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(bidirL)::Type,BidirlVal::clear> clear{};
             constexpr Register::FieldValue<decltype(bidirL)::Type,BidirlVal::countdown> countdown{};
         }
-        }
         ///Specifies the factor by which the SCT clock is prescaled to produce the  L or unified counter clock. The counter clock will be clocked at the rate of the SCT  clock divided by PRE_L+1. Clear the counter (by writing a 1  to the CLRCTR bit) whenever changing the PRE value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,5),Register::ReadWriteAccess,unsigned> preL{}; 
         ///This bit is 1 when the H counter is counting down. It is set by hardware  when the counter's limit is reached and BIDIR is 1. It is cleared by  hardware when the counter reaches 0.
@@ -116,7 +112,6 @@ namespace Kvasir {
         namespace BidirhValC{
             constexpr Register::FieldValue<decltype(bidirH)::Type,BidirhVal::clear> clear{};
             constexpr Register::FieldValue<decltype(bidirH)::Type,BidirhVal::countdown> countdown{};
-        }
         }
         ///Specifies the factor by which the SCT clock is prescaled to produce the  H counter clock. The counter clock will be clocked at the rate of the SCT  clock divided by PRELH+1. Clear the counter (by writing a 1  to the CLRCTR bit) whenever changing the PRE value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,21),Register::ReadWriteAccess,unsigned> preH{}; 
@@ -314,7 +309,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setclr0)::Type,Setclr0Val::reverseL> reverseL{};
             constexpr Register::FieldValue<decltype(setclr0)::Type,Setclr0Val::reverseH> reverseH{};
         }
-        }
         ///Set/clear operation on output 1. Value 0x3 is reserved. Do not program this value.
         enum class Setclr1Val {
             independent=0x00000000,     ///<Set and clear do not depend on any counter.
@@ -326,7 +320,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setclr1)::Type,Setclr1Val::independent> independent{};
             constexpr Register::FieldValue<decltype(setclr1)::Type,Setclr1Val::reverseL> reverseL{};
             constexpr Register::FieldValue<decltype(setclr1)::Type,Setclr1Val::reverseH> reverseH{};
-        }
         }
         ///Set/clear operation on output 2. Value 0x3 is reserved. Do not program this value.
         enum class Setclr2Val {
@@ -340,7 +333,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setclr2)::Type,Setclr2Val::reverseL> reverseL{};
             constexpr Register::FieldValue<decltype(setclr2)::Type,Setclr2Val::reverseH> reverseH{};
         }
-        }
         ///Set/clear operation on output 3. Value 0x3 is reserved. Do not program this value.
         enum class Setclr3Val {
             independent=0x00000000,     ///<Set and clear do not depend on any counter.
@@ -352,7 +344,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setclr3)::Type,Setclr3Val::independent> independent{};
             constexpr Register::FieldValue<decltype(setclr3)::Type,Setclr3Val::reverseL> reverseL{};
             constexpr Register::FieldValue<decltype(setclr3)::Type,Setclr3Val::reverseH> reverseH{};
-        }
         }
         ///Set/clear operation on output 4. Value 0x3 is reserved. Do not program this value.
         enum class Setclr4Val {
@@ -366,7 +357,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setclr4)::Type,Setclr4Val::reverseL> reverseL{};
             constexpr Register::FieldValue<decltype(setclr4)::Type,Setclr4Val::reverseH> reverseH{};
         }
-        }
         ///Set/clear operation on output 5. Value 0x3 is reserved. Do not program this value.
         enum class Setclr5Val {
             independent=0x00000000,     ///<Set and clear do not depend on any counter.
@@ -378,7 +368,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setclr5)::Type,Setclr5Val::independent> independent{};
             constexpr Register::FieldValue<decltype(setclr5)::Type,Setclr5Val::reverseL> reverseL{};
             constexpr Register::FieldValue<decltype(setclr5)::Type,Setclr5Val::reverseH> reverseH{};
-        }
         }
         ///Set/clear operation on output 6. Value 0x3 is reserved. Do not program this value.
         enum class Setclr6Val {
@@ -392,7 +381,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setclr6)::Type,Setclr6Val::reverseL> reverseL{};
             constexpr Register::FieldValue<decltype(setclr6)::Type,Setclr6Val::reverseH> reverseH{};
         }
-        }
         ///Set/clear operation on output 7. Value 0x3 is reserved. Do not program this value.
         enum class Setclr7Val {
             independent=0x00000000,     ///<Set and clear do not depend on any counter.
@@ -404,7 +392,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setclr7)::Type,Setclr7Val::independent> independent{};
             constexpr Register::FieldValue<decltype(setclr7)::Type,Setclr7Val::reverseL> reverseL{};
             constexpr Register::FieldValue<decltype(setclr7)::Type,Setclr7Val::reverseH> reverseH{};
-        }
         }
         ///Set/clear operation on output 8. Value 0x3 is reserved. Do not program this value.
         enum class Setclr8Val {
@@ -418,7 +405,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setclr8)::Type,Setclr8Val::reverseL> reverseL{};
             constexpr Register::FieldValue<decltype(setclr8)::Type,Setclr8Val::reverseH> reverseH{};
         }
-        }
         ///Set/clear operation on output 9. Value 0x3 is reserved. Do not program this value.
         enum class Setclr9Val {
             independent=0x00000000,     ///<Set and clear do not depend on any counter.
@@ -430,7 +416,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setclr9)::Type,Setclr9Val::independent> independent{};
             constexpr Register::FieldValue<decltype(setclr9)::Type,Setclr9Val::reverseL> reverseL{};
             constexpr Register::FieldValue<decltype(setclr9)::Type,Setclr9Val::reverseH> reverseH{};
-        }
         }
         ///Set/clear operation on output 5. Value 0x3 is reserved. Do not program this value.
         enum class Setclr10Val {
@@ -444,7 +429,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setclr10)::Type,Setclr10Val::reverseL> reverseL{};
             constexpr Register::FieldValue<decltype(setclr10)::Type,Setclr10Val::reverseH> reverseH{};
         }
-        }
         ///Set/clear operation on output 11. Value 0x3 is reserved. Do not program this value.
         enum class Setclr11Val {
             independent=0x00000000,     ///<Set and clear do not depend on any counter.
@@ -456,7 +440,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setclr11)::Type,Setclr11Val::independent> independent{};
             constexpr Register::FieldValue<decltype(setclr11)::Type,Setclr11Val::reverseL> reverseL{};
             constexpr Register::FieldValue<decltype(setclr11)::Type,Setclr11Val::reverseH> reverseH{};
-        }
         }
         ///Set/clear operation on output 12. Value 0x3 is reserved. Do not program this value.
         enum class Setclr12Val {
@@ -470,7 +453,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setclr12)::Type,Setclr12Val::reverseL> reverseL{};
             constexpr Register::FieldValue<decltype(setclr12)::Type,Setclr12Val::reverseH> reverseH{};
         }
-        }
         ///Set/clear operation on output 13. Value 0x3 is reserved. Do not program this value.
         enum class Setclr13Val {
             independent=0x00000000,     ///<Set and clear do not depend on any counter.
@@ -482,7 +464,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setclr13)::Type,Setclr13Val::independent> independent{};
             constexpr Register::FieldValue<decltype(setclr13)::Type,Setclr13Val::reverseL> reverseL{};
             constexpr Register::FieldValue<decltype(setclr13)::Type,Setclr13Val::reverseH> reverseH{};
-        }
         }
         ///Set/clear operation on output 14. Value 0x3 is reserved. Do not program this value.
         enum class Setclr14Val {
@@ -496,7 +477,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setclr14)::Type,Setclr14Val::reverseL> reverseL{};
             constexpr Register::FieldValue<decltype(setclr14)::Type,Setclr14Val::reverseH> reverseH{};
         }
-        }
         ///Set/clear operation on output 15. Value 0x3 is reserved. Do not program this value.
         enum class Setclr15Val {
             independent=0x00000000,     ///<Set and clear do not depend on any counter.
@@ -508,7 +488,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setclr15)::Type,Setclr15Val::independent> independent{};
             constexpr Register::FieldValue<decltype(setclr15)::Type,Setclr15Val::reverseL> reverseL{};
             constexpr Register::FieldValue<decltype(setclr15)::Type,Setclr15Val::reverseH> reverseH{};
-        }
         }
     }
     namespace Noneres{    ///<SCT conflict resolution register
@@ -527,7 +506,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(o0res)::Type,O0resVal::clearOutputOrSet> clearOutputOrSet{};
             constexpr Register::FieldValue<decltype(o0res)::Type,O0resVal::toggleOutput> toggleOutput{};
         }
-        }
         ///Effect of simultaneous set and clear on output 1.
         enum class O1resVal {
             noChange=0x00000000,     ///<No change.
@@ -541,7 +519,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(o1res)::Type,O1resVal::setOutputOrClear> setOutputOrClear{};
             constexpr Register::FieldValue<decltype(o1res)::Type,O1resVal::clearOutputOrSet> clearOutputOrSet{};
             constexpr Register::FieldValue<decltype(o1res)::Type,O1resVal::toggleOutput> toggleOutput{};
-        }
         }
         ///Effect of simultaneous set and clear on output 2.
         enum class O2resVal {
@@ -557,7 +534,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(o2res)::Type,O2resVal::clearOutputNOrS> clearOutputNOrS{};
             constexpr Register::FieldValue<decltype(o2res)::Type,O2resVal::toggleOutput> toggleOutput{};
         }
-        }
         ///Effect of simultaneous set and clear on output 3.
         enum class O3resVal {
             noChange=0x00000000,     ///<No change.
@@ -571,7 +547,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(o3res)::Type,O3resVal::setOutputOrClear> setOutputOrClear{};
             constexpr Register::FieldValue<decltype(o3res)::Type,O3resVal::clearOutputOrSet> clearOutputOrSet{};
             constexpr Register::FieldValue<decltype(o3res)::Type,O3resVal::toggleOutput> toggleOutput{};
-        }
         }
         ///Effect of simultaneous set and clear on output 4.
         enum class O4resVal {
@@ -587,7 +562,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(o4res)::Type,O4resVal::clearOutputOrSet> clearOutputOrSet{};
             constexpr Register::FieldValue<decltype(o4res)::Type,O4resVal::toggleOutput> toggleOutput{};
         }
-        }
         ///Effect of simultaneous set and clear on output 5.
         enum class O5resVal {
             noChange=0x00000000,     ///<No change.
@@ -601,7 +575,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(o5res)::Type,O5resVal::setOutputOrClear> setOutputOrClear{};
             constexpr Register::FieldValue<decltype(o5res)::Type,O5resVal::clearOutputOrSet> clearOutputOrSet{};
             constexpr Register::FieldValue<decltype(o5res)::Type,O5resVal::toggleOutput> toggleOutput{};
-        }
         }
         ///Effect of simultaneous set and clear on output 6.
         enum class O6resVal {
@@ -617,7 +590,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(o6res)::Type,O6resVal::clearOutputOrSet> clearOutputOrSet{};
             constexpr Register::FieldValue<decltype(o6res)::Type,O6resVal::toggleOutput> toggleOutput{};
         }
-        }
         ///Effect of simultaneous set and clear on output 7.
         enum class O7resVal {
             noChange=0x00000000,     ///<No change.
@@ -631,7 +603,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(o7res)::Type,O7resVal::setOutputOrClear> setOutputOrClear{};
             constexpr Register::FieldValue<decltype(o7res)::Type,O7resVal::clearOutputOrSet> clearOutputOrSet{};
             constexpr Register::FieldValue<decltype(o7res)::Type,O7resVal::toggleOutput> toggleOutput{};
-        }
         }
         ///Effect of simultaneous set and clear on output 8.
         enum class O8resVal {
@@ -647,7 +618,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(o8res)::Type,O8resVal::clearOutputOrSet> clearOutputOrSet{};
             constexpr Register::FieldValue<decltype(o8res)::Type,O8resVal::toggleOutput> toggleOutput{};
         }
-        }
         ///Effect of simultaneous set and clear on output 9.
         enum class O9resVal {
             noChange=0x00000000,     ///<No change.
@@ -661,7 +631,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(o9res)::Type,O9resVal::setOutputOrClear> setOutputOrClear{};
             constexpr Register::FieldValue<decltype(o9res)::Type,O9resVal::clearOutputOrSet> clearOutputOrSet{};
             constexpr Register::FieldValue<decltype(o9res)::Type,O9resVal::toggleOutput> toggleOutput{};
-        }
         }
         ///Effect of simultaneous set and clear on output 10.
         enum class O10resVal {
@@ -677,7 +646,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(o10res)::Type,O10resVal::clearOutputOrSet> clearOutputOrSet{};
             constexpr Register::FieldValue<decltype(o10res)::Type,O10resVal::toggleOutput> toggleOutput{};
         }
-        }
         ///Effect of simultaneous set and clear on output 11.
         enum class O11resVal {
             noChange=0x00000000,     ///<No change.
@@ -691,7 +659,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(o11res)::Type,O11resVal::setOutputOrClear> setOutputOrClear{};
             constexpr Register::FieldValue<decltype(o11res)::Type,O11resVal::clearOutputOrSet> clearOutputOrSet{};
             constexpr Register::FieldValue<decltype(o11res)::Type,O11resVal::toggleOutput> toggleOutput{};
-        }
         }
         ///Effect of simultaneous set and clear on output 12.
         enum class O12resVal {
@@ -707,7 +674,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(o12res)::Type,O12resVal::clearOutputOrSet> clearOutputOrSet{};
             constexpr Register::FieldValue<decltype(o12res)::Type,O12resVal::toggleOutput> toggleOutput{};
         }
-        }
         ///Effect of simultaneous set and clear on output 13.
         enum class O13resVal {
             noChange=0x00000000,     ///<No change.
@@ -721,7 +687,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(o13res)::Type,O13resVal::setOutputOrClear> setOutputOrClear{};
             constexpr Register::FieldValue<decltype(o13res)::Type,O13resVal::clearOutputOrSet> clearOutputOrSet{};
             constexpr Register::FieldValue<decltype(o13res)::Type,O13resVal::toggleOutput> toggleOutput{};
-        }
         }
         ///Effect of simultaneous set and clear on output 14.
         enum class O14resVal {
@@ -737,7 +702,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(o14res)::Type,O14resVal::clearOutputOrSet> clearOutputOrSet{};
             constexpr Register::FieldValue<decltype(o14res)::Type,O14resVal::toggleOutput> toggleOutput{};
         }
-        }
         ///Effect of simultaneous set and clear on output 15.
         enum class O15resVal {
             noChange=0x00000000,     ///<No change.
@@ -751,7 +715,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(o15res)::Type,O15resVal::setOutputOrClear> setOutputOrClear{};
             constexpr Register::FieldValue<decltype(o15res)::Type,O15resVal::clearOutputOrSet> clearOutputOrSet{};
             constexpr Register::FieldValue<decltype(o15res)::Type,O15resVal::toggleOutput> toggleOutput{};
-        }
         }
     }
     namespace Nonedmareq0{    ///<SCT DMA request 0 register
@@ -2990,7 +2953,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheLState> selectsTheLState{};
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheHState> selectsTheHState{};
         }
-        }
         ///Input/output select
         enum class OutselVal {
             selectsTheOutputS=0x00000000,     ///<Selects the output selected by IOSEL.
@@ -3000,7 +2962,6 @@ namespace Kvasir {
         namespace OutselValC{
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheOutputS> selectsTheOutputS{};
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheInputSe> selectsTheInputSe{};
-        }
         }
         ///Selects the input or output signal associated with this event (if  any). If CKMODE is 1x, the clock input is an implicit ingredient of  every event, and should not be selected in this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,6),Register::ReadWriteAccess,unsigned> iosel{}; 
@@ -3018,7 +2979,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::fall> fall{};
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::high> high{};
         }
-        }
         ///Selects how the specified match and I/O condition are used and combined.
         enum class CombmodeVal {
             orTheEventOccurs=0x00000000,     ///<OR. The event occurs when either the specified match or I/O condition occurs.
@@ -3033,7 +2993,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::ioUsesTheSpecifi> ioUsesTheSpecifi{};
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::andTheEventOccur> andTheEventOccur{};
         }
-        }
         ///This bit controls how the STATEV value modifies the state  selected by HEVENT when this event is the highest-numbered  event occurring for that state.
         enum class StateldVal {
             statevValueIsAdde=0x00000000,     ///<STATEV value is added into STATE (the carry-out is ignored).
@@ -3043,7 +3002,6 @@ namespace Kvasir {
         namespace StateldValC{
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsAdde> statevValueIsAdde{};
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsLoad> statevValueIsLoad{};
-        }
         }
         ///This value is loaded into or added to the state selected by  HEVENT, depending on STATELD, when this event is the  highest-numbered event occurring for that state. If STATELD and  STATEV are both zero, there is no change to the STATE value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,15),Register::ReadWriteAccess,unsigned> statev{}; 
@@ -3062,7 +3020,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheLState> selectsTheLState{};
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheHState> selectsTheHState{};
         }
-        }
         ///Input/output select
         enum class OutselVal {
             selectsTheOutputS=0x00000000,     ///<Selects the output selected by IOSEL.
@@ -3072,7 +3029,6 @@ namespace Kvasir {
         namespace OutselValC{
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheOutputS> selectsTheOutputS{};
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheInputSe> selectsTheInputSe{};
-        }
         }
         ///Selects the input or output signal associated with this event (if  any). If CKMODE is 1x, the clock input is an implicit ingredient of  every event, and should not be selected in this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,6),Register::ReadWriteAccess,unsigned> iosel{}; 
@@ -3090,7 +3046,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::fall> fall{};
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::high> high{};
         }
-        }
         ///Selects how the specified match and I/O condition are used and combined.
         enum class CombmodeVal {
             orTheEventOccurs=0x00000000,     ///<OR. The event occurs when either the specified match or I/O condition occurs.
@@ -3105,7 +3060,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::ioUsesTheSpecifi> ioUsesTheSpecifi{};
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::andTheEventOccur> andTheEventOccur{};
         }
-        }
         ///This bit controls how the STATEV value modifies the state  selected by HEVENT when this event is the highest-numbered  event occurring for that state.
         enum class StateldVal {
             statevValueIsAdde=0x00000000,     ///<STATEV value is added into STATE (the carry-out is ignored).
@@ -3115,7 +3069,6 @@ namespace Kvasir {
         namespace StateldValC{
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsAdde> statevValueIsAdde{};
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsLoad> statevValueIsLoad{};
-        }
         }
         ///This value is loaded into or added to the state selected by  HEVENT, depending on STATELD, when this event is the  highest-numbered event occurring for that state. If STATELD and  STATEV are both zero, there is no change to the STATE value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,15),Register::ReadWriteAccess,unsigned> statev{}; 
@@ -3134,7 +3087,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheLState> selectsTheLState{};
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheHState> selectsTheHState{};
         }
-        }
         ///Input/output select
         enum class OutselVal {
             selectsTheOutputS=0x00000000,     ///<Selects the output selected by IOSEL.
@@ -3144,7 +3096,6 @@ namespace Kvasir {
         namespace OutselValC{
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheOutputS> selectsTheOutputS{};
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheInputSe> selectsTheInputSe{};
-        }
         }
         ///Selects the input or output signal associated with this event (if  any). If CKMODE is 1x, the clock input is an implicit ingredient of  every event, and should not be selected in this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,6),Register::ReadWriteAccess,unsigned> iosel{}; 
@@ -3162,7 +3113,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::fall> fall{};
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::high> high{};
         }
-        }
         ///Selects how the specified match and I/O condition are used and combined.
         enum class CombmodeVal {
             orTheEventOccurs=0x00000000,     ///<OR. The event occurs when either the specified match or I/O condition occurs.
@@ -3177,7 +3127,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::ioUsesTheSpecifi> ioUsesTheSpecifi{};
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::andTheEventOccur> andTheEventOccur{};
         }
-        }
         ///This bit controls how the STATEV value modifies the state  selected by HEVENT when this event is the highest-numbered  event occurring for that state.
         enum class StateldVal {
             statevValueIsAdde=0x00000000,     ///<STATEV value is added into STATE (the carry-out is ignored).
@@ -3187,7 +3136,6 @@ namespace Kvasir {
         namespace StateldValC{
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsAdde> statevValueIsAdde{};
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsLoad> statevValueIsLoad{};
-        }
         }
         ///This value is loaded into or added to the state selected by  HEVENT, depending on STATELD, when this event is the  highest-numbered event occurring for that state. If STATELD and  STATEV are both zero, there is no change to the STATE value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,15),Register::ReadWriteAccess,unsigned> statev{}; 
@@ -3206,7 +3154,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheLState> selectsTheLState{};
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheHState> selectsTheHState{};
         }
-        }
         ///Input/output select
         enum class OutselVal {
             selectsTheOutputS=0x00000000,     ///<Selects the output selected by IOSEL.
@@ -3216,7 +3163,6 @@ namespace Kvasir {
         namespace OutselValC{
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheOutputS> selectsTheOutputS{};
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheInputSe> selectsTheInputSe{};
-        }
         }
         ///Selects the input or output signal associated with this event (if  any). If CKMODE is 1x, the clock input is an implicit ingredient of  every event, and should not be selected in this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,6),Register::ReadWriteAccess,unsigned> iosel{}; 
@@ -3234,7 +3180,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::fall> fall{};
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::high> high{};
         }
-        }
         ///Selects how the specified match and I/O condition are used and combined.
         enum class CombmodeVal {
             orTheEventOccurs=0x00000000,     ///<OR. The event occurs when either the specified match or I/O condition occurs.
@@ -3249,7 +3194,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::ioUsesTheSpecifi> ioUsesTheSpecifi{};
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::andTheEventOccur> andTheEventOccur{};
         }
-        }
         ///This bit controls how the STATEV value modifies the state  selected by HEVENT when this event is the highest-numbered  event occurring for that state.
         enum class StateldVal {
             statevValueIsAdde=0x00000000,     ///<STATEV value is added into STATE (the carry-out is ignored).
@@ -3259,7 +3203,6 @@ namespace Kvasir {
         namespace StateldValC{
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsAdde> statevValueIsAdde{};
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsLoad> statevValueIsLoad{};
-        }
         }
         ///This value is loaded into or added to the state selected by  HEVENT, depending on STATELD, when this event is the  highest-numbered event occurring for that state. If STATELD and  STATEV are both zero, there is no change to the STATE value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,15),Register::ReadWriteAccess,unsigned> statev{}; 
@@ -3278,7 +3221,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheLState> selectsTheLState{};
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheHState> selectsTheHState{};
         }
-        }
         ///Input/output select
         enum class OutselVal {
             selectsTheOutputS=0x00000000,     ///<Selects the output selected by IOSEL.
@@ -3288,7 +3230,6 @@ namespace Kvasir {
         namespace OutselValC{
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheOutputS> selectsTheOutputS{};
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheInputSe> selectsTheInputSe{};
-        }
         }
         ///Selects the input or output signal associated with this event (if  any). If CKMODE is 1x, the clock input is an implicit ingredient of  every event, and should not be selected in this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,6),Register::ReadWriteAccess,unsigned> iosel{}; 
@@ -3306,7 +3247,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::fall> fall{};
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::high> high{};
         }
-        }
         ///Selects how the specified match and I/O condition are used and combined.
         enum class CombmodeVal {
             orTheEventOccurs=0x00000000,     ///<OR. The event occurs when either the specified match or I/O condition occurs.
@@ -3321,7 +3261,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::ioUsesTheSpecifi> ioUsesTheSpecifi{};
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::andTheEventOccur> andTheEventOccur{};
         }
-        }
         ///This bit controls how the STATEV value modifies the state  selected by HEVENT when this event is the highest-numbered  event occurring for that state.
         enum class StateldVal {
             statevValueIsAdde=0x00000000,     ///<STATEV value is added into STATE (the carry-out is ignored).
@@ -3331,7 +3270,6 @@ namespace Kvasir {
         namespace StateldValC{
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsAdde> statevValueIsAdde{};
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsLoad> statevValueIsLoad{};
-        }
         }
         ///This value is loaded into or added to the state selected by  HEVENT, depending on STATELD, when this event is the  highest-numbered event occurring for that state. If STATELD and  STATEV are both zero, there is no change to the STATE value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,15),Register::ReadWriteAccess,unsigned> statev{}; 
@@ -3350,7 +3288,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheLState> selectsTheLState{};
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheHState> selectsTheHState{};
         }
-        }
         ///Input/output select
         enum class OutselVal {
             selectsTheOutputS=0x00000000,     ///<Selects the output selected by IOSEL.
@@ -3360,7 +3297,6 @@ namespace Kvasir {
         namespace OutselValC{
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheOutputS> selectsTheOutputS{};
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheInputSe> selectsTheInputSe{};
-        }
         }
         ///Selects the input or output signal associated with this event (if  any). If CKMODE is 1x, the clock input is an implicit ingredient of  every event, and should not be selected in this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,6),Register::ReadWriteAccess,unsigned> iosel{}; 
@@ -3378,7 +3314,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::fall> fall{};
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::high> high{};
         }
-        }
         ///Selects how the specified match and I/O condition are used and combined.
         enum class CombmodeVal {
             orTheEventOccurs=0x00000000,     ///<OR. The event occurs when either the specified match or I/O condition occurs.
@@ -3393,7 +3328,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::ioUsesTheSpecifi> ioUsesTheSpecifi{};
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::andTheEventOccur> andTheEventOccur{};
         }
-        }
         ///This bit controls how the STATEV value modifies the state  selected by HEVENT when this event is the highest-numbered  event occurring for that state.
         enum class StateldVal {
             statevValueIsAdde=0x00000000,     ///<STATEV value is added into STATE (the carry-out is ignored).
@@ -3403,7 +3337,6 @@ namespace Kvasir {
         namespace StateldValC{
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsAdde> statevValueIsAdde{};
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsLoad> statevValueIsLoad{};
-        }
         }
         ///This value is loaded into or added to the state selected by  HEVENT, depending on STATELD, when this event is the  highest-numbered event occurring for that state. If STATELD and  STATEV are both zero, there is no change to the STATE value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,15),Register::ReadWriteAccess,unsigned> statev{}; 
@@ -3422,7 +3355,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheLState> selectsTheLState{};
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheHState> selectsTheHState{};
         }
-        }
         ///Input/output select
         enum class OutselVal {
             selectsTheOutputS=0x00000000,     ///<Selects the output selected by IOSEL.
@@ -3432,7 +3364,6 @@ namespace Kvasir {
         namespace OutselValC{
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheOutputS> selectsTheOutputS{};
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheInputSe> selectsTheInputSe{};
-        }
         }
         ///Selects the input or output signal associated with this event (if  any). If CKMODE is 1x, the clock input is an implicit ingredient of  every event, and should not be selected in this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,6),Register::ReadWriteAccess,unsigned> iosel{}; 
@@ -3450,7 +3381,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::fall> fall{};
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::high> high{};
         }
-        }
         ///Selects how the specified match and I/O condition are used and combined.
         enum class CombmodeVal {
             orTheEventOccurs=0x00000000,     ///<OR. The event occurs when either the specified match or I/O condition occurs.
@@ -3465,7 +3395,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::ioUsesTheSpecifi> ioUsesTheSpecifi{};
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::andTheEventOccur> andTheEventOccur{};
         }
-        }
         ///This bit controls how the STATEV value modifies the state  selected by HEVENT when this event is the highest-numbered  event occurring for that state.
         enum class StateldVal {
             statevValueIsAdde=0x00000000,     ///<STATEV value is added into STATE (the carry-out is ignored).
@@ -3475,7 +3404,6 @@ namespace Kvasir {
         namespace StateldValC{
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsAdde> statevValueIsAdde{};
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsLoad> statevValueIsLoad{};
-        }
         }
         ///This value is loaded into or added to the state selected by  HEVENT, depending on STATELD, when this event is the  highest-numbered event occurring for that state. If STATELD and  STATEV are both zero, there is no change to the STATE value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,15),Register::ReadWriteAccess,unsigned> statev{}; 
@@ -3494,7 +3422,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheLState> selectsTheLState{};
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheHState> selectsTheHState{};
         }
-        }
         ///Input/output select
         enum class OutselVal {
             selectsTheOutputS=0x00000000,     ///<Selects the output selected by IOSEL.
@@ -3504,7 +3431,6 @@ namespace Kvasir {
         namespace OutselValC{
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheOutputS> selectsTheOutputS{};
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheInputSe> selectsTheInputSe{};
-        }
         }
         ///Selects the input or output signal associated with this event (if  any). If CKMODE is 1x, the clock input is an implicit ingredient of  every event, and should not be selected in this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,6),Register::ReadWriteAccess,unsigned> iosel{}; 
@@ -3522,7 +3448,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::fall> fall{};
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::high> high{};
         }
-        }
         ///Selects how the specified match and I/O condition are used and combined.
         enum class CombmodeVal {
             orTheEventOccurs=0x00000000,     ///<OR. The event occurs when either the specified match or I/O condition occurs.
@@ -3537,7 +3462,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::ioUsesTheSpecifi> ioUsesTheSpecifi{};
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::andTheEventOccur> andTheEventOccur{};
         }
-        }
         ///This bit controls how the STATEV value modifies the state  selected by HEVENT when this event is the highest-numbered  event occurring for that state.
         enum class StateldVal {
             statevValueIsAdde=0x00000000,     ///<STATEV value is added into STATE (the carry-out is ignored).
@@ -3547,7 +3471,6 @@ namespace Kvasir {
         namespace StateldValC{
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsAdde> statevValueIsAdde{};
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsLoad> statevValueIsLoad{};
-        }
         }
         ///This value is loaded into or added to the state selected by  HEVENT, depending on STATELD, when this event is the  highest-numbered event occurring for that state. If STATELD and  STATEV are both zero, there is no change to the STATE value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,15),Register::ReadWriteAccess,unsigned> statev{}; 
@@ -3566,7 +3489,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheLState> selectsTheLState{};
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheHState> selectsTheHState{};
         }
-        }
         ///Input/output select
         enum class OutselVal {
             selectsTheOutputS=0x00000000,     ///<Selects the output selected by IOSEL.
@@ -3576,7 +3498,6 @@ namespace Kvasir {
         namespace OutselValC{
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheOutputS> selectsTheOutputS{};
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheInputSe> selectsTheInputSe{};
-        }
         }
         ///Selects the input or output signal associated with this event (if  any). If CKMODE is 1x, the clock input is an implicit ingredient of  every event, and should not be selected in this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,6),Register::ReadWriteAccess,unsigned> iosel{}; 
@@ -3594,7 +3515,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::fall> fall{};
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::high> high{};
         }
-        }
         ///Selects how the specified match and I/O condition are used and combined.
         enum class CombmodeVal {
             orTheEventOccurs=0x00000000,     ///<OR. The event occurs when either the specified match or I/O condition occurs.
@@ -3609,7 +3529,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::ioUsesTheSpecifi> ioUsesTheSpecifi{};
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::andTheEventOccur> andTheEventOccur{};
         }
-        }
         ///This bit controls how the STATEV value modifies the state  selected by HEVENT when this event is the highest-numbered  event occurring for that state.
         enum class StateldVal {
             statevValueIsAdde=0x00000000,     ///<STATEV value is added into STATE (the carry-out is ignored).
@@ -3619,7 +3538,6 @@ namespace Kvasir {
         namespace StateldValC{
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsAdde> statevValueIsAdde{};
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsLoad> statevValueIsLoad{};
-        }
         }
         ///This value is loaded into or added to the state selected by  HEVENT, depending on STATELD, when this event is the  highest-numbered event occurring for that state. If STATELD and  STATEV are both zero, there is no change to the STATE value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,15),Register::ReadWriteAccess,unsigned> statev{}; 
@@ -3638,7 +3556,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheLState> selectsTheLState{};
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheHState> selectsTheHState{};
         }
-        }
         ///Input/output select
         enum class OutselVal {
             selectsTheOutputS=0x00000000,     ///<Selects the output selected by IOSEL.
@@ -3648,7 +3565,6 @@ namespace Kvasir {
         namespace OutselValC{
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheOutputS> selectsTheOutputS{};
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheInputSe> selectsTheInputSe{};
-        }
         }
         ///Selects the input or output signal associated with this event (if  any). If CKMODE is 1x, the clock input is an implicit ingredient of  every event, and should not be selected in this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,6),Register::ReadWriteAccess,unsigned> iosel{}; 
@@ -3666,7 +3582,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::fall> fall{};
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::high> high{};
         }
-        }
         ///Selects how the specified match and I/O condition are used and combined.
         enum class CombmodeVal {
             orTheEventOccurs=0x00000000,     ///<OR. The event occurs when either the specified match or I/O condition occurs.
@@ -3681,7 +3596,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::ioUsesTheSpecifi> ioUsesTheSpecifi{};
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::andTheEventOccur> andTheEventOccur{};
         }
-        }
         ///This bit controls how the STATEV value modifies the state  selected by HEVENT when this event is the highest-numbered  event occurring for that state.
         enum class StateldVal {
             statevValueIsAdde=0x00000000,     ///<STATEV value is added into STATE (the carry-out is ignored).
@@ -3691,7 +3605,6 @@ namespace Kvasir {
         namespace StateldValC{
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsAdde> statevValueIsAdde{};
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsLoad> statevValueIsLoad{};
-        }
         }
         ///This value is loaded into or added to the state selected by  HEVENT, depending on STATELD, when this event is the  highest-numbered event occurring for that state. If STATELD and  STATEV are both zero, there is no change to the STATE value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,15),Register::ReadWriteAccess,unsigned> statev{}; 
@@ -3710,7 +3623,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheLState> selectsTheLState{};
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheHState> selectsTheHState{};
         }
-        }
         ///Input/output select
         enum class OutselVal {
             selectsTheOutputS=0x00000000,     ///<Selects the output selected by IOSEL.
@@ -3720,7 +3632,6 @@ namespace Kvasir {
         namespace OutselValC{
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheOutputS> selectsTheOutputS{};
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheInputSe> selectsTheInputSe{};
-        }
         }
         ///Selects the input or output signal associated with this event (if  any). If CKMODE is 1x, the clock input is an implicit ingredient of  every event, and should not be selected in this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,6),Register::ReadWriteAccess,unsigned> iosel{}; 
@@ -3738,7 +3649,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::fall> fall{};
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::high> high{};
         }
-        }
         ///Selects how the specified match and I/O condition are used and combined.
         enum class CombmodeVal {
             orTheEventOccurs=0x00000000,     ///<OR. The event occurs when either the specified match or I/O condition occurs.
@@ -3753,7 +3663,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::ioUsesTheSpecifi> ioUsesTheSpecifi{};
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::andTheEventOccur> andTheEventOccur{};
         }
-        }
         ///This bit controls how the STATEV value modifies the state  selected by HEVENT when this event is the highest-numbered  event occurring for that state.
         enum class StateldVal {
             statevValueIsAdde=0x00000000,     ///<STATEV value is added into STATE (the carry-out is ignored).
@@ -3763,7 +3672,6 @@ namespace Kvasir {
         namespace StateldValC{
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsAdde> statevValueIsAdde{};
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsLoad> statevValueIsLoad{};
-        }
         }
         ///This value is loaded into or added to the state selected by  HEVENT, depending on STATELD, when this event is the  highest-numbered event occurring for that state. If STATELD and  STATEV are both zero, there is no change to the STATE value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,15),Register::ReadWriteAccess,unsigned> statev{}; 
@@ -3782,7 +3690,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheLState> selectsTheLState{};
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheHState> selectsTheHState{};
         }
-        }
         ///Input/output select
         enum class OutselVal {
             selectsTheOutputS=0x00000000,     ///<Selects the output selected by IOSEL.
@@ -3792,7 +3699,6 @@ namespace Kvasir {
         namespace OutselValC{
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheOutputS> selectsTheOutputS{};
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheInputSe> selectsTheInputSe{};
-        }
         }
         ///Selects the input or output signal associated with this event (if  any). If CKMODE is 1x, the clock input is an implicit ingredient of  every event, and should not be selected in this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,6),Register::ReadWriteAccess,unsigned> iosel{}; 
@@ -3810,7 +3716,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::fall> fall{};
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::high> high{};
         }
-        }
         ///Selects how the specified match and I/O condition are used and combined.
         enum class CombmodeVal {
             orTheEventOccurs=0x00000000,     ///<OR. The event occurs when either the specified match or I/O condition occurs.
@@ -3825,7 +3730,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::ioUsesTheSpecifi> ioUsesTheSpecifi{};
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::andTheEventOccur> andTheEventOccur{};
         }
-        }
         ///This bit controls how the STATEV value modifies the state  selected by HEVENT when this event is the highest-numbered  event occurring for that state.
         enum class StateldVal {
             statevValueIsAdde=0x00000000,     ///<STATEV value is added into STATE (the carry-out is ignored).
@@ -3835,7 +3739,6 @@ namespace Kvasir {
         namespace StateldValC{
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsAdde> statevValueIsAdde{};
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsLoad> statevValueIsLoad{};
-        }
         }
         ///This value is loaded into or added to the state selected by  HEVENT, depending on STATELD, when this event is the  highest-numbered event occurring for that state. If STATELD and  STATEV are both zero, there is no change to the STATE value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,15),Register::ReadWriteAccess,unsigned> statev{}; 
@@ -3854,7 +3757,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheLState> selectsTheLState{};
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheHState> selectsTheHState{};
         }
-        }
         ///Input/output select
         enum class OutselVal {
             selectsTheOutputS=0x00000000,     ///<Selects the output selected by IOSEL.
@@ -3864,7 +3766,6 @@ namespace Kvasir {
         namespace OutselValC{
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheOutputS> selectsTheOutputS{};
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheInputSe> selectsTheInputSe{};
-        }
         }
         ///Selects the input or output signal associated with this event (if  any). If CKMODE is 1x, the clock input is an implicit ingredient of  every event, and should not be selected in this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,6),Register::ReadWriteAccess,unsigned> iosel{}; 
@@ -3882,7 +3783,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::fall> fall{};
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::high> high{};
         }
-        }
         ///Selects how the specified match and I/O condition are used and combined.
         enum class CombmodeVal {
             orTheEventOccurs=0x00000000,     ///<OR. The event occurs when either the specified match or I/O condition occurs.
@@ -3897,7 +3797,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::ioUsesTheSpecifi> ioUsesTheSpecifi{};
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::andTheEventOccur> andTheEventOccur{};
         }
-        }
         ///This bit controls how the STATEV value modifies the state  selected by HEVENT when this event is the highest-numbered  event occurring for that state.
         enum class StateldVal {
             statevValueIsAdde=0x00000000,     ///<STATEV value is added into STATE (the carry-out is ignored).
@@ -3907,7 +3806,6 @@ namespace Kvasir {
         namespace StateldValC{
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsAdde> statevValueIsAdde{};
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsLoad> statevValueIsLoad{};
-        }
         }
         ///This value is loaded into or added to the state selected by  HEVENT, depending on STATELD, when this event is the  highest-numbered event occurring for that state. If STATELD and  STATEV are both zero, there is no change to the STATE value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,15),Register::ReadWriteAccess,unsigned> statev{}; 
@@ -3926,7 +3824,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheLState> selectsTheLState{};
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheHState> selectsTheHState{};
         }
-        }
         ///Input/output select
         enum class OutselVal {
             selectsTheOutputS=0x00000000,     ///<Selects the output selected by IOSEL.
@@ -3936,7 +3833,6 @@ namespace Kvasir {
         namespace OutselValC{
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheOutputS> selectsTheOutputS{};
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheInputSe> selectsTheInputSe{};
-        }
         }
         ///Selects the input or output signal associated with this event (if  any). If CKMODE is 1x, the clock input is an implicit ingredient of  every event, and should not be selected in this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,6),Register::ReadWriteAccess,unsigned> iosel{}; 
@@ -3954,7 +3850,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::fall> fall{};
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::high> high{};
         }
-        }
         ///Selects how the specified match and I/O condition are used and combined.
         enum class CombmodeVal {
             orTheEventOccurs=0x00000000,     ///<OR. The event occurs when either the specified match or I/O condition occurs.
@@ -3969,7 +3864,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::ioUsesTheSpecifi> ioUsesTheSpecifi{};
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::andTheEventOccur> andTheEventOccur{};
         }
-        }
         ///This bit controls how the STATEV value modifies the state  selected by HEVENT when this event is the highest-numbered  event occurring for that state.
         enum class StateldVal {
             statevValueIsAdde=0x00000000,     ///<STATEV value is added into STATE (the carry-out is ignored).
@@ -3979,7 +3873,6 @@ namespace Kvasir {
         namespace StateldValC{
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsAdde> statevValueIsAdde{};
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsLoad> statevValueIsLoad{};
-        }
         }
         ///This value is loaded into or added to the state selected by  HEVENT, depending on STATELD, when this event is the  highest-numbered event occurring for that state. If STATELD and  STATEV are both zero, there is no change to the STATE value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,15),Register::ReadWriteAccess,unsigned> statev{}; 
@@ -3998,7 +3891,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheLState> selectsTheLState{};
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheHState> selectsTheHState{};
         }
-        }
         ///Input/output select
         enum class OutselVal {
             selectsTheOutputS=0x00000000,     ///<Selects the output selected by IOSEL.
@@ -4008,7 +3900,6 @@ namespace Kvasir {
         namespace OutselValC{
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheOutputS> selectsTheOutputS{};
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheInputSe> selectsTheInputSe{};
-        }
         }
         ///Selects the input or output signal associated with this event (if  any). If CKMODE is 1x, the clock input is an implicit ingredient of  every event, and should not be selected in this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,6),Register::ReadWriteAccess,unsigned> iosel{}; 
@@ -4026,7 +3917,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::fall> fall{};
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::high> high{};
         }
-        }
         ///Selects how the specified match and I/O condition are used and combined.
         enum class CombmodeVal {
             orTheEventOccurs=0x00000000,     ///<OR. The event occurs when either the specified match or I/O condition occurs.
@@ -4041,7 +3931,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::ioUsesTheSpecifi> ioUsesTheSpecifi{};
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::andTheEventOccur> andTheEventOccur{};
         }
-        }
         ///This bit controls how the STATEV value modifies the state  selected by HEVENT when this event is the highest-numbered  event occurring for that state.
         enum class StateldVal {
             statevValueIsAdde=0x00000000,     ///<STATEV value is added into STATE (the carry-out is ignored).
@@ -4051,7 +3940,6 @@ namespace Kvasir {
         namespace StateldValC{
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsAdde> statevValueIsAdde{};
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsLoad> statevValueIsLoad{};
-        }
         }
         ///This value is loaded into or added to the state selected by  HEVENT, depending on STATELD, when this event is the  highest-numbered event occurring for that state. If STATELD and  STATEV are both zero, there is no change to the STATE value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,15),Register::ReadWriteAccess,unsigned> statev{}; 
@@ -4070,7 +3958,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheLState> selectsTheLState{};
             constexpr Register::FieldValue<decltype(hevent)::Type,HeventVal::selectsTheHState> selectsTheHState{};
         }
-        }
         ///Input/output select
         enum class OutselVal {
             selectsTheOutputS=0x00000000,     ///<Selects the output selected by IOSEL.
@@ -4080,7 +3967,6 @@ namespace Kvasir {
         namespace OutselValC{
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheOutputS> selectsTheOutputS{};
             constexpr Register::FieldValue<decltype(outsel)::Type,OutselVal::selectsTheInputSe> selectsTheInputSe{};
-        }
         }
         ///Selects the input or output signal associated with this event (if  any). If CKMODE is 1x, the clock input is an implicit ingredient of  every event, and should not be selected in this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,6),Register::ReadWriteAccess,unsigned> iosel{}; 
@@ -4098,7 +3984,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::fall> fall{};
             constexpr Register::FieldValue<decltype(iocond)::Type,IocondVal::high> high{};
         }
-        }
         ///Selects how the specified match and I/O condition are used and combined.
         enum class CombmodeVal {
             orTheEventOccurs=0x00000000,     ///<OR. The event occurs when either the specified match or I/O condition occurs.
@@ -4113,7 +3998,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::ioUsesTheSpecifi> ioUsesTheSpecifi{};
             constexpr Register::FieldValue<decltype(combmode)::Type,CombmodeVal::andTheEventOccur> andTheEventOccur{};
         }
-        }
         ///This bit controls how the STATEV value modifies the state  selected by HEVENT when this event is the highest-numbered  event occurring for that state.
         enum class StateldVal {
             statevValueIsAdde=0x00000000,     ///<STATEV value is added into STATE (the carry-out is ignored).
@@ -4123,7 +4007,6 @@ namespace Kvasir {
         namespace StateldValC{
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsAdde> statevValueIsAdde{};
             constexpr Register::FieldValue<decltype(stateld)::Type,StateldVal::statevValueIsLoad> statevValueIsLoad{};
-        }
         }
         ///This value is loaded into or added to the state selected by  HEVENT, depending on STATELD, when this event is the  highest-numbered event occurring for that state. If STATELD and  STATEV are both zero, there is no change to the STATE value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,15),Register::ReadWriteAccess,unsigned> statev{}; 

@@ -68,7 +68,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fineen)::Type,FineenVal::v1> v1{};
             constexpr Register::FieldValue<decltype(fineen)::Type,FineenVal::v0> v0{};
         }
-        }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> compEn{}; 
         ///Alarm Match bits.
@@ -83,7 +82,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(almMatch)::Type,AlmmatchVal::v01> v01{};
             constexpr Register::FieldValue<decltype(almMatch)::Type,AlmmatchVal::v10> v10{};
         }
-        }
         ///Sampling timer clocks mask
         enum class TimerstbmaskVal {
             v1=0x00000001,     ///<Sampling clocks are gated in standby mode
@@ -93,7 +91,6 @@ namespace Kvasir {
         namespace TimerstbmaskValC{
             constexpr Register::FieldValue<decltype(timerStbMask)::Type,TimerstbmaskVal::v1> v1{};
             constexpr Register::FieldValue<decltype(timerStbMask)::Type,TimerstbmaskVal::v0> v0{};
-        }
         }
         ///Daylight Saving Enable.
         enum class DstenVal {
@@ -105,7 +102,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dstEn)::Type,DstenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dstEn)::Type,DstenVal::v1> v1{};
         }
-        }
         ///Software Reset bit.
         enum class SwrVal {
             v0=0x00000000,     ///<Software Reset cleared.
@@ -115,7 +111,6 @@ namespace Kvasir {
         namespace SwrValC{
             constexpr Register::FieldValue<decltype(swr)::Type,SwrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(swr)::Type,SwrVal::v1> v1{};
-        }
         }
         ///RTC Clock Output Selection.
         enum class ClkoutVal {
@@ -131,7 +126,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkout)::Type,ClkoutVal::v10> v10{};
             constexpr Register::FieldValue<decltype(clkout)::Type,ClkoutVal::v11> v11{};
         }
-        }
     }
     namespace RtcStatus{    ///<RTC Status Register
         using Addr = Register::Address<0x40050012,0xfffff610,0,unsigned>;
@@ -145,7 +139,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(invalBit)::Type,InvalbitVal::v0> v0{};
             constexpr Register::FieldValue<decltype(invalBit)::Type,InvalbitVal::v1> v1{};
         }
-        }
         ///Write Protect Enable status bit.
         enum class WriteprotenVal {
             v0=0x00000000,     ///<Registers are unlocked and can be accessed.
@@ -155,7 +148,6 @@ namespace Kvasir {
         namespace WriteprotenValC{
             constexpr Register::FieldValue<decltype(writeProtEn)::Type,WriteprotenVal::v0> v0{};
             constexpr Register::FieldValue<decltype(writeProtEn)::Type,WriteprotenVal::v1> v1{};
-        }
         }
         ///CPU Low Voltage Warning status bit.
         enum class CpulowvoltVal {
@@ -167,7 +159,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(cpuLowVolt)::Type,CpulowvoltVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cpuLowVolt)::Type,CpulowvoltVal::v1> v1{};
         }
-        }
         ///Reset Source bit.
         enum class RstsrcVal {
             v0=0x00000000,     ///<Part was reset due to Standby Mode Exit (that is when VDD is powered up and VBAT was not powered down at all).
@@ -177,7 +168,6 @@ namespace Kvasir {
         namespace RstsrcValC{
             constexpr Register::FieldValue<decltype(rstSrc)::Type,RstsrcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rstSrc)::Type,RstsrcVal::v1> v1{};
-        }
         }
         ///Compensation Interval bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> cmpInt{}; 
@@ -189,7 +179,6 @@ namespace Kvasir {
         namespace WeValC{
             constexpr Register::FieldValue<decltype(we)::Type,WeVal::v10> v10{};
         }
-        }
         ///Bus Error bit.
         enum class BuserrVal {
             v0=0x00000000,     ///<Read and Write accesses are normal.
@@ -200,7 +189,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(busErr)::Type,BuserrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(busErr)::Type,BuserrVal::v1> v1{};
         }
-        }
         ///Compensation Done bit.
         enum class CmpdoneVal {
             v0=0x00000000,     ///<Compensation busy or not enabled.
@@ -210,7 +198,6 @@ namespace Kvasir {
         namespace CmpdoneValC{
             constexpr Register::FieldValue<decltype(cmpDone)::Type,CmpdoneVal::v0> v0{};
             constexpr Register::FieldValue<decltype(cmpDone)::Type,CmpdoneVal::v1> v1{};
-        }
         }
     }
     namespace RtcIsr{    ///<RTC Interrupt Status Register
@@ -225,7 +212,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tamperIs)::Type,TamperisVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tamperIs)::Type,TamperisVal::v1> v1{};
         }
-        }
         ///Alarm Interrupt Status bit.
         enum class AlmisVal {
             v0=0x00000000,     ///<Interrupt is de-asserted.
@@ -235,7 +221,6 @@ namespace Kvasir {
         namespace AlmisValC{
             constexpr Register::FieldValue<decltype(almIs)::Type,AlmisVal::v0> v0{};
             constexpr Register::FieldValue<decltype(almIs)::Type,AlmisVal::v1> v1{};
-        }
         }
         ///Days Interrupt Status bit.
         enum class DayisVal {
@@ -247,7 +232,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dayIs)::Type,DayisVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dayIs)::Type,DayisVal::v1> v1{};
         }
-        }
         ///Hours Interrupt Status bit.
         enum class HourisVal {
             v0=0x00000000,     ///<Interrupt is de-asserted.
@@ -257,7 +241,6 @@ namespace Kvasir {
         namespace HourisValC{
             constexpr Register::FieldValue<decltype(hourIs)::Type,HourisVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hourIs)::Type,HourisVal::v1> v1{};
-        }
         }
         ///Minutes Interrupt Status bit.
         enum class MinisVal {
@@ -269,7 +252,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(minIs)::Type,MinisVal::v0> v0{};
             constexpr Register::FieldValue<decltype(minIs)::Type,MinisVal::v1> v1{};
         }
-        }
         ///1 Hz Interval Interrupt Status bit.
         enum class Is1hzVal {
             v0=0x00000000,     ///<Interrupt is de-asserted.
@@ -279,7 +261,6 @@ namespace Kvasir {
         namespace Is1hzValC{
             constexpr Register::FieldValue<decltype(is1hz)::Type,Is1hzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(is1hz)::Type,Is1hzVal::v1> v1{};
-        }
         }
         ///2 Hz Interval Interrupt Status bit.
         enum class Is2hzVal {
@@ -291,7 +272,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(is2hz)::Type,Is2hzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(is2hz)::Type,Is2hzVal::v1> v1{};
         }
-        }
         ///4 Hz Interval Interrupt Status bit.
         enum class Is4hzVal {
             v0=0x00000000,     ///<Interrupt is de-asserted.
@@ -301,7 +281,6 @@ namespace Kvasir {
         namespace Is4hzValC{
             constexpr Register::FieldValue<decltype(is4hz)::Type,Is4hzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(is4hz)::Type,Is4hzVal::v1> v1{};
-        }
         }
         ///8 Hz Interval Interrupt Status bit.
         enum class Is8hzVal {
@@ -313,7 +292,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(is8hz)::Type,Is8hzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(is8hz)::Type,Is8hzVal::v1> v1{};
         }
-        }
         ///16 Hz Interval Interrupt Status bit.
         enum class Is16hzVal {
             v0=0x00000000,     ///<Interrupt is de-asserted.
@@ -323,7 +301,6 @@ namespace Kvasir {
         namespace Is16hzValC{
             constexpr Register::FieldValue<decltype(is16hz)::Type,Is16hzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(is16hz)::Type,Is16hzVal::v1> v1{};
-        }
         }
         ///32 Hz Interval Interrupt Status bit.
         enum class Is32hzVal {
@@ -335,7 +312,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(is32hz)::Type,Is32hzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(is32hz)::Type,Is32hzVal::v1> v1{};
         }
-        }
         ///64 Hz Interval Interrupt Status bit.
         enum class Is64hzVal {
             v0=0x00000000,     ///<Interrupt is de-asserted.
@@ -345,7 +321,6 @@ namespace Kvasir {
         namespace Is64hzValC{
             constexpr Register::FieldValue<decltype(is64hz)::Type,Is64hzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(is64hz)::Type,Is64hzVal::v1> v1{};
-        }
         }
         ///128 Hz Interval Interrupt Status bit.
         enum class Is128hzVal {
@@ -357,7 +332,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(is128hz)::Type,Is128hzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(is128hz)::Type,Is128hzVal::v1> v1{};
         }
-        }
         ///256 Hz Interval Interrupt Status bit.
         enum class Is256hzVal {
             v0=0x00000000,     ///<Interrupt is de-asserted.
@@ -368,7 +342,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(is256hz)::Type,Is256hzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(is256hz)::Type,Is256hzVal::v1> v1{};
         }
-        }
         ///512 Hz Interval Interrupt Status bit.
         enum class Is512hzVal {
             v0=0x00000000,     ///<Interrupt is de-asserted.
@@ -378,7 +351,6 @@ namespace Kvasir {
         namespace Is512hzValC{
             constexpr Register::FieldValue<decltype(is512hz)::Type,Is512hzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(is512hz)::Type,Is512hzVal::v1> v1{};
-        }
         }
     }
     namespace RtcIer{    ///<RTC Interrupt Enable Register
@@ -393,7 +365,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tamperIe)::Type,TamperieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tamperIe)::Type,TamperieVal::v1> v1{};
         }
-        }
         ///Alarm Interrupt Enable bit.
         enum class AlmieVal {
             v0=0x00000000,     ///<Interrupt is disabled.
@@ -403,7 +374,6 @@ namespace Kvasir {
         namespace AlmieValC{
             constexpr Register::FieldValue<decltype(almIe)::Type,AlmieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(almIe)::Type,AlmieVal::v1> v1{};
-        }
         }
         ///Days Interrupt Enable bit.
         enum class DayieVal {
@@ -415,7 +385,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dayIe)::Type,DayieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dayIe)::Type,DayieVal::v1> v1{};
         }
-        }
         ///Hours Interrupt Enable bit.
         enum class HourieVal {
             v0=0x00000000,     ///<Interrupt is disabled.
@@ -425,7 +394,6 @@ namespace Kvasir {
         namespace HourieValC{
             constexpr Register::FieldValue<decltype(hourIe)::Type,HourieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(hourIe)::Type,HourieVal::v1> v1{};
-        }
         }
         ///Minutes Interrupt Enable bit.
         enum class MinieVal {
@@ -437,7 +405,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(minIe)::Type,MinieVal::v0> v0{};
             constexpr Register::FieldValue<decltype(minIe)::Type,MinieVal::v1> v1{};
         }
-        }
         ///1 Hz Interval Interrupt Enable bit.
         enum class Ie1hzVal {
             v0=0x00000000,     ///<Interrupt is disabled.
@@ -447,7 +414,6 @@ namespace Kvasir {
         namespace Ie1hzValC{
             constexpr Register::FieldValue<decltype(ie1hz)::Type,Ie1hzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ie1hz)::Type,Ie1hzVal::v1> v1{};
-        }
         }
         ///2 Hz Interval Interrupt Enable bit.
         enum class Ie2hzVal {
@@ -459,7 +425,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ie2hz)::Type,Ie2hzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ie2hz)::Type,Ie2hzVal::v1> v1{};
         }
-        }
         ///4 Hz Interval Interrupt Enable bit.
         enum class Ie4hzVal {
             v0=0x00000000,     ///<Interrupt is disabled.
@@ -469,7 +434,6 @@ namespace Kvasir {
         namespace Ie4hzValC{
             constexpr Register::FieldValue<decltype(ie4hz)::Type,Ie4hzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ie4hz)::Type,Ie4hzVal::v1> v1{};
-        }
         }
         ///8 Hz Interval Interrupt Enable bit.
         enum class Ie8hzVal {
@@ -481,7 +445,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ie8hz)::Type,Ie8hzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ie8hz)::Type,Ie8hzVal::v1> v1{};
         }
-        }
         ///16 Hz Interval Interrupt Enable bit.
         enum class Ie16hzVal {
             v0=0x00000000,     ///<Interrupt is disabled.
@@ -491,7 +454,6 @@ namespace Kvasir {
         namespace Ie16hzValC{
             constexpr Register::FieldValue<decltype(ie16hz)::Type,Ie16hzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ie16hz)::Type,Ie16hzVal::v1> v1{};
-        }
         }
         ///32 Hz Interval Interrupt Enable bit.
         enum class Ie32hzVal {
@@ -503,7 +465,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ie32hz)::Type,Ie32hzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ie32hz)::Type,Ie32hzVal::v1> v1{};
         }
-        }
         ///64 Hz Interval Interrupt Enable bit.
         enum class Ie64hzVal {
             v0=0x00000000,     ///<Interrupt is disabled.
@@ -513,7 +474,6 @@ namespace Kvasir {
         namespace Ie64hzValC{
             constexpr Register::FieldValue<decltype(ie64hz)::Type,Ie64hzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ie64hz)::Type,Ie64hzVal::v1> v1{};
-        }
         }
         ///128 Hz Interval Interrupt Enable bit.
         enum class Ie128hzVal {
@@ -525,7 +485,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ie128hz)::Type,Ie128hzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ie128hz)::Type,Ie128hzVal::v1> v1{};
         }
-        }
         ///256 Hz Interval Interrupt Enable bit.
         enum class Ie256hzVal {
             v0=0x00000000,     ///<Interrupt is disabled.
@@ -536,7 +495,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(ie256hz)::Type,Ie256hzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ie256hz)::Type,Ie256hzVal::v1> v1{};
         }
-        }
         ///512 Hz Interval Interrupt Enable bit.
         enum class Ie512hzVal {
             v0=0x00000000,     ///<Interrupt is disabled.
@@ -546,7 +504,6 @@ namespace Kvasir {
         namespace Ie512hzValC{
             constexpr Register::FieldValue<decltype(ie512hz)::Type,Ie512hzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ie512hz)::Type,Ie512hzVal::v1> v1{};
-        }
         }
     }
     namespace RtcGpDataReg{    ///<RTC General Purpose Data Register
@@ -633,7 +590,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel1)::Type,Clksel1Val::v110> v110{};
             constexpr Register::FieldValue<decltype(clkSel1)::Type,Clksel1Val::v111> v111{};
         }
-        }
         ///Tamper Detect Input Bit 1 Polarity Control
         enum class Pol1Val {
             v0=0x00000000,     ///<Tamper detect input bit 1 is active high.
@@ -643,7 +599,6 @@ namespace Kvasir {
         namespace Pol1ValC{
             constexpr Register::FieldValue<decltype(pol1)::Type,Pol1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pol1)::Type,Pol1Val::v1> v1{};
-        }
         }
         ///Tamper Detect Bit 0 Filter Duration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> filDur0{}; 
@@ -669,7 +624,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel0)::Type,Clksel0Val::v110> v110{};
             constexpr Register::FieldValue<decltype(clkSel0)::Type,Clksel0Val::v111> v111{};
         }
-        }
         ///Tamper Detect Input Bit 0 Polarity Control
         enum class Pol0Val {
             v0=0x00000000,     ///<Tamper detect input bit 0 is active high.
@@ -679,7 +633,6 @@ namespace Kvasir {
         namespace Pol0ValC{
             constexpr Register::FieldValue<decltype(pol0)::Type,Pol0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pol0)::Type,Pol0Val::v1> v1{};
-        }
         }
     }
     namespace RtcFilter2Cfg{    ///<RTC Tamper 2 Filter Configuration Register
@@ -708,7 +661,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clkSel2)::Type,Clksel2Val::v110> v110{};
             constexpr Register::FieldValue<decltype(clkSel2)::Type,Clksel2Val::v111> v111{};
         }
-        }
         ///Tamper Detect Input Bit 2 Polarity Control
         enum class Pol2Val {
             v0=0x00000000,     ///<Tamper detect input bit 2 is active high.
@@ -718,7 +670,6 @@ namespace Kvasir {
         namespace Pol2ValC{
             constexpr Register::FieldValue<decltype(pol2)::Type,Pol2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(pol2)::Type,Pol2Val::v1> v1{};
-        }
         }
     }
     namespace RtcTamperQueue{    ///<Tamper Queue Register
@@ -738,7 +689,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(tampCfgOver)::Type,TampcfgoverVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tampCfgOver)::Type,TampcfgoverVal::v1> v1{};
         }
-        }
         ///Wakeup Status
         enum class WakeupstatusVal {
             v00=0x00000000,     ///<The wakeup/hibernation pin is in HiZ mode.
@@ -751,7 +701,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(wakeupStatus)::Type,WakeupstatusVal::v01> v01{};
             constexpr Register::FieldValue<decltype(wakeupStatus)::Type,WakeupstatusVal::v10> v10{};
         }
-        }
         ///Wakeup Mode
         enum class WakeupmodeVal {
             v0=0x00000000,     ///<Tamper pin 0 is used as the tamper pin.
@@ -761,7 +710,6 @@ namespace Kvasir {
         namespace WakeupmodeValC{
             constexpr Register::FieldValue<decltype(wakeupMode)::Type,WakeupmodeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(wakeupMode)::Type,WakeupmodeVal::v1> v1{};
-        }
         }
     }
 }

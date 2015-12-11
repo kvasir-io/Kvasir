@@ -14,7 +14,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setena0)::Type,Setena0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena0)::Type,Setena0Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setena1Val {
             v0=0x00000000,     ///<write: no effect; read: DMA channel 1 transfer complete interrupt disabled
@@ -24,7 +23,6 @@ namespace Kvasir {
         namespace Setena1ValC{
             constexpr Register::FieldValue<decltype(setena1)::Type,Setena1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena1)::Type,Setena1Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setena2Val {
@@ -36,7 +34,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setena2)::Type,Setena2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena2)::Type,Setena2Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setena3Val {
             v0=0x00000000,     ///<write: no effect; read: DMA channel 3 transfer complete interrupt disabled
@@ -46,7 +43,6 @@ namespace Kvasir {
         namespace Setena3ValC{
             constexpr Register::FieldValue<decltype(setena3)::Type,Setena3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena3)::Type,Setena3Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setena4Val {
@@ -58,7 +54,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setena4)::Type,Setena4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena4)::Type,Setena4Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setena5Val {
             v0=0x00000000,     ///<write: no effect; read: Command complete and read collision interrupt disabled
@@ -68,7 +63,6 @@ namespace Kvasir {
         namespace Setena5ValC{
             constexpr Register::FieldValue<decltype(setena5)::Type,Setena5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena5)::Type,Setena5Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setena6Val {
@@ -80,7 +74,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setena6)::Type,Setena6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena6)::Type,Setena6Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setena7Val {
             v0=0x00000000,     ///<write: no effect; read: Low Leakage Wakeup interrupt disabled
@@ -90,7 +83,6 @@ namespace Kvasir {
         namespace Setena7ValC{
             constexpr Register::FieldValue<decltype(setena7)::Type,Setena7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena7)::Type,Setena7Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setena8Val {
@@ -102,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setena8)::Type,Setena8Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena8)::Type,Setena8Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setena9Val {
             v0=0x00000000,     ///<write: no effect; read: Reserved iv 25 interrupt disabled
@@ -112,7 +103,6 @@ namespace Kvasir {
         namespace Setena9ValC{
             constexpr Register::FieldValue<decltype(setena9)::Type,Setena9Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena9)::Type,Setena9Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setena10Val {
@@ -124,7 +114,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setena10)::Type,Setena10Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena10)::Type,Setena10Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setena11Val {
             v0=0x00000000,     ///<write: no effect; read: Reserved iv 27 interrupt disabled
@@ -134,7 +123,6 @@ namespace Kvasir {
         namespace Setena11ValC{
             constexpr Register::FieldValue<decltype(setena11)::Type,Setena11Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena11)::Type,Setena11Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setena12Val {
@@ -146,7 +134,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setena12)::Type,Setena12Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena12)::Type,Setena12Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setena13Val {
             v0=0x00000000,     ///<write: no effect; read: Reserved iv 29 interrupt disabled
@@ -156,7 +143,6 @@ namespace Kvasir {
         namespace Setena13ValC{
             constexpr Register::FieldValue<decltype(setena13)::Type,Setena13Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena13)::Type,Setena13Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setena14Val {
@@ -168,7 +154,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setena14)::Type,Setena14Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena14)::Type,Setena14Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setena15Val {
             v0=0x00000000,     ///<write: no effect; read: Analog-to-Digital Converter 0 interrupt disabled
@@ -178,7 +163,6 @@ namespace Kvasir {
         namespace Setena15ValC{
             constexpr Register::FieldValue<decltype(setena15)::Type,Setena15Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena15)::Type,Setena15Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setena16Val {
@@ -190,7 +174,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setena16)::Type,Setena16Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena16)::Type,Setena16Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setena17Val {
             v0=0x00000000,     ///<write: no effect; read: Timer/PWM module 0 interrupt disabled
@@ -200,7 +183,6 @@ namespace Kvasir {
         namespace Setena17ValC{
             constexpr Register::FieldValue<decltype(setena17)::Type,Setena17Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena17)::Type,Setena17Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setena18Val {
@@ -212,7 +194,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setena18)::Type,Setena18Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena18)::Type,Setena18Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setena19Val {
             v0=0x00000000,     ///<write: no effect; read: Reserved iv 35 interrupt disabled
@@ -222,7 +203,6 @@ namespace Kvasir {
         namespace Setena19ValC{
             constexpr Register::FieldValue<decltype(setena19)::Type,Setena19Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena19)::Type,Setena19Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setena20Val {
@@ -234,7 +214,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setena20)::Type,Setena20Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena20)::Type,Setena20Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setena21Val {
             v0=0x00000000,     ///<write: no effect; read: RTC seconds interrupt disabled
@@ -244,7 +223,6 @@ namespace Kvasir {
         namespace Setena21ValC{
             constexpr Register::FieldValue<decltype(setena21)::Type,Setena21Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena21)::Type,Setena21Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setena22Val {
@@ -256,7 +234,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setena22)::Type,Setena22Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena22)::Type,Setena22Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setena23Val {
             v0=0x00000000,     ///<write: no effect; read: Reserved iv 39 interrupt disabled
@@ -266,7 +243,6 @@ namespace Kvasir {
         namespace Setena23ValC{
             constexpr Register::FieldValue<decltype(setena23)::Type,Setena23Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena23)::Type,Setena23Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setena24Val {
@@ -278,7 +254,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setena24)::Type,Setena24Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena24)::Type,Setena24Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setena25Val {
             v0=0x00000000,     ///<write: no effect; read: Digital to Analog Converter interrupt disabled
@@ -288,7 +263,6 @@ namespace Kvasir {
         namespace Setena25ValC{
             constexpr Register::FieldValue<decltype(setena25)::Type,Setena25Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena25)::Type,Setena25Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setena26Val {
@@ -300,7 +274,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setena26)::Type,Setena26Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena26)::Type,Setena26Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setena27Val {
             v0=0x00000000,     ///<write: no effect; read: Multipurpose Clock Generator interrupt disabled
@@ -310,7 +283,6 @@ namespace Kvasir {
         namespace Setena27ValC{
             constexpr Register::FieldValue<decltype(setena27)::Type,Setena27Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena27)::Type,Setena27Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setena28Val {
@@ -322,7 +294,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setena28)::Type,Setena28Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena28)::Type,Setena28Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setena29Val {
             v0=0x00000000,     ///<write: no effect; read: Reserved iv 45 interrupt disabled
@@ -332,7 +303,6 @@ namespace Kvasir {
         namespace Setena29ValC{
             constexpr Register::FieldValue<decltype(setena29)::Type,Setena29Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena29)::Type,Setena29Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setena30Val {
@@ -344,7 +314,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setena30)::Type,Setena30Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena30)::Type,Setena30Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setena31Val {
             v0=0x00000000,     ///<write: no effect; read: PORTB Pin detect interrupt disabled
@@ -354,7 +323,6 @@ namespace Kvasir {
         namespace Setena31ValC{
             constexpr Register::FieldValue<decltype(setena31)::Type,Setena31Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setena31)::Type,Setena31Val::v1> v1{};
-        }
         }
     }
     namespace NonenvicIcer{    ///<Interrupt Clear Enable Register
@@ -369,7 +337,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrena0)::Type,Clrena0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena0)::Type,Clrena0Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrena1Val {
             v0=0x00000000,     ///<write: no effect; read: DMA channel 1 transfer complete interrupt disabled
@@ -379,7 +346,6 @@ namespace Kvasir {
         namespace Clrena1ValC{
             constexpr Register::FieldValue<decltype(clrena1)::Type,Clrena1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena1)::Type,Clrena1Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrena2Val {
@@ -391,7 +357,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrena2)::Type,Clrena2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena2)::Type,Clrena2Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrena3Val {
             v0=0x00000000,     ///<write: no effect; read: DMA channel 3 transfer complete interrupt disabled
@@ -401,7 +366,6 @@ namespace Kvasir {
         namespace Clrena3ValC{
             constexpr Register::FieldValue<decltype(clrena3)::Type,Clrena3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena3)::Type,Clrena3Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrena4Val {
@@ -413,7 +377,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrena4)::Type,Clrena4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena4)::Type,Clrena4Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrena5Val {
             v0=0x00000000,     ///<write: no effect; read: Command complete and read collision interrupt disabled
@@ -423,7 +386,6 @@ namespace Kvasir {
         namespace Clrena5ValC{
             constexpr Register::FieldValue<decltype(clrena5)::Type,Clrena5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena5)::Type,Clrena5Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrena6Val {
@@ -435,7 +397,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrena6)::Type,Clrena6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena6)::Type,Clrena6Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrena7Val {
             v0=0x00000000,     ///<write: no effect; read: Low Leakage Wakeup interrupt disabled
@@ -445,7 +406,6 @@ namespace Kvasir {
         namespace Clrena7ValC{
             constexpr Register::FieldValue<decltype(clrena7)::Type,Clrena7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena7)::Type,Clrena7Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrena8Val {
@@ -457,7 +417,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrena8)::Type,Clrena8Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena8)::Type,Clrena8Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrena9Val {
             v0=0x00000000,     ///<write: no effect; read: Reserved iv 25 interrupt disabled
@@ -467,7 +426,6 @@ namespace Kvasir {
         namespace Clrena9ValC{
             constexpr Register::FieldValue<decltype(clrena9)::Type,Clrena9Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena9)::Type,Clrena9Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrena10Val {
@@ -479,7 +437,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrena10)::Type,Clrena10Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena10)::Type,Clrena10Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrena11Val {
             v0=0x00000000,     ///<write: no effect; read: Reserved iv 27 interrupt disabled
@@ -489,7 +446,6 @@ namespace Kvasir {
         namespace Clrena11ValC{
             constexpr Register::FieldValue<decltype(clrena11)::Type,Clrena11Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena11)::Type,Clrena11Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrena12Val {
@@ -501,7 +457,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrena12)::Type,Clrena12Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena12)::Type,Clrena12Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrena13Val {
             v0=0x00000000,     ///<write: no effect; read: Reserved iv 29 interrupt disabled
@@ -511,7 +466,6 @@ namespace Kvasir {
         namespace Clrena13ValC{
             constexpr Register::FieldValue<decltype(clrena13)::Type,Clrena13Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena13)::Type,Clrena13Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrena14Val {
@@ -523,7 +477,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrena14)::Type,Clrena14Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena14)::Type,Clrena14Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrena15Val {
             v0=0x00000000,     ///<write: no effect; read: Analog-to-Digital Converter 0 interrupt disabled
@@ -533,7 +486,6 @@ namespace Kvasir {
         namespace Clrena15ValC{
             constexpr Register::FieldValue<decltype(clrena15)::Type,Clrena15Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena15)::Type,Clrena15Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrena16Val {
@@ -545,7 +497,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrena16)::Type,Clrena16Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena16)::Type,Clrena16Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrena17Val {
             v0=0x00000000,     ///<write: no effect; read: Timer/PWM module 0 interrupt disabled
@@ -555,7 +506,6 @@ namespace Kvasir {
         namespace Clrena17ValC{
             constexpr Register::FieldValue<decltype(clrena17)::Type,Clrena17Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena17)::Type,Clrena17Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrena18Val {
@@ -567,7 +517,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrena18)::Type,Clrena18Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena18)::Type,Clrena18Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrena19Val {
             v0=0x00000000,     ///<write: no effect; read: Reserved iv 35 interrupt disabled
@@ -577,7 +526,6 @@ namespace Kvasir {
         namespace Clrena19ValC{
             constexpr Register::FieldValue<decltype(clrena19)::Type,Clrena19Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena19)::Type,Clrena19Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrena20Val {
@@ -589,7 +537,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrena20)::Type,Clrena20Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena20)::Type,Clrena20Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrena21Val {
             v0=0x00000000,     ///<write: no effect; read: RTC seconds interrupt disabled
@@ -599,7 +546,6 @@ namespace Kvasir {
         namespace Clrena21ValC{
             constexpr Register::FieldValue<decltype(clrena21)::Type,Clrena21Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena21)::Type,Clrena21Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrena22Val {
@@ -611,7 +557,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrena22)::Type,Clrena22Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena22)::Type,Clrena22Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrena23Val {
             v0=0x00000000,     ///<write: no effect; read: Reserved iv 39 interrupt disabled
@@ -621,7 +566,6 @@ namespace Kvasir {
         namespace Clrena23ValC{
             constexpr Register::FieldValue<decltype(clrena23)::Type,Clrena23Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena23)::Type,Clrena23Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrena24Val {
@@ -633,7 +577,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrena24)::Type,Clrena24Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena24)::Type,Clrena24Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrena25Val {
             v0=0x00000000,     ///<write: no effect; read: Digital to Analog Converter interrupt disabled
@@ -643,7 +586,6 @@ namespace Kvasir {
         namespace Clrena25ValC{
             constexpr Register::FieldValue<decltype(clrena25)::Type,Clrena25Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena25)::Type,Clrena25Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrena26Val {
@@ -655,7 +597,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrena26)::Type,Clrena26Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena26)::Type,Clrena26Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrena27Val {
             v0=0x00000000,     ///<write: no effect; read: Multipurpose Clock Generator interrupt disabled
@@ -665,7 +606,6 @@ namespace Kvasir {
         namespace Clrena27ValC{
             constexpr Register::FieldValue<decltype(clrena27)::Type,Clrena27Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena27)::Type,Clrena27Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrena28Val {
@@ -677,7 +617,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrena28)::Type,Clrena28Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena28)::Type,Clrena28Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrena29Val {
             v0=0x00000000,     ///<write: no effect; read: Reserved iv 45 interrupt disabled
@@ -687,7 +626,6 @@ namespace Kvasir {
         namespace Clrena29ValC{
             constexpr Register::FieldValue<decltype(clrena29)::Type,Clrena29Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena29)::Type,Clrena29Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrena30Val {
@@ -699,7 +637,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrena30)::Type,Clrena30Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena30)::Type,Clrena30Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrena31Val {
             v0=0x00000000,     ///<write: no effect; read: PORTB Pin detect interrupt disabled
@@ -709,7 +646,6 @@ namespace Kvasir {
         namespace Clrena31ValC{
             constexpr Register::FieldValue<decltype(clrena31)::Type,Clrena31Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrena31)::Type,Clrena31Val::v1> v1{};
-        }
         }
     }
     namespace NonenvicIspr{    ///<Interrupt Set Pending Register
@@ -724,7 +660,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setpend0)::Type,Setpend0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend0)::Type,Setpend0Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setpend1Val {
             v0=0x00000000,     ///<write: no effect; read: DMA channel 1 transfer complete interrupt is not pending
@@ -734,7 +669,6 @@ namespace Kvasir {
         namespace Setpend1ValC{
             constexpr Register::FieldValue<decltype(setpend1)::Type,Setpend1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend1)::Type,Setpend1Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setpend2Val {
@@ -746,7 +680,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setpend2)::Type,Setpend2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend2)::Type,Setpend2Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setpend3Val {
             v0=0x00000000,     ///<write: no effect; read: DMA channel 3 transfer complete interrupt is not pending
@@ -756,7 +689,6 @@ namespace Kvasir {
         namespace Setpend3ValC{
             constexpr Register::FieldValue<decltype(setpend3)::Type,Setpend3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend3)::Type,Setpend3Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setpend4Val {
@@ -768,7 +700,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setpend4)::Type,Setpend4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend4)::Type,Setpend4Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setpend5Val {
             v0=0x00000000,     ///<write: no effect; read: Command complete and read collision interrupt is not pending
@@ -778,7 +709,6 @@ namespace Kvasir {
         namespace Setpend5ValC{
             constexpr Register::FieldValue<decltype(setpend5)::Type,Setpend5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend5)::Type,Setpend5Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setpend6Val {
@@ -790,7 +720,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setpend6)::Type,Setpend6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend6)::Type,Setpend6Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setpend7Val {
             v0=0x00000000,     ///<write: no effect; read: Low Leakage Wakeup interrupt is not pending
@@ -800,7 +729,6 @@ namespace Kvasir {
         namespace Setpend7ValC{
             constexpr Register::FieldValue<decltype(setpend7)::Type,Setpend7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend7)::Type,Setpend7Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setpend8Val {
@@ -812,7 +740,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setpend8)::Type,Setpend8Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend8)::Type,Setpend8Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setpend9Val {
             v0=0x00000000,     ///<write: no effect; read: Reserved iv 25 interrupt is not pending
@@ -822,7 +749,6 @@ namespace Kvasir {
         namespace Setpend9ValC{
             constexpr Register::FieldValue<decltype(setpend9)::Type,Setpend9Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend9)::Type,Setpend9Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setpend10Val {
@@ -834,7 +760,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setpend10)::Type,Setpend10Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend10)::Type,Setpend10Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setpend11Val {
             v0=0x00000000,     ///<write: no effect; read: Reserved iv 27 interrupt is not pending
@@ -844,7 +769,6 @@ namespace Kvasir {
         namespace Setpend11ValC{
             constexpr Register::FieldValue<decltype(setpend11)::Type,Setpend11Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend11)::Type,Setpend11Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setpend12Val {
@@ -856,7 +780,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setpend12)::Type,Setpend12Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend12)::Type,Setpend12Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setpend13Val {
             v0=0x00000000,     ///<write: no effect; read: Reserved iv 29 interrupt is not pending
@@ -866,7 +789,6 @@ namespace Kvasir {
         namespace Setpend13ValC{
             constexpr Register::FieldValue<decltype(setpend13)::Type,Setpend13Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend13)::Type,Setpend13Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setpend14Val {
@@ -878,7 +800,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setpend14)::Type,Setpend14Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend14)::Type,Setpend14Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setpend15Val {
             v0=0x00000000,     ///<write: no effect; read: Analog-to-Digital Converter 0 interrupt is not pending
@@ -888,7 +809,6 @@ namespace Kvasir {
         namespace Setpend15ValC{
             constexpr Register::FieldValue<decltype(setpend15)::Type,Setpend15Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend15)::Type,Setpend15Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setpend16Val {
@@ -900,7 +820,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setpend16)::Type,Setpend16Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend16)::Type,Setpend16Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setpend17Val {
             v0=0x00000000,     ///<write: no effect; read: Timer/PWM module 0 interrupt is not pending
@@ -910,7 +829,6 @@ namespace Kvasir {
         namespace Setpend17ValC{
             constexpr Register::FieldValue<decltype(setpend17)::Type,Setpend17Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend17)::Type,Setpend17Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setpend18Val {
@@ -922,7 +840,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setpend18)::Type,Setpend18Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend18)::Type,Setpend18Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setpend19Val {
             v0=0x00000000,     ///<write: no effect; read: Reserved iv 35 interrupt is not pending
@@ -932,7 +849,6 @@ namespace Kvasir {
         namespace Setpend19ValC{
             constexpr Register::FieldValue<decltype(setpend19)::Type,Setpend19Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend19)::Type,Setpend19Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setpend20Val {
@@ -944,7 +860,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setpend20)::Type,Setpend20Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend20)::Type,Setpend20Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setpend21Val {
             v0=0x00000000,     ///<write: no effect; read: RTC seconds interrupt is not pending
@@ -954,7 +869,6 @@ namespace Kvasir {
         namespace Setpend21ValC{
             constexpr Register::FieldValue<decltype(setpend21)::Type,Setpend21Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend21)::Type,Setpend21Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setpend22Val {
@@ -966,7 +880,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setpend22)::Type,Setpend22Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend22)::Type,Setpend22Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setpend23Val {
             v0=0x00000000,     ///<write: no effect; read: Reserved iv 39 interrupt is not pending
@@ -976,7 +889,6 @@ namespace Kvasir {
         namespace Setpend23ValC{
             constexpr Register::FieldValue<decltype(setpend23)::Type,Setpend23Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend23)::Type,Setpend23Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setpend24Val {
@@ -988,7 +900,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setpend24)::Type,Setpend24Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend24)::Type,Setpend24Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setpend25Val {
             v0=0x00000000,     ///<write: no effect; read: Digital to Analog Converter interrupt is not pending
@@ -998,7 +909,6 @@ namespace Kvasir {
         namespace Setpend25ValC{
             constexpr Register::FieldValue<decltype(setpend25)::Type,Setpend25Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend25)::Type,Setpend25Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setpend26Val {
@@ -1010,7 +920,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setpend26)::Type,Setpend26Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend26)::Type,Setpend26Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setpend27Val {
             v0=0x00000000,     ///<write: no effect; read: Multipurpose Clock Generator interrupt is not pending
@@ -1020,7 +929,6 @@ namespace Kvasir {
         namespace Setpend27ValC{
             constexpr Register::FieldValue<decltype(setpend27)::Type,Setpend27Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend27)::Type,Setpend27Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setpend28Val {
@@ -1032,7 +940,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setpend28)::Type,Setpend28Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend28)::Type,Setpend28Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setpend29Val {
             v0=0x00000000,     ///<write: no effect; read: Reserved iv 45 interrupt is not pending
@@ -1042,7 +949,6 @@ namespace Kvasir {
         namespace Setpend29ValC{
             constexpr Register::FieldValue<decltype(setpend29)::Type,Setpend29Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend29)::Type,Setpend29Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Setpend30Val {
@@ -1054,7 +960,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(setpend30)::Type,Setpend30Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend30)::Type,Setpend30Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Setpend31Val {
             v0=0x00000000,     ///<write: no effect; read: PORTB Pin detect interrupt is not pending
@@ -1064,7 +969,6 @@ namespace Kvasir {
         namespace Setpend31ValC{
             constexpr Register::FieldValue<decltype(setpend31)::Type,Setpend31Val::v0> v0{};
             constexpr Register::FieldValue<decltype(setpend31)::Type,Setpend31Val::v1> v1{};
-        }
         }
     }
     namespace NonenvicIcpr{    ///<Interrupt Clear Pending Register
@@ -1079,7 +983,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrpend0)::Type,Clrpend0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend0)::Type,Clrpend0Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrpend1Val {
             v0=0x00000000,     ///<write: no effect; read: DMA channel 1 transfer complete interrupt is not pending
@@ -1089,7 +992,6 @@ namespace Kvasir {
         namespace Clrpend1ValC{
             constexpr Register::FieldValue<decltype(clrpend1)::Type,Clrpend1Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend1)::Type,Clrpend1Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrpend2Val {
@@ -1101,7 +1003,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrpend2)::Type,Clrpend2Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend2)::Type,Clrpend2Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrpend3Val {
             v0=0x00000000,     ///<write: no effect; read: DMA channel 3 transfer complete interrupt is not pending
@@ -1111,7 +1012,6 @@ namespace Kvasir {
         namespace Clrpend3ValC{
             constexpr Register::FieldValue<decltype(clrpend3)::Type,Clrpend3Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend3)::Type,Clrpend3Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrpend4Val {
@@ -1123,7 +1023,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrpend4)::Type,Clrpend4Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend4)::Type,Clrpend4Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrpend5Val {
             v0=0x00000000,     ///<write: no effect; read: Command complete and read collision interrupt is not pending
@@ -1133,7 +1032,6 @@ namespace Kvasir {
         namespace Clrpend5ValC{
             constexpr Register::FieldValue<decltype(clrpend5)::Type,Clrpend5Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend5)::Type,Clrpend5Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrpend6Val {
@@ -1145,7 +1043,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrpend6)::Type,Clrpend6Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend6)::Type,Clrpend6Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrpend7Val {
             v0=0x00000000,     ///<write: no effect; read: Low Leakage Wakeup interrupt is not pending
@@ -1155,7 +1052,6 @@ namespace Kvasir {
         namespace Clrpend7ValC{
             constexpr Register::FieldValue<decltype(clrpend7)::Type,Clrpend7Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend7)::Type,Clrpend7Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrpend8Val {
@@ -1167,7 +1063,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrpend8)::Type,Clrpend8Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend8)::Type,Clrpend8Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrpend9Val {
             v0=0x00000000,     ///<write: no effect; read: Reserved iv 25 interrupt is not pending
@@ -1177,7 +1072,6 @@ namespace Kvasir {
         namespace Clrpend9ValC{
             constexpr Register::FieldValue<decltype(clrpend9)::Type,Clrpend9Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend9)::Type,Clrpend9Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrpend10Val {
@@ -1189,7 +1083,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrpend10)::Type,Clrpend10Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend10)::Type,Clrpend10Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrpend11Val {
             v0=0x00000000,     ///<write: no effect; read: Reserved iv 27 interrupt is not pending
@@ -1199,7 +1092,6 @@ namespace Kvasir {
         namespace Clrpend11ValC{
             constexpr Register::FieldValue<decltype(clrpend11)::Type,Clrpend11Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend11)::Type,Clrpend11Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrpend12Val {
@@ -1211,7 +1103,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrpend12)::Type,Clrpend12Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend12)::Type,Clrpend12Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrpend13Val {
             v0=0x00000000,     ///<write: no effect; read: Reserved iv 29 interrupt is not pending
@@ -1221,7 +1112,6 @@ namespace Kvasir {
         namespace Clrpend13ValC{
             constexpr Register::FieldValue<decltype(clrpend13)::Type,Clrpend13Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend13)::Type,Clrpend13Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrpend14Val {
@@ -1233,7 +1123,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrpend14)::Type,Clrpend14Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend14)::Type,Clrpend14Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrpend15Val {
             v0=0x00000000,     ///<write: no effect; read: Analog-to-Digital Converter 0 interrupt is not pending
@@ -1243,7 +1132,6 @@ namespace Kvasir {
         namespace Clrpend15ValC{
             constexpr Register::FieldValue<decltype(clrpend15)::Type,Clrpend15Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend15)::Type,Clrpend15Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrpend16Val {
@@ -1255,7 +1143,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrpend16)::Type,Clrpend16Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend16)::Type,Clrpend16Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrpend17Val {
             v0=0x00000000,     ///<write: no effect; read: Timer/PWM module 0 interrupt is not pending
@@ -1265,7 +1152,6 @@ namespace Kvasir {
         namespace Clrpend17ValC{
             constexpr Register::FieldValue<decltype(clrpend17)::Type,Clrpend17Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend17)::Type,Clrpend17Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrpend18Val {
@@ -1277,7 +1163,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrpend18)::Type,Clrpend18Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend18)::Type,Clrpend18Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrpend19Val {
             v0=0x00000000,     ///<write: no effect; read: Reserved iv 35 interrupt is not pending
@@ -1287,7 +1172,6 @@ namespace Kvasir {
         namespace Clrpend19ValC{
             constexpr Register::FieldValue<decltype(clrpend19)::Type,Clrpend19Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend19)::Type,Clrpend19Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrpend20Val {
@@ -1299,7 +1183,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrpend20)::Type,Clrpend20Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend20)::Type,Clrpend20Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrpend21Val {
             v0=0x00000000,     ///<write: no effect; read: RTC seconds interrupt is not pending
@@ -1309,7 +1192,6 @@ namespace Kvasir {
         namespace Clrpend21ValC{
             constexpr Register::FieldValue<decltype(clrpend21)::Type,Clrpend21Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend21)::Type,Clrpend21Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrpend22Val {
@@ -1321,7 +1203,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrpend22)::Type,Clrpend22Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend22)::Type,Clrpend22Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrpend23Val {
             v0=0x00000000,     ///<write: no effect; read: Reserved iv 39 interrupt is not pending
@@ -1331,7 +1212,6 @@ namespace Kvasir {
         namespace Clrpend23ValC{
             constexpr Register::FieldValue<decltype(clrpend23)::Type,Clrpend23Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend23)::Type,Clrpend23Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrpend24Val {
@@ -1343,7 +1223,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrpend24)::Type,Clrpend24Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend24)::Type,Clrpend24Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrpend25Val {
             v0=0x00000000,     ///<write: no effect; read: Digital to Analog Converter interrupt is not pending
@@ -1353,7 +1232,6 @@ namespace Kvasir {
         namespace Clrpend25ValC{
             constexpr Register::FieldValue<decltype(clrpend25)::Type,Clrpend25Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend25)::Type,Clrpend25Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrpend26Val {
@@ -1365,7 +1243,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrpend26)::Type,Clrpend26Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend26)::Type,Clrpend26Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrpend27Val {
             v0=0x00000000,     ///<write: no effect; read: Multipurpose Clock Generator interrupt is not pending
@@ -1375,7 +1252,6 @@ namespace Kvasir {
         namespace Clrpend27ValC{
             constexpr Register::FieldValue<decltype(clrpend27)::Type,Clrpend27Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend27)::Type,Clrpend27Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrpend28Val {
@@ -1387,7 +1263,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrpend28)::Type,Clrpend28Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend28)::Type,Clrpend28Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrpend29Val {
             v0=0x00000000,     ///<write: no effect; read: Reserved iv 45 interrupt is not pending
@@ -1397,7 +1272,6 @@ namespace Kvasir {
         namespace Clrpend29ValC{
             constexpr Register::FieldValue<decltype(clrpend29)::Type,Clrpend29Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend29)::Type,Clrpend29Val::v1> v1{};
-        }
         }
         ///no description available
         enum class Clrpend30Val {
@@ -1409,7 +1283,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(clrpend30)::Type,Clrpend30Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend30)::Type,Clrpend30Val::v1> v1{};
         }
-        }
         ///no description available
         enum class Clrpend31Val {
             v0=0x00000000,     ///<write: no effect; read: PORTB Pin detect interrupt is not pending
@@ -1419,7 +1292,6 @@ namespace Kvasir {
         namespace Clrpend31ValC{
             constexpr Register::FieldValue<decltype(clrpend31)::Type,Clrpend31Val::v0> v0{};
             constexpr Register::FieldValue<decltype(clrpend31)::Type,Clrpend31Val::v1> v1{};
-        }
         }
     }
     namespace NonenvicIpr0{    ///<Interrupt Priority Register 0

@@ -24,7 +24,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srt)::Type,SrtVal::v0> v0{};
             constexpr Register::FieldValue<decltype(srt)::Type,SrtVal::v1> v1{};
         }
-        }
         ///Unsigned calculation
         enum class UsgnVal {
             v0=0x00000000,     ///<Perform a signed divide
@@ -34,7 +33,6 @@ namespace Kvasir {
         namespace UsgnValC{
             constexpr Register::FieldValue<decltype(usgn)::Type,UsgnVal::v0> v0{};
             constexpr Register::FieldValue<decltype(usgn)::Type,UsgnVal::v1> v1{};
-        }
         }
         ///REMainder calculation
         enum class RemVal {
@@ -46,7 +44,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(rem)::Type,RemVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rem)::Type,RemVal::v1> v1{};
         }
-        }
         ///Divide-by-Zero-Enable
         enum class DzeVal {
             v0=0x00000000,     ///<Reads of the RES register return the register contents
@@ -56,7 +53,6 @@ namespace Kvasir {
         namespace DzeValC{
             constexpr Register::FieldValue<decltype(dze)::Type,DzeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dze)::Type,DzeVal::v1> v1{};
-        }
         }
         ///Divide-by-Zero
         enum class DzVal {
@@ -68,7 +64,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dz)::Type,DzVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dz)::Type,DzVal::v1> v1{};
         }
-        }
         ///Disable Fast Start
         enum class DfsVal {
             v0=0x00000000,     ///<A divide operation is initiated by a write to the DSOR register
@@ -78,7 +73,6 @@ namespace Kvasir {
         namespace DfsValC{
             constexpr Register::FieldValue<decltype(dfs)::Type,DfsVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dfs)::Type,DfsVal::v1> v1{};
-        }
         }
         ///SQUARE ROOT
         enum class SqrtVal {
@@ -90,7 +84,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sqrt)::Type,SqrtVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sqrt)::Type,SqrtVal::v1> v1{};
         }
-        }
         ///DIVIDE
         enum class DivVal {
             v0=0x00000000,     ///<Current or last MMDVSQ operation was not a divide
@@ -101,7 +94,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(div)::Type,DivVal::v0> v0{};
             constexpr Register::FieldValue<decltype(div)::Type,DivVal::v1> v1{};
         }
-        }
         ///BUSY
         enum class BusyVal {
             v0=0x00000000,     ///<MMDVSQ is idle
@@ -111,7 +103,6 @@ namespace Kvasir {
         namespace BusyValC{
             constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::v0> v0{};
             constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::v1> v1{};
-        }
         }
     }
     namespace MmdvsqRes{    ///<Result Register

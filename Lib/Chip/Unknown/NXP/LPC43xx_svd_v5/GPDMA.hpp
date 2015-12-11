@@ -306,7 +306,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(e)::Type,EVal::disabledDefault> disabledDefault{};
             constexpr Register::FieldValue<decltype(e)::Type,EVal::enabled> enabled{};
         }
-        }
         ///AHB Master 0 endianness configuration:
         enum class M0Val {
             littleEndianMode=0x00000000,     ///<Little-endian mode (default).
@@ -317,7 +316,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(m0)::Type,M0Val::littleEndianMode> littleEndianMode{};
             constexpr Register::FieldValue<decltype(m0)::Type,M0Val::bigEndianMode> bigEndianMode{};
         }
-        }
         ///AHB Master 1 endianness configuration:
         enum class M1Val {
             littleEndianMode=0x00000000,     ///<Little-endian mode (default).
@@ -327,7 +325,6 @@ namespace Kvasir {
         namespace M1ValC{
             constexpr Register::FieldValue<decltype(m1)::Type,M1Val::littleEndianMode> littleEndianMode{};
             constexpr Register::FieldValue<decltype(m1)::Type,M1Val::bigEndianMode> bigEndianMode{};
-        }
         }
     }
     namespace Nonesync{    ///<DMA Synchronization Register
@@ -457,7 +454,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lm)::Type,LmVal::ahbMaster0> ahbMaster0{};
             constexpr Register::FieldValue<decltype(lm)::Type,LmVal::ahbMaster1> ahbMaster1{};
         }
-        }
         ///Reserved, and must be written as 0, masked on read.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> r{}; 
         ///Linked list item. Bits [31:2] of the address for the next LLI. Address bits [1:0] are 0.
@@ -474,7 +470,6 @@ namespace Kvasir {
         namespace LmValC{
             constexpr Register::FieldValue<decltype(lm)::Type,LmVal::ahbMaster0> ahbMaster0{};
             constexpr Register::FieldValue<decltype(lm)::Type,LmVal::ahbMaster1> ahbMaster1{};
-        }
         }
         ///Reserved, and must be written as 0, masked on read.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> r{}; 
@@ -493,7 +488,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lm)::Type,LmVal::ahbMaster0> ahbMaster0{};
             constexpr Register::FieldValue<decltype(lm)::Type,LmVal::ahbMaster1> ahbMaster1{};
         }
-        }
         ///Reserved, and must be written as 0, masked on read.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> r{}; 
         ///Linked list item. Bits [31:2] of the address for the next LLI. Address bits [1:0] are 0.
@@ -510,7 +504,6 @@ namespace Kvasir {
         namespace LmValC{
             constexpr Register::FieldValue<decltype(lm)::Type,LmVal::ahbMaster0> ahbMaster0{};
             constexpr Register::FieldValue<decltype(lm)::Type,LmVal::ahbMaster1> ahbMaster1{};
-        }
         }
         ///Reserved, and must be written as 0, masked on read.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> r{}; 
@@ -529,7 +522,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lm)::Type,LmVal::ahbMaster0> ahbMaster0{};
             constexpr Register::FieldValue<decltype(lm)::Type,LmVal::ahbMaster1> ahbMaster1{};
         }
-        }
         ///Reserved, and must be written as 0, masked on read.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> r{}; 
         ///Linked list item. Bits [31:2] of the address for the next LLI. Address bits [1:0] are 0.
@@ -546,7 +538,6 @@ namespace Kvasir {
         namespace LmValC{
             constexpr Register::FieldValue<decltype(lm)::Type,LmVal::ahbMaster0> ahbMaster0{};
             constexpr Register::FieldValue<decltype(lm)::Type,LmVal::ahbMaster1> ahbMaster1{};
-        }
         }
         ///Reserved, and must be written as 0, masked on read.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> r{}; 
@@ -565,7 +556,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(lm)::Type,LmVal::ahbMaster0> ahbMaster0{};
             constexpr Register::FieldValue<decltype(lm)::Type,LmVal::ahbMaster1> ahbMaster1{};
         }
-        }
         ///Reserved, and must be written as 0, masked on read.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> r{}; 
         ///Linked list item. Bits [31:2] of the address for the next LLI. Address bits [1:0] are 0.
@@ -582,7 +572,6 @@ namespace Kvasir {
         namespace LmValC{
             constexpr Register::FieldValue<decltype(lm)::Type,LmVal::ahbMaster0> ahbMaster0{};
             constexpr Register::FieldValue<decltype(lm)::Type,LmVal::ahbMaster1> ahbMaster1{};
-        }
         }
         ///Reserved, and must be written as 0, masked on read.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> r{}; 
@@ -615,7 +604,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sbsize)::Type,SbsizeVal::sourceBurst128> sourceBurst128{};
             constexpr Register::FieldValue<decltype(sbsize)::Type,SbsizeVal::sourceBurst256> sourceBurst256{};
         }
-        }
         ///Destination burst size. Indicates the number of transfers that make up a destination burst transfer request. This value must be set to the burst size of the destination peripheral or, if the destination is memory, to the memory boundary size. The burst size is the amount of data that is transferred when the BREQ signal goes active in the destination peripheral.
         enum class DbsizeVal {
             destinationBurst1=0x00000000,     ///<Destination burst size = 1
@@ -638,7 +626,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dbsize)::Type,DbsizeVal::destinationBurst128> destinationBurst128{};
             constexpr Register::FieldValue<decltype(dbsize)::Type,DbsizeVal::destinationBurst256> destinationBurst256{};
         }
-        }
         ///Source transfer width. Transfers wider than the AHB master bus width are illegal. The source and destination widths can be different from each other. The hardware automatically packs and unpacks the data as required. 0x3 to 0x7 - Reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,18),Register::ReadWriteAccess,unsigned> swidth{}; 
         ///Destination transfer width. Transfers wider than the AHB master bus width are not supported. The source and destination widths can be different from each other. The hardware automatically packs and unpacks the data as required. 0x3 to 0x7 - Reserved.
@@ -653,7 +640,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(s)::Type,SVal::ahbMaster0Selecte> ahbMaster0Selecte{};
             constexpr Register::FieldValue<decltype(s)::Type,SVal::ahbMaster1Selecte> ahbMaster1Selecte{};
         }
-        }
         ///Destination AHB master select: Only Master1 can access a peripheral. Master0 can only access memory.
         enum class DVal {
             ahbMaster0Selecte=0x00000000,     ///<AHB Master 0 selected for destination transfer.
@@ -663,7 +649,6 @@ namespace Kvasir {
         namespace DValC{
             constexpr Register::FieldValue<decltype(d)::Type,DVal::ahbMaster0Selecte> ahbMaster0Selecte{};
             constexpr Register::FieldValue<decltype(d)::Type,DVal::ahbMaster1Selecte> ahbMaster1Selecte{};
-        }
         }
         ///Source increment:
         enum class SiVal {
@@ -675,7 +660,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(si)::Type,SiVal::notIncrement> notIncrement{};
             constexpr Register::FieldValue<decltype(si)::Type,SiVal::increment> increment{};
         }
-        }
         ///Destination increment:
         enum class DiVal {
             theDestinationAddr=0x00000000,     ///<The destination address is not incremented after each transfer.
@@ -685,7 +669,6 @@ namespace Kvasir {
         namespace DiValC{
             constexpr Register::FieldValue<decltype(di)::Type,DiVal::theDestinationAddr> theDestinationAddr{};
             constexpr Register::FieldValue<decltype(di)::Type,DiVal::theDestinationAddr> theDestinationAddr{};
-        }
         }
         ///Indicates that the access is in user mode or privileged mode:
         enum class Prot1Val {
@@ -697,7 +680,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prot1)::Type,Prot1Val::accessIsInUserMo> accessIsInUserMo{};
             constexpr Register::FieldValue<decltype(prot1)::Type,Prot1Val::accessIsInPrivile> accessIsInPrivile{};
         }
-        }
         ///Indicates that the access is bufferable or not bufferable:
         enum class Prot2Val {
             accessIsNotBuffer=0x00000000,     ///<Access is not bufferable.
@@ -707,7 +689,6 @@ namespace Kvasir {
         namespace Prot2ValC{
             constexpr Register::FieldValue<decltype(prot2)::Type,Prot2Val::accessIsNotBuffer> accessIsNotBuffer{};
             constexpr Register::FieldValue<decltype(prot2)::Type,Prot2Val::accessIsBufferable> accessIsBufferable{};
-        }
         }
         ///Indicates that the access is cacheable or not cacheable:
         enum class Prot3Val {
@@ -719,7 +700,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prot3)::Type,Prot3Val::accessIsNotCachea> accessIsNotCachea{};
             constexpr Register::FieldValue<decltype(prot3)::Type,Prot3Val::accessIsCacheable> accessIsCacheable{};
         }
-        }
         ///Terminal count interrupt enable bit.
         enum class IVal {
             theTerminalCountI=0x00000000,     ///<The terminal count interrupt is disabled.
@@ -729,7 +709,6 @@ namespace Kvasir {
         namespace IValC{
             constexpr Register::FieldValue<decltype(i)::Type,IVal::theTerminalCountI> theTerminalCountI{};
             constexpr Register::FieldValue<decltype(i)::Type,IVal::theTerminalCountI> theTerminalCountI{};
-        }
         }
     }
     namespace Nonec1control{    ///<DMA Channel  Control Register
@@ -758,7 +737,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sbsize)::Type,SbsizeVal::sourceBurst128> sourceBurst128{};
             constexpr Register::FieldValue<decltype(sbsize)::Type,SbsizeVal::sourceBurst256> sourceBurst256{};
         }
-        }
         ///Destination burst size. Indicates the number of transfers that make up a destination burst transfer request. This value must be set to the burst size of the destination peripheral or, if the destination is memory, to the memory boundary size. The burst size is the amount of data that is transferred when the BREQ signal goes active in the destination peripheral.
         enum class DbsizeVal {
             destinationBurst1=0x00000000,     ///<Destination burst size = 1
@@ -781,7 +759,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dbsize)::Type,DbsizeVal::destinationBurst128> destinationBurst128{};
             constexpr Register::FieldValue<decltype(dbsize)::Type,DbsizeVal::destinationBurst256> destinationBurst256{};
         }
-        }
         ///Source transfer width. Transfers wider than the AHB master bus width are illegal. The source and destination widths can be different from each other. The hardware automatically packs and unpacks the data as required. 0x3 to 0x7 - Reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,18),Register::ReadWriteAccess,unsigned> swidth{}; 
         ///Destination transfer width. Transfers wider than the AHB master bus width are not supported. The source and destination widths can be different from each other. The hardware automatically packs and unpacks the data as required. 0x3 to 0x7 - Reserved.
@@ -796,7 +773,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(s)::Type,SVal::ahbMaster0Selecte> ahbMaster0Selecte{};
             constexpr Register::FieldValue<decltype(s)::Type,SVal::ahbMaster1Selecte> ahbMaster1Selecte{};
         }
-        }
         ///Destination AHB master select: Only Master1 can access a peripheral. Master0 can only access memory.
         enum class DVal {
             ahbMaster0Selecte=0x00000000,     ///<AHB Master 0 selected for destination transfer.
@@ -806,7 +782,6 @@ namespace Kvasir {
         namespace DValC{
             constexpr Register::FieldValue<decltype(d)::Type,DVal::ahbMaster0Selecte> ahbMaster0Selecte{};
             constexpr Register::FieldValue<decltype(d)::Type,DVal::ahbMaster1Selecte> ahbMaster1Selecte{};
-        }
         }
         ///Source increment:
         enum class SiVal {
@@ -818,7 +793,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(si)::Type,SiVal::notIncrement> notIncrement{};
             constexpr Register::FieldValue<decltype(si)::Type,SiVal::increment> increment{};
         }
-        }
         ///Destination increment:
         enum class DiVal {
             theDestinationAddr=0x00000000,     ///<The destination address is not incremented after each transfer.
@@ -828,7 +802,6 @@ namespace Kvasir {
         namespace DiValC{
             constexpr Register::FieldValue<decltype(di)::Type,DiVal::theDestinationAddr> theDestinationAddr{};
             constexpr Register::FieldValue<decltype(di)::Type,DiVal::theDestinationAddr> theDestinationAddr{};
-        }
         }
         ///Indicates that the access is in user mode or privileged mode:
         enum class Prot1Val {
@@ -840,7 +813,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prot1)::Type,Prot1Val::accessIsInUserMo> accessIsInUserMo{};
             constexpr Register::FieldValue<decltype(prot1)::Type,Prot1Val::accessIsInPrivile> accessIsInPrivile{};
         }
-        }
         ///Indicates that the access is bufferable or not bufferable:
         enum class Prot2Val {
             accessIsNotBuffer=0x00000000,     ///<Access is not bufferable.
@@ -850,7 +822,6 @@ namespace Kvasir {
         namespace Prot2ValC{
             constexpr Register::FieldValue<decltype(prot2)::Type,Prot2Val::accessIsNotBuffer> accessIsNotBuffer{};
             constexpr Register::FieldValue<decltype(prot2)::Type,Prot2Val::accessIsBufferable> accessIsBufferable{};
-        }
         }
         ///Indicates that the access is cacheable or not cacheable:
         enum class Prot3Val {
@@ -862,7 +833,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prot3)::Type,Prot3Val::accessIsNotCachea> accessIsNotCachea{};
             constexpr Register::FieldValue<decltype(prot3)::Type,Prot3Val::accessIsCacheable> accessIsCacheable{};
         }
-        }
         ///Terminal count interrupt enable bit.
         enum class IVal {
             theTerminalCountI=0x00000000,     ///<The terminal count interrupt is disabled.
@@ -872,7 +842,6 @@ namespace Kvasir {
         namespace IValC{
             constexpr Register::FieldValue<decltype(i)::Type,IVal::theTerminalCountI> theTerminalCountI{};
             constexpr Register::FieldValue<decltype(i)::Type,IVal::theTerminalCountI> theTerminalCountI{};
-        }
         }
     }
     namespace Nonec2control{    ///<DMA Channel  Control Register
@@ -901,7 +870,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sbsize)::Type,SbsizeVal::sourceBurst128> sourceBurst128{};
             constexpr Register::FieldValue<decltype(sbsize)::Type,SbsizeVal::sourceBurst256> sourceBurst256{};
         }
-        }
         ///Destination burst size. Indicates the number of transfers that make up a destination burst transfer request. This value must be set to the burst size of the destination peripheral or, if the destination is memory, to the memory boundary size. The burst size is the amount of data that is transferred when the BREQ signal goes active in the destination peripheral.
         enum class DbsizeVal {
             destinationBurst1=0x00000000,     ///<Destination burst size = 1
@@ -924,7 +892,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dbsize)::Type,DbsizeVal::destinationBurst128> destinationBurst128{};
             constexpr Register::FieldValue<decltype(dbsize)::Type,DbsizeVal::destinationBurst256> destinationBurst256{};
         }
-        }
         ///Source transfer width. Transfers wider than the AHB master bus width are illegal. The source and destination widths can be different from each other. The hardware automatically packs and unpacks the data as required. 0x3 to 0x7 - Reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,18),Register::ReadWriteAccess,unsigned> swidth{}; 
         ///Destination transfer width. Transfers wider than the AHB master bus width are not supported. The source and destination widths can be different from each other. The hardware automatically packs and unpacks the data as required. 0x3 to 0x7 - Reserved.
@@ -939,7 +906,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(s)::Type,SVal::ahbMaster0Selecte> ahbMaster0Selecte{};
             constexpr Register::FieldValue<decltype(s)::Type,SVal::ahbMaster1Selecte> ahbMaster1Selecte{};
         }
-        }
         ///Destination AHB master select: Only Master1 can access a peripheral. Master0 can only access memory.
         enum class DVal {
             ahbMaster0Selecte=0x00000000,     ///<AHB Master 0 selected for destination transfer.
@@ -949,7 +915,6 @@ namespace Kvasir {
         namespace DValC{
             constexpr Register::FieldValue<decltype(d)::Type,DVal::ahbMaster0Selecte> ahbMaster0Selecte{};
             constexpr Register::FieldValue<decltype(d)::Type,DVal::ahbMaster1Selecte> ahbMaster1Selecte{};
-        }
         }
         ///Source increment:
         enum class SiVal {
@@ -961,7 +926,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(si)::Type,SiVal::notIncrement> notIncrement{};
             constexpr Register::FieldValue<decltype(si)::Type,SiVal::increment> increment{};
         }
-        }
         ///Destination increment:
         enum class DiVal {
             theDestinationAddr=0x00000000,     ///<The destination address is not incremented after each transfer.
@@ -971,7 +935,6 @@ namespace Kvasir {
         namespace DiValC{
             constexpr Register::FieldValue<decltype(di)::Type,DiVal::theDestinationAddr> theDestinationAddr{};
             constexpr Register::FieldValue<decltype(di)::Type,DiVal::theDestinationAddr> theDestinationAddr{};
-        }
         }
         ///Indicates that the access is in user mode or privileged mode:
         enum class Prot1Val {
@@ -983,7 +946,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prot1)::Type,Prot1Val::accessIsInUserMo> accessIsInUserMo{};
             constexpr Register::FieldValue<decltype(prot1)::Type,Prot1Val::accessIsInPrivile> accessIsInPrivile{};
         }
-        }
         ///Indicates that the access is bufferable or not bufferable:
         enum class Prot2Val {
             accessIsNotBuffer=0x00000000,     ///<Access is not bufferable.
@@ -993,7 +955,6 @@ namespace Kvasir {
         namespace Prot2ValC{
             constexpr Register::FieldValue<decltype(prot2)::Type,Prot2Val::accessIsNotBuffer> accessIsNotBuffer{};
             constexpr Register::FieldValue<decltype(prot2)::Type,Prot2Val::accessIsBufferable> accessIsBufferable{};
-        }
         }
         ///Indicates that the access is cacheable or not cacheable:
         enum class Prot3Val {
@@ -1005,7 +966,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prot3)::Type,Prot3Val::accessIsNotCachea> accessIsNotCachea{};
             constexpr Register::FieldValue<decltype(prot3)::Type,Prot3Val::accessIsCacheable> accessIsCacheable{};
         }
-        }
         ///Terminal count interrupt enable bit.
         enum class IVal {
             theTerminalCountI=0x00000000,     ///<The terminal count interrupt is disabled.
@@ -1015,7 +975,6 @@ namespace Kvasir {
         namespace IValC{
             constexpr Register::FieldValue<decltype(i)::Type,IVal::theTerminalCountI> theTerminalCountI{};
             constexpr Register::FieldValue<decltype(i)::Type,IVal::theTerminalCountI> theTerminalCountI{};
-        }
         }
     }
     namespace Nonec3control{    ///<DMA Channel  Control Register
@@ -1044,7 +1003,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sbsize)::Type,SbsizeVal::sourceBurst128> sourceBurst128{};
             constexpr Register::FieldValue<decltype(sbsize)::Type,SbsizeVal::sourceBurst256> sourceBurst256{};
         }
-        }
         ///Destination burst size. Indicates the number of transfers that make up a destination burst transfer request. This value must be set to the burst size of the destination peripheral or, if the destination is memory, to the memory boundary size. The burst size is the amount of data that is transferred when the BREQ signal goes active in the destination peripheral.
         enum class DbsizeVal {
             destinationBurst1=0x00000000,     ///<Destination burst size = 1
@@ -1067,7 +1025,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dbsize)::Type,DbsizeVal::destinationBurst128> destinationBurst128{};
             constexpr Register::FieldValue<decltype(dbsize)::Type,DbsizeVal::destinationBurst256> destinationBurst256{};
         }
-        }
         ///Source transfer width. Transfers wider than the AHB master bus width are illegal. The source and destination widths can be different from each other. The hardware automatically packs and unpacks the data as required. 0x3 to 0x7 - Reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,18),Register::ReadWriteAccess,unsigned> swidth{}; 
         ///Destination transfer width. Transfers wider than the AHB master bus width are not supported. The source and destination widths can be different from each other. The hardware automatically packs and unpacks the data as required. 0x3 to 0x7 - Reserved.
@@ -1082,7 +1039,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(s)::Type,SVal::ahbMaster0Selecte> ahbMaster0Selecte{};
             constexpr Register::FieldValue<decltype(s)::Type,SVal::ahbMaster1Selecte> ahbMaster1Selecte{};
         }
-        }
         ///Destination AHB master select: Only Master1 can access a peripheral. Master0 can only access memory.
         enum class DVal {
             ahbMaster0Selecte=0x00000000,     ///<AHB Master 0 selected for destination transfer.
@@ -1092,7 +1048,6 @@ namespace Kvasir {
         namespace DValC{
             constexpr Register::FieldValue<decltype(d)::Type,DVal::ahbMaster0Selecte> ahbMaster0Selecte{};
             constexpr Register::FieldValue<decltype(d)::Type,DVal::ahbMaster1Selecte> ahbMaster1Selecte{};
-        }
         }
         ///Source increment:
         enum class SiVal {
@@ -1104,7 +1059,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(si)::Type,SiVal::notIncrement> notIncrement{};
             constexpr Register::FieldValue<decltype(si)::Type,SiVal::increment> increment{};
         }
-        }
         ///Destination increment:
         enum class DiVal {
             theDestinationAddr=0x00000000,     ///<The destination address is not incremented after each transfer.
@@ -1114,7 +1068,6 @@ namespace Kvasir {
         namespace DiValC{
             constexpr Register::FieldValue<decltype(di)::Type,DiVal::theDestinationAddr> theDestinationAddr{};
             constexpr Register::FieldValue<decltype(di)::Type,DiVal::theDestinationAddr> theDestinationAddr{};
-        }
         }
         ///Indicates that the access is in user mode or privileged mode:
         enum class Prot1Val {
@@ -1126,7 +1079,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prot1)::Type,Prot1Val::accessIsInUserMo> accessIsInUserMo{};
             constexpr Register::FieldValue<decltype(prot1)::Type,Prot1Val::accessIsInPrivile> accessIsInPrivile{};
         }
-        }
         ///Indicates that the access is bufferable or not bufferable:
         enum class Prot2Val {
             accessIsNotBuffer=0x00000000,     ///<Access is not bufferable.
@@ -1136,7 +1088,6 @@ namespace Kvasir {
         namespace Prot2ValC{
             constexpr Register::FieldValue<decltype(prot2)::Type,Prot2Val::accessIsNotBuffer> accessIsNotBuffer{};
             constexpr Register::FieldValue<decltype(prot2)::Type,Prot2Val::accessIsBufferable> accessIsBufferable{};
-        }
         }
         ///Indicates that the access is cacheable or not cacheable:
         enum class Prot3Val {
@@ -1148,7 +1099,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prot3)::Type,Prot3Val::accessIsNotCachea> accessIsNotCachea{};
             constexpr Register::FieldValue<decltype(prot3)::Type,Prot3Val::accessIsCacheable> accessIsCacheable{};
         }
-        }
         ///Terminal count interrupt enable bit.
         enum class IVal {
             theTerminalCountI=0x00000000,     ///<The terminal count interrupt is disabled.
@@ -1158,7 +1108,6 @@ namespace Kvasir {
         namespace IValC{
             constexpr Register::FieldValue<decltype(i)::Type,IVal::theTerminalCountI> theTerminalCountI{};
             constexpr Register::FieldValue<decltype(i)::Type,IVal::theTerminalCountI> theTerminalCountI{};
-        }
         }
     }
     namespace Nonec4control{    ///<DMA Channel  Control Register
@@ -1187,7 +1136,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sbsize)::Type,SbsizeVal::sourceBurst128> sourceBurst128{};
             constexpr Register::FieldValue<decltype(sbsize)::Type,SbsizeVal::sourceBurst256> sourceBurst256{};
         }
-        }
         ///Destination burst size. Indicates the number of transfers that make up a destination burst transfer request. This value must be set to the burst size of the destination peripheral or, if the destination is memory, to the memory boundary size. The burst size is the amount of data that is transferred when the BREQ signal goes active in the destination peripheral.
         enum class DbsizeVal {
             destinationBurst1=0x00000000,     ///<Destination burst size = 1
@@ -1210,7 +1158,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dbsize)::Type,DbsizeVal::destinationBurst128> destinationBurst128{};
             constexpr Register::FieldValue<decltype(dbsize)::Type,DbsizeVal::destinationBurst256> destinationBurst256{};
         }
-        }
         ///Source transfer width. Transfers wider than the AHB master bus width are illegal. The source and destination widths can be different from each other. The hardware automatically packs and unpacks the data as required. 0x3 to 0x7 - Reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,18),Register::ReadWriteAccess,unsigned> swidth{}; 
         ///Destination transfer width. Transfers wider than the AHB master bus width are not supported. The source and destination widths can be different from each other. The hardware automatically packs and unpacks the data as required. 0x3 to 0x7 - Reserved.
@@ -1225,7 +1172,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(s)::Type,SVal::ahbMaster0Selecte> ahbMaster0Selecte{};
             constexpr Register::FieldValue<decltype(s)::Type,SVal::ahbMaster1Selecte> ahbMaster1Selecte{};
         }
-        }
         ///Destination AHB master select: Only Master1 can access a peripheral. Master0 can only access memory.
         enum class DVal {
             ahbMaster0Selecte=0x00000000,     ///<AHB Master 0 selected for destination transfer.
@@ -1235,7 +1181,6 @@ namespace Kvasir {
         namespace DValC{
             constexpr Register::FieldValue<decltype(d)::Type,DVal::ahbMaster0Selecte> ahbMaster0Selecte{};
             constexpr Register::FieldValue<decltype(d)::Type,DVal::ahbMaster1Selecte> ahbMaster1Selecte{};
-        }
         }
         ///Source increment:
         enum class SiVal {
@@ -1247,7 +1192,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(si)::Type,SiVal::notIncrement> notIncrement{};
             constexpr Register::FieldValue<decltype(si)::Type,SiVal::increment> increment{};
         }
-        }
         ///Destination increment:
         enum class DiVal {
             theDestinationAddr=0x00000000,     ///<The destination address is not incremented after each transfer.
@@ -1257,7 +1201,6 @@ namespace Kvasir {
         namespace DiValC{
             constexpr Register::FieldValue<decltype(di)::Type,DiVal::theDestinationAddr> theDestinationAddr{};
             constexpr Register::FieldValue<decltype(di)::Type,DiVal::theDestinationAddr> theDestinationAddr{};
-        }
         }
         ///Indicates that the access is in user mode or privileged mode:
         enum class Prot1Val {
@@ -1269,7 +1212,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prot1)::Type,Prot1Val::accessIsInUserMo> accessIsInUserMo{};
             constexpr Register::FieldValue<decltype(prot1)::Type,Prot1Val::accessIsInPrivile> accessIsInPrivile{};
         }
-        }
         ///Indicates that the access is bufferable or not bufferable:
         enum class Prot2Val {
             accessIsNotBuffer=0x00000000,     ///<Access is not bufferable.
@@ -1279,7 +1221,6 @@ namespace Kvasir {
         namespace Prot2ValC{
             constexpr Register::FieldValue<decltype(prot2)::Type,Prot2Val::accessIsNotBuffer> accessIsNotBuffer{};
             constexpr Register::FieldValue<decltype(prot2)::Type,Prot2Val::accessIsBufferable> accessIsBufferable{};
-        }
         }
         ///Indicates that the access is cacheable or not cacheable:
         enum class Prot3Val {
@@ -1291,7 +1232,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prot3)::Type,Prot3Val::accessIsNotCachea> accessIsNotCachea{};
             constexpr Register::FieldValue<decltype(prot3)::Type,Prot3Val::accessIsCacheable> accessIsCacheable{};
         }
-        }
         ///Terminal count interrupt enable bit.
         enum class IVal {
             theTerminalCountI=0x00000000,     ///<The terminal count interrupt is disabled.
@@ -1301,7 +1241,6 @@ namespace Kvasir {
         namespace IValC{
             constexpr Register::FieldValue<decltype(i)::Type,IVal::theTerminalCountI> theTerminalCountI{};
             constexpr Register::FieldValue<decltype(i)::Type,IVal::theTerminalCountI> theTerminalCountI{};
-        }
         }
     }
     namespace Nonec5control{    ///<DMA Channel  Control Register
@@ -1330,7 +1269,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sbsize)::Type,SbsizeVal::sourceBurst128> sourceBurst128{};
             constexpr Register::FieldValue<decltype(sbsize)::Type,SbsizeVal::sourceBurst256> sourceBurst256{};
         }
-        }
         ///Destination burst size. Indicates the number of transfers that make up a destination burst transfer request. This value must be set to the burst size of the destination peripheral or, if the destination is memory, to the memory boundary size. The burst size is the amount of data that is transferred when the BREQ signal goes active in the destination peripheral.
         enum class DbsizeVal {
             destinationBurst1=0x00000000,     ///<Destination burst size = 1
@@ -1353,7 +1291,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dbsize)::Type,DbsizeVal::destinationBurst128> destinationBurst128{};
             constexpr Register::FieldValue<decltype(dbsize)::Type,DbsizeVal::destinationBurst256> destinationBurst256{};
         }
-        }
         ///Source transfer width. Transfers wider than the AHB master bus width are illegal. The source and destination widths can be different from each other. The hardware automatically packs and unpacks the data as required. 0x3 to 0x7 - Reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,18),Register::ReadWriteAccess,unsigned> swidth{}; 
         ///Destination transfer width. Transfers wider than the AHB master bus width are not supported. The source and destination widths can be different from each other. The hardware automatically packs and unpacks the data as required. 0x3 to 0x7 - Reserved.
@@ -1368,7 +1305,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(s)::Type,SVal::ahbMaster0Selecte> ahbMaster0Selecte{};
             constexpr Register::FieldValue<decltype(s)::Type,SVal::ahbMaster1Selecte> ahbMaster1Selecte{};
         }
-        }
         ///Destination AHB master select: Only Master1 can access a peripheral. Master0 can only access memory.
         enum class DVal {
             ahbMaster0Selecte=0x00000000,     ///<AHB Master 0 selected for destination transfer.
@@ -1378,7 +1314,6 @@ namespace Kvasir {
         namespace DValC{
             constexpr Register::FieldValue<decltype(d)::Type,DVal::ahbMaster0Selecte> ahbMaster0Selecte{};
             constexpr Register::FieldValue<decltype(d)::Type,DVal::ahbMaster1Selecte> ahbMaster1Selecte{};
-        }
         }
         ///Source increment:
         enum class SiVal {
@@ -1390,7 +1325,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(si)::Type,SiVal::notIncrement> notIncrement{};
             constexpr Register::FieldValue<decltype(si)::Type,SiVal::increment> increment{};
         }
-        }
         ///Destination increment:
         enum class DiVal {
             theDestinationAddr=0x00000000,     ///<The destination address is not incremented after each transfer.
@@ -1400,7 +1334,6 @@ namespace Kvasir {
         namespace DiValC{
             constexpr Register::FieldValue<decltype(di)::Type,DiVal::theDestinationAddr> theDestinationAddr{};
             constexpr Register::FieldValue<decltype(di)::Type,DiVal::theDestinationAddr> theDestinationAddr{};
-        }
         }
         ///Indicates that the access is in user mode or privileged mode:
         enum class Prot1Val {
@@ -1412,7 +1345,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prot1)::Type,Prot1Val::accessIsInUserMo> accessIsInUserMo{};
             constexpr Register::FieldValue<decltype(prot1)::Type,Prot1Val::accessIsInPrivile> accessIsInPrivile{};
         }
-        }
         ///Indicates that the access is bufferable or not bufferable:
         enum class Prot2Val {
             accessIsNotBuffer=0x00000000,     ///<Access is not bufferable.
@@ -1422,7 +1354,6 @@ namespace Kvasir {
         namespace Prot2ValC{
             constexpr Register::FieldValue<decltype(prot2)::Type,Prot2Val::accessIsNotBuffer> accessIsNotBuffer{};
             constexpr Register::FieldValue<decltype(prot2)::Type,Prot2Val::accessIsBufferable> accessIsBufferable{};
-        }
         }
         ///Indicates that the access is cacheable or not cacheable:
         enum class Prot3Val {
@@ -1434,7 +1365,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prot3)::Type,Prot3Val::accessIsNotCachea> accessIsNotCachea{};
             constexpr Register::FieldValue<decltype(prot3)::Type,Prot3Val::accessIsCacheable> accessIsCacheable{};
         }
-        }
         ///Terminal count interrupt enable bit.
         enum class IVal {
             theTerminalCountI=0x00000000,     ///<The terminal count interrupt is disabled.
@@ -1444,7 +1374,6 @@ namespace Kvasir {
         namespace IValC{
             constexpr Register::FieldValue<decltype(i)::Type,IVal::theTerminalCountI> theTerminalCountI{};
             constexpr Register::FieldValue<decltype(i)::Type,IVal::theTerminalCountI> theTerminalCountI{};
-        }
         }
     }
     namespace Nonec6control{    ///<DMA Channel  Control Register
@@ -1473,7 +1402,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sbsize)::Type,SbsizeVal::sourceBurst128> sourceBurst128{};
             constexpr Register::FieldValue<decltype(sbsize)::Type,SbsizeVal::sourceBurst256> sourceBurst256{};
         }
-        }
         ///Destination burst size. Indicates the number of transfers that make up a destination burst transfer request. This value must be set to the burst size of the destination peripheral or, if the destination is memory, to the memory boundary size. The burst size is the amount of data that is transferred when the BREQ signal goes active in the destination peripheral.
         enum class DbsizeVal {
             destinationBurst1=0x00000000,     ///<Destination burst size = 1
@@ -1496,7 +1424,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dbsize)::Type,DbsizeVal::destinationBurst128> destinationBurst128{};
             constexpr Register::FieldValue<decltype(dbsize)::Type,DbsizeVal::destinationBurst256> destinationBurst256{};
         }
-        }
         ///Source transfer width. Transfers wider than the AHB master bus width are illegal. The source and destination widths can be different from each other. The hardware automatically packs and unpacks the data as required. 0x3 to 0x7 - Reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,18),Register::ReadWriteAccess,unsigned> swidth{}; 
         ///Destination transfer width. Transfers wider than the AHB master bus width are not supported. The source and destination widths can be different from each other. The hardware automatically packs and unpacks the data as required. 0x3 to 0x7 - Reserved.
@@ -1511,7 +1438,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(s)::Type,SVal::ahbMaster0Selecte> ahbMaster0Selecte{};
             constexpr Register::FieldValue<decltype(s)::Type,SVal::ahbMaster1Selecte> ahbMaster1Selecte{};
         }
-        }
         ///Destination AHB master select: Only Master1 can access a peripheral. Master0 can only access memory.
         enum class DVal {
             ahbMaster0Selecte=0x00000000,     ///<AHB Master 0 selected for destination transfer.
@@ -1521,7 +1447,6 @@ namespace Kvasir {
         namespace DValC{
             constexpr Register::FieldValue<decltype(d)::Type,DVal::ahbMaster0Selecte> ahbMaster0Selecte{};
             constexpr Register::FieldValue<decltype(d)::Type,DVal::ahbMaster1Selecte> ahbMaster1Selecte{};
-        }
         }
         ///Source increment:
         enum class SiVal {
@@ -1533,7 +1458,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(si)::Type,SiVal::notIncrement> notIncrement{};
             constexpr Register::FieldValue<decltype(si)::Type,SiVal::increment> increment{};
         }
-        }
         ///Destination increment:
         enum class DiVal {
             theDestinationAddr=0x00000000,     ///<The destination address is not incremented after each transfer.
@@ -1543,7 +1467,6 @@ namespace Kvasir {
         namespace DiValC{
             constexpr Register::FieldValue<decltype(di)::Type,DiVal::theDestinationAddr> theDestinationAddr{};
             constexpr Register::FieldValue<decltype(di)::Type,DiVal::theDestinationAddr> theDestinationAddr{};
-        }
         }
         ///Indicates that the access is in user mode or privileged mode:
         enum class Prot1Val {
@@ -1555,7 +1478,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prot1)::Type,Prot1Val::accessIsInUserMo> accessIsInUserMo{};
             constexpr Register::FieldValue<decltype(prot1)::Type,Prot1Val::accessIsInPrivile> accessIsInPrivile{};
         }
-        }
         ///Indicates that the access is bufferable or not bufferable:
         enum class Prot2Val {
             accessIsNotBuffer=0x00000000,     ///<Access is not bufferable.
@@ -1565,7 +1487,6 @@ namespace Kvasir {
         namespace Prot2ValC{
             constexpr Register::FieldValue<decltype(prot2)::Type,Prot2Val::accessIsNotBuffer> accessIsNotBuffer{};
             constexpr Register::FieldValue<decltype(prot2)::Type,Prot2Val::accessIsBufferable> accessIsBufferable{};
-        }
         }
         ///Indicates that the access is cacheable or not cacheable:
         enum class Prot3Val {
@@ -1577,7 +1498,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prot3)::Type,Prot3Val::accessIsNotCachea> accessIsNotCachea{};
             constexpr Register::FieldValue<decltype(prot3)::Type,Prot3Val::accessIsCacheable> accessIsCacheable{};
         }
-        }
         ///Terminal count interrupt enable bit.
         enum class IVal {
             theTerminalCountI=0x00000000,     ///<The terminal count interrupt is disabled.
@@ -1587,7 +1507,6 @@ namespace Kvasir {
         namespace IValC{
             constexpr Register::FieldValue<decltype(i)::Type,IVal::theTerminalCountI> theTerminalCountI{};
             constexpr Register::FieldValue<decltype(i)::Type,IVal::theTerminalCountI> theTerminalCountI{};
-        }
         }
     }
     namespace Nonec7control{    ///<DMA Channel  Control Register
@@ -1616,7 +1535,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sbsize)::Type,SbsizeVal::sourceBurst128> sourceBurst128{};
             constexpr Register::FieldValue<decltype(sbsize)::Type,SbsizeVal::sourceBurst256> sourceBurst256{};
         }
-        }
         ///Destination burst size. Indicates the number of transfers that make up a destination burst transfer request. This value must be set to the burst size of the destination peripheral or, if the destination is memory, to the memory boundary size. The burst size is the amount of data that is transferred when the BREQ signal goes active in the destination peripheral.
         enum class DbsizeVal {
             destinationBurst1=0x00000000,     ///<Destination burst size = 1
@@ -1639,7 +1557,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(dbsize)::Type,DbsizeVal::destinationBurst128> destinationBurst128{};
             constexpr Register::FieldValue<decltype(dbsize)::Type,DbsizeVal::destinationBurst256> destinationBurst256{};
         }
-        }
         ///Source transfer width. Transfers wider than the AHB master bus width are illegal. The source and destination widths can be different from each other. The hardware automatically packs and unpacks the data as required. 0x3 to 0x7 - Reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,18),Register::ReadWriteAccess,unsigned> swidth{}; 
         ///Destination transfer width. Transfers wider than the AHB master bus width are not supported. The source and destination widths can be different from each other. The hardware automatically packs and unpacks the data as required. 0x3 to 0x7 - Reserved.
@@ -1654,7 +1571,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(s)::Type,SVal::ahbMaster0Selecte> ahbMaster0Selecte{};
             constexpr Register::FieldValue<decltype(s)::Type,SVal::ahbMaster1Selecte> ahbMaster1Selecte{};
         }
-        }
         ///Destination AHB master select: Only Master1 can access a peripheral. Master0 can only access memory.
         enum class DVal {
             ahbMaster0Selecte=0x00000000,     ///<AHB Master 0 selected for destination transfer.
@@ -1664,7 +1580,6 @@ namespace Kvasir {
         namespace DValC{
             constexpr Register::FieldValue<decltype(d)::Type,DVal::ahbMaster0Selecte> ahbMaster0Selecte{};
             constexpr Register::FieldValue<decltype(d)::Type,DVal::ahbMaster1Selecte> ahbMaster1Selecte{};
-        }
         }
         ///Source increment:
         enum class SiVal {
@@ -1676,7 +1591,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(si)::Type,SiVal::notIncrement> notIncrement{};
             constexpr Register::FieldValue<decltype(si)::Type,SiVal::increment> increment{};
         }
-        }
         ///Destination increment:
         enum class DiVal {
             theDestinationAddr=0x00000000,     ///<The destination address is not incremented after each transfer.
@@ -1686,7 +1600,6 @@ namespace Kvasir {
         namespace DiValC{
             constexpr Register::FieldValue<decltype(di)::Type,DiVal::theDestinationAddr> theDestinationAddr{};
             constexpr Register::FieldValue<decltype(di)::Type,DiVal::theDestinationAddr> theDestinationAddr{};
-        }
         }
         ///Indicates that the access is in user mode or privileged mode:
         enum class Prot1Val {
@@ -1698,7 +1611,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prot1)::Type,Prot1Val::accessIsInUserMo> accessIsInUserMo{};
             constexpr Register::FieldValue<decltype(prot1)::Type,Prot1Val::accessIsInPrivile> accessIsInPrivile{};
         }
-        }
         ///Indicates that the access is bufferable or not bufferable:
         enum class Prot2Val {
             accessIsNotBuffer=0x00000000,     ///<Access is not bufferable.
@@ -1708,7 +1620,6 @@ namespace Kvasir {
         namespace Prot2ValC{
             constexpr Register::FieldValue<decltype(prot2)::Type,Prot2Val::accessIsNotBuffer> accessIsNotBuffer{};
             constexpr Register::FieldValue<decltype(prot2)::Type,Prot2Val::accessIsBufferable> accessIsBufferable{};
-        }
         }
         ///Indicates that the access is cacheable or not cacheable:
         enum class Prot3Val {
@@ -1720,7 +1631,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(prot3)::Type,Prot3Val::accessIsNotCachea> accessIsNotCachea{};
             constexpr Register::FieldValue<decltype(prot3)::Type,Prot3Val::accessIsCacheable> accessIsCacheable{};
         }
-        }
         ///Terminal count interrupt enable bit.
         enum class IVal {
             theTerminalCountI=0x00000000,     ///<The terminal count interrupt is disabled.
@@ -1730,7 +1640,6 @@ namespace Kvasir {
         namespace IValC{
             constexpr Register::FieldValue<decltype(i)::Type,IVal::theTerminalCountI> theTerminalCountI{};
             constexpr Register::FieldValue<decltype(i)::Type,IVal::theTerminalCountI> theTerminalCountI{};
-        }
         }
     }
     namespace Nonec0config{    ///<DMA Channel Configuration Register
@@ -1745,7 +1654,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(e)::Type,EVal::channelDisabled> channelDisabled{};
             constexpr Register::FieldValue<decltype(e)::Type,EVal::channelEnabled> channelEnabled{};
         }
-        }
         ///Source peripheral. This value selects the DMA source request peripheral. This field is ignored if the source of the transfer is from memory. See Table 136 for details.
         enum class SrcperipheralVal {
             sourceEqSpifi=0x00000000,     ///<Source = SPIFI
@@ -1783,7 +1691,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcperipheral)::Type,SrcperipheralVal::sourceEqAdc0> sourceEqAdc0{};
             constexpr Register::FieldValue<decltype(srcperipheral)::Type,SrcperipheralVal::sourceEqAdc1> sourceEqAdc1{};
             constexpr Register::FieldValue<decltype(srcperipheral)::Type,SrcperipheralVal::sourceEqDac> sourceEqDac{};
-        }
         }
         ///Destination peripheral. This value selects the DMA destination request peripheral. This field is ignored if the destination of the transfer is to memory. See Table 136 for details.
         enum class DestperipheralVal {
@@ -1823,7 +1730,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(destperipheral)::Type,DestperipheralVal::destinationEqAdc1> destinationEqAdc1{};
             constexpr Register::FieldValue<decltype(destperipheral)::Type,DestperipheralVal::destinationEqDac> destinationEqDac{};
         }
-        }
         ///Flow control and transfer type. This value indicates the flow controller and transfer type. The flow controller can be the DMA Controller, the source peripheral, or the destination peripheral. The transfer type can be memory-to-memory, memory-to-peripheral, peripheral-to-memory, or peripheral-to-peripheral. Refer to Table 157 for the encoding of this field.
         enum class FlowcntrlVal {
             memoryToMemoryDm=0x00000000,     ///<Memory to memory (DMA control)
@@ -1846,7 +1752,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flowcntrl)::Type,FlowcntrlVal::peripheralToMemory> peripheralToMemory{};
             constexpr Register::FieldValue<decltype(flowcntrl)::Type,FlowcntrlVal::sourcePeripheralTo> sourcePeripheralTo{};
         }
-        }
         ///Interrupt error mask. When cleared, this bit masks out the error interrupt of the relevant channel.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ie{}; 
         ///Terminal count interrupt mask. When cleared, this bit masks out the terminal count interrupt of the relevant channel.
@@ -1864,7 +1769,6 @@ namespace Kvasir {
         namespace HValC{
             constexpr Register::FieldValue<decltype(h)::Type,HVal::enableDmaRequests> enableDmaRequests{};
             constexpr Register::FieldValue<decltype(h)::Type,HVal::ignoreFurtherSourc> ignoreFurtherSourc{};
-        }
         }
     }
     namespace Nonec1config{    ///<DMA Channel Configuration Register
@@ -1879,7 +1783,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(e)::Type,EVal::channelDisabled> channelDisabled{};
             constexpr Register::FieldValue<decltype(e)::Type,EVal::channelEnabled> channelEnabled{};
         }
-        }
         ///Source peripheral. This value selects the DMA source request peripheral. This field is ignored if the source of the transfer is from memory. See Table 136 for details.
         enum class SrcperipheralVal {
             sourceEqSpifi=0x00000000,     ///<Source = SPIFI
@@ -1917,7 +1820,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcperipheral)::Type,SrcperipheralVal::sourceEqAdc0> sourceEqAdc0{};
             constexpr Register::FieldValue<decltype(srcperipheral)::Type,SrcperipheralVal::sourceEqAdc1> sourceEqAdc1{};
             constexpr Register::FieldValue<decltype(srcperipheral)::Type,SrcperipheralVal::sourceEqDac> sourceEqDac{};
-        }
         }
         ///Destination peripheral. This value selects the DMA destination request peripheral. This field is ignored if the destination of the transfer is to memory. See Table 136 for details.
         enum class DestperipheralVal {
@@ -1957,7 +1859,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(destperipheral)::Type,DestperipheralVal::destinationEqAdc1> destinationEqAdc1{};
             constexpr Register::FieldValue<decltype(destperipheral)::Type,DestperipheralVal::destinationEqDac> destinationEqDac{};
         }
-        }
         ///Flow control and transfer type. This value indicates the flow controller and transfer type. The flow controller can be the DMA Controller, the source peripheral, or the destination peripheral. The transfer type can be memory-to-memory, memory-to-peripheral, peripheral-to-memory, or peripheral-to-peripheral. Refer to Table 157 for the encoding of this field.
         enum class FlowcntrlVal {
             memoryToMemoryDm=0x00000000,     ///<Memory to memory (DMA control)
@@ -1980,7 +1881,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flowcntrl)::Type,FlowcntrlVal::peripheralToMemory> peripheralToMemory{};
             constexpr Register::FieldValue<decltype(flowcntrl)::Type,FlowcntrlVal::sourcePeripheralTo> sourcePeripheralTo{};
         }
-        }
         ///Interrupt error mask. When cleared, this bit masks out the error interrupt of the relevant channel.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ie{}; 
         ///Terminal count interrupt mask. When cleared, this bit masks out the terminal count interrupt of the relevant channel.
@@ -1998,7 +1898,6 @@ namespace Kvasir {
         namespace HValC{
             constexpr Register::FieldValue<decltype(h)::Type,HVal::enableDmaRequests> enableDmaRequests{};
             constexpr Register::FieldValue<decltype(h)::Type,HVal::ignoreFurtherSourc> ignoreFurtherSourc{};
-        }
         }
     }
     namespace Nonec2config{    ///<DMA Channel Configuration Register
@@ -2013,7 +1912,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(e)::Type,EVal::channelDisabled> channelDisabled{};
             constexpr Register::FieldValue<decltype(e)::Type,EVal::channelEnabled> channelEnabled{};
         }
-        }
         ///Source peripheral. This value selects the DMA source request peripheral. This field is ignored if the source of the transfer is from memory. See Table 136 for details.
         enum class SrcperipheralVal {
             sourceEqSpifi=0x00000000,     ///<Source = SPIFI
@@ -2051,7 +1949,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcperipheral)::Type,SrcperipheralVal::sourceEqAdc0> sourceEqAdc0{};
             constexpr Register::FieldValue<decltype(srcperipheral)::Type,SrcperipheralVal::sourceEqAdc1> sourceEqAdc1{};
             constexpr Register::FieldValue<decltype(srcperipheral)::Type,SrcperipheralVal::sourceEqDac> sourceEqDac{};
-        }
         }
         ///Destination peripheral. This value selects the DMA destination request peripheral. This field is ignored if the destination of the transfer is to memory. See Table 136 for details.
         enum class DestperipheralVal {
@@ -2091,7 +1988,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(destperipheral)::Type,DestperipheralVal::destinationEqAdc1> destinationEqAdc1{};
             constexpr Register::FieldValue<decltype(destperipheral)::Type,DestperipheralVal::destinationEqDac> destinationEqDac{};
         }
-        }
         ///Flow control and transfer type. This value indicates the flow controller and transfer type. The flow controller can be the DMA Controller, the source peripheral, or the destination peripheral. The transfer type can be memory-to-memory, memory-to-peripheral, peripheral-to-memory, or peripheral-to-peripheral. Refer to Table 157 for the encoding of this field.
         enum class FlowcntrlVal {
             memoryToMemoryDm=0x00000000,     ///<Memory to memory (DMA control)
@@ -2114,7 +2010,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flowcntrl)::Type,FlowcntrlVal::peripheralToMemory> peripheralToMemory{};
             constexpr Register::FieldValue<decltype(flowcntrl)::Type,FlowcntrlVal::sourcePeripheralTo> sourcePeripheralTo{};
         }
-        }
         ///Interrupt error mask. When cleared, this bit masks out the error interrupt of the relevant channel.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ie{}; 
         ///Terminal count interrupt mask. When cleared, this bit masks out the terminal count interrupt of the relevant channel.
@@ -2132,7 +2027,6 @@ namespace Kvasir {
         namespace HValC{
             constexpr Register::FieldValue<decltype(h)::Type,HVal::enableDmaRequests> enableDmaRequests{};
             constexpr Register::FieldValue<decltype(h)::Type,HVal::ignoreFurtherSourc> ignoreFurtherSourc{};
-        }
         }
     }
     namespace Nonec3config{    ///<DMA Channel Configuration Register
@@ -2147,7 +2041,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(e)::Type,EVal::channelDisabled> channelDisabled{};
             constexpr Register::FieldValue<decltype(e)::Type,EVal::channelEnabled> channelEnabled{};
         }
-        }
         ///Source peripheral. This value selects the DMA source request peripheral. This field is ignored if the source of the transfer is from memory. See Table 136 for details.
         enum class SrcperipheralVal {
             sourceEqSpifi=0x00000000,     ///<Source = SPIFI
@@ -2185,7 +2078,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcperipheral)::Type,SrcperipheralVal::sourceEqAdc0> sourceEqAdc0{};
             constexpr Register::FieldValue<decltype(srcperipheral)::Type,SrcperipheralVal::sourceEqAdc1> sourceEqAdc1{};
             constexpr Register::FieldValue<decltype(srcperipheral)::Type,SrcperipheralVal::sourceEqDac> sourceEqDac{};
-        }
         }
         ///Destination peripheral. This value selects the DMA destination request peripheral. This field is ignored if the destination of the transfer is to memory. See Table 136 for details.
         enum class DestperipheralVal {
@@ -2225,7 +2117,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(destperipheral)::Type,DestperipheralVal::destinationEqAdc1> destinationEqAdc1{};
             constexpr Register::FieldValue<decltype(destperipheral)::Type,DestperipheralVal::destinationEqDac> destinationEqDac{};
         }
-        }
         ///Flow control and transfer type. This value indicates the flow controller and transfer type. The flow controller can be the DMA Controller, the source peripheral, or the destination peripheral. The transfer type can be memory-to-memory, memory-to-peripheral, peripheral-to-memory, or peripheral-to-peripheral. Refer to Table 157 for the encoding of this field.
         enum class FlowcntrlVal {
             memoryToMemoryDm=0x00000000,     ///<Memory to memory (DMA control)
@@ -2248,7 +2139,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flowcntrl)::Type,FlowcntrlVal::peripheralToMemory> peripheralToMemory{};
             constexpr Register::FieldValue<decltype(flowcntrl)::Type,FlowcntrlVal::sourcePeripheralTo> sourcePeripheralTo{};
         }
-        }
         ///Interrupt error mask. When cleared, this bit masks out the error interrupt of the relevant channel.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ie{}; 
         ///Terminal count interrupt mask. When cleared, this bit masks out the terminal count interrupt of the relevant channel.
@@ -2266,7 +2156,6 @@ namespace Kvasir {
         namespace HValC{
             constexpr Register::FieldValue<decltype(h)::Type,HVal::enableDmaRequests> enableDmaRequests{};
             constexpr Register::FieldValue<decltype(h)::Type,HVal::ignoreFurtherSourc> ignoreFurtherSourc{};
-        }
         }
     }
     namespace Nonec4config{    ///<DMA Channel Configuration Register
@@ -2281,7 +2170,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(e)::Type,EVal::channelDisabled> channelDisabled{};
             constexpr Register::FieldValue<decltype(e)::Type,EVal::channelEnabled> channelEnabled{};
         }
-        }
         ///Source peripheral. This value selects the DMA source request peripheral. This field is ignored if the source of the transfer is from memory. See Table 136 for details.
         enum class SrcperipheralVal {
             sourceEqSpifi=0x00000000,     ///<Source = SPIFI
@@ -2319,7 +2207,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcperipheral)::Type,SrcperipheralVal::sourceEqAdc0> sourceEqAdc0{};
             constexpr Register::FieldValue<decltype(srcperipheral)::Type,SrcperipheralVal::sourceEqAdc1> sourceEqAdc1{};
             constexpr Register::FieldValue<decltype(srcperipheral)::Type,SrcperipheralVal::sourceEqDac> sourceEqDac{};
-        }
         }
         ///Destination peripheral. This value selects the DMA destination request peripheral. This field is ignored if the destination of the transfer is to memory. See Table 136 for details.
         enum class DestperipheralVal {
@@ -2359,7 +2246,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(destperipheral)::Type,DestperipheralVal::destinationEqAdc1> destinationEqAdc1{};
             constexpr Register::FieldValue<decltype(destperipheral)::Type,DestperipheralVal::destinationEqDac> destinationEqDac{};
         }
-        }
         ///Flow control and transfer type. This value indicates the flow controller and transfer type. The flow controller can be the DMA Controller, the source peripheral, or the destination peripheral. The transfer type can be memory-to-memory, memory-to-peripheral, peripheral-to-memory, or peripheral-to-peripheral. Refer to Table 157 for the encoding of this field.
         enum class FlowcntrlVal {
             memoryToMemoryDm=0x00000000,     ///<Memory to memory (DMA control)
@@ -2382,7 +2268,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flowcntrl)::Type,FlowcntrlVal::peripheralToMemory> peripheralToMemory{};
             constexpr Register::FieldValue<decltype(flowcntrl)::Type,FlowcntrlVal::sourcePeripheralTo> sourcePeripheralTo{};
         }
-        }
         ///Interrupt error mask. When cleared, this bit masks out the error interrupt of the relevant channel.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ie{}; 
         ///Terminal count interrupt mask. When cleared, this bit masks out the terminal count interrupt of the relevant channel.
@@ -2400,7 +2285,6 @@ namespace Kvasir {
         namespace HValC{
             constexpr Register::FieldValue<decltype(h)::Type,HVal::enableDmaRequests> enableDmaRequests{};
             constexpr Register::FieldValue<decltype(h)::Type,HVal::ignoreFurtherSourc> ignoreFurtherSourc{};
-        }
         }
     }
     namespace Nonec5config{    ///<DMA Channel Configuration Register
@@ -2415,7 +2299,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(e)::Type,EVal::channelDisabled> channelDisabled{};
             constexpr Register::FieldValue<decltype(e)::Type,EVal::channelEnabled> channelEnabled{};
         }
-        }
         ///Source peripheral. This value selects the DMA source request peripheral. This field is ignored if the source of the transfer is from memory. See Table 136 for details.
         enum class SrcperipheralVal {
             sourceEqSpifi=0x00000000,     ///<Source = SPIFI
@@ -2453,7 +2336,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcperipheral)::Type,SrcperipheralVal::sourceEqAdc0> sourceEqAdc0{};
             constexpr Register::FieldValue<decltype(srcperipheral)::Type,SrcperipheralVal::sourceEqAdc1> sourceEqAdc1{};
             constexpr Register::FieldValue<decltype(srcperipheral)::Type,SrcperipheralVal::sourceEqDac> sourceEqDac{};
-        }
         }
         ///Destination peripheral. This value selects the DMA destination request peripheral. This field is ignored if the destination of the transfer is to memory. See Table 136 for details.
         enum class DestperipheralVal {
@@ -2493,7 +2375,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(destperipheral)::Type,DestperipheralVal::destinationEqAdc1> destinationEqAdc1{};
             constexpr Register::FieldValue<decltype(destperipheral)::Type,DestperipheralVal::destinationEqDac> destinationEqDac{};
         }
-        }
         ///Flow control and transfer type. This value indicates the flow controller and transfer type. The flow controller can be the DMA Controller, the source peripheral, or the destination peripheral. The transfer type can be memory-to-memory, memory-to-peripheral, peripheral-to-memory, or peripheral-to-peripheral. Refer to Table 157 for the encoding of this field.
         enum class FlowcntrlVal {
             memoryToMemoryDm=0x00000000,     ///<Memory to memory (DMA control)
@@ -2516,7 +2397,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flowcntrl)::Type,FlowcntrlVal::peripheralToMemory> peripheralToMemory{};
             constexpr Register::FieldValue<decltype(flowcntrl)::Type,FlowcntrlVal::sourcePeripheralTo> sourcePeripheralTo{};
         }
-        }
         ///Interrupt error mask. When cleared, this bit masks out the error interrupt of the relevant channel.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ie{}; 
         ///Terminal count interrupt mask. When cleared, this bit masks out the terminal count interrupt of the relevant channel.
@@ -2534,7 +2414,6 @@ namespace Kvasir {
         namespace HValC{
             constexpr Register::FieldValue<decltype(h)::Type,HVal::enableDmaRequests> enableDmaRequests{};
             constexpr Register::FieldValue<decltype(h)::Type,HVal::ignoreFurtherSourc> ignoreFurtherSourc{};
-        }
         }
     }
     namespace Nonec6config{    ///<DMA Channel Configuration Register
@@ -2549,7 +2428,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(e)::Type,EVal::channelDisabled> channelDisabled{};
             constexpr Register::FieldValue<decltype(e)::Type,EVal::channelEnabled> channelEnabled{};
         }
-        }
         ///Source peripheral. This value selects the DMA source request peripheral. This field is ignored if the source of the transfer is from memory. See Table 136 for details.
         enum class SrcperipheralVal {
             sourceEqSpifi=0x00000000,     ///<Source = SPIFI
@@ -2587,7 +2465,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcperipheral)::Type,SrcperipheralVal::sourceEqAdc0> sourceEqAdc0{};
             constexpr Register::FieldValue<decltype(srcperipheral)::Type,SrcperipheralVal::sourceEqAdc1> sourceEqAdc1{};
             constexpr Register::FieldValue<decltype(srcperipheral)::Type,SrcperipheralVal::sourceEqDac> sourceEqDac{};
-        }
         }
         ///Destination peripheral. This value selects the DMA destination request peripheral. This field is ignored if the destination of the transfer is to memory. See Table 136 for details.
         enum class DestperipheralVal {
@@ -2627,7 +2504,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(destperipheral)::Type,DestperipheralVal::destinationEqAdc1> destinationEqAdc1{};
             constexpr Register::FieldValue<decltype(destperipheral)::Type,DestperipheralVal::destinationEqDac> destinationEqDac{};
         }
-        }
         ///Flow control and transfer type. This value indicates the flow controller and transfer type. The flow controller can be the DMA Controller, the source peripheral, or the destination peripheral. The transfer type can be memory-to-memory, memory-to-peripheral, peripheral-to-memory, or peripheral-to-peripheral. Refer to Table 157 for the encoding of this field.
         enum class FlowcntrlVal {
             memoryToMemoryDm=0x00000000,     ///<Memory to memory (DMA control)
@@ -2650,7 +2526,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flowcntrl)::Type,FlowcntrlVal::peripheralToMemory> peripheralToMemory{};
             constexpr Register::FieldValue<decltype(flowcntrl)::Type,FlowcntrlVal::sourcePeripheralTo> sourcePeripheralTo{};
         }
-        }
         ///Interrupt error mask. When cleared, this bit masks out the error interrupt of the relevant channel.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ie{}; 
         ///Terminal count interrupt mask. When cleared, this bit masks out the terminal count interrupt of the relevant channel.
@@ -2668,7 +2543,6 @@ namespace Kvasir {
         namespace HValC{
             constexpr Register::FieldValue<decltype(h)::Type,HVal::enableDmaRequests> enableDmaRequests{};
             constexpr Register::FieldValue<decltype(h)::Type,HVal::ignoreFurtherSourc> ignoreFurtherSourc{};
-        }
         }
     }
     namespace Nonec7config{    ///<DMA Channel Configuration Register
@@ -2683,7 +2557,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(e)::Type,EVal::channelDisabled> channelDisabled{};
             constexpr Register::FieldValue<decltype(e)::Type,EVal::channelEnabled> channelEnabled{};
         }
-        }
         ///Source peripheral. This value selects the DMA source request peripheral. This field is ignored if the source of the transfer is from memory. See Table 136 for details.
         enum class SrcperipheralVal {
             sourceEqSpifi=0x00000000,     ///<Source = SPIFI
@@ -2721,7 +2594,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(srcperipheral)::Type,SrcperipheralVal::sourceEqAdc0> sourceEqAdc0{};
             constexpr Register::FieldValue<decltype(srcperipheral)::Type,SrcperipheralVal::sourceEqAdc1> sourceEqAdc1{};
             constexpr Register::FieldValue<decltype(srcperipheral)::Type,SrcperipheralVal::sourceEqDac> sourceEqDac{};
-        }
         }
         ///Destination peripheral. This value selects the DMA destination request peripheral. This field is ignored if the destination of the transfer is to memory. See Table 136 for details.
         enum class DestperipheralVal {
@@ -2761,7 +2633,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(destperipheral)::Type,DestperipheralVal::destinationEqAdc1> destinationEqAdc1{};
             constexpr Register::FieldValue<decltype(destperipheral)::Type,DestperipheralVal::destinationEqDac> destinationEqDac{};
         }
-        }
         ///Flow control and transfer type. This value indicates the flow controller and transfer type. The flow controller can be the DMA Controller, the source peripheral, or the destination peripheral. The transfer type can be memory-to-memory, memory-to-peripheral, peripheral-to-memory, or peripheral-to-peripheral. Refer to Table 157 for the encoding of this field.
         enum class FlowcntrlVal {
             memoryToMemoryDm=0x00000000,     ///<Memory to memory (DMA control)
@@ -2784,7 +2655,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(flowcntrl)::Type,FlowcntrlVal::peripheralToMemory> peripheralToMemory{};
             constexpr Register::FieldValue<decltype(flowcntrl)::Type,FlowcntrlVal::sourcePeripheralTo> sourcePeripheralTo{};
         }
-        }
         ///Interrupt error mask. When cleared, this bit masks out the error interrupt of the relevant channel.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> ie{}; 
         ///Terminal count interrupt mask. When cleared, this bit masks out the terminal count interrupt of the relevant channel.
@@ -2802,7 +2672,6 @@ namespace Kvasir {
         namespace HValC{
             constexpr Register::FieldValue<decltype(h)::Type,HVal::enableDmaRequests> enableDmaRequests{};
             constexpr Register::FieldValue<decltype(h)::Type,HVal::ignoreFurtherSourc> ignoreFurtherSourc{};
-        }
         }
     }
 }

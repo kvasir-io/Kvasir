@@ -31,7 +31,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(selminus)::Type,SelminusVal::ad2> ad2{};
             constexpr Register::FieldValue<decltype(selminus)::Type,SelminusVal::ad3> ad3{};
         }
-        }
         ///SELection for PLUS comparator input
         enum class SelplusVal {
             ad0=0x00000000,     ///<Select AD0
@@ -54,7 +53,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(selplus)::Type,SelplusVal::ad6> ad6{};
             constexpr Register::FieldValue<decltype(selplus)::Type,SelplusVal::ad7> ad7{};
         }
-        }
         ///Analog Comparator ENable
         enum class AcenVal {
             dis=0x00000000,     ///<Analog Comparator Disabled.
@@ -64,7 +62,6 @@ namespace Kvasir {
         namespace AcenValC{
             constexpr Register::FieldValue<decltype(acen)::Type,AcenVal::dis> dis{};
             constexpr Register::FieldValue<decltype(acen)::Type,AcenVal::en> en{};
-        }
         }
         ///EDGE TYPe
         enum class EdgetypVal {
@@ -78,7 +75,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(edgetyp)::Type,EdgetypVal::falling> falling{};
             constexpr Register::FieldValue<decltype(edgetyp)::Type,EdgetypVal::any> any{};
         }
-        }
         ///INVert comparator output
         enum class InvVal {
             dis=0x00000000,     ///<Analog Comparator output is directly processed.
@@ -88,7 +84,6 @@ namespace Kvasir {
         namespace InvValC{
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::dis> dis{};
             constexpr Register::FieldValue<decltype(inv)::Type,InvVal::en> en{};
-        }
         }
         ///SELection of Fault Source
         enum class SelfsVal {
@@ -100,7 +95,6 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(selfs)::Type,SelfsVal::cf> cf{};
             constexpr Register::FieldValue<decltype(selfs)::Type,SelfsVal::output> output{};
         }
-        }
         ///Fault Enable
         enum class FeVal {
             dis=0x00000000,     ///<the FAULT output is tied to 0.
@@ -110,7 +104,6 @@ namespace Kvasir {
         namespace FeValC{
             constexpr Register::FieldValue<decltype(fe)::Type,FeVal::dis> dis{};
             constexpr Register::FieldValue<decltype(fe)::Type,FeVal::en> en{};
-        }
         }
     }
     namespace AccIer{    ///<Interrupt Enable Register
@@ -148,7 +141,6 @@ namespace Kvasir {
         namespace IselValC{
             constexpr Register::FieldValue<decltype(isel)::Type,IselVal::lopw> lopw{};
             constexpr Register::FieldValue<decltype(isel)::Type,IselVal::hisp> hisp{};
-        }
         }
         ///HYSTeresis selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,1),Register::ReadWriteAccess,unsigned> hyst{}; 
