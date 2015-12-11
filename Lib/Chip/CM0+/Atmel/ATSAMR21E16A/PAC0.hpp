@@ -6,14 +6,10 @@ namespace Kvasir {
         using Addr = Register::Address<0x40000000,0x00000001,0,unsigned>;
         ///Write Protection Clear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,1),Register::ReadWriteAccess,unsigned> wp{}; 
-        namespace WpValC{
-        }
     }
     namespace PacWpset{    ///<Write Protection Set
         using Addr = Register::Address<0x40000004,0x00000001,0,unsigned>;
         ///Write Protection Set
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,1),Register::ReadWriteAccess,unsigned> wp{}; 
-        namespace WpValC{
-        }
     }
 }

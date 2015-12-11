@@ -6,85 +6,55 @@ namespace Kvasir {
         using Addr = Register::Address<0x40050000,0xffff00f0,0,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> monCnt{}; 
-        namespace MoncntValC{
-        }
         ///Year Offset Count Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> yrofst{}; 
-        namespace YrofstValC{
-        }
     }
     namespace RtcDays{    ///<RTC Days and Day-of-Week Counters Register
         using Addr = Register::Address<0x40050002,0xfffff8e0,0,unsigned>;
         ///Days Counter Value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> dayCnt{}; 
-        namespace DaycntValC{
-        }
         ///Day of Week Counter Value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> dow{}; 
-        namespace DowValC{
-        }
     }
     namespace RtcHourmin{    ///<RTC Hours and Minutes Counters Register
         using Addr = Register::Address<0x40050004,0xffffe0c0,0,unsigned>;
         ///Minutes Counter Value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> minCnt{}; 
-        namespace MincntValC{
-        }
         ///Hours Counter Value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> hourCnt{}; 
-        namespace HourcntValC{
-        }
     }
     namespace RtcSeconds{    ///<RTC Seconds Counters Register
         using Addr = Register::Address<0x40050006,0xffffffc0,0,unsigned>;
         ///Seconds Counter Value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> secCnt{}; 
-        namespace SeccntValC{
-        }
     }
     namespace RtcAlmYearmon{    ///<RTC Year and Months Alarm Register
         using Addr = Register::Address<0x40050008,0xffff00f0,0,unsigned>;
         ///Months Value for Alarm.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> almMon{}; 
-        namespace AlmmonValC{
-        }
         ///Year Value for Alarm.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> almYear{}; 
-        namespace AlmyearValC{
-        }
     }
     namespace RtcAlmDays{    ///<RTC Days Alarm Register
         using Addr = Register::Address<0x4005000a,0xffffffe0,0,unsigned>;
         ///Days Value for Alarm.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> almDay{}; 
-        namespace AlmdayValC{
-        }
     }
     namespace RtcAlmHourmin{    ///<RTC Hours and Minutes Alarm Register
         using Addr = Register::Address<0x4005000c,0xffffe0c0,0,unsigned>;
         ///Minutes Value for Alarm.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> almMin{}; 
-        namespace AlmminValC{
-        }
         ///Hours Value for Alarm.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> almHour{}; 
-        namespace AlmhourValC{
-        }
     }
     namespace RtcAlmSeconds{    ///<RTC Seconds Alarm Register
         using Addr = Register::Address<0x4005000e,0xfffffcc0,0,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> almSec{}; 
-        namespace AlmsecValC{
-        }
         ///Decrement Seconds Counter by 1.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> decSec{}; 
-        namespace DecsecValC{
-        }
         ///Increment Seconds Counter by 1.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> incSec{}; 
-        namespace IncsecValC{
-        }
     }
     namespace RtcCtrl{    ///<RTC Control Register
         using Addr = Register::Address<0x40050010,0xffff9ea0,0,unsigned>;
@@ -95,13 +65,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,FineenVal> fineen{}; 
         namespace FineenValC{
-            constexpr Register::FieldValue<decltype(fineen),FineenVal::v1> v1{};
-            constexpr Register::FieldValue<decltype(fineen),FineenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fineen)::Type,FineenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(fineen)::Type,FineenVal::v0> v0{};
+        }
         }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> compEn{}; 
-        namespace CompenValC{
-        }
         ///Alarm Match bits.
         enum class AlmmatchVal {
             v00=0x00000000,     ///<Only Seconds, Minutes, and Hours matched.
@@ -110,9 +79,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,AlmmatchVal> almMatch{}; 
         namespace AlmmatchValC{
-            constexpr Register::FieldValue<decltype(almMatch),AlmmatchVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(almMatch),AlmmatchVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(almMatch),AlmmatchVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(almMatch)::Type,AlmmatchVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(almMatch)::Type,AlmmatchVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(almMatch)::Type,AlmmatchVal::v10> v10{};
+        }
         }
         ///Sampling timer clocks mask
         enum class TimerstbmaskVal {
@@ -121,8 +91,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TimerstbmaskVal> timerStbMask{}; 
         namespace TimerstbmaskValC{
-            constexpr Register::FieldValue<decltype(timerStbMask),TimerstbmaskVal::v1> v1{};
-            constexpr Register::FieldValue<decltype(timerStbMask),TimerstbmaskVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(timerStbMask)::Type,TimerstbmaskVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(timerStbMask)::Type,TimerstbmaskVal::v0> v0{};
+        }
         }
         ///Daylight Saving Enable.
         enum class DstenVal {
@@ -131,8 +102,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,DstenVal> dstEn{}; 
         namespace DstenValC{
-            constexpr Register::FieldValue<decltype(dstEn),DstenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dstEn),DstenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dstEn)::Type,DstenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dstEn)::Type,DstenVal::v1> v1{};
+        }
         }
         ///Software Reset bit.
         enum class SwrVal {
@@ -141,8 +113,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,SwrVal> swr{}; 
         namespace SwrValC{
-            constexpr Register::FieldValue<decltype(swr),SwrVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(swr),SwrVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(swr)::Type,SwrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(swr)::Type,SwrVal::v1> v1{};
+        }
         }
         ///RTC Clock Output Selection.
         enum class ClkoutVal {
@@ -153,10 +126,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,13),Register::ReadWriteAccess,ClkoutVal> clkout{}; 
         namespace ClkoutValC{
-            constexpr Register::FieldValue<decltype(clkout),ClkoutVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(clkout),ClkoutVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(clkout),ClkoutVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(clkout),ClkoutVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(clkout)::Type,ClkoutVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(clkout)::Type,ClkoutVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(clkout)::Type,ClkoutVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(clkout)::Type,ClkoutVal::v11> v11{};
+        }
         }
     }
     namespace RtcStatus{    ///<RTC Status Register
@@ -168,8 +142,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,InvalbitVal> invalBit{}; 
         namespace InvalbitValC{
-            constexpr Register::FieldValue<decltype(invalBit),InvalbitVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(invalBit),InvalbitVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(invalBit)::Type,InvalbitVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(invalBit)::Type,InvalbitVal::v1> v1{};
+        }
         }
         ///Write Protect Enable status bit.
         enum class WriteprotenVal {
@@ -178,8 +153,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,WriteprotenVal> writeProtEn{}; 
         namespace WriteprotenValC{
-            constexpr Register::FieldValue<decltype(writeProtEn),WriteprotenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(writeProtEn),WriteprotenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(writeProtEn)::Type,WriteprotenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(writeProtEn)::Type,WriteprotenVal::v1> v1{};
+        }
         }
         ///CPU Low Voltage Warning status bit.
         enum class CpulowvoltVal {
@@ -188,8 +164,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,CpulowvoltVal> cpuLowVolt{}; 
         namespace CpulowvoltValC{
-            constexpr Register::FieldValue<decltype(cpuLowVolt),CpulowvoltVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(cpuLowVolt),CpulowvoltVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(cpuLowVolt)::Type,CpulowvoltVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cpuLowVolt)::Type,CpulowvoltVal::v1> v1{};
+        }
         }
         ///Reset Source bit.
         enum class RstsrcVal {
@@ -198,20 +175,20 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,RstsrcVal> rstSrc{}; 
         namespace RstsrcValC{
-            constexpr Register::FieldValue<decltype(rstSrc),RstsrcVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rstSrc),RstsrcVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(rstSrc)::Type,RstsrcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rstSrc)::Type,RstsrcVal::v1> v1{};
+        }
         }
         ///Compensation Interval bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> cmpInt{}; 
-        namespace CmpintValC{
-        }
         ///Write Enable bits.
         enum class WeVal {
             v10=0x00000002,     ///<Enable Write Protection - Registers are locked.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,WeVal> we{}; 
         namespace WeValC{
-            constexpr Register::FieldValue<decltype(we),WeVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(we)::Type,WeVal::v10> v10{};
+        }
         }
         ///Bus Error bit.
         enum class BuserrVal {
@@ -220,8 +197,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,BuserrVal> busErr{}; 
         namespace BuserrValC{
-            constexpr Register::FieldValue<decltype(busErr),BuserrVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(busErr),BuserrVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(busErr)::Type,BuserrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(busErr)::Type,BuserrVal::v1> v1{};
+        }
         }
         ///Compensation Done bit.
         enum class CmpdoneVal {
@@ -230,8 +208,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,CmpdoneVal> cmpDone{}; 
         namespace CmpdoneValC{
-            constexpr Register::FieldValue<decltype(cmpDone),CmpdoneVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(cmpDone),CmpdoneVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(cmpDone)::Type,CmpdoneVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cmpDone)::Type,CmpdoneVal::v1> v1{};
+        }
         }
     }
     namespace RtcIsr{    ///<RTC Interrupt Status Register
@@ -243,8 +222,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TamperisVal> tamperIs{}; 
         namespace TamperisValC{
-            constexpr Register::FieldValue<decltype(tamperIs),TamperisVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tamperIs),TamperisVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(tamperIs)::Type,TamperisVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tamperIs)::Type,TamperisVal::v1> v1{};
+        }
         }
         ///Alarm Interrupt Status bit.
         enum class AlmisVal {
@@ -253,8 +233,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,AlmisVal> almIs{}; 
         namespace AlmisValC{
-            constexpr Register::FieldValue<decltype(almIs),AlmisVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(almIs),AlmisVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(almIs)::Type,AlmisVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(almIs)::Type,AlmisVal::v1> v1{};
+        }
         }
         ///Days Interrupt Status bit.
         enum class DayisVal {
@@ -263,8 +244,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,DayisVal> dayIs{}; 
         namespace DayisValC{
-            constexpr Register::FieldValue<decltype(dayIs),DayisVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dayIs),DayisVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dayIs)::Type,DayisVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dayIs)::Type,DayisVal::v1> v1{};
+        }
         }
         ///Hours Interrupt Status bit.
         enum class HourisVal {
@@ -273,8 +255,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,HourisVal> hourIs{}; 
         namespace HourisValC{
-            constexpr Register::FieldValue<decltype(hourIs),HourisVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(hourIs),HourisVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(hourIs)::Type,HourisVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(hourIs)::Type,HourisVal::v1> v1{};
+        }
         }
         ///Minutes Interrupt Status bit.
         enum class MinisVal {
@@ -283,8 +266,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,MinisVal> minIs{}; 
         namespace MinisValC{
-            constexpr Register::FieldValue<decltype(minIs),MinisVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(minIs),MinisVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(minIs)::Type,MinisVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(minIs)::Type,MinisVal::v1> v1{};
+        }
         }
         ///1 Hz Interval Interrupt Status bit.
         enum class Is1hzVal {
@@ -293,8 +277,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Is1hzVal> is1hz{}; 
         namespace Is1hzValC{
-            constexpr Register::FieldValue<decltype(is1hz),Is1hzVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(is1hz),Is1hzVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(is1hz)::Type,Is1hzVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(is1hz)::Type,Is1hzVal::v1> v1{};
+        }
         }
         ///2 Hz Interval Interrupt Status bit.
         enum class Is2hzVal {
@@ -303,8 +288,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Is2hzVal> is2hz{}; 
         namespace Is2hzValC{
-            constexpr Register::FieldValue<decltype(is2hz),Is2hzVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(is2hz),Is2hzVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(is2hz)::Type,Is2hzVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(is2hz)::Type,Is2hzVal::v1> v1{};
+        }
         }
         ///4 Hz Interval Interrupt Status bit.
         enum class Is4hzVal {
@@ -313,8 +299,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Is4hzVal> is4hz{}; 
         namespace Is4hzValC{
-            constexpr Register::FieldValue<decltype(is4hz),Is4hzVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(is4hz),Is4hzVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(is4hz)::Type,Is4hzVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(is4hz)::Type,Is4hzVal::v1> v1{};
+        }
         }
         ///8 Hz Interval Interrupt Status bit.
         enum class Is8hzVal {
@@ -323,8 +310,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Is8hzVal> is8hz{}; 
         namespace Is8hzValC{
-            constexpr Register::FieldValue<decltype(is8hz),Is8hzVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(is8hz),Is8hzVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(is8hz)::Type,Is8hzVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(is8hz)::Type,Is8hzVal::v1> v1{};
+        }
         }
         ///16 Hz Interval Interrupt Status bit.
         enum class Is16hzVal {
@@ -333,8 +321,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Is16hzVal> is16hz{}; 
         namespace Is16hzValC{
-            constexpr Register::FieldValue<decltype(is16hz),Is16hzVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(is16hz),Is16hzVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(is16hz)::Type,Is16hzVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(is16hz)::Type,Is16hzVal::v1> v1{};
+        }
         }
         ///32 Hz Interval Interrupt Status bit.
         enum class Is32hzVal {
@@ -343,8 +332,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Is32hzVal> is32hz{}; 
         namespace Is32hzValC{
-            constexpr Register::FieldValue<decltype(is32hz),Is32hzVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(is32hz),Is32hzVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(is32hz)::Type,Is32hzVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(is32hz)::Type,Is32hzVal::v1> v1{};
+        }
         }
         ///64 Hz Interval Interrupt Status bit.
         enum class Is64hzVal {
@@ -353,8 +343,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Is64hzVal> is64hz{}; 
         namespace Is64hzValC{
-            constexpr Register::FieldValue<decltype(is64hz),Is64hzVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(is64hz),Is64hzVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(is64hz)::Type,Is64hzVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(is64hz)::Type,Is64hzVal::v1> v1{};
+        }
         }
         ///128 Hz Interval Interrupt Status bit.
         enum class Is128hzVal {
@@ -363,8 +354,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Is128hzVal> is128hz{}; 
         namespace Is128hzValC{
-            constexpr Register::FieldValue<decltype(is128hz),Is128hzVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(is128hz),Is128hzVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(is128hz)::Type,Is128hzVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(is128hz)::Type,Is128hzVal::v1> v1{};
+        }
         }
         ///256 Hz Interval Interrupt Status bit.
         enum class Is256hzVal {
@@ -373,8 +365,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Is256hzVal> is256hz{}; 
         namespace Is256hzValC{
-            constexpr Register::FieldValue<decltype(is256hz),Is256hzVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(is256hz),Is256hzVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(is256hz)::Type,Is256hzVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(is256hz)::Type,Is256hzVal::v1> v1{};
+        }
         }
         ///512 Hz Interval Interrupt Status bit.
         enum class Is512hzVal {
@@ -383,8 +376,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Is512hzVal> is512hz{}; 
         namespace Is512hzValC{
-            constexpr Register::FieldValue<decltype(is512hz),Is512hzVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(is512hz),Is512hzVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(is512hz)::Type,Is512hzVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(is512hz)::Type,Is512hzVal::v1> v1{};
+        }
         }
     }
     namespace RtcIer{    ///<RTC Interrupt Enable Register
@@ -396,8 +390,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TamperieVal> tamperIe{}; 
         namespace TamperieValC{
-            constexpr Register::FieldValue<decltype(tamperIe),TamperieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tamperIe),TamperieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(tamperIe)::Type,TamperieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tamperIe)::Type,TamperieVal::v1> v1{};
+        }
         }
         ///Alarm Interrupt Enable bit.
         enum class AlmieVal {
@@ -406,8 +401,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,AlmieVal> almIe{}; 
         namespace AlmieValC{
-            constexpr Register::FieldValue<decltype(almIe),AlmieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(almIe),AlmieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(almIe)::Type,AlmieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(almIe)::Type,AlmieVal::v1> v1{};
+        }
         }
         ///Days Interrupt Enable bit.
         enum class DayieVal {
@@ -416,8 +412,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,DayieVal> dayIe{}; 
         namespace DayieValC{
-            constexpr Register::FieldValue<decltype(dayIe),DayieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dayIe),DayieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dayIe)::Type,DayieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dayIe)::Type,DayieVal::v1> v1{};
+        }
         }
         ///Hours Interrupt Enable bit.
         enum class HourieVal {
@@ -426,8 +423,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,HourieVal> hourIe{}; 
         namespace HourieValC{
-            constexpr Register::FieldValue<decltype(hourIe),HourieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(hourIe),HourieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(hourIe)::Type,HourieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(hourIe)::Type,HourieVal::v1> v1{};
+        }
         }
         ///Minutes Interrupt Enable bit.
         enum class MinieVal {
@@ -436,8 +434,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,MinieVal> minIe{}; 
         namespace MinieValC{
-            constexpr Register::FieldValue<decltype(minIe),MinieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(minIe),MinieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(minIe)::Type,MinieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(minIe)::Type,MinieVal::v1> v1{};
+        }
         }
         ///1 Hz Interval Interrupt Enable bit.
         enum class Ie1hzVal {
@@ -446,8 +445,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Ie1hzVal> ie1hz{}; 
         namespace Ie1hzValC{
-            constexpr Register::FieldValue<decltype(ie1hz),Ie1hzVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ie1hz),Ie1hzVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ie1hz)::Type,Ie1hzVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ie1hz)::Type,Ie1hzVal::v1> v1{};
+        }
         }
         ///2 Hz Interval Interrupt Enable bit.
         enum class Ie2hzVal {
@@ -456,8 +456,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ie2hzVal> ie2hz{}; 
         namespace Ie2hzValC{
-            constexpr Register::FieldValue<decltype(ie2hz),Ie2hzVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ie2hz),Ie2hzVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ie2hz)::Type,Ie2hzVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ie2hz)::Type,Ie2hzVal::v1> v1{};
+        }
         }
         ///4 Hz Interval Interrupt Enable bit.
         enum class Ie4hzVal {
@@ -466,8 +467,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ie4hzVal> ie4hz{}; 
         namespace Ie4hzValC{
-            constexpr Register::FieldValue<decltype(ie4hz),Ie4hzVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ie4hz),Ie4hzVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ie4hz)::Type,Ie4hzVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ie4hz)::Type,Ie4hzVal::v1> v1{};
+        }
         }
         ///8 Hz Interval Interrupt Enable bit.
         enum class Ie8hzVal {
@@ -476,8 +478,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Ie8hzVal> ie8hz{}; 
         namespace Ie8hzValC{
-            constexpr Register::FieldValue<decltype(ie8hz),Ie8hzVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ie8hz),Ie8hzVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ie8hz)::Type,Ie8hzVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ie8hz)::Type,Ie8hzVal::v1> v1{};
+        }
         }
         ///16 Hz Interval Interrupt Enable bit.
         enum class Ie16hzVal {
@@ -486,8 +489,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ie16hzVal> ie16hz{}; 
         namespace Ie16hzValC{
-            constexpr Register::FieldValue<decltype(ie16hz),Ie16hzVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ie16hz),Ie16hzVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ie16hz)::Type,Ie16hzVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ie16hz)::Type,Ie16hzVal::v1> v1{};
+        }
         }
         ///32 Hz Interval Interrupt Enable bit.
         enum class Ie32hzVal {
@@ -496,8 +500,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ie32hzVal> ie32hz{}; 
         namespace Ie32hzValC{
-            constexpr Register::FieldValue<decltype(ie32hz),Ie32hzVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ie32hz),Ie32hzVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ie32hz)::Type,Ie32hzVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ie32hz)::Type,Ie32hzVal::v1> v1{};
+        }
         }
         ///64 Hz Interval Interrupt Enable bit.
         enum class Ie64hzVal {
@@ -506,8 +511,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Ie64hzVal> ie64hz{}; 
         namespace Ie64hzValC{
-            constexpr Register::FieldValue<decltype(ie64hz),Ie64hzVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ie64hz),Ie64hzVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ie64hz)::Type,Ie64hzVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ie64hz)::Type,Ie64hzVal::v1> v1{};
+        }
         }
         ///128 Hz Interval Interrupt Enable bit.
         enum class Ie128hzVal {
@@ -516,8 +522,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Ie128hzVal> ie128hz{}; 
         namespace Ie128hzValC{
-            constexpr Register::FieldValue<decltype(ie128hz),Ie128hzVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ie128hz),Ie128hzVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ie128hz)::Type,Ie128hzVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ie128hz)::Type,Ie128hzVal::v1> v1{};
+        }
         }
         ///256 Hz Interval Interrupt Enable bit.
         enum class Ie256hzVal {
@@ -526,8 +533,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Ie256hzVal> ie256hz{}; 
         namespace Ie256hzValC{
-            constexpr Register::FieldValue<decltype(ie256hz),Ie256hzVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ie256hz),Ie256hzVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ie256hz)::Type,Ie256hzVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ie256hz)::Type,Ie256hzVal::v1> v1{};
+        }
         }
         ///512 Hz Interval Interrupt Enable bit.
         enum class Ie512hzVal {
@@ -536,108 +544,73 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Ie512hzVal> ie512hz{}; 
         namespace Ie512hzValC{
-            constexpr Register::FieldValue<decltype(ie512hz),Ie512hzVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ie512hz),Ie512hzVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ie512hz)::Type,Ie512hzVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ie512hz)::Type,Ie512hzVal::v1> v1{};
+        }
         }
     }
     namespace RtcGpDataReg{    ///<RTC General Purpose Data Register
         using Addr = Register::Address<0x40050020,0xffff0000,0,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> gpDataReg{}; 
-        namespace GpdataregValC{
-        }
     }
     namespace RtcDstHour{    ///<RTC Daylight Saving Hour Register
         using Addr = Register::Address<0x40050022,0xffffe0e0,0,unsigned>;
         ///Daylight Saving Time (DST) Hours End Value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> dstEndHour{}; 
-        namespace DstendhourValC{
-        }
         ///Daylight Saving Time (DST) Hours Start Value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> dstStartHour{}; 
-        namespace DststarthourValC{
-        }
     }
     namespace RtcDstMonth{    ///<RTC Daylight Saving Month Register
         using Addr = Register::Address<0x40050024,0xfffff0f0,0,unsigned>;
         ///Daylight Saving Time (DST) Month End Value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> dstEndMonth{}; 
-        namespace DstendmonthValC{
-        }
         ///Daylight Saving Time (DST) Month Start Value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> dstStartMonth{}; 
-        namespace DststartmonthValC{
-        }
     }
     namespace RtcDstDay{    ///<RTC Daylight Saving Day Register
         using Addr = Register::Address<0x40050026,0xffffe0e0,0,unsigned>;
         ///Daylight Saving Time (DST) Day End Value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> dstEndDay{}; 
-        namespace DstenddayValC{
-        }
         ///Daylight Saving Time (DST) Day Start Value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> dstStartDay{}; 
-        namespace DststartdayValC{
-        }
     }
     namespace RtcCompen{    ///<RTC Compensation Register
         using Addr = Register::Address<0x40050028,0xffff0000,0,unsigned>;
         ///Compensation Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> compenVal{}; 
-        namespace CompenvalValC{
-        }
     }
     namespace RtcTamperDirection{    ///<Tamper Direction Register
         using Addr = Register::Address<0x4005002c,0xfffff0f0,0,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> aPTamp{}; 
-        namespace AptampValC{
-        }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> iOTamp{}; 
-        namespace IotampValC{
-        }
     }
     namespace RtcTamperQscr{    ///<Tamper Queue Status and Control Register
         using Addr = Register::Address<0x4005002e,0xffff08f8,0,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> qFull{}; 
-        namespace QfullValC{
-        }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> qFullIntEn{}; 
-        namespace QfullintenValC{
-        }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> qClear{}; 
-        namespace QclearValC{
-        }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> lfsrClkSel{}; 
-        namespace LfsrclkselValC{
-        }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> lfsrDuration{}; 
-        namespace LfsrdurationValC{
-        }
     }
     namespace RtcTamperScr{    ///<RTC Tamper Status and Control Register
         using Addr = Register::Address<0x40050032,0xfffff0f0,0,unsigned>;
         ///Tamper Control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> tmprEn{}; 
-        namespace TmprenValC{
-        }
         ///Tamper Status Bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> tmprSts{}; 
-        namespace TmprstsValC{
-        }
     }
     namespace RtcFilter01Cfg{    ///<RTC Tamper 0 1 Filter Configuration Register
         using Addr = Register::Address<0x40050034,0xffff0000,0,unsigned>;
         ///Tamper Detect Bit 1 Filter Duration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> filDur1{}; 
-        namespace Fildur1ValC{
-        }
         ///Tamper Filter 1 Clock Select
         enum class Clksel1Val {
             v000=0x00000000,     ///<32 kHz clock
@@ -651,14 +624,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,Clksel1Val> clkSel1{}; 
         namespace Clksel1ValC{
-            constexpr Register::FieldValue<decltype(clkSel1),Clksel1Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(clkSel1),Clksel1Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(clkSel1),Clksel1Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(clkSel1),Clksel1Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(clkSel1),Clksel1Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(clkSel1),Clksel1Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(clkSel1),Clksel1Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(clkSel1),Clksel1Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(clkSel1)::Type,Clksel1Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(clkSel1)::Type,Clksel1Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(clkSel1)::Type,Clksel1Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(clkSel1)::Type,Clksel1Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(clkSel1)::Type,Clksel1Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(clkSel1)::Type,Clksel1Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(clkSel1)::Type,Clksel1Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(clkSel1)::Type,Clksel1Val::v111> v111{};
+        }
         }
         ///Tamper Detect Input Bit 1 Polarity Control
         enum class Pol1Val {
@@ -667,13 +641,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Pol1Val> pol1{}; 
         namespace Pol1ValC{
-            constexpr Register::FieldValue<decltype(pol1),Pol1Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(pol1),Pol1Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(pol1)::Type,Pol1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(pol1)::Type,Pol1Val::v1> v1{};
+        }
         }
         ///Tamper Detect Bit 0 Filter Duration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> filDur0{}; 
-        namespace Fildur0ValC{
-        }
         ///Tamper Filter 0 Clock Select
         enum class Clksel0Val {
             v000=0x00000000,     ///<32 kHz clock
@@ -687,14 +660,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,Clksel0Val> clkSel0{}; 
         namespace Clksel0ValC{
-            constexpr Register::FieldValue<decltype(clkSel0),Clksel0Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(clkSel0),Clksel0Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(clkSel0),Clksel0Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(clkSel0),Clksel0Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(clkSel0),Clksel0Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(clkSel0),Clksel0Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(clkSel0),Clksel0Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(clkSel0),Clksel0Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(clkSel0)::Type,Clksel0Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(clkSel0)::Type,Clksel0Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(clkSel0)::Type,Clksel0Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(clkSel0)::Type,Clksel0Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(clkSel0)::Type,Clksel0Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(clkSel0)::Type,Clksel0Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(clkSel0)::Type,Clksel0Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(clkSel0)::Type,Clksel0Val::v111> v111{};
+        }
         }
         ///Tamper Detect Input Bit 0 Polarity Control
         enum class Pol0Val {
@@ -703,16 +677,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Pol0Val> pol0{}; 
         namespace Pol0ValC{
-            constexpr Register::FieldValue<decltype(pol0),Pol0Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(pol0),Pol0Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(pol0)::Type,Pol0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(pol0)::Type,Pol0Val::v1> v1{};
+        }
         }
     }
     namespace RtcFilter2Cfg{    ///<RTC Tamper 2 Filter Configuration Register
         using Addr = Register::Address<0x40050036,0xffff00ff,0,unsigned>;
         ///Tamper Detect Bit 2 Filter Duration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> filDur2{}; 
-        namespace Fildur2ValC{
-        }
         ///Tamper Filter 2 Clock Select
         enum class Clksel2Val {
             v000=0x00000000,     ///<32 kHz clock
@@ -726,14 +699,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,Clksel2Val> clkSel2{}; 
         namespace Clksel2ValC{
-            constexpr Register::FieldValue<decltype(clkSel2),Clksel2Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(clkSel2),Clksel2Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(clkSel2),Clksel2Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(clkSel2),Clksel2Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(clkSel2),Clksel2Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(clkSel2),Clksel2Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(clkSel2),Clksel2Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(clkSel2),Clksel2Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(clkSel2)::Type,Clksel2Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(clkSel2)::Type,Clksel2Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(clkSel2)::Type,Clksel2Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(clkSel2)::Type,Clksel2Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(clkSel2)::Type,Clksel2Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(clkSel2)::Type,Clksel2Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(clkSel2)::Type,Clksel2Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(clkSel2)::Type,Clksel2Val::v111> v111{};
+        }
         }
         ///Tamper Detect Input Bit 2 Polarity Control
         enum class Pol2Val {
@@ -742,16 +716,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Pol2Val> pol2{}; 
         namespace Pol2ValC{
-            constexpr Register::FieldValue<decltype(pol2),Pol2Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(pol2),Pol2Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(pol2)::Type,Pol2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(pol2)::Type,Pol2Val::v1> v1{};
+        }
         }
     }
     namespace RtcTamperQueue{    ///<Tamper Queue Register
         using Addr = Register::Address<0x40050040,0xffff0000,0,unsigned>;
         ///Tamper type stamp and pin number information register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tamperData{}; 
-        namespace TamperdataValC{
-        }
     }
     namespace RtcCtrl2{    ///<RTC Control 2 Register
         using Addr = Register::Address<0x40050042,0xffffff1e,0,unsigned>;
@@ -762,8 +735,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TampcfgoverVal> tampCfgOver{}; 
         namespace TampcfgoverValC{
-            constexpr Register::FieldValue<decltype(tampCfgOver),TampcfgoverVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tampCfgOver),TampcfgoverVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(tampCfgOver)::Type,TampcfgoverVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tampCfgOver)::Type,TampcfgoverVal::v1> v1{};
+        }
         }
         ///Wakeup Status
         enum class WakeupstatusVal {
@@ -773,9 +747,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,5),Register::ReadWriteAccess,WakeupstatusVal> wakeupStatus{}; 
         namespace WakeupstatusValC{
-            constexpr Register::FieldValue<decltype(wakeupStatus),WakeupstatusVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(wakeupStatus),WakeupstatusVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(wakeupStatus),WakeupstatusVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(wakeupStatus)::Type,WakeupstatusVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(wakeupStatus)::Type,WakeupstatusVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(wakeupStatus)::Type,WakeupstatusVal::v10> v10{};
+        }
         }
         ///Wakeup Mode
         enum class WakeupmodeVal {
@@ -784,8 +759,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,WakeupmodeVal> wakeupMode{}; 
         namespace WakeupmodeValC{
-            constexpr Register::FieldValue<decltype(wakeupMode),WakeupmodeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(wakeupMode),WakeupmodeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(wakeupMode)::Type,WakeupmodeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(wakeupMode)::Type,WakeupmodeVal::v1> v1{};
+        }
         }
     }
 }

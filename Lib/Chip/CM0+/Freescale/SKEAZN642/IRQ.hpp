@@ -11,8 +11,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IrqmodVal> irqmod{}; 
         namespace IrqmodValC{
-            constexpr Register::FieldValue<decltype(irqmod),IrqmodVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(irqmod),IrqmodVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(irqmod)::Type,IrqmodVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(irqmod)::Type,IrqmodVal::v1> v1{};
+        }
         }
         ///IRQ Interrupt Enable
         enum class IrqieVal {
@@ -21,13 +22,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,IrqieVal> irqie{}; 
         namespace IrqieValC{
-            constexpr Register::FieldValue<decltype(irqie),IrqieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(irqie),IrqieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(irqie)::Type,IrqieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(irqie)::Type,IrqieVal::v1> v1{};
+        }
         }
         ///IRQ Acknowledge
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> irqack{}; 
-        namespace IrqackValC{
-        }
         ///IRQ Flag
         enum class IrqfVal {
             v0=0x00000000,     ///<No IRQ request
@@ -35,8 +35,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,IrqfVal> irqf{}; 
         namespace IrqfValC{
-            constexpr Register::FieldValue<decltype(irqf),IrqfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(irqf),IrqfVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(irqf)::Type,IrqfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(irqf)::Type,IrqfVal::v1> v1{};
+        }
         }
         ///IRQ Pin Enable
         enum class IrqpeVal {
@@ -45,8 +46,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,IrqpeVal> irqpe{}; 
         namespace IrqpeValC{
-            constexpr Register::FieldValue<decltype(irqpe),IrqpeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(irqpe),IrqpeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(irqpe)::Type,IrqpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(irqpe)::Type,IrqpeVal::v1> v1{};
+        }
         }
         ///Interrupt Request (IRQ) Edge Select
         enum class IrqedgVal {
@@ -55,8 +57,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,IrqedgVal> irqedg{}; 
         namespace IrqedgValC{
-            constexpr Register::FieldValue<decltype(irqedg),IrqedgVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(irqedg),IrqedgVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(irqedg)::Type,IrqedgVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(irqedg)::Type,IrqedgVal::v1> v1{};
+        }
         }
         ///Interrupt Request (IRQ) Pull Device Disable
         enum class IrqpddVal {
@@ -65,8 +68,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,IrqpddVal> irqpdd{}; 
         namespace IrqpddValC{
-            constexpr Register::FieldValue<decltype(irqpdd),IrqpddVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(irqpdd),IrqpddVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(irqpdd)::Type,IrqpddVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(irqpdd)::Type,IrqpddVal::v1> v1{};
+        }
         }
     }
 }

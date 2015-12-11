@@ -11,8 +11,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,RtcoVal> rtco{}; 
         namespace RtcoValC{
-            constexpr Register::FieldValue<decltype(rtco),RtcoVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rtco),RtcoVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(rtco)::Type,RtcoVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rtco)::Type,RtcoVal::v1> v1{};
+        }
         }
         ///Real-Time Interrupt Enable
         enum class RtieVal {
@@ -21,8 +22,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,RtieVal> rtie{}; 
         namespace RtieValC{
-            constexpr Register::FieldValue<decltype(rtie),RtieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rtie),RtieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(rtie)::Type,RtieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rtie)::Type,RtieVal::v1> v1{};
+        }
         }
         ///Real-Time Interrupt Flag
         enum class RtifVal {
@@ -31,8 +33,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,RtifVal> rtif{}; 
         namespace RtifValC{
-            constexpr Register::FieldValue<decltype(rtif),RtifVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rtif),RtifVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(rtif)::Type,RtifVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rtif)::Type,RtifVal::v1> v1{};
+        }
         }
         ///Real-Time Clock Prescaler Select
         enum class RtcpsVal {
@@ -47,14 +50,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,RtcpsVal> rtcps{}; 
         namespace RtcpsValC{
-            constexpr Register::FieldValue<decltype(rtcps),RtcpsVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(rtcps),RtcpsVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(rtcps),RtcpsVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(rtcps),RtcpsVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(rtcps),RtcpsVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(rtcps),RtcpsVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(rtcps),RtcpsVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(rtcps),RtcpsVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(rtcps)::Type,RtcpsVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(rtcps)::Type,RtcpsVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(rtcps)::Type,RtcpsVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(rtcps)::Type,RtcpsVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(rtcps)::Type,RtcpsVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(rtcps)::Type,RtcpsVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(rtcps)::Type,RtcpsVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(rtcps)::Type,RtcpsVal::v111> v111{};
+        }
         }
         ///Real-Time Clock Source Select
         enum class RtclksVal {
@@ -65,24 +69,21 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,RtclksVal> rtclks{}; 
         namespace RtclksValC{
-            constexpr Register::FieldValue<decltype(rtclks),RtclksVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(rtclks),RtclksVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(rtclks),RtclksVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(rtclks),RtclksVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(rtclks)::Type,RtclksVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(rtclks)::Type,RtclksVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(rtclks)::Type,RtclksVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(rtclks)::Type,RtclksVal::v11> v11{};
+        }
         }
     }
     namespace RtcMod{    ///<RTC Modulo Register
         using Addr = Register::Address<0x4003d004,0xffff0000,0,unsigned>;
         ///RTC Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mod{}; 
-        namespace ModValC{
-        }
     }
     namespace RtcCnt{    ///<RTC Counter Register
         using Addr = Register::Address<0x4003d008,0xffff0000,0,unsigned>;
         ///RTC Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cnt{}; 
-        namespace CntValC{
-        }
     }
 }

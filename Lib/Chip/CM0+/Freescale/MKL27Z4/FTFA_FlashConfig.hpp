@@ -6,85 +6,61 @@ namespace Kvasir {
         using Addr = Register::Address<0x00000400,0xffffff00,0,unsigned char>;
         ///Backdoor Comparison Key.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
-        namespace KeyValC{
-        }
     }
     namespace NvBackkey2{    ///<Backdoor Comparison Key 2.
         using Addr = Register::Address<0x00000401,0xffffff00,0,unsigned char>;
         ///Backdoor Comparison Key.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
-        namespace KeyValC{
-        }
     }
     namespace NvBackkey1{    ///<Backdoor Comparison Key 1.
         using Addr = Register::Address<0x00000402,0xffffff00,0,unsigned char>;
         ///Backdoor Comparison Key.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
-        namespace KeyValC{
-        }
     }
     namespace NvBackkey0{    ///<Backdoor Comparison Key 0.
         using Addr = Register::Address<0x00000403,0xffffff00,0,unsigned char>;
         ///Backdoor Comparison Key.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
-        namespace KeyValC{
-        }
     }
     namespace NvBackkey7{    ///<Backdoor Comparison Key 7.
         using Addr = Register::Address<0x00000404,0xffffff00,0,unsigned char>;
         ///Backdoor Comparison Key.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
-        namespace KeyValC{
-        }
     }
     namespace NvBackkey6{    ///<Backdoor Comparison Key 6.
         using Addr = Register::Address<0x00000405,0xffffff00,0,unsigned char>;
         ///Backdoor Comparison Key.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
-        namespace KeyValC{
-        }
     }
     namespace NvBackkey5{    ///<Backdoor Comparison Key 5.
         using Addr = Register::Address<0x00000406,0xffffff00,0,unsigned char>;
         ///Backdoor Comparison Key.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
-        namespace KeyValC{
-        }
     }
     namespace NvBackkey4{    ///<Backdoor Comparison Key 4.
         using Addr = Register::Address<0x00000407,0xffffff00,0,unsigned char>;
         ///Backdoor Comparison Key.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
-        namespace KeyValC{
-        }
     }
     namespace NvFprot3{    ///<Non-volatile P-Flash Protection 1 - Low Register
         using Addr = Register::Address<0x00000408,0xffffff00,0,unsigned char>;
         ///P-Flash Region Protect
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> prot{}; 
-        namespace ProtValC{
-        }
     }
     namespace NvFprot2{    ///<Non-volatile P-Flash Protection 1 - High Register
         using Addr = Register::Address<0x00000409,0xffffff00,0,unsigned char>;
         ///P-Flash Region Protect
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> prot{}; 
-        namespace ProtValC{
-        }
     }
     namespace NvFprot1{    ///<Non-volatile P-Flash Protection 0 - Low Register
         using Addr = Register::Address<0x0000040a,0xffffff00,0,unsigned char>;
         ///P-Flash Region Protect
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> prot{}; 
-        namespace ProtValC{
-        }
     }
     namespace NvFprot0{    ///<Non-volatile P-Flash Protection 0 - High Register
         using Addr = Register::Address<0x0000040b,0xffffff00,0,unsigned char>;
         ///P-Flash Region Protect
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> prot{}; 
-        namespace ProtValC{
-        }
     }
     namespace NvFsec{    ///<Non-volatile Flash Security Register
         using Addr = Register::Address<0x0000040c,0xffffff00,0,unsigned char>;
@@ -95,8 +71,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,SecVal> sec{}; 
         namespace SecValC{
-            constexpr Register::FieldValue<decltype(sec),SecVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(sec),SecVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(sec)::Type,SecVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(sec)::Type,SecVal::v11> v11{};
+        }
         }
         ///Freescale Failure Analysis Access Code
         enum class FslaccVal {
@@ -105,8 +82,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,FslaccVal> fslacc{}; 
         namespace FslaccValC{
-            constexpr Register::FieldValue<decltype(fslacc),FslaccVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(fslacc),FslaccVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(fslacc)::Type,FslaccVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(fslacc)::Type,FslaccVal::v11> v11{};
+        }
         }
         ///no description available
         enum class MeenVal {
@@ -115,8 +93,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,MeenVal> meen{}; 
         namespace MeenValC{
-            constexpr Register::FieldValue<decltype(meen),MeenVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(meen),MeenVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(meen)::Type,MeenVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(meen)::Type,MeenVal::v11> v11{};
+        }
         }
         ///Backdoor Key Security Enable
         enum class KeyenVal {
@@ -125,8 +104,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,KeyenVal> keyen{}; 
         namespace KeyenValC{
-            constexpr Register::FieldValue<decltype(keyen),KeyenVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(keyen),KeyenVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(keyen)::Type,KeyenVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(keyen)::Type,KeyenVal::v11> v11{};
+        }
         }
     }
     namespace NvFopt{    ///<Non-volatile Flash Option Register
@@ -138,8 +118,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Lpboot0Val> lpboot0{}; 
         namespace Lpboot0ValC{
-            constexpr Register::FieldValue<decltype(lpboot0),Lpboot0Val::v00> v00{};
-            constexpr Register::FieldValue<decltype(lpboot0),Lpboot0Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(lpboot0)::Type,Lpboot0Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(lpboot0)::Type,Lpboot0Val::v01> v01{};
+        }
         }
         ///no description available
         enum class BootpinoptVal {
@@ -148,8 +129,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,BootpinoptVal> bootpinOpt{}; 
         namespace BootpinoptValC{
-            constexpr Register::FieldValue<decltype(bootpinOpt),BootpinoptVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(bootpinOpt),BootpinoptVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(bootpinOpt)::Type,BootpinoptVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(bootpinOpt)::Type,BootpinoptVal::v01> v01{};
+        }
         }
         ///no description available
         enum class NmidisVal {
@@ -158,8 +140,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,NmidisVal> nmiDis{}; 
         namespace NmidisValC{
-            constexpr Register::FieldValue<decltype(nmiDis),NmidisVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(nmiDis),NmidisVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(nmiDis)::Type,NmidisVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(nmiDis)::Type,NmidisVal::v01> v01{};
+        }
         }
         ///no description available
         enum class ResetpincfgVal {
@@ -168,8 +151,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ResetpincfgVal> resetPinCfg{}; 
         namespace ResetpincfgValC{
-            constexpr Register::FieldValue<decltype(resetPinCfg),ResetpincfgVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(resetPinCfg),ResetpincfgVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(resetPinCfg)::Type,ResetpincfgVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(resetPinCfg)::Type,ResetpincfgVal::v01> v01{};
+        }
         }
         ///no description available
         enum class Lpboot1Val {
@@ -178,8 +162,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Lpboot1Val> lpboot1{}; 
         namespace Lpboot1ValC{
-            constexpr Register::FieldValue<decltype(lpboot1),Lpboot1Val::v00> v00{};
-            constexpr Register::FieldValue<decltype(lpboot1),Lpboot1Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(lpboot1)::Type,Lpboot1Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(lpboot1)::Type,Lpboot1Val::v01> v01{};
+        }
         }
         ///no description available
         enum class FastinitVal {
@@ -188,8 +173,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,FastinitVal> fastInit{}; 
         namespace FastinitValC{
-            constexpr Register::FieldValue<decltype(fastInit),FastinitVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(fastInit),FastinitVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(fastInit)::Type,FastinitVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(fastInit)::Type,FastinitVal::v01> v01{};
+        }
         }
         ///Boot source selection
         enum class BootsrcselVal {
@@ -199,9 +185,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,BootsrcselVal> bootsrcSel{}; 
         namespace BootsrcselValC{
-            constexpr Register::FieldValue<decltype(bootsrcSel),BootsrcselVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(bootsrcSel),BootsrcselVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(bootsrcSel),BootsrcselVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(bootsrcSel)::Type,BootsrcselVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(bootsrcSel)::Type,BootsrcselVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(bootsrcSel)::Type,BootsrcselVal::v11> v11{};
+        }
         }
     }
 }

@@ -6,8 +6,6 @@ namespace Kvasir {
         using Addr = Register::Address<0x40000c02,0xffff30c0,0,unsigned>;
         ///Generic Clock Selection ID
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> id{}; 
-        namespace IdValC{
-        }
         ///Generic Clock Generator
         enum class GenVal {
             gclk0=0x00000000,     ///<Generic clock generator 0
@@ -21,37 +19,30 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,GenVal> gen{}; 
         namespace GenValC{
-            constexpr Register::FieldValue<decltype(gen),GenVal::gclk0> gclk0{};
-            constexpr Register::FieldValue<decltype(gen),GenVal::gclk1> gclk1{};
-            constexpr Register::FieldValue<decltype(gen),GenVal::gclk2> gclk2{};
-            constexpr Register::FieldValue<decltype(gen),GenVal::gclk3> gclk3{};
-            constexpr Register::FieldValue<decltype(gen),GenVal::gclk4> gclk4{};
-            constexpr Register::FieldValue<decltype(gen),GenVal::gclk5> gclk5{};
-            constexpr Register::FieldValue<decltype(gen),GenVal::gclk6> gclk6{};
-            constexpr Register::FieldValue<decltype(gen),GenVal::gclk7> gclk7{};
+            constexpr Register::FieldValue<decltype(gen)::Type,GenVal::gclk0> gclk0{};
+            constexpr Register::FieldValue<decltype(gen)::Type,GenVal::gclk1> gclk1{};
+            constexpr Register::FieldValue<decltype(gen)::Type,GenVal::gclk2> gclk2{};
+            constexpr Register::FieldValue<decltype(gen)::Type,GenVal::gclk3> gclk3{};
+            constexpr Register::FieldValue<decltype(gen)::Type,GenVal::gclk4> gclk4{};
+            constexpr Register::FieldValue<decltype(gen)::Type,GenVal::gclk5> gclk5{};
+            constexpr Register::FieldValue<decltype(gen)::Type,GenVal::gclk6> gclk6{};
+            constexpr Register::FieldValue<decltype(gen)::Type,GenVal::gclk7> gclk7{};
+        }
         }
         ///Clock Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> clken{}; 
-        namespace ClkenValC{
-        }
         ///Write Lock
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> wrtlock{}; 
-        namespace WrtlockValC{
-        }
     }
     namespace GclkCtrl{    ///<Control
         using Addr = Register::Address<0x40000c00,0xfffffffe,0,unsigned char>;
         ///Software Reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> swrst{}; 
-        namespace SwrstValC{
-        }
     }
     namespace GclkGenctrl{    ///<Generic Clock Generator Control
         using Addr = Register::Address<0x40000c04,0xffc0e0f0,0,unsigned>;
         ///Generic Clock Generator Selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> id{}; 
-        namespace IdValC{
-        }
         ///Source Select
         enum class SrcVal {
             xosc=0x00000000,     ///<XOSC oscillator output
@@ -65,56 +56,39 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,SrcVal> src{}; 
         namespace SrcValC{
-            constexpr Register::FieldValue<decltype(src),SrcVal::xosc> xosc{};
-            constexpr Register::FieldValue<decltype(src),SrcVal::gclkin> gclkin{};
-            constexpr Register::FieldValue<decltype(src),SrcVal::gclkgen1> gclkgen1{};
-            constexpr Register::FieldValue<decltype(src),SrcVal::osculp32k> osculp32k{};
-            constexpr Register::FieldValue<decltype(src),SrcVal::osc32k> osc32k{};
-            constexpr Register::FieldValue<decltype(src),SrcVal::xosc32k> xosc32k{};
-            constexpr Register::FieldValue<decltype(src),SrcVal::osc8m> osc8m{};
-            constexpr Register::FieldValue<decltype(src),SrcVal::dfll48m> dfll48m{};
+            constexpr Register::FieldValue<decltype(src)::Type,SrcVal::xosc> xosc{};
+            constexpr Register::FieldValue<decltype(src)::Type,SrcVal::gclkin> gclkin{};
+            constexpr Register::FieldValue<decltype(src)::Type,SrcVal::gclkgen1> gclkgen1{};
+            constexpr Register::FieldValue<decltype(src)::Type,SrcVal::osculp32k> osculp32k{};
+            constexpr Register::FieldValue<decltype(src)::Type,SrcVal::osc32k> osc32k{};
+            constexpr Register::FieldValue<decltype(src)::Type,SrcVal::xosc32k> xosc32k{};
+            constexpr Register::FieldValue<decltype(src)::Type,SrcVal::osc8m> osc8m{};
+            constexpr Register::FieldValue<decltype(src)::Type,SrcVal::dfll48m> dfll48m{};
+        }
         }
         ///Generic Clock Generator Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> genen{}; 
-        namespace GenenValC{
-        }
         ///Improve Duty Cycle
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> idc{}; 
-        namespace IdcValC{
-        }
         ///Output Off Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> oov{}; 
-        namespace OovValC{
-        }
         ///Output Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> oe{}; 
-        namespace OeValC{
-        }
         ///Divide Selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> divsel{}; 
-        namespace DivselValC{
-        }
         ///Run in Standby
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> runstdby{}; 
-        namespace RunstdbyValC{
-        }
     }
     namespace GclkGendiv{    ///<Generic Clock Generator Division
         using Addr = Register::Address<0x40000c08,0xff0000f0,0,unsigned>;
         ///Generic Clock Generator Selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> id{}; 
-        namespace IdValC{
-        }
         ///Division Factor
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,8),Register::ReadWriteAccess,unsigned> div{}; 
-        namespace DivValC{
-        }
     }
     namespace GclkStatus{    ///<Status
         using Addr = Register::Address<0x40000c01,0xffffff7f,0,unsigned char>;
         ///Synchronization Busy Status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> syncbusy{}; 
-        namespace SyncbusyValC{
-        }
     }
 }

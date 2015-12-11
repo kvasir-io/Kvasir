@@ -39,16 +39,10 @@ namespace Kvasir {
         using Addr = Register::Address<0x41006008,0x00000004,0,unsigned>;
         ///Auto Stop Tracing
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> autostop{}; 
-        namespace AutostopValC{
-        }
         ///Auto Halt Request
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> autohalt{}; 
-        namespace AutohaltValC{
-        }
         ///Watermark value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> watermark{}; 
-        namespace WatermarkValC{
-        }
     }
     namespace MtbItctrl{    ///<MTB Integration Mode Control
         using Addr = Register::Address<0x41006f00,0xffffffff,0,unsigned>;
@@ -63,32 +57,18 @@ namespace Kvasir {
         using Addr = Register::Address<0x41006004,0x7ffffc00,0,unsigned>;
         ///Maximum Value of the Trace Buffer in SRAM
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> mask{}; 
-        namespace MaskValC{
-        }
         ///Trace Start Input Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> tstarten{}; 
-        namespace TstartenValC{
-        }
         ///Trace Stop Input Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> tstopen{}; 
-        namespace TstopenValC{
-        }
         ///Special Function Register Write Privilege
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> sfrwpriv{}; 
-        namespace SfrwprivValC{
-        }
         ///SRAM Privilege
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> rampriv{}; 
-        namespace RamprivValC{
-        }
         ///Halt Request
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> haltreq{}; 
-        namespace HaltreqValC{
-        }
         ///Main Trace Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> en{}; 
-        namespace EnValC{
-        }
     }
     namespace MtbPid0{    ///<CoreSight
         using Addr = Register::Address<0x41006fe0,0xffffffff,0,unsigned>;
@@ -118,11 +98,7 @@ namespace Kvasir {
         using Addr = Register::Address<0x41006000,0x00000003,0,unsigned>;
         ///Pointer Value Wraps
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wrap{}; 
-        namespace WrapValC{
-        }
         ///Trace Packet Location Pointer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,3),Register::ReadWriteAccess,unsigned> pointer{}; 
-        namespace PointerValC{
-        }
     }
 }
