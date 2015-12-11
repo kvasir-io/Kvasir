@@ -6,8 +6,6 @@ namespace Kvasir {
         using Addr = Register::Address<0x40024000,0xff10003f,0,unsigned>;
         ///After the selected settling time after a conversion begins, the voltage on the AOUT pin (with respect to VSS) is VALUE x (V DD/1024).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,6),Register::ReadWriteAccess,unsigned> value{}; 
-        namespace ValueValC{
-        }
         ///Settling time
         enum class BiasVal {
             fast=0x00000000,     ///<The settling time of the DAC is 1 us max, and the maximum current is 700 uA. This allows a maximum update rate of 1 MHz.
@@ -15,8 +13,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,BiasVal> bias{}; 
         namespace BiasValC{
-            constexpr Register::FieldValue<decltype(bias),BiasVal::fast> fast{};
-            constexpr Register::FieldValue<decltype(bias),BiasVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(bias)::Type,BiasVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(bias)::Type,BiasVal::slow> slow{};
+        }
         }
         ///The value written to this field determines whether conversion begins immediately after this register is written, or whether conversion is delayed until a selected event occurs.
         enum class TrigVal {
@@ -31,14 +30,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,17),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig),TrigVal::immediate> immediate{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::complevelout> complevelout{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::atrg0edge> atrg0edge{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::atrg1edge> atrg1edge{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::ct32b1Mat0edge> ct32b1Mat0edge{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::ct32b1Mat1edge> ct32b1Mat1edge{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::ct16b1Mat0edge> ct16b1Mat0edge{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::ct16b1Mat1edge> ct16b1Mat1edge{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::immediate> immediate{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::complevelout> complevelout{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::atrg0edge> atrg0edge{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::atrg1edge> atrg1edge{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::ct32b1Mat0edge> ct32b1Mat0edge{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::ct32b1Mat1edge> ct32b1Mat1edge{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::ct16b1Mat0edge> ct16b1Mat0edge{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::ct16b1Mat1edge> ct16b1Mat1edge{};
+        }
         }
         ///For non-zero values of TRIG, this field selects when the conversion is triggered:
         enum class EdgeselVal {
@@ -49,14 +49,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,21),Register::ReadWriteAccess,EdgeselVal> edgesel{}; 
         namespace EdgeselValC{
-            constexpr Register::FieldValue<decltype(edgesel),EdgeselVal::falling> falling{};
-            constexpr Register::FieldValue<decltype(edgesel),EdgeselVal::risings> risings{};
-            constexpr Register::FieldValue<decltype(edgesel),EdgeselVal::dualedge> dualedge{};
-            constexpr Register::FieldValue<decltype(edgesel),EdgeselVal::dualedge> dualedge{};
+            constexpr Register::FieldValue<decltype(edgesel)::Type,EdgeselVal::falling> falling{};
+            constexpr Register::FieldValue<decltype(edgesel)::Type,EdgeselVal::risings> risings{};
+            constexpr Register::FieldValue<decltype(edgesel)::Type,EdgeselVal::dualedge> dualedge{};
+            constexpr Register::FieldValue<decltype(edgesel)::Type,EdgeselVal::dualedge> dualedge{};
+        }
         }
         ///If the TRIG field (above) is non-zero, this bit is set when a conversion is triggered, and is cleared by any write to this register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> trigerd{}; 
-        namespace TrigerdValC{
-        }
     }
 }

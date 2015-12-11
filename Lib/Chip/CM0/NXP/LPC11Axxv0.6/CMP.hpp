@@ -13,10 +13,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,EdgeselVal> edgesel{}; 
         namespace EdgeselValC{
-            constexpr Register::FieldValue<decltype(edgesel),EdgeselVal::falling> falling{};
-            constexpr Register::FieldValue<decltype(edgesel),EdgeselVal::rising> rising{};
-            constexpr Register::FieldValue<decltype(edgesel),EdgeselVal::dualedge> dualedge{};
-            constexpr Register::FieldValue<decltype(edgesel),EdgeselVal::dualedge> dualedge{};
+            constexpr Register::FieldValue<decltype(edgesel)::Type,EdgeselVal::falling> falling{};
+            constexpr Register::FieldValue<decltype(edgesel)::Type,EdgeselVal::rising> rising{};
+            constexpr Register::FieldValue<decltype(edgesel)::Type,EdgeselVal::dualedge> dualedge{};
+            constexpr Register::FieldValue<decltype(edgesel)::Type,EdgeselVal::dualedge> dualedge{};
+        }
         }
         ///Comarator output control
         enum class CompsaVal {
@@ -25,8 +26,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,CompsaVal> compsa{}; 
         namespace CompsaValC{
-            constexpr Register::FieldValue<decltype(compsa),CompsaVal::direct> direct{};
-            constexpr Register::FieldValue<decltype(compsa),CompsaVal::synch> synch{};
+            constexpr Register::FieldValue<decltype(compsa)::Type,CompsaVal::direct> direct{};
+            constexpr Register::FieldValue<decltype(compsa)::Type,CompsaVal::synch> synch{};
+        }
         }
         ///Selects positive voltage input
         enum class CompvpselVal {
@@ -41,14 +43,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,CompvpselVal> compVpSel{}; 
         namespace CompvpselValC{
-            constexpr Register::FieldValue<decltype(compVpSel),CompvpselVal::vladout> vladout{};
-            constexpr Register::FieldValue<decltype(compVpSel),CompvpselVal::acmpi1> acmpi1{};
-            constexpr Register::FieldValue<decltype(compVpSel),CompvpselVal::acmpi2> acmpi2{};
-            constexpr Register::FieldValue<decltype(compVpSel),CompvpselVal::acmpi3> acmpi3{};
-            constexpr Register::FieldValue<decltype(compVpSel),CompvpselVal::acmpi4> acmpi4{};
-            constexpr Register::FieldValue<decltype(compVpSel),CompvpselVal::acmpi5> acmpi5{};
-            constexpr Register::FieldValue<decltype(compVpSel),CompvpselVal::intvoltageref> intvoltageref{};
-            constexpr Register::FieldValue<decltype(compVpSel),CompvpselVal::tempsensor> tempsensor{};
+            constexpr Register::FieldValue<decltype(compVpSel)::Type,CompvpselVal::vladout> vladout{};
+            constexpr Register::FieldValue<decltype(compVpSel)::Type,CompvpselVal::acmpi1> acmpi1{};
+            constexpr Register::FieldValue<decltype(compVpSel)::Type,CompvpselVal::acmpi2> acmpi2{};
+            constexpr Register::FieldValue<decltype(compVpSel)::Type,CompvpselVal::acmpi3> acmpi3{};
+            constexpr Register::FieldValue<decltype(compVpSel)::Type,CompvpselVal::acmpi4> acmpi4{};
+            constexpr Register::FieldValue<decltype(compVpSel)::Type,CompvpselVal::acmpi5> acmpi5{};
+            constexpr Register::FieldValue<decltype(compVpSel)::Type,CompvpselVal::intvoltageref> intvoltageref{};
+            constexpr Register::FieldValue<decltype(compVpSel)::Type,CompvpselVal::tempsensor> tempsensor{};
+        }
         }
         ///Selects negative voltage input
         enum class CompvmselVal {
@@ -62,26 +65,21 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,11),Register::ReadWriteAccess,CompvmselVal> compVmSel{}; 
         namespace CompvmselValC{
-            constexpr Register::FieldValue<decltype(compVmSel),CompvmselVal::vladdout> vladdout{};
-            constexpr Register::FieldValue<decltype(compVmSel),CompvmselVal::acmpi1> acmpi1{};
-            constexpr Register::FieldValue<decltype(compVmSel),CompvmselVal::acmpi2> acmpi2{};
-            constexpr Register::FieldValue<decltype(compVmSel),CompvmselVal::acmpi3> acmpi3{};
-            constexpr Register::FieldValue<decltype(compVmSel),CompvmselVal::acmpi4> acmpi4{};
-            constexpr Register::FieldValue<decltype(compVmSel),CompvmselVal::acmpi5> acmpi5{};
-            constexpr Register::FieldValue<decltype(compVmSel),CompvmselVal::intvoltageref> intvoltageref{};
+            constexpr Register::FieldValue<decltype(compVmSel)::Type,CompvmselVal::vladdout> vladdout{};
+            constexpr Register::FieldValue<decltype(compVmSel)::Type,CompvmselVal::acmpi1> acmpi1{};
+            constexpr Register::FieldValue<decltype(compVmSel)::Type,CompvmselVal::acmpi2> acmpi2{};
+            constexpr Register::FieldValue<decltype(compVmSel)::Type,CompvmselVal::acmpi3> acmpi3{};
+            constexpr Register::FieldValue<decltype(compVmSel)::Type,CompvmselVal::acmpi4> acmpi4{};
+            constexpr Register::FieldValue<decltype(compVmSel)::Type,CompvmselVal::acmpi5> acmpi5{};
+            constexpr Register::FieldValue<decltype(compVmSel)::Type,CompvmselVal::intvoltageref> intvoltageref{};
+        }
         }
         ///Interrupt clear bit. Writing a 1 to this bit clears the COMPEDGE bit (bit 23 below) and thus negates the interrupt request.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> edgeclr{}; 
-        namespace EdgeclrValC{
-        }
         ///Comparator status. This bit reflects the state of the comparator output.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> compstat{}; 
-        namespace CompstatValC{
-        }
         ///Comparator edge-detect status.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> compedge{}; 
-        namespace CompedgeValC{
-        }
         ///Controls the hysteresis of the comparator. When the comparator is outputting a certain state, this is the difference between the selected signals, in the opposite direction from the state being output, that will switch the output.
         enum class HysVal {
             nohysteresis=0x00000000,     ///<None (the output will switch as the voltages cross)
@@ -91,22 +89,19 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,25),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::nohysteresis> nohysteresis{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::hys5mv> hys5mv{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::hsy10mv> hsy10mv{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::hsy20mv> hsy20mv{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::nohysteresis> nohysteresis{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::hys5mv> hys5mv{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::hsy10mv> hsy10mv{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::hsy20mv> hsy20mv{};
+        }
         }
     }
     namespace Nonelad{    ///<Voltage ladder register
         using Addr = Register::Address<0x40028004,0xffffff80,0,unsigned>;
         ///Voltage ladder enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> laden{}; 
-        namespace LadenValC{
-        }
         ///Voltage ladder value. The reference voltage Vref depends on the LADREF bit below. 00000 = VSS 00001 = 1  Vref/31 00010 = 2  Vref/31 ... 11111 = Vref
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,1),Register::ReadWriteAccess,unsigned> ladsel{}; 
-        namespace LadselValC{
-        }
         ///Selects the reference voltage for the voltage ladder
         enum class LadrefVal {
             vddpin=0x00000000,     ///<VDD pin
@@ -114,8 +109,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,LadrefVal> ladref{}; 
         namespace LadrefValC{
-            constexpr Register::FieldValue<decltype(ladref),LadrefVal::vddpin> vddpin{};
-            constexpr Register::FieldValue<decltype(ladref),LadrefVal::vddcmppin> vddcmppin{};
+            constexpr Register::FieldValue<decltype(ladref)::Type,LadrefVal::vddpin> vddpin{};
+            constexpr Register::FieldValue<decltype(ladref)::Type,LadrefVal::vddcmppin> vddcmppin{};
+        }
         }
     }
 }

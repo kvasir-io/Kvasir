@@ -6,8 +6,6 @@ namespace Kvasir {
         using Addr = Register::Address<0x40044000,0xfffff980,0,unsigned>;
         ///Selects pin function for pin RESET/PIO0_0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
-        namespace FuncValC{
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
             inactiveNoPullDo=0x00000000,     ///<Inactive (no pull-down/pull-up resistor enabled).
@@ -17,10 +15,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -29,8 +28,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -39,8 +39,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -49,8 +50,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SlewVal> slew{}; 
         namespace SlewValC{
-            constexpr Register::FieldValue<decltype(slew),SlewVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(slew),SlewVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -59,8 +61,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio01{    ///<I/O configuration register for pin PIO0_1/RXD/CLKOUT/ CT32B0_MAT2/SSEL0/ CLKIN
@@ -78,12 +81,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio01> pio01{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::rxd> rxd{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::clkout> clkout{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b0Mat2> ct32b0Mat2{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ssel0> ssel0{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::clkin> clkin{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio01> pio01{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::rxd> rxd{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::clkout> clkout{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b0Mat2> ct32b0Mat2{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ssel0> ssel0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::clkin> clkin{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -94,10 +98,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -106,8 +111,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -116,8 +122,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -126,8 +133,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SlewVal> slew{}; 
         namespace SlewValC{
-            constexpr Register::FieldValue<decltype(slew),SlewVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(slew),SlewVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -136,8 +144,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio02{    ///<I/O configuration register for pin PIO0_2/SCL/ACMP_O/ TCK/SWCLK/ CT16B0_CAP0
@@ -155,11 +164,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio02> pio02{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::scl> scl{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::acmpO> acmpO{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::tckSwclk> tckSwclk{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b0Cap0> ct16b0Cap0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio02> pio02{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::scl> scl{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::acmpO> acmpO{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::tckSwclk> tckSwclk{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b0Cap0> ct16b0Cap0{};
+        }
         }
         ///Controls glitch filter and slew rate.
         enum class HsVal {
@@ -168,8 +178,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,HsVal> hs{}; 
         namespace HsValC{
-            constexpr Register::FieldValue<decltype(hs),HsVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(hs),HsVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hs)::Type,HsVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hs)::Type,HsVal::disabled> disabled{};
+        }
         }
         ///Controls sink current.
         enum class HidriveVal {
@@ -178,8 +189,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,HidriveVal> hidrive{}; 
         namespace HidriveValC{
-            constexpr Register::FieldValue<decltype(hidrive),HidriveVal::standard> standard{};
-            constexpr Register::FieldValue<decltype(hidrive),HidriveVal::high> high{};
+            constexpr Register::FieldValue<decltype(hidrive)::Type,HidriveVal::standard> standard{};
+            constexpr Register::FieldValue<decltype(hidrive)::Type,HidriveVal::high> high{};
+        }
         }
     }
     namespace Nonepio03{    ///<I/O configuration register for pin PIO0_3/SDA/ACMP_O/ SWDIO/CT16B1_CAP0
@@ -197,11 +209,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio03> pio03{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::sda> sda{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::acmpO> acmpO{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::swdio> swdio{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b1Cap0> ct16b1Cap0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio03> pio03{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::sda> sda{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::acmpO> acmpO{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::swdio> swdio{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b1Cap0> ct16b1Cap0{};
+        }
         }
         ///Controls glitch filter and slew rate.
         enum class HsVal {
@@ -210,8 +223,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,HsVal> hs{}; 
         namespace HsValC{
-            constexpr Register::FieldValue<decltype(hs),HsVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(hs),HsVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hs)::Type,HsVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hs)::Type,HsVal::disabled> disabled{};
+        }
         }
         ///Controls sink current.
         enum class HidriveVal {
@@ -220,8 +234,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,HidriveVal> hidrive{}; 
         namespace HidriveValC{
-            constexpr Register::FieldValue<decltype(hidrive),HidriveVal::standard> standard{};
-            constexpr Register::FieldValue<decltype(hidrive),HidriveVal::high> high{};
+            constexpr Register::FieldValue<decltype(hidrive)::Type,HidriveVal::standard> standard{};
+            constexpr Register::FieldValue<decltype(hidrive)::Type,HidriveVal::high> high{};
+        }
         }
     }
     namespace Nonepio04{    ///<I/O configuration register for pin PIO0_4/R/AOUT/ CT16B0_MAT1/MOSI0
@@ -237,11 +252,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio04> pio04{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::r> r{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::aout> aout{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b0Mat1> ct16b0Mat1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::mosi0> mosi0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio04> pio04{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::r> r{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::aout> aout{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b0Mat1> ct16b0Mat1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::mosi0> mosi0{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -252,10 +268,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -264,8 +281,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -274,8 +292,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Selects Analog/Digital mode.
         enum class AdmodeVal {
@@ -284,8 +303,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,AdmodeVal> admode{}; 
         namespace AdmodeValC{
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::analogInputMode> analogInputMode{};
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+        }
         }
         ///Selects 10 ns input glitch filter.
         enum class FiltrVal {
@@ -294,8 +314,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,FiltrVal> filtr{}; 
         namespace FiltrValC{
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterDisabled> filterDisabled{};
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterEnabled> filterEnabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterDisabled> filterDisabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterEnabled> filterEnabled{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -304,8 +325,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace NonetckSwclkPio05{    ///<I/O configuration register for pin TCK/SWCLK/PIO0_5/ R/CT16B0_MAT2/ SCK0 
@@ -322,11 +344,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::tckSwclk> tckSwclk{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio05> pio05{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::r> r{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b0Mat2> ct16b0Mat2{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::sck0> sck0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::tckSwclk> tckSwclk{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio05> pio05{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::r> r{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b0Mat2> ct16b0Mat2{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::sck0> sck0{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -337,10 +360,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -349,8 +373,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -359,8 +384,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Selects Analog/Digital mode.
         enum class AdmodeVal {
@@ -369,8 +395,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,AdmodeVal> admode{}; 
         namespace AdmodeValC{
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::analogInputMode> analogInputMode{};
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+        }
         }
         ///Selects 10 ns input glitch filter.
         enum class FiltrVal {
@@ -379,8 +406,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,FiltrVal> filtr{}; 
         namespace FiltrValC{
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterDisabled> filterDisabled{};
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterEnabled> filterEnabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterDisabled> filterDisabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterEnabled> filterEnabled{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -389,8 +417,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace NonetdiPio06{    ///<I/O configuration register for pin TDI/PIO0_6/AD0/ CT32B0_MAT3/MISO0
@@ -406,11 +435,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::tdi> tdi{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio06> pio06{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ad0> ad0{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b0Mat3> ct32b0Mat3{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::miso0> miso0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::tdi> tdi{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio06> pio06{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ad0> ad0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b0Mat3> ct32b0Mat3{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::miso0> miso0{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -421,10 +451,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -433,8 +464,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -443,8 +475,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Selects Analog/Digital mode.
         enum class AdmodeVal {
@@ -453,8 +486,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,AdmodeVal> admode{}; 
         namespace AdmodeValC{
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::analogInputMode> analogInputMode{};
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+        }
         }
         ///Selects 10 ns input glitch filter.
         enum class FiltrVal {
@@ -463,8 +497,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,FiltrVal> filtr{}; 
         namespace FiltrValC{
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterDisabled> filterDisabled{};
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterEnabled> filterEnabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterDisabled> filterDisabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterEnabled> filterEnabled{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -473,8 +508,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace NonetmsPio07{    ///<I/O configuration register for pin TMS/PIO0_7/AD1/ CT32B1_CAP0/ CT16B0_MAT0
@@ -490,11 +526,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::tms> tms{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio07> pio07{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ad1> ad1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b1Cap0> ct32b1Cap0{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b0Mat0> ct16b0Mat0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::tms> tms{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio07> pio07{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ad1> ad1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b1Cap0> ct32b1Cap0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b0Mat0> ct16b0Mat0{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -505,10 +542,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -517,8 +555,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -527,8 +566,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Selects Analog/Digital mode.
         enum class AdmodeVal {
@@ -537,8 +577,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,AdmodeVal> admode{}; 
         namespace AdmodeValC{
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::analogInputMode> analogInputMode{};
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+        }
         }
         ///Selects 10 ns input glitch filter.
         enum class FiltrVal {
@@ -547,8 +588,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,FiltrVal> filtr{}; 
         namespace FiltrValC{
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterDisabled> filterDisabled{};
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterEnabled> filterEnabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterDisabled> filterDisabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterEnabled> filterEnabled{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -557,8 +599,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace NonetdoPio08{    ///<I/O configuration register for pin TDO/PIO0_8/AD2/ CT32B1_MAT0/SCK1
@@ -573,11 +616,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::tdo> tdo{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio08> pio08{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ad2> ad2{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b1Mat0> ct32b1Mat0{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::sck1> sck1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::tdo> tdo{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio08> pio08{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ad2> ad2{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b1Mat0> ct32b1Mat0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::sck1> sck1{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -588,10 +632,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -600,8 +645,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -610,8 +656,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Selects Analog/Digital mode.
         enum class AdmodeVal {
@@ -620,8 +667,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,AdmodeVal> admode{}; 
         namespace AdmodeValC{
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::analogInputMode> analogInputMode{};
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+        }
         }
         ///Selects 10 ns input glitch filter.
         enum class FiltrVal {
@@ -630,8 +678,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,FiltrVal> filtr{}; 
         namespace FiltrValC{
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterDisabled> filterDisabled{};
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterEnabled> filterEnabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterDisabled> filterDisabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterEnabled> filterEnabled{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -640,8 +689,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace NonetrstPio09{    ///<I/O configuration register for pin TRST/PIO0_9/AD3/CT32B1_MAT1/CT16B0_MAT1/CTS
@@ -658,12 +708,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::trst> trst{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio09> pio09{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ad3> ad3{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b1Mat1> ct32b1Mat1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b0Mat1> ct16b0Mat1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::cts> cts{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::trst> trst{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio09> pio09{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ad3> ad3{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b1Mat1> ct32b1Mat1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b0Mat1> ct16b0Mat1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::cts> cts{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -674,10 +725,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -686,8 +738,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -696,8 +749,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Selects Analog/Digital mode.
         enum class AdmodeVal {
@@ -706,8 +760,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,AdmodeVal> admode{}; 
         namespace AdmodeValC{
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::analogInputMode> analogInputMode{};
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+        }
         }
         ///Selects 10 ns input glitch filter.
         enum class FiltrVal {
@@ -716,8 +771,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,FiltrVal> filtr{}; 
         namespace FiltrValC{
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterDisabled> filterDisabled{};
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterEnabled> filterEnabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterDisabled> filterDisabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterEnabled> filterEnabled{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -726,8 +782,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace NoneswdioPio010{    ///<I/O configuration register for pin SWDIO/PIO0_10/AD4/ CT32B1_MAT2/ CT16B0_MAT2/RTS
@@ -745,12 +802,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::swdio> swdio{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio010> pio010{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ad4> ad4{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b1Mat2> ct32b1Mat2{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b0Mat2> ct16b0Mat2{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::rts> rts{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::swdio> swdio{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio010> pio010{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ad4> ad4{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b1Mat2> ct32b1Mat2{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b0Mat2> ct16b0Mat2{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::rts> rts{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -761,10 +819,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -773,8 +832,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -783,8 +843,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Selects Analog/Digital mode.
         enum class AdmodeVal {
@@ -793,8 +854,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,AdmodeVal> admode{}; 
         namespace AdmodeValC{
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::analogInputMode> analogInputMode{};
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+        }
         }
         ///Selects 10 ns input glitch filter.
         enum class FiltrVal {
@@ -803,8 +865,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,FiltrVal> filtr{}; 
         namespace FiltrValC{
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterDisabled> filterDisabled{};
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterEnabled> filterEnabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterDisabled> filterDisabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterEnabled> filterEnabled{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -813,8 +876,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio011{    ///<I/O configuration register for pin PIO0_11/SCLK/ AD5/CT32B1_MAT3/ CT32B0_CAP0
@@ -830,11 +894,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio011> pio011{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::sclk> sclk{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ad5> ad5{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b1Mat3> ct32b1Mat3{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b0Cap0> ct32b0Cap0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio011> pio011{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::sclk> sclk{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ad5> ad5{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b1Mat3> ct32b1Mat3{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b0Cap0> ct32b0Cap0{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -845,10 +910,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -857,8 +923,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -867,8 +934,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Selects Analog/Digital mode.
         enum class AdmodeVal {
@@ -877,8 +945,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,AdmodeVal> admode{}; 
         namespace AdmodeValC{
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::analogInputMode> analogInputMode{};
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+        }
         }
         ///Selects 10 ns input glitch filter.
         enum class FiltrVal {
@@ -887,8 +956,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,FiltrVal> filtr{}; 
         namespace FiltrValC{
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterDisabled> filterDisabled{};
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterEnabled> filterEnabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterDisabled> filterDisabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterEnabled> filterEnabled{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -897,8 +967,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio012{    ///<I/O configuration register for pin PIO0_12/RXD/ ACMP_O/ CT32B0_MAT0/SCL/ CLKIN
@@ -914,12 +985,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio012> pio012{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::rxd> rxd{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::acmpO> acmpO{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b0Mat0> ct32b0Mat0{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::scl> scl{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::clkin> clkin{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio012> pio012{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::rxd> rxd{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::acmpO> acmpO{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b0Mat0> ct32b0Mat0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::scl> scl{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::clkin> clkin{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -930,10 +1002,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -942,8 +1015,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -952,8 +1026,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -962,8 +1037,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SlewVal> slew{}; 
         namespace SlewValC{
-            constexpr Register::FieldValue<decltype(slew),SlewVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(slew),SlewVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -972,8 +1048,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio013{    ///<I/O configuration register for pin PIO0_13/TXD/ ACMP_I2/ CT32B0_MAT1/SDA
@@ -989,11 +1066,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio013> pio013{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::txd> txd{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::acmpI2> acmpI2{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b0Mat1> ct32b0Mat1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::sda> sda{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio013> pio013{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::txd> txd{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::acmpI2> acmpI2{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b0Mat1> ct32b0Mat1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::sda> sda{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -1004,10 +1082,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -1016,8 +1095,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -1026,8 +1106,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Selects Analog/Digital mode.
         enum class AdmodeVal {
@@ -1036,8 +1117,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,AdmodeVal> admode{}; 
         namespace AdmodeValC{
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::analogInputMode> analogInputMode{};
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+        }
         }
         ///Selects 10 ns input glitch filter.
         enum class FiltrVal {
@@ -1046,8 +1128,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,FiltrVal> filtr{}; 
         namespace FiltrValC{
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterDisabled> filterDisabled{};
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterEnabled> filterEnabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterDisabled> filterDisabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterEnabled> filterEnabled{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -1056,8 +1139,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio014{    ///<I/O configuration register for pin PIO0_14/MISO1/AD6/CT32B0_CAP1/CT16B1_MAT1/VDDCMP
@@ -1074,12 +1158,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio014> pio014{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::miso1> miso1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ad6> ad6{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b0Cap1> ct32b0Cap1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b1Mat1> ct16b1Mat1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::vddcmp> vddcmp{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio014> pio014{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::miso1> miso1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ad6> ad6{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b0Cap1> ct32b0Cap1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b1Mat1> ct16b1Mat1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::vddcmp> vddcmp{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -1090,10 +1175,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -1102,8 +1188,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -1112,8 +1199,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Selects Analog/Digital mode.
         enum class AdmodeVal {
@@ -1122,8 +1210,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,AdmodeVal> admode{}; 
         namespace AdmodeValC{
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::analogInputMode> analogInputMode{};
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+        }
         }
         ///Selects 10 ns input glitch filter.
         enum class FiltrVal {
@@ -1132,8 +1221,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,FiltrVal> filtr{}; 
         namespace FiltrValC{
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterDisabled> filterDisabled{};
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterEnabled> filterEnabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterDisabled> filterDisabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterEnabled> filterEnabled{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -1142,8 +1232,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio015{    ///<I/O configuration register for pin PIO0_15/TXD/AD7/ CT32B0_CAP2/SDA
@@ -1159,11 +1250,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio015> pio015{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::txd> txd{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ad7> ad7{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b0Cap2> ct32b0Cap2{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::sda> sda{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio015> pio015{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::txd> txd{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ad7> ad7{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b0Cap2> ct32b0Cap2{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::sda> sda{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -1174,10 +1266,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -1186,8 +1279,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -1196,8 +1290,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Selects Analog/Digital mode.
         enum class AdmodeVal {
@@ -1206,8 +1301,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,AdmodeVal> admode{}; 
         namespace AdmodeValC{
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::analogInputMode> analogInputMode{};
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+        }
         }
         ///Selects 10 ns input glitch filter.
         enum class FiltrVal {
@@ -1216,8 +1312,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,FiltrVal> filtr{}; 
         namespace FiltrValC{
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterDisabled> filterDisabled{};
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterEnabled> filterEnabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterDisabled> filterDisabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterEnabled> filterEnabled{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -1226,8 +1323,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio016{    ///<I/O configuration register for pin PIO0_16/ ATRG0/ACMP_I3/ CT16B0_CAP1/SCL
@@ -1243,11 +1341,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio016> pio016{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::atrg0> atrg0{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::acmpI3> acmpI3{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b0Cap1> ct16b0Cap1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::scl> scl{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio016> pio016{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::atrg0> atrg0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::acmpI3> acmpI3{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b0Cap1> ct16b0Cap1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::scl> scl{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -1258,10 +1357,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -1270,8 +1370,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -1280,8 +1381,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Selects Analog/Digital mode.
         enum class AdmodeVal {
@@ -1290,8 +1392,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,AdmodeVal> admode{}; 
         namespace AdmodeValC{
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::analogInputMode> analogInputMode{};
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+        }
         }
         ///Selects 10 ns input glitch filter.
         enum class FiltrVal {
@@ -1300,8 +1403,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,FiltrVal> filtr{}; 
         namespace FiltrValC{
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterDisabled> filterDisabled{};
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterEnabled> filterEnabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterDisabled> filterDisabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterEnabled> filterEnabled{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -1310,8 +1414,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio017{    ///<I/O configuration register for pin PIO0_17/ ATRG1/ACMP_I4/ CT16B0_CAP2/ CT16B0_MAT0
@@ -1327,11 +1432,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio017> pio017{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::atrg1> atrg1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::acmpI4> acmpI4{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b0Cap2> ct16b0Cap2{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b0Mat0> ct16b0Mat0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio017> pio017{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::atrg1> atrg1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::acmpI4> acmpI4{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b0Cap2> ct16b0Cap2{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b0Mat0> ct16b0Mat0{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -1342,10 +1448,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -1354,8 +1461,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -1364,8 +1472,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Selects Analog/Digital mode.
         enum class AdmodeVal {
@@ -1374,8 +1483,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,AdmodeVal> admode{}; 
         namespace AdmodeValC{
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::analogInputMode> analogInputMode{};
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+        }
         }
         ///Selects 10 ns input glitch filter.
         enum class FiltrVal {
@@ -1384,8 +1494,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,FiltrVal> filtr{}; 
         namespace FiltrValC{
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterDisabled> filterDisabled{};
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterEnabled> filterEnabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterDisabled> filterDisabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterEnabled> filterEnabled{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -1394,8 +1505,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio018{    ///<I/O configuration register for pin PIO0_18/R/SSEL0/ CT16B0_CAP0/ CT16B1_CAP1
@@ -1410,11 +1522,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio018> pio018{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::r> r{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ssel0> ssel0{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b0Cap0> ct16b0Cap0{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b1Cap1> ct16b1Cap1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio018> pio018{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::r> r{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ssel0> ssel0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b0Cap0> ct16b0Cap0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b1Cap1> ct16b1Cap1{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -1425,10 +1538,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -1437,8 +1551,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -1447,8 +1562,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -1457,8 +1573,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SlewVal> slew{}; 
         namespace SlewValC{
-            constexpr Register::FieldValue<decltype(slew),SlewVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(slew),SlewVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -1467,8 +1584,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio019{    ///<I/O configuration register for pin PIO0_19/CLKIN/ CLKOUT/ MOSI0/CT16B1_MAT0
@@ -1483,11 +1601,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio019> pio019{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::clkin> clkin{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::clkout> clkout{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::mosi0> mosi0{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b1Mat0> ct16b1Mat0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio019> pio019{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::clkin> clkin{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::clkout> clkout{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::mosi0> mosi0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b1Mat0> ct16b1Mat0{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -1498,10 +1617,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -1510,8 +1630,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -1520,8 +1641,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -1530,8 +1652,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SlewVal> slew{}; 
         namespace SlewValC{
-            constexpr Register::FieldValue<decltype(slew),SlewVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(slew),SlewVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -1540,8 +1663,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio020{    ///<I/O configuration register for pin PIO0_20/R/SCK0/ CT32B1_CAP0/ CT16B1_MAT2
@@ -1556,11 +1680,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio020> pio020{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::r> r{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::sck0> sck0{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b1Cap0> ct32b1Cap0{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b1Mat2> ct16b1Mat2{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio020> pio020{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::r> r{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::sck0> sck0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b1Cap0> ct32b1Cap0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b1Mat2> ct16b1Mat2{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -1571,10 +1696,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -1583,8 +1709,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -1593,8 +1720,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -1603,8 +1731,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SlewVal> slew{}; 
         namespace SlewValC{
-            constexpr Register::FieldValue<decltype(slew),SlewVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(slew),SlewVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -1613,8 +1742,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio021{    ///<I/O configuration register for pin PIO0_21/CTS/ ACMP_O/ CT32B1_CAP1/SCLK
@@ -1631,11 +1761,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio021> pio021{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::cts> cts{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::acmpO> acmpO{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b1Cap1> ct32b1Cap1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::sclk> sclk{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio021> pio021{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::cts> cts{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::acmpO> acmpO{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b1Cap1> ct32b1Cap1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::sclk> sclk{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -1646,10 +1777,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -1658,8 +1790,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -1668,8 +1801,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -1678,8 +1812,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SlewVal> slew{}; 
         namespace SlewValC{
-            constexpr Register::FieldValue<decltype(slew),SlewVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(slew),SlewVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -1688,8 +1823,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio022{    ///<I/O configuration register for pin PIO0_22/MISO0/ ACMP_I5/ CT32B1_MAT2/ CT32B1_CAP2
@@ -1705,11 +1841,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio022> pio022{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::miso0> miso0{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::acmpI5> acmpI5{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b1Mat2> ct32b1Mat2{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b1Cap2> ct32b1Cap2{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio022> pio022{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::miso0> miso0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::acmpI5> acmpI5{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b1Mat2> ct32b1Mat2{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b1Cap2> ct32b1Cap2{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -1720,10 +1857,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -1732,8 +1870,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -1742,8 +1881,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Selects Analog/Digital mode.
         enum class AdmodeVal {
@@ -1752,8 +1892,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,AdmodeVal> admode{}; 
         namespace AdmodeValC{
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::analogInputMode> analogInputMode{};
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+        }
         }
         ///Selects 10 ns input glitch filter.
         enum class FiltrVal {
@@ -1762,8 +1903,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,FiltrVal> filtr{}; 
         namespace FiltrValC{
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterDisabled> filterDisabled{};
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterEnabled> filterEnabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterDisabled> filterDisabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterEnabled> filterEnabled{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -1772,8 +1914,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio023{    ///<I/O configuration register for pin PIO0_23/RTS/ ACMP_O/ CT32B0_CAP0/SCLK
@@ -1788,11 +1931,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio023> pio023{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::rts> rts{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::acmpO> acmpO{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b0Cap0> ct32b0Cap0{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::sclk> sclk{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio023> pio023{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::rts> rts{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::acmpO> acmpO{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b0Cap0> ct32b0Cap0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::sclk> sclk{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -1803,10 +1947,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -1815,8 +1960,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -1825,8 +1971,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Selects Analog/Digital mode.
         enum class AdmodeVal {
@@ -1835,8 +1982,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,AdmodeVal> admode{}; 
         namespace AdmodeValC{
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::analogInputMode> analogInputMode{};
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+        }
         }
         ///Selects 10 ns input glitch filter.
         enum class FiltrVal {
@@ -1845,8 +1993,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,FiltrVal> filtr{}; 
         namespace FiltrValC{
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterDisabled> filterDisabled{};
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterEnabled> filterEnabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterDisabled> filterDisabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterEnabled> filterEnabled{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -1855,16 +2004,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio024{    ///<I/O configuration register for pin PIO0_24/SCL/CLKIN/ CT16B1_CAP0
         using Addr = Register::Address<0x40044060,0xfffff980,0,unsigned>;
         ///Selects pin function for pin PIO0_24/SCL/CLKIN/ CT16B1_CAP0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
-        namespace FuncValC{
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
             inactiveNoPullDo=0x00000000,     ///<Inactive (no pull-down/pull-up resistor enabled).
@@ -1874,10 +2022,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -1886,8 +2035,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -1896,8 +2046,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -1906,8 +2057,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SlewVal> slew{}; 
         namespace SlewValC{
-            constexpr Register::FieldValue<decltype(slew),SlewVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(slew),SlewVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -1916,16 +2068,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio025{    ///<I/O configuration register for pin PIO0_25/SDA/SSEL1/ CT16B1_MAT0
         using Addr = Register::Address<0x40044064,0xfffff980,0,unsigned>;
         ///Selects pin function for pin PIO0_25/SDA/SSEL1/ CT16B1_MAT0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
-        namespace FuncValC{
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
             inactiveNoPullDo=0x00000000,     ///<Inactive (no pull-down/pull-up resistor enabled).
@@ -1935,10 +2086,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -1947,8 +2099,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -1957,8 +2110,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -1967,8 +2121,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SlewVal> slew{}; 
         namespace SlewValC{
-            constexpr Register::FieldValue<decltype(slew),SlewVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(slew),SlewVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -1977,8 +2132,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio026{    ///<I/O configuration register for pin PIO0_26/TXD/MISO1/ CT16B1_CAP1/ CT32B0_CAP2
@@ -1993,11 +2149,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio026> pio026{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::txd> txd{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::miso1> miso1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b1Cap1> ct16b1Cap1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b0Cap2> ct32b0Cap2{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio026> pio026{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::txd> txd{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::miso1> miso1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b1Cap1> ct16b1Cap1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b0Cap2> ct32b0Cap2{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -2008,10 +2165,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -2020,8 +2178,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -2030,8 +2189,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -2040,8 +2200,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SlewVal> slew{}; 
         namespace SlewValC{
-            constexpr Register::FieldValue<decltype(slew),SlewVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(slew),SlewVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -2050,8 +2211,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio027{    ///<I/O configuration register for pin PIO0_27/MOSI1/ ACMP_I1/ CT32B1_MAT1/ CT16B1_CAP2
@@ -2067,11 +2229,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio027> pio027{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::mosi1> mosi1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::acmpI1> acmpI1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b1Mat1> ct32b1Mat1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b1Cap2> ct16b1Cap2{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio027> pio027{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::mosi1> mosi1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::acmpI1> acmpI1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b1Mat1> ct32b1Mat1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b1Cap2> ct16b1Cap2{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -2082,10 +2245,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -2094,8 +2258,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -2104,8 +2269,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Selects Analog/Digital mode.
         enum class AdmodeVal {
@@ -2114,8 +2280,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,AdmodeVal> admode{}; 
         namespace AdmodeValC{
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::analogInputMode> analogInputMode{};
-            constexpr Register::FieldValue<decltype(admode),AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::analogInputMode> analogInputMode{};
+            constexpr Register::FieldValue<decltype(admode)::Type,AdmodeVal::digitalFunctionalM> digitalFunctionalM{};
+        }
         }
         ///Selects 10 ns input glitch filter.
         enum class FiltrVal {
@@ -2124,8 +2291,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,FiltrVal> filtr{}; 
         namespace FiltrValC{
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterDisabled> filterDisabled{};
-            constexpr Register::FieldValue<decltype(filtr),FiltrVal::filterEnabled> filterEnabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterDisabled> filterDisabled{};
+            constexpr Register::FieldValue<decltype(filtr)::Type,FiltrVal::filterEnabled> filterEnabled{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -2134,16 +2302,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio028{    ///<I/O configuration register for pin PIO0_28/DTR/SSEL1/ CT32B0_CAP0
         using Addr = Register::Address<0x40044070,0xfffff980,0,unsigned>;
         ///Selects pin function for pin PIO0_28/DTR/SSEL1/ CT32B0_CAP0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
-        namespace FuncValC{
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
             inactiveNoPullDo=0x00000000,     ///<Inactive (no pull-down/pull-up resistor enabled).
@@ -2153,10 +2320,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -2165,8 +2333,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -2175,8 +2344,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -2185,8 +2355,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SlewVal> slew{}; 
         namespace SlewValC{
-            constexpr Register::FieldValue<decltype(slew),SlewVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(slew),SlewVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -2195,16 +2366,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio029{    ///<I/O configuration register for pin PIO0_29/DSR/SCK1/ CT32B0_CAP1
         using Addr = Register::Address<0x40044074,0xfffff980,0,unsigned>;
         ///Selects pin function for pin PIO0_29/DSR/SCK1/ CT32B0_CAP1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
-        namespace FuncValC{
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
             inactiveNoPullDo=0x00000000,     ///<Inactive (no pull-down/pull-up resistor enabled).
@@ -2214,10 +2384,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -2226,8 +2397,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -2236,8 +2408,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -2246,8 +2419,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SlewVal> slew{}; 
         namespace SlewValC{
-            constexpr Register::FieldValue<decltype(slew),SlewVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(slew),SlewVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -2256,8 +2430,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio030{    ///<I/O configuration register for pin PIO0_30/RI/MOSI1/ CT32B0_MAT0/ CT16B0_CAP0
@@ -2272,11 +2447,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio030> pio030{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ri> ri{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::mosi1> mosi1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b0Mat0> ct32b0Mat0{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b0Cap0> ct16b0Cap0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio030> pio030{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ri> ri{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::mosi1> mosi1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b0Mat0> ct32b0Mat0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b0Cap0> ct16b0Cap0{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -2287,10 +2463,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -2299,8 +2476,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -2309,8 +2487,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -2319,8 +2498,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SlewVal> slew{}; 
         namespace SlewValC{
-            constexpr Register::FieldValue<decltype(slew),SlewVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(slew),SlewVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -2329,8 +2509,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio031{    ///<I/O configuration register for pin PIO0_31/RI/MOSI1/ CT32B1_MAT0/ CT16B1_CAP1
@@ -2345,11 +2526,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio031> pio031{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ri> ri{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::mosi1> mosi1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b1Mat0> ct32b1Mat0{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b1Cap1> ct16b1Cap1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio031> pio031{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ri> ri{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::mosi1> mosi1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b1Mat0> ct32b1Mat0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b1Cap1> ct16b1Cap1{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -2360,10 +2542,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -2372,8 +2555,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -2382,8 +2566,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -2392,8 +2577,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SlewVal> slew{}; 
         namespace SlewValC{
-            constexpr Register::FieldValue<decltype(slew),SlewVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(slew),SlewVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -2402,8 +2588,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio10{    ///<I/O configuration register for pin PIO1_0/DCD/SCK0/ CT32B1_MAT3/ CT16B0_MAT1
@@ -2418,11 +2605,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio10> pio10{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::dcd> dcd{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::sck0> sck0{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b1Mat3> ct32b1Mat3{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b0Mat1> ct16b0Mat1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio10> pio10{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::dcd> dcd{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::sck0> sck0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b1Mat3> ct32b1Mat3{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b0Mat1> ct16b0Mat1{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -2433,10 +2621,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -2445,8 +2634,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -2455,8 +2645,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -2465,8 +2656,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SlewVal> slew{}; 
         namespace SlewValC{
-            constexpr Register::FieldValue<decltype(slew),SlewVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(slew),SlewVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -2475,8 +2667,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio11{    ///<I/O configuration register for pin PIO1_1/DTR/SSEL0/ CT32B1_MAT3/ CT16B1_MAT0
@@ -2491,11 +2684,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio11> pio11{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::dtr> dtr{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ssel0> ssel0{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b1Mat3> ct32b1Mat3{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b1Mat0> ct16b1Mat0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio11> pio11{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::dtr> dtr{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ssel0> ssel0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b1Mat3> ct32b1Mat3{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b1Mat0> ct16b1Mat0{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -2506,10 +2700,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -2518,8 +2713,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -2528,8 +2724,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -2538,8 +2735,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SlewVal> slew{}; 
         namespace SlewValC{
-            constexpr Register::FieldValue<decltype(slew),SlewVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(slew),SlewVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -2548,8 +2746,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio12{    ///<I/O configuration register for pin PIO1_2/DSR/MISO0/ CT16B1_MAT2/ CT16B1_MAT1
@@ -2564,11 +2763,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio12> pio12{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::dsr> dsr{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::miso0> miso0{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b1Mat2> ct16b1Mat2{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b1Mat1> ct16b1Mat1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio12> pio12{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::dsr> dsr{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::miso0> miso0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b1Mat2> ct16b1Mat2{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b1Mat1> ct16b1Mat1{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -2579,10 +2779,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -2591,8 +2792,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -2601,8 +2803,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -2611,8 +2814,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SlewVal> slew{}; 
         namespace SlewValC{
-            constexpr Register::FieldValue<decltype(slew),SlewVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(slew),SlewVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -2621,16 +2825,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio13{    ///<I/O configuration register for pin PIO1_3/RI/MOSI0/ CT16B1_CAP0
         using Addr = Register::Address<0x4004408c,0xfffff980,0,unsigned>;
         ///Selects pin function for pin PIO1_3/RI/MOSI0/ CT16B1_CAP0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> func{}; 
-        namespace FuncValC{
-        }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
             inactiveNoPullDo=0x00000000,     ///<Inactive (no pull-down/pull-up resistor enabled).
@@ -2640,10 +2843,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -2652,8 +2856,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -2662,8 +2867,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -2672,8 +2878,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SlewVal> slew{}; 
         namespace SlewValC{
-            constexpr Register::FieldValue<decltype(slew),SlewVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(slew),SlewVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -2682,8 +2889,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio14{    ///<I/O configuration register for pin PIO1_4/RXD/SSEL1/ CT32B0_MAT1/ CT32B1_CAP0/ CT16B0_CAP1
@@ -2699,12 +2907,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio14> pio14{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::rxd> rxd{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ssel1> ssel1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b0Mat1> ct32b0Mat1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b1Cap0> ct32b1Cap0{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b0Cap1> ct16b0Cap1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio14> pio14{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::rxd> rxd{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ssel1> ssel1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b0Mat1> ct32b0Mat1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b1Cap0> ct32b1Cap0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b0Cap1> ct16b0Cap1{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -2715,10 +2924,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -2727,8 +2937,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -2737,8 +2948,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -2747,8 +2959,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SlewVal> slew{}; 
         namespace SlewValC{
-            constexpr Register::FieldValue<decltype(slew),SlewVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(slew),SlewVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -2757,8 +2970,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio15{    ///<I/O configuration register for pin PIO1_5/TXD/SCK1/ CT32B0_MAT2/ CT32B1_CAP1/ CT16B0_CAP2
@@ -2774,12 +2988,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio15> pio15{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::txd> txd{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::sck1> sck1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b0Mat2> ct32b0Mat2{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b1Cap1> ct32b1Cap1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b0Cap2> ct16b0Cap2{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio15> pio15{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::txd> txd{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::sck1> sck1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b0Mat2> ct32b0Mat2{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b1Cap1> ct32b1Cap1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b0Cap2> ct16b0Cap2{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -2790,10 +3005,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -2802,8 +3018,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -2812,8 +3029,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -2822,8 +3040,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SlewVal> slew{}; 
         namespace SlewValC{
-            constexpr Register::FieldValue<decltype(slew),SlewVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(slew),SlewVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -2832,8 +3051,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio16{    ///<I/O configuration register for pin PIO1_6/RTS/MOSI1/ CT32B0_MAT3/ CT32B1_CAP2/ CT16B0_MAT0
@@ -2849,12 +3069,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio16> pio16{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::rts> rts{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::mosi1> mosi1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b0Mat3> ct32b0Mat3{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b1Cap2> ct32b1Cap2{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b0Mat0> ct16b0Mat0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio16> pio16{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::rts> rts{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::mosi1> mosi1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b0Mat3> ct32b0Mat3{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b1Cap2> ct32b1Cap2{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b0Mat0> ct16b0Mat0{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -2865,10 +3086,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -2877,8 +3099,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -2887,8 +3110,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -2897,8 +3121,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SlewVal> slew{}; 
         namespace SlewValC{
-            constexpr Register::FieldValue<decltype(slew),SlewVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(slew),SlewVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -2907,8 +3132,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio17{    ///<I/O configuration register for pin PIO1_7/CTS/MOSI0/ CT32B1_MAT1/ CT16B0_MAT2/ CT16B1_CAP2
@@ -2924,12 +3150,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio17> pio17{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::cts> cts{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::mosi0> mosi0{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b1Mat1> ct32b1Mat1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b0Mat2> ct16b0Mat2{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b1Cap2> ct16b1Cap2{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio17> pio17{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::cts> cts{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::mosi0> mosi0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b1Mat1> ct32b1Mat1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b0Mat2> ct16b0Mat2{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b1Cap2> ct16b1Cap2{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -2940,10 +3167,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -2952,8 +3180,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -2962,8 +3191,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -2972,8 +3202,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SlewVal> slew{}; 
         namespace SlewValC{
-            constexpr Register::FieldValue<decltype(slew),SlewVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(slew),SlewVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -2982,8 +3213,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio18{    ///<I/O configuration register for pin PIO1_8/RXD / MISO1/ CT32B1_MAT0/ CT16B1_MAT1
@@ -2998,11 +3230,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio18> pio18{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::rxd> rxd{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::miso1> miso1{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b1Mat0> ct32b1Mat0{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b1Mat1> ct16b1Mat1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio18> pio18{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::rxd> rxd{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::miso1> miso1{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b1Mat0> ct32b1Mat0{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b1Mat1> ct16b1Mat1{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -3013,10 +3246,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -3025,8 +3259,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -3035,8 +3270,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -3045,8 +3281,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SlewVal> slew{}; 
         namespace SlewValC{
-            constexpr Register::FieldValue<decltype(slew),SlewVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(slew),SlewVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -3055,8 +3292,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
     namespace Nonepio19{    ///<I/O configuration register for pin PIO1_9/DCD/R/ CT32B1_MAT2 / CT16B1_MAT2
@@ -3071,11 +3309,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FuncVal> func{}; 
         namespace FuncValC{
-            constexpr Register::FieldValue<decltype(func),FuncVal::pio19> pio19{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::dcd> dcd{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::r> r{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct32b1Mat2> ct32b1Mat2{};
-            constexpr Register::FieldValue<decltype(func),FuncVal::ct16b1Mat2> ct16b1Mat2{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::pio19> pio19{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::dcd> dcd{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::r> r{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct32b1Mat2> ct32b1Mat2{};
+            constexpr Register::FieldValue<decltype(func)::Type,FuncVal::ct16b1Mat2> ct16b1Mat2{};
+        }
         }
         ///Selects function mode (on-chip pull-up/pull-down resistor control).
         enum class ModeVal {
@@ -3086,10 +3325,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
+        }
         }
         ///Hysteresis.
         enum class HysVal {
@@ -3098,8 +3338,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
+        }
         }
         ///Invert input
         enum class InvVal {
@@ -3108,8 +3349,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
+        }
         }
         ///Driver slew rate
         enum class SlewVal {
@@ -3118,8 +3360,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SlewVal> slew{}; 
         namespace SlewValC{
-            constexpr Register::FieldValue<decltype(slew),SlewVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(slew),SlewVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(slew)::Type,SlewVal::fast> fast{};
+        }
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -3128,8 +3371,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
+        }
         }
     }
 }

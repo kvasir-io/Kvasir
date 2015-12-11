@@ -29,8 +29,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EndksgencryptVal> endksgenCrypt{}; 
         namespace EndksgencryptValC{
-            constexpr Register::FieldValue<decltype(endksgenCrypt),EndksgencryptVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(endksgenCrypt),EndksgencryptVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(endksgenCrypt)::Type,EndksgencryptVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(endksgenCrypt)::Type,EndksgencryptVal::enabled> enabled{};
+        }
         }
     }
     namespace Noneintenset{    ///<Interrupt enable set register.
@@ -43,9 +44,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EndksgenVal> endksgen{}; 
         namespace EndksgenValC{
-            constexpr Register::FieldValue<decltype(endksgen),EndksgenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(endksgen),EndksgenVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(endksgen),EndksgenVal::set> set{};
+            constexpr Register::FieldValue<decltype(endksgen)::Type,EndksgenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(endksgen)::Type,EndksgenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(endksgen)::Type,EndksgenVal::set> set{};
+        }
         }
         ///Enable interrupt on ENDCRYPT event.
         enum class EndcryptVal {
@@ -55,9 +57,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,EndcryptVal> endcrypt{}; 
         namespace EndcryptValC{
-            constexpr Register::FieldValue<decltype(endcrypt),EndcryptVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(endcrypt),EndcryptVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(endcrypt),EndcryptVal::set> set{};
+            constexpr Register::FieldValue<decltype(endcrypt)::Type,EndcryptVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(endcrypt)::Type,EndcryptVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(endcrypt)::Type,EndcryptVal::set> set{};
+        }
         }
         ///Enable interrupt on ERROR event.
         enum class ErrorVal {
@@ -67,9 +70,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,ErrorVal> error{}; 
         namespace ErrorValC{
-            constexpr Register::FieldValue<decltype(error),ErrorVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(error),ErrorVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(error),ErrorVal::set> set{};
+            constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::set> set{};
+        }
         }
     }
     namespace Noneintenclr{    ///<Interrupt enable clear register.
@@ -82,9 +86,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EndksgenVal> endksgen{}; 
         namespace EndksgenValC{
-            constexpr Register::FieldValue<decltype(endksgen),EndksgenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(endksgen),EndksgenVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(endksgen),EndksgenVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(endksgen)::Type,EndksgenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(endksgen)::Type,EndksgenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(endksgen)::Type,EndksgenVal::clear> clear{};
+        }
         }
         ///Disable interrupt on ENDCRYPT event.
         enum class EndcryptVal {
@@ -94,9 +99,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,EndcryptVal> endcrypt{}; 
         namespace EndcryptValC{
-            constexpr Register::FieldValue<decltype(endcrypt),EndcryptVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(endcrypt),EndcryptVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(endcrypt),EndcryptVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(endcrypt)::Type,EndcryptVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(endcrypt)::Type,EndcryptVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(endcrypt)::Type,EndcryptVal::clear> clear{};
+        }
         }
         ///Disable interrupt on ERROR event.
         enum class ErrorVal {
@@ -106,9 +112,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,ErrorVal> error{}; 
         namespace ErrorValC{
-            constexpr Register::FieldValue<decltype(error),ErrorVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(error),ErrorVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(error),ErrorVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::clear> clear{};
+        }
         }
     }
     namespace Nonemicstatus{    ///<CCM RX MIC check result.
@@ -120,8 +127,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,MicstatusVal> micstatus{}; 
         namespace MicstatusValC{
-            constexpr Register::FieldValue<decltype(micstatus),MicstatusVal::checkfailed> checkfailed{};
-            constexpr Register::FieldValue<decltype(micstatus),MicstatusVal::checkpassed> checkpassed{};
+            constexpr Register::FieldValue<decltype(micstatus)::Type,MicstatusVal::checkfailed> checkfailed{};
+            constexpr Register::FieldValue<decltype(micstatus)::Type,MicstatusVal::checkpassed> checkpassed{};
+        }
         }
     }
     namespace Noneenable{    ///<CCM enable.
@@ -133,8 +141,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,EnableVal> enable{}; 
         namespace EnableValC{
-            constexpr Register::FieldValue<decltype(enable),EnableVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(enable),EnableVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
+        }
         }
     }
     namespace Nonemode{    ///<Operation mode.
@@ -146,8 +155,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::encryption> encryption{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::decryption> decryption{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::encryption> encryption{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::decryption> decryption{};
+        }
         }
     }
     namespace Nonecnfptr{    ///<Pointer to a data structure holding AES key and NONCE vector.
@@ -171,8 +181,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PowerVal> power{}; 
         namespace PowerValC{
-            constexpr Register::FieldValue<decltype(power),PowerVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(power),PowerVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(power)::Type,PowerVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(power)::Type,PowerVal::enabled> enabled{};
+        }
         }
     }
 }

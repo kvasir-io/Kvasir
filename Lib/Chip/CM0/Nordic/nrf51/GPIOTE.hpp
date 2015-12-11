@@ -39,9 +39,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,In0Val> in0{}; 
         namespace In0ValC{
-            constexpr Register::FieldValue<decltype(in0),In0Val::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(in0),In0Val::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(in0),In0Val::set> set{};
+            constexpr Register::FieldValue<decltype(in0)::Type,In0Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(in0)::Type,In0Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(in0)::Type,In0Val::set> set{};
+        }
         }
         ///Enable interrupt on IN[1] event.
         enum class In1Val {
@@ -51,9 +52,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,In1Val> in1{}; 
         namespace In1ValC{
-            constexpr Register::FieldValue<decltype(in1),In1Val::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(in1),In1Val::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(in1),In1Val::set> set{};
+            constexpr Register::FieldValue<decltype(in1)::Type,In1Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(in1)::Type,In1Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(in1)::Type,In1Val::set> set{};
+        }
         }
         ///Enable interrupt on IN[2] event.
         enum class In2Val {
@@ -63,9 +65,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,In2Val> in2{}; 
         namespace In2ValC{
-            constexpr Register::FieldValue<decltype(in2),In2Val::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(in2),In2Val::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(in2),In2Val::set> set{};
+            constexpr Register::FieldValue<decltype(in2)::Type,In2Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(in2)::Type,In2Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(in2)::Type,In2Val::set> set{};
+        }
         }
         ///Enable interrupt on IN[3] event.
         enum class In3Val {
@@ -75,9 +78,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,In3Val> in3{}; 
         namespace In3ValC{
-            constexpr Register::FieldValue<decltype(in3),In3Val::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(in3),In3Val::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(in3),In3Val::set> set{};
+            constexpr Register::FieldValue<decltype(in3)::Type,In3Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(in3)::Type,In3Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(in3)::Type,In3Val::set> set{};
+        }
         }
         ///Enable interrupt on PORT event.
         enum class PortVal {
@@ -87,9 +91,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,PortVal> port{}; 
         namespace PortValC{
-            constexpr Register::FieldValue<decltype(port),PortVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(port),PortVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(port),PortVal::set> set{};
+            constexpr Register::FieldValue<decltype(port)::Type,PortVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(port)::Type,PortVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(port)::Type,PortVal::set> set{};
+        }
         }
     }
     namespace Noneintenclr{    ///<Interrupt enable clear register.
@@ -102,9 +107,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,In0Val> in0{}; 
         namespace In0ValC{
-            constexpr Register::FieldValue<decltype(in0),In0Val::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(in0),In0Val::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(in0),In0Val::clear> clear{};
+            constexpr Register::FieldValue<decltype(in0)::Type,In0Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(in0)::Type,In0Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(in0)::Type,In0Val::clear> clear{};
+        }
         }
         ///Disable interrupt on IN[1] event.
         enum class In1Val {
@@ -114,9 +120,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,In1Val> in1{}; 
         namespace In1ValC{
-            constexpr Register::FieldValue<decltype(in1),In1Val::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(in1),In1Val::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(in1),In1Val::clear> clear{};
+            constexpr Register::FieldValue<decltype(in1)::Type,In1Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(in1)::Type,In1Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(in1)::Type,In1Val::clear> clear{};
+        }
         }
         ///Disable interrupt on IN[2] event.
         enum class In2Val {
@@ -126,9 +133,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,In2Val> in2{}; 
         namespace In2ValC{
-            constexpr Register::FieldValue<decltype(in2),In2Val::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(in2),In2Val::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(in2),In2Val::clear> clear{};
+            constexpr Register::FieldValue<decltype(in2)::Type,In2Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(in2)::Type,In2Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(in2)::Type,In2Val::clear> clear{};
+        }
         }
         ///Disable interrupt on IN[3] event.
         enum class In3Val {
@@ -138,9 +146,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,In3Val> in3{}; 
         namespace In3ValC{
-            constexpr Register::FieldValue<decltype(in3),In3Val::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(in3),In3Val::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(in3),In3Val::clear> clear{};
+            constexpr Register::FieldValue<decltype(in3)::Type,In3Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(in3)::Type,In3Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(in3)::Type,In3Val::clear> clear{};
+        }
         }
         ///Disable interrupt on PORT event.
         enum class PortVal {
@@ -150,9 +159,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,PortVal> port{}; 
         namespace PortValC{
-            constexpr Register::FieldValue<decltype(port),PortVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(port),PortVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(port),PortVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(port)::Type,PortVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(port)::Type,PortVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(port)::Type,PortVal::clear> clear{};
+        }
         }
     }
     namespace Noneconfig0{    ///<Channel configuration registers.
@@ -165,14 +175,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::event> event{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::task> task{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::event> event{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::task> task{};
+        }
         }
         ///Pin select.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
-        namespace PselValC{
-        }
         ///Effects on output when in Task mode, or events on input that generates an event.
         enum class PolarityVal {
             none=0x00000000,     ///<No task or event.
@@ -182,10 +191,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,PolarityVal> polarity{}; 
         namespace PolarityValC{
-            constexpr Register::FieldValue<decltype(polarity),PolarityVal::none> none{};
-            constexpr Register::FieldValue<decltype(polarity),PolarityVal::lotohi> lotohi{};
-            constexpr Register::FieldValue<decltype(polarity),PolarityVal::hitolo> hitolo{};
-            constexpr Register::FieldValue<decltype(polarity),PolarityVal::toggle> toggle{};
+            constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::none> none{};
+            constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::lotohi> lotohi{};
+            constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::hitolo> hitolo{};
+            constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::toggle> toggle{};
+        }
         }
         ///Initial value of the output when the GPIOTE channel is configured as a Task.
         enum class OutinitVal {
@@ -194,8 +204,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,OutinitVal> outinit{}; 
         namespace OutinitValC{
-            constexpr Register::FieldValue<decltype(outinit),OutinitVal::low> low{};
-            constexpr Register::FieldValue<decltype(outinit),OutinitVal::high> high{};
+            constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::low> low{};
+            constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::high> high{};
+        }
         }
     }
     namespace Noneconfig1{    ///<Channel configuration registers.
@@ -208,14 +219,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::event> event{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::task> task{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::event> event{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::task> task{};
+        }
         }
         ///Pin select.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
-        namespace PselValC{
-        }
         ///Effects on output when in Task mode, or events on input that generates an event.
         enum class PolarityVal {
             none=0x00000000,     ///<No task or event.
@@ -225,10 +235,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,PolarityVal> polarity{}; 
         namespace PolarityValC{
-            constexpr Register::FieldValue<decltype(polarity),PolarityVal::none> none{};
-            constexpr Register::FieldValue<decltype(polarity),PolarityVal::lotohi> lotohi{};
-            constexpr Register::FieldValue<decltype(polarity),PolarityVal::hitolo> hitolo{};
-            constexpr Register::FieldValue<decltype(polarity),PolarityVal::toggle> toggle{};
+            constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::none> none{};
+            constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::lotohi> lotohi{};
+            constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::hitolo> hitolo{};
+            constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::toggle> toggle{};
+        }
         }
         ///Initial value of the output when the GPIOTE channel is configured as a Task.
         enum class OutinitVal {
@@ -237,8 +248,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,OutinitVal> outinit{}; 
         namespace OutinitValC{
-            constexpr Register::FieldValue<decltype(outinit),OutinitVal::low> low{};
-            constexpr Register::FieldValue<decltype(outinit),OutinitVal::high> high{};
+            constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::low> low{};
+            constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::high> high{};
+        }
         }
     }
     namespace Noneconfig2{    ///<Channel configuration registers.
@@ -251,14 +263,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::event> event{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::task> task{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::event> event{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::task> task{};
+        }
         }
         ///Pin select.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
-        namespace PselValC{
-        }
         ///Effects on output when in Task mode, or events on input that generates an event.
         enum class PolarityVal {
             none=0x00000000,     ///<No task or event.
@@ -268,10 +279,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,PolarityVal> polarity{}; 
         namespace PolarityValC{
-            constexpr Register::FieldValue<decltype(polarity),PolarityVal::none> none{};
-            constexpr Register::FieldValue<decltype(polarity),PolarityVal::lotohi> lotohi{};
-            constexpr Register::FieldValue<decltype(polarity),PolarityVal::hitolo> hitolo{};
-            constexpr Register::FieldValue<decltype(polarity),PolarityVal::toggle> toggle{};
+            constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::none> none{};
+            constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::lotohi> lotohi{};
+            constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::hitolo> hitolo{};
+            constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::toggle> toggle{};
+        }
         }
         ///Initial value of the output when the GPIOTE channel is configured as a Task.
         enum class OutinitVal {
@@ -280,8 +292,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,OutinitVal> outinit{}; 
         namespace OutinitValC{
-            constexpr Register::FieldValue<decltype(outinit),OutinitVal::low> low{};
-            constexpr Register::FieldValue<decltype(outinit),OutinitVal::high> high{};
+            constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::low> low{};
+            constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::high> high{};
+        }
         }
     }
     namespace Noneconfig3{    ///<Channel configuration registers.
@@ -294,14 +307,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::event> event{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::task> task{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::event> event{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::task> task{};
+        }
         }
         ///Pin select.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> psel{}; 
-        namespace PselValC{
-        }
         ///Effects on output when in Task mode, or events on input that generates an event.
         enum class PolarityVal {
             none=0x00000000,     ///<No task or event.
@@ -311,10 +323,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,PolarityVal> polarity{}; 
         namespace PolarityValC{
-            constexpr Register::FieldValue<decltype(polarity),PolarityVal::none> none{};
-            constexpr Register::FieldValue<decltype(polarity),PolarityVal::lotohi> lotohi{};
-            constexpr Register::FieldValue<decltype(polarity),PolarityVal::hitolo> hitolo{};
-            constexpr Register::FieldValue<decltype(polarity),PolarityVal::toggle> toggle{};
+            constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::none> none{};
+            constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::lotohi> lotohi{};
+            constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::hitolo> hitolo{};
+            constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::toggle> toggle{};
+        }
         }
         ///Initial value of the output when the GPIOTE channel is configured as a Task.
         enum class OutinitVal {
@@ -323,8 +336,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,OutinitVal> outinit{}; 
         namespace OutinitValC{
-            constexpr Register::FieldValue<decltype(outinit),OutinitVal::low> low{};
-            constexpr Register::FieldValue<decltype(outinit),OutinitVal::high> high{};
+            constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::low> low{};
+            constexpr Register::FieldValue<decltype(outinit)::Type,OutinitVal::high> high{};
+        }
         }
     }
     namespace Nonepower{    ///<Peripheral power control.
@@ -336,8 +350,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PowerVal> power{}; 
         namespace PowerValC{
-            constexpr Register::FieldValue<decltype(power),PowerVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(power),PowerVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(power)::Type,PowerVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(power)::Type,PowerVal::enabled> enabled{};
+        }
         }
     }
 }

@@ -11,8 +11,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ClkselVal> clksel{}; 
         namespace ClkselValC{
-            constexpr Register::FieldValue<decltype(clksel),ClkselVal::dividedIrcClockT> dividedIrcClockT{};
-            constexpr Register::FieldValue<decltype(clksel),ClkselVal::lowPowerClockThi> lowPowerClockThi{};
+            constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::dividedIrcClockT> dividedIrcClockT{};
+            constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::lowPowerClockThi> lowPowerClockThi{};
+        }
         }
         ///Wake-up or alarm timer flag.
         enum class AlarmflagVal {
@@ -21,8 +22,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,AlarmflagVal> alarmflag{}; 
         namespace AlarmflagValC{
-            constexpr Register::FieldValue<decltype(alarmflag),AlarmflagVal::noTimeOutTheSel> noTimeOutTheSel{};
-            constexpr Register::FieldValue<decltype(alarmflag),AlarmflagVal::timeOutTheSelfW> timeOutTheSelfW{};
+            constexpr Register::FieldValue<decltype(alarmflag)::Type,AlarmflagVal::noTimeOutTheSel> noTimeOutTheSel{};
+            constexpr Register::FieldValue<decltype(alarmflag)::Type,AlarmflagVal::timeOutTheSelfW> timeOutTheSelfW{};
+        }
         }
         ///Clears the self wake-up timer.
         enum class ClearctrVal {
@@ -31,15 +33,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,ClearctrVal> clearctr{}; 
         namespace ClearctrValC{
-            constexpr Register::FieldValue<decltype(clearctr),ClearctrVal::noEffectReadingT> noEffectReadingT{};
-            constexpr Register::FieldValue<decltype(clearctr),ClearctrVal::clearTheCounterC> clearTheCounterC{};
+            constexpr Register::FieldValue<decltype(clearctr)::Type,ClearctrVal::noEffectReadingT> noEffectReadingT{};
+            constexpr Register::FieldValue<decltype(clearctr)::Type,ClearctrVal::clearTheCounterC> clearTheCounterC{};
+        }
         }
     }
     namespace Nonecount{    ///<Counter register.
         using Addr = Register::Address<0x4000800c,0x00000000,0,unsigned>;
         ///A write to this register pre-loads start count value into the timer and starts the count-down sequence. A read reflects the current value of the timer.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> value{}; 
-        namespace ValueValC{
-        }
     }
 }

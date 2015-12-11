@@ -21,9 +21,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DatardyVal> datardy{}; 
         namespace DatardyValC{
-            constexpr Register::FieldValue<decltype(datardy),DatardyVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(datardy),DatardyVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(datardy),DatardyVal::set> set{};
+            constexpr Register::FieldValue<decltype(datardy)::Type,DatardyVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(datardy)::Type,DatardyVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(datardy)::Type,DatardyVal::set> set{};
+        }
         }
     }
     namespace Noneintenclr{    ///<Interrupt enable clear register.
@@ -36,9 +37,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DatardyVal> datardy{}; 
         namespace DatardyValC{
-            constexpr Register::FieldValue<decltype(datardy),DatardyVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(datardy),DatardyVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(datardy),DatardyVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(datardy)::Type,DatardyVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(datardy)::Type,DatardyVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(datardy)::Type,DatardyVal::clear> clear{};
+        }
         }
     }
     namespace Nonetemp{    ///<Die temperature in degC, 2's complement format, 0.25 degC pecision.
@@ -53,8 +55,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PowerVal> power{}; 
         namespace PowerValC{
-            constexpr Register::FieldValue<decltype(power),PowerVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(power),PowerVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(power)::Type,PowerVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(power)::Type,PowerVal::enabled> enabled{};
+        }
         }
     }
 }

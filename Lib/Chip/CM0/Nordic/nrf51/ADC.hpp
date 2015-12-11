@@ -21,9 +21,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EndVal> end{}; 
         namespace EndValC{
-            constexpr Register::FieldValue<decltype(end),EndVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(end),EndVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(end),EndVal::set> set{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::set> set{};
+        }
         }
     }
     namespace Noneintenclr{    ///<Interrupt enable clear register.
@@ -36,9 +37,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EndVal> end{}; 
         namespace EndValC{
-            constexpr Register::FieldValue<decltype(end),EndVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(end),EndVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(end),EndVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::clear> clear{};
+        }
         }
     }
     namespace Nonebusy{    ///<ADC busy register.
@@ -50,8 +52,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,BusyVal> busy{}; 
         namespace BusyValC{
-            constexpr Register::FieldValue<decltype(busy),BusyVal::ready> ready{};
-            constexpr Register::FieldValue<decltype(busy),BusyVal::busy> busy{};
+            constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::ready> ready{};
+            constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::busy> busy{};
+        }
         }
     }
     namespace Noneenable{    ///<ADC enable.
@@ -63,8 +66,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,EnableVal> enable{}; 
         namespace EnableValC{
-            constexpr Register::FieldValue<decltype(enable),EnableVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(enable),EnableVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
+        }
         }
     }
     namespace Noneconfig{    ///<ADC configuration register.
@@ -77,9 +81,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,ResVal> res{}; 
         namespace ResValC{
-            constexpr Register::FieldValue<decltype(res),ResVal::v8bit> v8bit{};
-            constexpr Register::FieldValue<decltype(res),ResVal::v9bit> v9bit{};
-            constexpr Register::FieldValue<decltype(res),ResVal::v10bit> v10bit{};
+            constexpr Register::FieldValue<decltype(res)::Type,ResVal::v8bit> v8bit{};
+            constexpr Register::FieldValue<decltype(res)::Type,ResVal::v9bit> v9bit{};
+            constexpr Register::FieldValue<decltype(res)::Type,ResVal::v10bit> v10bit{};
+        }
         }
         ///ADC input selection.
         enum class InpselVal {
@@ -91,11 +96,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,2),Register::ReadWriteAccess,InpselVal> inpsel{}; 
         namespace InpselValC{
-            constexpr Register::FieldValue<decltype(inpsel),InpselVal::analoginputnoprescaling> analoginputnoprescaling{};
-            constexpr Register::FieldValue<decltype(inpsel),InpselVal::analoginputtwothirdsprescaling> analoginputtwothirdsprescaling{};
-            constexpr Register::FieldValue<decltype(inpsel),InpselVal::analoginputonethirdprescaling> analoginputonethirdprescaling{};
-            constexpr Register::FieldValue<decltype(inpsel),InpselVal::supplytwothirdsprescaling> supplytwothirdsprescaling{};
-            constexpr Register::FieldValue<decltype(inpsel),InpselVal::supplyonethirdprescaling> supplyonethirdprescaling{};
+            constexpr Register::FieldValue<decltype(inpsel)::Type,InpselVal::analoginputnoprescaling> analoginputnoprescaling{};
+            constexpr Register::FieldValue<decltype(inpsel)::Type,InpselVal::analoginputtwothirdsprescaling> analoginputtwothirdsprescaling{};
+            constexpr Register::FieldValue<decltype(inpsel)::Type,InpselVal::analoginputonethirdprescaling> analoginputonethirdprescaling{};
+            constexpr Register::FieldValue<decltype(inpsel)::Type,InpselVal::supplytwothirdsprescaling> supplytwothirdsprescaling{};
+            constexpr Register::FieldValue<decltype(inpsel)::Type,InpselVal::supplyonethirdprescaling> supplyonethirdprescaling{};
+        }
         }
         ///ADC reference selection.
         enum class RefselVal {
@@ -106,10 +112,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,5),Register::ReadWriteAccess,RefselVal> refsel{}; 
         namespace RefselValC{
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::vbg> vbg{};
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::external> external{};
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::supplyonehalfprescaling> supplyonehalfprescaling{};
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::supplyonethirdprescaling> supplyonethirdprescaling{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::vbg> vbg{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::external> external{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::supplyonehalfprescaling> supplyonehalfprescaling{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::supplyonethirdprescaling> supplyonethirdprescaling{};
+        }
         }
         ///ADC analog pin selection.
         enum class PselVal {
@@ -125,15 +132,16 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,PselVal> psel{}; 
         namespace PselValC{
-            constexpr Register::FieldValue<decltype(psel),PselVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::analoginput0> analoginput0{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::analoginput1> analoginput1{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::analoginput2> analoginput2{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::analoginput3> analoginput3{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::analoginput4> analoginput4{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::analoginput5> analoginput5{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::analoginput6> analoginput6{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::analoginput7> analoginput7{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::analoginput0> analoginput0{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::analoginput1> analoginput1{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::analoginput2> analoginput2{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::analoginput3> analoginput3{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::analoginput4> analoginput4{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::analoginput5> analoginput5{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::analoginput6> analoginput6{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::analoginput7> analoginput7{};
+        }
         }
         ///ADC external reference pin selection.
         enum class ExtrefselVal {
@@ -143,17 +151,16 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,ExtrefselVal> extrefsel{}; 
         namespace ExtrefselValC{
-            constexpr Register::FieldValue<decltype(extrefsel),ExtrefselVal::none> none{};
-            constexpr Register::FieldValue<decltype(extrefsel),ExtrefselVal::analogreference0> analogreference0{};
-            constexpr Register::FieldValue<decltype(extrefsel),ExtrefselVal::analogreference1> analogreference1{};
+            constexpr Register::FieldValue<decltype(extrefsel)::Type,ExtrefselVal::none> none{};
+            constexpr Register::FieldValue<decltype(extrefsel)::Type,ExtrefselVal::analogreference0> analogreference0{};
+            constexpr Register::FieldValue<decltype(extrefsel)::Type,ExtrefselVal::analogreference1> analogreference1{};
+        }
         }
     }
     namespace Noneresult{    ///<Result of ADC conversion.
         using Addr = Register::Address<0x40007508,0xfffffc00,0,unsigned>;
         ///Result of ADC conversion.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> result{}; 
-        namespace ResultValC{
-        }
     }
     namespace Nonepower{    ///<Peripheral power control.
         using Addr = Register::Address<0x40007ffc,0xfffffffe,0,unsigned>;
@@ -164,8 +171,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PowerVal> power{}; 
         namespace PowerValC{
-            constexpr Register::FieldValue<decltype(power),PowerVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(power),PowerVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(power)::Type,PowerVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(power)::Type,PowerVal::enabled> enabled{};
+        }
         }
     }
 }

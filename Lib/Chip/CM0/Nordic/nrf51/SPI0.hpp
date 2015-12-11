@@ -15,9 +15,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,ReadyVal> ready{}; 
         namespace ReadyValC{
-            constexpr Register::FieldValue<decltype(ready),ReadyVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(ready),ReadyVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(ready),ReadyVal::set> set{};
+            constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::set> set{};
+        }
         }
     }
     namespace Noneintenclr{    ///<Interrupt enable clear register.
@@ -30,17 +31,16 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,ReadyVal> ready{}; 
         namespace ReadyValC{
-            constexpr Register::FieldValue<decltype(ready),ReadyVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(ready),ReadyVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(ready),ReadyVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::clear> clear{};
+        }
         }
     }
     namespace Noneenable{    ///<Enable SPI.
         using Addr = Register::Address<0x40003500,0xfffffff8,0,unsigned>;
         ///Enable or disable SPI.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> enable{}; 
-        namespace EnableValC{
-        }
     }
     namespace Nonepselsck{    ///<Pin select for SCK.
         using Addr = Register::Address<0x40003508,0xffffffff,0,unsigned>;
@@ -55,15 +55,11 @@ namespace Kvasir {
         using Addr = Register::Address<0x40003518,0xffffff00,0,unsigned>;
         ///RX data from last transfer.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rxd{}; 
-        namespace RxdValC{
-        }
     }
     namespace Nonetxd{    ///<TX data.
         using Addr = Register::Address<0x4000351c,0xffffff00,0,unsigned>;
         ///TX data for next transfer.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> txd{}; 
-        namespace TxdValC{
-        }
     }
     namespace Nonefrequency{    ///<SPI frequency
         using Addr = Register::Address<0x40003524,0x00000000,0,unsigned>;
@@ -79,13 +75,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,FrequencyVal> frequency{}; 
         namespace FrequencyValC{
-            constexpr Register::FieldValue<decltype(frequency),FrequencyVal::k125> k125{};
-            constexpr Register::FieldValue<decltype(frequency),FrequencyVal::k250> k250{};
-            constexpr Register::FieldValue<decltype(frequency),FrequencyVal::k500> k500{};
-            constexpr Register::FieldValue<decltype(frequency),FrequencyVal::m1> m1{};
-            constexpr Register::FieldValue<decltype(frequency),FrequencyVal::m2> m2{};
-            constexpr Register::FieldValue<decltype(frequency),FrequencyVal::m4> m4{};
-            constexpr Register::FieldValue<decltype(frequency),FrequencyVal::m8> m8{};
+            constexpr Register::FieldValue<decltype(frequency)::Type,FrequencyVal::k125> k125{};
+            constexpr Register::FieldValue<decltype(frequency)::Type,FrequencyVal::k250> k250{};
+            constexpr Register::FieldValue<decltype(frequency)::Type,FrequencyVal::k500> k500{};
+            constexpr Register::FieldValue<decltype(frequency)::Type,FrequencyVal::m1> m1{};
+            constexpr Register::FieldValue<decltype(frequency)::Type,FrequencyVal::m2> m2{};
+            constexpr Register::FieldValue<decltype(frequency)::Type,FrequencyVal::m4> m4{};
+            constexpr Register::FieldValue<decltype(frequency)::Type,FrequencyVal::m8> m8{};
+        }
         }
     }
     namespace Noneconfig{    ///<Configuration register.
@@ -97,8 +94,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,OrderVal> order{}; 
         namespace OrderValC{
-            constexpr Register::FieldValue<decltype(order),OrderVal::msbfirst> msbfirst{};
-            constexpr Register::FieldValue<decltype(order),OrderVal::lsbfirst> lsbfirst{};
+            constexpr Register::FieldValue<decltype(order)::Type,OrderVal::msbfirst> msbfirst{};
+            constexpr Register::FieldValue<decltype(order)::Type,OrderVal::lsbfirst> lsbfirst{};
+        }
         }
         ///Serial clock (SCK) phase.
         enum class CphaVal {
@@ -107,8 +105,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,CphaVal> cpha{}; 
         namespace CphaValC{
-            constexpr Register::FieldValue<decltype(cpha),CphaVal::leading> leading{};
-            constexpr Register::FieldValue<decltype(cpha),CphaVal::trailing> trailing{};
+            constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::leading> leading{};
+            constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::trailing> trailing{};
+        }
         }
         ///Serial clock (SCK) polarity.
         enum class CpolVal {
@@ -117,8 +116,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,CpolVal> cpol{}; 
         namespace CpolValC{
-            constexpr Register::FieldValue<decltype(cpol),CpolVal::activehigh> activehigh{};
-            constexpr Register::FieldValue<decltype(cpol),CpolVal::activelow> activelow{};
+            constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::activehigh> activehigh{};
+            constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::activelow> activelow{};
+        }
         }
     }
     namespace Nonepower{    ///<Peripheral power control.
@@ -130,8 +130,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PowerVal> power{}; 
         namespace PowerValC{
-            constexpr Register::FieldValue<decltype(power),PowerVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(power),PowerVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(power)::Type,PowerVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(power)::Type,PowerVal::enabled> enabled{};
+        }
         }
     }
 }

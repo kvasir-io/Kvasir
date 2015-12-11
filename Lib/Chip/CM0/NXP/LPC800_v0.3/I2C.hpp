@@ -11,8 +11,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,MstenVal> msten{}; 
         namespace MstenValC{
-            constexpr Register::FieldValue<decltype(msten),MstenVal::disabledTheI2cMa> disabledTheI2cMa{};
-            constexpr Register::FieldValue<decltype(msten),MstenVal::enabledTheI2cMas> enabledTheI2cMas{};
+            constexpr Register::FieldValue<decltype(msten)::Type,MstenVal::disabledTheI2cMa> disabledTheI2cMa{};
+            constexpr Register::FieldValue<decltype(msten)::Type,MstenVal::enabledTheI2cMas> enabledTheI2cMas{};
+        }
         }
         ///Slave Enable. When disabled, configurations settings for the Slave function are not changed, but the Slave function is internally reset.
         enum class SlvenVal {
@@ -21,8 +22,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,SlvenVal> slven{}; 
         namespace SlvenValC{
-            constexpr Register::FieldValue<decltype(slven),SlvenVal::disabledTheI2cSl> disabledTheI2cSl{};
-            constexpr Register::FieldValue<decltype(slven),SlvenVal::enabledTheI2cSla> enabledTheI2cSla{};
+            constexpr Register::FieldValue<decltype(slven)::Type,SlvenVal::disabledTheI2cSl> disabledTheI2cSl{};
+            constexpr Register::FieldValue<decltype(slven)::Type,SlvenVal::enabledTheI2cSla> enabledTheI2cSla{};
+        }
         }
         ///Monitor Enable. When disabled, configurations settings for the Monitor function are not changed, but the Monitor function is internally reset.
         enum class MonenVal {
@@ -31,8 +33,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,MonenVal> monen{}; 
         namespace MonenValC{
-            constexpr Register::FieldValue<decltype(monen),MonenVal::disabledTheI2cMo> disabledTheI2cMo{};
-            constexpr Register::FieldValue<decltype(monen),MonenVal::enabledTheI2cMon> enabledTheI2cMon{};
+            constexpr Register::FieldValue<decltype(monen)::Type,MonenVal::disabledTheI2cMo> disabledTheI2cMo{};
+            constexpr Register::FieldValue<decltype(monen)::Type,MonenVal::enabledTheI2cMon> enabledTheI2cMon{};
+        }
         }
         ///I2C bus Time-out Enable. When disabled, timeout flags will be automatically cleared.
         enum class TimeoutenVal {
@@ -41,8 +44,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,TimeoutenVal> timeouten{}; 
         namespace TimeoutenValC{
-            constexpr Register::FieldValue<decltype(timeouten),TimeoutenVal::disabledTimeOutF> disabledTimeOutF{};
-            constexpr Register::FieldValue<decltype(timeouten),TimeoutenVal::enabledTimeOutFu> enabledTimeOutFu{};
+            constexpr Register::FieldValue<decltype(timeouten)::Type,TimeoutenVal::disabledTimeOutF> disabledTimeOutF{};
+            constexpr Register::FieldValue<decltype(timeouten)::Type,TimeoutenVal::enabledTimeOutFu> enabledTimeOutFu{};
+        }
         }
         ///Monitor function Clock Stretching.
         enum class MonclkstrVal {
@@ -51,8 +55,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,MonclkstrVal> monclkstr{}; 
         namespace MonclkstrValC{
-            constexpr Register::FieldValue<decltype(monclkstr),MonclkstrVal::disabledTheMonito> disabledTheMonito{};
-            constexpr Register::FieldValue<decltype(monclkstr),MonclkstrVal::enabledTheMonitor> enabledTheMonitor{};
+            constexpr Register::FieldValue<decltype(monclkstr)::Type,MonclkstrVal::disabledTheMonito> disabledTheMonito{};
+            constexpr Register::FieldValue<decltype(monclkstr)::Type,MonclkstrVal::enabledTheMonitor> enabledTheMonitor{};
+        }
         }
     }
     namespace Nonestat{    ///<Status register for Master, Slave, and Monitor functions.
@@ -64,8 +69,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,MstpendingVal> mstpending{}; 
         namespace MstpendingValC{
-            constexpr Register::FieldValue<decltype(mstpending),MstpendingVal::noServiceNeededT> noServiceNeededT{};
-            constexpr Register::FieldValue<decltype(mstpending),MstpendingVal::serviceNeededThe> serviceNeededThe{};
+            constexpr Register::FieldValue<decltype(mstpending)::Type,MstpendingVal::noServiceNeededT> noServiceNeededT{};
+            constexpr Register::FieldValue<decltype(mstpending)::Type,MstpendingVal::serviceNeededThe> serviceNeededThe{};
+        }
         }
         ///Master State code. Each value of this field indicates a specific required service for the Master function.  All other values are reserved.
         enum class MststateVal {
@@ -77,11 +83,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,1),Register::ReadWriteAccess,MststateVal> mststate{}; 
         namespace MststateValC{
-            constexpr Register::FieldValue<decltype(mststate),MststateVal::idleTheMasterFun> idleTheMasterFun{};
-            constexpr Register::FieldValue<decltype(mststate),MststateVal::receiveReadyRecei> receiveReadyRecei{};
-            constexpr Register::FieldValue<decltype(mststate),MststateVal::transmitReadyData> transmitReadyData{};
-            constexpr Register::FieldValue<decltype(mststate),MststateVal::addressSlaveNacke> addressSlaveNacke{};
-            constexpr Register::FieldValue<decltype(mststate),MststateVal::dataSlaveNackedT> dataSlaveNackedT{};
+            constexpr Register::FieldValue<decltype(mststate)::Type,MststateVal::idleTheMasterFun> idleTheMasterFun{};
+            constexpr Register::FieldValue<decltype(mststate)::Type,MststateVal::receiveReadyRecei> receiveReadyRecei{};
+            constexpr Register::FieldValue<decltype(mststate)::Type,MststateVal::transmitReadyData> transmitReadyData{};
+            constexpr Register::FieldValue<decltype(mststate)::Type,MststateVal::addressSlaveNacke> addressSlaveNacke{};
+            constexpr Register::FieldValue<decltype(mststate)::Type,MststateVal::dataSlaveNackedT> dataSlaveNackedT{};
+        }
         }
         ///Master Arbitration Loss flag. This flag can be cleared by software writing a 1 to this bit. It is also cleared automatically a 1 is written to MSTCONTINUE.
         enum class MstarblossVal {
@@ -90,8 +97,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,MstarblossVal> mstarbloss{}; 
         namespace MstarblossValC{
-            constexpr Register::FieldValue<decltype(mstarbloss),MstarblossVal::noLossNoArbitrat> noLossNoArbitrat{};
-            constexpr Register::FieldValue<decltype(mstarbloss),MstarblossVal::arbitrationLossTh> arbitrationLossTh{};
+            constexpr Register::FieldValue<decltype(mstarbloss)::Type,MstarblossVal::noLossNoArbitrat> noLossNoArbitrat{};
+            constexpr Register::FieldValue<decltype(mstarbloss)::Type,MstarblossVal::arbitrationLossTh> arbitrationLossTh{};
+        }
         }
         ///Master Start/Stop Error flag. This flag can be cleared by software writing a 1 to this bit. It is also cleared automatically a 1 is written to MstContinue.
         enum class MstststperrVal {
@@ -100,8 +108,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,MstststperrVal> mstststperr{}; 
         namespace MstststperrValC{
-            constexpr Register::FieldValue<decltype(mstststperr),MstststperrVal::noStartstopError> noStartstopError{};
-            constexpr Register::FieldValue<decltype(mstststperr),MstststperrVal::startstopErrorHas> startstopErrorHas{};
+            constexpr Register::FieldValue<decltype(mstststperr)::Type,MstststperrVal::noStartstopError> noStartstopError{};
+            constexpr Register::FieldValue<decltype(mstststperr)::Type,MstststperrVal::startstopErrorHas> startstopErrorHas{};
+        }
         }
         ///Slave Pending. Indicates whether the Slave function needs software service. This flag will cause an interrupt when set if enabled via INTENSET.  The SLVPENDING flag is read-only and is automatically cleared when a 1 is written to the SLVCONTINUE bit in the MSTCTL register.
         enum class SlvpendingVal {
@@ -110,8 +119,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,SlvpendingVal> slvpending{}; 
         namespace SlvpendingValC{
-            constexpr Register::FieldValue<decltype(slvpending),SlvpendingVal::noServiceNeededT> noServiceNeededT{};
-            constexpr Register::FieldValue<decltype(slvpending),SlvpendingVal::serviceNeededThe> serviceNeededThe{};
+            constexpr Register::FieldValue<decltype(slvpending)::Type,SlvpendingVal::noServiceNeededT> noServiceNeededT{};
+            constexpr Register::FieldValue<decltype(slvpending)::Type,SlvpendingVal::serviceNeededThe> serviceNeededThe{};
+        }
         }
         ///Slave State code. Each value of this field indicates a specific required service for the Slave function. All other values are reserved.
         enum class SlvstateVal {
@@ -121,9 +131,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,SlvstateVal> slvstate{}; 
         namespace SlvstateValC{
-            constexpr Register::FieldValue<decltype(slvstate),SlvstateVal::receivedAddressPl> receivedAddressPl{};
-            constexpr Register::FieldValue<decltype(slvstate),SlvstateVal::dataAvailableRece> dataAvailableRece{};
-            constexpr Register::FieldValue<decltype(slvstate),SlvstateVal::dataReadyForTrans> dataReadyForTrans{};
+            constexpr Register::FieldValue<decltype(slvstate)::Type,SlvstateVal::receivedAddressPl> receivedAddressPl{};
+            constexpr Register::FieldValue<decltype(slvstate)::Type,SlvstateVal::dataAvailableRece> dataAvailableRece{};
+            constexpr Register::FieldValue<decltype(slvstate)::Type,SlvstateVal::dataReadyForTrans> dataReadyForTrans{};
+        }
         }
         ///Slave Not Stretching. Indicates when the slave function is stretching the I2C clock. This is needed in order to gracefully invoke Deep Sleep or Power-down modes during slave operation. This read-only flag reflects the slave function status in real time.
         enum class SlvnotstrVal {
@@ -132,8 +143,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,SlvnotstrVal> slvnotstr{}; 
         namespace SlvnotstrValC{
-            constexpr Register::FieldValue<decltype(slvnotstr),SlvnotstrVal::stretchingTheSlav> stretchingTheSlav{};
-            constexpr Register::FieldValue<decltype(slvnotstr),SlvnotstrVal::notStretchingThe> notStretchingThe{};
+            constexpr Register::FieldValue<decltype(slvnotstr)::Type,SlvnotstrVal::stretchingTheSlav> stretchingTheSlav{};
+            constexpr Register::FieldValue<decltype(slvnotstr)::Type,SlvnotstrVal::notStretchingThe> notStretchingThe{};
+        }
         }
         ///Slave address match Index. This field is valid when the I2C slave function has been selected by receiving an address that matches one of the slave addresses defined by any enabled slave address registers, and provides an identification of the address that was matched. It is possible that more than one address could be matched, but only one match can be reported here.
         enum class SlvidxVal {
@@ -144,10 +156,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,SlvidxVal> slvidx{}; 
         namespace SlvidxValC{
-            constexpr Register::FieldValue<decltype(slvidx),SlvidxVal::slaveAddress0Was> slaveAddress0Was{};
-            constexpr Register::FieldValue<decltype(slvidx),SlvidxVal::slaveAddress1Was> slaveAddress1Was{};
-            constexpr Register::FieldValue<decltype(slvidx),SlvidxVal::slaveAddress2Was> slaveAddress2Was{};
-            constexpr Register::FieldValue<decltype(slvidx),SlvidxVal::slaveAddress3Was> slaveAddress3Was{};
+            constexpr Register::FieldValue<decltype(slvidx)::Type,SlvidxVal::slaveAddress0Was> slaveAddress0Was{};
+            constexpr Register::FieldValue<decltype(slvidx)::Type,SlvidxVal::slaveAddress1Was> slaveAddress1Was{};
+            constexpr Register::FieldValue<decltype(slvidx)::Type,SlvidxVal::slaveAddress2Was> slaveAddress2Was{};
+            constexpr Register::FieldValue<decltype(slvidx)::Type,SlvidxVal::slaveAddress3Was> slaveAddress3Was{};
+        }
         }
         ///Slave selected flag. SLVSEL is set after an address match when software tells the Slave function to acknowledge the address. It is cleared when another address cycle presents an address that does not match an enabled address on the Slave function, when slave software decides to Nack a matched address, or when there is a Stop detected on the bus. SLVSEL is not cleared if software Nacks data.
         enum class SlvselVal {
@@ -156,8 +169,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,SlvselVal> slvsel{}; 
         namespace SlvselValC{
-            constexpr Register::FieldValue<decltype(slvsel),SlvselVal::notSelectedTheSl> notSelectedTheSl{};
-            constexpr Register::FieldValue<decltype(slvsel),SlvselVal::selectedTheSlave> selectedTheSlave{};
+            constexpr Register::FieldValue<decltype(slvsel)::Type,SlvselVal::notSelectedTheSl> notSelectedTheSl{};
+            constexpr Register::FieldValue<decltype(slvsel)::Type,SlvselVal::selectedTheSlave> selectedTheSlave{};
+        }
         }
         ///Slave Deselected flag. This flag will cause an interrupt when set if enabled via INTENSET. This flag can be cleared by writing a 1 to this bit.
         enum class SlvdeselVal {
@@ -166,8 +180,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,SlvdeselVal> slvdesel{}; 
         namespace SlvdeselValC{
-            constexpr Register::FieldValue<decltype(slvdesel),SlvdeselVal::notDeselectedThe> notDeselectedThe{};
-            constexpr Register::FieldValue<decltype(slvdesel),SlvdeselVal::deselectedTheSlav> deselectedTheSlav{};
+            constexpr Register::FieldValue<decltype(slvdesel)::Type,SlvdeselVal::notDeselectedThe> notDeselectedThe{};
+            constexpr Register::FieldValue<decltype(slvdesel)::Type,SlvdeselVal::deselectedTheSlav> deselectedTheSlav{};
+        }
         }
         ///Monitor Ready. This flag is cleared when the MONRXDAT register is read.
         enum class MonrdyVal {
@@ -176,8 +191,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,MonrdyVal> monrdy{}; 
         namespace MonrdyValC{
-            constexpr Register::FieldValue<decltype(monrdy),MonrdyVal::noDataTheMonitor> noDataTheMonitor{};
-            constexpr Register::FieldValue<decltype(monrdy),MonrdyVal::dataWaitingTheMo> dataWaitingTheMo{};
+            constexpr Register::FieldValue<decltype(monrdy)::Type,MonrdyVal::noDataTheMonitor> noDataTheMonitor{};
+            constexpr Register::FieldValue<decltype(monrdy)::Type,MonrdyVal::dataWaitingTheMo> dataWaitingTheMo{};
+        }
         }
         ///Monitor Overflow flag.
         enum class MonovVal {
@@ -186,8 +202,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,MonovVal> monov{}; 
         namespace MonovValC{
-            constexpr Register::FieldValue<decltype(monov),MonovVal::noOverrunMonitor> noOverrunMonitor{};
-            constexpr Register::FieldValue<decltype(monov),MonovVal::overrunAMonitorD> overrunAMonitorD{};
+            constexpr Register::FieldValue<decltype(monov)::Type,MonovVal::noOverrunMonitor> noOverrunMonitor{};
+            constexpr Register::FieldValue<decltype(monov)::Type,MonovVal::overrunAMonitorD> overrunAMonitorD{};
+        }
         }
         ///Monitor Active flag. This flag indicates when the Monitor function considers the I2C bus to be active. Active is defined here as when some Master is on the bus: a bus Start has occurred more recently than a bus Stop.
         enum class MonactiveVal {
@@ -196,8 +213,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,MonactiveVal> monactive{}; 
         namespace MonactiveValC{
-            constexpr Register::FieldValue<decltype(monactive),MonactiveVal::inactiveTheMonito> inactiveTheMonito{};
-            constexpr Register::FieldValue<decltype(monactive),MonactiveVal::activeTheMonitor> activeTheMonitor{};
+            constexpr Register::FieldValue<decltype(monactive)::Type,MonactiveVal::inactiveTheMonito> inactiveTheMonito{};
+            constexpr Register::FieldValue<decltype(monactive)::Type,MonactiveVal::activeTheMonitor> activeTheMonitor{};
+        }
         }
         ///Monitor Idle flag. This flag is set when the Monitor function sees the I2C bus change from active to inactive. This can be used by software to decide when to process data accumulated by the Monitor function. This flag will cause an interrupt when set if enabled via the INTENSET register . The flag can be cleared by writing a 1 to this bit.
         enum class MonidleVal {
@@ -206,8 +224,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,MonidleVal> monidle{}; 
         namespace MonidleValC{
-            constexpr Register::FieldValue<decltype(monidle),MonidleVal::notIdleTheI2cBu> notIdleTheI2cBu{};
-            constexpr Register::FieldValue<decltype(monidle),MonidleVal::idleTheI2cBusHa> idleTheI2cBusHa{};
+            constexpr Register::FieldValue<decltype(monidle)::Type,MonidleVal::notIdleTheI2cBu> notIdleTheI2cBu{};
+            constexpr Register::FieldValue<decltype(monidle)::Type,MonidleVal::idleTheI2cBusHa> idleTheI2cBusHa{};
+        }
         }
         ///Event Time-out Interrupt flag. Indicates when the time between events has been longer than the time specified by the TIMEOUT register. Events include Start, Stop, and clock edges. The case of SCL remaining low longer than TIMEOUT is not reported by this flag, it is reported in by the SCL Time-out flag. The flag is cleared by writing a 1 to this bit.
         enum class EventtimeoutVal {
@@ -216,8 +235,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,EventtimeoutVal> eventtimeout{}; 
         namespace EventtimeoutValC{
-            constexpr Register::FieldValue<decltype(eventtimeout),EventtimeoutVal::noTimeOutI2cBus> noTimeOutI2cBus{};
-            constexpr Register::FieldValue<decltype(eventtimeout),EventtimeoutVal::eventTimeOutThe> eventTimeOutThe{};
+            constexpr Register::FieldValue<decltype(eventtimeout)::Type,EventtimeoutVal::noTimeOutI2cBus> noTimeOutI2cBus{};
+            constexpr Register::FieldValue<decltype(eventtimeout)::Type,EventtimeoutVal::eventTimeOutThe> eventTimeOutThe{};
+        }
         }
         ///SCL Time-out Interrupt flag. Indicates when SCL has remained low longer than the time specific by the TIMEOUT register. The flag is cleared by writing a 1 to this bit.
         enum class ScltimeoutVal {
@@ -226,8 +246,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,ScltimeoutVal> scltimeout{}; 
         namespace ScltimeoutValC{
-            constexpr Register::FieldValue<decltype(scltimeout),ScltimeoutVal::noTimeOutSclLow> noTimeOutSclLow{};
-            constexpr Register::FieldValue<decltype(scltimeout),ScltimeoutVal::timeOutSclLowTi> timeOutSclLowTi{};
+            constexpr Register::FieldValue<decltype(scltimeout)::Type,ScltimeoutVal::noTimeOutSclLow> noTimeOutSclLow{};
+            constexpr Register::FieldValue<decltype(scltimeout)::Type,ScltimeoutVal::timeOutSclLowTi> timeOutSclLowTi{};
+        }
         }
     }
     namespace Noneintenset{    ///<Interrupt Enable Set and read register.
@@ -239,8 +260,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,MstpendingenVal> mstpendingen{}; 
         namespace MstpendingenValC{
-            constexpr Register::FieldValue<decltype(mstpendingen),MstpendingenVal::theMstpendingInter> theMstpendingInter{};
-            constexpr Register::FieldValue<decltype(mstpendingen),MstpendingenVal::theMstpendingInter> theMstpendingInter{};
+            constexpr Register::FieldValue<decltype(mstpendingen)::Type,MstpendingenVal::theMstpendingInter> theMstpendingInter{};
+            constexpr Register::FieldValue<decltype(mstpendingen)::Type,MstpendingenVal::theMstpendingInter> theMstpendingInter{};
+        }
         }
         ///Master Arbitration Loss interrupt Enable.
         enum class MstarblossenVal {
@@ -249,8 +271,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,MstarblossenVal> mstarblossen{}; 
         namespace MstarblossenValC{
-            constexpr Register::FieldValue<decltype(mstarblossen),MstarblossenVal::theMstarblossInter> theMstarblossInter{};
-            constexpr Register::FieldValue<decltype(mstarblossen),MstarblossenVal::theMstarblossInter> theMstarblossInter{};
+            constexpr Register::FieldValue<decltype(mstarblossen)::Type,MstarblossenVal::theMstarblossInter> theMstarblossInter{};
+            constexpr Register::FieldValue<decltype(mstarblossen)::Type,MstarblossenVal::theMstarblossInter> theMstarblossInter{};
+        }
         }
         ///Master Start/Stop Error interrupt Enable.
         enum class MstststperrenVal {
@@ -259,8 +282,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,MstststperrenVal> mstststperren{}; 
         namespace MstststperrenValC{
-            constexpr Register::FieldValue<decltype(mstststperren),MstststperrenVal::theMstststperrInte> theMstststperrInte{};
-            constexpr Register::FieldValue<decltype(mstststperren),MstststperrenVal::theMstststperrInte> theMstststperrInte{};
+            constexpr Register::FieldValue<decltype(mstststperren)::Type,MstststperrenVal::theMstststperrInte> theMstststperrInte{};
+            constexpr Register::FieldValue<decltype(mstststperren)::Type,MstststperrenVal::theMstststperrInte> theMstststperrInte{};
+        }
         }
         ///Slave Pending interrupt Enable.
         enum class SlvpendingenVal {
@@ -269,8 +293,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,SlvpendingenVal> slvpendingen{}; 
         namespace SlvpendingenValC{
-            constexpr Register::FieldValue<decltype(slvpendingen),SlvpendingenVal::theSlvpendingInter> theSlvpendingInter{};
-            constexpr Register::FieldValue<decltype(slvpendingen),SlvpendingenVal::theSlvpendingInter> theSlvpendingInter{};
+            constexpr Register::FieldValue<decltype(slvpendingen)::Type,SlvpendingenVal::theSlvpendingInter> theSlvpendingInter{};
+            constexpr Register::FieldValue<decltype(slvpendingen)::Type,SlvpendingenVal::theSlvpendingInter> theSlvpendingInter{};
+        }
         }
         ///Slave Not Stretching interrupt Enable.
         enum class SlvnotstrenVal {
@@ -279,8 +304,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,SlvnotstrenVal> slvnotstren{}; 
         namespace SlvnotstrenValC{
-            constexpr Register::FieldValue<decltype(slvnotstren),SlvnotstrenVal::theSlvnotstrInterr> theSlvnotstrInterr{};
-            constexpr Register::FieldValue<decltype(slvnotstren),SlvnotstrenVal::theSlvnotstrInterr> theSlvnotstrInterr{};
+            constexpr Register::FieldValue<decltype(slvnotstren)::Type,SlvnotstrenVal::theSlvnotstrInterr> theSlvnotstrInterr{};
+            constexpr Register::FieldValue<decltype(slvnotstren)::Type,SlvnotstrenVal::theSlvnotstrInterr> theSlvnotstrInterr{};
+        }
         }
         ///Slave Deselect interrupt Enable.
         enum class SlvdeselenVal {
@@ -289,8 +315,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,SlvdeselenVal> slvdeselen{}; 
         namespace SlvdeselenValC{
-            constexpr Register::FieldValue<decltype(slvdeselen),SlvdeselenVal::theSlvdeselInterru> theSlvdeselInterru{};
-            constexpr Register::FieldValue<decltype(slvdeselen),SlvdeselenVal::theSlvdeselInterru> theSlvdeselInterru{};
+            constexpr Register::FieldValue<decltype(slvdeselen)::Type,SlvdeselenVal::theSlvdeselInterru> theSlvdeselInterru{};
+            constexpr Register::FieldValue<decltype(slvdeselen)::Type,SlvdeselenVal::theSlvdeselInterru> theSlvdeselInterru{};
+        }
         }
         ///Monitor data Ready interrupt Enable.
         enum class MonrdyenVal {
@@ -299,8 +326,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,MonrdyenVal> monrdyen{}; 
         namespace MonrdyenValC{
-            constexpr Register::FieldValue<decltype(monrdyen),MonrdyenVal::theMonrdyInterrupt> theMonrdyInterrupt{};
-            constexpr Register::FieldValue<decltype(monrdyen),MonrdyenVal::theMonrdyInterrupt> theMonrdyInterrupt{};
+            constexpr Register::FieldValue<decltype(monrdyen)::Type,MonrdyenVal::theMonrdyInterrupt> theMonrdyInterrupt{};
+            constexpr Register::FieldValue<decltype(monrdyen)::Type,MonrdyenVal::theMonrdyInterrupt> theMonrdyInterrupt{};
+        }
         }
         ///Monitor Overrun interrupt Enable.
         enum class MonovenVal {
@@ -309,8 +337,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,MonovenVal> monoven{}; 
         namespace MonovenValC{
-            constexpr Register::FieldValue<decltype(monoven),MonovenVal::theMonovInterrupt> theMonovInterrupt{};
-            constexpr Register::FieldValue<decltype(monoven),MonovenVal::theMonovInterrupt> theMonovInterrupt{};
+            constexpr Register::FieldValue<decltype(monoven)::Type,MonovenVal::theMonovInterrupt> theMonovInterrupt{};
+            constexpr Register::FieldValue<decltype(monoven)::Type,MonovenVal::theMonovInterrupt> theMonovInterrupt{};
+        }
         }
         ///Monitor Idle interrupt Enable.
         enum class MonidleenVal {
@@ -319,8 +348,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,MonidleenVal> monidleen{}; 
         namespace MonidleenValC{
-            constexpr Register::FieldValue<decltype(monidleen),MonidleenVal::theMonidleInterrup> theMonidleInterrup{};
-            constexpr Register::FieldValue<decltype(monidleen),MonidleenVal::theMonidleInterrup> theMonidleInterrup{};
+            constexpr Register::FieldValue<decltype(monidleen)::Type,MonidleenVal::theMonidleInterrup> theMonidleInterrup{};
+            constexpr Register::FieldValue<decltype(monidleen)::Type,MonidleenVal::theMonidleInterrup> theMonidleInterrup{};
+        }
         }
         ///Event Timeout interrupt Enable.
         enum class EventtimeoutenVal {
@@ -329,8 +359,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,EventtimeoutenVal> eventtimeouten{}; 
         namespace EventtimeoutenValC{
-            constexpr Register::FieldValue<decltype(eventtimeouten),EventtimeoutenVal::theEventTimeoutIn> theEventTimeoutIn{};
-            constexpr Register::FieldValue<decltype(eventtimeouten),EventtimeoutenVal::theEventTimeoutIn> theEventTimeoutIn{};
+            constexpr Register::FieldValue<decltype(eventtimeouten)::Type,EventtimeoutenVal::theEventTimeoutIn> theEventTimeoutIn{};
+            constexpr Register::FieldValue<decltype(eventtimeouten)::Type,EventtimeoutenVal::theEventTimeoutIn> theEventTimeoutIn{};
+        }
         }
         ///SCL Timeout interrupt Enable.
         enum class ScltimeoutenVal {
@@ -339,121 +370,72 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,ScltimeoutenVal> scltimeouten{}; 
         namespace ScltimeoutenValC{
-            constexpr Register::FieldValue<decltype(scltimeouten),ScltimeoutenVal::theSclTimeoutInte> theSclTimeoutInte{};
-            constexpr Register::FieldValue<decltype(scltimeouten),ScltimeoutenVal::theSclTimeoutInte> theSclTimeoutInte{};
+            constexpr Register::FieldValue<decltype(scltimeouten)::Type,ScltimeoutenVal::theSclTimeoutInte> theSclTimeoutInte{};
+            constexpr Register::FieldValue<decltype(scltimeouten)::Type,ScltimeoutenVal::theSclTimeoutInte> theSclTimeoutInte{};
+        }
         }
     }
     namespace Noneintenclr{    ///<Interrupt Enable Clear register.
         using Addr = Register::Address<0x4005000c,0xfcf476ae,0,unsigned>;
         ///Master Pending interrupt clear. Writing 1 to this bit clears the corresponding bit in the INTENSET register if implemented.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mstpendingclr{}; 
-        namespace MstpendingclrValC{
-        }
         ///Master Arbitration Loss interrupt clear.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> mstarblossclr{}; 
-        namespace MstarblossclrValC{
-        }
         ///Master Start/Stop Error interrupt clear.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> mstststperrclr{}; 
-        namespace MstststperrclrValC{
-        }
         ///Slave Pending interrupt clear.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> slvpendingclr{}; 
-        namespace SlvpendingclrValC{
-        }
         ///Slave Not Stretching interrupt clear.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> slvnotstrclr{}; 
-        namespace SlvnotstrclrValC{
-        }
         ///Slave Deselect interrupt clear.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> slvdeselclr{}; 
-        namespace SlvdeselclrValC{
-        }
         ///Monitor data Ready interrupt clear.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> monrdyclr{}; 
-        namespace MonrdyclrValC{
-        }
         ///Monitor Overrun interrupt clear.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> monovclr{}; 
-        namespace MonovclrValC{
-        }
         ///Monitor Idle interrupt clear.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> monidleclr{}; 
-        namespace MonidleclrValC{
-        }
         ///Event Timeout interrupt clear.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> eventtimeoutclr{}; 
-        namespace EventtimeoutclrValC{
-        }
         ///SCL Timeout interrupt clear.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> scltimeoutclr{}; 
-        namespace ScltimeoutclrValC{
-        }
     }
     namespace Nonetimeout{    ///<Time-out value register.
         using Addr = Register::Address<0x40050010,0xffff0000,0,unsigned>;
         ///Timeout time value, bottom four bits. These are hard-wired to 0xF. This gives a minimum timeout of 16 I2C function clocks and also a timeout resolution of 16 I2C function clocks.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> tomin{}; 
-        namespace TominValC{
-        }
         ///Timeout time value. Specifies the timeout interval value in increments of 16 I2C function clocks, as defined by the CLKDIV register. To change this value while I2C is in operation, disable all time-outs, write a new value to TIMEOUT, then re-enable time-outs. 0x000 = A time-out will occur after 16 counts of the I2C function clock. 0x001 = A time-out will occur after 32 counts of the I2C function clock. ... 0xFFF = A timeout will occur after 65,536 counts of the I2C function clock.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> to{}; 
-        namespace ToValC{
-        }
     }
     namespace Nonediv{    ///<Clock pre-divider for the entire I2C block. This determines what time increments are used for the MSTTIME and SLVTIME registers.
         using Addr = Register::Address<0x40050014,0xffff0000,0,unsigned>;
         ///This field controls how the clock (PCLK) is used by the I2C functions that need an internal clock in order to operate. 0x0000 = PCLK is used directly by the I2C function. 0x0001 = PCLK is divided by 2 before use by the I 2C function. 0x0002 = PCLK is divided by 3 before use by the I 2C function. ... 0xFFFF = PCLK is divided by 65,536 before use by the I2C function.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> divval{}; 
-        namespace DivvalValC{
-        }
     }
     namespace Noneintstat{    ///<Interrupt Status register for Master, Slave, and Monitor functions.
         using Addr = Register::Address<0x40050018,0xfcf476ae,0,unsigned>;
         ///Master Pending.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mstpending{}; 
-        namespace MstpendingValC{
-        }
         ///Master Arbitration Loss flag.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> mstarbloss{}; 
-        namespace MstarblossValC{
-        }
         ///Master Start/Stop Error flag.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> mstststperr{}; 
-        namespace MstststperrValC{
-        }
         ///Slave Pending.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> slvpending{}; 
-        namespace SlvpendingValC{
-        }
         ///Slave Not Stretching status.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> slvnotstr{}; 
-        namespace SlvnotstrValC{
-        }
         ///Slave Deselected flag.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> slvdesel{}; 
-        namespace SlvdeselValC{
-        }
         ///Monitor Ready.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> monrdy{}; 
-        namespace MonrdyValC{
-        }
         ///Monitor Overflow flag.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> monov{}; 
-        namespace MonovValC{
-        }
         ///Monitor Idle flag.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> monidle{}; 
-        namespace MonidleValC{
-        }
         ///Event Timeout Interrupt flag.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> eventtimeout{}; 
-        namespace EventtimeoutValC{
-        }
         ///SCL Timeout Interrupt flag.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> scltimeout{}; 
-        namespace ScltimeoutValC{
-        }
     }
     namespace Nonemstctl{    ///<Master control register.
         using Addr = Register::Address<0x40050020,0xfffffff8,0,unsigned>;
@@ -464,8 +446,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,MstcontinueVal> mstcontinue{}; 
         namespace MstcontinueValC{
-            constexpr Register::FieldValue<decltype(mstcontinue),MstcontinueVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(mstcontinue),MstcontinueVal::continueInformsTh> continueInformsTh{};
+            constexpr Register::FieldValue<decltype(mstcontinue)::Type,MstcontinueVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(mstcontinue)::Type,MstcontinueVal::continueInformsTh> continueInformsTh{};
+        }
         }
         ///Master Start control. This bit is write-only.
         enum class MststartVal {
@@ -474,8 +457,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,MststartVal> mststart{}; 
         namespace MststartValC{
-            constexpr Register::FieldValue<decltype(mststart),MststartVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(mststart),MststartVal::startAStartWill> startAStartWill{};
+            constexpr Register::FieldValue<decltype(mststart)::Type,MststartVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(mststart)::Type,MststartVal::startAStartWill> startAStartWill{};
+        }
         }
         ///Master Stop control. This bit is write-only.
         enum class MststopVal {
@@ -484,8 +468,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,MststopVal> mststop{}; 
         namespace MststopValC{
-            constexpr Register::FieldValue<decltype(mststop),MststopVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(mststop),MststopVal::stopAStopWillBe> stopAStopWillBe{};
+            constexpr Register::FieldValue<decltype(mststop)::Type,MststopVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(mststop)::Type,MststopVal::stopAStopWillBe> stopAStopWillBe{};
+        }
         }
     }
     namespace Nonemsttime{    ///<Master timing configuration.
@@ -503,14 +488,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,MstscllowVal> mstscllow{}; 
         namespace MstscllowValC{
-            constexpr Register::FieldValue<decltype(mstscllow),MstscllowVal::v2ClocksMinimumSc> v2ClocksMinimumSc{};
-            constexpr Register::FieldValue<decltype(mstscllow),MstscllowVal::v3ClocksMinimumSc> v3ClocksMinimumSc{};
-            constexpr Register::FieldValue<decltype(mstscllow),MstscllowVal::v4ClocksMinimumSc> v4ClocksMinimumSc{};
-            constexpr Register::FieldValue<decltype(mstscllow),MstscllowVal::v5ClocksMinimumSc> v5ClocksMinimumSc{};
-            constexpr Register::FieldValue<decltype(mstscllow),MstscllowVal::v6ClocksMinimumSc> v6ClocksMinimumSc{};
-            constexpr Register::FieldValue<decltype(mstscllow),MstscllowVal::v7ClocksMinimumSc> v7ClocksMinimumSc{};
-            constexpr Register::FieldValue<decltype(mstscllow),MstscllowVal::v8ClocksMinimumSc> v8ClocksMinimumSc{};
-            constexpr Register::FieldValue<decltype(mstscllow),MstscllowVal::v9ClocksMinimumSc> v9ClocksMinimumSc{};
+            constexpr Register::FieldValue<decltype(mstscllow)::Type,MstscllowVal::v2ClocksMinimumSc> v2ClocksMinimumSc{};
+            constexpr Register::FieldValue<decltype(mstscllow)::Type,MstscllowVal::v3ClocksMinimumSc> v3ClocksMinimumSc{};
+            constexpr Register::FieldValue<decltype(mstscllow)::Type,MstscllowVal::v4ClocksMinimumSc> v4ClocksMinimumSc{};
+            constexpr Register::FieldValue<decltype(mstscllow)::Type,MstscllowVal::v5ClocksMinimumSc> v5ClocksMinimumSc{};
+            constexpr Register::FieldValue<decltype(mstscllow)::Type,MstscllowVal::v6ClocksMinimumSc> v6ClocksMinimumSc{};
+            constexpr Register::FieldValue<decltype(mstscllow)::Type,MstscllowVal::v7ClocksMinimumSc> v7ClocksMinimumSc{};
+            constexpr Register::FieldValue<decltype(mstscllow)::Type,MstscllowVal::v8ClocksMinimumSc> v8ClocksMinimumSc{};
+            constexpr Register::FieldValue<decltype(mstscllow)::Type,MstscllowVal::v9ClocksMinimumSc> v9ClocksMinimumSc{};
+        }
         }
         ///Master SCL High time. Specifies the minimum high time that will be asserted by this master on SCL. Other masters in a multi-master system could shorten this time. This corresponds to the parameter tHIGH in the I2C bus specification. I2C bus specification parameters tSU;STO and tHD;STA have the same values and are also controlled by MSTSCLHIGH.
         enum class MstsclhighVal {
@@ -525,22 +511,21 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,MstsclhighVal> mstsclhigh{}; 
         namespace MstsclhighValC{
-            constexpr Register::FieldValue<decltype(mstsclhigh),MstsclhighVal::v2ClocksMinimumSc> v2ClocksMinimumSc{};
-            constexpr Register::FieldValue<decltype(mstsclhigh),MstsclhighVal::v3ClocksMinimumSc> v3ClocksMinimumSc{};
-            constexpr Register::FieldValue<decltype(mstsclhigh),MstsclhighVal::v4ClocksMinimumSc> v4ClocksMinimumSc{};
-            constexpr Register::FieldValue<decltype(mstsclhigh),MstsclhighVal::v5ClocksMinimumSc> v5ClocksMinimumSc{};
-            constexpr Register::FieldValue<decltype(mstsclhigh),MstsclhighVal::v6ClocksMinimumSc> v6ClocksMinimumSc{};
-            constexpr Register::FieldValue<decltype(mstsclhigh),MstsclhighVal::v7ClocksMinimumSc> v7ClocksMinimumSc{};
-            constexpr Register::FieldValue<decltype(mstsclhigh),MstsclhighVal::v8ClocksMinimumSc> v8ClocksMinimumSc{};
-            constexpr Register::FieldValue<decltype(mstsclhigh),MstsclhighVal::v9ClocksMinimumSc> v9ClocksMinimumSc{};
+            constexpr Register::FieldValue<decltype(mstsclhigh)::Type,MstsclhighVal::v2ClocksMinimumSc> v2ClocksMinimumSc{};
+            constexpr Register::FieldValue<decltype(mstsclhigh)::Type,MstsclhighVal::v3ClocksMinimumSc> v3ClocksMinimumSc{};
+            constexpr Register::FieldValue<decltype(mstsclhigh)::Type,MstsclhighVal::v4ClocksMinimumSc> v4ClocksMinimumSc{};
+            constexpr Register::FieldValue<decltype(mstsclhigh)::Type,MstsclhighVal::v5ClocksMinimumSc> v5ClocksMinimumSc{};
+            constexpr Register::FieldValue<decltype(mstsclhigh)::Type,MstsclhighVal::v6ClocksMinimumSc> v6ClocksMinimumSc{};
+            constexpr Register::FieldValue<decltype(mstsclhigh)::Type,MstsclhighVal::v7ClocksMinimumSc> v7ClocksMinimumSc{};
+            constexpr Register::FieldValue<decltype(mstsclhigh)::Type,MstsclhighVal::v8ClocksMinimumSc> v8ClocksMinimumSc{};
+            constexpr Register::FieldValue<decltype(mstsclhigh)::Type,MstsclhighVal::v9ClocksMinimumSc> v9ClocksMinimumSc{};
+        }
         }
     }
     namespace Nonemstdat{    ///<Combined Master receiver and transmitter data register.
         using Addr = Register::Address<0x40050028,0xffffff00,0,unsigned>;
         ///Master function data register. Read: read the most recently received data for the Master function. Write: transmit data using the Master function.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace Noneslvctl{    ///<Slave control register.
         using Addr = Register::Address<0x40050040,0xfffffffc,0,unsigned>;
@@ -551,8 +536,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,SlvcontinueVal> slvcontinue{}; 
         namespace SlvcontinueValC{
-            constexpr Register::FieldValue<decltype(slvcontinue),SlvcontinueVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(slvcontinue),SlvcontinueVal::continueInformsTh> continueInformsTh{};
+            constexpr Register::FieldValue<decltype(slvcontinue)::Type,SlvcontinueVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(slvcontinue)::Type,SlvcontinueVal::continueInformsTh> continueInformsTh{};
+        }
         }
         ///Slave Nack.
         enum class SlvnackVal {
@@ -561,16 +547,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,SlvnackVal> slvnack{}; 
         namespace SlvnackValC{
-            constexpr Register::FieldValue<decltype(slvnack),SlvnackVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(slvnack),SlvnackVal::nackCausesTheSla> nackCausesTheSla{};
+            constexpr Register::FieldValue<decltype(slvnack)::Type,SlvnackVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(slvnack)::Type,SlvnackVal::nackCausesTheSla> nackCausesTheSla{};
+        }
         }
     }
     namespace Noneslvdat{    ///<Combined Slave receiver and transmitter data register.
         using Addr = Register::Address<0x40050044,0xffffff00,0,unsigned>;
         ///Slave function data register. Read: read the most recently received data for the Slave function. Write: transmit data using the Slave function.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace Noneslvadr0{    ///<Slave address 0.
         using Addr = Register::Address<0x40050048,0xffffff00,0,unsigned>;
@@ -581,13 +566,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,SadisableVal> sadisable{}; 
         namespace SadisableValC{
-            constexpr Register::FieldValue<decltype(sadisable),SadisableVal::enabledSlaveAddre> enabledSlaveAddre{};
-            constexpr Register::FieldValue<decltype(sadisable),SadisableVal::ignoredSlaveAddres> ignoredSlaveAddres{};
+            constexpr Register::FieldValue<decltype(sadisable)::Type,SadisableVal::enabledSlaveAddre> enabledSlaveAddre{};
+            constexpr Register::FieldValue<decltype(sadisable)::Type,SadisableVal::ignoredSlaveAddres> ignoredSlaveAddres{};
+        }
         }
         ///Seven bit slave address that is compared to received addresses if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> slvadr{}; 
-        namespace SlvadrValC{
-        }
     }
     namespace Noneslvadr1{    ///<Slave address 0.
         using Addr = Register::Address<0x4005004c,0xffffff00,0,unsigned>;
@@ -598,13 +582,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,SadisableVal> sadisable{}; 
         namespace SadisableValC{
-            constexpr Register::FieldValue<decltype(sadisable),SadisableVal::enabledSlaveAddre> enabledSlaveAddre{};
-            constexpr Register::FieldValue<decltype(sadisable),SadisableVal::ignoredSlaveAddres> ignoredSlaveAddres{};
+            constexpr Register::FieldValue<decltype(sadisable)::Type,SadisableVal::enabledSlaveAddre> enabledSlaveAddre{};
+            constexpr Register::FieldValue<decltype(sadisable)::Type,SadisableVal::ignoredSlaveAddres> ignoredSlaveAddres{};
+        }
         }
         ///Seven bit slave address that is compared to received addresses if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> slvadr{}; 
-        namespace SlvadrValC{
-        }
     }
     namespace Noneslvadr2{    ///<Slave address 0.
         using Addr = Register::Address<0x40050050,0xffffff00,0,unsigned>;
@@ -615,13 +598,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,SadisableVal> sadisable{}; 
         namespace SadisableValC{
-            constexpr Register::FieldValue<decltype(sadisable),SadisableVal::enabledSlaveAddre> enabledSlaveAddre{};
-            constexpr Register::FieldValue<decltype(sadisable),SadisableVal::ignoredSlaveAddres> ignoredSlaveAddres{};
+            constexpr Register::FieldValue<decltype(sadisable)::Type,SadisableVal::enabledSlaveAddre> enabledSlaveAddre{};
+            constexpr Register::FieldValue<decltype(sadisable)::Type,SadisableVal::ignoredSlaveAddres> ignoredSlaveAddres{};
+        }
         }
         ///Seven bit slave address that is compared to received addresses if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> slvadr{}; 
-        namespace SlvadrValC{
-        }
     }
     namespace Noneslvadr3{    ///<Slave address 0.
         using Addr = Register::Address<0x40050054,0xffffff00,0,unsigned>;
@@ -632,13 +614,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,SadisableVal> sadisable{}; 
         namespace SadisableValC{
-            constexpr Register::FieldValue<decltype(sadisable),SadisableVal::enabledSlaveAddre> enabledSlaveAddre{};
-            constexpr Register::FieldValue<decltype(sadisable),SadisableVal::ignoredSlaveAddres> ignoredSlaveAddres{};
+            constexpr Register::FieldValue<decltype(sadisable)::Type,SadisableVal::enabledSlaveAddre> enabledSlaveAddre{};
+            constexpr Register::FieldValue<decltype(sadisable)::Type,SadisableVal::ignoredSlaveAddres> ignoredSlaveAddres{};
+        }
         }
         ///Seven bit slave address that is compared to received addresses if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> slvadr{}; 
-        namespace SlvadrValC{
-        }
     }
     namespace Noneslvqual0{    ///<Slave Qualification for address 0.
         using Addr = Register::Address<0x40050058,0xffffff00,0,unsigned>;
@@ -649,20 +630,17 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Qualmode0Val> qualmode0{}; 
         namespace Qualmode0ValC{
-            constexpr Register::FieldValue<decltype(qualmode0),Qualmode0Val::theSlvqual0FieldI> theSlvqual0FieldI{};
-            constexpr Register::FieldValue<decltype(qualmode0),Qualmode0Val::theSlvqual0FieldI> theSlvqual0FieldI{};
+            constexpr Register::FieldValue<decltype(qualmode0)::Type,Qualmode0Val::theSlvqual0FieldI> theSlvqual0FieldI{};
+            constexpr Register::FieldValue<decltype(qualmode0)::Type,Qualmode0Val::theSlvqual0FieldI> theSlvqual0FieldI{};
+        }
         }
         ///Slave address Qualifier for address 0. A value of 0 causes the address in SLVADR0 to be used as-is, assuming that it is enabled. If QUALMODE0 = 0, any bit in this field which is set to 1 will cause an automatic match of the corresponding bit of the received address when it is compared to the SLVADR0 register. If QUALMODE0 = 1, an address range is matched for address 0. This range extends from the value defined by SLVADR0 to the address defined by SLVQUAL0 (address matches when SLVADR0[7:1] less or equal than  received address less or equal than SLVQUAL0[7:1]).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> slvqual0{}; 
-        namespace Slvqual0ValC{
-        }
     }
     namespace Nonemonrxdat{    ///<Monitor receiver data register.
         using Addr = Register::Address<0x40050080,0xfffff800,0,unsigned>;
         ///Monitor function Receiver Data. This reflects every data byte that passes on the I2C pins, and adds indication of Start, Repeated Start, and data Nack.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> monrxdat{}; 
-        namespace MonrxdatValC{
-        }
         ///Monitor Received Start.
         enum class MonstartVal {
             noDetectTheMonit=0x00000000,     ///<No detect. The monitor function has not detected a Start event on the I2C bus.
@@ -670,8 +648,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,MonstartVal> monstart{}; 
         namespace MonstartValC{
-            constexpr Register::FieldValue<decltype(monstart),MonstartVal::noDetectTheMonit> noDetectTheMonit{};
-            constexpr Register::FieldValue<decltype(monstart),MonstartVal::startDetectTheMo> startDetectTheMo{};
+            constexpr Register::FieldValue<decltype(monstart)::Type,MonstartVal::noDetectTheMonit> noDetectTheMonit{};
+            constexpr Register::FieldValue<decltype(monstart)::Type,MonstartVal::startDetectTheMo> startDetectTheMo{};
+        }
         }
         ///Monitor Received Repeated Start.
         enum class MonrestartVal {
@@ -680,8 +659,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,MonrestartVal> monrestart{}; 
         namespace MonrestartValC{
-            constexpr Register::FieldValue<decltype(monrestart),MonrestartVal::noStartDetectThe> noStartDetectThe{};
-            constexpr Register::FieldValue<decltype(monrestart),MonrestartVal::repeatedStartDetec> repeatedStartDetec{};
+            constexpr Register::FieldValue<decltype(monrestart)::Type,MonrestartVal::noStartDetectThe> noStartDetectThe{};
+            constexpr Register::FieldValue<decltype(monrestart)::Type,MonrestartVal::repeatedStartDetec> repeatedStartDetec{};
+        }
         }
         ///Monitor Received Nack.
         enum class MonnackVal {
@@ -690,8 +670,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,MonnackVal> monnack{}; 
         namespace MonnackValC{
-            constexpr Register::FieldValue<decltype(monnack),MonnackVal::acknowledgedTheDa> acknowledgedTheDa{};
-            constexpr Register::FieldValue<decltype(monnack),MonnackVal::notAcknowledgedTh> notAcknowledgedTh{};
+            constexpr Register::FieldValue<decltype(monnack)::Type,MonnackVal::acknowledgedTheDa> acknowledgedTheDa{};
+            constexpr Register::FieldValue<decltype(monnack)::Type,MonnackVal::notAcknowledgedTh> notAcknowledgedTh{};
+        }
         }
     }
 }
