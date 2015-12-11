@@ -187,5 +187,11 @@ namespace Register{
 		write(FieldValue<T, V>) {
 			return { };
 		}
+	
+	//variadic compile time field values
+	template<typename T, typename U, typename... Ts>
+		constexpr decltype(MPL::list(write(T { }), write(U { }), write(Ts { })...)) write(T, U, Ts...) {
+			return { };
+		}
 }
 }
