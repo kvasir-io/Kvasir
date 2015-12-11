@@ -17,14 +17,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,FreqcnVal> freqcn{}; 
         namespace FreqcnValC{
-            constexpr Register::FieldValue<decltype(freqcn),FreqcnVal::range0> range0{};
-            constexpr Register::FieldValue<decltype(freqcn),FreqcnVal::range1> range1{};
-            constexpr Register::FieldValue<decltype(freqcn),FreqcnVal::range2> range2{};
-            constexpr Register::FieldValue<decltype(freqcn),FreqcnVal::range3> range3{};
-            constexpr Register::FieldValue<decltype(freqcn),FreqcnVal::range4> range4{};
-            constexpr Register::FieldValue<decltype(freqcn),FreqcnVal::range5> range5{};
-            constexpr Register::FieldValue<decltype(freqcn),FreqcnVal::range6> range6{};
-            constexpr Register::FieldValue<decltype(freqcn),FreqcnVal::range7> range7{};
+            constexpr Register::FieldValue<decltype(freqcn)::Type,FreqcnVal::range0> range0{};
+            constexpr Register::FieldValue<decltype(freqcn)::Type,FreqcnVal::range1> range1{};
+            constexpr Register::FieldValue<decltype(freqcn)::Type,FreqcnVal::range2> range2{};
+            constexpr Register::FieldValue<decltype(freqcn)::Type,FreqcnVal::range3> range3{};
+            constexpr Register::FieldValue<decltype(freqcn)::Type,FreqcnVal::range4> range4{};
+            constexpr Register::FieldValue<decltype(freqcn)::Type,FreqcnVal::range5> range5{};
+            constexpr Register::FieldValue<decltype(freqcn)::Type,FreqcnVal::range6> range6{};
+            constexpr Register::FieldValue<decltype(freqcn)::Type,FreqcnVal::range7> range7{};
+        }
         }
         ///Oscillator Valid Flag. 
         enum class OscvldfVal {
@@ -33,8 +34,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,OscvldfVal> oscvldf{}; 
         namespace OscvldfValC{
-            constexpr Register::FieldValue<decltype(oscvldf),OscvldfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(oscvldf),OscvldfVal::set> set{};
+            constexpr Register::FieldValue<decltype(oscvldf)::Type,OscvldfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(oscvldf)::Type,OscvldfVal::set> set{};
+        }
         }
         ///Oscillator Mode. 
         enum class OscmdVal {
@@ -48,13 +50,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,OscmdVal> oscmd{}; 
         namespace OscmdValC{
-            constexpr Register::FieldValue<decltype(oscmd),OscmdVal::off> off{};
-            constexpr Register::FieldValue<decltype(oscmd),OscmdVal::cmos> cmos{};
-            constexpr Register::FieldValue<decltype(oscmd),OscmdVal::cmosdiv2> cmosdiv2{};
-            constexpr Register::FieldValue<decltype(oscmd),OscmdVal::rc> rc{};
-            constexpr Register::FieldValue<decltype(oscmd),OscmdVal::c> c{};
-            constexpr Register::FieldValue<decltype(oscmd),OscmdVal::xtal> xtal{};
-            constexpr Register::FieldValue<decltype(oscmd),OscmdVal::xtaldiv2> xtaldiv2{};
+            constexpr Register::FieldValue<decltype(oscmd)::Type,OscmdVal::off> off{};
+            constexpr Register::FieldValue<decltype(oscmd)::Type,OscmdVal::cmos> cmos{};
+            constexpr Register::FieldValue<decltype(oscmd)::Type,OscmdVal::cmosdiv2> cmosdiv2{};
+            constexpr Register::FieldValue<decltype(oscmd)::Type,OscmdVal::rc> rc{};
+            constexpr Register::FieldValue<decltype(oscmd)::Type,OscmdVal::c> c{};
+            constexpr Register::FieldValue<decltype(oscmd)::Type,OscmdVal::xtal> xtal{};
+            constexpr Register::FieldValue<decltype(oscmd)::Type,OscmdVal::xtaldiv2> xtaldiv2{};
+        }
         }
     }
 }

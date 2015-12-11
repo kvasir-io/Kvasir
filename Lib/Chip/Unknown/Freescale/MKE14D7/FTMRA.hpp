@@ -13,15 +13,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,SecVal> sec{}; 
         namespace SecValC{
-            constexpr Register::FieldValue<decltype(sec),SecVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(sec),SecVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(sec),SecVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(sec),SecVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(sec)::Type,SecVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(sec)::Type,SecVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(sec)::Type,SecVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(sec)::Type,SecVal::v11> v11{};
+        }
         }
         ///Reserved Nonvolatile Bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,2),Register::ReadWriteAccess,unsigned> rnv{}; 
-        namespace RnvValC{
-        }
         ///Backdoor Key Security Enable
         enum class KeyenVal {
             v00=0x00000000,     ///<Backdoor key access disabled
@@ -31,18 +30,17 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,KeyenVal> keyen{}; 
         namespace KeyenValC{
-            constexpr Register::FieldValue<decltype(keyen),KeyenVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(keyen),KeyenVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(keyen),KeyenVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(keyen),KeyenVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(keyen)::Type,KeyenVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(keyen)::Type,KeyenVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(keyen)::Type,KeyenVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(keyen)::Type,KeyenVal::v11> v11{};
+        }
         }
     }
     namespace FtmraFclkdiv{    ///<Flash Clock Divider Register
         using Addr = Register::Address<0x40039001,0xffffff00,0,unsigned char>;
         ///Clock Divider Bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> fdiv{}; 
-        namespace FdivValC{
-        }
         ///Clock Divider Loaded
         enum class FdivldVal {
             v0=0x00000000,     ///<FCLKDIV register has not been written.
@@ -50,23 +48,20 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,FdivldVal> fdivld{}; 
         namespace FdivldValC{
-            constexpr Register::FieldValue<decltype(fdivld),FdivldVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(fdivld),FdivldVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(fdivld)::Type,FdivldVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fdivld)::Type,FdivldVal::v1> v1{};
+        }
         }
     }
     namespace FtmraFeccrix{    ///<Flash ECCR Index Register
         using Addr = Register::Address<0x40039002,0xfffffff8,0,unsigned char>;
         ///ECC Error Register Index
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> eccrix{}; 
-        namespace EccrixValC{
-        }
     }
     namespace FtmraFccobix{    ///<Flash Common Command Object Index Register
         using Addr = Register::Address<0x40039003,0xfffffff8,0,unsigned char>;
         ///Common Command Register Index
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> ccobix{}; 
-        namespace CcobixValC{
-        }
     }
     namespace FtmraFercnfg{    ///<Flash Error Configuration Register
         using Addr = Register::Address<0x40039004,0xfffffffc,0,unsigned char>;
@@ -77,8 +72,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,SfdieVal> sfdie{}; 
         namespace SfdieValC{
-            constexpr Register::FieldValue<decltype(sfdie),SfdieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(sfdie),SfdieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(sfdie)::Type,SfdieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sfdie)::Type,SfdieVal::v1> v1{};
+        }
         }
         ///Double Bit Fault Detect Interrupt Enable
         enum class DfdieVal {
@@ -87,8 +83,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DfdieVal> dfdie{}; 
         namespace DfdieValC{
-            constexpr Register::FieldValue<decltype(dfdie),DfdieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dfdie),DfdieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dfdie)::Type,DfdieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dfdie)::Type,DfdieVal::v1> v1{};
+        }
         }
     }
     namespace FtmraFcnfg{    ///<Flash Configuration Register
@@ -100,8 +97,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,FsfdVal> fsfd{}; 
         namespace FsfdValC{
-            constexpr Register::FieldValue<decltype(fsfd),FsfdVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(fsfd),FsfdVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(fsfd)::Type,FsfdVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fsfd)::Type,FsfdVal::v1> v1{};
+        }
         }
         ///Force Double Bit Fault Detect
         enum class FdfdVal {
@@ -110,8 +108,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,FdfdVal> fdfd{}; 
         namespace FdfdValC{
-            constexpr Register::FieldValue<decltype(fdfd),FdfdVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(fdfd),FdfdVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(fdfd)::Type,FdfdVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fdfd)::Type,FdfdVal::v1> v1{};
+        }
         }
         ///Ignore Single Bit Fault
         enum class IgnsfVal {
@@ -120,8 +119,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,IgnsfVal> ignsf{}; 
         namespace IgnsfValC{
-            constexpr Register::FieldValue<decltype(ignsf),IgnsfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ignsf),IgnsfVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ignsf)::Type,IgnsfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ignsf)::Type,IgnsfVal::v1> v1{};
+        }
         }
         ///Erase All Request
         enum class ErsareqVal {
@@ -130,8 +130,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,ErsareqVal> ersareq{}; 
         namespace ErsareqValC{
-            constexpr Register::FieldValue<decltype(ersareq),ErsareqVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ersareq),ErsareqVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ersareq)::Type,ErsareqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ersareq)::Type,ErsareqVal::v1> v1{};
+        }
         }
         ///Command Complete Interrupt Enable
         enum class CcieVal {
@@ -140,8 +141,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,CcieVal> ccie{}; 
         namespace CcieValC{
-            constexpr Register::FieldValue<decltype(ccie),CcieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ccie),CcieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ccie)::Type,CcieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ccie)::Type,CcieVal::v1> v1{};
+        }
         }
     }
     namespace FtmraFerstat{    ///<Flash Error Status Register
@@ -153,8 +155,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,SfdifVal> sfdif{}; 
         namespace SfdifValC{
-            constexpr Register::FieldValue<decltype(sfdif),SfdifVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(sfdif),SfdifVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(sfdif)::Type,SfdifVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sfdif)::Type,SfdifVal::v1> v1{};
+        }
         }
         ///Double Bit Fault Detect Interrupt Flag
         enum class DfdifVal {
@@ -163,16 +166,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DfdifVal> dfdif{}; 
         namespace DfdifValC{
-            constexpr Register::FieldValue<decltype(dfdif),DfdifVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dfdif),DfdifVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dfdif)::Type,DfdifVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dfdif)::Type,DfdifVal::v1> v1{};
+        }
         }
     }
     namespace FtmraFstat{    ///<Flash Status Register
         using Addr = Register::Address<0x40039007,0xffffff44,0,unsigned char>;
         ///MGATE Command Completion Status Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> mgstat{}; 
-        namespace MgstatValC{
-        }
         ///MGATE Busy Flag
         enum class MgbusyVal {
             v0=0x00000000,     ///<MGATE is idle
@@ -180,8 +182,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,MgbusyVal> mgbusy{}; 
         namespace MgbusyValC{
-            constexpr Register::FieldValue<decltype(mgbusy),MgbusyVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(mgbusy),MgbusyVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(mgbusy)::Type,MgbusyVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(mgbusy)::Type,MgbusyVal::v1> v1{};
+        }
         }
         ///Flash Protection Violation Flag
         enum class FpviolVal {
@@ -190,8 +193,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,FpviolVal> fpviol{}; 
         namespace FpviolValC{
-            constexpr Register::FieldValue<decltype(fpviol),FpviolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(fpviol),FpviolVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(fpviol)::Type,FpviolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fpviol)::Type,FpviolVal::v1> v1{};
+        }
         }
         ///Flash Access Error Flag
         enum class AccerrVal {
@@ -200,8 +204,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,AccerrVal> accerr{}; 
         namespace AccerrValC{
-            constexpr Register::FieldValue<decltype(accerr),AccerrVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(accerr),AccerrVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(accerr)::Type,AccerrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(accerr)::Type,AccerrVal::v1> v1{};
+        }
         }
         ///Command Complete Interrupt Flag
         enum class CcifVal {
@@ -210,8 +215,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,CcifVal> ccif{}; 
         namespace CcifValC{
-            constexpr Register::FieldValue<decltype(ccif),CcifVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ccif),CcifVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ccif)::Type,CcifVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ccif)::Type,CcifVal::v1> v1{};
+        }
         }
     }
     namespace FtmraDfprot{    ///<D-Flash Protection Register
@@ -253,38 +259,39 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,DpsVal> dps{}; 
         namespace DpsValC{
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v00000> v00000{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v00001> v00001{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v00010> v00010{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v00011> v00011{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v00100> v00100{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v00101> v00101{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v00110> v00110{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v00111> v00111{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v01000> v01000{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v01001> v01001{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v01010> v01010{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v01011> v01011{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v01100> v01100{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v01101> v01101{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v01110> v01110{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v01111> v01111{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v10000> v10000{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v10001> v10001{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v10010> v10010{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v10011> v10011{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v10100> v10100{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v10101> v10101{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v10110> v10110{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v10111> v10111{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v11000> v11000{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v11001> v11001{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v11010> v11010{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v11011> v11011{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v11100> v11100{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v11101> v11101{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v11110> v11110{};
-            constexpr Register::FieldValue<decltype(dps),DpsVal::v11111> v11111{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v00000> v00000{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v00001> v00001{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v00010> v00010{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v00011> v00011{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v00100> v00100{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v00101> v00101{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v00110> v00110{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v00111> v00111{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v01000> v01000{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v01001> v01001{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v01010> v01010{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v01011> v01011{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v01100> v01100{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v01101> v01101{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v01110> v01110{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v01111> v01111{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v10000> v10000{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v10001> v10001{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v10010> v10010{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v10011> v10011{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v10100> v10100{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v10101> v10101{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v10110> v10110{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v10111> v10111{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v11000> v11000{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v11001> v11001{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v11010> v11010{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v11011> v11011{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v11100> v11100{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v11101> v11101{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v11110> v11110{};
+            constexpr Register::FieldValue<decltype(dps)::Type,DpsVal::v11111> v11111{};
+        }
         }
         ///D-Flash Protection Control
         enum class DpopenVal {
@@ -293,8 +300,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,DpopenVal> dpopen{}; 
         namespace DpopenValC{
-            constexpr Register::FieldValue<decltype(dpopen),DpopenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dpopen),DpopenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dpopen)::Type,DpopenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dpopen)::Type,DpopenVal::v1> v1{};
+        }
         }
     }
     namespace FtmraFprot{    ///<P-Flash Protection Register
@@ -308,10 +316,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,FplsVal> fpls{}; 
         namespace FplsValC{
-            constexpr Register::FieldValue<decltype(fpls),FplsVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(fpls),FplsVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(fpls),FplsVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(fpls),FplsVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(fpls)::Type,FplsVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(fpls)::Type,FplsVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(fpls)::Type,FplsVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(fpls)::Type,FplsVal::v11> v11{};
+        }
         }
         ///Flash Protection Lower Address Range Disable
         enum class FpldisVal {
@@ -320,8 +329,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,FpldisVal> fpldis{}; 
         namespace FpldisValC{
-            constexpr Register::FieldValue<decltype(fpldis),FpldisVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(fpldis),FpldisVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(fpldis)::Type,FpldisVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fpldis)::Type,FpldisVal::v1> v1{};
+        }
         }
         ///Flash Protection Higher Address Size
         enum class FphsVal {
@@ -332,10 +342,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,FphsVal> fphs{}; 
         namespace FphsValC{
-            constexpr Register::FieldValue<decltype(fphs),FphsVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(fphs),FphsVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(fphs),FphsVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(fphs),FphsVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(fphs)::Type,FphsVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(fphs)::Type,FphsVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(fphs)::Type,FphsVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(fphs)::Type,FphsVal::v11> v11{};
+        }
         }
         ///Flash Protection Higher Address Range Disable
         enum class FphdisVal {
@@ -344,13 +355,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,FphdisVal> fphdis{}; 
         namespace FphdisValC{
-            constexpr Register::FieldValue<decltype(fphdis),FphdisVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(fphdis),FphdisVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(fphdis)::Type,FphdisVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fphdis)::Type,FphdisVal::v1> v1{};
+        }
         }
         ///Reserved Nonvolatile Bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rnv{}; 
-        namespace RnvValC{
-        }
         ///Flash Protection Operation Enable
         enum class FpopenVal {
             v0=0x00000000,     ///<When FPOPEN is clear, the FPHDIS and FPLDIS bits define unprotected address ranges as specified by the corresponding FPHS and FPLS bits
@@ -358,43 +368,34 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,FpopenVal> fpopen{}; 
         namespace FpopenValC{
-            constexpr Register::FieldValue<decltype(fpopen),FpopenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(fpopen),FpopenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(fpopen)::Type,FpopenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fpopen)::Type,FpopenVal::v1> v1{};
+        }
         }
     }
     namespace FtmraFccoblo{    ///<Flash Common Command Object Low Register
         using Addr = Register::Address<0x4003900a,0xffffff00,0,unsigned char>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ccobn{}; 
-        namespace CcobnValC{
-        }
     }
     namespace FtmraFccobhi{    ///<Flash Common Command Object High Register
         using Addr = Register::Address<0x4003900b,0xffffff00,0,unsigned char>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ccobn{}; 
-        namespace CcobnValC{
-        }
     }
     namespace FtmraFeccrlo{    ///<Flash ECC Error Results Low Register
         using Addr = Register::Address<0x4003900e,0xffffff00,0,unsigned char>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> eccr{}; 
-        namespace EccrValC{
-        }
     }
     namespace FtmraFeccrhi{    ///<Flash ECC Error Results High Register
         using Addr = Register::Address<0x4003900f,0xffffff00,0,unsigned char>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> eccr{}; 
-        namespace EccrValC{
-        }
     }
     namespace FtmraFopt{    ///<Flash Option Register
         using Addr = Register::Address<0x40039011,0xffffff00,0,unsigned char>;
         ///Nonvolatile Bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> nv{}; 
-        namespace NvValC{
-        }
     }
 }

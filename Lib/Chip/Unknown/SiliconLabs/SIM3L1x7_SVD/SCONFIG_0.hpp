@@ -11,8 +11,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,FdmaenVal> fdmaen{}; 
         namespace FdmaenValC{
-            constexpr Register::FieldValue<decltype(fdmaen),FdmaenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(fdmaen),FdmaenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(fdmaen)::Type,FdmaenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(fdmaen)::Type,FdmaenVal::enabled> enabled{};
+        }
         }
         ///Power Mode 8 Debug Enable. 
         enum class Pm8dbgenVal {
@@ -21,8 +22,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Pm8dbgenVal> pm8dbgen{}; 
         namespace Pm8dbgenValC{
-            constexpr Register::FieldValue<decltype(pm8dbgen),Pm8dbgenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pm8dbgen),Pm8dbgenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pm8dbgen)::Type,Pm8dbgenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pm8dbgen)::Type,Pm8dbgenVal::enabled> enabled{};
+        }
         }
     }
 }

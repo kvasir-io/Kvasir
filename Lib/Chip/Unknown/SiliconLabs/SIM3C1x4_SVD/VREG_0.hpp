@@ -11,8 +11,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,VbusvldfVal> vbusvldf{}; 
         namespace VbusvldfValC{
-            constexpr Register::FieldValue<decltype(vbusvldf),VbusvldfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(vbusvldf),VbusvldfVal::set> set{};
+            constexpr Register::FieldValue<decltype(vbusvldf)::Type,VbusvldfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(vbusvldf)::Type,VbusvldfVal::set> set{};
+        }
         }
         ///Voltage Regulator Suspend Enable. 
         enum class SusenVal {
@@ -21,8 +22,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,SusenVal> susen{}; 
         namespace SusenValC{
-            constexpr Register::FieldValue<decltype(susen),SusenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(susen),SusenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(susen)::Type,SusenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(susen)::Type,SusenVal::enabled> enabled{};
+        }
         }
         ///Band Gap Disable. 
         enum class BgdisVal {
@@ -31,8 +33,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,BgdisVal> bgdis{}; 
         namespace BgdisValC{
-            constexpr Register::FieldValue<decltype(bgdis),BgdisVal::inactive> inactive{};
-            constexpr Register::FieldValue<decltype(bgdis),BgdisVal::active> active{};
+            constexpr Register::FieldValue<decltype(bgdis)::Type,BgdisVal::inactive> inactive{};
+            constexpr Register::FieldValue<decltype(bgdis)::Type,BgdisVal::active> active{};
+        }
         }
         ///VREGIN Sense Enable. 
         enum class SenseenVal {
@@ -41,8 +44,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,SenseenVal> senseen{}; 
         namespace SenseenValC{
-            constexpr Register::FieldValue<decltype(senseen),SenseenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(senseen),SenseenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(senseen)::Type,SenseenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(senseen)::Type,SenseenVal::enabled> enabled{};
+        }
         }
         ///VBUS Invalid Interrupt Flag. 
         enum class VbusivldiVal {
@@ -51,8 +55,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,VbusivldiVal> vbusivldi{}; 
         namespace VbusivldiValC{
-            constexpr Register::FieldValue<decltype(vbusivldi),VbusivldiVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(vbusivldi),VbusivldiVal::set> set{};
+            constexpr Register::FieldValue<decltype(vbusivldi)::Type,VbusivldiVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(vbusivldi)::Type,VbusivldiVal::set> set{};
+        }
         }
         ///VBUS Invalid Interrupt Enable. 
         enum class VbusivldienVal {
@@ -61,8 +66,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,VbusivldienVal> vbusivldien{}; 
         namespace VbusivldienValC{
-            constexpr Register::FieldValue<decltype(vbusivldien),VbusivldienVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(vbusivldien),VbusivldienVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(vbusivldien)::Type,VbusivldienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(vbusivldien)::Type,VbusivldienVal::enabled> enabled{};
+        }
         }
         ///Voltage Regulator Disable. 
         enum class VregdisVal {
@@ -71,8 +77,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,VregdisVal> vregdis{}; 
         namespace VregdisValC{
-            constexpr Register::FieldValue<decltype(vregdis),VregdisVal::inactive> inactive{};
-            constexpr Register::FieldValue<decltype(vregdis),VregdisVal::active> active{};
+            constexpr Register::FieldValue<decltype(vregdis)::Type,VregdisVal::inactive> inactive{};
+            constexpr Register::FieldValue<decltype(vregdis)::Type,VregdisVal::active> active{};
+        }
         }
     }
 }

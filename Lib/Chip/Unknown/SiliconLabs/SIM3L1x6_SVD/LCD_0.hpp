@@ -11,8 +11,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,LcdenVal> lcden{}; 
         namespace LcdenValC{
-            constexpr Register::FieldValue<decltype(lcden),LcdenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(lcden),LcdenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(lcden)::Type,LcdenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(lcden)::Type,LcdenVal::enabled> enabled{};
+        }
         }
         ///Charge Pump Full Power Drive Mode Enable. 
         enum class CpfpdenVal {
@@ -21,8 +22,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,CpfpdenVal> cpfpden{}; 
         namespace CpfpdenValC{
-            constexpr Register::FieldValue<decltype(cpfpden),CpfpdenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(cpfpden),CpfpdenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(cpfpden)::Type,CpfpdenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(cpfpden)::Type,CpfpdenVal::enabled> enabled{};
+        }
         }
         ///LCD Missing Clock Detector Enable. 
         enum class McdenVal {
@@ -31,8 +33,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,McdenVal> mcden{}; 
         namespace McdenValC{
-            constexpr Register::FieldValue<decltype(mcden),McdenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(mcden),McdenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(mcden)::Type,McdenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(mcden)::Type,McdenVal::enabled> enabled{};
+        }
         }
         ///RTC Clock Request Enable. 
         enum class RtccenVal {
@@ -41,8 +44,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,RtccenVal> rtccen{}; 
         namespace RtccenValC{
-            constexpr Register::FieldValue<decltype(rtccen),RtccenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(rtccen),RtccenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(rtccen)::Type,RtccenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(rtccen)::Type,RtccenVal::enabled> enabled{};
+        }
         }
         ///Bias Enable. 
         enum class BiasenVal {
@@ -51,8 +55,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,BiasenVal> biasen{}; 
         namespace BiasenValC{
-            constexpr Register::FieldValue<decltype(biasen),BiasenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(biasen),BiasenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(biasen)::Type,BiasenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(biasen)::Type,BiasenVal::enabled> enabled{};
+        }
         }
         ///DCDC Bias Output Enable. 
         enum class DcdcbiasenVal {
@@ -61,8 +66,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,DcdcbiasenVal> dcdcbiasen{}; 
         namespace DcdcbiasenValC{
-            constexpr Register::FieldValue<decltype(dcdcbiasen),DcdcbiasenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dcdcbiasen),DcdcbiasenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dcdcbiasen)::Type,DcdcbiasenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dcdcbiasen)::Type,DcdcbiasenVal::enabled> enabled{};
+        }
         }
         ///DCDC Bias Standby Enable. 
         enum class DcdcstdbyenVal {
@@ -71,8 +77,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,DcdcstdbyenVal> dcdcstdbyen{}; 
         namespace DcdcstdbyenValC{
-            constexpr Register::FieldValue<decltype(dcdcstdbyen),DcdcstdbyenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dcdcstdbyen),DcdcstdbyenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dcdcstdbyen)::Type,DcdcstdbyenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dcdcstdbyen)::Type,DcdcstdbyenVal::enabled> enabled{};
+        }
         }
         ///Charge Pump Bypass Enable. 
         enum class CpbenVal {
@@ -81,8 +88,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,CpbenVal> cpben{}; 
         namespace CpbenValC{
-            constexpr Register::FieldValue<decltype(cpben),CpbenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(cpben),CpbenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(cpben)::Type,CpbenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(cpben)::Type,CpbenVal::enabled> enabled{};
+        }
         }
         ///High-Contrast-Voltage Low-Power Mode Enable. 
         enum class HcvlpmenVal {
@@ -91,8 +99,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,HcvlpmenVal> hcvlpmen{}; 
         namespace HcvlpmenValC{
-            constexpr Register::FieldValue<decltype(hcvlpmen),HcvlpmenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hcvlpmen),HcvlpmenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hcvlpmen)::Type,HcvlpmenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hcvlpmen)::Type,HcvlpmenVal::enabled> enabled{};
+        }
         }
         ///VBAT Monitor Low Power Enable. 
         enum class VbmlpenVal {
@@ -101,8 +110,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,VbmlpenVal> vbmlpen{}; 
         namespace VbmlpenValC{
-            constexpr Register::FieldValue<decltype(vbmlpen),VbmlpenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(vbmlpen),VbmlpenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(vbmlpen)::Type,VbmlpenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(vbmlpen)::Type,VbmlpenVal::enabled> enabled{};
+        }
         }
         ///Charge-Pump Oscillator Low-Power Enable. 
         enum class CpolpenVal {
@@ -111,8 +121,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,CpolpenVal> cpolpen{}; 
         namespace CpolpenValC{
-            constexpr Register::FieldValue<decltype(cpolpen),CpolpenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(cpolpen),CpolpenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(cpolpen)::Type,CpolpenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(cpolpen)::Type,CpolpenVal::enabled> enabled{};
+        }
         }
         ///Comparator Buffer Low-Power Enable. 
         enum class CmpblpenVal {
@@ -121,8 +132,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,CmpblpenVal> cmpblpen{}; 
         namespace CmpblpenValC{
-            constexpr Register::FieldValue<decltype(cmpblpen),CmpblpenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(cmpblpen),CmpblpenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(cmpblpen)::Type,CmpblpenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(cmpblpen)::Type,CmpblpenVal::enabled> enabled{};
+        }
         }
         ///Bias Switching Enable. 
         enum class BiassenVal {
@@ -131,8 +143,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,BiassenVal> biassen{}; 
         namespace BiassenValC{
-            constexpr Register::FieldValue<decltype(biassen),BiassenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(biassen),BiassenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(biassen)::Type,BiassenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(biassen)::Type,BiassenVal::enabled> enabled{};
+        }
         }
         ///Reference Band Gap Switching Enable. 
         enum class RbgsenVal {
@@ -141,8 +154,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,RbgsenVal> rbgsen{}; 
         namespace RbgsenValC{
-            constexpr Register::FieldValue<decltype(rbgsen),RbgsenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(rbgsen),RbgsenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(rbgsen)::Type,RbgsenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(rbgsen)::Type,RbgsenVal::enabled> enabled{};
+        }
         }
         ///Charge-Pump Auto-Contrast Enable. 
         enum class CpacenVal {
@@ -151,8 +165,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,CpacenVal> cpacen{}; 
         namespace CpacenValC{
-            constexpr Register::FieldValue<decltype(cpacen),CpacenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(cpacen),CpacenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(cpacen)::Type,CpacenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(cpacen)::Type,CpacenVal::enabled> enabled{};
+        }
         }
         ///Force Bias Continuous Mode Enable. 
         enum class FbiascenVal {
@@ -161,8 +176,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,FbiascenVal> fbiascen{}; 
         namespace FbiascenValC{
-            constexpr Register::FieldValue<decltype(fbiascen),FbiascenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(fbiascen),FbiascenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(fbiascen)::Type,FbiascenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(fbiascen)::Type,FbiascenVal::enabled> enabled{};
+        }
         }
         ///High-Contrast-Voltage Comparator Bypass Enable. 
         enum class HcvcbypenVal {
@@ -171,8 +187,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,HcvcbypenVal> hcvcbypen{}; 
         namespace HcvcbypenValC{
-            constexpr Register::FieldValue<decltype(hcvcbypen),HcvcbypenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hcvcbypen),HcvcbypenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hcvcbypen)::Type,HcvcbypenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hcvcbypen)::Type,HcvcbypenVal::enabled> enabled{};
+        }
         }
         ///High-Contrast-Voltage Comparator Force On Enable. 
         enum class HcvcfoenVal {
@@ -181,8 +198,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,HcvcfoenVal> hcvcfoen{}; 
         namespace HcvcfoenValC{
-            constexpr Register::FieldValue<decltype(hcvcfoen),HcvcfoenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hcvcfoen),HcvcfoenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hcvcfoen)::Type,HcvcfoenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hcvcfoen)::Type,HcvcfoenVal::enabled> enabled{};
+        }
         }
         ///High-Contrast-Voltage Comparator Hysteresis. 
         enum class HcvchmdVal {
@@ -191,8 +209,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,HcvchmdVal> hcvchmd{}; 
         namespace HcvchmdValC{
-            constexpr Register::FieldValue<decltype(hcvchmd),HcvchmdVal::high> high{};
-            constexpr Register::FieldValue<decltype(hcvchmd),HcvchmdVal::low> low{};
+            constexpr Register::FieldValue<decltype(hcvchmd)::Type,HcvchmdVal::high> high{};
+            constexpr Register::FieldValue<decltype(hcvchmd)::Type,HcvchmdVal::low> low{};
+        }
         }
         ///High-Contrast-Voltage Comparator Bias. 
         enum class HcvcbmdVal {
@@ -201,8 +220,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,HcvcbmdVal> hcvcbmd{}; 
         namespace HcvcbmdValC{
-            constexpr Register::FieldValue<decltype(hcvcbmd),HcvcbmdVal::high> high{};
-            constexpr Register::FieldValue<decltype(hcvcbmd),HcvcbmdVal::low> low{};
+            constexpr Register::FieldValue<decltype(hcvcbmd)::Type,HcvcbmdVal::high> high{};
+            constexpr Register::FieldValue<decltype(hcvcbmd)::Type,HcvcbmdVal::low> low{};
+        }
         }
         ///High-Contrast-Voltage Comparator Status. 
         enum class CpcsVal {
@@ -211,16 +231,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,CpcsVal> cpcs{}; 
         namespace CpcsValC{
-            constexpr Register::FieldValue<decltype(cpcs),CpcsVal::vbat> vbat{};
-            constexpr Register::FieldValue<decltype(cpcs),CpcsVal::vlcd> vlcd{};
+            constexpr Register::FieldValue<decltype(cpcs)::Type,CpcsVal::vbat> vbat{};
+            constexpr Register::FieldValue<decltype(cpcs)::Type,CpcsVal::vlcd> vlcd{};
+        }
         }
     }
     namespace Noneclkcontrol{    ///<Clock Control
         using Addr = Register::Address<0x4004d020,0xcffffc00,0,unsigned>;
         ///Clock Divider. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> clkdiv{}; 
-        namespace ClkdivValC{
-        }
         ///RTC Input Clock Divider. 
         enum class RtcclkdivVal {
             divideBy1=0x00000000,     ///<None
@@ -230,18 +249,17 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,RtcclkdivVal> rtcclkdiv{}; 
         namespace RtcclkdivValC{
-            constexpr Register::FieldValue<decltype(rtcclkdiv),RtcclkdivVal::divideBy1> divideBy1{};
-            constexpr Register::FieldValue<decltype(rtcclkdiv),RtcclkdivVal::divideBy2> divideBy2{};
-            constexpr Register::FieldValue<decltype(rtcclkdiv),RtcclkdivVal::divideBy4> divideBy4{};
-            constexpr Register::FieldValue<decltype(rtcclkdiv),RtcclkdivVal::divideBy8> divideBy8{};
+            constexpr Register::FieldValue<decltype(rtcclkdiv)::Type,RtcclkdivVal::divideBy1> divideBy1{};
+            constexpr Register::FieldValue<decltype(rtcclkdiv)::Type,RtcclkdivVal::divideBy2> divideBy2{};
+            constexpr Register::FieldValue<decltype(rtcclkdiv)::Type,RtcclkdivVal::divideBy4> divideBy4{};
+            constexpr Register::FieldValue<decltype(rtcclkdiv)::Type,RtcclkdivVal::divideBy8> divideBy8{};
+        }
         }
     }
     namespace Noneblkcontrol{    ///<Blinking Control
         using Addr = Register::Address<0x4004d030,0xfffff000,0,unsigned>;
         ///Hardware Blinking Enable. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> blkmask{}; 
-        namespace BlkmaskValC{
-        }
         ///Hardware Blinking Rate Divider Exponent. 
         enum class BlkrexpVal {
             divideBy2=0x00000002,     ///<Set blink rate divider to divide by 2.
@@ -259,18 +277,19 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,BlkrexpVal> blkrexp{}; 
         namespace BlkrexpValC{
-            constexpr Register::FieldValue<decltype(blkrexp),BlkrexpVal::divideBy2> divideBy2{};
-            constexpr Register::FieldValue<decltype(blkrexp),BlkrexpVal::divideBy4> divideBy4{};
-            constexpr Register::FieldValue<decltype(blkrexp),BlkrexpVal::divideBy8> divideBy8{};
-            constexpr Register::FieldValue<decltype(blkrexp),BlkrexpVal::divideBy16> divideBy16{};
-            constexpr Register::FieldValue<decltype(blkrexp),BlkrexpVal::divideBy32> divideBy32{};
-            constexpr Register::FieldValue<decltype(blkrexp),BlkrexpVal::divideBy64> divideBy64{};
-            constexpr Register::FieldValue<decltype(blkrexp),BlkrexpVal::divideBy128> divideBy128{};
-            constexpr Register::FieldValue<decltype(blkrexp),BlkrexpVal::divideBy256> divideBy256{};
-            constexpr Register::FieldValue<decltype(blkrexp),BlkrexpVal::divideBy512> divideBy512{};
-            constexpr Register::FieldValue<decltype(blkrexp),BlkrexpVal::divideBy1024> divideBy1024{};
-            constexpr Register::FieldValue<decltype(blkrexp),BlkrexpVal::divideBy2048> divideBy2048{};
-            constexpr Register::FieldValue<decltype(blkrexp),BlkrexpVal::divideBy4096> divideBy4096{};
+            constexpr Register::FieldValue<decltype(blkrexp)::Type,BlkrexpVal::divideBy2> divideBy2{};
+            constexpr Register::FieldValue<decltype(blkrexp)::Type,BlkrexpVal::divideBy4> divideBy4{};
+            constexpr Register::FieldValue<decltype(blkrexp)::Type,BlkrexpVal::divideBy8> divideBy8{};
+            constexpr Register::FieldValue<decltype(blkrexp)::Type,BlkrexpVal::divideBy16> divideBy16{};
+            constexpr Register::FieldValue<decltype(blkrexp)::Type,BlkrexpVal::divideBy32> divideBy32{};
+            constexpr Register::FieldValue<decltype(blkrexp)::Type,BlkrexpVal::divideBy64> divideBy64{};
+            constexpr Register::FieldValue<decltype(blkrexp)::Type,BlkrexpVal::divideBy128> divideBy128{};
+            constexpr Register::FieldValue<decltype(blkrexp)::Type,BlkrexpVal::divideBy256> divideBy256{};
+            constexpr Register::FieldValue<decltype(blkrexp)::Type,BlkrexpVal::divideBy512> divideBy512{};
+            constexpr Register::FieldValue<decltype(blkrexp)::Type,BlkrexpVal::divideBy1024> divideBy1024{};
+            constexpr Register::FieldValue<decltype(blkrexp)::Type,BlkrexpVal::divideBy2048> divideBy2048{};
+            constexpr Register::FieldValue<decltype(blkrexp)::Type,BlkrexpVal::divideBy4096> divideBy4096{};
+        }
         }
     }
     namespace Nonesegcontrol{    ///<Segment Control
@@ -282,8 +301,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,BiasmdVal> biasmd{}; 
         namespace BiasmdValC{
-            constexpr Register::FieldValue<decltype(biasmd),BiasmdVal::oneThird> oneThird{};
-            constexpr Register::FieldValue<decltype(biasmd),BiasmdVal::oneHalf> oneHalf{};
+            constexpr Register::FieldValue<decltype(biasmd)::Type,BiasmdVal::oneThird> oneThird{};
+            constexpr Register::FieldValue<decltype(biasmd)::Type,BiasmdVal::oneHalf> oneHalf{};
+        }
         }
         ///Segment Mode. 
         enum class SegmdVal {
@@ -294,10 +314,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,1),Register::ReadWriteAccess,SegmdVal> segmd{}; 
         namespace SegmdValC{
-            constexpr Register::FieldValue<decltype(segmd),SegmdVal::static_> static_{};
-            constexpr Register::FieldValue<decltype(segmd),SegmdVal::v2Mux> v2Mux{};
-            constexpr Register::FieldValue<decltype(segmd),SegmdVal::v3Mux> v3Mux{};
-            constexpr Register::FieldValue<decltype(segmd),SegmdVal::v4Mux> v4Mux{};
+            constexpr Register::FieldValue<decltype(segmd)::Type,SegmdVal::static_> static_{};
+            constexpr Register::FieldValue<decltype(segmd)::Type,SegmdVal::v2Mux> v2Mux{};
+            constexpr Register::FieldValue<decltype(segmd)::Type,SegmdVal::v3Mux> v3Mux{};
+            constexpr Register::FieldValue<decltype(segmd)::Type,SegmdVal::v4Mux> v4Mux{};
+        }
         }
         ///Segment Blank Enable. 
         enum class BlankenVal {
@@ -306,8 +327,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,BlankenVal> blanken{}; 
         namespace BlankenValC{
-            constexpr Register::FieldValue<decltype(blanken),BlankenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(blanken),BlankenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(blanken)::Type,BlankenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(blanken)::Type,BlankenVal::enabled> enabled{};
+        }
         }
         ///Reset Phase Enable. 
         enum class RphenVal {
@@ -316,20 +338,17 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,RphenVal> rphen{}; 
         namespace RphenValC{
-            constexpr Register::FieldValue<decltype(rphen),RphenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(rphen),RphenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(rphen)::Type,RphenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(rphen)::Type,RphenVal::enabled> enabled{};
+        }
         }
         ///Reset Phase Mode. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,6),Register::ReadWriteAccess,unsigned> rphmd{}; 
-        namespace RphmdValC{
-        }
     }
     namespace Nonectrstcontrol{    ///<Contrast Control
         using Addr = Register::Address<0x4004d060,0xdffeffe0,0,unsigned>;
         ///Contrast Voltage. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> ctrst{}; 
-        namespace CtrstValC{
-        }
         ///Contrast Busy Flag. 
         enum class CtrstbfVal {
             notSet=0x00000000,     ///<An update of the internal contrast registers is not in progress.
@@ -337,8 +356,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,CtrstbfVal> ctrstbf{}; 
         namespace CtrstbfValC{
-            constexpr Register::FieldValue<decltype(ctrstbf),CtrstbfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(ctrstbf),CtrstbfVal::set> set{};
+            constexpr Register::FieldValue<decltype(ctrstbf)::Type,CtrstbfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(ctrstbf)::Type,CtrstbfVal::set> set{};
+        }
         }
         ///Charge Pump Capacitor Divider Enable. 
         enum class CpcdenVal {
@@ -347,16 +367,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,CpcdenVal> cpcden{}; 
         namespace CpcdenValC{
-            constexpr Register::FieldValue<decltype(cpcden),CpcdenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(cpcden),CpcdenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(cpcden)::Type,CpcdenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(cpcden)::Type,CpcdenVal::enabled> enabled{};
+        }
         }
     }
     namespace Nonevbmcontrol{    ///<VBAT Monitor Control
         using Addr = Register::Address<0x4004d070,0x1e3effe0,0,unsigned>;
         ///VBAT Monitor Threshold. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> vbmth{}; 
-        namespace VbmthValC{
-        }
         ///VBAT Monitor Busy Flag. 
         enum class VbmbfVal {
             notSet=0x00000000,     ///<An update of the internal VBAT monitor registers is not in progress.
@@ -364,13 +383,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,VbmbfVal> vbmbf{}; 
         namespace VbmbfValC{
-            constexpr Register::FieldValue<decltype(vbmbf),VbmbfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(vbmbf),VbmbfVal::set> set{};
+            constexpr Register::FieldValue<decltype(vbmbf)::Type,VbmbfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(vbmbf)::Type,VbmbfVal::set> set{};
+        }
         }
         ///VBAT Monitor Clock Divider. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,22),Register::ReadWriteAccess,unsigned> vbmclkdiv{}; 
-        namespace VbmclkdivValC{
-        }
         ///VBAT Monitor Capacitor Divider Enable. 
         enum class VbmcdenVal {
             disabled=0x00000000,     ///<Disable the VBAT monitor capacitor divider.
@@ -378,8 +396,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,VbmcdenVal> vbmcden{}; 
         namespace VbmcdenValC{
-            constexpr Register::FieldValue<decltype(vbmcden),VbmcdenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(vbmcden),VbmcdenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(vbmcden)::Type,VbmcdenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(vbmcden)::Type,VbmcdenVal::enabled> enabled{};
+        }
         }
         ///VBAT Monitor Offset Enable. 
         enum class VbmoenVal {
@@ -388,8 +407,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,VbmoenVal> vbmoen{}; 
         namespace VbmoenValC{
-            constexpr Register::FieldValue<decltype(vbmoen),VbmoenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(vbmoen),VbmoenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(vbmoen)::Type,VbmoenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(vbmoen)::Type,VbmoenVal::enabled> enabled{};
+        }
         }
         ///VBAT Monitor Enable. 
         enum class VbmenVal {
@@ -398,197 +418,114 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,VbmenVal> vbmen{}; 
         namespace VbmenValC{
-            constexpr Register::FieldValue<decltype(vbmen),VbmenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(vbmen),VbmenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(vbmen)::Type,VbmenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(vbmen)::Type,VbmenVal::enabled> enabled{};
+        }
         }
     }
     namespace Nonesegmask0{    ///<Segment Mask 0
         using Addr = Register::Address<0x4004d080,0x00000000,0,unsigned>;
         ///Segment Enable. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> segen{}; 
-        namespace SegenValC{
-        }
     }
     namespace Nonesegmask1{    ///<Segment Mask 1
         using Addr = Register::Address<0x4004d090,0xffffff00,0,unsigned>;
         ///Segment Enable. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> segen{}; 
-        namespace SegenValC{
-        }
     }
     namespace Nonesegdata0{    ///<Segment Data 0
         using Addr = Register::Address<0x4004d0a0,0x00000000,0,unsigned>;
         ///Segment LCDn.0 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> segpin0{}; 
-        namespace Segpin0ValC{
-        }
         ///Segment LCDn.1 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> segpin1{}; 
-        namespace Segpin1ValC{
-        }
         ///Segment LCDn.2 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> segpin2{}; 
-        namespace Segpin2ValC{
-        }
         ///Segment LCDn.3 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> segpin3{}; 
-        namespace Segpin3ValC{
-        }
         ///Segment LCDn.4 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> segpin4{}; 
-        namespace Segpin4ValC{
-        }
         ///Segment LCDn.5 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> segpin5{}; 
-        namespace Segpin5ValC{
-        }
         ///Segment LCDn.6 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> segpin6{}; 
-        namespace Segpin6ValC{
-        }
         ///Segment LCDn.7 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> segpin7{}; 
-        namespace Segpin7ValC{
-        }
     }
     namespace Nonesegdata1{    ///<Segment Data 1
         using Addr = Register::Address<0x4004d0b0,0x00000000,0,unsigned>;
         ///Segment LCDn.8 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> segpin8{}; 
-        namespace Segpin8ValC{
-        }
         ///Segment LCDn.9 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> segpin9{}; 
-        namespace Segpin9ValC{
-        }
         ///Segment LCDn.10 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> segpin10{}; 
-        namespace Segpin10ValC{
-        }
         ///Segment LCDn.11 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> segpin11{}; 
-        namespace Segpin11ValC{
-        }
         ///Segment LCDn.12 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> segpin12{}; 
-        namespace Segpin12ValC{
-        }
         ///Segment LCDn.13 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> segpin13{}; 
-        namespace Segpin13ValC{
-        }
         ///Segment LCDn.14 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> segpin14{}; 
-        namespace Segpin14ValC{
-        }
         ///Segment LCDn.15 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> segpin15{}; 
-        namespace Segpin15ValC{
-        }
     }
     namespace Nonesegdata2{    ///<Segment Data 2
         using Addr = Register::Address<0x4004d0c0,0x00000000,0,unsigned>;
         ///Segment LCDn.16 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> segpin16{}; 
-        namespace Segpin16ValC{
-        }
         ///Segment LCDn.17 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> segpin17{}; 
-        namespace Segpin17ValC{
-        }
         ///Segment LCDn.18 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> segpin18{}; 
-        namespace Segpin18ValC{
-        }
         ///Segment LCDn.19 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> segpin19{}; 
-        namespace Segpin19ValC{
-        }
         ///Segment LCDn.20 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> segpin20{}; 
-        namespace Segpin20ValC{
-        }
         ///Segment LCDn.21 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> segpin21{}; 
-        namespace Segpin21ValC{
-        }
         ///Segment LCDn.22 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> segpin22{}; 
-        namespace Segpin22ValC{
-        }
         ///Segment LCDn.23 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> segpin23{}; 
-        namespace Segpin23ValC{
-        }
     }
     namespace Nonesegdata3{    ///<Segment Data 3
         using Addr = Register::Address<0x4004d0d0,0x00000000,0,unsigned>;
         ///Segment LCDn.24 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> segpin24{}; 
-        namespace Segpin24ValC{
-        }
         ///Segment LCDn.25 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> segpin25{}; 
-        namespace Segpin25ValC{
-        }
         ///Segment LCDn.26 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> segpin26{}; 
-        namespace Segpin26ValC{
-        }
         ///Segment LCDn.27 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> segpin27{}; 
-        namespace Segpin27ValC{
-        }
         ///Segment LCDn.28 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> segpin28{}; 
-        namespace Segpin28ValC{
-        }
         ///Segment LCDn.29 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> segpin29{}; 
-        namespace Segpin29ValC{
-        }
         ///Segment LCDn.30 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> segpin30{}; 
-        namespace Segpin30ValC{
-        }
         ///Segment LCDn.31 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> segpin31{}; 
-        namespace Segpin31ValC{
-        }
     }
     namespace Nonesegdata4{    ///<Segment Data 4
         using Addr = Register::Address<0x4004d0e0,0x00000000,0,unsigned>;
         ///Segment LCDn.32 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> segpin32{}; 
-        namespace Segpin32ValC{
-        }
         ///Segment LCDn.33 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> segpin33{}; 
-        namespace Segpin33ValC{
-        }
         ///Segment LCDn.34 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> segpin34{}; 
-        namespace Segpin34ValC{
-        }
         ///Segment LCDn.35 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> segpin35{}; 
-        namespace Segpin35ValC{
-        }
         ///Segment LCDn.36 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> segpin36{}; 
-        namespace Segpin36ValC{
-        }
         ///Segment LCDn.37 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> segpin37{}; 
-        namespace Segpin37ValC{
-        }
         ///Segment LCDn.38 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> segpin38{}; 
-        namespace Segpin38ValC{
-        }
         ///Segment LCDn.39 Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> segpin39{}; 
-        namespace Segpin39ValC{
-        }
     }
 }

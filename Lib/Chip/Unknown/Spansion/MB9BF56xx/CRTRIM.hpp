@@ -6,28 +6,20 @@ namespace Kvasir {
         using Addr = Register::Address<0x4002e000,0xfffffff8,0,unsigned char>;
         /// bitfield CSR 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> csr{}; 
-        namespace CsrValC{
-        }
     }
     namespace NonemcrFtrm{    ///< register MCR_FTRM 
         using Addr = Register::Address<0x4002e004,0xfffffc00,0,unsigned>;
         /// bitfield TRD 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> trd{}; 
-        namespace TrdValC{
-        }
     }
     namespace NonemcrTtrm{    ///< register MCR_TTRM 
         using Addr = Register::Address<0x4002e008,0xffffffe0,0,unsigned char>;
         /// bitfield TRT 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> trt{}; 
-        namespace TrtValC{
-        }
     }
     namespace NonemcrRlr{    ///< register MCR_RLR 
         using Addr = Register::Address<0x4002e00c,0x00000000,0,unsigned>;
         /// bitfield TRMLCK 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> trmlck{}; 
-        namespace TrmlckValC{
-        }
     }
 }

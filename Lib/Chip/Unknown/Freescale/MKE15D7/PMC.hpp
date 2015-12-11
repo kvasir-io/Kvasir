@@ -11,8 +11,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,BgbeVal> bgbe{}; 
         namespace BgbeValC{
-            constexpr Register::FieldValue<decltype(bgbe),BgbeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(bgbe),BgbeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(bgbe)::Type,BgbeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bgbe)::Type,BgbeVal::v1> v1{};
+        }
         }
         ///Bandgap Buffer Drive Select
         enum class BgbdsVal {
@@ -21,8 +22,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,BgbdsVal> bgbds{}; 
         namespace BgbdsValC{
-            constexpr Register::FieldValue<decltype(bgbds),BgbdsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(bgbds),BgbdsVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(bgbds)::Type,BgbdsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bgbds)::Type,BgbdsVal::v1> v1{};
+        }
         }
         ///Low-Voltage Detect Enable
         enum class LvdeVal {
@@ -31,8 +33,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,LvdeVal> lvde{}; 
         namespace LvdeValC{
-            constexpr Register::FieldValue<decltype(lvde),LvdeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(lvde),LvdeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(lvde)::Type,LvdeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lvde)::Type,LvdeVal::v1> v1{};
+        }
         }
         ///Low-Voltage Detect Stop Enable
         enum class LvdseVal {
@@ -41,8 +44,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,LvdseVal> lvdse{}; 
         namespace LvdseValC{
-            constexpr Register::FieldValue<decltype(lvdse),LvdseVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(lvdse),LvdseVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(lvdse)::Type,LvdseVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lvdse)::Type,LvdseVal::v1> v1{};
+        }
         }
         ///Low-Voltage Detect Reset Enable
         enum class LvdreVal {
@@ -51,8 +55,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,LvdreVal> lvdre{}; 
         namespace LvdreValC{
-            constexpr Register::FieldValue<decltype(lvdre),LvdreVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(lvdre),LvdreVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(lvdre)::Type,LvdreVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lvdre)::Type,LvdreVal::v1> v1{};
+        }
         }
         ///Low-Voltage Warning Interrupt Enable
         enum class LvwieVal {
@@ -61,13 +66,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,LvwieVal> lvwie{}; 
         namespace LvwieValC{
-            constexpr Register::FieldValue<decltype(lvwie),LvwieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(lvwie),LvwieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(lvwie)::Type,LvwieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lvwie)::Type,LvwieVal::v1> v1{};
+        }
         }
         ///Low-Voltage Warning Acknowledge
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> lvwack{}; 
-        namespace LvwackValC{
-        }
         ///Low-Voltage Warning Flag
         enum class LvwfVal {
             v0=0x00000000,     ///<Low-voltage warning is not present.
@@ -75,8 +79,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,LvwfVal> lvwf{}; 
         namespace LvwfValC{
-            constexpr Register::FieldValue<decltype(lvwf),LvwfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(lvwf),LvwfVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(lvwf)::Type,LvwfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lvwf)::Type,LvwfVal::v1> v1{};
+        }
         }
     }
     namespace PmcSpmsc2{    ///<System Power Management Status and Control 2 Register
@@ -90,10 +95,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,LvwvVal> lvwv{}; 
         namespace LvwvValC{
-            constexpr Register::FieldValue<decltype(lvwv),LvwvVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(lvwv),LvwvVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(lvwv),LvwvVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(lvwv),LvwvVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(lvwv)::Type,LvwvVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(lvwv)::Type,LvwvVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(lvwv)::Type,LvwvVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(lvwv)::Type,LvwvVal::v11> v11{};
+        }
         }
         ///Low-Voltage Detect Voltage Select
         enum class LvdvVal {
@@ -102,8 +108,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,LvdvVal> lvdv{}; 
         namespace LvdvValC{
-            constexpr Register::FieldValue<decltype(lvdv),LvdvVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(lvdv),LvdvVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(lvdv)::Type,LvdvVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lvdv)::Type,LvdvVal::v1> v1{};
+        }
         }
     }
 }

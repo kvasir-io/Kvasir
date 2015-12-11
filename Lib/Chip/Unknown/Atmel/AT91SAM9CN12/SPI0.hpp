@@ -6,212 +6,120 @@ namespace Kvasir {
         using Addr = Register::Address<0xf0000000,0xfeffff7c,0,unsigned>;
         ///SPI Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> spien{}; 
-        namespace SpienValC{
-        }
         ///SPI Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> spidis{}; 
-        namespace SpidisValC{
-        }
         ///SPI Software Reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> swrst{}; 
-        namespace SwrstValC{
-        }
         ///Last Transfer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> lastxfer{}; 
-        namespace LastxferValC{
-        }
     }
     namespace Spi0Mr{    ///<Mode Register
         using Addr = Register::Address<0xf0000004,0x00f0ff48,0,unsigned>;
         ///Master/Slave Mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mstr{}; 
-        namespace MstrValC{
-        }
         ///Peripheral Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ps{}; 
-        namespace PsValC{
-        }
         ///Chip Select Decode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pcsdec{}; 
-        namespace PcsdecValC{
-        }
         ///Mode Fault Detection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> modfdis{}; 
-        namespace ModfdisValC{
-        }
         ///Wait Data Read Before Transfer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> wdrbt{}; 
-        namespace WdrbtValC{
-        }
         ///Local Loopback Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> llb{}; 
-        namespace LlbValC{
-        }
         ///Peripheral Chip Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> pcs{}; 
-        namespace PcsValC{
-        }
         ///Delay Between Chip Selects
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> dlybcs{}; 
-        namespace DlybcsValC{
-        }
     }
     namespace Spi0Rdr{    ///<Receive Data Register
         using Addr = Register::Address<0xf0000008,0xfff00000,0,unsigned>;
         ///Receive Data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rd{}; 
-        namespace RdValC{
-        }
         ///Peripheral Chip Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> pcs{}; 
-        namespace PcsValC{
-        }
     }
     namespace Spi0Tdr{    ///<Transmit Data Register
         using Addr = Register::Address<0xf000000c,0xfef00000,0,unsigned>;
         ///Transmit Data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> td{}; 
-        namespace TdValC{
-        }
         ///Peripheral Chip Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> pcs{}; 
-        namespace PcsValC{
-        }
         ///Last Transfer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> lastxfer{}; 
-        namespace LastxferValC{
-        }
     }
     namespace Spi0Sr{    ///<Status Register
         using Addr = Register::Address<0xf0000010,0xfffefcf0,0,unsigned>;
         ///Receive Data Register Full
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rdrf{}; 
-        namespace RdrfValC{
-        }
         ///Transmit Data Register Empty
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tdre{}; 
-        namespace TdreValC{
-        }
         ///Mode Fault Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> modf{}; 
-        namespace ModfValC{
-        }
         ///Overrun Error Status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> ovres{}; 
-        namespace OvresValC{
-        }
         ///NSS Rising
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> nssr{}; 
-        namespace NssrValC{
-        }
         ///Transmission Registers Empty
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
-        namespace TxemptyValC{
-        }
         ///SPI Enable Status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> spiens{}; 
-        namespace SpiensValC{
-        }
     }
     namespace Spi0Ier{    ///<Interrupt Enable Register
         using Addr = Register::Address<0xf0000014,0xfffffcf0,0,unsigned>;
         ///Receive Data Register Full Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rdrf{}; 
-        namespace RdrfValC{
-        }
         ///SPI Transmit Data Register Empty Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tdre{}; 
-        namespace TdreValC{
-        }
         ///Mode Fault Error Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> modf{}; 
-        namespace ModfValC{
-        }
         ///Overrun Error Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> ovres{}; 
-        namespace OvresValC{
-        }
         ///NSS Rising Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> nssr{}; 
-        namespace NssrValC{
-        }
         ///Transmission Registers Empty Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
-        namespace TxemptyValC{
-        }
     }
     namespace Spi0Idr{    ///<Interrupt Disable Register
         using Addr = Register::Address<0xf0000018,0xfffffcf0,0,unsigned>;
         ///Receive Data Register Full Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rdrf{}; 
-        namespace RdrfValC{
-        }
         ///SPI Transmit Data Register Empty Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tdre{}; 
-        namespace TdreValC{
-        }
         ///Mode Fault Error Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> modf{}; 
-        namespace ModfValC{
-        }
         ///Overrun Error Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> ovres{}; 
-        namespace OvresValC{
-        }
         ///NSS Rising Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> nssr{}; 
-        namespace NssrValC{
-        }
         ///Transmission Registers Empty Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
-        namespace TxemptyValC{
-        }
     }
     namespace Spi0Imr{    ///<Interrupt Mask Register
         using Addr = Register::Address<0xf000001c,0xfffffcf0,0,unsigned>;
         ///Receive Data Register Full Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rdrf{}; 
-        namespace RdrfValC{
-        }
         ///SPI Transmit Data Register Empty Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tdre{}; 
-        namespace TdreValC{
-        }
         ///Mode Fault Error Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> modf{}; 
-        namespace ModfValC{
-        }
         ///Overrun Error Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> ovres{}; 
-        namespace OvresValC{
-        }
         ///NSS Rising Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> nssr{}; 
-        namespace NssrValC{
-        }
         ///Transmission Registers Empty Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
-        namespace TxemptyValC{
-        }
     }
     namespace Spi0Csr0{    ///<Chip Select Register
         using Addr = Register::Address<0xf0000030,0x00000000,0,unsigned>;
         ///Clock Polarity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cpol{}; 
-        namespace CpolValC{
-        }
         ///Clock Phase
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ncpha{}; 
-        namespace NcphaValC{
-        }
         ///Chip Select Not Active After Transfer (Ignored if CSAAT = 1)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> csnaat{}; 
-        namespace CsnaatValC{
-        }
         ///Chip Select Active After Transfer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> csaat{}; 
-        namespace CsaatValC{
-        }
         ///Bits Per Transfer
         enum class BitsVal {
             v8Bit=0x00000000,     ///<8 bits for transfer
@@ -226,47 +134,34 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,BitsVal> bits{}; 
         namespace BitsValC{
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v9Bit> v9Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v10Bit> v10Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v11Bit> v11Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v12Bit> v12Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v13Bit> v13Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v14Bit> v14Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v15Bit> v15Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v9Bit> v9Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v10Bit> v10Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v11Bit> v11Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v12Bit> v12Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v13Bit> v13Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v14Bit> v14Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v15Bit> v15Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v16Bit> v16Bit{};
+        }
         }
         ///Serial Clock Baud Rate
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> scbr{}; 
-        namespace ScbrValC{
-        }
         ///Delay Before SPCK
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> dlybs{}; 
-        namespace DlybsValC{
-        }
         ///Delay Between Consecutive Transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> dlybct{}; 
-        namespace DlybctValC{
-        }
     }
     namespace Spi0Csr1{    ///<Chip Select Register
         using Addr = Register::Address<0xf0000034,0x00000000,0,unsigned>;
         ///Clock Polarity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cpol{}; 
-        namespace CpolValC{
-        }
         ///Clock Phase
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ncpha{}; 
-        namespace NcphaValC{
-        }
         ///Chip Select Not Active After Transfer (Ignored if CSAAT = 1)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> csnaat{}; 
-        namespace CsnaatValC{
-        }
         ///Chip Select Active After Transfer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> csaat{}; 
-        namespace CsaatValC{
-        }
         ///Bits Per Transfer
         enum class BitsVal {
             v8Bit=0x00000000,     ///<8 bits for transfer
@@ -281,47 +176,34 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,BitsVal> bits{}; 
         namespace BitsValC{
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v9Bit> v9Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v10Bit> v10Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v11Bit> v11Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v12Bit> v12Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v13Bit> v13Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v14Bit> v14Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v15Bit> v15Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v9Bit> v9Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v10Bit> v10Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v11Bit> v11Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v12Bit> v12Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v13Bit> v13Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v14Bit> v14Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v15Bit> v15Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v16Bit> v16Bit{};
+        }
         }
         ///Serial Clock Baud Rate
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> scbr{}; 
-        namespace ScbrValC{
-        }
         ///Delay Before SPCK
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> dlybs{}; 
-        namespace DlybsValC{
-        }
         ///Delay Between Consecutive Transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> dlybct{}; 
-        namespace DlybctValC{
-        }
     }
     namespace Spi0Csr2{    ///<Chip Select Register
         using Addr = Register::Address<0xf0000038,0x00000000,0,unsigned>;
         ///Clock Polarity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cpol{}; 
-        namespace CpolValC{
-        }
         ///Clock Phase
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ncpha{}; 
-        namespace NcphaValC{
-        }
         ///Chip Select Not Active After Transfer (Ignored if CSAAT = 1)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> csnaat{}; 
-        namespace CsnaatValC{
-        }
         ///Chip Select Active After Transfer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> csaat{}; 
-        namespace CsaatValC{
-        }
         ///Bits Per Transfer
         enum class BitsVal {
             v8Bit=0x00000000,     ///<8 bits for transfer
@@ -336,47 +218,34 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,BitsVal> bits{}; 
         namespace BitsValC{
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v9Bit> v9Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v10Bit> v10Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v11Bit> v11Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v12Bit> v12Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v13Bit> v13Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v14Bit> v14Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v15Bit> v15Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v9Bit> v9Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v10Bit> v10Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v11Bit> v11Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v12Bit> v12Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v13Bit> v13Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v14Bit> v14Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v15Bit> v15Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v16Bit> v16Bit{};
+        }
         }
         ///Serial Clock Baud Rate
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> scbr{}; 
-        namespace ScbrValC{
-        }
         ///Delay Before SPCK
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> dlybs{}; 
-        namespace DlybsValC{
-        }
         ///Delay Between Consecutive Transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> dlybct{}; 
-        namespace DlybctValC{
-        }
     }
     namespace Spi0Csr3{    ///<Chip Select Register
         using Addr = Register::Address<0xf000003c,0x00000000,0,unsigned>;
         ///Clock Polarity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cpol{}; 
-        namespace CpolValC{
-        }
         ///Clock Phase
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ncpha{}; 
-        namespace NcphaValC{
-        }
         ///Chip Select Not Active After Transfer (Ignored if CSAAT = 1)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> csnaat{}; 
-        namespace CsnaatValC{
-        }
         ///Chip Select Active After Transfer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> csaat{}; 
-        namespace CsaatValC{
-        }
         ///Bits Per Transfer
         enum class BitsVal {
             v8Bit=0x00000000,     ///<8 bits for transfer
@@ -391,49 +260,36 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,BitsVal> bits{}; 
         namespace BitsValC{
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v9Bit> v9Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v10Bit> v10Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v11Bit> v11Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v12Bit> v12Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v13Bit> v13Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v14Bit> v14Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v15Bit> v15Bit{};
-            constexpr Register::FieldValue<decltype(bits),BitsVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v9Bit> v9Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v10Bit> v10Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v11Bit> v11Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v12Bit> v12Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v13Bit> v13Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v14Bit> v14Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v15Bit> v15Bit{};
+            constexpr Register::FieldValue<decltype(bits)::Type,BitsVal::v16Bit> v16Bit{};
+        }
         }
         ///Serial Clock Baud Rate
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> scbr{}; 
-        namespace ScbrValC{
-        }
         ///Delay Before SPCK
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> dlybs{}; 
-        namespace DlybsValC{
-        }
         ///Delay Between Consecutive Transfers
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> dlybct{}; 
-        namespace DlybctValC{
-        }
     }
     namespace Spi0Wpmr{    ///<Write Protection Control Register
         using Addr = Register::Address<0xf00000e4,0x000000fe,0,unsigned>;
         ///SPI Write Protection Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> spiwpen{}; 
-        namespace SpiwpenValC{
-        }
         ///SPI Write Protection Key Password
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> spiwpkey{}; 
-        namespace SpiwpkeyValC{
-        }
     }
     namespace Spi0Wpsr{    ///<Write Protection Status Register
         using Addr = Register::Address<0xf00000e8,0xffff00f8,0,unsigned>;
         ///SPI Write Protection Violation Status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> spiwpvs{}; 
-        namespace SpiwpvsValC{
-        }
         ///SPI Write Protection Violation Source
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> spiwpvsrc{}; 
-        namespace SpiwpvsrcValC{
-        }
     }
 }

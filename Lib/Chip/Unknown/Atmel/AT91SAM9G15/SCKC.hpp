@@ -6,16 +6,10 @@ namespace Kvasir {
         using Addr = Register::Address<0xfffffe50,0xfffffff0,0,unsigned>;
         ///Internal 32 kHz RC Oscillator
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rcen{}; 
-        namespace RcenValC{
-        }
         ///32,768 Hz Oscillator
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> osc32en{}; 
-        namespace Osc32enValC{
-        }
         ///32,768Hz Oscillator Bypass
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> osc32byp{}; 
-        namespace Osc32bypValC{
-        }
         ///Slow Clock Selector
         enum class OscselVal {
             rc=0x00000000,     ///<Slow clock is internal 32 kHz RC oscillator.
@@ -23,8 +17,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,OscselVal> oscsel{}; 
         namespace OscselValC{
-            constexpr Register::FieldValue<decltype(oscsel),OscselVal::rc> rc{};
-            constexpr Register::FieldValue<decltype(oscsel),OscselVal::xtal> xtal{};
+            constexpr Register::FieldValue<decltype(oscsel)::Type,OscselVal::rc> rc{};
+            constexpr Register::FieldValue<decltype(oscsel)::Type,OscselVal::xtal> xtal{};
+        }
         }
     }
 }

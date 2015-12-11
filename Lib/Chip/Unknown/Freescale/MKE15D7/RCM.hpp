@@ -11,8 +11,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,LvdVal> lvd{}; 
         namespace LvdValC{
-            constexpr Register::FieldValue<decltype(lvd),LvdVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(lvd),LvdVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(lvd)::Type,LvdVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lvd)::Type,LvdVal::v1> v1{};
+        }
         }
         ///Loss Of Clock Reset
         enum class LocVal {
@@ -21,8 +22,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,LocVal> loc{}; 
         namespace LocValC{
-            constexpr Register::FieldValue<decltype(loc),LocVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(loc),LocVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(loc)::Type,LocVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(loc)::Type,LocVal::v1> v1{};
+        }
         }
         ///COP Watchdog Reset
         enum class CopVal {
@@ -31,8 +33,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,CopVal> cop{}; 
         namespace CopValC{
-            constexpr Register::FieldValue<decltype(cop),CopVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(cop),CopVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(cop)::Type,CopVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cop)::Type,CopVal::v1> v1{};
+        }
         }
         ///External RESETb Pin
         enum class PinVal {
@@ -41,8 +44,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,PinVal> pin{}; 
         namespace PinValC{
-            constexpr Register::FieldValue<decltype(pin),PinVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(pin),PinVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(pin)::Type,PinVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pin)::Type,PinVal::v1> v1{};
+        }
         }
         ///Power On Reset
         enum class PorVal {
@@ -51,8 +55,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,PorVal> por{}; 
         namespace PorValC{
-            constexpr Register::FieldValue<decltype(por),PorVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(por),PorVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(por)::Type,PorVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(por)::Type,PorVal::v1> v1{};
+        }
         }
     }
     namespace RcmSrsh{    ///<RCM System Reset Status High Register
@@ -64,8 +69,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,JtagVal> jtag{}; 
         namespace JtagValC{
-            constexpr Register::FieldValue<decltype(jtag),JtagVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(jtag),JtagVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(jtag)::Type,JtagVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(jtag)::Type,JtagVal::v1> v1{};
+        }
         }
         ///CPU LOCKUP Reset
         enum class LockupVal {
@@ -74,8 +80,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,LockupVal> lockup{}; 
         namespace LockupValC{
-            constexpr Register::FieldValue<decltype(lockup),LockupVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(lockup),LockupVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(lockup)::Type,LockupVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lockup)::Type,LockupVal::v1> v1{};
+        }
         }
         ///Software Reset
         enum class SwVal {
@@ -84,8 +91,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwVal> sw{}; 
         namespace SwValC{
-            constexpr Register::FieldValue<decltype(sw),SwVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(sw),SwVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(sw)::Type,SwVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sw)::Type,SwVal::v1> v1{};
+        }
         }
         ///MDM-AP system reset request
         enum class MdmapVal {
@@ -94,8 +102,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,MdmapVal> mdmap{}; 
         namespace MdmapValC{
-            constexpr Register::FieldValue<decltype(mdmap),MdmapVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(mdmap),MdmapVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(mdmap)::Type,MdmapVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(mdmap)::Type,MdmapVal::v1> v1{};
+        }
         }
         ///Stop Mode Acknowledge Error Reset
         enum class SackerrVal {
@@ -104,8 +113,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SackerrVal> sackerr{}; 
         namespace SackerrValC{
-            constexpr Register::FieldValue<decltype(sackerr),SackerrVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(sackerr),SackerrVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(sackerr)::Type,SackerrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sackerr)::Type,SackerrVal::v1> v1{};
+        }
         }
     }
     namespace RcmRpfc{    ///<RCM RESETb Pin Filter Control Register
@@ -119,10 +129,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,RstfltsrwVal> rstfltsrw{}; 
         namespace RstfltsrwValC{
-            constexpr Register::FieldValue<decltype(rstfltsrw),RstfltsrwVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(rstfltsrw),RstfltsrwVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(rstfltsrw),RstfltsrwVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(rstfltsrw),RstfltsrwVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(rstfltsrw)::Type,RstfltsrwVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(rstfltsrw)::Type,RstfltsrwVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(rstfltsrw)::Type,RstfltsrwVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(rstfltsrw)::Type,RstfltsrwVal::v11> v11{};
+        }
         }
         ///Reset Pin Filter Select in Stop Modes
         enum class RstfltssVal {
@@ -131,8 +142,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,RstfltssVal> rstfltss{}; 
         namespace RstfltssValC{
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v1> v1{};
+        }
         }
     }
     namespace RcmRpfw{    ///<RCM RESETb Pin Filter Width Register
@@ -174,38 +186,39 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,RstfltssVal> rstfltss{}; 
         namespace RstfltssValC{
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v00000> v00000{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v00001> v00001{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v00010> v00010{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v00011> v00011{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v00100> v00100{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v00101> v00101{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v00110> v00110{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v00111> v00111{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v01000> v01000{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v01001> v01001{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v01010> v01010{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v01011> v01011{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v01100> v01100{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v01101> v01101{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v01110> v01110{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v01111> v01111{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v10000> v10000{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v10001> v10001{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v10010> v10010{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v10011> v10011{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v10100> v10100{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v10101> v10101{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v10110> v10110{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v10111> v10111{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v11000> v11000{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v11001> v11001{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v11010> v11010{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v11011> v11011{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v11100> v11100{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v11101> v11101{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v11110> v11110{};
-            constexpr Register::FieldValue<decltype(rstfltss),RstfltssVal::v11111> v11111{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v00000> v00000{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v00001> v00001{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v00010> v00010{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v00011> v00011{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v00100> v00100{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v00101> v00101{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v00110> v00110{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v00111> v00111{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v01000> v01000{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v01001> v01001{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v01010> v01010{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v01011> v01011{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v01100> v01100{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v01101> v01101{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v01110> v01110{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v01111> v01111{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v10000> v10000{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v10001> v10001{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v10010> v10010{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v10011> v10011{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v10100> v10100{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v10101> v10101{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v10110> v10110{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v10111> v10111{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v11000> v11000{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v11001> v11001{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v11010> v11010{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v11011> v11011{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v11100> v11100{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v11101> v11101{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v11110> v11110{};
+            constexpr Register::FieldValue<decltype(rstfltss)::Type,RstfltssVal::v11111> v11111{};
+        }
         }
     }
 }

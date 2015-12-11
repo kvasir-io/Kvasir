@@ -6,29 +6,21 @@ namespace Kvasir {
         using Addr = Register::Address<0x40081000,0xffffff00,0,unsigned>;
         ///Receiver buffer. The UART Receiver Buffer Register contains the oldest received byte in the UART RX FIFO.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rbr{}; 
-        namespace RbrValC{
-        }
     }
     namespace Nonethr{    ///<Transmit Holding Register. The next character to be transmitted is written here (DLAB = 0).
         using Addr = Register::Address<0x40081000,0xffffff00,0,unsigned>;
         ///Transmit Holding Register. Writing to the UART Transmit Holding Register causes the data to be stored in the UART transmit FIFO. The byte will be sent when it reaches the bottom of the FIFO and the transmitter is available.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> thr{}; 
-        namespace ThrValC{
-        }
     }
     namespace Nonedll{    ///<Divisor Latch LSB. Least significant byte of the baud rate divisor value. The full divisor is used to generate a baud rate from the fractional rate divider (DLAB = 1).
         using Addr = Register::Address<0x40081000,0xffffff00,0,unsigned>;
         ///Divisor latch LSB. The UART Divisor Latch LSB Register, along with the DLM register, determines the baud rate of the UART.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> dllsb{}; 
-        namespace DllsbValC{
-        }
     }
     namespace Nonedlm{    ///<Divisor Latch MSB. Most significant byte of the baud rate divisor value. The full divisor is used to generate a baud rate from the fractional rate divider (DLAB = 1).
         using Addr = Register::Address<0x40081004,0xffffff00,0,unsigned>;
         ///Divisor latch MSB.  The UART Divisor Latch MSB Register, along with the DLL register, determines the baud rate of the UART.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> dlmsb{}; 
-        namespace DlmsbValC{
-        }
     }
     namespace Noneier{    ///<Interrupt Enable Register. Contains individual interrupt enable bits for the 7 potential UART interrupts (DLAB = 0).
         using Addr = Register::Address<0x40081004,0xfffffcf8,0,unsigned>;
@@ -39,8 +31,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RbrieVal> rbrie{}; 
         namespace RbrieValC{
-            constexpr Register::FieldValue<decltype(rbrie),RbrieVal::disableTheRdaInte> disableTheRdaInte{};
-            constexpr Register::FieldValue<decltype(rbrie),RbrieVal::enableTheRdaInter> enableTheRdaInter{};
+            constexpr Register::FieldValue<decltype(rbrie)::Type,RbrieVal::disableTheRdaInte> disableTheRdaInte{};
+            constexpr Register::FieldValue<decltype(rbrie)::Type,RbrieVal::enableTheRdaInter> enableTheRdaInter{};
+        }
         }
         ///THRE Interrupt Enable. Enables the THRE interrupt for UART. The status of this interrupt can be read from LSR bit 5.
         enum class ThreieVal {
@@ -49,8 +42,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ThreieVal> threie{}; 
         namespace ThreieValC{
-            constexpr Register::FieldValue<decltype(threie),ThreieVal::disableTheThreInt> disableTheThreInt{};
-            constexpr Register::FieldValue<decltype(threie),ThreieVal::enableTheThreInte> enableTheThreInte{};
+            constexpr Register::FieldValue<decltype(threie)::Type,ThreieVal::disableTheThreInt> disableTheThreInt{};
+            constexpr Register::FieldValue<decltype(threie)::Type,ThreieVal::enableTheThreInte> enableTheThreInte{};
+        }
         }
         ///RX Line Interrupt Enable. Enables the UART RX line status interrupts. The status of this interrupt can be read from LSR bit 4:1.
         enum class RxieVal {
@@ -59,8 +53,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,RxieVal> rxie{}; 
         namespace RxieValC{
-            constexpr Register::FieldValue<decltype(rxie),RxieVal::disableTheRxLine> disableTheRxLine{};
-            constexpr Register::FieldValue<decltype(rxie),RxieVal::enableTheRxLineS> enableTheRxLineS{};
+            constexpr Register::FieldValue<decltype(rxie)::Type,RxieVal::disableTheRxLine> disableTheRxLine{};
+            constexpr Register::FieldValue<decltype(rxie)::Type,RxieVal::enableTheRxLineS> enableTheRxLineS{};
+        }
         }
         ///Enables the end of auto-baud interrupt.
         enum class AbeointenVal {
@@ -69,8 +64,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,AbeointenVal> abeointen{}; 
         namespace AbeointenValC{
-            constexpr Register::FieldValue<decltype(abeointen),AbeointenVal::disableEndOfAuto> disableEndOfAuto{};
-            constexpr Register::FieldValue<decltype(abeointen),AbeointenVal::enableEndOfAutoB> enableEndOfAutoB{};
+            constexpr Register::FieldValue<decltype(abeointen)::Type,AbeointenVal::disableEndOfAuto> disableEndOfAuto{};
+            constexpr Register::FieldValue<decltype(abeointen)::Type,AbeointenVal::enableEndOfAutoB> enableEndOfAutoB{};
+        }
         }
         ///Enables the auto-baud time-out interrupt.
         enum class AbtointenVal {
@@ -79,8 +75,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,AbtointenVal> abtointen{}; 
         namespace AbtointenValC{
-            constexpr Register::FieldValue<decltype(abtointen),AbtointenVal::disableAutoBaudTi> disableAutoBaudTi{};
-            constexpr Register::FieldValue<decltype(abtointen),AbtointenVal::enableAutoBaudTim> enableAutoBaudTim{};
+            constexpr Register::FieldValue<decltype(abtointen)::Type,AbtointenVal::disableAutoBaudTi> disableAutoBaudTi{};
+            constexpr Register::FieldValue<decltype(abtointen)::Type,AbtointenVal::enableAutoBaudTim> enableAutoBaudTim{};
+        }
         }
     }
     namespace Noneiir{    ///<Interrupt ID Register. Identifies which interrupt(s) are pending.
@@ -92,8 +89,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IntstatusVal> intstatus{}; 
         namespace IntstatusValC{
-            constexpr Register::FieldValue<decltype(intstatus),IntstatusVal::atLeastOneInterru> atLeastOneInterru{};
-            constexpr Register::FieldValue<decltype(intstatus),IntstatusVal::noInterruptIsPend> noInterruptIsPend{};
+            constexpr Register::FieldValue<decltype(intstatus)::Type,IntstatusVal::atLeastOneInterru> atLeastOneInterru{};
+            constexpr Register::FieldValue<decltype(intstatus)::Type,IntstatusVal::noInterruptIsPend> noInterruptIsPend{};
+        }
         }
         ///Interrupt identification.  IER3:1 identifies an interrupt corresponding to the UART Rx FIFO. All other combinations of IER bit  3:1 not listed below are reserved (100,101,111).
         enum class IntidVal {
@@ -105,24 +103,19 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,1),Register::ReadWriteAccess,IntidVal> intid{}; 
         namespace IntidValC{
-            constexpr Register::FieldValue<decltype(intid),IntidVal::priority1Highest> priority1Highest{};
-            constexpr Register::FieldValue<decltype(intid),IntidVal::priority2Receive> priority2Receive{};
-            constexpr Register::FieldValue<decltype(intid),IntidVal::priority2Charact> priority2Charact{};
-            constexpr Register::FieldValue<decltype(intid),IntidVal::priority3ThreIn> priority3ThreIn{};
-            constexpr Register::FieldValue<decltype(intid),IntidVal::priority4Lowest> priority4Lowest{};
+            constexpr Register::FieldValue<decltype(intid)::Type,IntidVal::priority1Highest> priority1Highest{};
+            constexpr Register::FieldValue<decltype(intid)::Type,IntidVal::priority2Receive> priority2Receive{};
+            constexpr Register::FieldValue<decltype(intid)::Type,IntidVal::priority2Charact> priority2Charact{};
+            constexpr Register::FieldValue<decltype(intid)::Type,IntidVal::priority3ThreIn> priority3ThreIn{};
+            constexpr Register::FieldValue<decltype(intid)::Type,IntidVal::priority4Lowest> priority4Lowest{};
+        }
         }
         ///Copies of FCR bit  0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> fifoenable{}; 
-        namespace FifoenableValC{
-        }
         ///End of auto-baud interrupt.  True if auto-baud has finished successfully and interrupt is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> abeoint{}; 
-        namespace AbeointValC{
-        }
         ///Auto-baud time-out interrupt.  True if auto-baud has timed out and interrupt is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> abtoint{}; 
-        namespace AbtointValC{
-        }
     }
     namespace Nonefcr{    ///<FIFO Control Register. Controls UART FIFO usage and modes.
         using Addr = Register::Address<0x40081008,0xffffff30,0,unsigned>;
@@ -133,8 +126,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,FifoenVal> fifoen{}; 
         namespace FifoenValC{
-            constexpr Register::FieldValue<decltype(fifoen),FifoenVal::uartFifosAreDisab> uartFifosAreDisab{};
-            constexpr Register::FieldValue<decltype(fifoen),FifoenVal::activeHighEnableF> activeHighEnableF{};
+            constexpr Register::FieldValue<decltype(fifoen)::Type,FifoenVal::uartFifosAreDisab> uartFifosAreDisab{};
+            constexpr Register::FieldValue<decltype(fifoen)::Type,FifoenVal::activeHighEnableF> activeHighEnableF{};
+        }
         }
         ///RX FIFO Reset.
         enum class RxfiforesVal {
@@ -143,8 +137,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,RxfiforesVal> rxfifores{}; 
         namespace RxfiforesValC{
-            constexpr Register::FieldValue<decltype(rxfifores),RxfiforesVal::noImpactOnEither> noImpactOnEither{};
-            constexpr Register::FieldValue<decltype(rxfifores),RxfiforesVal::writingALogic1To> writingALogic1To{};
+            constexpr Register::FieldValue<decltype(rxfifores)::Type,RxfiforesVal::noImpactOnEither> noImpactOnEither{};
+            constexpr Register::FieldValue<decltype(rxfifores)::Type,RxfiforesVal::writingALogic1To> writingALogic1To{};
+        }
         }
         ///TX FIFO Reset.
         enum class TxfiforesVal {
@@ -153,13 +148,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TxfiforesVal> txfifores{}; 
         namespace TxfiforesValC{
-            constexpr Register::FieldValue<decltype(txfifores),TxfiforesVal::noImpactOnEither> noImpactOnEither{};
-            constexpr Register::FieldValue<decltype(txfifores),TxfiforesVal::writingALogic1To> writingALogic1To{};
+            constexpr Register::FieldValue<decltype(txfifores)::Type,TxfiforesVal::noImpactOnEither> noImpactOnEither{};
+            constexpr Register::FieldValue<decltype(txfifores)::Type,TxfiforesVal::writingALogic1To> writingALogic1To{};
+        }
         }
         ///DMA Mode Select. When the FIFO enable bit (bit 0 of this register) is set, this bit selects the DMA mode.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> dmamode{}; 
-        namespace DmamodeValC{
-        }
         ///RX Trigger Level. These two bits determine how many receiver UART FIFO characters must be written before an interrupt is activated.
         enum class RxtriglvlVal {
             triggerLevel01C=0x00000000,     ///<Trigger level 0 (1 character or 0x01).
@@ -169,10 +163,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,RxtriglvlVal> rxtriglvl{}; 
         namespace RxtriglvlValC{
-            constexpr Register::FieldValue<decltype(rxtriglvl),RxtriglvlVal::triggerLevel01C> triggerLevel01C{};
-            constexpr Register::FieldValue<decltype(rxtriglvl),RxtriglvlVal::triggerLevel14C> triggerLevel14C{};
-            constexpr Register::FieldValue<decltype(rxtriglvl),RxtriglvlVal::triggerLevel28C> triggerLevel28C{};
-            constexpr Register::FieldValue<decltype(rxtriglvl),RxtriglvlVal::triggerLevel314> triggerLevel314{};
+            constexpr Register::FieldValue<decltype(rxtriglvl)::Type,RxtriglvlVal::triggerLevel01C> triggerLevel01C{};
+            constexpr Register::FieldValue<decltype(rxtriglvl)::Type,RxtriglvlVal::triggerLevel14C> triggerLevel14C{};
+            constexpr Register::FieldValue<decltype(rxtriglvl)::Type,RxtriglvlVal::triggerLevel28C> triggerLevel28C{};
+            constexpr Register::FieldValue<decltype(rxtriglvl)::Type,RxtriglvlVal::triggerLevel314> triggerLevel314{};
+        }
         }
     }
     namespace Nonelcr{    ///<Line Control Register. Contains controls for frame formatting and break generation.
@@ -186,10 +181,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,WlsVal> wls{}; 
         namespace WlsValC{
-            constexpr Register::FieldValue<decltype(wls),WlsVal::v5BitCharacterLeng> v5BitCharacterLeng{};
-            constexpr Register::FieldValue<decltype(wls),WlsVal::v6BitCharacterLeng> v6BitCharacterLeng{};
-            constexpr Register::FieldValue<decltype(wls),WlsVal::v7BitCharacterLeng> v7BitCharacterLeng{};
-            constexpr Register::FieldValue<decltype(wls),WlsVal::v8BitCharacterLeng> v8BitCharacterLeng{};
+            constexpr Register::FieldValue<decltype(wls)::Type,WlsVal::v5BitCharacterLeng> v5BitCharacterLeng{};
+            constexpr Register::FieldValue<decltype(wls)::Type,WlsVal::v6BitCharacterLeng> v6BitCharacterLeng{};
+            constexpr Register::FieldValue<decltype(wls)::Type,WlsVal::v7BitCharacterLeng> v7BitCharacterLeng{};
+            constexpr Register::FieldValue<decltype(wls)::Type,WlsVal::v8BitCharacterLeng> v8BitCharacterLeng{};
+        }
         }
         ///Stop Bit Select.
         enum class SbsVal {
@@ -198,8 +194,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SbsVal> sbs{}; 
         namespace SbsValC{
-            constexpr Register::FieldValue<decltype(sbs),SbsVal::v1StopBit> v1StopBit{};
-            constexpr Register::FieldValue<decltype(sbs),SbsVal::v2StopBits15If> v2StopBits15If{};
+            constexpr Register::FieldValue<decltype(sbs)::Type,SbsVal::v1StopBit> v1StopBit{};
+            constexpr Register::FieldValue<decltype(sbs)::Type,SbsVal::v2StopBits15If> v2StopBits15If{};
+        }
         }
         ///Parity Enable
         enum class PeVal {
@@ -208,8 +205,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,PeVal> pe{}; 
         namespace PeValC{
-            constexpr Register::FieldValue<decltype(pe),PeVal::disableParityGener> disableParityGener{};
-            constexpr Register::FieldValue<decltype(pe),PeVal::enableParityGenera> enableParityGenera{};
+            constexpr Register::FieldValue<decltype(pe)::Type,PeVal::disableParityGener> disableParityGener{};
+            constexpr Register::FieldValue<decltype(pe)::Type,PeVal::enableParityGenera> enableParityGenera{};
+        }
         }
         ///Parity Select.
         enum class PsVal {
@@ -220,10 +218,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,PsVal> ps{}; 
         namespace PsValC{
-            constexpr Register::FieldValue<decltype(ps),PsVal::oddParityNumberO> oddParityNumberO{};
-            constexpr Register::FieldValue<decltype(ps),PsVal::evenParityNumber> evenParityNumber{};
-            constexpr Register::FieldValue<decltype(ps),PsVal::forced1StickPar> forced1StickPar{};
-            constexpr Register::FieldValue<decltype(ps),PsVal::forced0StickPar> forced0StickPar{};
+            constexpr Register::FieldValue<decltype(ps)::Type,PsVal::oddParityNumberO> oddParityNumberO{};
+            constexpr Register::FieldValue<decltype(ps)::Type,PsVal::evenParityNumber> evenParityNumber{};
+            constexpr Register::FieldValue<decltype(ps)::Type,PsVal::forced1StickPar> forced1StickPar{};
+            constexpr Register::FieldValue<decltype(ps)::Type,PsVal::forced0StickPar> forced0StickPar{};
+        }
         }
         ///Break Control.
         enum class BcVal {
@@ -232,8 +231,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,BcVal> bc{}; 
         namespace BcValC{
-            constexpr Register::FieldValue<decltype(bc),BcVal::disableBreakTransm> disableBreakTransm{};
-            constexpr Register::FieldValue<decltype(bc),BcVal::enableBreakTransmi> enableBreakTransmi{};
+            constexpr Register::FieldValue<decltype(bc)::Type,BcVal::disableBreakTransm> disableBreakTransm{};
+            constexpr Register::FieldValue<decltype(bc)::Type,BcVal::enableBreakTransmi> enableBreakTransmi{};
+        }
         }
         ///Divisor Latch Access Bit.
         enum class DlabVal {
@@ -242,8 +242,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,DlabVal> dlab{}; 
         namespace DlabValC{
-            constexpr Register::FieldValue<decltype(dlab),DlabVal::disableAccessToDi> disableAccessToDi{};
-            constexpr Register::FieldValue<decltype(dlab),DlabVal::enableAccessToDiv> enableAccessToDiv{};
+            constexpr Register::FieldValue<decltype(dlab)::Type,DlabVal::disableAccessToDi> disableAccessToDi{};
+            constexpr Register::FieldValue<decltype(dlab)::Type,DlabVal::enableAccessToDiv> enableAccessToDiv{};
+        }
         }
     }
     namespace Nonelsr{    ///<Line Status Register. Contains flags for transmit and receive status, including line errors.
@@ -255,8 +256,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RdrVal> rdr{}; 
         namespace RdrValC{
-            constexpr Register::FieldValue<decltype(rdr),RdrVal::rbrIsEmpty> rbrIsEmpty{};
-            constexpr Register::FieldValue<decltype(rdr),RdrVal::rbrContainsValidD> rbrContainsValidD{};
+            constexpr Register::FieldValue<decltype(rdr)::Type,RdrVal::rbrIsEmpty> rbrIsEmpty{};
+            constexpr Register::FieldValue<decltype(rdr)::Type,RdrVal::rbrContainsValidD> rbrContainsValidD{};
+        }
         }
         ///Overrun Error. The overrun error condition is set as soon as it occurs. A LSR read clears LSR bit  1. LSR bit  1 is set when UART RSR has a new character assembled and the UART RBR FIFO is full. In this case, the UART RBR FIFO will not be overwritten and the character in the UART RSR will be lost.
         enum class OeVal {
@@ -265,8 +267,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,OeVal> oe{}; 
         namespace OeValC{
-            constexpr Register::FieldValue<decltype(oe),OeVal::inactive> inactive{};
-            constexpr Register::FieldValue<decltype(oe),OeVal::active> active{};
+            constexpr Register::FieldValue<decltype(oe)::Type,OeVal::inactive> inactive{};
+            constexpr Register::FieldValue<decltype(oe)::Type,OeVal::active> active{};
+        }
         }
         ///Parity Error. When the parity bit of a received character is in the wrong state, a parity error occurs. A LSR read clears LSR bit  2. Time of parity error detection is dependent on FCR bit  0. Note: A parity error is associated with the character at the top of the UART RBR FIFO.
         enum class PeVal {
@@ -275,8 +278,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,PeVal> pe{}; 
         namespace PeValC{
-            constexpr Register::FieldValue<decltype(pe),PeVal::inactive> inactive{};
-            constexpr Register::FieldValue<decltype(pe),PeVal::active> active{};
+            constexpr Register::FieldValue<decltype(pe)::Type,PeVal::inactive> inactive{};
+            constexpr Register::FieldValue<decltype(pe)::Type,PeVal::active> active{};
+        }
         }
         ///Framing Error. When the stop bit of a received character is a logic 0, a framing error occurs. A LSR read clears LSR bit  3. The time of the framing error detection is dependent on FCR0. Upon detection of a framing error, the RX will attempt to re-synchronize to the data and assume that the bad stop bit is actually an early start bit. However, it cannot be assumed that the next received byte will be correct even if there is no Framing Error. Note: A framing error is associated with the character at the top of the UART RBR FIFO.
         enum class FeVal {
@@ -285,8 +289,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,FeVal> fe{}; 
         namespace FeValC{
-            constexpr Register::FieldValue<decltype(fe),FeVal::inactive> inactive{};
-            constexpr Register::FieldValue<decltype(fe),FeVal::active> active{};
+            constexpr Register::FieldValue<decltype(fe)::Type,FeVal::inactive> inactive{};
+            constexpr Register::FieldValue<decltype(fe)::Type,FeVal::active> active{};
+        }
         }
         ///Break Interrupt. When RXD1 is held in the spacing state (all zeros) for one full character transmission (start, data, parity, stop), a break interrupt occurs. Once the break condition has been detected, the receiver goes idle until RXD1 goes to marking state (all ones). A LSR read clears this status bit. The time of break detection is dependent on FCR bit  0. Note: The break interrupt is associated with the character at the top of the UART RBR FIFO.
         enum class BiVal {
@@ -295,8 +300,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,BiVal> bi{}; 
         namespace BiValC{
-            constexpr Register::FieldValue<decltype(bi),BiVal::inactive> inactive{};
-            constexpr Register::FieldValue<decltype(bi),BiVal::active> active{};
+            constexpr Register::FieldValue<decltype(bi)::Type,BiVal::inactive> inactive{};
+            constexpr Register::FieldValue<decltype(bi)::Type,BiVal::active> active{};
+        }
         }
         ///Transmitter Holding Register Empty. THRE is set immediately upon detection of an empty UART THR and is cleared on a THR write.
         enum class ThreVal {
@@ -305,8 +311,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,ThreVal> thre{}; 
         namespace ThreValC{
-            constexpr Register::FieldValue<decltype(thre),ThreVal::thrContainsValidD> thrContainsValidD{};
-            constexpr Register::FieldValue<decltype(thre),ThreVal::thrIsEmpty> thrIsEmpty{};
+            constexpr Register::FieldValue<decltype(thre)::Type,ThreVal::thrContainsValidD> thrContainsValidD{};
+            constexpr Register::FieldValue<decltype(thre)::Type,ThreVal::thrIsEmpty> thrIsEmpty{};
+        }
         }
         ///Transmitter Empty. TEMT is set when both THR and TSR are empty; TEMT is cleared when either the TSR or the THR contain valid data.
         enum class TemtVal {
@@ -315,8 +322,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TemtVal> temt{}; 
         namespace TemtValC{
-            constexpr Register::FieldValue<decltype(temt),TemtVal::valid> valid{};
-            constexpr Register::FieldValue<decltype(temt),TemtVal::empty> empty{};
+            constexpr Register::FieldValue<decltype(temt)::Type,TemtVal::valid> valid{};
+            constexpr Register::FieldValue<decltype(temt)::Type,TemtVal::empty> empty{};
+        }
         }
         ///Error in RX FIFO. LSR bit  7 is set when a character with a RX error such as framing error, parity error or break interrupt, is loaded into the RBR. This bit is cleared when the LSR register is read and there are no subsequent errors in the UART FIFO.
         enum class RxfeVal {
@@ -325,8 +333,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,RxfeVal> rxfe{}; 
         namespace RxfeValC{
-            constexpr Register::FieldValue<decltype(rxfe),RxfeVal::rbrContainsNoUart> rbrContainsNoUart{};
-            constexpr Register::FieldValue<decltype(rxfe),RxfeVal::uartRbrContainsAt> uartRbrContainsAt{};
+            constexpr Register::FieldValue<decltype(rxfe)::Type,RxfeVal::rbrContainsNoUart> rbrContainsNoUart{};
+            constexpr Register::FieldValue<decltype(rxfe)::Type,RxfeVal::uartRbrContainsAt> uartRbrContainsAt{};
+        }
         }
         ///Error in transmitted character.   A NACK response is given by the receiver in Smart card T=0 mode. This bit is cleared when the LSR register is read.
         enum class TxerrVal {
@@ -335,16 +344,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,TxerrVal> txerr{}; 
         namespace TxerrValC{
-            constexpr Register::FieldValue<decltype(txerr),TxerrVal::noErrorNormalDef> noErrorNormalDef{};
-            constexpr Register::FieldValue<decltype(txerr),TxerrVal::aNackResponseIsR> aNackResponseIsR{};
+            constexpr Register::FieldValue<decltype(txerr)::Type,TxerrVal::noErrorNormalDef> noErrorNormalDef{};
+            constexpr Register::FieldValue<decltype(txerr)::Type,TxerrVal::aNackResponseIsR> aNackResponseIsR{};
+        }
         }
     }
     namespace Nonescr{    ///<Scratch Pad Register. Eight-bit temporary storage for software.
         using Addr = Register::Address<0x4008101c,0xffffff00,0,unsigned>;
         ///Scratch pad. A readable, writable byte.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pad{}; 
-        namespace PadValC{
-        }
     }
     namespace Noneacr{    ///<Auto-baud Control Register. Contains controls for the auto-baud feature.
         using Addr = Register::Address<0x40081020,0xfffffcf8,0,unsigned>;
@@ -355,8 +363,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,StartVal> start{}; 
         namespace StartValC{
-            constexpr Register::FieldValue<decltype(start),StartVal::autoBaudStopAuto> autoBaudStopAuto{};
-            constexpr Register::FieldValue<decltype(start),StartVal::autoBaudStartAut> autoBaudStartAut{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::autoBaudStopAuto> autoBaudStopAuto{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::autoBaudStartAut> autoBaudStartAut{};
+        }
         }
         ///Auto-baud mode select bit.
         enum class ModeVal {
@@ -365,8 +374,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::mode0> mode0{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::mode1> mode1{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::mode0> mode0{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::mode1> mode1{};
+        }
         }
         ///Restart bit.
         enum class AutorestartVal {
@@ -375,8 +385,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,AutorestartVal> autorestart{}; 
         namespace AutorestartValC{
-            constexpr Register::FieldValue<decltype(autorestart),AutorestartVal::noRestart> noRestart{};
-            constexpr Register::FieldValue<decltype(autorestart),AutorestartVal::restartInCaseOfT> restartInCaseOfT{};
+            constexpr Register::FieldValue<decltype(autorestart)::Type,AutorestartVal::noRestart> noRestart{};
+            constexpr Register::FieldValue<decltype(autorestart)::Type,AutorestartVal::restartInCaseOfT> restartInCaseOfT{};
+        }
         }
         ///End of auto-baud interrupt clear bit (write-only).
         enum class AbeointclrVal {
@@ -385,8 +396,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,AbeointclrVal> abeointclr{}; 
         namespace AbeointclrValC{
-            constexpr Register::FieldValue<decltype(abeointclr),AbeointclrVal::writingA0HasNoI> writingA0HasNoI{};
-            constexpr Register::FieldValue<decltype(abeointclr),AbeointclrVal::writingA1WillCle> writingA1WillCle{};
+            constexpr Register::FieldValue<decltype(abeointclr)::Type,AbeointclrVal::writingA0HasNoI> writingA0HasNoI{};
+            constexpr Register::FieldValue<decltype(abeointclr)::Type,AbeointclrVal::writingA1WillCle> writingA1WillCle{};
+        }
         }
         ///Auto-baud time-out interrupt clear bit (write-only).
         enum class AbtointclrVal {
@@ -395,8 +407,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,AbtointclrVal> abtointclr{}; 
         namespace AbtointclrValC{
-            constexpr Register::FieldValue<decltype(abtointclr),AbtointclrVal::writingA0HasNoI> writingA0HasNoI{};
-            constexpr Register::FieldValue<decltype(abtointclr),AbtointclrVal::writingA1WillCle> writingA1WillCle{};
+            constexpr Register::FieldValue<decltype(abtointclr)::Type,AbtointclrVal::writingA0HasNoI> writingA0HasNoI{};
+            constexpr Register::FieldValue<decltype(abtointclr)::Type,AbtointclrVal::writingA1WillCle> writingA1WillCle{};
+        }
         }
     }
     namespace Noneicr{    ///<IrDA control register (UART3 only)
@@ -408,8 +421,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IrdaenVal> irdaen{}; 
         namespace IrdaenValC{
-            constexpr Register::FieldValue<decltype(irdaen),IrdaenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(irdaen),IrdaenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(irdaen)::Type,IrdaenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(irdaen)::Type,IrdaenVal::enabled> enabled{};
+        }
         }
         ///Serial input direction.
         enum class IrdainvVal {
@@ -418,8 +432,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,IrdainvVal> irdainv{}; 
         namespace IrdainvValC{
-            constexpr Register::FieldValue<decltype(irdainv),IrdainvVal::notInverted> notInverted{};
-            constexpr Register::FieldValue<decltype(irdainv),IrdainvVal::inverted> inverted{};
+            constexpr Register::FieldValue<decltype(irdainv)::Type,IrdainvVal::notInverted> notInverted{};
+            constexpr Register::FieldValue<decltype(irdainv)::Type,IrdainvVal::inverted> inverted{};
+        }
         }
         ///IrDA fixed pulse width mode.
         enum class FixpulseenVal {
@@ -428,39 +443,28 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,FixpulseenVal> fixpulseen{}; 
         namespace FixpulseenValC{
-            constexpr Register::FieldValue<decltype(fixpulseen),FixpulseenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(fixpulseen),FixpulseenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(fixpulseen)::Type,FixpulseenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(fixpulseen)::Type,FixpulseenVal::enabled> enabled{};
+        }
         }
         ///Configures the pulse when FixPulseEn = 1. See Table 589 for details.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,3),Register::ReadWriteAccess,unsigned> pulsediv{}; 
-        namespace PulsedivValC{
-        }
     }
     namespace Nonefdr{    ///<Fractional Divider Register. Generates a clock input for the baud rate divider.
         using Addr = Register::Address<0x40081028,0xffffff00,0,unsigned>;
         ///Baud rate generation pre-scaler divisor value.  If this field is 0, fractional baud rate generator will not impact the UART baud rate.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> divaddval{}; 
-        namespace DivaddvalValC{
-        }
         ///Baud rate pre-scaler multiplier value.  This field must be greater or equal 1 for UART to operate properly, regardless of whether the fractional baud rate generator is used or not.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> mulval{}; 
-        namespace MulvalValC{
-        }
     }
     namespace Noneosr{    ///<Oversampling Register. Controls the degree of oversampling during each bit time.
         using Addr = Register::Address<0x4008102c,0xffff8001,0,unsigned>;
         ///Fractional part of the oversampling ratio, in units of 1/8th of an input clock period. (001 = 0.125, ..., 111 = 0.875)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,1),Register::ReadWriteAccess,unsigned> osfrac{}; 
-        namespace OsfracValC{
-        }
         ///Integer part of the oversampling ratio, minus 1. The reset values equate to the normal operating mode of 16 input clocks per bit time.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> osint{}; 
-        namespace OsintValC{
-        }
         ///In Smart Card mode, these bits act as a more-significant extension of the OSint field, allowing an oversampling ratio up to 2048 as required by ISO7816-3. In Smart Card mode, bits 14:4 should initially be set to 371, yielding an oversampling ratio of 372.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> fdint{}; 
-        namespace FdintValC{
-        }
     }
     namespace Nonehden{    ///<Half-duplex enable Register
         using Addr = Register::Address<0x40081040,0xfffffffe,0,unsigned>;
@@ -471,8 +475,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,HdenVal> hden{}; 
         namespace HdenValC{
-            constexpr Register::FieldValue<decltype(hden),HdenVal::disableHalfDuplex> disableHalfDuplex{};
-            constexpr Register::FieldValue<decltype(hden),HdenVal::enableHalfDuplexM> enableHalfDuplexM{};
+            constexpr Register::FieldValue<decltype(hden)::Type,HdenVal::disableHalfDuplex> disableHalfDuplex{};
+            constexpr Register::FieldValue<decltype(hden)::Type,HdenVal::enableHalfDuplexM> enableHalfDuplexM{};
+        }
         }
     }
     namespace Nonescictrl{    ///<Smart card interface control register
@@ -484,8 +489,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ScienVal> scien{}; 
         namespace ScienValC{
-            constexpr Register::FieldValue<decltype(scien),ScienVal::smartCardInterface> smartCardInterface{};
-            constexpr Register::FieldValue<decltype(scien),ScienVal::asynchronousHalfDu> asynchronousHalfDu{};
+            constexpr Register::FieldValue<decltype(scien)::Type,ScienVal::smartCardInterface> smartCardInterface{};
+            constexpr Register::FieldValue<decltype(scien)::Type,ScienVal::asynchronousHalfDu> asynchronousHalfDu{};
+        }
         }
         ///NACK response disable. Only applicable in T=0.
         enum class NackdisVal {
@@ -494,8 +500,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,NackdisVal> nackdis{}; 
         namespace NackdisValC{
-            constexpr Register::FieldValue<decltype(nackdis),NackdisVal::aNackResponseIsE> aNackResponseIsE{};
-            constexpr Register::FieldValue<decltype(nackdis),NackdisVal::aNackResponseIsI> aNackResponseIsI{};
+            constexpr Register::FieldValue<decltype(nackdis)::Type,NackdisVal::aNackResponseIsE> aNackResponseIsE{};
+            constexpr Register::FieldValue<decltype(nackdis)::Type,NackdisVal::aNackResponseIsI> aNackResponseIsI{};
+        }
         }
         ///Protocol selection as defined in the ISO7816-3 standard.
         enum class ProtselVal {
@@ -504,17 +511,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,ProtselVal> protsel{}; 
         namespace ProtselValC{
-            constexpr Register::FieldValue<decltype(protsel),ProtselVal::tEq0> tEq0{};
-            constexpr Register::FieldValue<decltype(protsel),ProtselVal::tEq1> tEq1{};
+            constexpr Register::FieldValue<decltype(protsel)::Type,ProtselVal::tEq0> tEq0{};
+            constexpr Register::FieldValue<decltype(protsel)::Type,ProtselVal::tEq1> tEq1{};
+        }
         }
         ///Maximum number of retransmissions in case of a negative acknowledge (protocol T=0). When the retry counter is exceeded, the USART will be locked until the FIFO is cleared. A TX error interrupt is generated when enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> txretry{}; 
-        namespace TxretryValC{
-        }
         ///Extra guard time. No extra guard time (0x0) results in a standard guard time as defined in ISO 7816-3, depending on the protocol type. A guard time of 0xFF indicates a minimal guard time as defined for the selected protocol.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> guardtime{}; 
-        namespace GuardtimeValC{
-        }
     }
     namespace Noners485ctrl{    ///<RS-485/EIA-485 Control. Contains controls to configure various aspects of RS-485/EIA-485 modes.
         using Addr = Register::Address<0x4008104c,0xffffffc8,0,unsigned>;
@@ -525,8 +529,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,NmmenVal> nmmen{}; 
         namespace NmmenValC{
-            constexpr Register::FieldValue<decltype(nmmen),NmmenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(nmmen),NmmenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(nmmen)::Type,NmmenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(nmmen)::Type,NmmenVal::enabled> enabled{};
+        }
         }
         ///Receiver enable.
         enum class RxdisVal {
@@ -535,8 +540,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,RxdisVal> rxdis{}; 
         namespace RxdisValC{
-            constexpr Register::FieldValue<decltype(rxdis),RxdisVal::theReceiverIsEnab> theReceiverIsEnab{};
-            constexpr Register::FieldValue<decltype(rxdis),RxdisVal::theReceiverIsDisa> theReceiverIsDisa{};
+            constexpr Register::FieldValue<decltype(rxdis)::Type,RxdisVal::theReceiverIsEnab> theReceiverIsEnab{};
+            constexpr Register::FieldValue<decltype(rxdis)::Type,RxdisVal::theReceiverIsDisa> theReceiverIsDisa{};
+        }
         }
         ///AAD enable
         enum class AadenVal {
@@ -545,8 +551,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,AadenVal> aaden{}; 
         namespace AadenValC{
-            constexpr Register::FieldValue<decltype(aaden),AadenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(aaden),AadenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(aaden)::Type,AadenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(aaden)::Type,AadenVal::enabled> enabled{};
+        }
         }
         ///Direction control for DIR pin.
         enum class DctrlVal {
@@ -555,8 +562,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,DctrlVal> dctrl{}; 
         namespace DctrlValC{
-            constexpr Register::FieldValue<decltype(dctrl),DctrlVal::disableAutoDirecti> disableAutoDirecti{};
-            constexpr Register::FieldValue<decltype(dctrl),DctrlVal::enableAutoDirectio> enableAutoDirectio{};
+            constexpr Register::FieldValue<decltype(dctrl)::Type,DctrlVal::disableAutoDirecti> disableAutoDirecti{};
+            constexpr Register::FieldValue<decltype(dctrl)::Type,DctrlVal::enableAutoDirectio> enableAutoDirectio{};
+        }
         }
         ///Direction control pin polarity. This bit reverses the polarity of the direction control signal on the DIR pin.
         enum class OinvVal {
@@ -565,23 +573,20 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,OinvVal> oinv{}; 
         namespace OinvValC{
-            constexpr Register::FieldValue<decltype(oinv),OinvVal::pineq0> pineq0{};
-            constexpr Register::FieldValue<decltype(oinv),OinvVal::pineq1> pineq1{};
+            constexpr Register::FieldValue<decltype(oinv)::Type,OinvVal::pineq0> pineq0{};
+            constexpr Register::FieldValue<decltype(oinv)::Type,OinvVal::pineq1> pineq1{};
+        }
         }
     }
     namespace Noners485adrmatch{    ///<RS-485/EIA-485 address match. Contains the address match value for RS-485/EIA-485 mode.
         using Addr = Register::Address<0x40081050,0xffffff00,0,unsigned>;
         ///Contains the address match value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> adrmatch{}; 
-        namespace AdrmatchValC{
-        }
     }
     namespace Noners485dly{    ///<RS-485/EIA-485 direction control delay.
         using Addr = Register::Address<0x40081054,0xffffff00,0,unsigned>;
         ///Contains the direction control delay value. This register works in conjunction with an 8-bit counter.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> dly{}; 
-        namespace DlyValC{
-        }
     }
     namespace Nonesyncctrl{    ///<Synchronous mode control register.
         using Addr = Register::Address<0x40081058,0xffffff80,0,unsigned>;
@@ -592,8 +597,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,SyncVal> sync{}; 
         namespace SyncValC{
-            constexpr Register::FieldValue<decltype(sync),SyncVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(sync),SyncVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(sync)::Type,SyncVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(sync)::Type,SyncVal::enabled> enabled{};
+        }
         }
         ///Clock source select.
         enum class CsrcVal {
@@ -602,8 +608,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,CsrcVal> csrc{}; 
         namespace CsrcValC{
-            constexpr Register::FieldValue<decltype(csrc),CsrcVal::synchronousSlaveMo> synchronousSlaveMo{};
-            constexpr Register::FieldValue<decltype(csrc),CsrcVal::synchronousMasterM> synchronousMasterM{};
+            constexpr Register::FieldValue<decltype(csrc)::Type,CsrcVal::synchronousSlaveMo> synchronousSlaveMo{};
+            constexpr Register::FieldValue<decltype(csrc)::Type,CsrcVal::synchronousMasterM> synchronousMasterM{};
+        }
         }
         ///Falling edge sampling.
         enum class FesVal {
@@ -612,8 +619,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,FesVal> fes{}; 
         namespace FesValC{
-            constexpr Register::FieldValue<decltype(fes),FesVal::rising> rising{};
-            constexpr Register::FieldValue<decltype(fes),FesVal::falling> falling{};
+            constexpr Register::FieldValue<decltype(fes)::Type,FesVal::rising> rising{};
+            constexpr Register::FieldValue<decltype(fes)::Type,FesVal::falling> falling{};
+        }
         }
         ///Transmit synchronization register bypass.
         enum class TsbypassVal {
@@ -622,8 +630,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,TsbypassVal> tsbypass{}; 
         namespace TsbypassValC{
-            constexpr Register::FieldValue<decltype(tsbypass),TsbypassVal::enum_> enum_{};
-            constexpr Register::FieldValue<decltype(tsbypass),TsbypassVal::enum_> enum_{};
+            constexpr Register::FieldValue<decltype(tsbypass)::Type,TsbypassVal::enum_> enum_{};
+            constexpr Register::FieldValue<decltype(tsbypass)::Type,TsbypassVal::enum_> enum_{};
+        }
         }
         ///Continuous master clock enable (used only when CSRC is 1)
         enum class CscenVal {
@@ -632,8 +641,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CscenVal> cscen{}; 
         namespace CscenValC{
-            constexpr Register::FieldValue<decltype(cscen),CscenVal::sclkCyclesOnlyWhe> sclkCyclesOnlyWhe{};
-            constexpr Register::FieldValue<decltype(cscen),CscenVal::sclkRunsContinuous> sclkRunsContinuous{};
+            constexpr Register::FieldValue<decltype(cscen)::Type,CscenVal::sclkCyclesOnlyWhe> sclkCyclesOnlyWhe{};
+            constexpr Register::FieldValue<decltype(cscen)::Type,CscenVal::sclkRunsContinuous> sclkRunsContinuous{};
+        }
         }
         ///Start/stop bits
         enum class SssdisVal {
@@ -642,8 +652,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SssdisVal> sssdis{}; 
         namespace SssdisValC{
-            constexpr Register::FieldValue<decltype(sssdis),SssdisVal::sendStartAndStop> sendStartAndStop{};
-            constexpr Register::FieldValue<decltype(sssdis),SssdisVal::doNotSendStartst> doNotSendStartst{};
+            constexpr Register::FieldValue<decltype(sssdis)::Type,SssdisVal::sendStartAndStop> sendStartAndStop{};
+            constexpr Register::FieldValue<decltype(sssdis)::Type,SssdisVal::doNotSendStartst> doNotSendStartst{};
+        }
         }
         ///Continuous clock clear
         enum class CcclrVal {
@@ -652,15 +663,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,CcclrVal> ccclr{}; 
         namespace CcclrValC{
-            constexpr Register::FieldValue<decltype(ccclr),CcclrVal::cscenIsUnderSoftw> cscenIsUnderSoftw{};
-            constexpr Register::FieldValue<decltype(ccclr),CcclrVal::hardwareClearsCsce> hardwareClearsCsce{};
+            constexpr Register::FieldValue<decltype(ccclr)::Type,CcclrVal::cscenIsUnderSoftw> cscenIsUnderSoftw{};
+            constexpr Register::FieldValue<decltype(ccclr)::Type,CcclrVal::hardwareClearsCsce> hardwareClearsCsce{};
+        }
         }
     }
     namespace Noneter{    ///<Transmit Enable Register. Turns off UART transmitter for use with software flow control.
         using Addr = Register::Address<0x4008105c,0xfffffffe,0,unsigned>;
         ///Transmit enable.  After reset transmission is enabled. When the txen bit is de-asserted, no data will be transmitted although data may be pending in the TSR or THR.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txen{}; 
-        namespace TxenValC{
-        }
     }
 }

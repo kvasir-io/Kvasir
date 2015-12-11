@@ -22,19 +22,20 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,DssVal> dss{}; 
         namespace DssValC{
-            constexpr Register::FieldValue<decltype(dss),DssVal::v4BitTransfer> v4BitTransfer{};
-            constexpr Register::FieldValue<decltype(dss),DssVal::v5BitTransfer> v5BitTransfer{};
-            constexpr Register::FieldValue<decltype(dss),DssVal::v6BitTransfer> v6BitTransfer{};
-            constexpr Register::FieldValue<decltype(dss),DssVal::v7BitTransfer> v7BitTransfer{};
-            constexpr Register::FieldValue<decltype(dss),DssVal::v8BitTransfer> v8BitTransfer{};
-            constexpr Register::FieldValue<decltype(dss),DssVal::v9BitTransfer> v9BitTransfer{};
-            constexpr Register::FieldValue<decltype(dss),DssVal::v10BitTransfer> v10BitTransfer{};
-            constexpr Register::FieldValue<decltype(dss),DssVal::v11BitTransfer> v11BitTransfer{};
-            constexpr Register::FieldValue<decltype(dss),DssVal::v12BitTransfer> v12BitTransfer{};
-            constexpr Register::FieldValue<decltype(dss),DssVal::v13BitTransfer> v13BitTransfer{};
-            constexpr Register::FieldValue<decltype(dss),DssVal::v14BitTransfer> v14BitTransfer{};
-            constexpr Register::FieldValue<decltype(dss),DssVal::v15BitTransfer> v15BitTransfer{};
-            constexpr Register::FieldValue<decltype(dss),DssVal::v16BitTransfer> v16BitTransfer{};
+            constexpr Register::FieldValue<decltype(dss)::Type,DssVal::v4BitTransfer> v4BitTransfer{};
+            constexpr Register::FieldValue<decltype(dss)::Type,DssVal::v5BitTransfer> v5BitTransfer{};
+            constexpr Register::FieldValue<decltype(dss)::Type,DssVal::v6BitTransfer> v6BitTransfer{};
+            constexpr Register::FieldValue<decltype(dss)::Type,DssVal::v7BitTransfer> v7BitTransfer{};
+            constexpr Register::FieldValue<decltype(dss)::Type,DssVal::v8BitTransfer> v8BitTransfer{};
+            constexpr Register::FieldValue<decltype(dss)::Type,DssVal::v9BitTransfer> v9BitTransfer{};
+            constexpr Register::FieldValue<decltype(dss)::Type,DssVal::v10BitTransfer> v10BitTransfer{};
+            constexpr Register::FieldValue<decltype(dss)::Type,DssVal::v11BitTransfer> v11BitTransfer{};
+            constexpr Register::FieldValue<decltype(dss)::Type,DssVal::v12BitTransfer> v12BitTransfer{};
+            constexpr Register::FieldValue<decltype(dss)::Type,DssVal::v13BitTransfer> v13BitTransfer{};
+            constexpr Register::FieldValue<decltype(dss)::Type,DssVal::v14BitTransfer> v14BitTransfer{};
+            constexpr Register::FieldValue<decltype(dss)::Type,DssVal::v15BitTransfer> v15BitTransfer{};
+            constexpr Register::FieldValue<decltype(dss)::Type,DssVal::v16BitTransfer> v16BitTransfer{};
+        }
         }
         ///Frame Format.
         enum class FrfVal {
@@ -44,9 +45,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,FrfVal> frf{}; 
         namespace FrfValC{
-            constexpr Register::FieldValue<decltype(frf),FrfVal::spi> spi{};
-            constexpr Register::FieldValue<decltype(frf),FrfVal::ti> ti{};
-            constexpr Register::FieldValue<decltype(frf),FrfVal::microwire> microwire{};
+            constexpr Register::FieldValue<decltype(frf)::Type,FrfVal::spi> spi{};
+            constexpr Register::FieldValue<decltype(frf)::Type,FrfVal::ti> ti{};
+            constexpr Register::FieldValue<decltype(frf)::Type,FrfVal::microwire> microwire{};
+        }
         }
         ///Clock Out Polarity. This bit is only used in SPI mode.
         enum class CpolVal {
@@ -55,8 +57,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,CpolVal> cpol{}; 
         namespace CpolValC{
-            constexpr Register::FieldValue<decltype(cpol),CpolVal::low> low{};
-            constexpr Register::FieldValue<decltype(cpol),CpolVal::high> high{};
+            constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::low> low{};
+            constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::high> high{};
+        }
         }
         ///Clock Out Phase. This bit is only used in SPI mode.
         enum class CphaVal {
@@ -65,13 +68,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,CphaVal> cpha{}; 
         namespace CphaValC{
-            constexpr Register::FieldValue<decltype(cpha),CphaVal::firstclock> firstclock{};
-            constexpr Register::FieldValue<decltype(cpha),CphaVal::secondclock> secondclock{};
+            constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::firstclock> firstclock{};
+            constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::secondclock> secondclock{};
+        }
         }
         ///Serial Clock Rate. The number of prescaler output clocks per bit on the bus, minus one. Given that CPSDVSR is the prescale divider, and the APB clock PCLK clocks the prescaler, the bit frequency is PCLK / (CPSDVSR X [SCR+1]).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> scr{}; 
-        namespace ScrValC{
-        }
     }
     namespace Nonecr1{    ///<Control Register 1. Selects master/slave and other modes.
         using Addr = Register::Address<0x40040004,0xfffffff0,0,unsigned>;
@@ -82,8 +84,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,LbmVal> lbm{}; 
         namespace LbmValC{
-            constexpr Register::FieldValue<decltype(lbm),LbmVal::duringnormaloperation> duringnormaloperation{};
-            constexpr Register::FieldValue<decltype(lbm),LbmVal::serialinputistakenfromtheserialoutputmosiormisoratherthantheserialinputpinmisoormosirespectively> serialinputistakenfromtheserialoutputmosiormisoratherthantheserialinputpinmisoormosirespectively{};
+            constexpr Register::FieldValue<decltype(lbm)::Type,LbmVal::duringnormaloperation> duringnormaloperation{};
+            constexpr Register::FieldValue<decltype(lbm)::Type,LbmVal::serialinputistakenfromtheserialoutputmosiormisoratherthantheserialinputpinmisoormosirespectively> serialinputistakenfromtheserialoutputmosiormisoratherthantheserialinputpinmisoormosirespectively{};
+        }
         }
         ///SPI Enable.
         enum class SseVal {
@@ -92,8 +95,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,SseVal> sse{}; 
         namespace SseValC{
-            constexpr Register::FieldValue<decltype(sse),SseVal::thespicontrollerisdisabled> thespicontrollerisdisabled{};
-            constexpr Register::FieldValue<decltype(sse),SseVal::thespicontrollerwillinteractwithotherdevicesontheserialbussoftwareshouldwritetheappropriatecontrolinformationtotheotherspisspregistersandinterruptcontrollerregistersbeforesettingthisbit> thespicontrollerwillinteractwithotherdevicesontheserialbussoftwareshouldwritetheappropriatecontrolinformationtotheotherspisspregistersandinterruptcontrollerregistersbeforesettingthisbit{};
+            constexpr Register::FieldValue<decltype(sse)::Type,SseVal::thespicontrollerisdisabled> thespicontrollerisdisabled{};
+            constexpr Register::FieldValue<decltype(sse)::Type,SseVal::thespicontrollerwillinteractwithotherdevicesontheserialbussoftwareshouldwritetheappropriatecontrolinformationtotheotherspisspregistersandinterruptcontrollerregistersbeforesettingthisbit> thespicontrollerwillinteractwithotherdevicesontheserialbussoftwareshouldwritetheappropriatecontrolinformationtotheotherspisspregistersandinterruptcontrollerregistersbeforesettingthisbit{};
+        }
         }
         ///Master/Slave Mode.This bit can only be written when the SSE bit is 0.
         enum class MsVal {
@@ -102,117 +106,74 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,MsVal> ms{}; 
         namespace MsValC{
-            constexpr Register::FieldValue<decltype(ms),MsVal::thespicontrolleractsasamasteronthebusdrivingthesclkmosiandssellinesandreceivingthemisoline> thespicontrolleractsasamasteronthebusdrivingthesclkmosiandssellinesandreceivingthemisoline{};
-            constexpr Register::FieldValue<decltype(ms),MsVal::thespicontrolleractsasaslaveonthebusdrivingmisolineandreceivingsclkmosiandssellines> thespicontrolleractsasaslaveonthebusdrivingmisolineandreceivingsclkmosiandssellines{};
+            constexpr Register::FieldValue<decltype(ms)::Type,MsVal::thespicontrolleractsasamasteronthebusdrivingthesclkmosiandssellinesandreceivingthemisoline> thespicontrolleractsasamasteronthebusdrivingthesclkmosiandssellinesandreceivingthemisoline{};
+            constexpr Register::FieldValue<decltype(ms)::Type,MsVal::thespicontrolleractsasaslaveonthebusdrivingmisolineandreceivingsclkmosiandssellines> thespicontrolleractsasaslaveonthebusdrivingmisolineandreceivingsclkmosiandssellines{};
+        }
         }
         ///Slave Output Disable. This bit is relevant only in slave mode (MS = 1). If it is 1, this blocks this SPI controller from driving the transmit data line (MISO).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> sod{}; 
-        namespace SodValC{
-        }
     }
     namespace Nonedr{    ///<Data Register. Writes fill the transmit FIFO, and reads empty the receive FIFO.
         using Addr = Register::Address<0x40040008,0xffff0000,0,unsigned>;
         ///Write: software can write data to be sent in a future frame to this register whenever the TNF bit in the Status register is 1, indicating that the Tx FIFO is not full. If the Tx FIFO was previously empty and the SPI controller is not busy on the bus, transmission of the data will begin immediately. Otherwise the data written to this register will be sent as soon as all previous data has been sent (and received). If the data length is less than 16 bit, software must right-justify the data written to this register. Read: software can read data from this register whenever the RNE bit in the Status register is 1, indicating that the Rx FIFO is not empty. When software reads this register, the SPI controller returns data from the least recent frame in the Rx FIFO. If the data length is less than 16 bit, the data is right-justified in this field with higher order bits filled with 0s.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace Nonesr{    ///<Status Register
         using Addr = Register::Address<0x4004000c,0xffffffe0,0,unsigned>;
         ///Transmit FIFO Empty. This bit is 1 is the Transmit FIFO is empty, 0 if not.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> tfe{}; 
-        namespace TfeValC{
-        }
         ///Transmit FIFO Not Full. This bit is 0 if the Tx FIFO is full, 1 if not.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tnf{}; 
-        namespace TnfValC{
-        }
         ///Receive FIFO Not Empty. This bit is 0 if the Receive FIFO is empty, 1 if not.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rne{}; 
-        namespace RneValC{
-        }
         ///Receive FIFO Full. This bit is 1 if the Receive FIFO is full, 0 if not.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rff{}; 
-        namespace RffValC{
-        }
         ///Busy. This bit is 0 if the SPI controller is idle, 1 if it is currently sending/receiving a frame and/or the Tx FIFO is not empty.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> bsy{}; 
-        namespace BsyValC{
-        }
     }
     namespace Nonecpsr{    ///<Clock Prescale Register
         using Addr = Register::Address<0x40040010,0xffffff00,0,unsigned>;
         ///This even value between 2 and 254, by which SPI_PCLK is divided to yield the prescaler output clock. Bit 0 always reads as 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> cpsdvsr{}; 
-        namespace CpsdvsrValC{
-        }
     }
     namespace Noneimsc{    ///<Interrupt Mask Set and Clear Register
         using Addr = Register::Address<0x40040014,0xfffffff0,0,unsigned>;
         ///Software should set this bit to enable interrupt when a Receive Overrun occurs, that is, when the Rx FIFO is full and another frame is completely received. The ARM spec implies that the preceding frame data is overwritten by the new frame data when this occurs.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rorim{}; 
-        namespace RorimValC{
-        }
         ///Software should set this bit to enable interrupt when a Receive Time-out condition occurs. A Receive Time-out occurs when the Rx FIFO is not empty, and no has not been read for a time-out period. The time-out period is the same for master and slave modes and is determined by the SSP bit rate: 32 bits at PCLK / (CPSDVSR x [SCR+1]).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rtim{}; 
-        namespace RtimValC{
-        }
         ///Software should set this bit to enable interrupt when the Rx FIFO is at least half full.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxim{}; 
-        namespace RximValC{
-        }
         ///Software should set this bit to enable interrupt when the Tx FIFO is at least half empty.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txim{}; 
-        namespace TximValC{
-        }
     }
     namespace Noneris{    ///<Raw Interrupt Status Register
         using Addr = Register::Address<0x40040018,0xfffffff0,0,unsigned>;
         ///This bit is 1 if another frame was completely received while the RxFIFO was full. The ARM spec implies that the preceding frame data is overwritten by the new frame data when this occurs.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rorris{}; 
-        namespace RorrisValC{
-        }
         ///This bit is 1 if the Rx FIFO is not empty, and has not been read for a time-out period. The time-out period is the same for master and slave modes and is determined by the SSP bit rate: 32 bits at PCLK / (CPSDVSR x [SCR+1]).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rtris{}; 
-        namespace RtrisValC{
-        }
         ///This bit is 1 if the Rx FIFO is at least half full.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxris{}; 
-        namespace RxrisValC{
-        }
         ///This bit is 1 if the Tx FIFO is at least half empty.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txris{}; 
-        namespace TxrisValC{
-        }
     }
     namespace Nonemis{    ///<Masked Interrupt Status Register
         using Addr = Register::Address<0x4004001c,0xfffffff0,0,unsigned>;
         ///This bit is 1 if another frame was completely received while the RxFIFO was full, and this interrupt is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rormis{}; 
-        namespace RormisValC{
-        }
         ///This bit is 1 if the Rx FIFO is not empty, has not been read for a time-out period, and this interrupt is enabled. The time-out period is the same for master and slave modes and is determined by the SSP bit rate: 32 bits at PCLK / (CPSDVSR x [SCR+1]).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rtmis{}; 
-        namespace RtmisValC{
-        }
         ///This bit is 1 if the Rx FIFO is at least half full, and this interrupt is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxmis{}; 
-        namespace RxmisValC{
-        }
         ///This bit is 1 if the Tx FIFO is at least half empty, and this interrupt is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txmis{}; 
-        namespace TxmisValC{
-        }
     }
     namespace Noneicr{    ///<SSPICR Interrupt Clear Register
         using Addr = Register::Address<0x40040020,0xfffffffc,0,unsigned>;
         ///Writing a 1 to this bit clears the frame was received when RxFIFO was full interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> roric{}; 
-        namespace RoricValC{
-        }
         ///Writing a 1 to this bit clears the Rx FIFO was not empty and has not been read for a timeout period interrupt. The timeout period is the same for master and slave modes and is determined by the SSP bit rate: 32 bits at PCLK / (CPSDVSR x [SCR+1]).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rtic{}; 
-        namespace RticValC{
-        }
     }
 }

@@ -11,8 +11,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,VmonrenVal> vmonren{}; 
         namespace VmonrenValC{
-            constexpr Register::FieldValue<decltype(vmonren),VmonrenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(vmonren),VmonrenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(vmonren)::Type,VmonrenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(vmonren)::Type,VmonrenVal::enabled> enabled{};
+        }
         }
         ///Missing Clock Detector Reset Enable. 
         enum class McdrenVal {
@@ -21,8 +22,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,McdrenVal> mcdren{}; 
         namespace McdrenValC{
-            constexpr Register::FieldValue<decltype(mcdren),McdrenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(mcdren),McdrenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(mcdren)::Type,McdrenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(mcdren)::Type,McdrenVal::enabled> enabled{};
+        }
         }
         ///Watchdog Timer Reset Enable. 
         enum class WdtrenVal {
@@ -31,8 +33,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,WdtrenVal> wdtren{}; 
         namespace WdtrenValC{
-            constexpr Register::FieldValue<decltype(wdtren),WdtrenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(wdtren),WdtrenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(wdtren)::Type,WdtrenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(wdtren)::Type,WdtrenVal::enabled> enabled{};
+        }
         }
         ///Software Reset. 
         enum class SwrenVal {
@@ -41,8 +44,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,SwrenVal> swren{}; 
         namespace SwrenValC{
-            constexpr Register::FieldValue<decltype(swren),SwrenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(swren),SwrenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(swren)::Type,SwrenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(swren)::Type,SwrenVal::enabled> enabled{};
+        }
         }
         ///Comparator 0 Reset Enable. 
         enum class Cmp0renVal {
@@ -51,8 +55,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Cmp0renVal> cmp0ren{}; 
         namespace Cmp0renValC{
-            constexpr Register::FieldValue<decltype(cmp0ren),Cmp0renVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(cmp0ren),Cmp0renVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(cmp0ren)::Type,Cmp0renVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(cmp0ren)::Type,Cmp0renVal::enabled> enabled{};
+        }
         }
         ///Comparator 1 Reset Enable. 
         enum class Cmp1renVal {
@@ -61,8 +66,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Cmp1renVal> cmp1ren{}; 
         namespace Cmp1renValC{
-            constexpr Register::FieldValue<decltype(cmp1ren),Cmp1renVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(cmp1ren),Cmp1renVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(cmp1ren)::Type,Cmp1renVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(cmp1ren)::Type,Cmp1renVal::enabled> enabled{};
+        }
         }
         ///Low Power Mode Charge Pump Supply Fail Reset Enable. 
         enum class CpfrenVal {
@@ -71,8 +77,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,CpfrenVal> cpfren{}; 
         namespace CpfrenValC{
-            constexpr Register::FieldValue<decltype(cpfren),CpfrenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(cpfren),CpfrenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(cpfren)::Type,CpfrenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(cpfren)::Type,CpfrenVal::enabled> enabled{};
+        }
         }
         ///RTC0 Reset Enable. 
         enum class Rtc0renVal {
@@ -81,8 +88,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Rtc0renVal> rtc0ren{}; 
         namespace Rtc0renValC{
-            constexpr Register::FieldValue<decltype(rtc0ren),Rtc0renVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(rtc0ren),Rtc0renVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(rtc0ren)::Type,Rtc0renVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(rtc0ren)::Type,Rtc0renVal::enabled> enabled{};
+        }
         }
         ///Low Power Mode Charge Pump Module Reset Enable. 
         enum class CpmrenVal {
@@ -91,8 +99,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,CpmrenVal> cpmren{}; 
         namespace CpmrenValC{
-            constexpr Register::FieldValue<decltype(cpmren),CpmrenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(cpmren),CpmrenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(cpmren)::Type,CpmrenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(cpmren)::Type,CpmrenVal::enabled> enabled{};
+        }
         }
         ///UART0 Module Reset Enable. 
         enum class Uart0mrenVal {
@@ -101,8 +110,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,Uart0mrenVal> uart0mren{}; 
         namespace Uart0mrenValC{
-            constexpr Register::FieldValue<decltype(uart0mren),Uart0mrenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(uart0mren),Uart0mrenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(uart0mren)::Type,Uart0mrenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(uart0mren)::Type,Uart0mrenVal::enabled> enabled{};
+        }
         }
         ///LCD0 Module Reset Enable. 
         enum class Lcd0mrenVal {
@@ -111,8 +121,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,Lcd0mrenVal> lcd0mren{}; 
         namespace Lcd0mrenValC{
-            constexpr Register::FieldValue<decltype(lcd0mren),Lcd0mrenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(lcd0mren),Lcd0mrenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(lcd0mren)::Type,Lcd0mrenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(lcd0mren)::Type,Lcd0mrenVal::enabled> enabled{};
+        }
         }
         ///ACCTR0 Module Reset Enable. 
         enum class Acc0mrenVal {
@@ -121,8 +132,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,Acc0mrenVal> acc0mren{}; 
         namespace Acc0mrenValC{
-            constexpr Register::FieldValue<decltype(acc0mren),Acc0mrenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(acc0mren),Acc0mrenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(acc0mren)::Type,Acc0mrenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(acc0mren)::Type,Acc0mrenVal::enabled> enabled{};
+        }
         }
         ///RTC0 Module Reset Enable. 
         enum class Rtc0mrenVal {
@@ -131,8 +143,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,Rtc0mrenVal> rtc0mren{}; 
         namespace Rtc0mrenValC{
-            constexpr Register::FieldValue<decltype(rtc0mren),Rtc0mrenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(rtc0mren),Rtc0mrenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(rtc0mren)::Type,Rtc0mrenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(rtc0mren)::Type,Rtc0mrenVal::enabled> enabled{};
+        }
         }
     }
     namespace Noneresetflag{    ///<System Reset Flags
@@ -144,8 +157,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PinrfVal> pinrf{}; 
         namespace PinrfValC{
-            constexpr Register::FieldValue<decltype(pinrf),PinrfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(pinrf),PinrfVal::set> set{};
+            constexpr Register::FieldValue<decltype(pinrf)::Type,PinrfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(pinrf)::Type,PinrfVal::set> set{};
+        }
         }
         ///Power-On Reset Flag. 
         enum class PorrfVal {
@@ -154,8 +168,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,PorrfVal> porrf{}; 
         namespace PorrfValC{
-            constexpr Register::FieldValue<decltype(porrf),PorrfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(porrf),PorrfVal::set> set{};
+            constexpr Register::FieldValue<decltype(porrf)::Type,PorrfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(porrf)::Type,PorrfVal::set> set{};
+        }
         }
         ///Voltage Supply Monitor VBAT Reset Flag. 
         enum class VmonrfVal {
@@ -164,8 +179,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,VmonrfVal> vmonrf{}; 
         namespace VmonrfValC{
-            constexpr Register::FieldValue<decltype(vmonrf),VmonrfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(vmonrf),VmonrfVal::set> set{};
+            constexpr Register::FieldValue<decltype(vmonrf)::Type,VmonrfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(vmonrf)::Type,VmonrfVal::set> set{};
+        }
         }
         ///Core Reset Flag. 
         enum class CorerfVal {
@@ -174,8 +190,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,CorerfVal> corerf{}; 
         namespace CorerfValC{
-            constexpr Register::FieldValue<decltype(corerf),CorerfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(corerf),CorerfVal::set> set{};
+            constexpr Register::FieldValue<decltype(corerf)::Type,CorerfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(corerf)::Type,CorerfVal::set> set{};
+        }
         }
         ///Missing Clock Detector Reset Flag. 
         enum class McdrfVal {
@@ -184,8 +201,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,McdrfVal> mcdrf{}; 
         namespace McdrfValC{
-            constexpr Register::FieldValue<decltype(mcdrf),McdrfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(mcdrf),McdrfVal::set> set{};
+            constexpr Register::FieldValue<decltype(mcdrf)::Type,McdrfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(mcdrf)::Type,McdrfVal::set> set{};
+        }
         }
         ///Watchdog Timer Reset Flag. 
         enum class WdtrfVal {
@@ -194,8 +212,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,WdtrfVal> wdtrf{}; 
         namespace WdtrfValC{
-            constexpr Register::FieldValue<decltype(wdtrf),WdtrfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(wdtrf),WdtrfVal::set> set{};
+            constexpr Register::FieldValue<decltype(wdtrf)::Type,WdtrfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(wdtrf)::Type,WdtrfVal::set> set{};
+        }
         }
         ///Software Reset Flag. 
         enum class SwrfVal {
@@ -204,8 +223,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,SwrfVal> swrf{}; 
         namespace SwrfValC{
-            constexpr Register::FieldValue<decltype(swrf),SwrfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(swrf),SwrfVal::set> set{};
+            constexpr Register::FieldValue<decltype(swrf)::Type,SwrfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(swrf)::Type,SwrfVal::set> set{};
+        }
         }
         ///Comparator 0 Reset Flag. 
         enum class Cmp0rfVal {
@@ -214,8 +234,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Cmp0rfVal> cmp0rf{}; 
         namespace Cmp0rfValC{
-            constexpr Register::FieldValue<decltype(cmp0rf),Cmp0rfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(cmp0rf),Cmp0rfVal::set> set{};
+            constexpr Register::FieldValue<decltype(cmp0rf)::Type,Cmp0rfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(cmp0rf)::Type,Cmp0rfVal::set> set{};
+        }
         }
         ///Comparator 1 Reset Flag. 
         enum class Cmp1rfVal {
@@ -224,8 +245,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Cmp1rfVal> cmp1rf{}; 
         namespace Cmp1rfValC{
-            constexpr Register::FieldValue<decltype(cmp1rf),Cmp1rfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(cmp1rf),Cmp1rfVal::set> set{};
+            constexpr Register::FieldValue<decltype(cmp1rf)::Type,Cmp1rfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(cmp1rf)::Type,Cmp1rfVal::set> set{};
+        }
         }
         ///Low Power Mode Charge Pump Supply Fail Reset Flag. 
         enum class CpfrfVal {
@@ -234,8 +256,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,CpfrfVal> cpfrf{}; 
         namespace CpfrfValC{
-            constexpr Register::FieldValue<decltype(cpfrf),CpfrfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(cpfrf),CpfrfVal::set> set{};
+            constexpr Register::FieldValue<decltype(cpfrf)::Type,CpfrfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(cpfrf)::Type,CpfrfVal::set> set{};
+        }
         }
         ///RTC0 Reset Flag. 
         enum class Rtc0rfVal {
@@ -244,8 +267,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Rtc0rfVal> rtc0rf{}; 
         namespace Rtc0rfValC{
-            constexpr Register::FieldValue<decltype(rtc0rf),Rtc0rfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(rtc0rf),Rtc0rfVal::set> set{};
+            constexpr Register::FieldValue<decltype(rtc0rf)::Type,Rtc0rfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(rtc0rf)::Type,Rtc0rfVal::set> set{};
+        }
         }
         ///PMU Wakeup Reset Flag. 
         enum class WakerfVal {
@@ -254,8 +278,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,WakerfVal> wakerf{}; 
         namespace WakerfValC{
-            constexpr Register::FieldValue<decltype(wakerf),WakerfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(wakerf),WakerfVal::set> set{};
+            constexpr Register::FieldValue<decltype(wakerf)::Type,WakerfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(wakerf)::Type,WakerfVal::set> set{};
+        }
         }
     }
 }

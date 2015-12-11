@@ -23,20 +23,14 @@ DBCLKSEL	Description
 14	Sample interrupt input once per 64*256 clocks	
 15	Sample interrupt input once per 128*256 clocks	
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> dbclksel{}; 
-        namespace DbclkselValC{
-        }
         ///De-bounce counter clock source select
 1 = De-bounce counter clock source is the internal 10 KHz clock
 0 = De-bounce counter clock source is the HCLK
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dbclksrc{}; 
-        namespace DbclksrcValC{
-        }
         ///Interrupt clock On mode
 Set this bit to 0 will disable the interrupt generate circuit clock, if the pin[n] interrupt is disabled
 1 = Interrupt generated circuit clock always enable
 0 = Disable the clock if the GPIOA/B/C/D/E[n] interrupt is disabled
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> iclkOn{}; 
-        namespace IclkonValC{
-        }
     }
 }

@@ -6,32 +6,18 @@ namespace Kvasir {
         using Addr = Register::Address<0xfffff200,0xfffffe03,0,unsigned>;
         ///Reset Receiver
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rstrx{}; 
-        namespace RstrxValC{
-        }
         ///Reset Transmitter
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rsttx{}; 
-        namespace RsttxValC{
-        }
         ///Receiver Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxen{}; 
-        namespace RxenValC{
-        }
         ///Receiver Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rxdis{}; 
-        namespace RxdisValC{
-        }
         ///Transmitter Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> txen{}; 
-        namespace TxenValC{
-        }
         ///Transmitter Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> txdis{}; 
-        namespace TxdisValC{
-        }
         ///Reset Status Bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> rststa{}; 
-        namespace RststaValC{
-        }
     }
     namespace DbguMr{    ///<Mode Register
         using Addr = Register::Address<0xfffff204,0xffff31ff,0,unsigned>;
@@ -45,11 +31,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,9),Register::ReadWriteAccess,ParVal> par{}; 
         namespace ParValC{
-            constexpr Register::FieldValue<decltype(par),ParVal::even> even{};
-            constexpr Register::FieldValue<decltype(par),ParVal::odd> odd{};
-            constexpr Register::FieldValue<decltype(par),ParVal::space> space{};
-            constexpr Register::FieldValue<decltype(par),ParVal::mark> mark{};
-            constexpr Register::FieldValue<decltype(par),ParVal::none> none{};
+            constexpr Register::FieldValue<decltype(par)::Type,ParVal::even> even{};
+            constexpr Register::FieldValue<decltype(par)::Type,ParVal::odd> odd{};
+            constexpr Register::FieldValue<decltype(par)::Type,ParVal::space> space{};
+            constexpr Register::FieldValue<decltype(par)::Type,ParVal::mark> mark{};
+            constexpr Register::FieldValue<decltype(par)::Type,ParVal::none> none{};
+        }
         }
         ///Channel Mode
         enum class ChmodeVal {
@@ -60,243 +47,140 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,ChmodeVal> chmode{}; 
         namespace ChmodeValC{
-            constexpr Register::FieldValue<decltype(chmode),ChmodeVal::norm> norm{};
-            constexpr Register::FieldValue<decltype(chmode),ChmodeVal::auto_> auto_{};
-            constexpr Register::FieldValue<decltype(chmode),ChmodeVal::locloop> locloop{};
-            constexpr Register::FieldValue<decltype(chmode),ChmodeVal::remloop> remloop{};
+            constexpr Register::FieldValue<decltype(chmode)::Type,ChmodeVal::norm> norm{};
+            constexpr Register::FieldValue<decltype(chmode)::Type,ChmodeVal::auto_> auto_{};
+            constexpr Register::FieldValue<decltype(chmode)::Type,ChmodeVal::locloop> locloop{};
+            constexpr Register::FieldValue<decltype(chmode)::Type,ChmodeVal::remloop> remloop{};
+        }
         }
     }
     namespace DbguIer{    ///<Interrupt Enable Register
         using Addr = Register::Address<0xfffff208,0x3fffe504,0,unsigned>;
         ///Enable RXRDY Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
-        namespace RxrdyValC{
-        }
         ///Enable TXRDY Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
-        namespace TxrdyValC{
-        }
         ///Enable End of Receive Transfer Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> endrx{}; 
-        namespace EndrxValC{
-        }
         ///Enable End of Transmit Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endtx{}; 
-        namespace EndtxValC{
-        }
         ///Enable Overrun Error Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
-        namespace OvreValC{
-        }
         ///Enable Framing Error Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> frame{}; 
-        namespace FrameValC{
-        }
         ///Enable Parity Error Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pare{}; 
-        namespace PareValC{
-        }
         ///Enable TXEMPTY Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
-        namespace TxemptyValC{
-        }
         ///Enable Buffer Empty Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txbufe{}; 
-        namespace TxbufeValC{
-        }
         ///Enable Buffer Full Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxbuff{}; 
-        namespace RxbuffValC{
-        }
         ///Enable COMMTX (from ARM) Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> commtx{}; 
-        namespace CommtxValC{
-        }
         ///Enable COMMRX (from ARM) Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> commrx{}; 
-        namespace CommrxValC{
-        }
     }
     namespace DbguIdr{    ///<Interrupt Disable Register
         using Addr = Register::Address<0xfffff20c,0x3fffe504,0,unsigned>;
         ///Disable RXRDY Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
-        namespace RxrdyValC{
-        }
         ///Disable TXRDY Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
-        namespace TxrdyValC{
-        }
         ///Disable End of Receive Transfer Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> endrx{}; 
-        namespace EndrxValC{
-        }
         ///Disable End of Transmit Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endtx{}; 
-        namespace EndtxValC{
-        }
         ///Disable Overrun Error Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
-        namespace OvreValC{
-        }
         ///Disable Framing Error Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> frame{}; 
-        namespace FrameValC{
-        }
         ///Disable Parity Error Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pare{}; 
-        namespace PareValC{
-        }
         ///Disable TXEMPTY Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
-        namespace TxemptyValC{
-        }
         ///Disable Buffer Empty Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txbufe{}; 
-        namespace TxbufeValC{
-        }
         ///Disable Buffer Full Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxbuff{}; 
-        namespace RxbuffValC{
-        }
         ///Disable COMMTX (from ARM) Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> commtx{}; 
-        namespace CommtxValC{
-        }
         ///Disable COMMRX (from ARM) Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> commrx{}; 
-        namespace CommrxValC{
-        }
     }
     namespace DbguImr{    ///<Interrupt Mask Register
         using Addr = Register::Address<0xfffff210,0x3fffe504,0,unsigned>;
         ///Mask RXRDY Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
-        namespace RxrdyValC{
-        }
         ///Disable TXRDY Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
-        namespace TxrdyValC{
-        }
         ///Mask End of Receive Transfer Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> endrx{}; 
-        namespace EndrxValC{
-        }
         ///Mask End of Transmit Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endtx{}; 
-        namespace EndtxValC{
-        }
         ///Mask Overrun Error Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
-        namespace OvreValC{
-        }
         ///Mask Framing Error Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> frame{}; 
-        namespace FrameValC{
-        }
         ///Mask Parity Error Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pare{}; 
-        namespace PareValC{
-        }
         ///Mask TXEMPTY Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
-        namespace TxemptyValC{
-        }
         ///Mask TXBUFE Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txbufe{}; 
-        namespace TxbufeValC{
-        }
         ///Mask RXBUFF Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxbuff{}; 
-        namespace RxbuffValC{
-        }
         ///Mask COMMTX Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> commtx{}; 
-        namespace CommtxValC{
-        }
         ///Mask COMMRX Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> commrx{}; 
-        namespace CommrxValC{
-        }
     }
     namespace DbguSr{    ///<Status Register
         using Addr = Register::Address<0xfffff214,0x3fffe504,0,unsigned>;
         ///Receiver Ready
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
-        namespace RxrdyValC{
-        }
         ///Transmitter Ready
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
-        namespace TxrdyValC{
-        }
         ///End of Receiver Transfer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> endrx{}; 
-        namespace EndrxValC{
-        }
         ///End of Transmitter Transfer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> endtx{}; 
-        namespace EndtxValC{
-        }
         ///Overrun Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovre{}; 
-        namespace OvreValC{
-        }
         ///Framing Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> frame{}; 
-        namespace FrameValC{
-        }
         ///Parity Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pare{}; 
-        namespace PareValC{
-        }
         ///Transmitter Empty
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txempty{}; 
-        namespace TxemptyValC{
-        }
         ///Transmission Buffer Empty
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> txbufe{}; 
-        namespace TxbufeValC{
-        }
         ///Receive Buffer Full
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rxbuff{}; 
-        namespace RxbuffValC{
-        }
         ///Debug Communication Channel Write Status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> commtx{}; 
-        namespace CommtxValC{
-        }
         ///Debug Communication Channel Read Status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> commrx{}; 
-        namespace CommrxValC{
-        }
     }
     namespace DbguRhr{    ///<Receive Holding Register
         using Addr = Register::Address<0xfffff218,0xffffff00,0,unsigned>;
         ///Received Character
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rxchr{}; 
-        namespace RxchrValC{
-        }
     }
     namespace DbguThr{    ///<Transmit Holding Register
         using Addr = Register::Address<0xfffff21c,0xffffff00,0,unsigned>;
         ///Character to be Transmitted
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> txchr{}; 
-        namespace TxchrValC{
-        }
     }
     namespace DbguBrgr{    ///<Baud Rate Generator Register
         using Addr = Register::Address<0xfffff220,0xffff0000,0,unsigned>;
         ///Clock Divisor
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cd{}; 
-        namespace CdValC{
-        }
     }
     namespace DbguCidr{    ///<Chip ID Register
         using Addr = Register::Address<0xfffff240,0x00000000,0,unsigned>;
         ///Version of the Device
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> version{}; 
-        namespace VersionValC{
-        }
         ///Embedded Processor
         enum class EprocVal {
             arm946es=0x00000001,     ///<ARM946ES
@@ -308,12 +192,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,EprocVal> eproc{}; 
         namespace EprocValC{
-            constexpr Register::FieldValue<decltype(eproc),EprocVal::arm946es> arm946es{};
-            constexpr Register::FieldValue<decltype(eproc),EprocVal::arm7tdmi> arm7tdmi{};
-            constexpr Register::FieldValue<decltype(eproc),EprocVal::cm3> cm3{};
-            constexpr Register::FieldValue<decltype(eproc),EprocVal::arm920t> arm920t{};
-            constexpr Register::FieldValue<decltype(eproc),EprocVal::arm926ejs> arm926ejs{};
-            constexpr Register::FieldValue<decltype(eproc),EprocVal::ca5> ca5{};
+            constexpr Register::FieldValue<decltype(eproc)::Type,EprocVal::arm946es> arm946es{};
+            constexpr Register::FieldValue<decltype(eproc)::Type,EprocVal::arm7tdmi> arm7tdmi{};
+            constexpr Register::FieldValue<decltype(eproc)::Type,EprocVal::cm3> cm3{};
+            constexpr Register::FieldValue<decltype(eproc)::Type,EprocVal::arm920t> arm920t{};
+            constexpr Register::FieldValue<decltype(eproc)::Type,EprocVal::arm926ejs> arm926ejs{};
+            constexpr Register::FieldValue<decltype(eproc)::Type,EprocVal::ca5> ca5{};
+        }
         }
         ///Nonvolatile Program Memory Size
         enum class NvpsizVal {
@@ -330,16 +215,17 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,NvpsizVal> nvpsiz{}; 
         namespace NvpsizValC{
-            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::none> none{};
-            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v8k> v8k{};
-            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v16k> v16k{};
-            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v32k> v32k{};
-            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v64k> v64k{};
-            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v128k> v128k{};
-            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v256k> v256k{};
-            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v512k> v512k{};
-            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v1024k> v1024k{};
-            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v2048k> v2048k{};
+            constexpr Register::FieldValue<decltype(nvpsiz)::Type,NvpsizVal::none> none{};
+            constexpr Register::FieldValue<decltype(nvpsiz)::Type,NvpsizVal::v8k> v8k{};
+            constexpr Register::FieldValue<decltype(nvpsiz)::Type,NvpsizVal::v16k> v16k{};
+            constexpr Register::FieldValue<decltype(nvpsiz)::Type,NvpsizVal::v32k> v32k{};
+            constexpr Register::FieldValue<decltype(nvpsiz)::Type,NvpsizVal::v64k> v64k{};
+            constexpr Register::FieldValue<decltype(nvpsiz)::Type,NvpsizVal::v128k> v128k{};
+            constexpr Register::FieldValue<decltype(nvpsiz)::Type,NvpsizVal::v256k> v256k{};
+            constexpr Register::FieldValue<decltype(nvpsiz)::Type,NvpsizVal::v512k> v512k{};
+            constexpr Register::FieldValue<decltype(nvpsiz)::Type,NvpsizVal::v1024k> v1024k{};
+            constexpr Register::FieldValue<decltype(nvpsiz)::Type,NvpsizVal::v2048k> v2048k{};
+        }
         }
         ///None
         enum class Nvpsiz2Val {
@@ -356,16 +242,17 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,Nvpsiz2Val> nvpsiz2{}; 
         namespace Nvpsiz2ValC{
-            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::none> none{};
-            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v8k> v8k{};
-            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v16k> v16k{};
-            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v32k> v32k{};
-            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v64k> v64k{};
-            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v128k> v128k{};
-            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v256k> v256k{};
-            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v512k> v512k{};
-            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v1024k> v1024k{};
-            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v2048k> v2048k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::none> none{};
+            constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::v8k> v8k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::v16k> v16k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::v32k> v32k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::v64k> v64k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::v128k> v128k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::v256k> v256k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::v512k> v512k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::v1024k> v1024k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::v2048k> v2048k{};
+        }
         }
         ///Internal SRAM Size
         enum class SramsizVal {
@@ -387,21 +274,22 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,SramsizVal> sramsiz{}; 
         namespace SramsizValC{
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v1k> v1k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v2k> v2k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v6k> v6k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v112k> v112k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v4k> v4k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v80k> v80k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v160k> v160k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v8k> v8k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v16k> v16k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v32k> v32k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v64k> v64k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v128k> v128k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v256k> v256k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v96k> v96k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v512k> v512k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v1k> v1k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v2k> v2k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v6k> v6k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v112k> v112k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v4k> v4k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v80k> v80k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v160k> v160k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v8k> v8k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v16k> v16k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v32k> v32k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v64k> v64k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v128k> v128k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v256k> v256k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v96k> v96k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v512k> v512k{};
+        }
         }
         ///Architecture Identifier
         enum class ArchVal {
@@ -443,41 +331,42 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,20),Register::ReadWriteAccess,ArchVal> arch{}; 
         namespace ArchValC{
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam9xx> at91sam9xx{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam9xexx> at91sam9xexx{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91x34> at91x34{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::cap7> cap7{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::cap9> cap9{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::cap11> cap11{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91x40> at91x40{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91x42> at91x42{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91x55> at91x55{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam7axx> at91sam7axx{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam7aqxx> at91sam7aqxx{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91x63> at91x63{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam7sxx> at91sam7sxx{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam7xcxx> at91sam7xcxx{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam7sexx> at91sam7sexx{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam7lxx> at91sam7lxx{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam7xxx> at91sam7xxx{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam7slxx> at91sam7slxx{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3uxc> atsam3uxc{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3uxe> atsam3uxe{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3axc> atsam3axc{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3xxc> atsam3xxc{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3xxe> atsam3xxe{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3xxg> atsam3xxg{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3sxa> atsam3sxa{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3sxb> atsam3sxb{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3sxc> atsam3sxc{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91x92> at91x92{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3nxa> atsam3nxa{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3nxb> atsam3nxb{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3nxc> atsam3nxc{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3sdxa> atsam3sdxa{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3sdxb> atsam3sdxb{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::atsam3sdxc> atsam3sdxc{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at75cxx> at75cxx{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91sam9xx> at91sam9xx{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91sam9xexx> at91sam9xexx{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91x34> at91x34{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::cap7> cap7{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::cap9> cap9{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::cap11> cap11{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91x40> at91x40{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91x42> at91x42{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91x55> at91x55{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91sam7axx> at91sam7axx{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91sam7aqxx> at91sam7aqxx{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91x63> at91x63{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91sam7sxx> at91sam7sxx{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91sam7xcxx> at91sam7xcxx{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91sam7sexx> at91sam7sexx{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91sam7lxx> at91sam7lxx{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91sam7xxx> at91sam7xxx{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91sam7slxx> at91sam7slxx{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::atsam3uxc> atsam3uxc{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::atsam3uxe> atsam3uxe{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::atsam3axc> atsam3axc{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::atsam3xxc> atsam3xxc{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::atsam3xxe> atsam3xxe{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::atsam3xxg> atsam3xxg{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::atsam3sxa> atsam3sxa{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::atsam3sxb> atsam3sxb{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::atsam3sxc> atsam3sxc{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91x92> at91x92{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::atsam3nxa> atsam3nxa{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::atsam3nxb> atsam3nxb{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::atsam3nxc> atsam3nxc{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::atsam3sdxa> atsam3sdxa{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::atsam3sdxb> atsam3sdxb{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::atsam3sdxc> atsam3sdxc{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at75cxx> at75cxx{};
+        }
         }
         ///Nonvolatile Program Memory Type
         enum class NvptypVal {
@@ -489,115 +378,82 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,28),Register::ReadWriteAccess,NvptypVal> nvptyp{}; 
         namespace NvptypValC{
-            constexpr Register::FieldValue<decltype(nvptyp),NvptypVal::rom> rom{};
-            constexpr Register::FieldValue<decltype(nvptyp),NvptypVal::romless> romless{};
-            constexpr Register::FieldValue<decltype(nvptyp),NvptypVal::flash> flash{};
-            constexpr Register::FieldValue<decltype(nvptyp),NvptypVal::romFlash> romFlash{};
-            constexpr Register::FieldValue<decltype(nvptyp),NvptypVal::sram> sram{};
+            constexpr Register::FieldValue<decltype(nvptyp)::Type,NvptypVal::rom> rom{};
+            constexpr Register::FieldValue<decltype(nvptyp)::Type,NvptypVal::romless> romless{};
+            constexpr Register::FieldValue<decltype(nvptyp)::Type,NvptypVal::flash> flash{};
+            constexpr Register::FieldValue<decltype(nvptyp)::Type,NvptypVal::romFlash> romFlash{};
+            constexpr Register::FieldValue<decltype(nvptyp)::Type,NvptypVal::sram> sram{};
+        }
         }
         ///Extension Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ext{}; 
-        namespace ExtValC{
-        }
     }
     namespace DbguExid{    ///<Chip ID Extension Register
         using Addr = Register::Address<0xfffff244,0x00000000,0,unsigned>;
         ///Chip ID Extension
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> exid{}; 
-        namespace ExidValC{
-        }
     }
     namespace DbguFnr{    ///<Force NTRST Register
         using Addr = Register::Address<0xfffff248,0xfffffffe,0,unsigned>;
         ///Force NTRST
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fntrst{}; 
-        namespace FntrstValC{
-        }
     }
     namespace DbguRpr{    ///<Receive Pointer Register
         using Addr = Register::Address<0xfffff300,0x00000000,0,unsigned>;
         ///Receive Pointer Register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxptr{}; 
-        namespace RxptrValC{
-        }
     }
     namespace DbguRcr{    ///<Receive Counter Register
         using Addr = Register::Address<0xfffff304,0xffff0000,0,unsigned>;
         ///Receive Counter Register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rxctr{}; 
-        namespace RxctrValC{
-        }
     }
     namespace DbguTpr{    ///<Transmit Pointer Register
         using Addr = Register::Address<0xfffff308,0x00000000,0,unsigned>;
         ///Transmit Counter Register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> txptr{}; 
-        namespace TxptrValC{
-        }
     }
     namespace DbguTcr{    ///<Transmit Counter Register
         using Addr = Register::Address<0xfffff30c,0xffff0000,0,unsigned>;
         ///Transmit Counter Register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txctr{}; 
-        namespace TxctrValC{
-        }
     }
     namespace DbguRnpr{    ///<Receive Next Pointer Register
         using Addr = Register::Address<0xfffff310,0x00000000,0,unsigned>;
         ///Receive Next Pointer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxnptr{}; 
-        namespace RxnptrValC{
-        }
     }
     namespace DbguRncr{    ///<Receive Next Counter Register
         using Addr = Register::Address<0xfffff314,0xffff0000,0,unsigned>;
         ///Receive Next Counter
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rxnctr{}; 
-        namespace RxnctrValC{
-        }
     }
     namespace DbguTnpr{    ///<Transmit Next Pointer Register
         using Addr = Register::Address<0xfffff318,0x00000000,0,unsigned>;
         ///Transmit Next Pointer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> txnptr{}; 
-        namespace TxnptrValC{
-        }
     }
     namespace DbguTncr{    ///<Transmit Next Counter Register
         using Addr = Register::Address<0xfffff31c,0xffff0000,0,unsigned>;
         ///Transmit Counter Next
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txnctr{}; 
-        namespace TxnctrValC{
-        }
     }
     namespace DbguPtcr{    ///<Transfer Control Register
         using Addr = Register::Address<0xfffff320,0xfffffcfc,0,unsigned>;
         ///Receiver Transfer Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxten{}; 
-        namespace RxtenValC{
-        }
         ///Receiver Transfer Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxtdis{}; 
-        namespace RxtdisValC{
-        }
         ///Transmitter Transfer Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txten{}; 
-        namespace TxtenValC{
-        }
         ///Transmitter Transfer Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txtdis{}; 
-        namespace TxtdisValC{
-        }
     }
     namespace DbguPtsr{    ///<Transfer Status Register
         using Addr = Register::Address<0xfffff324,0xfffffefe,0,unsigned>;
         ///Receiver Transfer Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxten{}; 
-        namespace RxtenValC{
-        }
         ///Transmitter Transfer Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txten{}; 
-        namespace TxtenValC{
-        }
     }
 }

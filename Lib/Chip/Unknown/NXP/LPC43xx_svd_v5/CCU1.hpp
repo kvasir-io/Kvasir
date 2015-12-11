@@ -11,36 +11,25 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PdVal> pd{}; 
         namespace PdValC{
-            constexpr Register::FieldValue<decltype(pd),PdVal::normalOperation> normalOperation{};
-            constexpr Register::FieldValue<decltype(pd),PdVal::clocksWithWakeUp> clocksWithWakeUp{};
+            constexpr Register::FieldValue<decltype(pd)::Type,PdVal::normalOperation> normalOperation{};
+            constexpr Register::FieldValue<decltype(pd)::Type,PdVal::clocksWithWakeUp> clocksWithWakeUp{};
+        }
         }
     }
     namespace NonebaseStat{    ///<CCU1 base clocks status register
         using Addr = Register::Address<0x40051004,0xfffffe70,0,unsigned>;
         ///Base clock indicator for BASE_APB3_CLK 0 = All branch clocks switched off. 1 = At least one branch clock running.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> baseApb3ClkInd{}; 
-        namespace Baseapb3clkindValC{
-        }
         ///Base clock indicator for BASE_APB1_CLK 0 = All branch clocks switched off. 1 = At least one branch clock running.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> baseApb1ClkInd{}; 
-        namespace Baseapb1clkindValC{
-        }
         ///Base clock indicator for BASE_SPIFI_CLK 0 = All branch clocks switched off. 1 = At least one branch clock running.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> baseSpifiClkInd{}; 
-        namespace BasespificlkindValC{
-        }
         ///Base clock indicator for BASE_M3_CLK 0 = All branch clocks switched off. 1 = At least one branch clock running.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> baseM3ClkInd{}; 
-        namespace Basem3clkindValC{
-        }
         ///Base clock indicator for BASE_USB0_CLK 0 = All branch clocks switched off. 1 = At least one branch clock running.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> baseUsb0ClkInd{}; 
-        namespace Baseusb0clkindValC{
-        }
         ///Base clock indicator for BASE_USB1_CLK 0 = All branch clocks switched off. 1 = at least one branch clock running.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> baseUsb1ClkInd{}; 
-        namespace Baseusb1clkindValC{
-        }
     }
     namespace NoneclkApb3BusCfg{    ///<CLK_APB3_BUS clock configuration register
         using Addr = Register::Address<0x40051100,0xfffffff8,0,unsigned>;
@@ -51,8 +40,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -61,8 +51,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -71,8 +62,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkApb3I2c1Cfg{    ///<CLK_APB3_I2C1 clock configuration register
@@ -84,8 +76,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -94,8 +87,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -104,8 +98,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkApb3DacCfg{    ///<CLK_APB3_DAC clock configuration register
@@ -117,8 +112,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -127,8 +123,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -137,8 +134,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkApb3Adc0Cfg{    ///<CLK_APB3_ADC0 clock configuration register
@@ -150,8 +148,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -160,8 +159,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -170,8 +170,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkApb3Adc1Cfg{    ///<CLK_APB3_ADC1 clock configuration register
@@ -183,8 +184,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -193,8 +195,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -203,8 +206,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkApb3Can0Cfg{    ///<CLK_APB3_CAN0 clock configuration register
@@ -216,8 +220,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -226,8 +231,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -236,8 +242,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkApb1BusCfg{    ///<CLK_APB1_BUS clock configuration register
@@ -249,8 +256,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -259,8 +267,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -269,8 +278,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkApb1MotoconpwmCfg{    ///<CLK_APB1_MOTOCONPWM clock configuration register
@@ -282,8 +292,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -292,8 +303,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -302,8 +314,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkAbp1I2c0Cfg{    ///<CLK_ABP1_I2C0 clock configuration register
@@ -315,8 +328,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -325,8 +339,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -335,8 +350,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkApb1I2sCfg{    ///<CLK_APB1_I2S clock configuration register
@@ -348,8 +364,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -358,8 +375,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -368,8 +386,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkApb1Can1Cfg{    ///<CLK_APB1_CAN1 clock configuration register
@@ -381,8 +400,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -391,8 +411,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -401,8 +422,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkSpifiCfg{    ///<CLK_SPIFI clock configuration register
@@ -414,8 +436,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -424,8 +447,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -434,8 +458,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4BusCfg{    ///<CLK_M4_BUS clock configuration register
@@ -447,8 +472,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -457,8 +483,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -467,8 +494,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4SpifiCfg{    ///<CLK_M4_SPIFI clock configuration register
@@ -480,8 +508,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -490,8 +519,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -500,8 +530,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4GpioCfg{    ///<CLK_M4_GPIO clock configuration register
@@ -513,8 +544,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -523,8 +555,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -533,8 +566,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4LcdCfg{    ///<CLK_M4_LCD clock configuration register
@@ -546,8 +580,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -556,8 +591,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -566,8 +602,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4EthernetCfg{    ///<CLK_M4_ETHERNET clock configuration register
@@ -579,8 +616,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -589,8 +627,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -599,8 +638,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4Usb0Cfg{    ///<CLK_M4_USB0 clock configuration register
@@ -612,8 +652,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -622,8 +663,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -632,8 +674,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4EmcCfg{    ///<CLK_M4_EMC clock configuration register
@@ -645,8 +688,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -655,8 +699,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -665,8 +710,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4SdioCfg{    ///<CLK_M4_SDIO clock configuration register
@@ -678,8 +724,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -688,8 +735,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -698,8 +746,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4DmaCfg{    ///<CLK_M4_DMA clock configuration register
@@ -711,8 +760,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -721,8 +771,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -731,8 +782,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4M4coreCfg{    ///<CLK_M4_M4CORE clock configuration register
@@ -744,8 +796,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -754,8 +807,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -764,8 +818,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4SctCfg{    ///<CLK_M4_SCT clock configuration register
@@ -777,8 +832,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -787,8 +843,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -797,8 +854,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4Usb1Cfg{    ///<CLK_M4_USB1 clock configuration register
@@ -810,8 +868,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -820,8 +879,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -830,8 +890,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4EmcdivCfg{    ///<CLK_M4_EMCDIV clock configuration register
@@ -843,8 +904,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -853,8 +915,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -863,8 +926,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4M0appCfg{    ///<CLK_M0APP_CFG clock configuration register
@@ -876,8 +940,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -886,8 +951,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -896,8 +962,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4WwdtCfg{    ///<CLK_M4_WWDT clock configuration register
@@ -909,8 +976,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -919,8 +987,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -929,8 +998,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4Usart0Cfg{    ///<CLK_M4_USART0 clock configuration register
@@ -942,8 +1012,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -952,8 +1023,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -962,8 +1034,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4Uart1Cfg{    ///<CLK_M4_UART1 clock configuration register
@@ -975,8 +1048,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -985,8 +1059,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -995,8 +1070,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4Ssp0Cfg{    ///<CLK_M4_SSP0 clock configuration register
@@ -1008,8 +1084,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -1018,8 +1095,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -1028,8 +1106,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4Timer0Cfg{    ///<CLK_M4_TIMER0 clock configuration register
@@ -1041,8 +1120,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -1051,8 +1131,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -1061,8 +1142,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4Timer1Cfg{    ///<CLK_M4_TIMER1clock configuration register
@@ -1074,8 +1156,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -1084,8 +1167,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -1094,8 +1178,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4ScuCfg{    ///<CLK_M4_SCU clock configuration register
@@ -1107,8 +1192,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -1117,8 +1203,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -1127,8 +1214,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4CregCfg{    ///<CLK_M4_CREGclock configuration register
@@ -1140,8 +1228,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -1150,8 +1239,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -1160,8 +1250,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4RitimerCfg{    ///<CLK_M4_RITIMER clock configuration register
@@ -1173,8 +1264,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -1183,8 +1275,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -1193,8 +1286,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4Usart2Cfg{    ///<CLK_M4_USART2 clock configuration register
@@ -1206,8 +1300,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -1216,8 +1311,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -1226,8 +1322,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4Usart3Cfg{    ///<CLK_M4_USART3 clock configuration register
@@ -1239,8 +1336,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -1249,8 +1347,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -1259,8 +1358,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4Timer2Cfg{    ///<CLK_M4_TIMER2 clock configuration register
@@ -1272,8 +1372,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -1282,8 +1383,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -1292,8 +1394,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4Timer3Cfg{    ///<CLK_M4_TIMER3 clock configuration register
@@ -1305,8 +1408,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -1315,8 +1419,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -1325,8 +1430,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4Ssp1Cfg{    ///<CLK_M4_SSP1 clock configuration register
@@ -1338,8 +1444,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -1348,8 +1455,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -1358,8 +1466,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkM4QeiCfg{    ///<CLK_M4_QEIclock configuration register
@@ -1371,8 +1480,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -1381,8 +1491,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -1391,8 +1502,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkPeriphBusCfg{    ///<CLK_PERIPH_BUS_CFG clock configuration register
@@ -1404,8 +1516,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -1414,8 +1527,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -1424,8 +1538,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkPeriphCoreCfg{    ///<CLK_PERIPH_CORE_CFG clock configuration register
@@ -1437,8 +1552,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -1447,8 +1563,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -1457,8 +1574,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkPeriphSgpioCfg{    ///<CLK_PERIPH_SGPIO_CFG clock configuration register
@@ -1470,8 +1588,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -1480,8 +1599,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -1490,8 +1610,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkUsb0Cfg{    ///<CLK_M4_USB0 clock configuration register
@@ -1503,8 +1624,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -1513,8 +1635,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -1523,8 +1646,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkUsb1Cfg{    ///<CLK_USB1 clock configuration register
@@ -1536,8 +1660,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -1546,8 +1671,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -1556,8 +1682,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkSpiCfg{    ///<CLK_SPI clock configuration register
@@ -1569,8 +1696,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -1579,8 +1707,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -1589,8 +1718,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkVadcCfg{    ///<CLK_VADC clock configuration register
@@ -1602,8 +1732,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RunVal> run{}; 
         namespace RunValC{
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsDisabled> clockIsDisabled{};
-            constexpr Register::FieldValue<decltype(run),RunVal::clockIsEnabled> clockIsEnabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsDisabled> clockIsDisabled{};
+            constexpr Register::FieldValue<decltype(run)::Type,RunVal::clockIsEnabled> clockIsEnabled{};
+        }
         }
         ///Auto (AHB disable mechanism) enable
         enum class Auto_Val {
@@ -1612,8 +1743,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Auto_Val> auto_{}; 
         namespace Auto_ValC{
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsDisabled> autoIsDisabled{};
-            constexpr Register::FieldValue<decltype(auto_),Auto_Val::autoIsEnabled> autoIsEnabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsDisabled> autoIsDisabled{};
+            constexpr Register::FieldValue<decltype(auto_)::Type,Auto_Val::autoIsEnabled> autoIsEnabled{};
+        }
         }
         ///Wake-up mechanism enable
         enum class WakeupVal {
@@ -1622,728 +1754,441 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WakeupVal> wakeup{}; 
         namespace WakeupValC{
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
-            constexpr Register::FieldValue<decltype(wakeup),WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsDisabled> wakeUpIsDisabled{};
+            constexpr Register::FieldValue<decltype(wakeup)::Type,WakeupVal::wakeUpIsEnabled> wakeUpIsEnabled{};
+        }
         }
     }
     namespace NoneclkApb3BusStat{    ///<CLK_APB3_BUS clock status register
         using Addr = Register::Address<0x40051104,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkApb3I2c1Stat{    ///<CLK_APB3_I2C1 clock status register
         using Addr = Register::Address<0x4005110c,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkApb3DacStat{    ///<CLK_APB3_DAC clock status register
         using Addr = Register::Address<0x40051114,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkApb3Adc0Stat{    ///<CLK_APB3_ADC0 clock status register
         using Addr = Register::Address<0x4005111c,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkApb3Adc1Stat{    ///<CLK_APB3_ADC1 clock status register
         using Addr = Register::Address<0x40051124,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkApb3Can0Stat{    ///<CLK_APB3_CAN0 clock status register
         using Addr = Register::Address<0x4005112c,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkApb1BusStat{    ///<CLK_APB1_BUS clock status register
         using Addr = Register::Address<0x40051204,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkApb1MotoconpwmStat{    ///<CLK_APB1_MOTOCONPWM clock status register
         using Addr = Register::Address<0x4005120c,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkApb1I2c0Stat{    ///<CLK_APB1_I2C0 clock status register
         using Addr = Register::Address<0x40051214,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkApb1I2sStat{    ///<CLK_APB1_I2S clock status register
         using Addr = Register::Address<0x4005121c,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkApb1Can1Stat{    ///<CLK_APB1_CAN1 clock status register
         using Addr = Register::Address<0x40051224,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkSpifiStat{    ///<CLK_APB1_SPIFI clock status register
         using Addr = Register::Address<0x40051304,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4BusStat{    ///<CLK_M4_BUSclock status register
         using Addr = Register::Address<0x40051404,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4SpifiStat{    ///<CLK_M4_SPIFI clock status register
         using Addr = Register::Address<0x4005140c,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4GpioStat{    ///<CLK_M4_GPIO clock status register
         using Addr = Register::Address<0x40051414,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4LcdStat{    ///<CLK_M4_LCD clock status register
         using Addr = Register::Address<0x4005141c,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4EthernetStat{    ///<CLK_M4_ETHERNET clock status register
         using Addr = Register::Address<0x40051424,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4Usb0Stat{    ///<CLK_M4_USB0  clock status register
         using Addr = Register::Address<0x4005142c,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4EmcStat{    ///<CLK_M4_EMC clock status register
         using Addr = Register::Address<0x40051434,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4SdioStat{    ///<CLK_M4_SDIO clock status register
         using Addr = Register::Address<0x4005143c,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4DmaStat{    ///<CLK_M4_DMA clock status register
         using Addr = Register::Address<0x40051444,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4M3coreStat{    ///<CLK_M4_M3CORE clock status register
         using Addr = Register::Address<0x4005144c,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4SctStat{    ///<CLK_M4_SCT clock status register
         using Addr = Register::Address<0x4005146c,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4Usb1Stat{    ///<CLK_M4_USB1 clock status register
         using Addr = Register::Address<0x40051474,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4EmcdivStat{    ///<CLK_M4_EMCDIV clock status register
         using Addr = Register::Address<0x4005147c,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4M0appStat{    ///<CLK_M4_MOAPP clock status register
         using Addr = Register::Address<0x40051494,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4WwdtStat{    ///<CLK_M4_WWDT clock status register
         using Addr = Register::Address<0x40051504,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4Usart0Stat{    ///<CLK_M4_USART0 clock status register
         using Addr = Register::Address<0x4005150c,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4Uart1Stat{    ///<CLK_M4_UART1 clock status register
         using Addr = Register::Address<0x40051514,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4Ssp0Stat{    ///<CLK_M4_SSP0 clock status register
         using Addr = Register::Address<0x4005151c,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4Timer0Stat{    ///<CLK_M4_TIMER0 clock status register
         using Addr = Register::Address<0x40051524,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4Timer1Stat{    ///<CLK_M4_TIMER1 clock status register
         using Addr = Register::Address<0x4005152c,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4ScuStat{    ///<CLK_SCU_XXX clock status register
         using Addr = Register::Address<0x40051534,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4CregStat{    ///<CLK_M4_CREG clock status register
         using Addr = Register::Address<0x4005153c,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4RitimerStat{    ///<CLK_M4_RITIMER clock status register
         using Addr = Register::Address<0x40051604,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4Usart2Stat{    ///<CLK_M4_USART2 clock status register
         using Addr = Register::Address<0x4005160c,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4Usart3Stat{    ///<CLK_M4_USART3 clock status register
         using Addr = Register::Address<0x40051614,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4Timer2Stat{    ///<CLK_M4_TIMER2 clock status register
         using Addr = Register::Address<0x4005161c,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4Timer3Stat{    ///<CLK_M4_TIMER3 clock status register
         using Addr = Register::Address<0x40051624,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4Ssp1Stat{    ///<CLK_M4_SSP1 clock status register
         using Addr = Register::Address<0x4005162c,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkM4QeiStat{    ///<CLK_M4_QEI clock status register
         using Addr = Register::Address<0x40051634,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkPeriphBusStat{    ///<CLK_PERIPH_BUS_STAT clock status register
         using Addr = Register::Address<0x40051704,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkPeriphCoreStat{    ///<CLK_CORE_BUS_STAT clock status register
         using Addr = Register::Address<0x40051714,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkPeriphSgpioStat{    ///<CLK_CORE_SGPIO_STAT clock status register
         using Addr = Register::Address<0x4005171c,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkUsb0Stat{    ///<CLK_USB0 clock status register
         using Addr = Register::Address<0x40051804,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkUsb1Stat{    ///<CLK_USB1 clock status register
         using Addr = Register::Address<0x40051904,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkSpiStat{    ///<CLK_SPI clock status register
         using Addr = Register::Address<0x40051a04,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
     namespace NoneclkVadcStat{    ///<CLK_VADC clock status register
         using Addr = Register::Address<0x40051b04,0xfffffff8,0,unsigned>;
         ///Run enable status 0 = clock is disabled. 1 = clock is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> run{}; 
-        namespace RunValC{
-        }
         ///Auto (AHB disable mechanism) enable status 0 = Auto is disabled. 1 = Auto is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> auto_{}; 
-        namespace Auto_ValC{
-        }
         ///Wake-up mechanism enable status 0 = Wake-up is disabled. 1 = Wake-up is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wakeup{}; 
-        namespace WakeupValC{
-        }
     }
 }

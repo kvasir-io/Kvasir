@@ -11,8 +11,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,LvoscenVal> lvoscen{}; 
         namespace LvoscenValC{
-            constexpr Register::FieldValue<decltype(lvoscen),LvoscenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(lvoscen),LvoscenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(lvoscen)::Type,LvoscenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(lvoscen)::Type,LvoscenVal::enabled> enabled{};
+        }
         }
         ///High Voltage Oscillator Enable. 
         enum class HvoscenVal {
@@ -21,8 +22,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HvoscenVal> hvoscen{}; 
         namespace HvoscenValC{
-            constexpr Register::FieldValue<decltype(hvoscen),HvoscenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hvoscen),HvoscenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hvoscen)::Type,HvoscenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hvoscen)::Type,HvoscenVal::enabled> enabled{};
+        }
         }
         ///Low Voltage Oscillator Mode. 
         enum class LvoscmdVal {
@@ -31,8 +33,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,LvoscmdVal> lvoscmd{}; 
         namespace LvoscmdValC{
-            constexpr Register::FieldValue<decltype(lvoscmd),LvoscmdVal::fast> fast{};
-            constexpr Register::FieldValue<decltype(lvoscmd),LvoscmdVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(lvoscmd)::Type,LvoscmdVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(lvoscmd)::Type,LvoscmdVal::slow> slow{};
+        }
         }
         ///High Voltage Oscillator Mode. 
         enum class HvoscmdVal {
@@ -41,8 +44,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HvoscmdVal> hvoscmd{}; 
         namespace HvoscmdValC{
-            constexpr Register::FieldValue<decltype(hvoscmd),HvoscmdVal::fast> fast{};
-            constexpr Register::FieldValue<decltype(hvoscmd),HvoscmdVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(hvoscmd)::Type,HvoscmdVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(hvoscmd)::Type,HvoscmdVal::slow> slow{};
+        }
         }
         ///Clock Select. 
         enum class ClkselVal {
@@ -51,8 +55,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ClkselVal> clksel{}; 
         namespace ClkselValC{
-            constexpr Register::FieldValue<decltype(clksel),ClkselVal::oscillators> oscillators{};
-            constexpr Register::FieldValue<decltype(clksel),ClkselVal::ahb> ahb{};
+            constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::oscillators> oscillators{};
+            constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::ahb> ahb{};
+        }
         }
     }
 }

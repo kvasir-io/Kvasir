@@ -9,12 +9,8 @@ namespace Kvasir {
         using Addr = Register::Address<0x40061004,0xc000ff00,0,unsigned>;
         /// bitfield HWDESP 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,16),Register::ReadWriteAccess,unsigned> hwdesp{}; 
-        namespace HwdespValC{
-        }
         /// bitfield CHANNEL 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> channel{}; 
-        namespace ChannelValC{
-        }
     }
     namespace Nonecmd{    ///< register CMD 
         using Addr = Register::Address<0x40061008,0xffffffff,0,unsigned char>;
@@ -23,66 +19,38 @@ namespace Kvasir {
         using Addr = Register::Address<0x40061009,0xffffff80,0,unsigned char>;
         /// bitfield SWPR 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> swpr{}; 
-        namespace SwprValC{
-        }
         /// bitfield ESTE 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> este{}; 
-        namespace EsteValC{
-        }
         /// bitfield RBDIS 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rbdis{}; 
-        namespace RbdisValC{
-        }
         /// bitfield ERINTE 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> erinte{}; 
-        namespace ErinteValC{
-        }
         /// bitfield SWINTE 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> swinte{}; 
-        namespace SwinteValC{
-        }
     }
     namespace Noneswtr{    ///< register SWTR 
         using Addr = Register::Address<0x4006100a,0xffff0000,0,unsigned>;
         /// bitfield SWST 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> swst{}; 
-        namespace SwstValC{
-        }
         /// bitfield SWREQ 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> swreq{}; 
-        namespace SwreqValC{
-        }
         /// bitfield SWDESP 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,0),Register::ReadWriteAccess,unsigned> swdesp{}; 
-        namespace SwdespValC{
-        }
     }
     namespace Nonemoners{    ///< register MONERS 
         using Addr = Register::Address<0x4006100c,0xc00000a0,0,unsigned>;
         /// bitfield EDESP 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,16),Register::ReadWriteAccess,unsigned> edesp{}; 
-        namespace EdespValC{
-        }
         /// bitfield ECH 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> ech{}; 
-        namespace EchValC{
-        }
         /// bitfield EHS 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ehs{}; 
-        namespace EhsValC{
-        }
         /// bitfield ESTOP 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> estop{}; 
-        namespace EstopValC{
-        }
         /// bitfield DER 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> der{}; 
-        namespace DerValC{
-        }
         /// bitfield EST 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> est{}; 
-        namespace EstValC{
-        }
     }
     namespace Nonedreqenb0{    ///< register DREQENB0 
         using Addr = Register::Address<0x40061010,0xffffffff,0,unsigned>;

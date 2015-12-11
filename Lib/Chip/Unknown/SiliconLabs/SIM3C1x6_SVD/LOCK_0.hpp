@@ -6,8 +6,6 @@ namespace Kvasir {
         using Addr = Register::Address<0x40049000,0xffffff00,0,unsigned>;
         ///Peripheral Lock Mask Key. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
-        namespace KeyValC{
-        }
     }
     namespace Noneperiphlock0{    ///<Peripheral Lock Control 0
         using Addr = Register::Address<0x40049020,0xe8000020,0,unsigned>;
@@ -18,8 +16,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,UsartlVal> usartl{}; 
         namespace UsartlValC{
-            constexpr Register::FieldValue<decltype(usartl),UsartlVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(usartl),UsartlVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(usartl)::Type,UsartlVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(usartl)::Type,UsartlVal::locked> locked{};
+        }
         }
         ///SPI Module Lock Enable. 
         enum class SpilVal {
@@ -28,8 +27,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,SpilVal> spil{}; 
         namespace SpilValC{
-            constexpr Register::FieldValue<decltype(spil),SpilVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(spil),SpilVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(spil)::Type,SpilVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(spil)::Type,SpilVal::locked> locked{};
+        }
         }
         ///I2C Module Lock Enable. 
         enum class I2clVal {
@@ -38,8 +38,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,I2clVal> i2cl{}; 
         namespace I2clValC{
-            constexpr Register::FieldValue<decltype(i2cl),I2clVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(i2cl),I2clVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(i2cl)::Type,I2clVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(i2cl)::Type,I2clVal::locked> locked{};
+        }
         }
         ///PCA Module Lock Enable. 
         enum class PcalVal {
@@ -48,8 +49,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,PcalVal> pcal{}; 
         namespace PcalValC{
-            constexpr Register::FieldValue<decltype(pcal),PcalVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(pcal),PcalVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(pcal)::Type,PcalVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(pcal)::Type,PcalVal::locked> locked{};
+        }
         }
         ///Timer Module Lock Enable. 
         enum class TimerlVal {
@@ -58,8 +60,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TimerlVal> timerl{}; 
         namespace TimerlValC{
-            constexpr Register::FieldValue<decltype(timerl),TimerlVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(timerl),TimerlVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(timerl)::Type,TimerlVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(timerl)::Type,TimerlVal::locked> locked{};
+        }
         }
         ///SARADC Module Lock Enable. 
         enum class SaradclVal {
@@ -68,8 +71,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,SaradclVal> saradcl{}; 
         namespace SaradclValC{
-            constexpr Register::FieldValue<decltype(saradcl),SaradclVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(saradcl),SaradclVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(saradcl)::Type,SaradclVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(saradcl)::Type,SaradclVal::locked> locked{};
+        }
         }
         ///SSG Module Lock Enable. 
         enum class SsglVal {
@@ -78,8 +82,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SsglVal> ssgl{}; 
         namespace SsglValC{
-            constexpr Register::FieldValue<decltype(ssgl),SsglVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(ssgl),SsglVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(ssgl)::Type,SsglVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(ssgl)::Type,SsglVal::locked> locked{};
+        }
         }
         ///Comparator Module Lock Enable. 
         enum class CmplVal {
@@ -88,8 +93,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,CmplVal> cmpl{}; 
         namespace CmplValC{
-            constexpr Register::FieldValue<decltype(cmpl),CmplVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(cmpl),CmplVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(cmpl)::Type,CmplVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(cmpl)::Type,CmplVal::locked> locked{};
+        }
         }
         ///Capacitive Sensing Module Lock Enable. 
         enum class CslVal {
@@ -98,8 +104,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,CslVal> csl{}; 
         namespace CslValC{
-            constexpr Register::FieldValue<decltype(csl),CslVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(csl),CslVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(csl)::Type,CslVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(csl)::Type,CslVal::locked> locked{};
+        }
         }
         ///EMIF Module Lock Enable. 
         enum class EmiflVal {
@@ -108,8 +115,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,EmiflVal> emifl{}; 
         namespace EmiflValC{
-            constexpr Register::FieldValue<decltype(emifl),EmiflVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(emifl),EmiflVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(emifl)::Type,EmiflVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(emifl)::Type,EmiflVal::locked> locked{};
+        }
         }
         ///AES Module Lock Enable. 
         enum class AeslVal {
@@ -118,8 +126,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,AeslVal> aesl{}; 
         namespace AeslValC{
-            constexpr Register::FieldValue<decltype(aesl),AeslVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(aesl),AeslVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(aesl)::Type,AeslVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(aesl)::Type,AeslVal::locked> locked{};
+        }
         }
         ///CRC Module Lock Enable. 
         enum class CrclVal {
@@ -128,8 +137,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,CrclVal> crcl{}; 
         namespace CrclValC{
-            constexpr Register::FieldValue<decltype(crcl),CrclVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(crcl),CrclVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(crcl)::Type,CrclVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(crcl)::Type,CrclVal::locked> locked{};
+        }
         }
         ///RTC Module Lock Enable. 
         enum class RtclVal {
@@ -138,8 +148,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,RtclVal> rtcl{}; 
         namespace RtclValC{
-            constexpr Register::FieldValue<decltype(rtcl),RtclVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(rtcl),RtclVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(rtcl)::Type,RtclVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(rtcl)::Type,RtclVal::locked> locked{};
+        }
         }
         ///Clock Control and Reset Sources Lock Enable. 
         enum class ClkrstlVal {
@@ -148,8 +159,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,ClkrstlVal> clkrstl{}; 
         namespace ClkrstlValC{
-            constexpr Register::FieldValue<decltype(clkrstl),ClkrstlVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(clkrstl),ClkrstlVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(clkrstl)::Type,ClkrstlVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(clkrstl)::Type,ClkrstlVal::locked> locked{};
+        }
         }
         ///Voltage Supply Monitor Module Lock Enable. 
         enum class VmonlVal {
@@ -158,8 +170,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,VmonlVal> vmonl{}; 
         namespace VmonlValC{
-            constexpr Register::FieldValue<decltype(vmonl),VmonlVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(vmonl),VmonlVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(vmonl)::Type,VmonlVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(vmonl)::Type,VmonlVal::locked> locked{};
+        }
         }
         ///IDAC Module Lock Enable. 
         enum class IdaclVal {
@@ -168,8 +181,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,IdaclVal> idacl{}; 
         namespace IdaclValC{
-            constexpr Register::FieldValue<decltype(idacl),IdaclVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(idacl),IdaclVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(idacl)::Type,IdaclVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(idacl)::Type,IdaclVal::locked> locked{};
+        }
         }
         ///DMA Controller Module Lock Enable. 
         enum class DmactrllVal {
@@ -178,8 +192,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,DmactrllVal> dmactrll{}; 
         namespace DmactrllValC{
-            constexpr Register::FieldValue<decltype(dmactrll),DmactrllVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(dmactrll),DmactrllVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(dmactrll)::Type,DmactrllVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(dmactrll)::Type,DmactrllVal::locked> locked{};
+        }
         }
         ///DMA Crossbar Module Lock Enable. 
         enum class DmaxbarlVal {
@@ -188,8 +203,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,DmaxbarlVal> dmaxbarl{}; 
         namespace DmaxbarlValC{
-            constexpr Register::FieldValue<decltype(dmaxbarl),DmaxbarlVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(dmaxbarl),DmaxbarlVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(dmaxbarl)::Type,DmaxbarlVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(dmaxbarl)::Type,DmaxbarlVal::locked> locked{};
+        }
         }
         ///Low Power Timer Module Lock Enable. 
         enum class LptlVal {
@@ -198,8 +214,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,LptlVal> lptl{}; 
         namespace LptlValC{
-            constexpr Register::FieldValue<decltype(lptl),LptlVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(lptl),LptlVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(lptl)::Type,LptlVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(lptl)::Type,LptlVal::locked> locked{};
+        }
         }
         ///Voltage Reference Module Lock Enable. 
         enum class VreflVal {
@@ -208,8 +225,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,VreflVal> vrefl{}; 
         namespace VreflValC{
-            constexpr Register::FieldValue<decltype(vrefl),VreflVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(vrefl),VreflVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(vrefl)::Type,VreflVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(vrefl)::Type,VreflVal::locked> locked{};
+        }
         }
         ///I2S Module Lock Enable. 
         enum class I2slVal {
@@ -218,8 +236,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,I2slVal> i2sl{}; 
         namespace I2slValC{
-            constexpr Register::FieldValue<decltype(i2sl),I2slVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(i2sl),I2slVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(i2sl)::Type,I2slVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(i2sl)::Type,I2slVal::locked> locked{};
+        }
         }
         ///PLL Module Lock Enable. 
         enum class PlllVal {
@@ -228,8 +247,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,PlllVal> plll{}; 
         namespace PlllValC{
-            constexpr Register::FieldValue<decltype(plll),PlllVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(plll),PlllVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(plll)::Type,PlllVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(plll)::Type,PlllVal::locked> locked{};
+        }
         }
         ///External Oscillator Module Lock Enable. 
         enum class ExtosclVal {
@@ -238,8 +258,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,ExtosclVal> extoscl{}; 
         namespace ExtosclValC{
-            constexpr Register::FieldValue<decltype(extoscl),ExtosclVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(extoscl),ExtosclVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(extoscl)::Type,ExtosclVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(extoscl)::Type,ExtosclVal::locked> locked{};
+        }
         }
         ///Voltage Regulator Module Lock Enable. 
         enum class VreglVal {
@@ -248,8 +269,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,VreglVal> vregl{}; 
         namespace VreglValC{
-            constexpr Register::FieldValue<decltype(vregl),VreglVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(vregl),VreglVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(vregl)::Type,VreglVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(vregl)::Type,VreglVal::locked> locked{};
+        }
         }
         ///Low Power Oscillator Lock Enable. 
         enum class LposclVal {
@@ -258,8 +280,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,LposclVal> lposcl{}; 
         namespace LposclValC{
-            constexpr Register::FieldValue<decltype(lposcl),LposclVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(lposcl),LposclVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(lposcl)::Type,LposclVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(lposcl)::Type,LposclVal::locked> locked{};
+        }
         }
         ///External Regulator Module Lock Enable. 
         enum class EvreglVal {
@@ -268,8 +291,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,EvreglVal> evregl{}; 
         namespace EvreglValC{
-            constexpr Register::FieldValue<decltype(evregl),EvreglVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(evregl),EvreglVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(evregl)::Type,EvreglVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(evregl)::Type,EvreglVal::locked> locked{};
+        }
         }
         ///IVC Module Lock Enable. 
         enum class IvclVal {
@@ -278,8 +302,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,IvclVal> ivcl{}; 
         namespace IvclValC{
-            constexpr Register::FieldValue<decltype(ivcl),IvclVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(ivcl),IvclVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(ivcl)::Type,IvclVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(ivcl)::Type,IvclVal::locked> locked{};
+        }
         }
     }
     namespace Noneperiphlock1{    ///<Peripheral Lock Control 1
@@ -291,8 +316,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PmulVal> pmul{}; 
         namespace PmulValC{
-            constexpr Register::FieldValue<decltype(pmul),PmulVal::unlocked> unlocked{};
-            constexpr Register::FieldValue<decltype(pmul),PmulVal::locked> locked{};
+            constexpr Register::FieldValue<decltype(pmul)::Type,PmulVal::unlocked> unlocked{};
+            constexpr Register::FieldValue<decltype(pmul)::Type,PmulVal::locked> locked{};
+        }
         }
     }
 }

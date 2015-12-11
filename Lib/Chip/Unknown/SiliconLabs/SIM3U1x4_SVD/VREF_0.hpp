@@ -11,8 +11,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Vref2xVal> vref2x{}; 
         namespace Vref2xValC{
-            constexpr Register::FieldValue<decltype(vref2x),Vref2xVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(vref2x),Vref2xVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(vref2x)::Type,Vref2xVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(vref2x)::Type,Vref2xVal::enabled> enabled{};
+        }
         }
         ///Temperature Sensor Enable. 
         enum class TempenVal {
@@ -21,8 +22,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TempenVal> tempen{}; 
         namespace TempenValC{
-            constexpr Register::FieldValue<decltype(tempen),TempenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(tempen),TempenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(tempen)::Type,TempenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(tempen)::Type,TempenVal::enabled> enabled{};
+        }
         }
         ///Voltage Reference Enable. 
         enum class VrefenVal {
@@ -31,8 +33,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,VrefenVal> vrefen{}; 
         namespace VrefenValC{
-            constexpr Register::FieldValue<decltype(vrefen),VrefenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(vrefen),VrefenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(vrefen)::Type,VrefenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(vrefen)::Type,VrefenVal::enabled> enabled{};
+        }
         }
     }
 }

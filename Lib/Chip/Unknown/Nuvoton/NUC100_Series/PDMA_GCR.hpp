@@ -8,56 +8,38 @@ namespace Kvasir {
 0 = Disable
 1 = Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> clk0En{}; 
-        namespace Clk0enValC{
-        }
         ///PDMA Controller Channel 1 Clock Enable Control(Medium Density Only)
 0 = Disable
 1 = Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> clk1En{}; 
-        namespace Clk1enValC{
-        }
         ///PDMA Controller Channel 2 Clock Enable Control(Medium Density Only)
 0 = Disable
 1 = Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> clk2En{}; 
-        namespace Clk2enValC{
-        }
         ///PDMA Controller Channel 3 Clock Enable Control(Medium Density Only)
 0 = Disable
 1 = Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> clk3En{}; 
-        namespace Clk3enValC{
-        }
         ///PDMA Controller Channel 4 Clock Enable Control(Medium Density Only)
 0 = Disable
 1 = Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> clk4En{}; 
-        namespace Clk4enValC{
-        }
         ///PDMA Controller Channel 5 Clock Enable Control(Medium Density Only)
 0 = Disable
 1 = Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> clk5En{}; 
-        namespace Clk5enValC{
-        }
         ///PDMA Controller Channel 6 Clock Enable Control(Medium Density Only)
 0 = Disable
 1 = Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> clk6En{}; 
-        namespace Clk6enValC{
-        }
         ///PDMA Controller Channel 7 Clock Enable Control(Medium Density Only)
 0 = Disable
 1 = Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> clk7En{}; 
-        namespace Clk7enValC{
-        }
         ///PDMA Controller Channel 8 Clock Enable Control(Medium Density Only)
 0 = Disable
 1 = Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> clk8En{}; 
-        namespace Clk8enValC{
-        }
     }
     namespace Nonepdssr0{    ///<PDMA Service Selection Control Register 0
         using Addr = Register::Address<0x50008f04,0x00000000,0,unsigned>;
@@ -75,43 +57,27 @@ This filed defines which PDMA channel is connected to the on-chip peripheral SPI
 Others : Reserved
 Note : Ex : SPI0_RXSEL = 4'b0110, that means SPI0_RX is connected to PDMA_CH6(Low Density should set as 4'b0000 for PDMA channel 0 only)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> spi0Rxsel{}; 
-        namespace Spi0rxselValC{
-        }
         ///PDMA SPI0 TX Selection
 This filed defines which PDMA channel is connected to the on-chip peripheral SPI0 TX. Software can configure the TX channel setting by SPI0_TXSEL. The channel configuration is the same as SPI0_RXSEL field. Please refer to the explanation of SPI0_RXSEL.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> spi0Txsel{}; 
-        namespace Spi0txselValC{
-        }
         ///PDMA SPI1 RX Selection
 This filed defines which PDMA channel is connected to the on-chip peripheral SPI1 RX. Software can configure the RX channel setting by SPI1_RXSEL. The channel configuration is the same as SPI0_RXSEL field. Please refer to the explanation of SPI0_RXSEL.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> spi1Rxsel{}; 
-        namespace Spi1rxselValC{
-        }
         ///PDMA SPI1 TX Selection
 This filed defines which PDMA channel is connected to the on-chip peripheral SPI1 TX. Software can configure the TX channel setting by SPI1_TXSEL. The channel configuration is the same as SPI0_RXSEL field. Please refer to the explanation of SPI0_RXSEL.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> spi1Txsel{}; 
-        namespace Spi1txselValC{
-        }
         ///PDMA SPI2 RX Selection (Medium Density Only)
 This filed defines which PDMA channel is connected to the on-chip peripheral SPI2 RX. Software can configure the RX channel setting by SPI2_RXSEL. The channel configuration is the same as SPI0_RXSEL field. Please refer to the explanation of SPI0_RXSEL.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> spi2Rxsel{}; 
-        namespace Spi2rxselValC{
-        }
         ///PDMA SPI2 TX Selection (Medium Density Only)
 This filed defines which PDMA channel is connected to the on-chip peripheral SPI2 TX. Software can configure the TX channel setting by SPI2_TXSEL. The channel configuration is the same as SPI0_RXSEL field. Please refer to the explanation of SPI0_RXSEL.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> spi2Txsel{}; 
-        namespace Spi2txselValC{
-        }
         ///PDMA SPI3 RX Selection (Medium Density Only)
 This filed defines which PDMA channel is connected to the on-chip peripheral SPI3 RX. Software can configure the RX channel setting by SPI3_RXSEL. The channel configuration is the same as SPI0_RXSEL field. Please refer to the explanation of SPI0_RXSEL.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> spi3Rxsel{}; 
-        namespace Spi3rxselValC{
-        }
         ///PDMA SPI3 TX Selection (Medium Density Only)
 This filed defines which PDMA channel is connected to the on-chip peripheral SPI3 TX. Software can configure the TX channel setting by SPI3_TXSEL. The channel configuration is the same as SPI0_RXSEL field. Please refer to the explanation of SPI0_RXSEL.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> spi3Txsel{}; 
-        namespace Spi3txselValC{
-        }
     }
     namespace Nonepdssr1{    ///<PDMA Service Selection Control Register 1
         using Addr = Register::Address<0x50008f08,0xf0ff0000,0,unsigned>;
@@ -128,28 +94,18 @@ This filed defines which PDMA channel is connected to the on-chip peripheral SPI
 Others : Reserved
 Note : Ex : UART0_RXSEL = 4'b0110, that means UART0_RX is connected to PDMA_CH6(Low Density should set as 4'b0000 for PDMA channel 0 only)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> uart0Rxsel{}; 
-        namespace Uart0rxselValC{
-        }
         ///PDMA UART0 TX Selection
 This filed defines which PDMA channel is connected to the on-chip peripheral UART0 TX. Software can configure the TX channel setting by UART0_TXSEL. The channel configuration is the same as UART0_RXSEL field. Please refer to the explanation of UART0_RXSEL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> uart0Txsel{}; 
-        namespace Uart0txselValC{
-        }
         ///PDMA UART1 RX Selection
 This filed defines which PDMA channel is connected to the on-chip peripheral UART1 RX. Software can configure the RX channel setting by UART1_RXSEL. The channel configuration is the same as UART0_RXSEL field. Please refer to the explanation of UART0_RXSEL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> uart1Rxsel{}; 
-        namespace Uart1rxselValC{
-        }
         ///PDMA UART1 TX Selection
 This filed defines which PDMA channel is connected to the on-chip peripheral UART1 TX. Software can configure the TX channel setting by UART1_TXSEL. The channel configuration is the same as UART0_RXSEL field. Please refer to the explanation of UART0_RXSEL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> uart1Txsel{}; 
-        namespace Uart1txselValC{
-        }
         ///PDMA ADC RX Selection
 This filed defines which PDMA channel is connected to the on-chip peripheral ADC RX. Software can configure the RX channel setting by ADC_RXSEL. The channel configuration is the same as UART0_RXSEL field. Please refer to the explanation of UART0_RXSEL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> adcRxsel{}; 
-        namespace AdcrxselValC{
-        }
     }
     namespace NonepdmaGcrisr{    ///<PDMA Global Interrupt Register
         using Addr = Register::Address<0x50008f0c,0x7ffffe00,0,unsigned>;
@@ -157,62 +113,42 @@ This filed defines which PDMA channel is connected to the on-chip peripheral ADC
 This bit is the Interrupt pin status of PDMA channel0.
 Note: This bit is read only
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> intr0{}; 
-        namespace Intr0ValC{
-        }
         ///Interrupt Pin Status of Channel 1 (Medium Density Only)
 This bit is the Interrupt pin status of PDMA channel1.
 Note: This bit is read only
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> intr1{}; 
-        namespace Intr1ValC{
-        }
         ///Interrupt Pin Status of Channel 2 (Medium Density Only)
 This bit is the Interrupt pin status of PDMA channel2.
 Note: This bit is read only
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> intr2{}; 
-        namespace Intr2ValC{
-        }
         ///Interrupt Pin Status of Channel 3 (Medium Density Only)
 This bit is the Interrupt pin status of PDMA channel3.
 Note: This bit is read only
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> intr3{}; 
-        namespace Intr3ValC{
-        }
         ///Interrupt Pin Status of Channel 4 (Medium Density Only)
 This bit is the Interrupt pin status of PDMA channel4.
 Note: This bit is read only
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> intr4{}; 
-        namespace Intr4ValC{
-        }
         ///Interrupt Pin Status of Channel 5 (Medium Density Only)
 This bit is the Interrupt pin status of PDMA channel5.
 Note: This bit is read only
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> intr5{}; 
-        namespace Intr5ValC{
-        }
         ///Interrupt Pin Status of Channel 6 (Medium Density Only)
 This bit is the Interrupt pin status of PDMA channel 6.
 Note: This bit is read only
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> intr6{}; 
-        namespace Intr6ValC{
-        }
         ///Interrupt Pin Status of Channel 7 (Medium Density Only)
 This bit is the Interrupt pin status of PDMA channel 7.
 Note: This bit is read only
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> intr7{}; 
-        namespace Intr7ValC{
-        }
         ///Interrupt Pin Status of Channel 4 (Medium Density Only)
 This bit is the Interrupt pin status of PDMA channel 8.
 Note: This bit is read only
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> intr8{}; 
-        namespace Intr8ValC{
-        }
         ///Interrupt Pin Status
 This bit is the Interrupt pin status of PDMA controller.
 Note: This bit is read only
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> intr{}; 
-        namespace IntrValC{
-        }
     }
     namespace Nonepdssr2{    ///<PDMA Service Selection Control Register 2
         using Addr = Register::Address<0x50008f10,0xffffff00,0,unsigned>;
@@ -231,12 +167,8 @@ This filed defines which PDMA channel is connected to the on-chip peripheral I2S
 Others : Reserved
 Note : Ex : I2S_RXSEL = 4'b0110, that means I2S_RX is connected to PDMA_CH6(Low Density should set as 4'b0000 for PDMA channel 0 only)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> i2sRxsel{}; 
-        namespace I2srxselValC{
-        }
         ///PDMA I2S TX Selection
 This filed defines which PDMA channel is connected to the on-chip peripheral I2S TX. Software can configure the TX channel setting by I2S_TXSEL. The channel configuration is the same as I2S_RXSEL field. Please refer to the explanation of I2S_RXSEL.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> i2sTxsel{}; 
-        namespace I2stxselValC{
-        }
     }
 }
