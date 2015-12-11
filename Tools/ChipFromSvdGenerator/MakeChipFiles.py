@@ -63,16 +63,17 @@ def parseRegister(register, baseAddress, prefix, ext):
         if Ft.useEnumeratedValues(field.enumerated_values,field.bit_width):
             fieldType = "%sVal" % (fieldName.capitalize())
             fieldOut += "        enum class %s {\n" % fieldType
-            cValuesOut = ""
+            cValuesOut = "        namespace %sC{\n" % fieldType
             for v in field.enumerated_values:
                 if v.value is not None and v.is_default is None:     #some value are defaults, we ignore them
                     valName = Ft.getKey(ext,['field',field.name,'enum',v.name,'.rename']) or Ft.formatEnumValue(v.name)
                     if valName != 'reserved':
                         fieldOut+="            %s=0x%08x,     ///<%s\n" % (valName,v.value,v.description)
-                        cValuesOut+="            constexpr Register::FieldValue<decltype(%s),%sVal::%s> %s{};\n" % (fieldName,fieldName.capitalize(),valName,valName)
+                        cValuesOut+="            constexpr Register::FieldValue<decltype(%s)::Type,%sVal::%s> %s{};\n" % (fieldName,fieldName.capitalize(),valName,valName)
             fieldOut += "        };\n"
-        fieldOut += "        constexpr Register::FieldLocation<Addr,Register::maskFromRange(%d,%d),Register::%s,%s> %s{}; \n" % (msb,lsb,Ft.getAccess(register,field),fieldType,fieldName)
-        fieldOut += "        namespace %sValC{\n%s        }\n" % (fieldName.capitalize(),cValuesOut)
+            cValuesOut += "        }\n"
+            cValuesOut += "        }\n"
+        fieldOut += "        constexpr Register::FieldLocation<Addr,Register::maskFromRange(%d,%d),Register::%s,%s> %s{}; \n%s" % (msb,lsb,Ft.getAccess(register,field),fieldType,fieldName,cValuesOut)
         reservedBits = Ft.clearBitsFromRange(msb,lsb,reservedBits)
             
     regType = "unsigned"
