@@ -6,56 +6,40 @@ namespace Kvasir {
         using Addr = Register::Address<0x400e1a90,0x00000000,0,unsigned>;
         ///Value of GPBR x
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> gpbrValue{}; 
-        namespace GpbrvalueValC{
-        }
     }
     namespace GpbrGpbr1{    ///<General Purpose Backup Register
         using Addr = Register::Address<0x400e1a94,0x00000000,0,unsigned>;
         ///Value of GPBR x
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> gpbrValue{}; 
-        namespace GpbrvalueValC{
-        }
     }
     namespace GpbrGpbr2{    ///<General Purpose Backup Register
         using Addr = Register::Address<0x400e1a98,0x00000000,0,unsigned>;
         ///Value of GPBR x
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> gpbrValue{}; 
-        namespace GpbrvalueValC{
-        }
     }
     namespace GpbrGpbr3{    ///<General Purpose Backup Register
         using Addr = Register::Address<0x400e1a9c,0x00000000,0,unsigned>;
         ///Value of GPBR x
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> gpbrValue{}; 
-        namespace GpbrvalueValC{
-        }
     }
     namespace GpbrGpbr4{    ///<General Purpose Backup Register
         using Addr = Register::Address<0x400e1aa0,0x00000000,0,unsigned>;
         ///Value of GPBR x
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> gpbrValue{}; 
-        namespace GpbrvalueValC{
-        }
     }
     namespace GpbrGpbr5{    ///<General Purpose Backup Register
         using Addr = Register::Address<0x400e1aa4,0x00000000,0,unsigned>;
         ///Value of GPBR x
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> gpbrValue{}; 
-        namespace GpbrvalueValC{
-        }
     }
     namespace GpbrGpbr6{    ///<General Purpose Backup Register
         using Addr = Register::Address<0x400e1aa8,0x00000000,0,unsigned>;
         ///Value of GPBR x
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> gpbrValue{}; 
-        namespace GpbrvalueValC{
-        }
     }
     namespace GpbrGpbr7{    ///<General Purpose Backup Register
         using Addr = Register::Address<0x400e1aac,0x00000000,0,unsigned>;
         ///Value of GPBR x
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> gpbrValue{}; 
-        namespace GpbrvalueValC{
-        }
     }
 }
