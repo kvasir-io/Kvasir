@@ -27,9 +27,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,PofwarnVal> pofwarn{}; 
         namespace PofwarnValC{
-            constexpr Register::FieldValue<decltype(pofwarn),PofwarnVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pofwarn),PofwarnVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(pofwarn),PofwarnVal::set> set{};
+            constexpr Register::FieldValue<decltype(pofwarn)::Type,PofwarnVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pofwarn)::Type,PofwarnVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pofwarn)::Type,PofwarnVal::set> set{};
+        }
         }
         ///Write '1' to Enable interrupt on EVENTS_SLEEPENTER event
         enum class SleepenterVal {
@@ -39,9 +40,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SleepenterVal> sleepenter{}; 
         namespace SleepenterValC{
-            constexpr Register::FieldValue<decltype(sleepenter),SleepenterVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(sleepenter),SleepenterVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(sleepenter),SleepenterVal::set> set{};
+            constexpr Register::FieldValue<decltype(sleepenter)::Type,SleepenterVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(sleepenter)::Type,SleepenterVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(sleepenter)::Type,SleepenterVal::set> set{};
+        }
         }
         ///Write '1' to Enable interrupt on EVENTS_SLEEPEXIT event
         enum class SleepexitVal {
@@ -51,9 +53,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,SleepexitVal> sleepexit{}; 
         namespace SleepexitValC{
-            constexpr Register::FieldValue<decltype(sleepexit),SleepexitVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(sleepexit),SleepexitVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(sleepexit),SleepexitVal::set> set{};
+            constexpr Register::FieldValue<decltype(sleepexit)::Type,SleepexitVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(sleepexit)::Type,SleepexitVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(sleepexit)::Type,SleepexitVal::set> set{};
+        }
         }
     }
     namespace Noneintenclr{    ///<Disable interrupt
@@ -66,9 +69,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,PofwarnVal> pofwarn{}; 
         namespace PofwarnValC{
-            constexpr Register::FieldValue<decltype(pofwarn),PofwarnVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pofwarn),PofwarnVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(pofwarn),PofwarnVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(pofwarn)::Type,PofwarnVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pofwarn)::Type,PofwarnVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pofwarn)::Type,PofwarnVal::clear> clear{};
+        }
         }
         ///Write '1' to Clear interrupt on EVENTS_SLEEPENTER event
         enum class SleepenterVal {
@@ -78,9 +82,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SleepenterVal> sleepenter{}; 
         namespace SleepenterValC{
-            constexpr Register::FieldValue<decltype(sleepenter),SleepenterVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(sleepenter),SleepenterVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(sleepenter),SleepenterVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(sleepenter)::Type,SleepenterVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(sleepenter)::Type,SleepenterVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(sleepenter)::Type,SleepenterVal::clear> clear{};
+        }
         }
         ///Write '1' to Clear interrupt on EVENTS_SLEEPEXIT event
         enum class SleepexitVal {
@@ -90,9 +95,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,SleepexitVal> sleepexit{}; 
         namespace SleepexitValC{
-            constexpr Register::FieldValue<decltype(sleepexit),SleepexitVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(sleepexit),SleepexitVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(sleepexit),SleepexitVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(sleepexit)::Type,SleepexitVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(sleepexit)::Type,SleepexitVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(sleepexit)::Type,SleepexitVal::clear> clear{};
+        }
         }
     }
     namespace Noneresetreas{    ///<Reset reason
@@ -104,8 +110,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ResetpinVal> resetpin{}; 
         namespace ResetpinValC{
-            constexpr Register::FieldValue<decltype(resetpin),ResetpinVal::notdetected> notdetected{};
-            constexpr Register::FieldValue<decltype(resetpin),ResetpinVal::detected> detected{};
+            constexpr Register::FieldValue<decltype(resetpin)::Type,ResetpinVal::notdetected> notdetected{};
+            constexpr Register::FieldValue<decltype(resetpin)::Type,ResetpinVal::detected> detected{};
+        }
         }
         ///Reset from watchdog detected
         enum class DogVal {
@@ -114,8 +121,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DogVal> dog{}; 
         namespace DogValC{
-            constexpr Register::FieldValue<decltype(dog),DogVal::notdetected> notdetected{};
-            constexpr Register::FieldValue<decltype(dog),DogVal::detected> detected{};
+            constexpr Register::FieldValue<decltype(dog)::Type,DogVal::notdetected> notdetected{};
+            constexpr Register::FieldValue<decltype(dog)::Type,DogVal::detected> detected{};
+        }
         }
         ///Reset from AIRCR.SYSRESETREQ detected
         enum class SreqVal {
@@ -124,8 +132,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SreqVal> sreq{}; 
         namespace SreqValC{
-            constexpr Register::FieldValue<decltype(sreq),SreqVal::notdetected> notdetected{};
-            constexpr Register::FieldValue<decltype(sreq),SreqVal::detected> detected{};
+            constexpr Register::FieldValue<decltype(sreq)::Type,SreqVal::notdetected> notdetected{};
+            constexpr Register::FieldValue<decltype(sreq)::Type,SreqVal::detected> detected{};
+        }
         }
         ///Reset from CPU lock-up detected
         enum class LockupVal {
@@ -134,8 +143,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,LockupVal> lockup{}; 
         namespace LockupValC{
-            constexpr Register::FieldValue<decltype(lockup),LockupVal::notdetected> notdetected{};
-            constexpr Register::FieldValue<decltype(lockup),LockupVal::detected> detected{};
+            constexpr Register::FieldValue<decltype(lockup)::Type,LockupVal::notdetected> notdetected{};
+            constexpr Register::FieldValue<decltype(lockup)::Type,LockupVal::detected> detected{};
+        }
         }
         ///Reset due to wake up from System OFF mode when wakeup is triggered from DETECT signal from GPIO
         enum class OffVal {
@@ -144,8 +154,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,OffVal> off{}; 
         namespace OffValC{
-            constexpr Register::FieldValue<decltype(off),OffVal::notdetected> notdetected{};
-            constexpr Register::FieldValue<decltype(off),OffVal::detected> detected{};
+            constexpr Register::FieldValue<decltype(off)::Type,OffVal::notdetected> notdetected{};
+            constexpr Register::FieldValue<decltype(off)::Type,OffVal::detected> detected{};
+        }
         }
         ///Reset due to wake up from System OFF mode when wakeup is triggered from ANADETECT signal from LPCOMP
         enum class LpcompVal {
@@ -154,8 +165,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,LpcompVal> lpcomp{}; 
         namespace LpcompValC{
-            constexpr Register::FieldValue<decltype(lpcomp),LpcompVal::notdetected> notdetected{};
-            constexpr Register::FieldValue<decltype(lpcomp),LpcompVal::detected> detected{};
+            constexpr Register::FieldValue<decltype(lpcomp)::Type,LpcompVal::notdetected> notdetected{};
+            constexpr Register::FieldValue<decltype(lpcomp)::Type,LpcompVal::detected> detected{};
+        }
         }
         ///Reset due to wake up from System OFF mode when wakeup is triggered from entering into debug interface mode
         enum class DifVal {
@@ -164,8 +176,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,DifVal> dif{}; 
         namespace DifValC{
-            constexpr Register::FieldValue<decltype(dif),DifVal::notdetected> notdetected{};
-            constexpr Register::FieldValue<decltype(dif),DifVal::detected> detected{};
+            constexpr Register::FieldValue<decltype(dif)::Type,DifVal::notdetected> notdetected{};
+            constexpr Register::FieldValue<decltype(dif)::Type,DifVal::detected> detected{};
+        }
         }
         ///Reset due to wake up from System OFF mode by NFC field detect
         enum class NfcVal {
@@ -174,8 +187,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,NfcVal> nfc{}; 
         namespace NfcValC{
-            constexpr Register::FieldValue<decltype(nfc),NfcVal::notdetected> notdetected{};
-            constexpr Register::FieldValue<decltype(nfc),NfcVal::detected> detected{};
+            constexpr Register::FieldValue<decltype(nfc)::Type,NfcVal::notdetected> notdetected{};
+            constexpr Register::FieldValue<decltype(nfc)::Type,NfcVal::detected> detected{};
+        }
         }
     }
     namespace Noneramstatus{    ///<Deprecated register -  RAM status register
@@ -187,8 +201,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ramblock0Val> ramblock0{}; 
         namespace Ramblock0ValC{
-            constexpr Register::FieldValue<decltype(ramblock0),Ramblock0Val::off> off{};
-            constexpr Register::FieldValue<decltype(ramblock0),Ramblock0Val::on> on{};
+            constexpr Register::FieldValue<decltype(ramblock0)::Type,Ramblock0Val::off> off{};
+            constexpr Register::FieldValue<decltype(ramblock0)::Type,Ramblock0Val::on> on{};
+        }
         }
         ///RAM block 1 is on or off/powering up
         enum class Ramblock1Val {
@@ -197,8 +212,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Ramblock1Val> ramblock1{}; 
         namespace Ramblock1ValC{
-            constexpr Register::FieldValue<decltype(ramblock1),Ramblock1Val::off> off{};
-            constexpr Register::FieldValue<decltype(ramblock1),Ramblock1Val::on> on{};
+            constexpr Register::FieldValue<decltype(ramblock1)::Type,Ramblock1Val::off> off{};
+            constexpr Register::FieldValue<decltype(ramblock1)::Type,Ramblock1Val::on> on{};
+        }
         }
         ///RAM block 2 is on or off/powering up
         enum class Ramblock2Val {
@@ -207,8 +223,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Ramblock2Val> ramblock2{}; 
         namespace Ramblock2ValC{
-            constexpr Register::FieldValue<decltype(ramblock2),Ramblock2Val::off> off{};
-            constexpr Register::FieldValue<decltype(ramblock2),Ramblock2Val::on> on{};
+            constexpr Register::FieldValue<decltype(ramblock2)::Type,Ramblock2Val::off> off{};
+            constexpr Register::FieldValue<decltype(ramblock2)::Type,Ramblock2Val::on> on{};
+        }
         }
         ///RAM block 3 is on or off/powering up
         enum class Ramblock3Val {
@@ -217,8 +234,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ramblock3Val> ramblock3{}; 
         namespace Ramblock3ValC{
-            constexpr Register::FieldValue<decltype(ramblock3),Ramblock3Val::off> off{};
-            constexpr Register::FieldValue<decltype(ramblock3),Ramblock3Val::on> on{};
+            constexpr Register::FieldValue<decltype(ramblock3)::Type,Ramblock3Val::off> off{};
+            constexpr Register::FieldValue<decltype(ramblock3)::Type,Ramblock3Val::on> on{};
+        }
         }
     }
     namespace Nonesystemoff{    ///<System OFF register
@@ -229,7 +247,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,SystemoffVal> systemoff{}; 
         namespace SystemoffValC{
-            constexpr Register::FieldValue<decltype(systemoff),SystemoffVal::enter> enter{};
+            constexpr Register::FieldValue<decltype(systemoff)::Type,SystemoffVal::enter> enter{};
+        }
         }
     }
     namespace Nonepofcon{    ///<Power failure comparator configuration
@@ -241,8 +260,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PofVal> pof{}; 
         namespace PofValC{
-            constexpr Register::FieldValue<decltype(pof),PofVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pof),PofVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pof)::Type,PofVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pof)::Type,PofVal::enabled> enabled{};
+        }
         }
         ///Power failure comparator threshold setting
         enum class ThresholdVal {
@@ -257,29 +277,26 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,1),Register::ReadWriteAccess,ThresholdVal> threshold{}; 
         namespace ThresholdValC{
-            constexpr Register::FieldValue<decltype(threshold),ThresholdVal::v19> v19{};
-            constexpr Register::FieldValue<decltype(threshold),ThresholdVal::v20> v20{};
-            constexpr Register::FieldValue<decltype(threshold),ThresholdVal::v21> v21{};
-            constexpr Register::FieldValue<decltype(threshold),ThresholdVal::v22> v22{};
-            constexpr Register::FieldValue<decltype(threshold),ThresholdVal::v23> v23{};
-            constexpr Register::FieldValue<decltype(threshold),ThresholdVal::v24> v24{};
-            constexpr Register::FieldValue<decltype(threshold),ThresholdVal::v27> v27{};
-            constexpr Register::FieldValue<decltype(threshold),ThresholdVal::v28> v28{};
+            constexpr Register::FieldValue<decltype(threshold)::Type,ThresholdVal::v19> v19{};
+            constexpr Register::FieldValue<decltype(threshold)::Type,ThresholdVal::v20> v20{};
+            constexpr Register::FieldValue<decltype(threshold)::Type,ThresholdVal::v21> v21{};
+            constexpr Register::FieldValue<decltype(threshold)::Type,ThresholdVal::v22> v22{};
+            constexpr Register::FieldValue<decltype(threshold)::Type,ThresholdVal::v23> v23{};
+            constexpr Register::FieldValue<decltype(threshold)::Type,ThresholdVal::v24> v24{};
+            constexpr Register::FieldValue<decltype(threshold)::Type,ThresholdVal::v27> v27{};
+            constexpr Register::FieldValue<decltype(threshold)::Type,ThresholdVal::v28> v28{};
+        }
         }
     }
     namespace Nonegpregret{    ///<General purpose retention register
         using Addr = Register::Address<0x4000051c,0xffffff00,0,unsigned>;
         ///General purpose retention register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> gpregret{}; 
-        namespace GpregretValC{
-        }
     }
     namespace Nonegpregret2{    ///<General purpose retention register
         using Addr = Register::Address<0x40000520,0xffffff00,0,unsigned>;
         ///General purpose retention register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> gpregret{}; 
-        namespace GpregretValC{
-        }
     }
     namespace Noneramon{    ///<Deprecated register -  RAM on/off register (this register is retained)
         using Addr = Register::Address<0x40000524,0xfffcfffc,0,unsigned>;
@@ -290,8 +307,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Onram0Val> onram0{}; 
         namespace Onram0ValC{
-            constexpr Register::FieldValue<decltype(onram0),Onram0Val::ram0off> ram0off{};
-            constexpr Register::FieldValue<decltype(onram0),Onram0Val::ram0on> ram0on{};
+            constexpr Register::FieldValue<decltype(onram0)::Type,Onram0Val::ram0off> ram0off{};
+            constexpr Register::FieldValue<decltype(onram0)::Type,Onram0Val::ram0on> ram0on{};
+        }
         }
         ///Keep RAM block 1 on or off in system ON Mode
         enum class Onram1Val {
@@ -300,8 +318,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Onram1Val> onram1{}; 
         namespace Onram1ValC{
-            constexpr Register::FieldValue<decltype(onram1),Onram1Val::ram1off> ram1off{};
-            constexpr Register::FieldValue<decltype(onram1),Onram1Val::ram1on> ram1on{};
+            constexpr Register::FieldValue<decltype(onram1)::Type,Onram1Val::ram1off> ram1off{};
+            constexpr Register::FieldValue<decltype(onram1)::Type,Onram1Val::ram1on> ram1on{};
+        }
         }
         ///Keep retention on RAM block 0 when RAM block is switched off
         enum class Offram0Val {
@@ -310,8 +329,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Offram0Val> offram0{}; 
         namespace Offram0ValC{
-            constexpr Register::FieldValue<decltype(offram0),Offram0Val::ram0off> ram0off{};
-            constexpr Register::FieldValue<decltype(offram0),Offram0Val::ram0on> ram0on{};
+            constexpr Register::FieldValue<decltype(offram0)::Type,Offram0Val::ram0off> ram0off{};
+            constexpr Register::FieldValue<decltype(offram0)::Type,Offram0Val::ram0on> ram0on{};
+        }
         }
         ///Keep retention on RAM block 1 when RAM block is switched off
         enum class Offram1Val {
@@ -320,8 +340,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Offram1Val> offram1{}; 
         namespace Offram1ValC{
-            constexpr Register::FieldValue<decltype(offram1),Offram1Val::ram1off> ram1off{};
-            constexpr Register::FieldValue<decltype(offram1),Offram1Val::ram1on> ram1on{};
+            constexpr Register::FieldValue<decltype(offram1)::Type,Offram1Val::ram1off> ram1off{};
+            constexpr Register::FieldValue<decltype(offram1)::Type,Offram1Val::ram1on> ram1on{};
+        }
         }
     }
     namespace Noneramonb{    ///<Deprecated register -  RAM on/off register (this register is retained)
@@ -333,8 +354,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Onram2Val> onram2{}; 
         namespace Onram2ValC{
-            constexpr Register::FieldValue<decltype(onram2),Onram2Val::ram2off> ram2off{};
-            constexpr Register::FieldValue<decltype(onram2),Onram2Val::ram2on> ram2on{};
+            constexpr Register::FieldValue<decltype(onram2)::Type,Onram2Val::ram2off> ram2off{};
+            constexpr Register::FieldValue<decltype(onram2)::Type,Onram2Val::ram2on> ram2on{};
+        }
         }
         ///Keep RAM block 3 on or off in system ON Mode
         enum class Onram3Val {
@@ -343,8 +365,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Onram3Val> onram3{}; 
         namespace Onram3ValC{
-            constexpr Register::FieldValue<decltype(onram3),Onram3Val::ram3off> ram3off{};
-            constexpr Register::FieldValue<decltype(onram3),Onram3Val::ram3on> ram3on{};
+            constexpr Register::FieldValue<decltype(onram3)::Type,Onram3Val::ram3off> ram3off{};
+            constexpr Register::FieldValue<decltype(onram3)::Type,Onram3Val::ram3on> ram3on{};
+        }
         }
         ///Keep retention on RAM block 2 when RAM block is switched off
         enum class Offram2Val {
@@ -353,8 +376,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Offram2Val> offram2{}; 
         namespace Offram2ValC{
-            constexpr Register::FieldValue<decltype(offram2),Offram2Val::ram2off> ram2off{};
-            constexpr Register::FieldValue<decltype(offram2),Offram2Val::ram2on> ram2on{};
+            constexpr Register::FieldValue<decltype(offram2)::Type,Offram2Val::ram2off> ram2off{};
+            constexpr Register::FieldValue<decltype(offram2)::Type,Offram2Val::ram2on> ram2on{};
+        }
         }
         ///Keep retention on RAM block 3 when RAM block is switched off
         enum class Offram3Val {
@@ -363,8 +387,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Offram3Val> offram3{}; 
         namespace Offram3ValC{
-            constexpr Register::FieldValue<decltype(offram3),Offram3Val::ram3off> ram3off{};
-            constexpr Register::FieldValue<decltype(offram3),Offram3Val::ram3on> ram3on{};
+            constexpr Register::FieldValue<decltype(offram3)::Type,Offram3Val::ram3off> ram3off{};
+            constexpr Register::FieldValue<decltype(offram3)::Type,Offram3Val::ram3on> ram3on{};
+        }
         }
     }
     namespace Nonedcdcen{    ///<DC/DC enable register
@@ -376,8 +401,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DcdcenVal> dcdcen{}; 
         namespace DcdcenValC{
-            constexpr Register::FieldValue<decltype(dcdcen),DcdcenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dcdcen),DcdcenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dcdcen)::Type,DcdcenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dcdcen)::Type,DcdcenVal::enabled> enabled{};
+        }
         }
     }
 }

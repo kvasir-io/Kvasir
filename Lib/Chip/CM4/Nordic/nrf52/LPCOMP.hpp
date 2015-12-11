@@ -32,8 +32,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ReadysampleVal> readySample{}; 
         namespace ReadysampleValC{
-            constexpr Register::FieldValue<decltype(readySample),ReadysampleVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(readySample),ReadysampleVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(readySample)::Type,ReadysampleVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(readySample)::Type,ReadysampleVal::enabled> enabled{};
+        }
         }
         ///Shortcut between EVENTS_READY event and TASKS_STOP task
         enum class ReadystopVal {
@@ -42,8 +43,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ReadystopVal> readyStop{}; 
         namespace ReadystopValC{
-            constexpr Register::FieldValue<decltype(readyStop),ReadystopVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(readyStop),ReadystopVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(readyStop)::Type,ReadystopVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(readyStop)::Type,ReadystopVal::enabled> enabled{};
+        }
         }
         ///Shortcut between EVENTS_DOWN event and TASKS_STOP task
         enum class DownstopVal {
@@ -52,8 +54,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,DownstopVal> downStop{}; 
         namespace DownstopValC{
-            constexpr Register::FieldValue<decltype(downStop),DownstopVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(downStop),DownstopVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(downStop)::Type,DownstopVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(downStop)::Type,DownstopVal::enabled> enabled{};
+        }
         }
         ///Shortcut between EVENTS_UP event and TASKS_STOP task
         enum class UpstopVal {
@@ -62,8 +65,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,UpstopVal> upStop{}; 
         namespace UpstopValC{
-            constexpr Register::FieldValue<decltype(upStop),UpstopVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(upStop),UpstopVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(upStop)::Type,UpstopVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(upStop)::Type,UpstopVal::enabled> enabled{};
+        }
         }
         ///Shortcut between EVENTS_CROSS event and TASKS_STOP task
         enum class CrossstopVal {
@@ -72,8 +76,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CrossstopVal> crossStop{}; 
         namespace CrossstopValC{
-            constexpr Register::FieldValue<decltype(crossStop),CrossstopVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(crossStop),CrossstopVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(crossStop)::Type,CrossstopVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(crossStop)::Type,CrossstopVal::enabled> enabled{};
+        }
         }
     }
     namespace Noneintenset{    ///<Enable interrupt
@@ -86,9 +91,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ReadyVal> ready{}; 
         namespace ReadyValC{
-            constexpr Register::FieldValue<decltype(ready),ReadyVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(ready),ReadyVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(ready),ReadyVal::set> set{};
+            constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::set> set{};
+        }
         }
         ///Write '1' to Enable interrupt on EVENTS_DOWN event
         enum class DownVal {
@@ -98,9 +104,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DownVal> down{}; 
         namespace DownValC{
-            constexpr Register::FieldValue<decltype(down),DownVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(down),DownVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(down),DownVal::set> set{};
+            constexpr Register::FieldValue<decltype(down)::Type,DownVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(down)::Type,DownVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(down)::Type,DownVal::set> set{};
+        }
         }
         ///Write '1' to Enable interrupt on EVENTS_UP event
         enum class UpVal {
@@ -110,9 +117,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,UpVal> up{}; 
         namespace UpValC{
-            constexpr Register::FieldValue<decltype(up),UpVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(up),UpVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(up),UpVal::set> set{};
+            constexpr Register::FieldValue<decltype(up)::Type,UpVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(up)::Type,UpVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(up)::Type,UpVal::set> set{};
+        }
         }
         ///Write '1' to Enable interrupt on EVENTS_CROSS event
         enum class CrossVal {
@@ -122,9 +130,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,CrossVal> cross{}; 
         namespace CrossValC{
-            constexpr Register::FieldValue<decltype(cross),CrossVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(cross),CrossVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(cross),CrossVal::set> set{};
+            constexpr Register::FieldValue<decltype(cross)::Type,CrossVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(cross)::Type,CrossVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(cross)::Type,CrossVal::set> set{};
+        }
         }
     }
     namespace Noneintenclr{    ///<Disable interrupt
@@ -137,9 +146,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ReadyVal> ready{}; 
         namespace ReadyValC{
-            constexpr Register::FieldValue<decltype(ready),ReadyVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(ready),ReadyVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(ready),ReadyVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::clear> clear{};
+        }
         }
         ///Write '1' to Clear interrupt on EVENTS_DOWN event
         enum class DownVal {
@@ -149,9 +159,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DownVal> down{}; 
         namespace DownValC{
-            constexpr Register::FieldValue<decltype(down),DownVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(down),DownVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(down),DownVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(down)::Type,DownVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(down)::Type,DownVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(down)::Type,DownVal::clear> clear{};
+        }
         }
         ///Write '1' to Clear interrupt on EVENTS_UP event
         enum class UpVal {
@@ -161,9 +172,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,UpVal> up{}; 
         namespace UpValC{
-            constexpr Register::FieldValue<decltype(up),UpVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(up),UpVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(up),UpVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(up)::Type,UpVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(up)::Type,UpVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(up)::Type,UpVal::clear> clear{};
+        }
         }
         ///Write '1' to Clear interrupt on EVENTS_CROSS event
         enum class CrossVal {
@@ -173,9 +185,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,CrossVal> cross{}; 
         namespace CrossValC{
-            constexpr Register::FieldValue<decltype(cross),CrossVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(cross),CrossVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(cross),CrossVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(cross)::Type,CrossVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(cross)::Type,CrossVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(cross)::Type,CrossVal::clear> clear{};
+        }
         }
     }
     namespace Noneresult{    ///<Compare result
@@ -187,8 +200,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ResultVal> result{}; 
         namespace ResultValC{
-            constexpr Register::FieldValue<decltype(result),ResultVal::bellow> bellow{};
-            constexpr Register::FieldValue<decltype(result),ResultVal::above> above{};
+            constexpr Register::FieldValue<decltype(result)::Type,ResultVal::bellow> bellow{};
+            constexpr Register::FieldValue<decltype(result)::Type,ResultVal::above> above{};
+        }
         }
     }
     namespace Noneenable{    ///<Enable LPCOMP
@@ -200,8 +214,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,EnableVal> enable{}; 
         namespace EnableValC{
-            constexpr Register::FieldValue<decltype(enable),EnableVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(enable),EnableVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
+        }
         }
     }
     namespace Nonepsel{    ///<Input pin select
@@ -219,14 +234,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,PselVal> psel{}; 
         namespace PselValC{
-            constexpr Register::FieldValue<decltype(psel),PselVal::analoginput0> analoginput0{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::analoginput1> analoginput1{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::analoginput2> analoginput2{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::analoginput3> analoginput3{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::analoginput4> analoginput4{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::analoginput5> analoginput5{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::analoginput6> analoginput6{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::analoginput7> analoginput7{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::analoginput0> analoginput0{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::analoginput1> analoginput1{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::analoginput2> analoginput2{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::analoginput3> analoginput3{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::analoginput4> analoginput4{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::analoginput5> analoginput5{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::analoginput6> analoginput6{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::analoginput7> analoginput7{};
+        }
         }
     }
     namespace Nonerefsel{    ///<Reference select
@@ -252,22 +268,23 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,RefselVal> refsel{}; 
         namespace RefselValC{
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::ref18vdd> ref18vdd{};
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::ref28vdd> ref28vdd{};
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::ref38vdd> ref38vdd{};
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::ref48vdd> ref48vdd{};
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::ref58vdd> ref58vdd{};
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::ref68vdd> ref68vdd{};
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::ref78vdd> ref78vdd{};
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::aref> aref{};
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::ref116vdd> ref116vdd{};
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::ref316vdd> ref316vdd{};
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::ref516vdd> ref516vdd{};
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::ref716vdd> ref716vdd{};
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::ref916vdd> ref916vdd{};
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::ref1116vdd> ref1116vdd{};
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::ref1316vdd> ref1316vdd{};
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::ref1516vdd> ref1516vdd{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::ref18vdd> ref18vdd{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::ref28vdd> ref28vdd{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::ref38vdd> ref38vdd{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::ref48vdd> ref48vdd{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::ref58vdd> ref58vdd{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::ref68vdd> ref68vdd{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::ref78vdd> ref78vdd{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::aref> aref{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::ref116vdd> ref116vdd{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::ref316vdd> ref316vdd{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::ref516vdd> ref516vdd{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::ref716vdd> ref716vdd{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::ref916vdd> ref916vdd{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::ref1116vdd> ref1116vdd{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::ref1316vdd> ref1316vdd{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::ref1516vdd> ref1516vdd{};
+        }
         }
     }
     namespace Noneextrefsel{    ///<External reference select
@@ -279,8 +296,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ExtrefselVal> extrefsel{}; 
         namespace ExtrefselValC{
-            constexpr Register::FieldValue<decltype(extrefsel),ExtrefselVal::analogreference0> analogreference0{};
-            constexpr Register::FieldValue<decltype(extrefsel),ExtrefselVal::analogreference1> analogreference1{};
+            constexpr Register::FieldValue<decltype(extrefsel)::Type,ExtrefselVal::analogreference0> analogreference0{};
+            constexpr Register::FieldValue<decltype(extrefsel)::Type,ExtrefselVal::analogreference1> analogreference1{};
+        }
         }
     }
     namespace Noneanadetect{    ///<Analog detect configuration
@@ -293,9 +311,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,AnadetectVal> anadetect{}; 
         namespace AnadetectValC{
-            constexpr Register::FieldValue<decltype(anadetect),AnadetectVal::cross> cross{};
-            constexpr Register::FieldValue<decltype(anadetect),AnadetectVal::up> up{};
-            constexpr Register::FieldValue<decltype(anadetect),AnadetectVal::down> down{};
+            constexpr Register::FieldValue<decltype(anadetect)::Type,AnadetectVal::cross> cross{};
+            constexpr Register::FieldValue<decltype(anadetect)::Type,AnadetectVal::up> up{};
+            constexpr Register::FieldValue<decltype(anadetect)::Type,AnadetectVal::down> down{};
+        }
         }
     }
     namespace Nonehyst{    ///<Comparator hysteresis enable
@@ -307,8 +326,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,HystVal> hyst{}; 
         namespace HystValC{
-            constexpr Register::FieldValue<decltype(hyst),HystVal::nohyst> nohyst{};
-            constexpr Register::FieldValue<decltype(hyst),HystVal::hyst50mv> hyst50mv{};
+            constexpr Register::FieldValue<decltype(hyst)::Type,HystVal::nohyst> nohyst{};
+            constexpr Register::FieldValue<decltype(hyst)::Type,HystVal::hyst50mv> hyst50mv{};
+        }
         }
     }
 }

@@ -59,8 +59,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IcVal> ic{}; 
         namespace IcValC{
-            constexpr Register::FieldValue<decltype(ic),IcVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ic),IcVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v1> v1{};
+        }
         }
         ///no description available
         enum class DpeVal {
@@ -69,13 +70,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DpeVal> dpe{}; 
         namespace DpeValC{
-            constexpr Register::FieldValue<decltype(dpe),DpeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dpe),DpeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v1> v1{};
+        }
         }
         ///CAU version
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
-        namespace VerValC{
-        }
     }
     namespace NonecauLdrCaa{    ///<Accumulator register - Load Register command
         using Addr = Register::Address<0xe0081844,0xffffffff,0,unsigned>;
@@ -116,8 +116,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IcVal> ic{}; 
         namespace IcValC{
-            constexpr Register::FieldValue<decltype(ic),IcVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ic),IcVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v1> v1{};
+        }
         }
         ///no description available
         enum class DpeVal {
@@ -126,13 +127,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DpeVal> dpe{}; 
         namespace DpeValC{
-            constexpr Register::FieldValue<decltype(dpe),DpeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dpe),DpeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v1> v1{};
+        }
         }
         ///CAU version
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
-        namespace VerValC{
-        }
     }
     namespace NonecauStrCaa{    ///<Accumulator register - Store Register command
         using Addr = Register::Address<0xe0081884,0xffffffff,0,unsigned>;
@@ -173,8 +173,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IcVal> ic{}; 
         namespace IcValC{
-            constexpr Register::FieldValue<decltype(ic),IcVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ic),IcVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v1> v1{};
+        }
         }
         ///no description available
         enum class DpeVal {
@@ -183,13 +184,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DpeVal> dpe{}; 
         namespace DpeValC{
-            constexpr Register::FieldValue<decltype(dpe),DpeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dpe),DpeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v1> v1{};
+        }
         }
         ///CAU version
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
-        namespace VerValC{
-        }
     }
     namespace NonecauAdrCaa{    ///<Accumulator register - Add to register command
         using Addr = Register::Address<0xe00818c4,0xffffffff,0,unsigned>;
@@ -230,8 +230,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IcVal> ic{}; 
         namespace IcValC{
-            constexpr Register::FieldValue<decltype(ic),IcVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ic),IcVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v1> v1{};
+        }
         }
         ///no description available
         enum class DpeVal {
@@ -240,13 +241,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DpeVal> dpe{}; 
         namespace DpeValC{
-            constexpr Register::FieldValue<decltype(dpe),DpeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dpe),DpeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v1> v1{};
+        }
         }
         ///CAU version
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
-        namespace VerValC{
-        }
     }
     namespace NonecauRadrCaa{    ///<Accumulator register - Reverse and Add to Register command
         using Addr = Register::Address<0xe0081904,0xffffffff,0,unsigned>;
@@ -287,8 +287,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IcVal> ic{}; 
         namespace IcValC{
-            constexpr Register::FieldValue<decltype(ic),IcVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ic),IcVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v1> v1{};
+        }
         }
         ///no description available
         enum class DpeVal {
@@ -297,13 +298,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DpeVal> dpe{}; 
         namespace DpeValC{
-            constexpr Register::FieldValue<decltype(dpe),DpeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dpe),DpeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v1> v1{};
+        }
         }
         ///CAU version
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
-        namespace VerValC{
-        }
     }
     namespace NonecauXorCaa{    ///<Accumulator register - Exclusive Or command
         using Addr = Register::Address<0xe0081984,0xffffffff,0,unsigned>;
@@ -344,8 +344,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IcVal> ic{}; 
         namespace IcValC{
-            constexpr Register::FieldValue<decltype(ic),IcVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ic),IcVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v1> v1{};
+        }
         }
         ///no description available
         enum class DpeVal {
@@ -354,13 +355,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DpeVal> dpe{}; 
         namespace DpeValC{
-            constexpr Register::FieldValue<decltype(dpe),DpeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dpe),DpeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v1> v1{};
+        }
         }
         ///CAU version
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
-        namespace VerValC{
-        }
     }
     namespace NonecauRotlCaa{    ///<Accumulator register - Rotate Left command
         using Addr = Register::Address<0xe00819c4,0xffffffff,0,unsigned>;
@@ -401,8 +401,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IcVal> ic{}; 
         namespace IcValC{
-            constexpr Register::FieldValue<decltype(ic),IcVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ic),IcVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v1> v1{};
+        }
         }
         ///no description available
         enum class DpeVal {
@@ -411,13 +412,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DpeVal> dpe{}; 
         namespace DpeValC{
-            constexpr Register::FieldValue<decltype(dpe),DpeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dpe),DpeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v1> v1{};
+        }
         }
         ///CAU version
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
-        namespace VerValC{
-        }
     }
     namespace NonecauAescCaa{    ///<Accumulator register - AES Column Operation command
         using Addr = Register::Address<0xe0081b04,0xffffffff,0,unsigned>;
@@ -458,8 +458,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IcVal> ic{}; 
         namespace IcValC{
-            constexpr Register::FieldValue<decltype(ic),IcVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ic),IcVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ic)::Type,IcVal::v1> v1{};
+        }
         }
         ///no description available
         enum class DpeVal {
@@ -468,13 +469,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DpeVal> dpe{}; 
         namespace DpeValC{
-            constexpr Register::FieldValue<decltype(dpe),DpeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dpe),DpeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dpe)::Type,DpeVal::v1> v1{};
+        }
         }
         ///CAU version
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> ver{}; 
-        namespace VerValC{
-        }
     }
     namespace NonecauAesicCaa{    ///<Accumulator register - AES Inverse Column Operation command
         using Addr = Register::Address<0xe0081b44,0xffffffff,0,unsigned>;

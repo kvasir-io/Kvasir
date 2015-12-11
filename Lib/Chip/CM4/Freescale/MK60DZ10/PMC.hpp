@@ -11,8 +11,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,LvdvVal> lvdv{}; 
         namespace LvdvValC{
-            constexpr Register::FieldValue<decltype(lvdv),LvdvVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(lvdv),LvdvVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(lvdv)::Type,LvdvVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(lvdv)::Type,LvdvVal::v01> v01{};
+        }
         }
         ///Low-Voltage Detect Reset Enable
         enum class LvdreVal {
@@ -21,8 +22,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,LvdreVal> lvdre{}; 
         namespace LvdreValC{
-            constexpr Register::FieldValue<decltype(lvdre),LvdreVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(lvdre),LvdreVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(lvdre)::Type,LvdreVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lvdre)::Type,LvdreVal::v1> v1{};
+        }
         }
         ///Low-Voltage Detect Interrupt Enable
         enum class LvdieVal {
@@ -31,13 +33,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,LvdieVal> lvdie{}; 
         namespace LvdieValC{
-            constexpr Register::FieldValue<decltype(lvdie),LvdieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(lvdie),LvdieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(lvdie)::Type,LvdieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lvdie)::Type,LvdieVal::v1> v1{};
+        }
         }
         ///Low-Voltage Detect Acknowledge
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> lvdack{}; 
-        namespace LvdackValC{
-        }
         ///Low-Voltage Detect Flag
         enum class LvdfVal {
             v0=0x00000000,     ///<Low-voltage event not detected
@@ -45,8 +46,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,LvdfVal> lvdf{}; 
         namespace LvdfValC{
-            constexpr Register::FieldValue<decltype(lvdf),LvdfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(lvdf),LvdfVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(lvdf)::Type,LvdfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lvdf)::Type,LvdfVal::v1> v1{};
+        }
         }
     }
     namespace PmcLvdsc2{    ///<Low Voltage Detect Status and Control 2 Register
@@ -60,10 +62,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,LvwvVal> lvwv{}; 
         namespace LvwvValC{
-            constexpr Register::FieldValue<decltype(lvwv),LvwvVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(lvwv),LvwvVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(lvwv),LvwvVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(lvwv),LvwvVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(lvwv)::Type,LvwvVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(lvwv)::Type,LvwvVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(lvwv)::Type,LvwvVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(lvwv)::Type,LvwvVal::v11> v11{};
+        }
         }
         ///Low-Voltage Warning Interrupt Enable
         enum class LvwieVal {
@@ -72,13 +75,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,LvwieVal> lvwie{}; 
         namespace LvwieValC{
-            constexpr Register::FieldValue<decltype(lvwie),LvwieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(lvwie),LvwieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(lvwie)::Type,LvwieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lvwie)::Type,LvwieVal::v1> v1{};
+        }
         }
         ///Low-Voltage Warning Acknowledge
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> lvwack{}; 
-        namespace LvwackValC{
-        }
         ///Low-Voltage Warning Flag
         enum class LvwfVal {
             v0=0x00000000,     ///<Low-voltage warning event not detected
@@ -86,8 +88,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,LvwfVal> lvwf{}; 
         namespace LvwfValC{
-            constexpr Register::FieldValue<decltype(lvwf),LvwfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(lvwf),LvwfVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(lvwf)::Type,LvwfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lvwf)::Type,LvwfVal::v1> v1{};
+        }
         }
     }
     namespace PmcRegsc{    ///<Regulator Status and Control Register
@@ -99,8 +102,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,BgbeVal> bgbe{}; 
         namespace BgbeValC{
-            constexpr Register::FieldValue<decltype(bgbe),BgbeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(bgbe),BgbeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(bgbe)::Type,BgbeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bgbe)::Type,BgbeVal::v1> v1{};
+        }
         }
         ///Regulator in Run Regulation Status
         enum class RegonsVal {
@@ -109,8 +113,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,RegonsVal> regons{}; 
         namespace RegonsValC{
-            constexpr Register::FieldValue<decltype(regons),RegonsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(regons),RegonsVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(regons)::Type,RegonsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(regons)::Type,RegonsVal::v1> v1{};
+        }
         }
         ///Very Low Power Run Status
         enum class VlprsVal {
@@ -119,8 +124,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,VlprsVal> vlprs{}; 
         namespace VlprsValC{
-            constexpr Register::FieldValue<decltype(vlprs),VlprsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(vlprs),VlprsVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(vlprs)::Type,VlprsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(vlprs)::Type,VlprsVal::v1> v1{};
+        }
         }
         ///For devices with FlexNVM: Traditional RAM Power Option For devices with program flash only: Reserved
         enum class TrampoVal {
@@ -129,8 +135,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TrampoVal> trampo{}; 
         namespace TrampoValC{
-            constexpr Register::FieldValue<decltype(trampo),TrampoVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(trampo),TrampoVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(trampo)::Type,TrampoVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(trampo)::Type,TrampoVal::v1> v1{};
+        }
         }
     }
 }

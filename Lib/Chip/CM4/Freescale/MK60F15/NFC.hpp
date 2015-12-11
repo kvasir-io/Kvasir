@@ -6,12 +6,8 @@ namespace Kvasir {
         using Addr = Register::Address<0x400abf00,0x0000ffff,0,unsigned>;
         ///Third command byte that may be sent to the flash device
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> byte3{}; 
-        namespace Byte3ValC{
-        }
         ///Second command byte that may be sent to the flash device
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> byte2{}; 
-        namespace Byte2ValC{
-        }
     }
     namespace NfcCmd2{    ///<Flash command 2
         using Addr = Register::Address<0x400abf04,0x000000f8,0,unsigned>;
@@ -22,47 +18,32 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,BusystartVal> busyStart{}; 
         namespace BusystartValC{
-            constexpr Register::FieldValue<decltype(busyStart),BusystartVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(busyStart),BusystartVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(busyStart)::Type,BusystartVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(busyStart)::Type,BusystartVal::v1> v1{};
+        }
         }
         ///Internal buffer number used for this command
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,1),Register::ReadWriteAccess,unsigned> bufno{}; 
-        namespace BufnoValC{
-        }
         ///User-defined flash operation sequencer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,8),Register::ReadWriteAccess,unsigned> code{}; 
-        namespace CodeValC{
-        }
         ///First command byte that may be sent to the flash device
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> byte1{}; 
-        namespace Byte1ValC{
-        }
     }
     namespace NfcCar{    ///<Column address
         using Addr = Register::Address<0x400abf08,0xffff0000,0,unsigned>;
         ///First byte of column address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> byte1{}; 
-        namespace Byte1ValC{
-        }
         ///Second byte of column address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> byte2{}; 
-        namespace Byte2ValC{
-        }
     }
     namespace NfcRar{    ///<Row address
         using Addr = Register::Address<0x400abf0c,0xcc000000,0,unsigned>;
         ///First byte of row address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> byte1{}; 
-        namespace Byte1ValC{
-        }
         ///Second byte of row address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> byte2{}; 
-        namespace Byte2ValC{
-        }
         ///Third byte of row address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> byte3{}; 
-        namespace Byte3ValC{
-        }
         ///Ready/busy 0 enable
         enum class Rb0Val {
             v0=0x00000000,     ///<NFC_R/ B 0 is disabled
@@ -70,8 +51,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Rb0Val> rb0{}; 
         namespace Rb0ValC{
-            constexpr Register::FieldValue<decltype(rb0),Rb0Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(rb0),Rb0Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(rb0)::Type,Rb0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(rb0)::Type,Rb0Val::v1> v1{};
+        }
         }
         ///Ready/busy 1 enable
         enum class Rb1Val {
@@ -80,8 +62,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Rb1Val> rb1{}; 
         namespace Rb1ValC{
-            constexpr Register::FieldValue<decltype(rb1),Rb1Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(rb1),Rb1Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(rb1)::Type,Rb1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(rb1)::Type,Rb1Val::v1> v1{};
+        }
         }
         ///Chip select 0 enable
         enum class Cs0Val {
@@ -90,8 +73,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,Cs0Val> cs0{}; 
         namespace Cs0ValC{
-            constexpr Register::FieldValue<decltype(cs0),Cs0Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(cs0),Cs0Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(cs0)::Type,Cs0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(cs0)::Type,Cs0Val::v1> v1{};
+        }
         }
         ///Chip select 1 enable
         enum class Cs1Val {
@@ -100,68 +84,47 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,Cs1Val> cs1{}; 
         namespace Cs1ValC{
-            constexpr Register::FieldValue<decltype(cs1),Cs1Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(cs1),Cs1Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(cs1)::Type,Cs1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(cs1)::Type,Cs1Val::v1> v1{};
+        }
         }
     }
     namespace NfcRpt{    ///<Flash command repeat
         using Addr = Register::Address<0x400abf10,0xffff0000,0,unsigned>;
         ///16-bit repeat count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
-        namespace CountValC{
-        }
     }
     namespace NfcRai{    ///<Row address increment
         using Addr = Register::Address<0x400abf14,0xff000000,0,unsigned>;
         ///Increment for the first byte of row address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> inc1{}; 
-        namespace Inc1ValC{
-        }
         ///Increment for the second byte of row address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> inc2{}; 
-        namespace Inc2ValC{
-        }
         ///Increment for the third byte of row address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> inc3{}; 
-        namespace Inc3ValC{
-        }
     }
     namespace NfcSr1{    ///<Flash status 1
         using Addr = Register::Address<0x400abf18,0x00000000,0,unsigned>;
         ///Fourth byte returned by read ID command
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> id4{}; 
-        namespace Id4ValC{
-        }
         ///Third byte returned by read ID command
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> id3{}; 
-        namespace Id3ValC{
-        }
         ///Second byte returned by read ID command
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> id2{}; 
-        namespace Id2ValC{
-        }
         ///First byte returned by read ID command
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> id1{}; 
-        namespace Id1ValC{
-        }
     }
     namespace NfcSr2{    ///<Flash status 2
         using Addr = Register::Address<0x400abf1c,0x00ffff00,0,unsigned>;
         ///Byte returned by read status command
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> status1{}; 
-        namespace Status1ValC{
-        }
         ///Fifth byte returned by read ID command
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> id5{}; 
-        namespace Id5ValC{
-        }
     }
     namespace NfcDma1{    ///<DMA channel 1 address
         using Addr = Register::Address<0x400abf20,0x00000000,0,unsigned>;
         ///DMA channel 1 address. DMA channel 1 address, it is 8-byte aligned.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> address{}; 
-        namespace AddressValC{
-        }
     }
     namespace NfcDmacfg{    ///<DMA configuration
         using Addr = Register::Address<0x400abf24,0x000001fc,0,unsigned>;
@@ -172,8 +135,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Act2Val> act2{}; 
         namespace Act2ValC{
-            constexpr Register::FieldValue<decltype(act2),Act2Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(act2),Act2Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(act2)::Type,Act2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(act2)::Type,Act2Val::v1> v1{};
+        }
         }
         ///DMA channel 1 status
         enum class Act1Val {
@@ -182,46 +146,33 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Act1Val> act1{}; 
         namespace Act1ValC{
-            constexpr Register::FieldValue<decltype(act1),Act1Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(act1),Act1Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(act1)::Type,Act1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(act1)::Type,Act1Val::v1> v1{};
+        }
         }
         ///256-byte offset for DMA channel 2. DMA channel 2 transfer starts at this offset count x 256 bytes. For example, if OFFSET2 = 0x2, DMA channel 2 transfer starts at 0x200.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,9),Register::ReadWriteAccess,unsigned> offset2{}; 
-        namespace Offset2ValC{
-        }
         ///Number of bytes to be transferred by DMA channel 2. It should be multiple of 8 bytes.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,13),Register::ReadWriteAccess,unsigned> count2{}; 
-        namespace Count2ValC{
-        }
         ///Number of bytes to be transferred by DMA channel 1. It should be multiple of 8 bytes.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,20),Register::ReadWriteAccess,unsigned> count1{}; 
-        namespace Count1ValC{
-        }
     }
     namespace NfcSwap{    ///<Cach swap
         using Addr = Register::Address<0x400abf28,0xf001f001,0,unsigned>;
         ///Upper swap address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,1),Register::ReadWriteAccess,unsigned> addr2{}; 
-        namespace Addr2ValC{
-        }
         ///Lower swap address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,17),Register::ReadWriteAccess,unsigned> addr1{}; 
-        namespace Addr1ValC{
-        }
     }
     namespace NfcSecsz{    ///<Sector size
         using Addr = Register::Address<0x400abf2c,0xffffe000,0,unsigned>;
         ///Size in bytes of one elementary transfer unit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,0),Register::ReadWriteAccess,unsigned> size{}; 
-        namespace SizeValC{
-        }
     }
     namespace NfcCfg{    ///<Flash configuration
         using Addr = Register::Address<0x400abf30,0x00000040,0,unsigned>;
         ///Number of virtual pages (in one physical flash page) to be programmed or read, etc.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> pagecnt{}; 
-        namespace PagecntValC{
-        }
         ///no description available
         enum class AibnVal {
             v0=0x00000000,     ///<Do not auto-increment buffer number
@@ -229,8 +180,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,AibnVal> aibn{}; 
         namespace AibnValC{
-            constexpr Register::FieldValue<decltype(aibn),AibnVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(aibn),AibnVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(aibn)::Type,AibnVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(aibn)::Type,AibnVal::v1> v1{};
+        }
         }
         ///no description available
         enum class AiadVal {
@@ -239,8 +191,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,AiadVal> aiad{}; 
         namespace AiadValC{
-            constexpr Register::FieldValue<decltype(aiad),AiadVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(aiad),AiadVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(aiad)::Type,AiadVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(aiad)::Type,AiadVal::v1> v1{};
+        }
         }
         ///no description available
         enum class BitwidthVal {
@@ -249,17 +202,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,BitwidthVal> bitwidth{}; 
         namespace BitwidthValC{
-            constexpr Register::FieldValue<decltype(bitwidth),BitwidthVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(bitwidth),BitwidthVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(bitwidth)::Type,BitwidthVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bitwidth)::Type,BitwidthVal::v1> v1{};
+        }
         }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> timeout{}; 
-        namespace TimeoutValC{
-        }
         ///Number of bytes that are read for the read id command.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,unsigned> idcnt{}; 
-        namespace IdcntValC{
-        }
         ///See the "Fast Flash Configuration for EDO" section for more details.
         enum class FastVal {
             v0=0x00000000,     ///<Slow flash timing. Clock in read data on rising edge of read strobe
@@ -267,8 +217,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,FastVal> fast{}; 
         namespace FastValC{
-            constexpr Register::FieldValue<decltype(fast),FastVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(fast),FastVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(fast)::Type,FastVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fast)::Type,FastVal::v1> v1{};
+        }
         }
         ///no description available
         enum class EccmodeVal {
@@ -283,14 +234,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,17),Register::ReadWriteAccess,EccmodeVal> eccmode{}; 
         namespace EccmodeValC{
-            constexpr Register::FieldValue<decltype(eccmode),EccmodeVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(eccmode),EccmodeVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(eccmode),EccmodeVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(eccmode),EccmodeVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(eccmode),EccmodeVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(eccmode),EccmodeVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(eccmode),EccmodeVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(eccmode),EccmodeVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(eccmode)::Type,EccmodeVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(eccmode)::Type,EccmodeVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(eccmode)::Type,EccmodeVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(eccmode)::Type,EccmodeVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(eccmode)::Type,EccmodeVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(eccmode)::Type,EccmodeVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(eccmode)::Type,EccmodeVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(eccmode)::Type,EccmodeVal::v111> v111{};
+        }
         }
         ///no description available
         enum class DmareqVal {
@@ -299,8 +251,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,DmareqVal> dmareq{}; 
         namespace DmareqValC{
-            constexpr Register::FieldValue<decltype(dmareq),DmareqVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dmareq),DmareqVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dmareq)::Type,DmareqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dmareq)::Type,DmareqVal::v1> v1{};
+        }
         }
         ///no description available
         enum class EccsramVal {
@@ -309,13 +262,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,EccsramVal> eccsram{}; 
         namespace EccsramValC{
-            constexpr Register::FieldValue<decltype(eccsram),EccsramVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(eccsram),EccsramVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(eccsram)::Type,EccsramVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(eccsram)::Type,EccsramVal::v1> v1{};
+        }
         }
         ///Byte address in SRAM where ECC status is written.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,22),Register::ReadWriteAccess,unsigned> eccad{}; 
-        namespace EccadValC{
-        }
         ///no description available
         enum class StopwerrVal {
             v0=0x00000000,     ///<No stop on write error
@@ -323,86 +275,51 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,StopwerrVal> stopwerr{}; 
         namespace StopwerrValC{
-            constexpr Register::FieldValue<decltype(stopwerr),StopwerrVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(stopwerr),StopwerrVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(stopwerr)::Type,StopwerrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(stopwerr)::Type,StopwerrVal::v1> v1{};
+        }
         }
     }
     namespace NfcDma2{    ///<DMA channel 2 address
         using Addr = Register::Address<0x400abf34,0x00000000,0,unsigned>;
         ///DMA channel 2 address. DMA channel 2 address, it is 8-byte aligned.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> address{}; 
-        namespace AddressValC{
-        }
     }
     namespace NfcIsr{    ///<Interrupt status
         using Addr = Register::Address<0x400abf38,0x1001ffc0,0,unsigned>;
         ///DMA buffer number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> dmabn{}; 
-        namespace DmabnValC{
-        }
         ///ECC buffer number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> eccbn{}; 
-        namespace EccbnValC{
-        }
         ///Residue buffer number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> resbn{}; 
-        namespace ResbnValC{
-        }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> idleclr{}; 
-        namespace IdleclrValC{
-        }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> doneclr{}; 
-        namespace DoneclrValC{
-        }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> werrclr{}; 
-        namespace WerrclrValC{
-        }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> idleen{}; 
-        namespace IdleenValC{
-        }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> doneen{}; 
-        namespace DoneenValC{
-        }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> werren{}; 
-        namespace WerrenValC{
-        }
         ///DMA engine busy
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> dmabusy{}; 
-        namespace DmabusyValC{
-        }
         ///ECC engine busy
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> eccbusy{}; 
-        namespace EccbusyValC{
-        }
         ///Residue engine busy
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> resbusy{}; 
-        namespace ResbusyValC{
-        }
         ///Command busy
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> cmdbusy{}; 
-        namespace CmdbusyValC{
-        }
         ///Write error status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> werrns{}; 
-        namespace WerrnsValC{
-        }
         ///Command idle interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> idle{}; 
-        namespace IdleValC{
-        }
         ///Done interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> done{}; 
-        namespace DoneValC{
-        }
         ///Write error interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> werr{}; 
-        namespace WerrValC{
-        }
     }
 }

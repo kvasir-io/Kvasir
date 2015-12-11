@@ -11,8 +11,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,FrzVal> frz{}; 
         namespace FrzValC{
-            constexpr Register::FieldValue<decltype(frz),FrzVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(frz),FrzVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(frz)::Type,FrzVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(frz)::Type,FrzVal::v1> v1{};
+        }
         }
         ///Module Disable
         enum class MdisVal {
@@ -21,65 +22,50 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,MdisVal> mdis{}; 
         namespace MdisValC{
-            constexpr Register::FieldValue<decltype(mdis),MdisVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(mdis),MdisVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(mdis)::Type,MdisVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(mdis)::Type,MdisVal::v1> v1{};
+        }
         }
     }
     namespace PitLdval0{    ///<Timer Load Value Register
         using Addr = Register::Address<0x40037100,0x00000000,0,unsigned>;
         ///Timer Start Value Bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tsv{}; 
-        namespace TsvValC{
-        }
     }
     namespace PitLdval1{    ///<Timer Load Value Register
         using Addr = Register::Address<0x40037110,0x00000000,0,unsigned>;
         ///Timer Start Value Bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tsv{}; 
-        namespace TsvValC{
-        }
     }
     namespace PitLdval2{    ///<Timer Load Value Register
         using Addr = Register::Address<0x40037120,0x00000000,0,unsigned>;
         ///Timer Start Value Bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tsv{}; 
-        namespace TsvValC{
-        }
     }
     namespace PitLdval3{    ///<Timer Load Value Register
         using Addr = Register::Address<0x40037130,0x00000000,0,unsigned>;
         ///Timer Start Value Bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tsv{}; 
-        namespace TsvValC{
-        }
     }
     namespace PitCval0{    ///<Current Timer Value Register
         using Addr = Register::Address<0x40037104,0x00000000,0,unsigned>;
         ///Current Timer Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tvl{}; 
-        namespace TvlValC{
-        }
     }
     namespace PitCval1{    ///<Current Timer Value Register
         using Addr = Register::Address<0x40037114,0x00000000,0,unsigned>;
         ///Current Timer Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tvl{}; 
-        namespace TvlValC{
-        }
     }
     namespace PitCval2{    ///<Current Timer Value Register
         using Addr = Register::Address<0x40037124,0x00000000,0,unsigned>;
         ///Current Timer Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tvl{}; 
-        namespace TvlValC{
-        }
     }
     namespace PitCval3{    ///<Current Timer Value Register
         using Addr = Register::Address<0x40037134,0x00000000,0,unsigned>;
         ///Current Timer Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tvl{}; 
-        namespace TvlValC{
-        }
     }
     namespace PitTctrl0{    ///<Timer Control Register
         using Addr = Register::Address<0x40037108,0xfffffffc,0,unsigned>;
@@ -90,8 +76,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TenVal> ten{}; 
         namespace TenValC{
-            constexpr Register::FieldValue<decltype(ten),TenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ten),TenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v1> v1{};
+        }
         }
         ///Timer Interrupt Enable Bit.
         enum class TieVal {
@@ -100,8 +87,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TieVal> tie{}; 
         namespace TieValC{
-            constexpr Register::FieldValue<decltype(tie),TieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tie),TieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v1> v1{};
+        }
         }
     }
     namespace PitTctrl1{    ///<Timer Control Register
@@ -113,8 +101,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TenVal> ten{}; 
         namespace TenValC{
-            constexpr Register::FieldValue<decltype(ten),TenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ten),TenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v1> v1{};
+        }
         }
         ///Timer Interrupt Enable Bit.
         enum class TieVal {
@@ -123,8 +112,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TieVal> tie{}; 
         namespace TieValC{
-            constexpr Register::FieldValue<decltype(tie),TieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tie),TieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v1> v1{};
+        }
         }
     }
     namespace PitTctrl2{    ///<Timer Control Register
@@ -136,8 +126,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TenVal> ten{}; 
         namespace TenValC{
-            constexpr Register::FieldValue<decltype(ten),TenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ten),TenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v1> v1{};
+        }
         }
         ///Timer Interrupt Enable Bit.
         enum class TieVal {
@@ -146,8 +137,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TieVal> tie{}; 
         namespace TieValC{
-            constexpr Register::FieldValue<decltype(tie),TieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tie),TieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v1> v1{};
+        }
         }
     }
     namespace PitTctrl3{    ///<Timer Control Register
@@ -159,8 +151,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TenVal> ten{}; 
         namespace TenValC{
-            constexpr Register::FieldValue<decltype(ten),TenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ten),TenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v1> v1{};
+        }
         }
         ///Timer Interrupt Enable Bit.
         enum class TieVal {
@@ -169,8 +162,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TieVal> tie{}; 
         namespace TieValC{
-            constexpr Register::FieldValue<decltype(tie),TieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tie),TieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v1> v1{};
+        }
         }
     }
     namespace PitTflg0{    ///<Timer Flag Register
@@ -182,8 +176,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TifVal> tif{}; 
         namespace TifValC{
-            constexpr Register::FieldValue<decltype(tif),TifVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tif),TifVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v1> v1{};
+        }
         }
     }
     namespace PitTflg1{    ///<Timer Flag Register
@@ -195,8 +190,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TifVal> tif{}; 
         namespace TifValC{
-            constexpr Register::FieldValue<decltype(tif),TifVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tif),TifVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v1> v1{};
+        }
         }
     }
     namespace PitTflg2{    ///<Timer Flag Register
@@ -208,8 +204,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TifVal> tif{}; 
         namespace TifValC{
-            constexpr Register::FieldValue<decltype(tif),TifVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tif),TifVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v1> v1{};
+        }
         }
     }
     namespace PitTflg3{    ///<Timer Flag Register
@@ -221,8 +218,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TifVal> tif{}; 
         namespace TifValC{
-            constexpr Register::FieldValue<decltype(tif),TifVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tif),TifVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v1> v1{};
+        }
         }
     }
 }

@@ -11,8 +11,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,LpenVal> lpen{}; 
         namespace LpenValC{
-            constexpr Register::FieldValue<decltype(lpen),LpenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(lpen),LpenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(lpen)::Type,LpenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lpen)::Type,LpenVal::v1> v1{};
+        }
         }
         ///TRIAMP Enable
         enum class TriampenVal {
@@ -21,8 +22,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,TriampenVal> triampen{}; 
         namespace TriampenValC{
-            constexpr Register::FieldValue<decltype(triampen),TriampenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(triampen),TriampenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(triampen)::Type,TriampenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(triampen)::Type,TriampenVal::v1> v1{};
+        }
         }
     }
 }

@@ -26,8 +26,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,StartedVal> started{}; 
         namespace StartedValC{
-            constexpr Register::FieldValue<decltype(started),StartedVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(started),StartedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(started)::Type,StartedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(started)::Type,StartedVal::enabled> enabled{};
+        }
         }
         ///Enable or disable interrupt on EVENTS_STOPPED event
         enum class StoppedVal {
@@ -36,8 +37,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,StoppedVal> stopped{}; 
         namespace StoppedValC{
-            constexpr Register::FieldValue<decltype(stopped),StoppedVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(stopped),StoppedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::enabled> enabled{};
+        }
         }
         ///Enable or disable interrupt on EVENTS_END event
         enum class EndVal {
@@ -46,8 +48,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,EndVal> end{}; 
         namespace EndValC{
-            constexpr Register::FieldValue<decltype(end),EndVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(end),EndVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
+        }
         }
     }
     namespace Noneintenset{    ///<Enable interrupt
@@ -60,9 +63,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,StartedVal> started{}; 
         namespace StartedValC{
-            constexpr Register::FieldValue<decltype(started),StartedVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(started),StartedVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(started),StartedVal::set> set{};
+            constexpr Register::FieldValue<decltype(started)::Type,StartedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(started)::Type,StartedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(started)::Type,StartedVal::set> set{};
+        }
         }
         ///Write '1' to Enable interrupt on EVENTS_STOPPED event
         enum class StoppedVal {
@@ -72,9 +76,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,StoppedVal> stopped{}; 
         namespace StoppedValC{
-            constexpr Register::FieldValue<decltype(stopped),StoppedVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(stopped),StoppedVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(stopped),StoppedVal::set> set{};
+            constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::set> set{};
+        }
         }
         ///Write '1' to Enable interrupt on EVENTS_END event
         enum class EndVal {
@@ -84,9 +89,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,EndVal> end{}; 
         namespace EndValC{
-            constexpr Register::FieldValue<decltype(end),EndVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(end),EndVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(end),EndVal::set> set{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::set> set{};
+        }
         }
     }
     namespace Noneintenclr{    ///<Disable interrupt
@@ -99,9 +105,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,StartedVal> started{}; 
         namespace StartedValC{
-            constexpr Register::FieldValue<decltype(started),StartedVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(started),StartedVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(started),StartedVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(started)::Type,StartedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(started)::Type,StartedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(started)::Type,StartedVal::clear> clear{};
+        }
         }
         ///Write '1' to Clear interrupt on EVENTS_STOPPED event
         enum class StoppedVal {
@@ -111,9 +118,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,StoppedVal> stopped{}; 
         namespace StoppedValC{
-            constexpr Register::FieldValue<decltype(stopped),StoppedVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(stopped),StoppedVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(stopped),StoppedVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::clear> clear{};
+        }
         }
         ///Write '1' to Clear interrupt on EVENTS_END event
         enum class EndVal {
@@ -123,9 +131,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,EndVal> end{}; 
         namespace EndValC{
-            constexpr Register::FieldValue<decltype(end),EndVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(end),EndVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(end),EndVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::clear> clear{};
+        }
         }
     }
     namespace Noneenable{    ///<PDM module enable register
@@ -137,16 +146,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EnableVal> enable{}; 
         namespace EnableValC{
-            constexpr Register::FieldValue<decltype(enable),EnableVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(enable),EnableVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
+        }
         }
     }
     namespace Nonepdmclkctrl{    ///<PDM clock generator control
         using Addr = Register::Address<0x4001d504,0x00000000,0,unsigned>;
         ///PDM_CLK frequency
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> freq{}; 
-        namespace FreqValC{
-        }
     }
     namespace Nonemode{    ///<Defines the routing of the connected PDM microphones' signals
         using Addr = Register::Address<0x4001d508,0xfffffffc,0,unsigned>;
@@ -157,8 +165,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,MonoVal> mono{}; 
         namespace MonoValC{
-            constexpr Register::FieldValue<decltype(mono),MonoVal::stereo> stereo{};
-            constexpr Register::FieldValue<decltype(mono),MonoVal::mono> mono{};
+            constexpr Register::FieldValue<decltype(mono)::Type,MonoVal::stereo> stereo{};
+            constexpr Register::FieldValue<decltype(mono)::Type,MonoVal::mono> mono{};
+        }
         }
         ///Defines on which PDM_CLK edge Left (or mono) is sampled
         enum class EdgeVal {
@@ -167,22 +176,19 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,EdgeVal> edge{}; 
         namespace EdgeValC{
-            constexpr Register::FieldValue<decltype(edge),EdgeVal::leftfalling> leftfalling{};
-            constexpr Register::FieldValue<decltype(edge),EdgeVal::leftrising> leftrising{};
+            constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::leftfalling> leftfalling{};
+            constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::leftrising> leftrising{};
+        }
         }
     }
     namespace Nonegainl{    ///<Left output gain adjustment
         using Addr = Register::Address<0x4001d518,0xffffff80,0,unsigned>;
         ///Left output gain adjustment, in 0.5 dB steps, around the requirement that 0dB gain adjustment corresponds to 2500 RMS output samples (16-bit) with 1 kHz 90dBA signal into a -26dBFS sensitivity PDM microphone. 0x00    -20 dB gain 0x01  -19.5 dB gain (...) 0x27   -0.5 dB gain 0x28      0 dB gain 0x29   +0.5 dB gain (...) 0x4F  +19.5 dB gain 0x50    +20 dB gain
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> gainl{}; 
-        namespace GainlValC{
-        }
     }
     namespace Nonegainr{    ///<Right output gain adjustment
         using Addr = Register::Address<0x4001d51c,0xffffff00,0,unsigned>;
         ///Right output gain adjustment, in 0.5 dB steps, around the requirement that 0dB gain adjustment corresponds to 2500 RMS output samples (16-bit) with 1 kHz 90dBA signal into a -26dBFS sensitivity PDM microphone. (same encoding as GAINL)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> gainr{}; 
-        namespace GainrValC{
-        }
     }
 }

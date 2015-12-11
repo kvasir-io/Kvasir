@@ -11,8 +11,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,EdbgVal> edbg{}; 
         namespace EdbgValC{
-            constexpr Register::FieldValue<decltype(edbg),EdbgVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(edbg),EdbgVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(edbg)::Type,EdbgVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(edbg)::Type,EdbgVal::v1> v1{};
+        }
         }
         ///Enable Round Robin Channel Arbitration
         enum class ErcaVal {
@@ -21,8 +22,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,ErcaVal> erca{}; 
         namespace ErcaValC{
-            constexpr Register::FieldValue<decltype(erca),ErcaVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(erca),ErcaVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(erca)::Type,ErcaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(erca)::Type,ErcaVal::v1> v1{};
+        }
         }
         ///Halt On Error
         enum class HoeVal {
@@ -31,8 +33,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,HoeVal> hoe{}; 
         namespace HoeValC{
-            constexpr Register::FieldValue<decltype(hoe),HoeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(hoe),HoeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(hoe)::Type,HoeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(hoe)::Type,HoeVal::v1> v1{};
+        }
         }
         ///Halt DMA Operations
         enum class HaltVal {
@@ -41,8 +44,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HaltVal> halt{}; 
         namespace HaltValC{
-            constexpr Register::FieldValue<decltype(halt),HaltVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(halt),HaltVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(halt)::Type,HaltVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(halt)::Type,HaltVal::v1> v1{};
+        }
         }
         ///Continuous Link Mode
         enum class ClmVal {
@@ -51,8 +55,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ClmVal> clm{}; 
         namespace ClmValC{
-            constexpr Register::FieldValue<decltype(clm),ClmVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(clm),ClmVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(clm)::Type,ClmVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(clm)::Type,ClmVal::v1> v1{};
+        }
         }
         ///Enable Minor Loop Mapping
         enum class EmlmVal {
@@ -61,8 +66,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,EmlmVal> emlm{}; 
         namespace EmlmValC{
-            constexpr Register::FieldValue<decltype(emlm),EmlmVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(emlm),EmlmVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(emlm)::Type,EmlmVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(emlm)::Type,EmlmVal::v1> v1{};
+        }
         }
         ///Error Cancel Transfer
         enum class EcxVal {
@@ -71,8 +77,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,EcxVal> ecx{}; 
         namespace EcxValC{
-            constexpr Register::FieldValue<decltype(ecx),EcxVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ecx),EcxVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ecx)::Type,EcxVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ecx)::Type,EcxVal::v1> v1{};
+        }
         }
         ///Cancel Transfer
         enum class CxVal {
@@ -81,8 +88,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,CxVal> cx{}; 
         namespace CxValC{
-            constexpr Register::FieldValue<decltype(cx),CxVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(cx),CxVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(cx)::Type,CxVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cx)::Type,CxVal::v1> v1{};
+        }
         }
     }
     namespace DmaEs{    ///<Error Status Register
@@ -94,8 +102,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DbeVal> dbe{}; 
         namespace DbeValC{
-            constexpr Register::FieldValue<decltype(dbe),DbeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dbe),DbeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dbe)::Type,DbeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dbe)::Type,DbeVal::v1> v1{};
+        }
         }
         ///Source Bus Error
         enum class SbeVal {
@@ -104,8 +113,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,SbeVal> sbe{}; 
         namespace SbeValC{
-            constexpr Register::FieldValue<decltype(sbe),SbeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(sbe),SbeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(sbe)::Type,SbeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sbe)::Type,SbeVal::v1> v1{};
+        }
         }
         ///Scatter/Gather Configuration Error
         enum class SgeVal {
@@ -114,8 +124,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SgeVal> sge{}; 
         namespace SgeValC{
-            constexpr Register::FieldValue<decltype(sge),SgeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(sge),SgeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(sge)::Type,SgeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sge)::Type,SgeVal::v1> v1{};
+        }
         }
         ///NBYTES/CITER Configuration Error
         enum class NceVal {
@@ -124,8 +135,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,NceVal> nce{}; 
         namespace NceValC{
-            constexpr Register::FieldValue<decltype(nce),NceVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(nce),NceVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(nce)::Type,NceVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(nce)::Type,NceVal::v1> v1{};
+        }
         }
         ///Destination Offset Error
         enum class DoeVal {
@@ -134,8 +146,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,DoeVal> doe{}; 
         namespace DoeValC{
-            constexpr Register::FieldValue<decltype(doe),DoeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(doe),DoeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(doe)::Type,DoeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(doe)::Type,DoeVal::v1> v1{};
+        }
         }
         ///Destination Address Error
         enum class DaeVal {
@@ -144,8 +157,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,DaeVal> dae{}; 
         namespace DaeValC{
-            constexpr Register::FieldValue<decltype(dae),DaeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dae),DaeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dae)::Type,DaeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dae)::Type,DaeVal::v1> v1{};
+        }
         }
         ///Source Offset Error
         enum class SoeVal {
@@ -154,8 +168,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,SoeVal> soe{}; 
         namespace SoeValC{
-            constexpr Register::FieldValue<decltype(soe),SoeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(soe),SoeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(soe)::Type,SoeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(soe)::Type,SoeVal::v1> v1{};
+        }
         }
         ///Source Address Error
         enum class SaeVal {
@@ -164,13 +179,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SaeVal> sae{}; 
         namespace SaeValC{
-            constexpr Register::FieldValue<decltype(sae),SaeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(sae),SaeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(sae)::Type,SaeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sae)::Type,SaeVal::v1> v1{};
+        }
         }
         ///Error Channel Number or Cancelled Channel Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> errchn{}; 
-        namespace ErrchnValC{
-        }
         ///Channel Priority Error
         enum class CpeVal {
             v0=0x00000000,     ///<No channel priority error
@@ -178,8 +192,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,CpeVal> cpe{}; 
         namespace CpeValC{
-            constexpr Register::FieldValue<decltype(cpe),CpeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(cpe),CpeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(cpe)::Type,CpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cpe)::Type,CpeVal::v1> v1{};
+        }
         }
         ///Transfer Cancelled
         enum class EcxVal {
@@ -188,8 +203,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,EcxVal> ecx{}; 
         namespace EcxValC{
-            constexpr Register::FieldValue<decltype(ecx),EcxVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ecx),EcxVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ecx)::Type,EcxVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ecx)::Type,EcxVal::v1> v1{};
+        }
         }
         ///no description available
         enum class VldVal {
@@ -198,8 +214,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,VldVal> vld{}; 
         namespace VldValC{
-            constexpr Register::FieldValue<decltype(vld),VldVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(vld),VldVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(vld)::Type,VldVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(vld)::Type,VldVal::v1> v1{};
+        }
         }
     }
     namespace DmaErq{    ///<Enable Request Register
@@ -211,8 +228,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Erq0Val> erq0{}; 
         namespace Erq0ValC{
-            constexpr Register::FieldValue<decltype(erq0),Erq0Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(erq0),Erq0Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(erq0)::Type,Erq0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(erq0)::Type,Erq0Val::v1> v1{};
+        }
         }
         ///Enable DMA Request 1
         enum class Erq1Val {
@@ -221,8 +239,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Erq1Val> erq1{}; 
         namespace Erq1ValC{
-            constexpr Register::FieldValue<decltype(erq1),Erq1Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(erq1),Erq1Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(erq1)::Type,Erq1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(erq1)::Type,Erq1Val::v1> v1{};
+        }
         }
         ///Enable DMA Request 2
         enum class Erq2Val {
@@ -231,8 +250,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Erq2Val> erq2{}; 
         namespace Erq2ValC{
-            constexpr Register::FieldValue<decltype(erq2),Erq2Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(erq2),Erq2Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(erq2)::Type,Erq2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(erq2)::Type,Erq2Val::v1> v1{};
+        }
         }
         ///Enable DMA Request 3
         enum class Erq3Val {
@@ -241,8 +261,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Erq3Val> erq3{}; 
         namespace Erq3ValC{
-            constexpr Register::FieldValue<decltype(erq3),Erq3Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(erq3),Erq3Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(erq3)::Type,Erq3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(erq3)::Type,Erq3Val::v1> v1{};
+        }
         }
     }
     namespace DmaEei{    ///<Enable Error Interrupt Register
@@ -254,8 +275,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Eei0Val> eei0{}; 
         namespace Eei0ValC{
-            constexpr Register::FieldValue<decltype(eei0),Eei0Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(eei0),Eei0Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(eei0)::Type,Eei0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(eei0)::Type,Eei0Val::v1> v1{};
+        }
         }
         ///Enable Error Interrupt 1
         enum class Eei1Val {
@@ -264,8 +286,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Eei1Val> eei1{}; 
         namespace Eei1ValC{
-            constexpr Register::FieldValue<decltype(eei1),Eei1Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(eei1),Eei1Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(eei1)::Type,Eei1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(eei1)::Type,Eei1Val::v1> v1{};
+        }
         }
         ///Enable Error Interrupt 2
         enum class Eei2Val {
@@ -274,8 +297,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Eei2Val> eei2{}; 
         namespace Eei2ValC{
-            constexpr Register::FieldValue<decltype(eei2),Eei2Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(eei2),Eei2Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(eei2)::Type,Eei2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(eei2)::Type,Eei2Val::v1> v1{};
+        }
         }
         ///Enable Error Interrupt 3
         enum class Eei3Val {
@@ -284,16 +308,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Eei3Val> eei3{}; 
         namespace Eei3ValC{
-            constexpr Register::FieldValue<decltype(eei3),Eei3Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(eei3),Eei3Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(eei3)::Type,Eei3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(eei3)::Type,Eei3Val::v1> v1{};
+        }
         }
     }
     namespace DmaCeei{    ///<Clear Enable Error Interrupt Register
         using Addr = Register::Address<0x40008018,0xffffff30,0,unsigned char>;
         ///Clear Enable Error Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ceei{}; 
-        namespace CeeiValC{
-        }
         ///Clear All Enable Error Interrupts
         enum class CaeeVal {
             v0=0x00000000,     ///<Clear only the EEI bit specified in the CEEI field
@@ -301,8 +324,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,CaeeVal> caee{}; 
         namespace CaeeValC{
-            constexpr Register::FieldValue<decltype(caee),CaeeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(caee),CaeeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(caee)::Type,CaeeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(caee)::Type,CaeeVal::v1> v1{};
+        }
         }
         ///no description available
         enum class NopVal {
@@ -311,16 +335,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,NopVal> nop{}; 
         namespace NopValC{
-            constexpr Register::FieldValue<decltype(nop),NopVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(nop),NopVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v1> v1{};
+        }
         }
     }
     namespace DmaSeei{    ///<Set Enable Error Interrupt Register
         using Addr = Register::Address<0x40008019,0xffffff30,0,unsigned char>;
         ///Set Enable Error Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> seei{}; 
-        namespace SeeiValC{
-        }
         ///Sets All Enable Error Interrupts
         enum class SaeeVal {
             v0=0x00000000,     ///<Set only the EEI bit specified in the SEEI field.
@@ -328,8 +351,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,SaeeVal> saee{}; 
         namespace SaeeValC{
-            constexpr Register::FieldValue<decltype(saee),SaeeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(saee),SaeeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(saee)::Type,SaeeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(saee)::Type,SaeeVal::v1> v1{};
+        }
         }
         ///no description available
         enum class NopVal {
@@ -338,16 +362,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,NopVal> nop{}; 
         namespace NopValC{
-            constexpr Register::FieldValue<decltype(nop),NopVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(nop),NopVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v1> v1{};
+        }
         }
     }
     namespace DmaCerq{    ///<Clear Enable Request Register
         using Addr = Register::Address<0x4000801a,0xffffff30,0,unsigned char>;
         ///Clear Enable Request
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> cerq{}; 
-        namespace CerqValC{
-        }
         ///Clear All Enable Requests
         enum class CaerVal {
             v0=0x00000000,     ///<Clear only the ERQ bit specified in the CERQ field
@@ -355,8 +378,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,CaerVal> caer{}; 
         namespace CaerValC{
-            constexpr Register::FieldValue<decltype(caer),CaerVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(caer),CaerVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(caer)::Type,CaerVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(caer)::Type,CaerVal::v1> v1{};
+        }
         }
         ///no description available
         enum class NopVal {
@@ -365,16 +389,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,NopVal> nop{}; 
         namespace NopValC{
-            constexpr Register::FieldValue<decltype(nop),NopVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(nop),NopVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v1> v1{};
+        }
         }
     }
     namespace DmaSerq{    ///<Set Enable Request Register
         using Addr = Register::Address<0x4000801b,0xffffff30,0,unsigned char>;
         ///Set enable request
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> serq{}; 
-        namespace SerqValC{
-        }
         ///Set All Enable Requests
         enum class SaerVal {
             v0=0x00000000,     ///<Set only the ERQ bit specified in the SERQ field
@@ -382,8 +405,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,SaerVal> saer{}; 
         namespace SaerValC{
-            constexpr Register::FieldValue<decltype(saer),SaerVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(saer),SaerVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(saer)::Type,SaerVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(saer)::Type,SaerVal::v1> v1{};
+        }
         }
         ///no description available
         enum class NopVal {
@@ -392,16 +416,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,NopVal> nop{}; 
         namespace NopValC{
-            constexpr Register::FieldValue<decltype(nop),NopVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(nop),NopVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v1> v1{};
+        }
         }
     }
     namespace DmaCdne{    ///<Clear DONE Status Bit Register
         using Addr = Register::Address<0x4000801c,0xffffff30,0,unsigned char>;
         ///Clear DONE Bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> cdne{}; 
-        namespace CdneValC{
-        }
         ///Clears All DONE Bits
         enum class CadnVal {
             v0=0x00000000,     ///<Clears only the TCDn_CSR[DONE] bit specified in the CDNE field
@@ -409,8 +432,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,CadnVal> cadn{}; 
         namespace CadnValC{
-            constexpr Register::FieldValue<decltype(cadn),CadnVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(cadn),CadnVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(cadn)::Type,CadnVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cadn)::Type,CadnVal::v1> v1{};
+        }
         }
         ///no description available
         enum class NopVal {
@@ -419,16 +443,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,NopVal> nop{}; 
         namespace NopValC{
-            constexpr Register::FieldValue<decltype(nop),NopVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(nop),NopVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v1> v1{};
+        }
         }
     }
     namespace DmaSsrt{    ///<Set START Bit Register
         using Addr = Register::Address<0x4000801d,0xffffff30,0,unsigned char>;
         ///Set START Bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ssrt{}; 
-        namespace SsrtValC{
-        }
         ///Set All START Bits (activates all channels)
         enum class SastVal {
             v0=0x00000000,     ///<Set only the TCDn_CSR[START] bit specified in the SSRT field
@@ -436,8 +459,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,SastVal> sast{}; 
         namespace SastValC{
-            constexpr Register::FieldValue<decltype(sast),SastVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(sast),SastVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(sast)::Type,SastVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sast)::Type,SastVal::v1> v1{};
+        }
         }
         ///no description available
         enum class NopVal {
@@ -446,16 +470,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,NopVal> nop{}; 
         namespace NopValC{
-            constexpr Register::FieldValue<decltype(nop),NopVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(nop),NopVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v1> v1{};
+        }
         }
     }
     namespace DmaCerr{    ///<Clear Error Register
         using Addr = Register::Address<0x4000801e,0xffffff30,0,unsigned char>;
         ///Clear Error Indicator
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> cerr{}; 
-        namespace CerrValC{
-        }
         ///Clear All Error Indicators
         enum class CaeiVal {
             v0=0x00000000,     ///<Clear only the ERR bit specified in the CERR field
@@ -463,8 +486,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,CaeiVal> caei{}; 
         namespace CaeiValC{
-            constexpr Register::FieldValue<decltype(caei),CaeiVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(caei),CaeiVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(caei)::Type,CaeiVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(caei)::Type,CaeiVal::v1> v1{};
+        }
         }
         ///no description available
         enum class NopVal {
@@ -473,16 +497,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,NopVal> nop{}; 
         namespace NopValC{
-            constexpr Register::FieldValue<decltype(nop),NopVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(nop),NopVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v1> v1{};
+        }
         }
     }
     namespace DmaCint{    ///<Clear Interrupt Request Register
         using Addr = Register::Address<0x4000801f,0xffffff30,0,unsigned char>;
         ///Clear Interrupt Request
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> cint{}; 
-        namespace CintValC{
-        }
         ///Clear All Interrupt Requests
         enum class CairVal {
             v0=0x00000000,     ///<Clear only the INT bit specified in the CINT field
@@ -490,8 +513,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,CairVal> cair{}; 
         namespace CairValC{
-            constexpr Register::FieldValue<decltype(cair),CairVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(cair),CairVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(cair)::Type,CairVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cair)::Type,CairVal::v1> v1{};
+        }
         }
         ///no description available
         enum class NopVal {
@@ -500,8 +524,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,NopVal> nop{}; 
         namespace NopValC{
-            constexpr Register::FieldValue<decltype(nop),NopVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(nop),NopVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(nop)::Type,NopVal::v1> v1{};
+        }
         }
     }
     namespace DmaInt{    ///<Interrupt Request Register
@@ -513,8 +538,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Int0Val> int0{}; 
         namespace Int0ValC{
-            constexpr Register::FieldValue<decltype(int0),Int0Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(int0),Int0Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(int0)::Type,Int0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(int0)::Type,Int0Val::v1> v1{};
+        }
         }
         ///Interrupt Request 1
         enum class Int1Val {
@@ -523,8 +549,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Int1Val> int1{}; 
         namespace Int1ValC{
-            constexpr Register::FieldValue<decltype(int1),Int1Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(int1),Int1Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(int1)::Type,Int1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(int1)::Type,Int1Val::v1> v1{};
+        }
         }
         ///Interrupt Request 2
         enum class Int2Val {
@@ -533,8 +560,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Int2Val> int2{}; 
         namespace Int2ValC{
-            constexpr Register::FieldValue<decltype(int2),Int2Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(int2),Int2Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(int2)::Type,Int2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(int2)::Type,Int2Val::v1> v1{};
+        }
         }
         ///Interrupt Request 3
         enum class Int3Val {
@@ -543,8 +571,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Int3Val> int3{}; 
         namespace Int3ValC{
-            constexpr Register::FieldValue<decltype(int3),Int3Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(int3),Int3Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(int3)::Type,Int3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(int3)::Type,Int3Val::v1> v1{};
+        }
         }
     }
     namespace DmaErr{    ///<Error Register
@@ -556,8 +585,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Err0Val> err0{}; 
         namespace Err0ValC{
-            constexpr Register::FieldValue<decltype(err0),Err0Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(err0),Err0Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(err0)::Type,Err0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(err0)::Type,Err0Val::v1> v1{};
+        }
         }
         ///Error In Channel 1
         enum class Err1Val {
@@ -566,8 +596,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Err1Val> err1{}; 
         namespace Err1ValC{
-            constexpr Register::FieldValue<decltype(err1),Err1Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(err1),Err1Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(err1)::Type,Err1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(err1)::Type,Err1Val::v1> v1{};
+        }
         }
         ///Error In Channel 2
         enum class Err2Val {
@@ -576,8 +607,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Err2Val> err2{}; 
         namespace Err2ValC{
-            constexpr Register::FieldValue<decltype(err2),Err2Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(err2),Err2Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(err2)::Type,Err2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(err2)::Type,Err2Val::v1> v1{};
+        }
         }
         ///Error In Channel 3
         enum class Err3Val {
@@ -586,8 +618,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Err3Val> err3{}; 
         namespace Err3ValC{
-            constexpr Register::FieldValue<decltype(err3),Err3Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(err3),Err3Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(err3)::Type,Err3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(err3)::Type,Err3Val::v1> v1{};
+        }
         }
     }
     namespace DmaHrs{    ///<Hardware Request Status Register
@@ -599,8 +632,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Hrs0Val> hrs0{}; 
         namespace Hrs0ValC{
-            constexpr Register::FieldValue<decltype(hrs0),Hrs0Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(hrs0),Hrs0Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(hrs0)::Type,Hrs0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(hrs0)::Type,Hrs0Val::v1> v1{};
+        }
         }
         ///Hardware Request Status Channel 1
         enum class Hrs1Val {
@@ -609,8 +643,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Hrs1Val> hrs1{}; 
         namespace Hrs1ValC{
-            constexpr Register::FieldValue<decltype(hrs1),Hrs1Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(hrs1),Hrs1Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(hrs1)::Type,Hrs1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(hrs1)::Type,Hrs1Val::v1> v1{};
+        }
         }
         ///Hardware Request Status Channel 2
         enum class Hrs2Val {
@@ -619,8 +654,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Hrs2Val> hrs2{}; 
         namespace Hrs2ValC{
-            constexpr Register::FieldValue<decltype(hrs2),Hrs2Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(hrs2),Hrs2Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(hrs2)::Type,Hrs2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(hrs2)::Type,Hrs2Val::v1> v1{};
+        }
         }
         ///Hardware Request Status Channel 3
         enum class Hrs3Val {
@@ -629,16 +665,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Hrs3Val> hrs3{}; 
         namespace Hrs3ValC{
-            constexpr Register::FieldValue<decltype(hrs3),Hrs3Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(hrs3),Hrs3Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(hrs3)::Type,Hrs3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(hrs3)::Type,Hrs3Val::v1> v1{};
+        }
         }
     }
     namespace DmaDchpri3{    ///<Channel n Priority Register
         using Addr = Register::Address<0x40008100,0xffffff30,0,unsigned char>;
         ///Channel n Arbitration Priority
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> chpri{}; 
-        namespace ChpriValC{
-        }
         ///Disable Preempt Ability
         enum class DpaVal {
             v0=0x00000000,     ///<Channel n can suspend a lower priority channel
@@ -646,8 +681,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,DpaVal> dpa{}; 
         namespace DpaValC{
-            constexpr Register::FieldValue<decltype(dpa),DpaVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dpa),DpaVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
+        }
         }
         ///Enable Channel Preemption
         enum class EcpVal {
@@ -656,16 +692,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,EcpVal> ecp{}; 
         namespace EcpValC{
-            constexpr Register::FieldValue<decltype(ecp),EcpVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ecp),EcpVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
+        }
         }
     }
     namespace DmaDchpri2{    ///<Channel n Priority Register
         using Addr = Register::Address<0x40008101,0xffffff30,0,unsigned char>;
         ///Channel n Arbitration Priority
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> chpri{}; 
-        namespace ChpriValC{
-        }
         ///Disable Preempt Ability
         enum class DpaVal {
             v0=0x00000000,     ///<Channel n can suspend a lower priority channel
@@ -673,8 +708,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,DpaVal> dpa{}; 
         namespace DpaValC{
-            constexpr Register::FieldValue<decltype(dpa),DpaVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dpa),DpaVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
+        }
         }
         ///Enable Channel Preemption
         enum class EcpVal {
@@ -683,16 +719,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,EcpVal> ecp{}; 
         namespace EcpValC{
-            constexpr Register::FieldValue<decltype(ecp),EcpVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ecp),EcpVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
+        }
         }
     }
     namespace DmaDchpri1{    ///<Channel n Priority Register
         using Addr = Register::Address<0x40008102,0xffffff30,0,unsigned char>;
         ///Channel n Arbitration Priority
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> chpri{}; 
-        namespace ChpriValC{
-        }
         ///Disable Preempt Ability
         enum class DpaVal {
             v0=0x00000000,     ///<Channel n can suspend a lower priority channel
@@ -700,8 +735,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,DpaVal> dpa{}; 
         namespace DpaValC{
-            constexpr Register::FieldValue<decltype(dpa),DpaVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dpa),DpaVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
+        }
         }
         ///Enable Channel Preemption
         enum class EcpVal {
@@ -710,16 +746,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,EcpVal> ecp{}; 
         namespace EcpValC{
-            constexpr Register::FieldValue<decltype(ecp),EcpVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ecp),EcpVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
+        }
         }
     }
     namespace DmaDchpri0{    ///<Channel n Priority Register
         using Addr = Register::Address<0x40008103,0xffffff30,0,unsigned char>;
         ///Channel n Arbitration Priority
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> chpri{}; 
-        namespace ChpriValC{
-        }
         ///Disable Preempt Ability
         enum class DpaVal {
             v0=0x00000000,     ///<Channel n can suspend a lower priority channel
@@ -727,8 +762,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,DpaVal> dpa{}; 
         namespace DpaValC{
-            constexpr Register::FieldValue<decltype(dpa),DpaVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dpa),DpaVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dpa)::Type,DpaVal::v1> v1{};
+        }
         }
         ///Enable Channel Preemption
         enum class EcpVal {
@@ -737,176 +773,119 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,EcpVal> ecp{}; 
         namespace EcpValC{
-            constexpr Register::FieldValue<decltype(ecp),EcpVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ecp),EcpVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ecp)::Type,EcpVal::v1> v1{};
+        }
         }
     }
     namespace DmaTcd0Saddr{    ///<TCD Source Address
         using Addr = Register::Address<0x40009000,0x00000000,0,unsigned>;
         ///Source Address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> saddr{}; 
-        namespace SaddrValC{
-        }
     }
     namespace DmaTcd1Saddr{    ///<TCD Source Address
         using Addr = Register::Address<0x40009020,0x00000000,0,unsigned>;
         ///Source Address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> saddr{}; 
-        namespace SaddrValC{
-        }
     }
     namespace DmaTcd2Saddr{    ///<TCD Source Address
         using Addr = Register::Address<0x40009040,0x00000000,0,unsigned>;
         ///Source Address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> saddr{}; 
-        namespace SaddrValC{
-        }
     }
     namespace DmaTcd3Saddr{    ///<TCD Source Address
         using Addr = Register::Address<0x40009060,0x00000000,0,unsigned>;
         ///Source Address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> saddr{}; 
-        namespace SaddrValC{
-        }
     }
     namespace DmaTcd0Soff{    ///<TCD Signed Source Address Offset
         using Addr = Register::Address<0x40009004,0xffff0000,0,unsigned>;
         ///Source address signed offset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> soff{}; 
-        namespace SoffValC{
-        }
     }
     namespace DmaTcd1Soff{    ///<TCD Signed Source Address Offset
         using Addr = Register::Address<0x40009024,0xffff0000,0,unsigned>;
         ///Source address signed offset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> soff{}; 
-        namespace SoffValC{
-        }
     }
     namespace DmaTcd2Soff{    ///<TCD Signed Source Address Offset
         using Addr = Register::Address<0x40009044,0xffff0000,0,unsigned>;
         ///Source address signed offset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> soff{}; 
-        namespace SoffValC{
-        }
     }
     namespace DmaTcd3Soff{    ///<TCD Signed Source Address Offset
         using Addr = Register::Address<0x40009064,0xffff0000,0,unsigned>;
         ///Source address signed offset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> soff{}; 
-        namespace SoffValC{
-        }
     }
     namespace DmaTcd0Attr{    ///<TCD Transfer Attributes
         using Addr = Register::Address<0x40009006,0xffff0000,0,unsigned>;
         ///Destination Data Transfer Size
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> dsize{}; 
-        namespace DsizeValC{
-        }
         ///Destination Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,3),Register::ReadWriteAccess,unsigned> dmod{}; 
-        namespace DmodValC{
-        }
         ///Source data transfer size
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> ssize{}; 
-        namespace SsizeValC{
-        }
         ///Source Address Modulo.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
-        namespace SmodValC{
-        }
     }
     namespace DmaTcd1Attr{    ///<TCD Transfer Attributes
         using Addr = Register::Address<0x40009026,0xffff0000,0,unsigned>;
         ///Destination Data Transfer Size
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> dsize{}; 
-        namespace DsizeValC{
-        }
         ///Destination Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,3),Register::ReadWriteAccess,unsigned> dmod{}; 
-        namespace DmodValC{
-        }
         ///Source data transfer size
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> ssize{}; 
-        namespace SsizeValC{
-        }
         ///Source Address Modulo.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
-        namespace SmodValC{
-        }
     }
     namespace DmaTcd2Attr{    ///<TCD Transfer Attributes
         using Addr = Register::Address<0x40009046,0xffff0000,0,unsigned>;
         ///Destination Data Transfer Size
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> dsize{}; 
-        namespace DsizeValC{
-        }
         ///Destination Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,3),Register::ReadWriteAccess,unsigned> dmod{}; 
-        namespace DmodValC{
-        }
         ///Source data transfer size
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> ssize{}; 
-        namespace SsizeValC{
-        }
         ///Source Address Modulo.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
-        namespace SmodValC{
-        }
     }
     namespace DmaTcd3Attr{    ///<TCD Transfer Attributes
         using Addr = Register::Address<0x40009066,0xffff0000,0,unsigned>;
         ///Destination Data Transfer Size
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> dsize{}; 
-        namespace DsizeValC{
-        }
         ///Destination Address Modulo
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,3),Register::ReadWriteAccess,unsigned> dmod{}; 
-        namespace DmodValC{
-        }
         ///Source data transfer size
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> ssize{}; 
-        namespace SsizeValC{
-        }
         ///Source Address Modulo.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,11),Register::ReadWriteAccess,unsigned> smod{}; 
-        namespace SmodValC{
-        }
     }
     namespace DmaTcd0NbytesMlno{    ///<TCD Minor Byte Count (Minor Loop Disabled)
         using Addr = Register::Address<0x40009008,0x00000000,0,unsigned>;
         ///Minor Byte Transfer Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nbytes{}; 
-        namespace NbytesValC{
-        }
     }
     namespace DmaTcd1NbytesMlno{    ///<TCD Minor Byte Count (Minor Loop Disabled)
         using Addr = Register::Address<0x40009028,0x00000000,0,unsigned>;
         ///Minor Byte Transfer Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nbytes{}; 
-        namespace NbytesValC{
-        }
     }
     namespace DmaTcd2NbytesMlno{    ///<TCD Minor Byte Count (Minor Loop Disabled)
         using Addr = Register::Address<0x40009048,0x00000000,0,unsigned>;
         ///Minor Byte Transfer Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nbytes{}; 
-        namespace NbytesValC{
-        }
     }
     namespace DmaTcd3NbytesMlno{    ///<TCD Minor Byte Count (Minor Loop Disabled)
         using Addr = Register::Address<0x40009068,0x00000000,0,unsigned>;
         ///Minor Byte Transfer Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> nbytes{}; 
-        namespace NbytesValC{
-        }
     }
     namespace DmaTcd0NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
         using Addr = Register::Address<0x40009008,0x00000000,0,unsigned>;
         ///Minor Byte Transfer Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,0),Register::ReadWriteAccess,unsigned> nbytes{}; 
-        namespace NbytesValC{
-        }
         ///Destination Minor Loop Offset enable
         enum class DmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the DADDR
@@ -914,8 +893,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,DmloeVal> dmloe{}; 
         namespace DmloeValC{
-            constexpr Register::FieldValue<decltype(dmloe),DmloeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dmloe),DmloeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
+        }
         }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
@@ -924,16 +904,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,SmloeVal> smloe{}; 
         namespace SmloeValC{
-            constexpr Register::FieldValue<decltype(smloe),SmloeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(smloe),SmloeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
+        }
         }
     }
     namespace DmaTcd1NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
         using Addr = Register::Address<0x40009028,0x00000000,0,unsigned>;
         ///Minor Byte Transfer Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,0),Register::ReadWriteAccess,unsigned> nbytes{}; 
-        namespace NbytesValC{
-        }
         ///Destination Minor Loop Offset enable
         enum class DmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the DADDR
@@ -941,8 +920,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,DmloeVal> dmloe{}; 
         namespace DmloeValC{
-            constexpr Register::FieldValue<decltype(dmloe),DmloeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dmloe),DmloeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
+        }
         }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
@@ -951,16 +931,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,SmloeVal> smloe{}; 
         namespace SmloeValC{
-            constexpr Register::FieldValue<decltype(smloe),SmloeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(smloe),SmloeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
+        }
         }
     }
     namespace DmaTcd2NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
         using Addr = Register::Address<0x40009048,0x00000000,0,unsigned>;
         ///Minor Byte Transfer Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,0),Register::ReadWriteAccess,unsigned> nbytes{}; 
-        namespace NbytesValC{
-        }
         ///Destination Minor Loop Offset enable
         enum class DmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the DADDR
@@ -968,8 +947,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,DmloeVal> dmloe{}; 
         namespace DmloeValC{
-            constexpr Register::FieldValue<decltype(dmloe),DmloeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dmloe),DmloeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
+        }
         }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
@@ -978,16 +958,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,SmloeVal> smloe{}; 
         namespace SmloeValC{
-            constexpr Register::FieldValue<decltype(smloe),SmloeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(smloe),SmloeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
+        }
         }
     }
     namespace DmaTcd3NbytesMloffno{    ///<TCD Signed Minor Loop Offset (Minor Loop Enabled and Offset Disabled)
         using Addr = Register::Address<0x40009068,0x00000000,0,unsigned>;
         ///Minor Byte Transfer Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,0),Register::ReadWriteAccess,unsigned> nbytes{}; 
-        namespace NbytesValC{
-        }
         ///Destination Minor Loop Offset enable
         enum class DmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the DADDR
@@ -995,8 +974,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,DmloeVal> dmloe{}; 
         namespace DmloeValC{
-            constexpr Register::FieldValue<decltype(dmloe),DmloeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dmloe),DmloeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
+        }
         }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
@@ -1005,20 +985,17 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,SmloeVal> smloe{}; 
         namespace SmloeValC{
-            constexpr Register::FieldValue<decltype(smloe),SmloeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(smloe),SmloeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
+        }
         }
     }
     namespace DmaTcd0NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
         using Addr = Register::Address<0x40009008,0x00000000,0,unsigned>;
         ///Minor Byte Transfer Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> nbytes{}; 
-        namespace NbytesValC{
-        }
         ///If SMLOE or DMLOE is set, this field represents a sign-extended offset applied to the source or destination address to form the next-state value after the minor loop completes.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,10),Register::ReadWriteAccess,unsigned> mloff{}; 
-        namespace MloffValC{
-        }
         ///Destination Minor Loop Offset enable
         enum class DmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the DADDR
@@ -1026,8 +1003,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,DmloeVal> dmloe{}; 
         namespace DmloeValC{
-            constexpr Register::FieldValue<decltype(dmloe),DmloeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dmloe),DmloeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
+        }
         }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
@@ -1036,20 +1014,17 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,SmloeVal> smloe{}; 
         namespace SmloeValC{
-            constexpr Register::FieldValue<decltype(smloe),SmloeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(smloe),SmloeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
+        }
         }
     }
     namespace DmaTcd1NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
         using Addr = Register::Address<0x40009028,0x00000000,0,unsigned>;
         ///Minor Byte Transfer Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> nbytes{}; 
-        namespace NbytesValC{
-        }
         ///If SMLOE or DMLOE is set, this field represents a sign-extended offset applied to the source or destination address to form the next-state value after the minor loop completes.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,10),Register::ReadWriteAccess,unsigned> mloff{}; 
-        namespace MloffValC{
-        }
         ///Destination Minor Loop Offset enable
         enum class DmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the DADDR
@@ -1057,8 +1032,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,DmloeVal> dmloe{}; 
         namespace DmloeValC{
-            constexpr Register::FieldValue<decltype(dmloe),DmloeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dmloe),DmloeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
+        }
         }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
@@ -1067,20 +1043,17 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,SmloeVal> smloe{}; 
         namespace SmloeValC{
-            constexpr Register::FieldValue<decltype(smloe),SmloeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(smloe),SmloeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
+        }
         }
     }
     namespace DmaTcd2NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
         using Addr = Register::Address<0x40009048,0x00000000,0,unsigned>;
         ///Minor Byte Transfer Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> nbytes{}; 
-        namespace NbytesValC{
-        }
         ///If SMLOE or DMLOE is set, this field represents a sign-extended offset applied to the source or destination address to form the next-state value after the minor loop completes.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,10),Register::ReadWriteAccess,unsigned> mloff{}; 
-        namespace MloffValC{
-        }
         ///Destination Minor Loop Offset enable
         enum class DmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the DADDR
@@ -1088,8 +1061,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,DmloeVal> dmloe{}; 
         namespace DmloeValC{
-            constexpr Register::FieldValue<decltype(dmloe),DmloeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dmloe),DmloeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
+        }
         }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
@@ -1098,20 +1072,17 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,SmloeVal> smloe{}; 
         namespace SmloeValC{
-            constexpr Register::FieldValue<decltype(smloe),SmloeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(smloe),SmloeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
+        }
         }
     }
     namespace DmaTcd3NbytesMloffyes{    ///<TCD Signed Minor Loop Offset (Minor Loop and Offset Enabled)
         using Addr = Register::Address<0x40009068,0x00000000,0,unsigned>;
         ///Minor Byte Transfer Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> nbytes{}; 
-        namespace NbytesValC{
-        }
         ///If SMLOE or DMLOE is set, this field represents a sign-extended offset applied to the source or destination address to form the next-state value after the minor loop completes.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,10),Register::ReadWriteAccess,unsigned> mloff{}; 
-        namespace MloffValC{
-        }
         ///Destination Minor Loop Offset enable
         enum class DmloeVal {
             v0=0x00000000,     ///<The minor loop offset is not applied to the DADDR
@@ -1119,8 +1090,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,DmloeVal> dmloe{}; 
         namespace DmloeValC{
-            constexpr Register::FieldValue<decltype(dmloe),DmloeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dmloe),DmloeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dmloe)::Type,DmloeVal::v1> v1{};
+        }
         }
         ///Source Minor Loop Offset Enable
         enum class SmloeVal {
@@ -1129,100 +1101,75 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,SmloeVal> smloe{}; 
         namespace SmloeValC{
-            constexpr Register::FieldValue<decltype(smloe),SmloeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(smloe),SmloeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(smloe)::Type,SmloeVal::v1> v1{};
+        }
         }
     }
     namespace DmaTcd0Slast{    ///<TCD Last Source Address Adjustment
         using Addr = Register::Address<0x4000900c,0x00000000,0,unsigned>;
         ///Last source Address Adjustment
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> slast{}; 
-        namespace SlastValC{
-        }
     }
     namespace DmaTcd1Slast{    ///<TCD Last Source Address Adjustment
         using Addr = Register::Address<0x4000902c,0x00000000,0,unsigned>;
         ///Last source Address Adjustment
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> slast{}; 
-        namespace SlastValC{
-        }
     }
     namespace DmaTcd2Slast{    ///<TCD Last Source Address Adjustment
         using Addr = Register::Address<0x4000904c,0x00000000,0,unsigned>;
         ///Last source Address Adjustment
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> slast{}; 
-        namespace SlastValC{
-        }
     }
     namespace DmaTcd3Slast{    ///<TCD Last Source Address Adjustment
         using Addr = Register::Address<0x4000906c,0x00000000,0,unsigned>;
         ///Last source Address Adjustment
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> slast{}; 
-        namespace SlastValC{
-        }
     }
     namespace DmaTcd0Daddr{    ///<TCD Destination Address
         using Addr = Register::Address<0x40009010,0x00000000,0,unsigned>;
         ///Destination Address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> daddr{}; 
-        namespace DaddrValC{
-        }
     }
     namespace DmaTcd1Daddr{    ///<TCD Destination Address
         using Addr = Register::Address<0x40009030,0x00000000,0,unsigned>;
         ///Destination Address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> daddr{}; 
-        namespace DaddrValC{
-        }
     }
     namespace DmaTcd2Daddr{    ///<TCD Destination Address
         using Addr = Register::Address<0x40009050,0x00000000,0,unsigned>;
         ///Destination Address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> daddr{}; 
-        namespace DaddrValC{
-        }
     }
     namespace DmaTcd3Daddr{    ///<TCD Destination Address
         using Addr = Register::Address<0x40009070,0x00000000,0,unsigned>;
         ///Destination Address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> daddr{}; 
-        namespace DaddrValC{
-        }
     }
     namespace DmaTcd0Doff{    ///<TCD Signed Destination Address Offset
         using Addr = Register::Address<0x40009014,0xffff0000,0,unsigned>;
         ///Destination Address Signed offset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> doff{}; 
-        namespace DoffValC{
-        }
     }
     namespace DmaTcd1Doff{    ///<TCD Signed Destination Address Offset
         using Addr = Register::Address<0x40009034,0xffff0000,0,unsigned>;
         ///Destination Address Signed offset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> doff{}; 
-        namespace DoffValC{
-        }
     }
     namespace DmaTcd2Doff{    ///<TCD Signed Destination Address Offset
         using Addr = Register::Address<0x40009054,0xffff0000,0,unsigned>;
         ///Destination Address Signed offset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> doff{}; 
-        namespace DoffValC{
-        }
     }
     namespace DmaTcd3Doff{    ///<TCD Signed Destination Address Offset
         using Addr = Register::Address<0x40009074,0xffff0000,0,unsigned>;
         ///Destination Address Signed offset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> doff{}; 
-        namespace DoffValC{
-        }
     }
     namespace DmaTcd0CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x40009016,0xffff0000,0,unsigned>;
         ///Current Major Iteration Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,0),Register::ReadWriteAccess,unsigned> citer{}; 
-        namespace CiterValC{
-        }
         ///Enable channel-to-channel linking on minor-loop complete
         enum class ElinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -1230,16 +1177,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,ElinkVal> elink{}; 
         namespace ElinkValC{
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
+        }
         }
     }
     namespace DmaTcd1CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x40009036,0xffff0000,0,unsigned>;
         ///Current Major Iteration Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,0),Register::ReadWriteAccess,unsigned> citer{}; 
-        namespace CiterValC{
-        }
         ///Enable channel-to-channel linking on minor-loop complete
         enum class ElinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -1247,16 +1193,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,ElinkVal> elink{}; 
         namespace ElinkValC{
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
+        }
         }
     }
     namespace DmaTcd2CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x40009056,0xffff0000,0,unsigned>;
         ///Current Major Iteration Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,0),Register::ReadWriteAccess,unsigned> citer{}; 
-        namespace CiterValC{
-        }
         ///Enable channel-to-channel linking on minor-loop complete
         enum class ElinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -1264,16 +1209,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,ElinkVal> elink{}; 
         namespace ElinkValC{
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
+        }
         }
     }
     namespace DmaTcd3CiterElinkno{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x40009076,0xffff0000,0,unsigned>;
         ///Current Major Iteration Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,0),Register::ReadWriteAccess,unsigned> citer{}; 
-        namespace CiterValC{
-        }
         ///Enable channel-to-channel linking on minor-loop complete
         enum class ElinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -1281,20 +1225,17 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,ElinkVal> elink{}; 
         namespace ElinkValC{
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
+        }
         }
     }
     namespace DmaTcd0CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x40009016,0xffff6000,0,unsigned>;
         ///Current Major Iteration Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> citer{}; 
-        namespace CiterValC{
-        }
         ///Link Channel Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,9),Register::ReadWriteAccess,unsigned> linkch{}; 
-        namespace LinkchValC{
-        }
         ///Enable channel-to-channel linking on minor-loop complete
         enum class ElinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -1302,20 +1243,17 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,ElinkVal> elink{}; 
         namespace ElinkValC{
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
+        }
         }
     }
     namespace DmaTcd1CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x40009036,0xffff6000,0,unsigned>;
         ///Current Major Iteration Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> citer{}; 
-        namespace CiterValC{
-        }
         ///Link Channel Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,9),Register::ReadWriteAccess,unsigned> linkch{}; 
-        namespace LinkchValC{
-        }
         ///Enable channel-to-channel linking on minor-loop complete
         enum class ElinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -1323,20 +1261,17 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,ElinkVal> elink{}; 
         namespace ElinkValC{
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
+        }
         }
     }
     namespace DmaTcd2CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x40009056,0xffff6000,0,unsigned>;
         ///Current Major Iteration Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> citer{}; 
-        namespace CiterValC{
-        }
         ///Link Channel Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,9),Register::ReadWriteAccess,unsigned> linkch{}; 
-        namespace LinkchValC{
-        }
         ///Enable channel-to-channel linking on minor-loop complete
         enum class ElinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -1344,20 +1279,17 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,ElinkVal> elink{}; 
         namespace ElinkValC{
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
+        }
         }
     }
     namespace DmaTcd3CiterElinkyes{    ///<TCD Current Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x40009076,0xffff6000,0,unsigned>;
         ///Current Major Iteration Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> citer{}; 
-        namespace CiterValC{
-        }
         ///Link Channel Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,9),Register::ReadWriteAccess,unsigned> linkch{}; 
-        namespace LinkchValC{
-        }
         ///Enable channel-to-channel linking on minor-loop complete
         enum class ElinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -1365,37 +1297,30 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,ElinkVal> elink{}; 
         namespace ElinkValC{
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
+        }
         }
     }
     namespace DmaTcd0Dlastsga{    ///<TCD Last Destination Address Adjustment/Scatter Gather Address
         using Addr = Register::Address<0x40009018,0x00000000,0,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dlastsga{}; 
-        namespace DlastsgaValC{
-        }
     }
     namespace DmaTcd1Dlastsga{    ///<TCD Last Destination Address Adjustment/Scatter Gather Address
         using Addr = Register::Address<0x40009038,0x00000000,0,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dlastsga{}; 
-        namespace DlastsgaValC{
-        }
     }
     namespace DmaTcd2Dlastsga{    ///<TCD Last Destination Address Adjustment/Scatter Gather Address
         using Addr = Register::Address<0x40009058,0x00000000,0,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dlastsga{}; 
-        namespace DlastsgaValC{
-        }
     }
     namespace DmaTcd3Dlastsga{    ///<TCD Last Destination Address Adjustment/Scatter Gather Address
         using Addr = Register::Address<0x40009078,0x00000000,0,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dlastsga{}; 
-        namespace DlastsgaValC{
-        }
     }
     namespace DmaTcd0Csr{    ///<TCD Control and Status
         using Addr = Register::Address<0x4000901c,0xffff3000,0,unsigned>;
@@ -1406,8 +1331,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,StartVal> start{}; 
         namespace StartValC{
-            constexpr Register::FieldValue<decltype(start),StartVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(start),StartVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
+        }
         }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
@@ -1416,8 +1342,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,IntmajorVal> intmajor{}; 
         namespace IntmajorValC{
-            constexpr Register::FieldValue<decltype(intmajor),IntmajorVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(intmajor),IntmajorVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
+        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -1426,8 +1353,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,InthalfVal> inthalf{}; 
         namespace InthalfValC{
-            constexpr Register::FieldValue<decltype(inthalf),InthalfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(inthalf),InthalfVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
+        }
         }
         ///Disable Request
         enum class DreqVal {
@@ -1436,8 +1364,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,DreqVal> dreq{}; 
         namespace DreqValC{
-            constexpr Register::FieldValue<decltype(dreq),DreqVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dreq),DreqVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
+        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -1446,8 +1375,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,EsgVal> esg{}; 
         namespace EsgValC{
-            constexpr Register::FieldValue<decltype(esg),EsgVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(esg),EsgVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
+        }
         }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
@@ -1456,21 +1386,16 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,MajorelinkVal> majorelink{}; 
         namespace MajorelinkValC{
-            constexpr Register::FieldValue<decltype(majorelink),MajorelinkVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(majorelink),MajorelinkVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
+        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
-        namespace ActiveValC{
-        }
         ///Channel Done
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> done{}; 
-        namespace DoneValC{
-        }
         ///Link Channel Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> majorlinkch{}; 
-        namespace MajorlinkchValC{
-        }
         ///Bandwidth Control
         enum class BwcVal {
             v00=0x00000000,     ///<No eDMA engine stalls
@@ -1479,9 +1404,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,BwcVal> bwc{}; 
         namespace BwcValC{
-            constexpr Register::FieldValue<decltype(bwc),BwcVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(bwc),BwcVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(bwc),BwcVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
+        }
         }
     }
     namespace DmaTcd1Csr{    ///<TCD Control and Status
@@ -1493,8 +1419,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,StartVal> start{}; 
         namespace StartValC{
-            constexpr Register::FieldValue<decltype(start),StartVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(start),StartVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
+        }
         }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
@@ -1503,8 +1430,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,IntmajorVal> intmajor{}; 
         namespace IntmajorValC{
-            constexpr Register::FieldValue<decltype(intmajor),IntmajorVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(intmajor),IntmajorVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
+        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -1513,8 +1441,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,InthalfVal> inthalf{}; 
         namespace InthalfValC{
-            constexpr Register::FieldValue<decltype(inthalf),InthalfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(inthalf),InthalfVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
+        }
         }
         ///Disable Request
         enum class DreqVal {
@@ -1523,8 +1452,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,DreqVal> dreq{}; 
         namespace DreqValC{
-            constexpr Register::FieldValue<decltype(dreq),DreqVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dreq),DreqVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
+        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -1533,8 +1463,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,EsgVal> esg{}; 
         namespace EsgValC{
-            constexpr Register::FieldValue<decltype(esg),EsgVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(esg),EsgVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
+        }
         }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
@@ -1543,21 +1474,16 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,MajorelinkVal> majorelink{}; 
         namespace MajorelinkValC{
-            constexpr Register::FieldValue<decltype(majorelink),MajorelinkVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(majorelink),MajorelinkVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
+        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
-        namespace ActiveValC{
-        }
         ///Channel Done
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> done{}; 
-        namespace DoneValC{
-        }
         ///Link Channel Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> majorlinkch{}; 
-        namespace MajorlinkchValC{
-        }
         ///Bandwidth Control
         enum class BwcVal {
             v00=0x00000000,     ///<No eDMA engine stalls
@@ -1566,9 +1492,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,BwcVal> bwc{}; 
         namespace BwcValC{
-            constexpr Register::FieldValue<decltype(bwc),BwcVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(bwc),BwcVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(bwc),BwcVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
+        }
         }
     }
     namespace DmaTcd2Csr{    ///<TCD Control and Status
@@ -1580,8 +1507,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,StartVal> start{}; 
         namespace StartValC{
-            constexpr Register::FieldValue<decltype(start),StartVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(start),StartVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
+        }
         }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
@@ -1590,8 +1518,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,IntmajorVal> intmajor{}; 
         namespace IntmajorValC{
-            constexpr Register::FieldValue<decltype(intmajor),IntmajorVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(intmajor),IntmajorVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
+        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -1600,8 +1529,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,InthalfVal> inthalf{}; 
         namespace InthalfValC{
-            constexpr Register::FieldValue<decltype(inthalf),InthalfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(inthalf),InthalfVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
+        }
         }
         ///Disable Request
         enum class DreqVal {
@@ -1610,8 +1540,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,DreqVal> dreq{}; 
         namespace DreqValC{
-            constexpr Register::FieldValue<decltype(dreq),DreqVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dreq),DreqVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
+        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -1620,8 +1551,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,EsgVal> esg{}; 
         namespace EsgValC{
-            constexpr Register::FieldValue<decltype(esg),EsgVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(esg),EsgVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
+        }
         }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
@@ -1630,21 +1562,16 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,MajorelinkVal> majorelink{}; 
         namespace MajorelinkValC{
-            constexpr Register::FieldValue<decltype(majorelink),MajorelinkVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(majorelink),MajorelinkVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
+        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
-        namespace ActiveValC{
-        }
         ///Channel Done
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> done{}; 
-        namespace DoneValC{
-        }
         ///Link Channel Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> majorlinkch{}; 
-        namespace MajorlinkchValC{
-        }
         ///Bandwidth Control
         enum class BwcVal {
             v00=0x00000000,     ///<No eDMA engine stalls
@@ -1653,9 +1580,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,BwcVal> bwc{}; 
         namespace BwcValC{
-            constexpr Register::FieldValue<decltype(bwc),BwcVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(bwc),BwcVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(bwc),BwcVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
+        }
         }
     }
     namespace DmaTcd3Csr{    ///<TCD Control and Status
@@ -1667,8 +1595,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,StartVal> start{}; 
         namespace StartValC{
-            constexpr Register::FieldValue<decltype(start),StartVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(start),StartVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
+        }
         }
         ///Enable an interrupt when major iteration count completes
         enum class IntmajorVal {
@@ -1677,8 +1606,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,IntmajorVal> intmajor{}; 
         namespace IntmajorValC{
-            constexpr Register::FieldValue<decltype(intmajor),IntmajorVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(intmajor),IntmajorVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(intmajor)::Type,IntmajorVal::v1> v1{};
+        }
         }
         ///Enable an interrupt when major counter is half complete.
         enum class InthalfVal {
@@ -1687,8 +1617,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,InthalfVal> inthalf{}; 
         namespace InthalfValC{
-            constexpr Register::FieldValue<decltype(inthalf),InthalfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(inthalf),InthalfVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(inthalf)::Type,InthalfVal::v1> v1{};
+        }
         }
         ///Disable Request
         enum class DreqVal {
@@ -1697,8 +1628,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,DreqVal> dreq{}; 
         namespace DreqValC{
-            constexpr Register::FieldValue<decltype(dreq),DreqVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dreq),DreqVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dreq)::Type,DreqVal::v1> v1{};
+        }
         }
         ///Enable Scatter/Gather Processing
         enum class EsgVal {
@@ -1707,8 +1639,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,EsgVal> esg{}; 
         namespace EsgValC{
-            constexpr Register::FieldValue<decltype(esg),EsgVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(esg),EsgVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(esg)::Type,EsgVal::v1> v1{};
+        }
         }
         ///Enable channel-to-channel linking on major loop complete
         enum class MajorelinkVal {
@@ -1717,21 +1650,16 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,MajorelinkVal> majorelink{}; 
         namespace MajorelinkValC{
-            constexpr Register::FieldValue<decltype(majorelink),MajorelinkVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(majorelink),MajorelinkVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(majorelink)::Type,MajorelinkVal::v1> v1{};
+        }
         }
         ///Channel Active
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> active{}; 
-        namespace ActiveValC{
-        }
         ///Channel Done
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> done{}; 
-        namespace DoneValC{
-        }
         ///Link Channel Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> majorlinkch{}; 
-        namespace MajorlinkchValC{
-        }
         ///Bandwidth Control
         enum class BwcVal {
             v00=0x00000000,     ///<No eDMA engine stalls
@@ -1740,17 +1668,16 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,BwcVal> bwc{}; 
         namespace BwcValC{
-            constexpr Register::FieldValue<decltype(bwc),BwcVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(bwc),BwcVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(bwc),BwcVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(bwc)::Type,BwcVal::v11> v11{};
+        }
         }
     }
     namespace DmaTcd0BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x4000901e,0xffff0000,0,unsigned>;
         ///Starting Major Iteration Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,0),Register::ReadWriteAccess,unsigned> biter{}; 
-        namespace BiterValC{
-        }
         ///Enables channel-to-channel linking on minor loop complete
         enum class ElinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -1758,16 +1685,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,ElinkVal> elink{}; 
         namespace ElinkValC{
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
+        }
         }
     }
     namespace DmaTcd1BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x4000903e,0xffff0000,0,unsigned>;
         ///Starting Major Iteration Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,0),Register::ReadWriteAccess,unsigned> biter{}; 
-        namespace BiterValC{
-        }
         ///Enables channel-to-channel linking on minor loop complete
         enum class ElinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -1775,16 +1701,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,ElinkVal> elink{}; 
         namespace ElinkValC{
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
+        }
         }
     }
     namespace DmaTcd2BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x4000905e,0xffff0000,0,unsigned>;
         ///Starting Major Iteration Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,0),Register::ReadWriteAccess,unsigned> biter{}; 
-        namespace BiterValC{
-        }
         ///Enables channel-to-channel linking on minor loop complete
         enum class ElinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -1792,16 +1717,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,ElinkVal> elink{}; 
         namespace ElinkValC{
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
+        }
         }
     }
     namespace DmaTcd3BiterElinkno{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Disabled)
         using Addr = Register::Address<0x4000907e,0xffff0000,0,unsigned>;
         ///Starting Major Iteration Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,0),Register::ReadWriteAccess,unsigned> biter{}; 
-        namespace BiterValC{
-        }
         ///Enables channel-to-channel linking on minor loop complete
         enum class ElinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -1809,20 +1733,17 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,ElinkVal> elink{}; 
         namespace ElinkValC{
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
+        }
         }
     }
     namespace DmaTcd0BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x4000901e,0xffff6000,0,unsigned>;
         ///Starting Major Iteration Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> biter{}; 
-        namespace BiterValC{
-        }
         ///Link Channel Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,9),Register::ReadWriteAccess,unsigned> linkch{}; 
-        namespace LinkchValC{
-        }
         ///Enables channel-to-channel linking on minor loop complete
         enum class ElinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -1830,20 +1751,17 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,ElinkVal> elink{}; 
         namespace ElinkValC{
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
+        }
         }
     }
     namespace DmaTcd1BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x4000903e,0xffff6000,0,unsigned>;
         ///Starting Major Iteration Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> biter{}; 
-        namespace BiterValC{
-        }
         ///Link Channel Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,9),Register::ReadWriteAccess,unsigned> linkch{}; 
-        namespace LinkchValC{
-        }
         ///Enables channel-to-channel linking on minor loop complete
         enum class ElinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -1851,20 +1769,17 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,ElinkVal> elink{}; 
         namespace ElinkValC{
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
+        }
         }
     }
     namespace DmaTcd2BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x4000905e,0xffff6000,0,unsigned>;
         ///Starting Major Iteration Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> biter{}; 
-        namespace BiterValC{
-        }
         ///Link Channel Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,9),Register::ReadWriteAccess,unsigned> linkch{}; 
-        namespace LinkchValC{
-        }
         ///Enables channel-to-channel linking on minor loop complete
         enum class ElinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -1872,20 +1787,17 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,ElinkVal> elink{}; 
         namespace ElinkValC{
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
+        }
         }
     }
     namespace DmaTcd3BiterElinkyes{    ///<TCD Beginning Minor Loop Link, Major Loop Count (Channel Linking Enabled)
         using Addr = Register::Address<0x4000907e,0xffff6000,0,unsigned>;
         ///Starting Major Iteration Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> biter{}; 
-        namespace BiterValC{
-        }
         ///Link Channel Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,9),Register::ReadWriteAccess,unsigned> linkch{}; 
-        namespace LinkchValC{
-        }
         ///Enables channel-to-channel linking on minor loop complete
         enum class ElinkVal {
             v0=0x00000000,     ///<The channel-to-channel linking is disabled
@@ -1893,8 +1805,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,ElinkVal> elink{}; 
         namespace ElinkValC{
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(elink),ElinkVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(elink)::Type,ElinkVal::v1> v1{};
+        }
         }
     }
 }

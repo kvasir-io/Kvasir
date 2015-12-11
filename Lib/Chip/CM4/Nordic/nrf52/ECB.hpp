@@ -24,9 +24,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EndecbVal> endecb{}; 
         namespace EndecbValC{
-            constexpr Register::FieldValue<decltype(endecb),EndecbVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(endecb),EndecbVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(endecb),EndecbVal::set> set{};
+            constexpr Register::FieldValue<decltype(endecb)::Type,EndecbVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(endecb)::Type,EndecbVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(endecb)::Type,EndecbVal::set> set{};
+        }
         }
         ///Write '1' to Enable interrupt on EVENTS_ERRORECB event
         enum class ErrorecbVal {
@@ -36,9 +37,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ErrorecbVal> errorecb{}; 
         namespace ErrorecbValC{
-            constexpr Register::FieldValue<decltype(errorecb),ErrorecbVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(errorecb),ErrorecbVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(errorecb),ErrorecbVal::set> set{};
+            constexpr Register::FieldValue<decltype(errorecb)::Type,ErrorecbVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(errorecb)::Type,ErrorecbVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(errorecb)::Type,ErrorecbVal::set> set{};
+        }
         }
     }
     namespace Noneintenclr{    ///<Disable interrupt
@@ -51,9 +53,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EndecbVal> endecb{}; 
         namespace EndecbValC{
-            constexpr Register::FieldValue<decltype(endecb),EndecbVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(endecb),EndecbVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(endecb),EndecbVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(endecb)::Type,EndecbVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(endecb)::Type,EndecbVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(endecb)::Type,EndecbVal::clear> clear{};
+        }
         }
         ///Write '1' to Clear interrupt on EVENTS_ERRORECB event
         enum class ErrorecbVal {
@@ -63,16 +66,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ErrorecbVal> errorecb{}; 
         namespace ErrorecbValC{
-            constexpr Register::FieldValue<decltype(errorecb),ErrorecbVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(errorecb),ErrorecbVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(errorecb),ErrorecbVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(errorecb)::Type,ErrorecbVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(errorecb)::Type,ErrorecbVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(errorecb)::Type,ErrorecbVal::clear> clear{};
+        }
         }
     }
     namespace Noneecbdataptr{    ///<ECB block encrypt memory pointers
         using Addr = Register::Address<0x4000e504,0x00000000,0,unsigned>;
         ///Pointer to the ECB data structure (see Table 1 ECB data structure overview)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ecbdataptr{}; 
-        namespace EcbdataptrValC{
-        }
     }
 }

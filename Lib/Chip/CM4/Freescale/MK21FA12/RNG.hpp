@@ -11,8 +11,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,GoVal> go{}; 
         namespace GoValC{
-            constexpr Register::FieldValue<decltype(go),GoVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(go),GoVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(go)::Type,GoVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(go)::Type,GoVal::v1> v1{};
+        }
         }
         ///High Assurance
         enum class HaVal {
@@ -21,8 +22,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HaVal> ha{}; 
         namespace HaValC{
-            constexpr Register::FieldValue<decltype(ha),HaVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ha),HaVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ha)::Type,HaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ha)::Type,HaVal::v1> v1{};
+        }
         }
         ///Interrupt Mask
         enum class IntmVal {
@@ -31,8 +33,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,IntmVal> intm{}; 
         namespace IntmValC{
-            constexpr Register::FieldValue<decltype(intm),IntmVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(intm),IntmVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(intm)::Type,IntmVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(intm)::Type,IntmVal::v1> v1{};
+        }
         }
         ///Clear Interrupt
         enum class ClriVal {
@@ -41,8 +44,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClriVal> clri{}; 
         namespace ClriValC{
-            constexpr Register::FieldValue<decltype(clri),ClriVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(clri),ClriVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(clri)::Type,ClriVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(clri)::Type,ClriVal::v1> v1{};
+        }
         }
         ///Sleep
         enum class SlpVal {
@@ -51,8 +55,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SlpVal> slp{}; 
         namespace SlpValC{
-            constexpr Register::FieldValue<decltype(slp),SlpVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(slp),SlpVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(slp)::Type,SlpVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(slp)::Type,SlpVal::v1> v1{};
+        }
         }
     }
     namespace RngSr{    ///<RNGA Status Register
@@ -64,8 +69,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,SecvVal> secv{}; 
         namespace SecvValC{
-            constexpr Register::FieldValue<decltype(secv),SecvVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(secv),SecvVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(secv)::Type,SecvVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(secv)::Type,SecvVal::v1> v1{};
+        }
         }
         ///Last Read Status
         enum class LrsVal {
@@ -74,8 +80,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,LrsVal> lrs{}; 
         namespace LrsValC{
-            constexpr Register::FieldValue<decltype(lrs),LrsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(lrs),LrsVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(lrs)::Type,LrsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lrs)::Type,LrsVal::v1> v1{};
+        }
         }
         ///Output Register Underflow
         enum class OruVal {
@@ -84,8 +91,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,OruVal> oru{}; 
         namespace OruValC{
-            constexpr Register::FieldValue<decltype(oru),OruVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(oru),OruVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(oru)::Type,OruVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(oru)::Type,OruVal::v1> v1{};
+        }
         }
         ///Error Interrupt
         enum class ErriVal {
@@ -94,8 +102,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ErriVal> erri{}; 
         namespace ErriValC{
-            constexpr Register::FieldValue<decltype(erri),ErriVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(erri),ErriVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(erri)::Type,ErriVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(erri)::Type,ErriVal::v1> v1{};
+        }
         }
         ///Sleep
         enum class SlpVal {
@@ -104,30 +113,23 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SlpVal> slp{}; 
         namespace SlpValC{
-            constexpr Register::FieldValue<decltype(slp),SlpVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(slp),SlpVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(slp)::Type,SlpVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(slp)::Type,SlpVal::v1> v1{};
+        }
         }
         ///Output Register Level
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> oregLvl{}; 
-        namespace OreglvlValC{
-        }
         ///Output Register Size
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> oregSize{}; 
-        namespace OregsizeValC{
-        }
     }
     namespace RngEr{    ///<RNGA Entropy Register
         using Addr = Register::Address<0x40029008,0x00000000,0,unsigned>;
         ///External Entropy
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> extEnt{}; 
-        namespace ExtentValC{
-        }
     }
     namespace RngOr{    ///<RNGA Output Register
         using Addr = Register::Address<0x4002900c,0x00000000,0,unsigned>;
         ///Random Output
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> randout{}; 
-        namespace RandoutValC{
-        }
     }
 }

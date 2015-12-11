@@ -17,14 +17,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,M0Val> m0{}; 
         namespace M0ValC{
-            constexpr Register::FieldValue<decltype(m0),M0Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v111> v111{};
+        }
         }
         ///Master 1 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M1Val {
@@ -39,14 +40,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,M1Val> m1{}; 
         namespace M1ValC{
-            constexpr Register::FieldValue<decltype(m1),M1Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v111> v111{};
+        }
         }
         ///Master 2 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M2Val {
@@ -61,14 +63,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,M2Val> m2{}; 
         namespace M2ValC{
-            constexpr Register::FieldValue<decltype(m2),M2Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v111> v111{};
+        }
         }
         ///Master 3 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M3Val {
@@ -83,14 +86,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,M3Val> m3{}; 
         namespace M3ValC{
-            constexpr Register::FieldValue<decltype(m3),M3Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v111> v111{};
+        }
         }
         ///Master 4 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M4Val {
@@ -105,14 +109,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,M4Val> m4{}; 
         namespace M4ValC{
-            constexpr Register::FieldValue<decltype(m4),M4Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v111> v111{};
+        }
         }
         ///Master 5 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M5Val {
@@ -127,14 +132,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,M5Val> m5{}; 
         namespace M5ValC{
-            constexpr Register::FieldValue<decltype(m5),M5Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v111> v111{};
+        }
         }
         ///Master 6 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M6Val {
@@ -149,14 +155,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,24),Register::ReadWriteAccess,M6Val> m6{}; 
         namespace M6ValC{
-            constexpr Register::FieldValue<decltype(m6),M6Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v111> v111{};
+        }
         }
     }
     namespace AxbsPrs1{    ///<Priority Registers Slave
@@ -174,14 +181,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,M0Val> m0{}; 
         namespace M0ValC{
-            constexpr Register::FieldValue<decltype(m0),M0Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v111> v111{};
+        }
         }
         ///Master 1 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M1Val {
@@ -196,14 +204,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,M1Val> m1{}; 
         namespace M1ValC{
-            constexpr Register::FieldValue<decltype(m1),M1Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v111> v111{};
+        }
         }
         ///Master 2 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M2Val {
@@ -218,14 +227,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,M2Val> m2{}; 
         namespace M2ValC{
-            constexpr Register::FieldValue<decltype(m2),M2Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v111> v111{};
+        }
         }
         ///Master 3 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M3Val {
@@ -240,14 +250,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,M3Val> m3{}; 
         namespace M3ValC{
-            constexpr Register::FieldValue<decltype(m3),M3Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v111> v111{};
+        }
         }
         ///Master 4 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M4Val {
@@ -262,14 +273,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,M4Val> m4{}; 
         namespace M4ValC{
-            constexpr Register::FieldValue<decltype(m4),M4Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v111> v111{};
+        }
         }
         ///Master 5 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M5Val {
@@ -284,14 +296,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,M5Val> m5{}; 
         namespace M5ValC{
-            constexpr Register::FieldValue<decltype(m5),M5Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v111> v111{};
+        }
         }
         ///Master 6 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M6Val {
@@ -306,14 +319,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,24),Register::ReadWriteAccess,M6Val> m6{}; 
         namespace M6ValC{
-            constexpr Register::FieldValue<decltype(m6),M6Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v111> v111{};
+        }
         }
     }
     namespace AxbsPrs2{    ///<Priority Registers Slave
@@ -331,14 +345,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,M0Val> m0{}; 
         namespace M0ValC{
-            constexpr Register::FieldValue<decltype(m0),M0Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v111> v111{};
+        }
         }
         ///Master 1 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M1Val {
@@ -353,14 +368,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,M1Val> m1{}; 
         namespace M1ValC{
-            constexpr Register::FieldValue<decltype(m1),M1Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v111> v111{};
+        }
         }
         ///Master 2 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M2Val {
@@ -375,14 +391,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,M2Val> m2{}; 
         namespace M2ValC{
-            constexpr Register::FieldValue<decltype(m2),M2Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v111> v111{};
+        }
         }
         ///Master 3 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M3Val {
@@ -397,14 +414,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,M3Val> m3{}; 
         namespace M3ValC{
-            constexpr Register::FieldValue<decltype(m3),M3Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v111> v111{};
+        }
         }
         ///Master 4 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M4Val {
@@ -419,14 +437,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,M4Val> m4{}; 
         namespace M4ValC{
-            constexpr Register::FieldValue<decltype(m4),M4Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v111> v111{};
+        }
         }
         ///Master 5 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M5Val {
@@ -441,14 +460,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,M5Val> m5{}; 
         namespace M5ValC{
-            constexpr Register::FieldValue<decltype(m5),M5Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v111> v111{};
+        }
         }
         ///Master 6 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M6Val {
@@ -463,14 +483,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,24),Register::ReadWriteAccess,M6Val> m6{}; 
         namespace M6ValC{
-            constexpr Register::FieldValue<decltype(m6),M6Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v111> v111{};
+        }
         }
     }
     namespace AxbsPrs3{    ///<Priority Registers Slave
@@ -488,14 +509,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,M0Val> m0{}; 
         namespace M0ValC{
-            constexpr Register::FieldValue<decltype(m0),M0Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v111> v111{};
+        }
         }
         ///Master 1 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M1Val {
@@ -510,14 +532,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,M1Val> m1{}; 
         namespace M1ValC{
-            constexpr Register::FieldValue<decltype(m1),M1Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v111> v111{};
+        }
         }
         ///Master 2 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M2Val {
@@ -532,14 +555,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,M2Val> m2{}; 
         namespace M2ValC{
-            constexpr Register::FieldValue<decltype(m2),M2Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v111> v111{};
+        }
         }
         ///Master 3 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M3Val {
@@ -554,14 +578,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,M3Val> m3{}; 
         namespace M3ValC{
-            constexpr Register::FieldValue<decltype(m3),M3Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v111> v111{};
+        }
         }
         ///Master 4 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M4Val {
@@ -576,14 +601,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,M4Val> m4{}; 
         namespace M4ValC{
-            constexpr Register::FieldValue<decltype(m4),M4Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v111> v111{};
+        }
         }
         ///Master 5 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M5Val {
@@ -598,14 +624,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,M5Val> m5{}; 
         namespace M5ValC{
-            constexpr Register::FieldValue<decltype(m5),M5Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v111> v111{};
+        }
         }
         ///Master 6 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M6Val {
@@ -620,14 +647,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,24),Register::ReadWriteAccess,M6Val> m6{}; 
         namespace M6ValC{
-            constexpr Register::FieldValue<decltype(m6),M6Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v111> v111{};
+        }
         }
     }
     namespace AxbsPrs4{    ///<Priority Registers Slave
@@ -645,14 +673,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,M0Val> m0{}; 
         namespace M0ValC{
-            constexpr Register::FieldValue<decltype(m0),M0Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m0),M0Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m0)::Type,M0Val::v111> v111{};
+        }
         }
         ///Master 1 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M1Val {
@@ -667,14 +696,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,M1Val> m1{}; 
         namespace M1ValC{
-            constexpr Register::FieldValue<decltype(m1),M1Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m1),M1Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m1)::Type,M1Val::v111> v111{};
+        }
         }
         ///Master 2 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M2Val {
@@ -689,14 +719,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,M2Val> m2{}; 
         namespace M2ValC{
-            constexpr Register::FieldValue<decltype(m2),M2Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m2),M2Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m2)::Type,M2Val::v111> v111{};
+        }
         }
         ///Master 3 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M3Val {
@@ -711,14 +742,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,M3Val> m3{}; 
         namespace M3ValC{
-            constexpr Register::FieldValue<decltype(m3),M3Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m3),M3Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m3)::Type,M3Val::v111> v111{};
+        }
         }
         ///Master 4 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M4Val {
@@ -733,14 +765,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,M4Val> m4{}; 
         namespace M4ValC{
-            constexpr Register::FieldValue<decltype(m4),M4Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m4),M4Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m4)::Type,M4Val::v111> v111{};
+        }
         }
         ///Master 5 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M5Val {
@@ -755,14 +788,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,M5Val> m5{}; 
         namespace M5ValC{
-            constexpr Register::FieldValue<decltype(m5),M5Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m5),M5Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m5)::Type,M5Val::v111> v111{};
+        }
         }
         ///Master 6 Priority. Sets the arbitration priority for this port on the associated slave port.
         enum class M6Val {
@@ -777,14 +811,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,24),Register::ReadWriteAccess,M6Val> m6{}; 
         namespace M6ValC{
-            constexpr Register::FieldValue<decltype(m6),M6Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(m6),M6Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(m6)::Type,M6Val::v111> v111{};
+        }
         }
     }
     namespace AxbsCrs0{    ///<Control Register
@@ -802,14 +837,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,ParkVal> park{}; 
         namespace ParkValC{
-            constexpr Register::FieldValue<decltype(park),ParkVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v111> v111{};
+        }
         }
         ///Parking Control
         enum class PctlVal {
@@ -819,9 +855,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,PctlVal> pctl{}; 
         namespace PctlValC{
-            constexpr Register::FieldValue<decltype(pctl),PctlVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(pctl),PctlVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(pctl),PctlVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pctl)::Type,PctlVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pctl)::Type,PctlVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pctl)::Type,PctlVal::v10> v10{};
+        }
         }
         ///Arbitration Mode
         enum class ArbVal {
@@ -830,8 +867,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,ArbVal> arb{}; 
         namespace ArbValC{
-            constexpr Register::FieldValue<decltype(arb),ArbVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(arb),ArbVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::v01> v01{};
+        }
         }
         ///Halt Low Priority
         enum class HlpVal {
@@ -840,8 +878,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,HlpVal> hlp{}; 
         namespace HlpValC{
-            constexpr Register::FieldValue<decltype(hlp),HlpVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(hlp),HlpVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(hlp)::Type,HlpVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(hlp)::Type,HlpVal::v1> v1{};
+        }
         }
         ///Read Only
         enum class RoVal {
@@ -850,8 +889,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,RoVal> ro{}; 
         namespace RoValC{
-            constexpr Register::FieldValue<decltype(ro),RoVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ro),RoVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ro)::Type,RoVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ro)::Type,RoVal::v1> v1{};
+        }
         }
     }
     namespace AxbsCrs1{    ///<Control Register
@@ -869,14 +909,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,ParkVal> park{}; 
         namespace ParkValC{
-            constexpr Register::FieldValue<decltype(park),ParkVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v111> v111{};
+        }
         }
         ///Parking Control
         enum class PctlVal {
@@ -886,9 +927,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,PctlVal> pctl{}; 
         namespace PctlValC{
-            constexpr Register::FieldValue<decltype(pctl),PctlVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(pctl),PctlVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(pctl),PctlVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pctl)::Type,PctlVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pctl)::Type,PctlVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pctl)::Type,PctlVal::v10> v10{};
+        }
         }
         ///Arbitration Mode
         enum class ArbVal {
@@ -897,8 +939,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,ArbVal> arb{}; 
         namespace ArbValC{
-            constexpr Register::FieldValue<decltype(arb),ArbVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(arb),ArbVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::v01> v01{};
+        }
         }
         ///Halt Low Priority
         enum class HlpVal {
@@ -907,8 +950,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,HlpVal> hlp{}; 
         namespace HlpValC{
-            constexpr Register::FieldValue<decltype(hlp),HlpVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(hlp),HlpVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(hlp)::Type,HlpVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(hlp)::Type,HlpVal::v1> v1{};
+        }
         }
         ///Read Only
         enum class RoVal {
@@ -917,8 +961,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,RoVal> ro{}; 
         namespace RoValC{
-            constexpr Register::FieldValue<decltype(ro),RoVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ro),RoVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ro)::Type,RoVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ro)::Type,RoVal::v1> v1{};
+        }
         }
     }
     namespace AxbsCrs2{    ///<Control Register
@@ -936,14 +981,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,ParkVal> park{}; 
         namespace ParkValC{
-            constexpr Register::FieldValue<decltype(park),ParkVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v111> v111{};
+        }
         }
         ///Parking Control
         enum class PctlVal {
@@ -953,9 +999,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,PctlVal> pctl{}; 
         namespace PctlValC{
-            constexpr Register::FieldValue<decltype(pctl),PctlVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(pctl),PctlVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(pctl),PctlVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pctl)::Type,PctlVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pctl)::Type,PctlVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pctl)::Type,PctlVal::v10> v10{};
+        }
         }
         ///Arbitration Mode
         enum class ArbVal {
@@ -964,8 +1011,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,ArbVal> arb{}; 
         namespace ArbValC{
-            constexpr Register::FieldValue<decltype(arb),ArbVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(arb),ArbVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::v01> v01{};
+        }
         }
         ///Halt Low Priority
         enum class HlpVal {
@@ -974,8 +1022,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,HlpVal> hlp{}; 
         namespace HlpValC{
-            constexpr Register::FieldValue<decltype(hlp),HlpVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(hlp),HlpVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(hlp)::Type,HlpVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(hlp)::Type,HlpVal::v1> v1{};
+        }
         }
         ///Read Only
         enum class RoVal {
@@ -984,8 +1033,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,RoVal> ro{}; 
         namespace RoValC{
-            constexpr Register::FieldValue<decltype(ro),RoVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ro),RoVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ro)::Type,RoVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ro)::Type,RoVal::v1> v1{};
+        }
         }
     }
     namespace AxbsCrs3{    ///<Control Register
@@ -1003,14 +1053,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,ParkVal> park{}; 
         namespace ParkValC{
-            constexpr Register::FieldValue<decltype(park),ParkVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v111> v111{};
+        }
         }
         ///Parking Control
         enum class PctlVal {
@@ -1020,9 +1071,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,PctlVal> pctl{}; 
         namespace PctlValC{
-            constexpr Register::FieldValue<decltype(pctl),PctlVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(pctl),PctlVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(pctl),PctlVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pctl)::Type,PctlVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pctl)::Type,PctlVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pctl)::Type,PctlVal::v10> v10{};
+        }
         }
         ///Arbitration Mode
         enum class ArbVal {
@@ -1031,8 +1083,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,ArbVal> arb{}; 
         namespace ArbValC{
-            constexpr Register::FieldValue<decltype(arb),ArbVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(arb),ArbVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::v01> v01{};
+        }
         }
         ///Halt Low Priority
         enum class HlpVal {
@@ -1041,8 +1094,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,HlpVal> hlp{}; 
         namespace HlpValC{
-            constexpr Register::FieldValue<decltype(hlp),HlpVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(hlp),HlpVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(hlp)::Type,HlpVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(hlp)::Type,HlpVal::v1> v1{};
+        }
         }
         ///Read Only
         enum class RoVal {
@@ -1051,8 +1105,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,RoVal> ro{}; 
         namespace RoValC{
-            constexpr Register::FieldValue<decltype(ro),RoVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ro),RoVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ro)::Type,RoVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ro)::Type,RoVal::v1> v1{};
+        }
         }
     }
     namespace AxbsCrs4{    ///<Control Register
@@ -1070,14 +1125,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,ParkVal> park{}; 
         namespace ParkValC{
-            constexpr Register::FieldValue<decltype(park),ParkVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(park),ParkVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(park)::Type,ParkVal::v111> v111{};
+        }
         }
         ///Parking Control
         enum class PctlVal {
@@ -1087,9 +1143,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,PctlVal> pctl{}; 
         namespace PctlValC{
-            constexpr Register::FieldValue<decltype(pctl),PctlVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(pctl),PctlVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(pctl),PctlVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pctl)::Type,PctlVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pctl)::Type,PctlVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pctl)::Type,PctlVal::v10> v10{};
+        }
         }
         ///Arbitration Mode
         enum class ArbVal {
@@ -1098,8 +1155,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,ArbVal> arb{}; 
         namespace ArbValC{
-            constexpr Register::FieldValue<decltype(arb),ArbVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(arb),ArbVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::v01> v01{};
+        }
         }
         ///Halt Low Priority
         enum class HlpVal {
@@ -1108,8 +1166,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,HlpVal> hlp{}; 
         namespace HlpValC{
-            constexpr Register::FieldValue<decltype(hlp),HlpVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(hlp),HlpVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(hlp)::Type,HlpVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(hlp)::Type,HlpVal::v1> v1{};
+        }
         }
         ///Read Only
         enum class RoVal {
@@ -1118,8 +1177,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,RoVal> ro{}; 
         namespace RoValC{
-            constexpr Register::FieldValue<decltype(ro),RoVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ro),RoVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ro)::Type,RoVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ro)::Type,RoVal::v1> v1{};
+        }
         }
     }
     namespace AxbsMgpcr0{    ///<Master General Purpose Control Register
@@ -1134,11 +1194,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,AulbVal> aulb{}; 
         namespace AulbValC{
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v100> v100{};
+        }
         }
     }
     namespace AxbsMgpcr1{    ///<Master General Purpose Control Register
@@ -1153,11 +1214,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,AulbVal> aulb{}; 
         namespace AulbValC{
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v100> v100{};
+        }
         }
     }
     namespace AxbsMgpcr2{    ///<Master General Purpose Control Register
@@ -1172,11 +1234,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,AulbVal> aulb{}; 
         namespace AulbValC{
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v100> v100{};
+        }
         }
     }
     namespace AxbsMgpcr3{    ///<Master General Purpose Control Register
@@ -1191,11 +1254,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,AulbVal> aulb{}; 
         namespace AulbValC{
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v100> v100{};
+        }
         }
     }
     namespace AxbsMgpcr6{    ///<Master General Purpose Control Register
@@ -1210,11 +1274,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,AulbVal> aulb{}; 
         namespace AulbValC{
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(aulb),AulbVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(aulb)::Type,AulbVal::v100> v100{};
+        }
         }
     }
 }

@@ -6,15 +6,11 @@ namespace Kvasir {
         using Addr = Register::Address<0xe0080008,0xffffff00,0,unsigned>;
         ///Each bit in the ASC field indicates whether there is a corresponding connection to the crossbar switch's slave input port.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> asc{}; 
-        namespace AscValC{
-        }
     }
     namespace McmPlamc{    ///<Crossbar Switch (AXBS) Master Configuration
         using Addr = Register::Address<0xe008000a,0xffffff00,0,unsigned>;
         ///Each bit in the AMC field indicates whether there is a corresponding connection to the AXBS master input port.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> amc{}; 
-        namespace AmcValC{
-        }
     }
     namespace McmPlacr{    ///<Crossbar Switch (AXBS) Control Register
         using Addr = Register::Address<0xe008000c,0xfffffdff,0,unsigned>;
@@ -25,8 +21,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,ArbVal> arb{}; 
         namespace ArbValC{
-            constexpr Register::FieldValue<decltype(arb),ArbVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(arb),ArbVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::v1> v1{};
+        }
         }
     }
 }
