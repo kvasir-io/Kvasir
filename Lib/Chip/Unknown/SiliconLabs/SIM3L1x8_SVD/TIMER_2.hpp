@@ -13,10 +13,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,LclkVal> lclk{}; 
         namespace LclkValC{
-            constexpr Register::FieldValue<decltype(lclk),LclkVal::apb> apb{};
-            constexpr Register::FieldValue<decltype(lclk),LclkVal::extoscn> extoscn{};
-            constexpr Register::FieldValue<decltype(lclk),LclkVal::timerClkdiv> timerClkdiv{};
-            constexpr Register::FieldValue<decltype(lclk),LclkVal::ctFallingEdge> ctFallingEdge{};
+            constexpr Register::FieldValue<decltype(lclk)::Type,LclkVal::apb> apb{};
+            constexpr Register::FieldValue<decltype(lclk)::Type,LclkVal::extoscn> extoscn{};
+            constexpr Register::FieldValue<decltype(lclk)::Type,LclkVal::timerClkdiv> timerClkdiv{};
+            constexpr Register::FieldValue<decltype(lclk)::Type,LclkVal::ctFallingEdge> ctFallingEdge{};
         }
         ///Low Run Master Enable. 
         enum class LmstrenVal {
@@ -25,8 +25,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,LmstrenVal> lmstren{}; 
         namespace LmstrenValC{
-            constexpr Register::FieldValue<decltype(lmstren),LmstrenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(lmstren),LmstrenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(lmstren)::Type,LmstrenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(lmstren)::Type,LmstrenVal::enabled> enabled{};
         }
         ///Split Mode Enable. 
         enum class SplitenVal {
@@ -35,8 +35,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SplitenVal> spliten{}; 
         namespace SplitenValC{
-            constexpr Register::FieldValue<decltype(spliten),SplitenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(spliten),SplitenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(spliten)::Type,SplitenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(spliten)::Type,SplitenVal::enabled> enabled{};
         }
         ///Low Timer Extra Interrupt Enable. 
         enum class LexienVal {
@@ -45,8 +45,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,LexienVal> lexien{}; 
         namespace LexienValC{
-            constexpr Register::FieldValue<decltype(lexien),LexienVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(lexien),LexienVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(lexien)::Type,LexienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(lexien)::Type,LexienVal::enabled> enabled{};
         }
         ///Low Timer Overflow Interrupt Enable. 
         enum class LovfienVal {
@@ -55,8 +55,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,LovfienVal> lovfien{}; 
         namespace LovfienValC{
-            constexpr Register::FieldValue<decltype(lovfien),LovfienVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(lovfien),LovfienVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(lovfien)::Type,LovfienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(lovfien)::Type,LovfienVal::enabled> enabled{};
         }
         ///Low Timer Mode. 
         enum class LmdVal {
@@ -71,14 +71,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,LmdVal> lmd{}; 
         namespace LmdValC{
-            constexpr Register::FieldValue<decltype(lmd),LmdVal::autoReload> autoReload{};
-            constexpr Register::FieldValue<decltype(lmd),LmdVal::upDown> upDown{};
-            constexpr Register::FieldValue<decltype(lmd),LmdVal::fallCapture> fallCapture{};
-            constexpr Register::FieldValue<decltype(lmd),LmdVal::riseCapture> riseCapture{};
-            constexpr Register::FieldValue<decltype(lmd),LmdVal::lowCapture> lowCapture{};
-            constexpr Register::FieldValue<decltype(lmd),LmdVal::highCapture> highCapture{};
-            constexpr Register::FieldValue<decltype(lmd),LmdVal::dcCapture> dcCapture{};
-            constexpr Register::FieldValue<decltype(lmd),LmdVal::oneshot> oneshot{};
+            constexpr Register::FieldValue<decltype(lmd)::Type,LmdVal::autoReload> autoReload{};
+            constexpr Register::FieldValue<decltype(lmd)::Type,LmdVal::upDown> upDown{};
+            constexpr Register::FieldValue<decltype(lmd)::Type,LmdVal::fallCapture> fallCapture{};
+            constexpr Register::FieldValue<decltype(lmd)::Type,LmdVal::riseCapture> riseCapture{};
+            constexpr Register::FieldValue<decltype(lmd)::Type,LmdVal::lowCapture> lowCapture{};
+            constexpr Register::FieldValue<decltype(lmd)::Type,LmdVal::highCapture> highCapture{};
+            constexpr Register::FieldValue<decltype(lmd)::Type,LmdVal::dcCapture> dcCapture{};
+            constexpr Register::FieldValue<decltype(lmd)::Type,LmdVal::oneshot> oneshot{};
         }
         ///Low Multi Purpose State Indicator. 
         enum class LstateVal {
@@ -87,8 +87,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,LstateVal> lstate{}; 
         namespace LstateValC{
-            constexpr Register::FieldValue<decltype(lstate),LstateVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(lstate),LstateVal::set> set{};
+            constexpr Register::FieldValue<decltype(lstate)::Type,LstateVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(lstate)::Type,LstateVal::set> set{};
         }
         ///Run Control Low. 
         enum class LrunVal {
@@ -97,8 +97,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,LrunVal> lrun{}; 
         namespace LrunValC{
-            constexpr Register::FieldValue<decltype(lrun),LrunVal::stop> stop{};
-            constexpr Register::FieldValue<decltype(lrun),LrunVal::start> start{};
+            constexpr Register::FieldValue<decltype(lrun)::Type,LrunVal::stop> stop{};
+            constexpr Register::FieldValue<decltype(lrun)::Type,LrunVal::start> start{};
         }
         ///Low Timer Extra Interrupt Flag. 
         enum class LexiVal {
@@ -107,8 +107,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,LexiVal> lexi{}; 
         namespace LexiValC{
-            constexpr Register::FieldValue<decltype(lexi),LexiVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(lexi),LexiVal::set> set{};
+            constexpr Register::FieldValue<decltype(lexi)::Type,LexiVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(lexi)::Type,LexiVal::set> set{};
         }
         ///Low Timer Overflow Interrupt. 
         enum class LovfiVal {
@@ -117,8 +117,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,LovfiVal> lovfi{}; 
         namespace LovfiValC{
-            constexpr Register::FieldValue<decltype(lovfi),LovfiVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(lovfi),LovfiVal::set> set{};
+            constexpr Register::FieldValue<decltype(lovfi)::Type,LovfiVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(lovfi)::Type,LovfiVal::set> set{};
         }
         ///High Clock Source. 
         enum class HclkVal {
@@ -129,10 +129,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,HclkVal> hclk{}; 
         namespace HclkValC{
-            constexpr Register::FieldValue<decltype(hclk),HclkVal::apb> apb{};
-            constexpr Register::FieldValue<decltype(hclk),HclkVal::extoscn> extoscn{};
-            constexpr Register::FieldValue<decltype(hclk),HclkVal::timerClkdiv> timerClkdiv{};
-            constexpr Register::FieldValue<decltype(hclk),HclkVal::ctFallingEdge> ctFallingEdge{};
+            constexpr Register::FieldValue<decltype(hclk)::Type,HclkVal::apb> apb{};
+            constexpr Register::FieldValue<decltype(hclk)::Type,HclkVal::extoscn> extoscn{};
+            constexpr Register::FieldValue<decltype(hclk)::Type,HclkVal::timerClkdiv> timerClkdiv{};
+            constexpr Register::FieldValue<decltype(hclk)::Type,HclkVal::ctFallingEdge> ctFallingEdge{};
         }
         ///Master Run Control. 
         enum class MstrunVal {
@@ -141,8 +141,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,MstrunVal> mstrun{}; 
         namespace MstrunValC{
-            constexpr Register::FieldValue<decltype(mstrun),MstrunVal::stop> stop{};
-            constexpr Register::FieldValue<decltype(mstrun),MstrunVal::start> start{};
+            constexpr Register::FieldValue<decltype(mstrun)::Type,MstrunVal::stop> stop{};
+            constexpr Register::FieldValue<decltype(mstrun)::Type,MstrunVal::start> start{};
         }
         ///High Master Enable. 
         enum class HmstrenVal {
@@ -151,8 +151,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,HmstrenVal> hmstren{}; 
         namespace HmstrenValC{
-            constexpr Register::FieldValue<decltype(hmstren),HmstrenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hmstren),HmstrenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hmstren)::Type,HmstrenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hmstren)::Type,HmstrenVal::enabled> enabled{};
         }
         ///Timer Debug Mode. 
         enum class DbgmdVal {
@@ -161,8 +161,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,DbgmdVal> dbgmd{}; 
         namespace DbgmdValC{
-            constexpr Register::FieldValue<decltype(dbgmd),DbgmdVal::run> run{};
-            constexpr Register::FieldValue<decltype(dbgmd),DbgmdVal::halt> halt{};
+            constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::run> run{};
+            constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::halt> halt{};
         }
         ///High Timer Extra Interrupt Enable. 
         enum class HexienVal {
@@ -171,8 +171,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,HexienVal> hexien{}; 
         namespace HexienValC{
-            constexpr Register::FieldValue<decltype(hexien),HexienVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hexien),HexienVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hexien)::Type,HexienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hexien)::Type,HexienVal::enabled> enabled{};
         }
         ///High Timer Overflow Interrupt Enable. 
         enum class HovfienVal {
@@ -181,8 +181,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,HovfienVal> hovfien{}; 
         namespace HovfienValC{
-            constexpr Register::FieldValue<decltype(hovfien),HovfienVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hovfien),HovfienVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hovfien)::Type,HovfienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hovfien)::Type,HovfienVal::enabled> enabled{};
         }
         ///High Timer Mode. 
         enum class HmdVal {
@@ -199,16 +199,16 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,HmdVal> hmd{}; 
         namespace HmdValC{
-            constexpr Register::FieldValue<decltype(hmd),HmdVal::autoReload> autoReload{};
-            constexpr Register::FieldValue<decltype(hmd),HmdVal::upDown> upDown{};
-            constexpr Register::FieldValue<decltype(hmd),HmdVal::fallCapture> fallCapture{};
-            constexpr Register::FieldValue<decltype(hmd),HmdVal::riseCapture> riseCapture{};
-            constexpr Register::FieldValue<decltype(hmd),HmdVal::lowCapture> lowCapture{};
-            constexpr Register::FieldValue<decltype(hmd),HmdVal::highCapture> highCapture{};
-            constexpr Register::FieldValue<decltype(hmd),HmdVal::dcCapture> dcCapture{};
-            constexpr Register::FieldValue<decltype(hmd),HmdVal::oneshot> oneshot{};
-            constexpr Register::FieldValue<decltype(hmd),HmdVal::toggle> toggle{};
-            constexpr Register::FieldValue<decltype(hmd),HmdVal::pwm> pwm{};
+            constexpr Register::FieldValue<decltype(hmd)::Type,HmdVal::autoReload> autoReload{};
+            constexpr Register::FieldValue<decltype(hmd)::Type,HmdVal::upDown> upDown{};
+            constexpr Register::FieldValue<decltype(hmd)::Type,HmdVal::fallCapture> fallCapture{};
+            constexpr Register::FieldValue<decltype(hmd)::Type,HmdVal::riseCapture> riseCapture{};
+            constexpr Register::FieldValue<decltype(hmd)::Type,HmdVal::lowCapture> lowCapture{};
+            constexpr Register::FieldValue<decltype(hmd)::Type,HmdVal::highCapture> highCapture{};
+            constexpr Register::FieldValue<decltype(hmd)::Type,HmdVal::dcCapture> dcCapture{};
+            constexpr Register::FieldValue<decltype(hmd)::Type,HmdVal::oneshot> oneshot{};
+            constexpr Register::FieldValue<decltype(hmd)::Type,HmdVal::toggle> toggle{};
+            constexpr Register::FieldValue<decltype(hmd)::Type,HmdVal::pwm> pwm{};
         }
         ///High Multi Purpose State Indicator. 
         enum class HstateVal {
@@ -217,8 +217,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,HstateVal> hstate{}; 
         namespace HstateValC{
-            constexpr Register::FieldValue<decltype(hstate),HstateVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(hstate),HstateVal::set> set{};
+            constexpr Register::FieldValue<decltype(hstate)::Type,HstateVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(hstate)::Type,HstateVal::set> set{};
         }
         ///High Run Control. 
         enum class HrunVal {
@@ -227,8 +227,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,HrunVal> hrun{}; 
         namespace HrunValC{
-            constexpr Register::FieldValue<decltype(hrun),HrunVal::stop> stop{};
-            constexpr Register::FieldValue<decltype(hrun),HrunVal::start> start{};
+            constexpr Register::FieldValue<decltype(hrun)::Type,HrunVal::stop> stop{};
+            constexpr Register::FieldValue<decltype(hrun)::Type,HrunVal::start> start{};
         }
         ///High Timer Extra Interrupt Flag. 
         enum class HexiVal {
@@ -237,8 +237,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,HexiVal> hexi{}; 
         namespace HexiValC{
-            constexpr Register::FieldValue<decltype(hexi),HexiVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(hexi),HexiVal::set> set{};
+            constexpr Register::FieldValue<decltype(hexi)::Type,HexiVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(hexi)::Type,HexiVal::set> set{};
         }
         ///High Timer Overflow Interrupt Flag. 
         enum class HovfiVal {
@@ -247,41 +247,29 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,HovfiVal> hovfi{}; 
         namespace HovfiValC{
-            constexpr Register::FieldValue<decltype(hovfi),HovfiVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(hovfi),HovfiVal::set> set{};
+            constexpr Register::FieldValue<decltype(hovfi)::Type,HovfiVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(hovfi)::Type,HovfiVal::set> set{};
         }
     }
     namespace Noneclkdiv{    ///<Module Clock Divider Control
         using Addr = Register::Address<0x40016010,0xff00ff00,0,unsigned>;
         ///Clock Divider Reload Value. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> clkdivrl{}; 
-        namespace ClkdivrlValC{
-        }
         ///Clock Divider Counter. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> clkdivct{}; 
-        namespace ClkdivctValC{
-        }
     }
     namespace Nonecount{    ///<Timer Value
         using Addr = Register::Address<0x40016020,0x00000000,0,unsigned>;
         ///Low Timer Count. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> lcount{}; 
-        namespace LcountValC{
-        }
         ///High Timer Count. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> hcount{}; 
-        namespace HcountValC{
-        }
     }
     namespace Nonecapture{    ///<Timer Capture/Reload Value
         using Addr = Register::Address<0x40016030,0x00000000,0,unsigned>;
         ///Low Timer Capture/Reload. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> lccr{}; 
-        namespace LccrValC{
-        }
         ///High Timer Capture/Reload. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> hccr{}; 
-        namespace HccrValC{
-        }
     }
 }

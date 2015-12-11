@@ -10,58 +10,38 @@ namespace Kvasir {
         using Addr = Register::Address<0x4000a860,0xfffffe1f,0,unsigned>;
         ///FILTEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> filten{}; 
-        namespace FiltenValC{
-        }
         ///INTMOD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> intmod{}; 
-        namespace IntmodValC{
-        }
     }
     namespace NoneextibTsr{    ///<EXTIB trigger source register
         using Addr = Register::Address<0x4000a864,0xfffffe1f,0,unsigned>;
         ///FILTEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> filten{}; 
-        namespace FiltenValC{
-        }
         ///INTMOD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> intmod{}; 
-        namespace IntmodValC{
-        }
     }
     namespace NoneexticTsr{    ///<EXTIC trigger source register
         using Addr = Register::Address<0x4000a868,0xfffffe1f,0,unsigned>;
         ///FILTEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> filten{}; 
-        namespace FiltenValC{
-        }
         ///INTMOD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> intmod{}; 
-        namespace IntmodValC{
-        }
     }
     namespace NoneexticCr{    ///<EXTIC configuration register
         using Addr = Register::Address<0x4000bc14,0xffffffe0,0,unsigned>;
         ///GPIO_SEL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> gpioSel{}; 
-        namespace GpioselValC{
-        }
     }
     namespace NoneextidTsr{    ///<EXTID trigger source register
         using Addr = Register::Address<0x4000a86c,0xfffffe1f,0,unsigned>;
         ///FILTEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> filten{}; 
-        namespace FiltenValC{
-        }
         ///INTMOD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> intmod{}; 
-        namespace IntmodValC{
-        }
     }
     namespace NoneextidCr{    ///<EXTID configuration register
         using Addr = Register::Address<0x4000bc18,0xffffffe0,0,unsigned>;
         ///GPIO_SEL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> gpioSel{}; 
-        namespace GpioselValC{
-        }
     }
 }

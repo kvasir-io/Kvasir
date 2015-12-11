@@ -6,15 +6,11 @@ namespace Kvasir {
         using Addr = Register::Address<0xf0004000,0x00000000,0,unsigned>;
         ///Dividend
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> dividend{}; 
-        namespace DividendValC{
-        }
     }
     namespace MmdvsqDsor{    ///<Divisor Register
         using Addr = Register::Address<0xf0004004,0x00000000,0,unsigned>;
         ///Divisor
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> divisor{}; 
-        namespace DivisorValC{
-        }
     }
     namespace MmdvsqCsr{    ///<Control/Status Register
         using Addr = Register::Address<0xf0004008,0x1fffffc0,0,unsigned>;
@@ -25,8 +21,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,SrtVal> srt{}; 
         namespace SrtValC{
-            constexpr Register::FieldValue<decltype(srt),SrtVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(srt),SrtVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(srt)::Type,SrtVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(srt)::Type,SrtVal::v1> v1{};
         }
         ///Unsigned calculation
         enum class UsgnVal {
@@ -35,8 +31,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,UsgnVal> usgn{}; 
         namespace UsgnValC{
-            constexpr Register::FieldValue<decltype(usgn),UsgnVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(usgn),UsgnVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(usgn)::Type,UsgnVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(usgn)::Type,UsgnVal::v1> v1{};
         }
         ///REMainder calculation
         enum class RemVal {
@@ -45,8 +41,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,RemVal> rem{}; 
         namespace RemValC{
-            constexpr Register::FieldValue<decltype(rem),RemVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rem),RemVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(rem)::Type,RemVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rem)::Type,RemVal::v1> v1{};
         }
         ///Divide-by-Zero-Enable
         enum class DzeVal {
@@ -55,8 +51,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,DzeVal> dze{}; 
         namespace DzeValC{
-            constexpr Register::FieldValue<decltype(dze),DzeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dze),DzeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dze)::Type,DzeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dze)::Type,DzeVal::v1> v1{};
         }
         ///Divide-by-Zero
         enum class DzVal {
@@ -65,8 +61,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,DzVal> dz{}; 
         namespace DzValC{
-            constexpr Register::FieldValue<decltype(dz),DzVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dz),DzVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dz)::Type,DzVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dz)::Type,DzVal::v1> v1{};
         }
         ///Disable Fast Start
         enum class DfsVal {
@@ -75,8 +71,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,DfsVal> dfs{}; 
         namespace DfsValC{
-            constexpr Register::FieldValue<decltype(dfs),DfsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dfs),DfsVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dfs)::Type,DfsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dfs)::Type,DfsVal::v1> v1{};
         }
         ///SQUARE ROOT
         enum class SqrtVal {
@@ -85,8 +81,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,SqrtVal> sqrt{}; 
         namespace SqrtValC{
-            constexpr Register::FieldValue<decltype(sqrt),SqrtVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(sqrt),SqrtVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(sqrt)::Type,SqrtVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sqrt)::Type,SqrtVal::v1> v1{};
         }
         ///DIVIDE
         enum class DivVal {
@@ -95,8 +91,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,DivVal> div{}; 
         namespace DivValC{
-            constexpr Register::FieldValue<decltype(div),DivVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(div),DivVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(div)::Type,DivVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(div)::Type,DivVal::v1> v1{};
         }
         ///BUSY
         enum class BusyVal {
@@ -105,22 +101,18 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,BusyVal> busy{}; 
         namespace BusyValC{
-            constexpr Register::FieldValue<decltype(busy),BusyVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(busy),BusyVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::v1> v1{};
         }
     }
     namespace MmdvsqRes{    ///<Result Register
         using Addr = Register::Address<0xf000400c,0x00000000,0,unsigned>;
         ///Result
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> result{}; 
-        namespace ResultValC{
-        }
     }
     namespace MmdvsqRcnd{    ///<Radicand Register
         using Addr = Register::Address<0xf0004010,0x00000000,0,unsigned>;
         ///Radicand
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> radicand{}; 
-        namespace RadicandValC{
-        }
     }
 }

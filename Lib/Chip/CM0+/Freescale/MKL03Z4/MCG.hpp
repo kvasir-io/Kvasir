@@ -11,8 +11,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IrefstenVal> irefsten{}; 
         namespace IrefstenValC{
-            constexpr Register::FieldValue<decltype(irefsten),IrefstenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(irefsten),IrefstenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(irefsten)::Type,IrefstenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(irefsten)::Type,IrefstenVal::v1> v1{};
         }
         ///Internal Reference Clock Enable
         enum class IrclkenVal {
@@ -21,8 +21,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,IrclkenVal> irclken{}; 
         namespace IrclkenValC{
-            constexpr Register::FieldValue<decltype(irclken),IrclkenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(irclken),IrclkenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(irclken)::Type,IrclkenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(irclken)::Type,IrclkenVal::v1> v1{};
         }
         ///Clock Source Select
         enum class ClksVal {
@@ -33,10 +33,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,ClksVal> clks{}; 
         namespace ClksValC{
-            constexpr Register::FieldValue<decltype(clks),ClksVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(clks),ClksVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(clks),ClksVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(clks),ClksVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(clks)::Type,ClksVal::v11> v11{};
         }
     }
     namespace McgC2{    ///<MCG Control Register 2
@@ -48,8 +48,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IrcsVal> ircs{}; 
         namespace IrcsValC{
-            constexpr Register::FieldValue<decltype(ircs),IrcsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ircs),IrcsVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ircs)::Type,IrcsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ircs)::Type,IrcsVal::v1> v1{};
         }
         ///External Clock Source Select
         enum class Erefs0Val {
@@ -58,8 +58,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Erefs0Val> erefs0{}; 
         namespace Erefs0ValC{
-            constexpr Register::FieldValue<decltype(erefs0),Erefs0Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(erefs0),Erefs0Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(erefs0)::Type,Erefs0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(erefs0)::Type,Erefs0Val::v1> v1{};
         }
     }
     namespace McgS{    ///<MCG Status Register
@@ -71,8 +71,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Oscinit0Val> oscinit0{}; 
         namespace Oscinit0ValC{
-            constexpr Register::FieldValue<decltype(oscinit0),Oscinit0Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(oscinit0),Oscinit0Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(oscinit0)::Type,Oscinit0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(oscinit0)::Type,Oscinit0Val::v1> v1{};
         }
         ///Clock Mode Status
         enum class ClkstVal {
@@ -82,9 +82,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,ClkstVal> clkst{}; 
         namespace ClkstValC{
-            constexpr Register::FieldValue<decltype(clkst),ClkstVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(clkst),ClkstVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(clkst),ClkstVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(clkst)::Type,ClkstVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(clkst)::Type,ClkstVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(clkst)::Type,ClkstVal::v10> v10{};
         }
     }
     namespace McgSc{    ///<MCG Status and Control Register
@@ -102,14 +102,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,1),Register::ReadWriteAccess,FcrdivVal> fcrdiv{}; 
         namespace FcrdivValC{
-            constexpr Register::FieldValue<decltype(fcrdiv),FcrdivVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(fcrdiv),FcrdivVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(fcrdiv),FcrdivVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(fcrdiv),FcrdivVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(fcrdiv),FcrdivVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(fcrdiv),FcrdivVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(fcrdiv),FcrdivVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(fcrdiv),FcrdivVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(fcrdiv)::Type,FcrdivVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(fcrdiv)::Type,FcrdivVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(fcrdiv)::Type,FcrdivVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(fcrdiv)::Type,FcrdivVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(fcrdiv)::Type,FcrdivVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(fcrdiv)::Type,FcrdivVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(fcrdiv)::Type,FcrdivVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(fcrdiv)::Type,FcrdivVal::v111> v111{};
         }
     }
     namespace McgMc{    ///<MCG Miscellaneous Control Register
@@ -127,14 +127,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,Lircdiv2Val> lircDiv2{}; 
         namespace Lircdiv2ValC{
-            constexpr Register::FieldValue<decltype(lircDiv2),Lircdiv2Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(lircDiv2),Lircdiv2Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(lircDiv2),Lircdiv2Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(lircDiv2),Lircdiv2Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(lircDiv2),Lircdiv2Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(lircDiv2),Lircdiv2Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(lircDiv2),Lircdiv2Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(lircDiv2),Lircdiv2Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(lircDiv2)::Type,Lircdiv2Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(lircDiv2)::Type,Lircdiv2Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(lircDiv2)::Type,Lircdiv2Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(lircDiv2)::Type,Lircdiv2Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(lircDiv2)::Type,Lircdiv2Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(lircDiv2)::Type,Lircdiv2Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(lircDiv2)::Type,Lircdiv2Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(lircDiv2)::Type,Lircdiv2Val::v111> v111{};
         }
         ///High-frequency IRC Enable
         enum class HircenVal {
@@ -143,8 +143,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,HircenVal> hircen{}; 
         namespace HircenValC{
-            constexpr Register::FieldValue<decltype(hircen),HircenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(hircen),HircenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(hircen)::Type,HircenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(hircen)::Type,HircenVal::v1> v1{};
         }
     }
 }

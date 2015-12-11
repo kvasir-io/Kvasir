@@ -27,9 +27,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EndVal> end{}; 
         namespace EndValC{
-            constexpr Register::FieldValue<decltype(end),EndVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(end),EndVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(end),EndVal::set> set{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_RESOLVED event
         enum class ResolvedVal {
@@ -39,9 +39,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ResolvedVal> resolved{}; 
         namespace ResolvedValC{
-            constexpr Register::FieldValue<decltype(resolved),ResolvedVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(resolved),ResolvedVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(resolved),ResolvedVal::set> set{};
+            constexpr Register::FieldValue<decltype(resolved)::Type,ResolvedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(resolved)::Type,ResolvedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(resolved)::Type,ResolvedVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_NOTRESOLVED event
         enum class NotresolvedVal {
@@ -51,9 +51,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,NotresolvedVal> notresolved{}; 
         namespace NotresolvedValC{
-            constexpr Register::FieldValue<decltype(notresolved),NotresolvedVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(notresolved),NotresolvedVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(notresolved),NotresolvedVal::set> set{};
+            constexpr Register::FieldValue<decltype(notresolved)::Type,NotresolvedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(notresolved)::Type,NotresolvedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(notresolved)::Type,NotresolvedVal::set> set{};
         }
     }
     namespace Noneintenclr{    ///<Disable interrupt
@@ -66,9 +66,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EndVal> end{}; 
         namespace EndValC{
-            constexpr Register::FieldValue<decltype(end),EndVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(end),EndVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(end),EndVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_RESOLVED event
         enum class ResolvedVal {
@@ -78,9 +78,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ResolvedVal> resolved{}; 
         namespace ResolvedValC{
-            constexpr Register::FieldValue<decltype(resolved),ResolvedVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(resolved),ResolvedVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(resolved),ResolvedVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(resolved)::Type,ResolvedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(resolved)::Type,ResolvedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(resolved)::Type,ResolvedVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_NOTRESOLVED event
         enum class NotresolvedVal {
@@ -90,17 +90,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,NotresolvedVal> notresolved{}; 
         namespace NotresolvedValC{
-            constexpr Register::FieldValue<decltype(notresolved),NotresolvedVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(notresolved),NotresolvedVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(notresolved),NotresolvedVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(notresolved)::Type,NotresolvedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(notresolved)::Type,NotresolvedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(notresolved)::Type,NotresolvedVal::clear> clear{};
         }
     }
     namespace Nonestatus{    ///<Resolution status
         using Addr = Register::Address<0x4000f400,0xfffffff0,0,unsigned>;
         ///The IRK that was used last time an address was resolved
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> status{}; 
-        namespace StatusValC{
-        }
     }
     namespace Noneenable{    ///<Enable AAR
         using Addr = Register::Address<0x4000f500,0xfffffffc,0,unsigned>;
@@ -111,36 +109,28 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,EnableVal> enable{}; 
         namespace EnableValC{
-            constexpr Register::FieldValue<decltype(enable),EnableVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(enable),EnableVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
         }
     }
     namespace Nonenirk{    ///<Number of IRKs
         using Addr = Register::Address<0x4000f504,0xffffffe0,0,unsigned>;
         ///Number of Identity root keys available in the IRK data structure
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> nirk{}; 
-        namespace NirkValC{
-        }
     }
     namespace Noneirkptr{    ///<Pointer to IRK data structure
         using Addr = Register::Address<0x4000f508,0x00000000,0,unsigned>;
         ///Pointer to the IRK data structure
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> irkptr{}; 
-        namespace IrkptrValC{
-        }
     }
     namespace Noneaddrptr{    ///<Pointer to the resolvable address
         using Addr = Register::Address<0x4000f510,0x00000000,0,unsigned>;
         ///Pointer to the resolvable address (6-bytes)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> addrptr{}; 
-        namespace AddrptrValC{
-        }
     }
     namespace Nonescratchptr{    ///<Pointer to data area used for temporary storage
         using Addr = Register::Address<0x4000f514,0x00000000,0,unsigned>;
         ///Pointer to a "scratch" data area used for temporary storage during resolution.A space of minimum 3 bytes must be reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> scratchptr{}; 
-        namespace ScratchptrValC{
-        }
     }
 }

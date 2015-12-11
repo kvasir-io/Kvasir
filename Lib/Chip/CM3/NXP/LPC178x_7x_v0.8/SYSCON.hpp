@@ -15,271 +15,157 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,FlashtimVal> flashtim{}; 
         namespace FlashtimValC{
-            constexpr Register::FieldValue<decltype(flashtim),FlashtimVal::flashAccessesUse1> flashAccessesUse1{};
-            constexpr Register::FieldValue<decltype(flashtim),FlashtimVal::flashAccessesUse2> flashAccessesUse2{};
-            constexpr Register::FieldValue<decltype(flashtim),FlashtimVal::flashAccessesUse3> flashAccessesUse3{};
-            constexpr Register::FieldValue<decltype(flashtim),FlashtimVal::flashAccessesUse4> flashAccessesUse4{};
-            constexpr Register::FieldValue<decltype(flashtim),FlashtimVal::flashAccessesUse5> flashAccessesUse5{};
-            constexpr Register::FieldValue<decltype(flashtim),FlashtimVal::flashAccessesUse6> flashAccessesUse6{};
+            constexpr Register::FieldValue<decltype(flashtim)::Type,FlashtimVal::flashAccessesUse1> flashAccessesUse1{};
+            constexpr Register::FieldValue<decltype(flashtim)::Type,FlashtimVal::flashAccessesUse2> flashAccessesUse2{};
+            constexpr Register::FieldValue<decltype(flashtim)::Type,FlashtimVal::flashAccessesUse3> flashAccessesUse3{};
+            constexpr Register::FieldValue<decltype(flashtim)::Type,FlashtimVal::flashAccessesUse4> flashAccessesUse4{};
+            constexpr Register::FieldValue<decltype(flashtim)::Type,FlashtimVal::flashAccessesUse5> flashAccessesUse5{};
+            constexpr Register::FieldValue<decltype(flashtim)::Type,FlashtimVal::flashAccessesUse6> flashAccessesUse6{};
         }
     }
     namespace Nonepll0con{    ///<PLL0 Control register
         using Addr = Register::Address<0x400fc080,0xfffffffe,0,unsigned>;
         ///PLL Enable. When one, and after a valid PLL feed, this bit will activate the related PLL and allow it to lock to the requested frequency. See PLLSTAT register, Table 12.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> plle{}; 
-        namespace PlleValC{
-        }
     }
     namespace Nonepll1con{    ///<PLL0 Control register
         using Addr = Register::Address<0x400fc0a0,0xfffffffe,0,unsigned>;
         ///PLL Enable. When one, and after a valid PLL feed, this bit will activate the related PLL and allow it to lock to the requested frequency. See PLLSTAT register, Table 12.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> plle{}; 
-        namespace PlleValC{
-        }
     }
     namespace Nonepll0cfg{    ///<PLL0 Configuration register
         using Addr = Register::Address<0x400fc084,0xffffff80,0,unsigned>;
         ///PLL Multiplier value. Supplies the value "M" in the PLL frequency calculations. Note: For details on selecting the right value for MSEL see Section 3.10.4.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> msel{}; 
-        namespace MselValC{
-        }
         ///PLL Divider value. Supplies the value "P" in the PLL frequency calculations. Note: For details on selecting the right value for PSEL see Section 3.10.4.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,5),Register::ReadWriteAccess,unsigned> psel{}; 
-        namespace PselValC{
-        }
     }
     namespace Nonepll1cfg{    ///<PLL0 Configuration register
         using Addr = Register::Address<0x400fc0a4,0xffffff80,0,unsigned>;
         ///PLL Multiplier value. Supplies the value "M" in the PLL frequency calculations. Note: For details on selecting the right value for MSEL see Section 3.10.4.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> msel{}; 
-        namespace MselValC{
-        }
         ///PLL Divider value. Supplies the value "P" in the PLL frequency calculations. Note: For details on selecting the right value for PSEL see Section 3.10.4.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,5),Register::ReadWriteAccess,unsigned> psel{}; 
-        namespace PselValC{
-        }
     }
     namespace Nonepll0stat{    ///<PLL0 Status register
         using Addr = Register::Address<0x400fc088,0xfffffa80,0,unsigned>;
         ///Read-back for the PLL Multiplier value. This is the value currently used by the related PLL.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> msel{}; 
-        namespace MselValC{
-        }
         ///Read-back for the PLL Divider value. This is the value currently used by the related PLL.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,5),Register::ReadWriteAccess,unsigned> psel{}; 
-        namespace PselValC{
-        }
         ///Read-back for the PLL Enable bit. When one, the related PLL is currently activated. When zero, the related PLL is turned off. This bit is automatically cleared when Power-down mode is activated.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> plleStat{}; 
-        namespace PllestatValC{
-        }
         ///Reflects the PLL Lock status. When zero, the related PLL is not locked. When one, the related PLL is locked onto the requested frequency.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> plock{}; 
-        namespace PlockValC{
-        }
     }
     namespace Nonepll1stat{    ///<PLL0 Status register
         using Addr = Register::Address<0x400fc0a8,0xfffffa80,0,unsigned>;
         ///Read-back for the PLL Multiplier value. This is the value currently used by the related PLL.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> msel{}; 
-        namespace MselValC{
-        }
         ///Read-back for the PLL Divider value. This is the value currently used by the related PLL.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,5),Register::ReadWriteAccess,unsigned> psel{}; 
-        namespace PselValC{
-        }
         ///Read-back for the PLL Enable bit. When one, the related PLL is currently activated. When zero, the related PLL is turned off. This bit is automatically cleared when Power-down mode is activated.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> plleStat{}; 
-        namespace PllestatValC{
-        }
         ///Reflects the PLL Lock status. When zero, the related PLL is not locked. When one, the related PLL is locked onto the requested frequency.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> plock{}; 
-        namespace PlockValC{
-        }
     }
     namespace Nonepll0feed{    ///<PLL0 Feed register
         using Addr = Register::Address<0x400fc08c,0xffffff00,0,unsigned>;
         ///The PLL feed sequence must be written to this register in order for the related PLL's configuration and control register changes to take effect.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pllfeed{}; 
-        namespace PllfeedValC{
-        }
     }
     namespace Nonepll1feed{    ///<PLL0 Feed register
         using Addr = Register::Address<0x400fc0ac,0xffffff00,0,unsigned>;
         ///The PLL feed sequence must be written to this register in order for the related PLL's configuration and control register changes to take effect.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pllfeed{}; 
-        namespace PllfeedValC{
-        }
     }
     namespace Nonepcon{    ///<Power Control register
         using Addr = Register::Address<0x400fc0c0,0xfffff0e0,0,unsigned>;
         ///Power mode control bit 0. This bit controls entry to the Power-down mode. See Section 3.3.6.1 below for details.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pm0{}; 
-        namespace Pm0ValC{
-        }
         ///Power mode control bit 1. This bit controls entry to the Deep Power-down mode. See Section 3.3.6.1 below for details.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pm1{}; 
-        namespace Pm1ValC{
-        }
         ///Brown-Out Reduced Power Mode. When BODRPM is 1, the Brown-Out Detect circuitry will be turned off when chip Power-down mode or Deep Sleep mode is entered, resulting in a further reduction in power usage. However, the possibility of using Brown-Out Detect as a wake-up source from the reduced power mode will be lost. When 0, the Brown-Out Detect function remains active during Power-down and Deep Sleep modes. See the System Control Block chapter for details of Brown-Out detection.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> bodrpm{}; 
-        namespace BodrpmValC{
-        }
         ///Brown-Out Global Disable. When BOGD is 1, the Brown-Out Detect circuitry is fully disabled at all times, and does not consume power. When 0, the Brown-Out Detect circuitry is enabled. See the System Control Block chapter for details of Brown-Out detection.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> bogd{}; 
-        namespace BogdValC{
-        }
         ///Brown-Out Reset Disable. When BORD is 1, the BOD will not reset the device when the VDD(REG)(3V3) voltage dips goes below the BOD reset trip level. The Brown-Out interrupt is not affected. When BORD is 0, the BOD reset is enabled. See the Section 3.6 for details of Brown-Out detection.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> bord{}; 
-        namespace BordValC{
-        }
         ///Sleep Mode entry flag. Set when the Sleep mode is successfully entered. Cleared by software writing a one to this bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> smflag{}; 
-        namespace SmflagValC{
-        }
         ///Deep Sleep entry flag. Set when the Deep Sleep mode is successfully entered. Cleared by software writing a one to this bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> dsflag{}; 
-        namespace DsflagValC{
-        }
         ///Power-down entry flag. Set when the Power-down mode is successfully entered. Cleared by software writing a one to this bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> pdflag{}; 
-        namespace PdflagValC{
-        }
         ///Deep Power-down entry flag. Set when the Deep Power-down mode is successfully entered. Cleared by software writing a one to this bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> dpdflag{}; 
-        namespace DpdflagValC{
-        }
     }
     namespace Nonepconp{    ///<Power Control for Peripherals
         using Addr = Register::Address<0x400fc0c4,0x00000000,0,unsigned>;
         ///LCD controller power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pclcd{}; 
-        namespace PclcdValC{
-        }
         ///Timer/Counter 0 power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pctim0{}; 
-        namespace Pctim0ValC{
-        }
         ///Timer/Counter 1 power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pctim1{}; 
-        namespace Pctim1ValC{
-        }
         ///UART0 power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pcuart0{}; 
-        namespace Pcuart0ValC{
-        }
         ///UART1 power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pcuart1{}; 
-        namespace Pcuart1ValC{
-        }
         ///PWM0 power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pcpwm0{}; 
-        namespace Pcpwm0ValC{
-        }
         ///PWM1 power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> pcpwm1{}; 
-        namespace Pcpwm1ValC{
-        }
         ///I2C0 interface power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> pci2c0{}; 
-        namespace Pci2c0ValC{
-        }
         ///UART4 power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> pcuart4{}; 
-        namespace Pcuart4ValC{
-        }
         ///RTC and Event Monitor/Recorder power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> pcrtc{}; 
-        namespace PcrtcValC{
-        }
         ///SSP 1 interface power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> pcssp1{}; 
-        namespace Pcssp1ValC{
-        }
         ///External Memory Controller power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> pcemc{}; 
-        namespace PcemcValC{
-        }
         ///A/D converter (ADC) power/clock control bit. Note: Clear the PDN bit in the AD0CR before clearing this bit, and set this bit before attempting to set PDN.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> pcadc{}; 
-        namespace PcadcValC{
-        }
         ///CAN Controller 1 power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> pccan1{}; 
-        namespace Pccan1ValC{
-        }
         ///CAN Controller 2 power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> pccan2{}; 
-        namespace Pccan2ValC{
-        }
         ///Power/clock control bit for IOCON, GPIO, and GPIO interrupts.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> pcgpio{}; 
-        namespace PcgpioValC{
-        }
         ///SPI Flash Interface power/clock control bit (LPC1773 only).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> pcspifi{}; 
-        namespace PcspifiValC{
-        }
         ///Motor Control PWM power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> pcmcpwm{}; 
-        namespace PcmcpwmValC{
-        }
         ///Quadrature Encoder Interface power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> pcqei{}; 
-        namespace PcqeiValC{
-        }
         ///I2C1 interface power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> pci2c1{}; 
-        namespace Pci2c1ValC{
-        }
         ///SSP2 interface power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> pcssp2{}; 
-        namespace Pcssp2ValC{
-        }
         ///SSP0 interface power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> pcssp0{}; 
-        namespace Pcssp0ValC{
-        }
         ///Timer 2 power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> pctim2{}; 
-        namespace Pctim2ValC{
-        }
         ///Timer 3 power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> pctim3{}; 
-        namespace Pctim3ValC{
-        }
         ///UART 2 power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> pcuart2{}; 
-        namespace Pcuart2ValC{
-        }
         ///UART 3 power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> pcuart3{}; 
-        namespace Pcuart3ValC{
-        }
         ///I2C interface 2 power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> pci2c2{}; 
-        namespace Pci2c2ValC{
-        }
         ///I2S interface power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> pci2s{}; 
-        namespace Pci2sValC{
-        }
         ///SD Card interface power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> pcsdc{}; 
-        namespace PcsdcValC{
-        }
         ///GPDMA function power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> pcgpdma{}; 
-        namespace PcgpdmaValC{
-        }
         ///Ethernet block power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> pcenet{}; 
-        namespace PcenetValC{
-        }
         ///USB interface power/clock control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> pcusb{}; 
-        namespace PcusbValC{
-        }
     }
     namespace Noneemcclksel{    ///<External Memory Controller Clock Selection register
         using Addr = Register::Address<0x400fc100,0xfffffffe,0,unsigned>;
@@ -290,16 +176,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EmcdivVal> emcdiv{}; 
         namespace EmcdivValC{
-            constexpr Register::FieldValue<decltype(emcdiv),EmcdivVal::theEmcUsesTheSam> theEmcUsesTheSam{};
-            constexpr Register::FieldValue<decltype(emcdiv),EmcdivVal::theEmcUsesAClock> theEmcUsesAClock{};
+            constexpr Register::FieldValue<decltype(emcdiv)::Type,EmcdivVal::theEmcUsesTheSam> theEmcUsesTheSam{};
+            constexpr Register::FieldValue<decltype(emcdiv)::Type,EmcdivVal::theEmcUsesAClock> theEmcUsesAClock{};
         }
     }
     namespace Nonecclksel{    ///<CPU Clock Selection register
         using Addr = Register::Address<0x400fc104,0xfffffee0,0,unsigned>;
         ///Selects the divide value for creating the CPU clock (CCLK) from the selected clock source. 0 = The divider is turned off., no clock will be provided to the CPU. This setting should typically not be used, the CPU will be halted and a reset will be required to restore operation. 1 = The input clock is divided by 1 to produce the CPU clock. 2 = The input clock is divided by 2 to produce the CPU clock. 3 = The input clock is divided by 3 to produce the CPU clock. ... 31 = The input clock is divided by 31 to produce the CPU clock.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> cclkdiv{}; 
-        namespace CclkdivValC{
-        }
         ///Selects the input clock for the CPU clock divider.
         enum class CclkselVal {
             sysclkIsUsedAsTh=0x00000000,     ///<Sysclk is used as the input to the CPU clock divider.
@@ -307,16 +191,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,CclkselVal> cclksel{}; 
         namespace CclkselValC{
-            constexpr Register::FieldValue<decltype(cclksel),CclkselVal::sysclkIsUsedAsTh> sysclkIsUsedAsTh{};
-            constexpr Register::FieldValue<decltype(cclksel),CclkselVal::theOutputOfTheMa> theOutputOfTheMa{};
+            constexpr Register::FieldValue<decltype(cclksel)::Type,CclkselVal::sysclkIsUsedAsTh> sysclkIsUsedAsTh{};
+            constexpr Register::FieldValue<decltype(cclksel)::Type,CclkselVal::theOutputOfTheMa> theOutputOfTheMa{};
         }
     }
     namespace Noneusbclksel{    ///<USB Clock Selection register
         using Addr = Register::Address<0x400fc108,0xfffffce0,0,unsigned>;
         ///Selects the divide value for creating the USB clock from the selected PLL output. Only the values shown below can produce even number multiples of 48 MHz from the PLL. Warning: Improper setting of this value will result in incorrect operation of the USB interface. Only the main oscillator in conjunction with either PLL0 or PLL1 can provide a clock that meets USB accuracy and jitter specifications. Other values cannot produce the 48 MHz clock required for USB operation.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> usbdiv{}; 
-        namespace UsbdivValC{
-        }
         ///Selects the input clock for the USB clock divider.
         enum class UsbselVal {
             sysclkIsUsedAsTh=0x00000000,     ///<Sysclk is used as the input to the USB clock divider. When this clock is selected, the USB can be accessed by software but cannot perform USB functions.
@@ -325,9 +207,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,UsbselVal> usbsel{}; 
         namespace UsbselValC{
-            constexpr Register::FieldValue<decltype(usbsel),UsbselVal::sysclkIsUsedAsTh> sysclkIsUsedAsTh{};
-            constexpr Register::FieldValue<decltype(usbsel),UsbselVal::theOutputOfTheMa> theOutputOfTheMa{};
-            constexpr Register::FieldValue<decltype(usbsel),UsbselVal::theOutputOfTheAl> theOutputOfTheAl{};
+            constexpr Register::FieldValue<decltype(usbsel)::Type,UsbselVal::sysclkIsUsedAsTh> sysclkIsUsedAsTh{};
+            constexpr Register::FieldValue<decltype(usbsel)::Type,UsbselVal::theOutputOfTheMa> theOutputOfTheMa{};
+            constexpr Register::FieldValue<decltype(usbsel)::Type,UsbselVal::theOutputOfTheAl> theOutputOfTheAl{};
         }
     }
     namespace Noneclksrcsel{    ///<Clock Source Select Register
@@ -339,50 +221,34 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ClksrcVal> clksrc{}; 
         namespace ClksrcValC{
-            constexpr Register::FieldValue<decltype(clksrc),ClksrcVal::selectsTheInternal> selectsTheInternal{};
-            constexpr Register::FieldValue<decltype(clksrc),ClksrcVal::selectsTheMainOsc> selectsTheMainOsc{};
+            constexpr Register::FieldValue<decltype(clksrc)::Type,ClksrcVal::selectsTheInternal> selectsTheInternal{};
+            constexpr Register::FieldValue<decltype(clksrc)::Type,ClksrcVal::selectsTheMainOsc> selectsTheMainOsc{};
         }
     }
     namespace Nonecansleepclr{    ///<Allows clearing the current CAN channel sleep state as well as reading that state.
         using Addr = Register::Address<0x400fc110,0xfffffff9,0,unsigned>;
         ///Sleep status and control for CAN channel 1. Read: when 1, indicates that CAN channel 1 is in the sleep mode. Write: writing a 1 causes clocks to be restored to CAN channel 1.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> can1sleep{}; 
-        namespace Can1sleepValC{
-        }
         ///Sleep status and control for CAN channel 2. Read: when 1, indicates that CAN channel 2 is in the sleep mode. Write: writing a 1 causes clocks to be restored to CAN channel 2.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> can2sleep{}; 
-        namespace Can2sleepValC{
-        }
     }
     namespace Nonecanwakeflags{    ///<Allows reading the wake-up state of the CAN channels.
         using Addr = Register::Address<0x400fc114,0xfffffff9,0,unsigned>;
         ///Wake-up status for CAN channel 1. Read: when 1, indicates that a falling edge has occurred on the receive data line of CAN channel 1. Write: writing a 1 clears this bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> can1wake{}; 
-        namespace Can1wakeValC{
-        }
         ///Wake-up status for CAN channel 2. Read: when 1, indicates that a falling edge has occurred on the receive data line of CAN channel 2. Write: writing a 1 clears this bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> can2wake{}; 
-        namespace Can2wakeValC{
-        }
     }
     namespace Noneextint{    ///<External Interrupt Flag Register
         using Addr = Register::Address<0x400fc140,0xfffffff0,0,unsigned>;
         ///In level-sensitive mode, this bit is set if the EINT0 function is selected for its pin, and the pin is in its active state. In edge-sensitive mode, this bit is set if the EINT0 function is selected for its pin, and the selected edge occurs on the pin. This bit is cleared by writing a one to it, except in level sensitive mode when the pin is in its active state.[1]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> eint0{}; 
-        namespace Eint0ValC{
-        }
         ///In level-sensitive mode, this bit is set if the EINT1 function is selected for its pin, and the pin is in its active state. In edge-sensitive mode, this bit is set if the EINT1 function is selected for its pin, and the selected edge occurs on the pin. This bit is cleared by writing a one to it, except in level sensitive mode when the pin is in its active state.[1]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> eint1{}; 
-        namespace Eint1ValC{
-        }
         ///In level-sensitive mode, this bit is set if the EINT2 function is selected for its pin, and the pin is in its active state. In edge-sensitive mode, this bit is set if the EINT2 function is selected for its pin, and the selected edge occurs on the pin. This bit is cleared by writing a one to it, except in level sensitive mode when the pin is in its active state.[1]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> eint2{}; 
-        namespace Eint2ValC{
-        }
         ///In level-sensitive mode, this bit is set if the EINT3 function is selected for its pin, and the pin is in its active state. In edge-sensitive mode, this bit is set if the EINT3 function is selected for its pin, and the selected edge occurs on the pin. This bit is cleared by writing a one to it, except in level sensitive mode when the pin is in its active state.[1]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> eint3{}; 
-        namespace Eint3ValC{
-        }
     }
     namespace Noneextmode{    ///<External Interrupt Mode register
         using Addr = Register::Address<0x400fc148,0xfffffff0,0,unsigned>;
@@ -393,8 +259,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Extmode0Val> extmode0{}; 
         namespace Extmode0ValC{
-            constexpr Register::FieldValue<decltype(extmode0),Extmode0Val::levelSensitive> levelSensitive{};
-            constexpr Register::FieldValue<decltype(extmode0),Extmode0Val::edgeSensitive> edgeSensitive{};
+            constexpr Register::FieldValue<decltype(extmode0)::Type,Extmode0Val::levelSensitive> levelSensitive{};
+            constexpr Register::FieldValue<decltype(extmode0)::Type,Extmode0Val::edgeSensitive> edgeSensitive{};
         }
         ///Level or edge sensitivity select for EINT1.
         enum class Extmode1Val {
@@ -403,8 +269,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Extmode1Val> extmode1{}; 
         namespace Extmode1ValC{
-            constexpr Register::FieldValue<decltype(extmode1),Extmode1Val::levelSensitive> levelSensitive{};
-            constexpr Register::FieldValue<decltype(extmode1),Extmode1Val::edgeSensitive> edgeSensitive{};
+            constexpr Register::FieldValue<decltype(extmode1)::Type,Extmode1Val::levelSensitive> levelSensitive{};
+            constexpr Register::FieldValue<decltype(extmode1)::Type,Extmode1Val::edgeSensitive> edgeSensitive{};
         }
         ///Level or edge sensitivity select for EINT2.
         enum class Extmode2Val {
@@ -413,8 +279,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Extmode2Val> extmode2{}; 
         namespace Extmode2ValC{
-            constexpr Register::FieldValue<decltype(extmode2),Extmode2Val::levelSensitive> levelSensitive{};
-            constexpr Register::FieldValue<decltype(extmode2),Extmode2Val::edgeSensitive> edgeSensitive{};
+            constexpr Register::FieldValue<decltype(extmode2)::Type,Extmode2Val::levelSensitive> levelSensitive{};
+            constexpr Register::FieldValue<decltype(extmode2)::Type,Extmode2Val::edgeSensitive> edgeSensitive{};
         }
         ///Level or edge sensitivity select for EINT3.
         enum class Extmode3Val {
@@ -423,8 +289,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Extmode3Val> extmode3{}; 
         namespace Extmode3ValC{
-            constexpr Register::FieldValue<decltype(extmode3),Extmode3Val::levelSensitive> levelSensitive{};
-            constexpr Register::FieldValue<decltype(extmode3),Extmode3Val::edgeSensitive> edgeSensitive{};
+            constexpr Register::FieldValue<decltype(extmode3)::Type,Extmode3Val::levelSensitive> levelSensitive{};
+            constexpr Register::FieldValue<decltype(extmode3)::Type,Extmode3Val::edgeSensitive> edgeSensitive{};
         }
     }
     namespace Noneextpolar{    ///<External Interrupt Polarity Register
@@ -436,8 +302,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Extpolar0Val> extpolar0{}; 
         namespace Extpolar0ValC{
-            constexpr Register::FieldValue<decltype(extpolar0),Extpolar0Val::lowActiveOrFallin> lowActiveOrFallin{};
-            constexpr Register::FieldValue<decltype(extpolar0),Extpolar0Val::highActiveOrRisin> highActiveOrRisin{};
+            constexpr Register::FieldValue<decltype(extpolar0)::Type,Extpolar0Val::lowActiveOrFallin> lowActiveOrFallin{};
+            constexpr Register::FieldValue<decltype(extpolar0)::Type,Extpolar0Val::highActiveOrRisin> highActiveOrRisin{};
         }
         ///External interrupt polarity for EINT1.
         enum class Extpolar1Val {
@@ -446,8 +312,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Extpolar1Val> extpolar1{}; 
         namespace Extpolar1ValC{
-            constexpr Register::FieldValue<decltype(extpolar1),Extpolar1Val::lowActiveOrFallin> lowActiveOrFallin{};
-            constexpr Register::FieldValue<decltype(extpolar1),Extpolar1Val::highActiveOrRisin> highActiveOrRisin{};
+            constexpr Register::FieldValue<decltype(extpolar1)::Type,Extpolar1Val::lowActiveOrFallin> lowActiveOrFallin{};
+            constexpr Register::FieldValue<decltype(extpolar1)::Type,Extpolar1Val::highActiveOrRisin> highActiveOrRisin{};
         }
         ///External interrupt polarity for EINT2.
         enum class Extpolar2Val {
@@ -456,8 +322,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Extpolar2Val> extpolar2{}; 
         namespace Extpolar2ValC{
-            constexpr Register::FieldValue<decltype(extpolar2),Extpolar2Val::lowActiveOrFallin> lowActiveOrFallin{};
-            constexpr Register::FieldValue<decltype(extpolar2),Extpolar2Val::highActiveOrRisin> highActiveOrRisin{};
+            constexpr Register::FieldValue<decltype(extpolar2)::Type,Extpolar2Val::lowActiveOrFallin> lowActiveOrFallin{};
+            constexpr Register::FieldValue<decltype(extpolar2)::Type,Extpolar2Val::highActiveOrRisin> highActiveOrRisin{};
         }
         ///External interrupt polarity for EINT3.
         enum class Extpolar3Val {
@@ -466,71 +332,43 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Extpolar3Val> extpolar3{}; 
         namespace Extpolar3ValC{
-            constexpr Register::FieldValue<decltype(extpolar3),Extpolar3Val::lowActiveOrFallin> lowActiveOrFallin{};
-            constexpr Register::FieldValue<decltype(extpolar3),Extpolar3Val::highActiveOrRisin> highActiveOrRisin{};
+            constexpr Register::FieldValue<decltype(extpolar3)::Type,Extpolar3Val::lowActiveOrFallin> lowActiveOrFallin{};
+            constexpr Register::FieldValue<decltype(extpolar3)::Type,Extpolar3Val::highActiveOrRisin> highActiveOrRisin{};
         }
     }
     namespace Nonersid{    ///<Reset Source Identification Register
         using Addr = Register::Address<0x400fc180,0xffffffc0,0,unsigned>;
         ///Assertion of the POR signal sets this bit, and clears all of the other bits in this register. But if another Reset signal (e.g., External Reset) remains asserted after the POR signal is negated, then its bit is set. This bit is not affected by any of the other sources of Reset.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> por{}; 
-        namespace PorValC{
-        }
         ///Assertion of the external RESET signal sets this bit. This bit is cleared only by software or POR.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> extr{}; 
-        namespace ExtrValC{
-        }
         ///This bit is set when the Watchdog Timer times out and the WDTRESET bit in the Watchdog Mode Register is 1. This bit is cleared only by software or POR.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wdtr{}; 
-        namespace WdtrValC{
-        }
         ///This bit is set when the VDD(REG)(3V3) voltage reaches a level below the BOD reset trip level (typically 1.85 V under nominal room temperature conditions). If the VDD(REG)(3V3) voltage dips from the normal operating range to below the BOD reset trip level and recovers, the BODR bit will be set to 1. If the VDD(REG)(3V3) voltage dips from the normal operating range to below the BOD reset trip level and continues to decline to the level at which POR is asserted (nominally 1 V), the BODR bit is cleared. If the VDD(REG)(3V3) voltage rises continuously from below 1 V to a level above the BOD reset trip level, the BODR will be set to 1. This bit is cleared only by software or POR. Note: Only in the case where a reset occurs and the POR = 0, the BODR bit indicates if the VDD(REG)(3V3) voltage was below the BOD reset trip level or not.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> bodr{}; 
-        namespace BodrValC{
-        }
         ///This bit is set if the processor has been reset due to a system reset request, as described in Section 40.4.3.6 Application Interrupt and Reset Control Register. Setting the SYSRESETREQ bit in the Cortex-M3 AIRCR register causes a chip reset in the LPC178x/177x. This bit is cleared only by software or POR.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> sysreset{}; 
-        namespace SysresetValC{
-        }
         ///This bit is set if the processor has been reset due to a lockup, as described in Section 40.3.4.4 Lockup. The lockup state causes a chip reset in the LPC178x/177x. This bit is cleared only by software or POR.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> lockup{}; 
-        namespace LockupValC{
-        }
     }
     namespace Nonematrixarb{    ///<Matrix arbitration register
         using Addr = Register::Address<0x400fc188,0xfffec000,0,unsigned>;
         ///I-Code bus priority. Should be lower than PRI_DCODE for proper operation.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> priIcode{}; 
-        namespace PriicodeValC{
-        }
         ///D-Code bus priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> priDcode{}; 
-        namespace PridcodeValC{
-        }
         ///System bus priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> priSys{}; 
-        namespace PrisysValC{
-        }
         ///General Purpose DMA controller priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> priGpdma{}; 
-        namespace PrigpdmaValC{
-        }
         ///Ethernet DMA priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> priEth{}; 
-        namespace PriethValC{
-        }
         ///LCD DMA priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> priLcd{}; 
-        namespace PrilcdValC{
-        }
         ///USB DMA priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> priUsb{}; 
-        namespace PriusbValC{
-        }
         ///ROM latency select. Should always be 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> romLat{}; 
-        namespace RomlatValC{
-        }
     }
     namespace Nonescs{    ///<System Control and Status
         using Addr = Register::Address<0x400fc1a0,0xffffff80,0,unsigned>;
@@ -541,8 +379,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EmcscVal> emcsc{}; 
         namespace EmcscValC{
-            constexpr Register::FieldValue<decltype(emcsc),EmcscVal::staticMemoryAddres> staticMemoryAddres{};
-            constexpr Register::FieldValue<decltype(emcsc),EmcscVal::staticMemoryAddres> staticMemoryAddres{};
+            constexpr Register::FieldValue<decltype(emcsc)::Type,EmcscVal::staticMemoryAddres> staticMemoryAddres{};
+            constexpr Register::FieldValue<decltype(emcsc)::Type,EmcscVal::staticMemoryAddres> staticMemoryAddres{};
         }
         ///EMC Reset Disable[1]. External Memory Controller Reset Disable. Also see Section 10.8 in the EMC chapter.
         enum class EmcrdVal {
@@ -551,8 +389,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,EmcrdVal> emcrd{}; 
         namespace EmcrdValC{
-            constexpr Register::FieldValue<decltype(emcrd),EmcrdVal::bothEmcResetsAre> bothEmcResetsAre{};
-            constexpr Register::FieldValue<decltype(emcrd),EmcrdVal::manyPortionsOfThe> manyPortionsOfThe{};
+            constexpr Register::FieldValue<decltype(emcrd)::Type,EmcrdVal::bothEmcResetsAre> bothEmcResetsAre{};
+            constexpr Register::FieldValue<decltype(emcrd)::Type,EmcrdVal::manyPortionsOfThe> manyPortionsOfThe{};
         }
         ///External Memory Controller burst control. Also see Section 10.10 in the EMC chapter.
         enum class EmcbcVal {
@@ -561,8 +399,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,EmcbcVal> emcbc{}; 
         namespace EmcbcValC{
-            constexpr Register::FieldValue<decltype(emcbc),EmcbcVal::burstEnabled> burstEnabled{};
-            constexpr Register::FieldValue<decltype(emcbc),EmcbcVal::burstDisabledThis> burstDisabledThis{};
+            constexpr Register::FieldValue<decltype(emcbc)::Type,EmcbcVal::burstEnabled> burstEnabled{};
+            constexpr Register::FieldValue<decltype(emcbc)::Type,EmcbcVal::burstDisabledThis> burstDisabledThis{};
         }
         ///MCIPWR Active Level[1]. Selects the active level of the SD card interface signal SD_PWR.
         enum class McipwralVal {
@@ -571,8 +409,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,McipwralVal> mcipwral{}; 
         namespace McipwralValC{
-            constexpr Register::FieldValue<decltype(mcipwral),McipwralVal::sdPwrIsActiveLow> sdPwrIsActiveLow{};
-            constexpr Register::FieldValue<decltype(mcipwral),McipwralVal::sdPwrIsActiveHig> sdPwrIsActiveHig{};
+            constexpr Register::FieldValue<decltype(mcipwral)::Type,McipwralVal::sdPwrIsActiveLow> sdPwrIsActiveLow{};
+            constexpr Register::FieldValue<decltype(mcipwral)::Type,McipwralVal::sdPwrIsActiveHig> sdPwrIsActiveHig{};
         }
         ///Main oscillator range select.
         enum class OscrsVal {
@@ -581,8 +419,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,OscrsVal> oscrs{}; 
         namespace OscrsValC{
-            constexpr Register::FieldValue<decltype(oscrs),OscrsVal::theFrequencyRange> theFrequencyRange{};
-            constexpr Register::FieldValue<decltype(oscrs),OscrsVal::theFrequencyRange> theFrequencyRange{};
+            constexpr Register::FieldValue<decltype(oscrs)::Type,OscrsVal::theFrequencyRange> theFrequencyRange{};
+            constexpr Register::FieldValue<decltype(oscrs)::Type,OscrsVal::theFrequencyRange> theFrequencyRange{};
         }
         ///Main oscillator enable.
         enum class OscenVal {
@@ -591,8 +429,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,OscenVal> oscen{}; 
         namespace OscenValC{
-            constexpr Register::FieldValue<decltype(oscen),OscenVal::theMainOscillator> theMainOscillator{};
-            constexpr Register::FieldValue<decltype(oscen),OscenVal::theMainOscillator> theMainOscillator{};
+            constexpr Register::FieldValue<decltype(oscen)::Type,OscenVal::theMainOscillator> theMainOscillator{};
+            constexpr Register::FieldValue<decltype(oscen)::Type,OscenVal::theMainOscillator> theMainOscillator{};
         }
         ///Main oscillator status.
         enum class OscstatVal {
@@ -601,30 +439,24 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,OscstatVal> oscstat{}; 
         namespace OscstatValC{
-            constexpr Register::FieldValue<decltype(oscstat),OscstatVal::theMainOscillator> theMainOscillator{};
-            constexpr Register::FieldValue<decltype(oscstat),OscstatVal::theMainOscillator> theMainOscillator{};
+            constexpr Register::FieldValue<decltype(oscstat)::Type,OscstatVal::theMainOscillator> theMainOscillator{};
+            constexpr Register::FieldValue<decltype(oscstat)::Type,OscstatVal::theMainOscillator> theMainOscillator{};
         }
     }
     namespace Nonepclksel{    ///<Peripheral Clock Selection register
         using Addr = Register::Address<0x400fc1a8,0xffffffe0,0,unsigned>;
         ///Selects the divide value for the clock used for all APB peripherals. 0 = The divider is turned off., no clock will be provided to APB peripherals.. 1 = The input clock is divided by 1 to produce the APB peripheral clock. 2 = The input clock is divided by 2 to produce the APB peripheral clock. 3 = The input clock is divided by 3 to produce the APB peripheral clock. ... 31 = The input clock is divided by 31 to produce the APB peripheral clock.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> pclkdiv{}; 
-        namespace PclkdivValC{
-        }
     }
     namespace Nonepboost{    ///<Power boost register
         using Addr = Register::Address<0x400fc1b0,0xfffffffc,0,unsigned>;
         ///Boost control bits. 00 : Boost is off, operation must be below 100 MHz. 11 : Boost is on, operation up to 120 MHz is supported. Other values are not allowed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> boost{}; 
-        namespace BoostValC{
-        }
     }
     namespace Nonespificlksel{    ///<SPIFI Clock Selection register
         using Addr = Register::Address<0x400fc1b4,0xfffffce0,0,unsigned>;
         ///Selects the divide value for creating the SPIFI clock from the selected clock source. 0 = The divider is turned off., no clock will be provided to the SPIFI. 1 = The input clock is divided by 1 to produce the SPIFI clock. 2 = The input clock is divided by 2 to produce the SPIFI clock. 3 = The input clock is divided by 3 to produce the SPIFI clock. ... 31 = The input clock is divided by 31 to produce the SPIFI clock.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> spifidiv{}; 
-        namespace SpifidivValC{
-        }
         ///Selects the input clock for the USB clock divider.
         enum class SpifiselVal {
             sysclkIsUsedAsTh=0x00000000,     ///<Sysclk is used as the input to the SPIFI clock divider.
@@ -633,313 +465,173 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,SpifiselVal> spifisel{}; 
         namespace SpifiselValC{
-            constexpr Register::FieldValue<decltype(spifisel),SpifiselVal::sysclkIsUsedAsTh> sysclkIsUsedAsTh{};
-            constexpr Register::FieldValue<decltype(spifisel),SpifiselVal::theOutputOfTheMa> theOutputOfTheMa{};
-            constexpr Register::FieldValue<decltype(spifisel),SpifiselVal::theOutputOfTheAl> theOutputOfTheAl{};
+            constexpr Register::FieldValue<decltype(spifisel)::Type,SpifiselVal::sysclkIsUsedAsTh> sysclkIsUsedAsTh{};
+            constexpr Register::FieldValue<decltype(spifisel)::Type,SpifiselVal::theOutputOfTheMa> theOutputOfTheMa{};
+            constexpr Register::FieldValue<decltype(spifisel)::Type,SpifiselVal::theOutputOfTheAl> theOutputOfTheAl{};
         }
     }
     namespace NonelcdCfg{    ///<LCD Clock configuration register
         using Addr = Register::Address<0x400fc1b8,0xffffffe0,0,unsigned>;
         ///LCD panel clock prescaler selection. The value in the this register plus 1 is used to divide the selected input clock (see the CLKSEL bit in the LCD_POL register), to produce the panel clock.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> clkdiv{}; 
-        namespace ClkdivValC{
-        }
     }
     namespace Noneusbintst{    ///<USB Interrupt Status
         using Addr = Register::Address<0x400fc1c0,0x7ffffe80,0,unsigned>;
         ///Low priority interrupt line status. This bit is read-only.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> usbIntReqLp{}; 
-        namespace UsbintreqlpValC{
-        }
         ///High priority interrupt line status. This bit is read-only.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> usbIntReqHp{}; 
-        namespace UsbintreqhpValC{
-        }
         ///DMA interrupt line status. This bit is read-only.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> usbIntReqDma{}; 
-        namespace UsbintreqdmaValC{
-        }
         ///USB host interrupt line status. This bit is read-only.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> usbHostInt{}; 
-        namespace UsbhostintValC{
-        }
         ///External ATX interrupt line status. This bit is read-only.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> usbAtxInt{}; 
-        namespace UsbatxintValC{
-        }
         ///OTG interrupt line status. This bit is read-only.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> usbOtgInt{}; 
-        namespace UsbotgintValC{
-        }
         ///I2C module interrupt line status. This bit is read-only.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> usbI2cInt{}; 
-        namespace Usbi2cintValC{
-        }
         ///USB need clock indicator. This bit is read-only. This bit is set to 1 when USB activity or a change of state on the USB data pins is detected, and it indicates that a PLL supplied clock of 48 MHz is needed. Once USB_NEED_CLK becomes one, it resets to zero 5 ms after the last packet has been received/sent, or 2 ms after the Suspend Change (SUS_CH) interrupt has occurred. A change of this bit from 0 to 1 can wake up the microcontroller if activity on the USB bus is selected to wake up the part from the Power-down mode (see Section 4.7.9 Wake-up from Reduced Power Modes for details). Also see Section 4.5.8 PLLs and Power-down mode and Section 4.7.10 Power Control for Peripherals register (PCONP - 0x400F C0C4) for considerations about the PLL and invoking the Power-down mode. This bit is read-only.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> usbNeedClk{}; 
-        namespace UsbneedclkValC{
-        }
         ///Enable all USB interrupts. When this bit is cleared, the NVIC does not see the ORed output of the USB interrupt lines.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> enUsbInts{}; 
-        namespace EnusbintsValC{
-        }
     }
     namespace Nonedmacreqsel{    ///<Selects between alternative requests on DMA channels 0 through 7 and 10 through 15
         using Addr = Register::Address<0x400fc1c4,0xffff0300,0,unsigned>;
         ///Selects the DMA request for GPDMA input 0: 0 - (unused) 1 - Timer 0 match 0 is selected.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dmasel00{}; 
-        namespace Dmasel00ValC{
-        }
         ///Selects the DMA request for GPDMA input 1: 0 - SD card interface is selected. 1 - Timer 0 match 1 is selected.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> dmasel01{}; 
-        namespace Dmasel01ValC{
-        }
         ///Selects the DMA request for GPDMA input 2: 0 - SSP0 transmit is selected. 1 - Timer 1 match 0 is selected.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> dmasel02{}; 
-        namespace Dmasel02ValC{
-        }
         ///Selects the DMA request for GPDMA input 3: 0 - SSP0 receive is selected. 1 - Timer 1 match 1 is selected.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> dmasel03{}; 
-        namespace Dmasel03ValC{
-        }
         ///Selects the DMA request for GPDMA input 4: 0 - SSP1 transmit is selected. 1 - Timer 2 match 0 is selected.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dmasel04{}; 
-        namespace Dmasel04ValC{
-        }
         ///Selects the DMA request for GPDMA input 5: 0 - SSP1 receive is selected. 1 - Timer 2 match 1 is selected.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> dmasel05{}; 
-        namespace Dmasel05ValC{
-        }
         ///Selects the DMA request for GPDMA input 6: 0 - SSP2 transmit is selected. 1 - I2S channel 0 is selected.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> dmasel06{}; 
-        namespace Dmasel06ValC{
-        }
         ///Selects the DMA request for GPDMA input 7: 0 - SSP2 receive is selected. 1 - I2S channel 1 is selected.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dmasel07{}; 
-        namespace Dmasel07ValC{
-        }
         ///Selects the DMA request for GPDMA input 10: 0 - UART0 transmit is selected. 1 - UART3 transmit is selected.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> dmasel10{}; 
-        namespace Dmasel10ValC{
-        }
         ///Selects the DMA request for GPDMA input 11: 0 - UART0 receive is selected. 1 - UART3 receive is selected.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> dmasel11{}; 
-        namespace Dmasel11ValC{
-        }
         ///Selects the DMA request for GPDMA input 12: 0 - UART1 transmit is selected. 1 - UART4 transmit is selected.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> dmasel12{}; 
-        namespace Dmasel12ValC{
-        }
         ///Selects the DMA request for GPDMA input 13: 0 - UART1 receive is selected. 1 - UART4 receive is selected.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> dmasel13{}; 
-        namespace Dmasel13ValC{
-        }
         ///Selects the DMA request for GPDMA input 14: 0 - UART2 transmit is selected. 1 - Timer 3 match 0 is selected.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> dmasel14{}; 
-        namespace Dmasel14ValC{
-        }
         ///Selects the DMA request for GPDMA input 15: 0 - UART2 receive is selected. 1 - Timer 3 match 1 is selected.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> dmasel15{}; 
-        namespace Dmasel15ValC{
-        }
     }
     namespace Noneclkoutcfg{    ///<Clock Output Configuration register
         using Addr = Register::Address<0x400fc1c8,0xfffffc00,0,unsigned>;
         ///Selects the clock source for the CLKOUT function. 0x0 = Selects the CPU clock as the CLKOUT source. 0x1 = Selects the main oscillator as the CLKOUT source. 0x2 = Selects the Internal RC oscillator as the CLKOUT source. 0x3 = Selects the USB clock as the CLKOUT source. 0x4 = Selects the RTC oscillator as the CLKOUT source. 0x5 = Selects the SPIFI clock as the CLKOUT source. 0x6 = Selects the Watchdog oscillator as the CLKOUT source. Other settings are reserved. Do not use.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> clkoutsel{}; 
-        namespace ClkoutselValC{
-        }
         ///Integer value to divide the output clock by, minus one. 0x0 = Clock is divided by 1. 0x1 = Clock is divided by 2. 0x2 = Clock is divided by 3. ... 0xF = Clock is divided by 16.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> clkoutdiv{}; 
-        namespace ClkoutdivValC{
-        }
         ///CLKOUT enable control, allows switching the CLKOUT source without glitches. Clear to stop CLKOUT on the next falling edge. Set to enable CLKOUT.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> clkoutEn{}; 
-        namespace ClkoutenValC{
-        }
         ///CLKOUT activity indication. Reads as 1 when CLKOUT is enabled. Read as 0 when CLKOUT has been disabled via the CLKOUT_EN bit and the clock has completed being stopped.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> clkoutAct{}; 
-        namespace ClkoutactValC{
-        }
     }
     namespace Nonerstcon0{    ///<Individual peripheral reset control bits
         using Addr = Register::Address<0x400fc1cc,0x00000000,0,unsigned>;
         ///LCD controller reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rstlcd{}; 
-        namespace RstlcdValC{
-        }
         ///Timer/Counter 0 reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rsttim0{}; 
-        namespace Rsttim0ValC{
-        }
         ///Timer/Counter 1 reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rsttim1{}; 
-        namespace Rsttim1ValC{
-        }
         ///UART0 reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> rstuart0{}; 
-        namespace Rstuart0ValC{
-        }
         ///UART1 reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rstuart1{}; 
-        namespace Rstuart1ValC{
-        }
         ///PWM0 reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rstpwm0{}; 
-        namespace Rstpwm0ValC{
-        }
         ///PWM1 reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rstpwm1{}; 
-        namespace Rstpwm1ValC{
-        }
         ///The I2C0 interface reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> rsti2c0{}; 
-        namespace Rsti2c0ValC{
-        }
         ///UART4 reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> rstuart4{}; 
-        namespace Rstuart4ValC{
-        }
         ///RTC and Event Monitor/Recorder reset control bit. RTC reset is limited, see Table 628 Real-Time Clock register map for details.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> rstrtc{}; 
-        namespace RstrtcValC{
-        }
         ///The SSP 1 interface reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> rstssp1{}; 
-        namespace Rstssp1ValC{
-        }
         ///External Memory Controller reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> rstemc{}; 
-        namespace RstemcValC{
-        }
         ///A/D converter (ADC) reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rstadc{}; 
-        namespace RstadcValC{
-        }
         ///CAN Controller 1 reset control bit. Note: The CAN acceptance filter may be reset by a separate bit in the RSTCON1 register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> rstcan1{}; 
-        namespace Rstcan1ValC{
-        }
         ///CAN Controller 2 reset control bit. Note: The CAN acceptance filter may be reset by a separate bit in the RSTCON1 register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> rstcan2{}; 
-        namespace Rstcan2ValC{
-        }
         ///Reset control bit for GPIO, and GPIO interrupts. Note: IOCON may be reset by a separate bit in the RSTCON1 register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> rstgpio{}; 
-        namespace RstgpioValC{
-        }
         ///SPI Flash Interface reset control bit (LPC1773 only).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rstspifi{}; 
-        namespace RstspifiValC{
-        }
         ///Motor Control PWM reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> rstmcpwm{}; 
-        namespace RstmcpwmValC{
-        }
         ///Quadrature Encoder Interface reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> rstqei{}; 
-        namespace RstqeiValC{
-        }
         ///The I2C1 interface reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> rsti2c1{}; 
-        namespace Rsti2c1ValC{
-        }
         ///The SSP2 interface reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> rstssp2{}; 
-        namespace Rstssp2ValC{
-        }
         ///The SSP0 interface reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> rstssp0{}; 
-        namespace Rstssp0ValC{
-        }
         ///Timer 2 reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> rsttim2{}; 
-        namespace Rsttim2ValC{
-        }
         ///Timer 3 reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> rsttim3{}; 
-        namespace Rsttim3ValC{
-        }
         ///UART 2 reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> rstuart2{}; 
-        namespace Rstuart2ValC{
-        }
         ///UART 3 reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> rstuart3{}; 
-        namespace Rstuart3ValC{
-        }
         ///I2C interface 2 reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> rsti2c2{}; 
-        namespace Rsti2c2ValC{
-        }
         ///I2S interface reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> rsti2s{}; 
-        namespace Rsti2sValC{
-        }
         ///SD Card interface reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> rstsdc{}; 
-        namespace RstsdcValC{
-        }
         ///GPDMA function reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> rstgpdma{}; 
-        namespace RstgpdmaValC{
-        }
         ///Ethernet block reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> rstenet{}; 
-        namespace RstenetValC{
-        }
         ///USB interface reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> rstusb{}; 
-        namespace RstusbValC{
-        }
     }
     namespace Nonerstcon1{    ///<Individual peripheral reset control bits
         using Addr = Register::Address<0x400fc1d0,0xfffffff8,0,unsigned>;
         ///Reset control bit for the IOCON registers.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rstiocon{}; 
-        namespace RstioconValC{
-        }
         ///D/A converter (DAC) reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rstdac{}; 
-        namespace RstdacValC{
-        }
         ///CAN acceptance filter reset control bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rstcanacc{}; 
-        namespace RstcanaccValC{
-        }
     }
     namespace Noneemcdlyctl{    ///<Values for the 4 programmable delays associated with SDRAM operation.
         using Addr = Register::Address<0x400fc1dc,0xe0e0e0e0,0,unsigned>;
         ///Programmable delay value for EMC outputs in command delayed mode. See Section 10.12.6. The delay amount is roughly (CMDDLY+1) * 250 picoseconds. This field applies only when the command delayed read strategy is selected in the EMCDynamicReadConfig register. In this mode, all control outputs from the EMC are delayed, but the output clock is not. Delaying the control outputs changes dynamic characteristics defined in the device data sheet.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> cmddly{}; 
-        namespace CmddlyValC{
-        }
         ///Programmable delay value for the feedback clock that controls input data sampling. See  Section 10.5.3. The delay amount is roughly (FBCLKDLY+1) * 250 picoseconds.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> fbclkdly{}; 
-        namespace FbclkdlyValC{
-        }
         ///Programmable delay value for the CLKOUT0 output. This would typically be used in clock delayed mode. See Section 10.12.6 The delay amount is roughly (CLKOUT0DLY+1) * 250 picoseconds. Delaying the clock output changes dynamic characteristics defined in the device data sheet.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> clkout0dly{}; 
-        namespace Clkout0dlyValC{
-        }
         ///Programmable delay value for the CLKOUT1 output. This would typically be used in clock delayed mode. See Section 10.12.6 The delay amount is roughly (CLKOUT1DLY+1) * 250 picoseconds.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> clkout1dly{}; 
-        namespace Clkout1dlyValC{
-        }
     }
     namespace Noneemccal{    ///<Controls the calibration counter for programmable delays and returns the result value.
         using Addr = Register::Address<0x400fc1e0,0xffff3f00,0,unsigned>;
         ///Returns the count of the approximately 50 MHz ring oscillator that occur during 32 clocks of the IRC oscillator. This represents the composite effect of processing variation, internal regulator supply voltage, and ambient temperature.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> calvalue{}; 
-        namespace CalvalueValC{
-        }
         ///Start control bit for the EMC calibration counter. Writing a 1 to this bit begins the measurement process. This bit is cleared automatically when the measurement is complete.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> start{}; 
-        namespace StartValC{
-        }
         ///Measurement completion flag. this bit is set when a calibration measurement is completed. This bit is cleared automatically when the START bit is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> done{}; 
-        namespace DoneValC{
-        }
     }
 }

@@ -11,8 +11,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,If0enVal> if0en{}; 
         namespace If0enValC{
-            constexpr Register::FieldValue<decltype(if0en),If0enVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(if0en),If0enVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(if0en)::Type,If0enVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(if0en)::Type,If0enVal::enabled> enabled{};
         }
         ///Interface 1 Enable. 
         enum class If1enVal {
@@ -21,8 +21,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,If1enVal> if1en{}; 
         namespace If1enValC{
-            constexpr Register::FieldValue<decltype(if1en),If1enVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(if1en),If1enVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(if1en)::Type,If1enVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(if1en)::Type,If1enVal::enabled> enabled{};
         }
         ///OFF Output State Enable. 
         enum class OffstenVal {
@@ -31,8 +31,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,OffstenVal> offsten{}; 
         namespace OffstenValC{
-            constexpr Register::FieldValue<decltype(offsten),OffstenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(offsten),OffstenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(offsten)::Type,OffstenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(offsten)::Type,OffstenVal::enabled> enabled{};
         }
     }
     namespace Nonestatus{    ///<Module Status
@@ -44,8 +44,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,OffstsVal> offsts{}; 
         namespace OffstsValC{
-            constexpr Register::FieldValue<decltype(offsts),OffstsVal::on> on{};
-            constexpr Register::FieldValue<decltype(offsts),OffstsVal::off> off{};
+            constexpr Register::FieldValue<decltype(offsts)::Type,OffstsVal::on> on{};
+            constexpr Register::FieldValue<decltype(offsts)::Type,OffstsVal::off> off{};
         }
         ///EMIF IDLE Status. 
         enum class IdlestsVal {
@@ -54,8 +54,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,IdlestsVal> idlests{}; 
         namespace IdlestsValC{
-            constexpr Register::FieldValue<decltype(idlests),IdlestsVal::notIdle> notIdle{};
-            constexpr Register::FieldValue<decltype(idlests),IdlestsVal::idle> idle{};
+            constexpr Register::FieldValue<decltype(idlests)::Type,IdlestsVal::notIdle> notIdle{};
+            constexpr Register::FieldValue<decltype(idlests)::Type,IdlestsVal::idle> idle{};
         }
     }
     namespace Noneconfig0{    ///<Interface Configuration
@@ -67,8 +67,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,BuswidthVal> buswidth{}; 
         namespace BuswidthValC{
-            constexpr Register::FieldValue<decltype(buswidth),BuswidthVal::v8bit> v8bit{};
-            constexpr Register::FieldValue<decltype(buswidth),BuswidthVal::v16bit> v16bit{};
+            constexpr Register::FieldValue<decltype(buswidth)::Type,BuswidthVal::v8bit> v8bit{};
+            constexpr Register::FieldValue<decltype(buswidth)::Type,BuswidthVal::v16bit> v16bit{};
         }
         ///Interface Mux Mode. 
         enum class MuxmdVal {
@@ -77,8 +77,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,MuxmdVal> muxmd{}; 
         namespace MuxmdValC{
-            constexpr Register::FieldValue<decltype(muxmd),MuxmdVal::nonmuxed> nonmuxed{};
-            constexpr Register::FieldValue<decltype(muxmd),MuxmdVal::muxed> muxed{};
+            constexpr Register::FieldValue<decltype(muxmd)::Type,MuxmdVal::nonmuxed> nonmuxed{};
+            constexpr Register::FieldValue<decltype(muxmd)::Type,MuxmdVal::muxed> muxed{};
         }
         ///Interface Automatic Address Shift Enable. 
         enum class AsenVal {
@@ -87,8 +87,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,AsenVal> asen{}; 
         namespace AsenValC{
-            constexpr Register::FieldValue<decltype(asen),AsenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(asen),AsenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(asen)::Type,AsenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(asen)::Type,AsenVal::enabled> enabled{};
         }
         ///Interface Read Only Enable. 
         enum class RoenVal {
@@ -97,8 +97,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,RoenVal> roen{}; 
         namespace RoenValC{
-            constexpr Register::FieldValue<decltype(roen),RoenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(roen),RoenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(roen)::Type,RoenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(roen)::Type,RoenVal::enabled> enabled{};
         }
         ///Write Data Hold State Inhibit. 
         enum class WdhinhVal {
@@ -107,8 +107,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,WdhinhVal> wdhinh{}; 
         namespace WdhinhValC{
-            constexpr Register::FieldValue<decltype(wdhinh),WdhinhVal::inactive> inactive{};
-            constexpr Register::FieldValue<decltype(wdhinh),WdhinhVal::active> active{};
+            constexpr Register::FieldValue<decltype(wdhinh)::Type,WdhinhVal::inactive> inactive{};
+            constexpr Register::FieldValue<decltype(wdhinh)::Type,WdhinhVal::active> active{};
         }
         ///Output Enable Delay. 
         enum class DelayoeVal {
@@ -117,8 +117,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,DelayoeVal> delayoe{}; 
         namespace DelayoeValC{
-            constexpr Register::FieldValue<decltype(delayoe),DelayoeVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(delayoe),DelayoeVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(delayoe)::Type,DelayoeVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(delayoe)::Type,DelayoeVal::enabled> enabled{};
         }
         ///Keep Last Read Enable. 
         enum class KlrenVal {
@@ -127,47 +127,31 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,KlrenVal> klren{}; 
         namespace KlrenValC{
-            constexpr Register::FieldValue<decltype(klren),KlrenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(klren),KlrenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(klren)::Type,KlrenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(klren)::Type,KlrenVal::enabled> enabled{};
         }
     }
     namespace Noneifrt0{    ///<Interface Read Timing
         using Addr = Register::Address<0x40026090,0xffc0f000,0,unsigned>;
         ///Interface Read Address Setup Delay . 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> raset{}; 
-        namespace RasetValC{
-        }
         ///Interface Read Address Hold Delay. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> rahold{}; 
-        namespace RaholdValC{
-        }
         ///Interface Read Data Hold Delay. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> rdhold{}; 
-        namespace RdholdValC{
-        }
         ///Interface Read Data Wait Delay. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> rdwait{}; 
-        namespace RdwaitValC{
-        }
     }
     namespace Noneifwt0{    ///<Interface Write Timing
         using Addr = Register::Address<0x400260a0,0xffc0f000,0,unsigned>;
         ///Interface Write Address Setup Delay . 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waset{}; 
-        namespace WasetValC{
-        }
         ///Interface Write Address Hold Delay. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> wahold{}; 
-        namespace WaholdValC{
-        }
         ///Interface Write Data Hold Delay. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> wdhold{}; 
-        namespace WdholdValC{
-        }
         ///Interface Write Data Wait Delay. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> wdwait{}; 
-        namespace WdwaitValC{
-        }
     }
     namespace Noneifrcst0{    ///<Interface Read Control States
         using Addr = Register::Address<0x400260b0,0xffff0000,0,unsigned>;
@@ -178,8 +162,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CsrasVal> csras{}; 
         namespace CsrasValC{
-            constexpr Register::FieldValue<decltype(csras),CsrasVal::low> low{};
-            constexpr Register::FieldValue<decltype(csras),CsrasVal::high> high{};
+            constexpr Register::FieldValue<decltype(csras)::Type,CsrasVal::low> low{};
+            constexpr Register::FieldValue<decltype(csras)::Type,CsrasVal::high> high{};
         }
         ///Chip Select Read Address Hold State. 
         enum class CsrahVal {
@@ -188,8 +172,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,CsrahVal> csrah{}; 
         namespace CsrahValC{
-            constexpr Register::FieldValue<decltype(csrah),CsrahVal::low> low{};
-            constexpr Register::FieldValue<decltype(csrah),CsrahVal::high> high{};
+            constexpr Register::FieldValue<decltype(csrah)::Type,CsrahVal::low> low{};
+            constexpr Register::FieldValue<decltype(csrah)::Type,CsrahVal::high> high{};
         }
         ///Chip Select Read Data Wait State. 
         enum class CsrdwVal {
@@ -198,8 +182,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,CsrdwVal> csrdw{}; 
         namespace CsrdwValC{
-            constexpr Register::FieldValue<decltype(csrdw),CsrdwVal::low> low{};
-            constexpr Register::FieldValue<decltype(csrdw),CsrdwVal::high> high{};
+            constexpr Register::FieldValue<decltype(csrdw)::Type,CsrdwVal::low> low{};
+            constexpr Register::FieldValue<decltype(csrdw)::Type,CsrdwVal::high> high{};
         }
         ///Chip Select Read Data Hold State. 
         enum class CsrdhVal {
@@ -208,8 +192,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,CsrdhVal> csrdh{}; 
         namespace CsrdhValC{
-            constexpr Register::FieldValue<decltype(csrdh),CsrdhVal::low> low{};
-            constexpr Register::FieldValue<decltype(csrdh),CsrdhVal::high> high{};
+            constexpr Register::FieldValue<decltype(csrdh)::Type,CsrdhVal::low> low{};
+            constexpr Register::FieldValue<decltype(csrdh)::Type,CsrdhVal::high> high{};
         }
         ///Output Enable Read Address Setup State. 
         enum class OerasVal {
@@ -218,8 +202,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,OerasVal> oeras{}; 
         namespace OerasValC{
-            constexpr Register::FieldValue<decltype(oeras),OerasVal::low> low{};
-            constexpr Register::FieldValue<decltype(oeras),OerasVal::high> high{};
+            constexpr Register::FieldValue<decltype(oeras)::Type,OerasVal::low> low{};
+            constexpr Register::FieldValue<decltype(oeras)::Type,OerasVal::high> high{};
         }
         ///Output Enable Read Address Hold State. 
         enum class OerahVal {
@@ -228,8 +212,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,OerahVal> oerah{}; 
         namespace OerahValC{
-            constexpr Register::FieldValue<decltype(oerah),OerahVal::low> low{};
-            constexpr Register::FieldValue<decltype(oerah),OerahVal::high> high{};
+            constexpr Register::FieldValue<decltype(oerah)::Type,OerahVal::low> low{};
+            constexpr Register::FieldValue<decltype(oerah)::Type,OerahVal::high> high{};
         }
         ///Output Enable Read Data Wait State. 
         enum class OerdwVal {
@@ -238,8 +222,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,OerdwVal> oerdw{}; 
         namespace OerdwValC{
-            constexpr Register::FieldValue<decltype(oerdw),OerdwVal::low> low{};
-            constexpr Register::FieldValue<decltype(oerdw),OerdwVal::high> high{};
+            constexpr Register::FieldValue<decltype(oerdw)::Type,OerdwVal::low> low{};
+            constexpr Register::FieldValue<decltype(oerdw)::Type,OerdwVal::high> high{};
         }
         ///Output Enable Read Data Hold State. 
         enum class OerdhVal {
@@ -248,8 +232,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,OerdhVal> oerdh{}; 
         namespace OerdhValC{
-            constexpr Register::FieldValue<decltype(oerdh),OerdhVal::low> low{};
-            constexpr Register::FieldValue<decltype(oerdh),OerdhVal::high> high{};
+            constexpr Register::FieldValue<decltype(oerdh)::Type,OerdhVal::low> low{};
+            constexpr Register::FieldValue<decltype(oerdh)::Type,OerdhVal::high> high{};
         }
         ///Write Signal Read Address Setup State. 
         enum class WrrasVal {
@@ -258,8 +242,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,WrrasVal> wrras{}; 
         namespace WrrasValC{
-            constexpr Register::FieldValue<decltype(wrras),WrrasVal::low> low{};
-            constexpr Register::FieldValue<decltype(wrras),WrrasVal::high> high{};
+            constexpr Register::FieldValue<decltype(wrras)::Type,WrrasVal::low> low{};
+            constexpr Register::FieldValue<decltype(wrras)::Type,WrrasVal::high> high{};
         }
         ///Write Signal Read Address Hold State. 
         enum class WrrahVal {
@@ -268,8 +252,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,WrrahVal> wrrah{}; 
         namespace WrrahValC{
-            constexpr Register::FieldValue<decltype(wrrah),WrrahVal::low> low{};
-            constexpr Register::FieldValue<decltype(wrrah),WrrahVal::high> high{};
+            constexpr Register::FieldValue<decltype(wrrah)::Type,WrrahVal::low> low{};
+            constexpr Register::FieldValue<decltype(wrrah)::Type,WrrahVal::high> high{};
         }
         ///Write Signal Read Data Wait State. 
         enum class WrrdwVal {
@@ -278,8 +262,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,WrrdwVal> wrrdw{}; 
         namespace WrrdwValC{
-            constexpr Register::FieldValue<decltype(wrrdw),WrrdwVal::low> low{};
-            constexpr Register::FieldValue<decltype(wrrdw),WrrdwVal::high> high{};
+            constexpr Register::FieldValue<decltype(wrrdw)::Type,WrrdwVal::low> low{};
+            constexpr Register::FieldValue<decltype(wrrdw)::Type,WrrdwVal::high> high{};
         }
         ///Write Signal Read Data Hold State. 
         enum class WrrdhVal {
@@ -288,8 +272,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,WrrdhVal> wrrdh{}; 
         namespace WrrdhValC{
-            constexpr Register::FieldValue<decltype(wrrdh),WrrdhVal::low> low{};
-            constexpr Register::FieldValue<decltype(wrrdh),WrrdhVal::high> high{};
+            constexpr Register::FieldValue<decltype(wrrdh)::Type,WrrdhVal::low> low{};
+            constexpr Register::FieldValue<decltype(wrrdh)::Type,WrrdhVal::high> high{};
         }
         ///Address Latch Enable Read Address Setup State. 
         enum class AlerasVal {
@@ -298,8 +282,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,AlerasVal> aleras{}; 
         namespace AlerasValC{
-            constexpr Register::FieldValue<decltype(aleras),AlerasVal::low> low{};
-            constexpr Register::FieldValue<decltype(aleras),AlerasVal::high> high{};
+            constexpr Register::FieldValue<decltype(aleras)::Type,AlerasVal::low> low{};
+            constexpr Register::FieldValue<decltype(aleras)::Type,AlerasVal::high> high{};
         }
         ///Address Latch Enable Read Address Hold State. 
         enum class AlerahVal {
@@ -308,8 +292,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,AlerahVal> alerah{}; 
         namespace AlerahValC{
-            constexpr Register::FieldValue<decltype(alerah),AlerahVal::low> low{};
-            constexpr Register::FieldValue<decltype(alerah),AlerahVal::high> high{};
+            constexpr Register::FieldValue<decltype(alerah)::Type,AlerahVal::low> low{};
+            constexpr Register::FieldValue<decltype(alerah)::Type,AlerahVal::high> high{};
         }
         ///Address Latch Enable Read Data Wait State. 
         enum class AlerdwVal {
@@ -318,8 +302,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,AlerdwVal> alerdw{}; 
         namespace AlerdwValC{
-            constexpr Register::FieldValue<decltype(alerdw),AlerdwVal::low> low{};
-            constexpr Register::FieldValue<decltype(alerdw),AlerdwVal::high> high{};
+            constexpr Register::FieldValue<decltype(alerdw)::Type,AlerdwVal::low> low{};
+            constexpr Register::FieldValue<decltype(alerdw)::Type,AlerdwVal::high> high{};
         }
         ///Address Latch Enable Read Data Hold State. 
         enum class AlerdhVal {
@@ -328,8 +312,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,AlerdhVal> alerdh{}; 
         namespace AlerdhValC{
-            constexpr Register::FieldValue<decltype(alerdh),AlerdhVal::low> low{};
-            constexpr Register::FieldValue<decltype(alerdh),AlerdhVal::high> high{};
+            constexpr Register::FieldValue<decltype(alerdh)::Type,AlerdhVal::low> low{};
+            constexpr Register::FieldValue<decltype(alerdh)::Type,AlerdhVal::high> high{};
         }
     }
     namespace Noneifwcst0{    ///<Interface Write Control States
@@ -341,8 +325,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CswasVal> cswas{}; 
         namespace CswasValC{
-            constexpr Register::FieldValue<decltype(cswas),CswasVal::low> low{};
-            constexpr Register::FieldValue<decltype(cswas),CswasVal::high> high{};
+            constexpr Register::FieldValue<decltype(cswas)::Type,CswasVal::low> low{};
+            constexpr Register::FieldValue<decltype(cswas)::Type,CswasVal::high> high{};
         }
         ///Chip Select Write Address Hold State. 
         enum class CswahVal {
@@ -351,8 +335,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,CswahVal> cswah{}; 
         namespace CswahValC{
-            constexpr Register::FieldValue<decltype(cswah),CswahVal::low> low{};
-            constexpr Register::FieldValue<decltype(cswah),CswahVal::high> high{};
+            constexpr Register::FieldValue<decltype(cswah)::Type,CswahVal::low> low{};
+            constexpr Register::FieldValue<decltype(cswah)::Type,CswahVal::high> high{};
         }
         ///Chip Select Write Data Wait State. 
         enum class CswdwVal {
@@ -361,8 +345,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,CswdwVal> cswdw{}; 
         namespace CswdwValC{
-            constexpr Register::FieldValue<decltype(cswdw),CswdwVal::low> low{};
-            constexpr Register::FieldValue<decltype(cswdw),CswdwVal::high> high{};
+            constexpr Register::FieldValue<decltype(cswdw)::Type,CswdwVal::low> low{};
+            constexpr Register::FieldValue<decltype(cswdw)::Type,CswdwVal::high> high{};
         }
         ///Chip Select Write Data Hold State. 
         enum class CswdhVal {
@@ -371,8 +355,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,CswdhVal> cswdh{}; 
         namespace CswdhValC{
-            constexpr Register::FieldValue<decltype(cswdh),CswdhVal::low> low{};
-            constexpr Register::FieldValue<decltype(cswdh),CswdhVal::high> high{};
+            constexpr Register::FieldValue<decltype(cswdh)::Type,CswdhVal::low> low{};
+            constexpr Register::FieldValue<decltype(cswdh)::Type,CswdhVal::high> high{};
         }
         ///Output Enable Write Address Setup State. 
         enum class OewasVal {
@@ -381,8 +365,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,OewasVal> oewas{}; 
         namespace OewasValC{
-            constexpr Register::FieldValue<decltype(oewas),OewasVal::low> low{};
-            constexpr Register::FieldValue<decltype(oewas),OewasVal::high> high{};
+            constexpr Register::FieldValue<decltype(oewas)::Type,OewasVal::low> low{};
+            constexpr Register::FieldValue<decltype(oewas)::Type,OewasVal::high> high{};
         }
         ///Output Enable Write Address Hold State. 
         enum class OewahVal {
@@ -391,8 +375,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,OewahVal> oewah{}; 
         namespace OewahValC{
-            constexpr Register::FieldValue<decltype(oewah),OewahVal::low> low{};
-            constexpr Register::FieldValue<decltype(oewah),OewahVal::high> high{};
+            constexpr Register::FieldValue<decltype(oewah)::Type,OewahVal::low> low{};
+            constexpr Register::FieldValue<decltype(oewah)::Type,OewahVal::high> high{};
         }
         ///Output Enable Write Data Wait State. 
         enum class OewdwVal {
@@ -401,8 +385,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,OewdwVal> oewdw{}; 
         namespace OewdwValC{
-            constexpr Register::FieldValue<decltype(oewdw),OewdwVal::low> low{};
-            constexpr Register::FieldValue<decltype(oewdw),OewdwVal::high> high{};
+            constexpr Register::FieldValue<decltype(oewdw)::Type,OewdwVal::low> low{};
+            constexpr Register::FieldValue<decltype(oewdw)::Type,OewdwVal::high> high{};
         }
         ///Output Enable Write Data Hold State. 
         enum class OewdhVal {
@@ -411,8 +395,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,OewdhVal> oewdh{}; 
         namespace OewdhValC{
-            constexpr Register::FieldValue<decltype(oewdh),OewdhVal::low> low{};
-            constexpr Register::FieldValue<decltype(oewdh),OewdhVal::high> high{};
+            constexpr Register::FieldValue<decltype(oewdh)::Type,OewdhVal::low> low{};
+            constexpr Register::FieldValue<decltype(oewdh)::Type,OewdhVal::high> high{};
         }
         ///Write Signal Write Address Setup State. 
         enum class WrwasVal {
@@ -421,8 +405,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,WrwasVal> wrwas{}; 
         namespace WrwasValC{
-            constexpr Register::FieldValue<decltype(wrwas),WrwasVal::low> low{};
-            constexpr Register::FieldValue<decltype(wrwas),WrwasVal::high> high{};
+            constexpr Register::FieldValue<decltype(wrwas)::Type,WrwasVal::low> low{};
+            constexpr Register::FieldValue<decltype(wrwas)::Type,WrwasVal::high> high{};
         }
         ///Write Signal Write Address Hold State. 
         enum class WrwahVal {
@@ -431,8 +415,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,WrwahVal> wrwah{}; 
         namespace WrwahValC{
-            constexpr Register::FieldValue<decltype(wrwah),WrwahVal::low> low{};
-            constexpr Register::FieldValue<decltype(wrwah),WrwahVal::high> high{};
+            constexpr Register::FieldValue<decltype(wrwah)::Type,WrwahVal::low> low{};
+            constexpr Register::FieldValue<decltype(wrwah)::Type,WrwahVal::high> high{};
         }
         ///Write Signal Write Data Wait State. 
         enum class WrwdwVal {
@@ -441,8 +425,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,WrwdwVal> wrwdw{}; 
         namespace WrwdwValC{
-            constexpr Register::FieldValue<decltype(wrwdw),WrwdwVal::low> low{};
-            constexpr Register::FieldValue<decltype(wrwdw),WrwdwVal::high> high{};
+            constexpr Register::FieldValue<decltype(wrwdw)::Type,WrwdwVal::low> low{};
+            constexpr Register::FieldValue<decltype(wrwdw)::Type,WrwdwVal::high> high{};
         }
         ///Write Signal Write Data Hold State. 
         enum class WrwdhVal {
@@ -451,8 +435,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,WrwdhVal> wrwdh{}; 
         namespace WrwdhValC{
-            constexpr Register::FieldValue<decltype(wrwdh),WrwdhVal::low> low{};
-            constexpr Register::FieldValue<decltype(wrwdh),WrwdhVal::high> high{};
+            constexpr Register::FieldValue<decltype(wrwdh)::Type,WrwdhVal::low> low{};
+            constexpr Register::FieldValue<decltype(wrwdh)::Type,WrwdhVal::high> high{};
         }
         ///Address Latch Enable Write Address Setup State. 
         enum class AlewasVal {
@@ -461,8 +445,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,AlewasVal> alewas{}; 
         namespace AlewasValC{
-            constexpr Register::FieldValue<decltype(alewas),AlewasVal::low> low{};
-            constexpr Register::FieldValue<decltype(alewas),AlewasVal::high> high{};
+            constexpr Register::FieldValue<decltype(alewas)::Type,AlewasVal::low> low{};
+            constexpr Register::FieldValue<decltype(alewas)::Type,AlewasVal::high> high{};
         }
         ///Address Latch Enable Write Address Hold State. 
         enum class AlewahVal {
@@ -471,8 +455,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,AlewahVal> alewah{}; 
         namespace AlewahValC{
-            constexpr Register::FieldValue<decltype(alewah),AlewahVal::low> low{};
-            constexpr Register::FieldValue<decltype(alewah),AlewahVal::high> high{};
+            constexpr Register::FieldValue<decltype(alewah)::Type,AlewahVal::low> low{};
+            constexpr Register::FieldValue<decltype(alewah)::Type,AlewahVal::high> high{};
         }
         ///Address Latch Enable Write Data Wait State. 
         enum class AlewdwVal {
@@ -481,8 +465,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,AlewdwVal> alewdw{}; 
         namespace AlewdwValC{
-            constexpr Register::FieldValue<decltype(alewdw),AlewdwVal::low> low{};
-            constexpr Register::FieldValue<decltype(alewdw),AlewdwVal::high> high{};
+            constexpr Register::FieldValue<decltype(alewdw)::Type,AlewdwVal::low> low{};
+            constexpr Register::FieldValue<decltype(alewdw)::Type,AlewdwVal::high> high{};
         }
         ///Address Latch Enable Write Data Hold State. 
         enum class AlewdhVal {
@@ -491,8 +475,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,AlewdhVal> alewdh{}; 
         namespace AlewdhValC{
-            constexpr Register::FieldValue<decltype(alewdh),AlewdhVal::low> low{};
-            constexpr Register::FieldValue<decltype(alewdh),AlewdhVal::high> high{};
+            constexpr Register::FieldValue<decltype(alewdh)::Type,AlewdhVal::low> low{};
+            constexpr Register::FieldValue<decltype(alewdh)::Type,AlewdhVal::high> high{};
         }
     }
     namespace Noneconfig1{    ///<Interface Configuration
@@ -504,8 +488,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,BuswidthVal> buswidth{}; 
         namespace BuswidthValC{
-            constexpr Register::FieldValue<decltype(buswidth),BuswidthVal::v8bit> v8bit{};
-            constexpr Register::FieldValue<decltype(buswidth),BuswidthVal::v16bit> v16bit{};
+            constexpr Register::FieldValue<decltype(buswidth)::Type,BuswidthVal::v8bit> v8bit{};
+            constexpr Register::FieldValue<decltype(buswidth)::Type,BuswidthVal::v16bit> v16bit{};
         }
         ///Interface Mux Mode. 
         enum class MuxmdVal {
@@ -514,8 +498,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,MuxmdVal> muxmd{}; 
         namespace MuxmdValC{
-            constexpr Register::FieldValue<decltype(muxmd),MuxmdVal::nonmuxed> nonmuxed{};
-            constexpr Register::FieldValue<decltype(muxmd),MuxmdVal::muxed> muxed{};
+            constexpr Register::FieldValue<decltype(muxmd)::Type,MuxmdVal::nonmuxed> nonmuxed{};
+            constexpr Register::FieldValue<decltype(muxmd)::Type,MuxmdVal::muxed> muxed{};
         }
         ///Interface Automatic Address Shift Enable. 
         enum class AsenVal {
@@ -524,8 +508,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,AsenVal> asen{}; 
         namespace AsenValC{
-            constexpr Register::FieldValue<decltype(asen),AsenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(asen),AsenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(asen)::Type,AsenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(asen)::Type,AsenVal::enabled> enabled{};
         }
         ///Interface Read Only Enable. 
         enum class RoenVal {
@@ -534,8 +518,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,RoenVal> roen{}; 
         namespace RoenValC{
-            constexpr Register::FieldValue<decltype(roen),RoenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(roen),RoenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(roen)::Type,RoenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(roen)::Type,RoenVal::enabled> enabled{};
         }
         ///Write Data Hold State Inhibit. 
         enum class WdhinhVal {
@@ -544,8 +528,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,WdhinhVal> wdhinh{}; 
         namespace WdhinhValC{
-            constexpr Register::FieldValue<decltype(wdhinh),WdhinhVal::inactive> inactive{};
-            constexpr Register::FieldValue<decltype(wdhinh),WdhinhVal::active> active{};
+            constexpr Register::FieldValue<decltype(wdhinh)::Type,WdhinhVal::inactive> inactive{};
+            constexpr Register::FieldValue<decltype(wdhinh)::Type,WdhinhVal::active> active{};
         }
         ///Output Enable Delay. 
         enum class DelayoeVal {
@@ -554,8 +538,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,DelayoeVal> delayoe{}; 
         namespace DelayoeValC{
-            constexpr Register::FieldValue<decltype(delayoe),DelayoeVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(delayoe),DelayoeVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(delayoe)::Type,DelayoeVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(delayoe)::Type,DelayoeVal::enabled> enabled{};
         }
         ///Keep Last Read Enable. 
         enum class KlrenVal {
@@ -564,47 +548,31 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,KlrenVal> klren{}; 
         namespace KlrenValC{
-            constexpr Register::FieldValue<decltype(klren),KlrenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(klren),KlrenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(klren)::Type,KlrenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(klren)::Type,KlrenVal::enabled> enabled{};
         }
     }
     namespace Noneifrt1{    ///<Interface Read Timing
         using Addr = Register::Address<0x40026110,0xffc0f000,0,unsigned>;
         ///Interface Read Address Setup Delay . 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> raset{}; 
-        namespace RasetValC{
-        }
         ///Interface Read Address Hold Delay. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> rahold{}; 
-        namespace RaholdValC{
-        }
         ///Interface Read Data Hold Delay. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> rdhold{}; 
-        namespace RdholdValC{
-        }
         ///Interface Read Data Wait Delay. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> rdwait{}; 
-        namespace RdwaitValC{
-        }
     }
     namespace Noneifwt1{    ///<Interface Write Timing
         using Addr = Register::Address<0x40026120,0xffc0f000,0,unsigned>;
         ///Interface Write Address Setup Delay . 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> waset{}; 
-        namespace WasetValC{
-        }
         ///Interface Write Address Hold Delay. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> wahold{}; 
-        namespace WaholdValC{
-        }
         ///Interface Write Data Hold Delay. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> wdhold{}; 
-        namespace WdholdValC{
-        }
         ///Interface Write Data Wait Delay. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> wdwait{}; 
-        namespace WdwaitValC{
-        }
     }
     namespace Noneifrcst1{    ///<Interface Read Control States
         using Addr = Register::Address<0x40026130,0xffff0000,0,unsigned>;
@@ -615,8 +583,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CsrasVal> csras{}; 
         namespace CsrasValC{
-            constexpr Register::FieldValue<decltype(csras),CsrasVal::low> low{};
-            constexpr Register::FieldValue<decltype(csras),CsrasVal::high> high{};
+            constexpr Register::FieldValue<decltype(csras)::Type,CsrasVal::low> low{};
+            constexpr Register::FieldValue<decltype(csras)::Type,CsrasVal::high> high{};
         }
         ///Chip Select Read Address Hold State. 
         enum class CsrahVal {
@@ -625,8 +593,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,CsrahVal> csrah{}; 
         namespace CsrahValC{
-            constexpr Register::FieldValue<decltype(csrah),CsrahVal::low> low{};
-            constexpr Register::FieldValue<decltype(csrah),CsrahVal::high> high{};
+            constexpr Register::FieldValue<decltype(csrah)::Type,CsrahVal::low> low{};
+            constexpr Register::FieldValue<decltype(csrah)::Type,CsrahVal::high> high{};
         }
         ///Chip Select Read Data Wait State. 
         enum class CsrdwVal {
@@ -635,8 +603,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,CsrdwVal> csrdw{}; 
         namespace CsrdwValC{
-            constexpr Register::FieldValue<decltype(csrdw),CsrdwVal::low> low{};
-            constexpr Register::FieldValue<decltype(csrdw),CsrdwVal::high> high{};
+            constexpr Register::FieldValue<decltype(csrdw)::Type,CsrdwVal::low> low{};
+            constexpr Register::FieldValue<decltype(csrdw)::Type,CsrdwVal::high> high{};
         }
         ///Chip Select Read Data Hold State. 
         enum class CsrdhVal {
@@ -645,8 +613,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,CsrdhVal> csrdh{}; 
         namespace CsrdhValC{
-            constexpr Register::FieldValue<decltype(csrdh),CsrdhVal::low> low{};
-            constexpr Register::FieldValue<decltype(csrdh),CsrdhVal::high> high{};
+            constexpr Register::FieldValue<decltype(csrdh)::Type,CsrdhVal::low> low{};
+            constexpr Register::FieldValue<decltype(csrdh)::Type,CsrdhVal::high> high{};
         }
         ///Output Enable Read Address Setup State. 
         enum class OerasVal {
@@ -655,8 +623,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,OerasVal> oeras{}; 
         namespace OerasValC{
-            constexpr Register::FieldValue<decltype(oeras),OerasVal::low> low{};
-            constexpr Register::FieldValue<decltype(oeras),OerasVal::high> high{};
+            constexpr Register::FieldValue<decltype(oeras)::Type,OerasVal::low> low{};
+            constexpr Register::FieldValue<decltype(oeras)::Type,OerasVal::high> high{};
         }
         ///Output Enable Read Address Hold State. 
         enum class OerahVal {
@@ -665,8 +633,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,OerahVal> oerah{}; 
         namespace OerahValC{
-            constexpr Register::FieldValue<decltype(oerah),OerahVal::low> low{};
-            constexpr Register::FieldValue<decltype(oerah),OerahVal::high> high{};
+            constexpr Register::FieldValue<decltype(oerah)::Type,OerahVal::low> low{};
+            constexpr Register::FieldValue<decltype(oerah)::Type,OerahVal::high> high{};
         }
         ///Output Enable Read Data Wait State. 
         enum class OerdwVal {
@@ -675,8 +643,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,OerdwVal> oerdw{}; 
         namespace OerdwValC{
-            constexpr Register::FieldValue<decltype(oerdw),OerdwVal::low> low{};
-            constexpr Register::FieldValue<decltype(oerdw),OerdwVal::high> high{};
+            constexpr Register::FieldValue<decltype(oerdw)::Type,OerdwVal::low> low{};
+            constexpr Register::FieldValue<decltype(oerdw)::Type,OerdwVal::high> high{};
         }
         ///Output Enable Read Data Hold State. 
         enum class OerdhVal {
@@ -685,8 +653,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,OerdhVal> oerdh{}; 
         namespace OerdhValC{
-            constexpr Register::FieldValue<decltype(oerdh),OerdhVal::low> low{};
-            constexpr Register::FieldValue<decltype(oerdh),OerdhVal::high> high{};
+            constexpr Register::FieldValue<decltype(oerdh)::Type,OerdhVal::low> low{};
+            constexpr Register::FieldValue<decltype(oerdh)::Type,OerdhVal::high> high{};
         }
         ///Write Signal Read Address Setup State. 
         enum class WrrasVal {
@@ -695,8 +663,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,WrrasVal> wrras{}; 
         namespace WrrasValC{
-            constexpr Register::FieldValue<decltype(wrras),WrrasVal::low> low{};
-            constexpr Register::FieldValue<decltype(wrras),WrrasVal::high> high{};
+            constexpr Register::FieldValue<decltype(wrras)::Type,WrrasVal::low> low{};
+            constexpr Register::FieldValue<decltype(wrras)::Type,WrrasVal::high> high{};
         }
         ///Write Signal Read Address Hold State. 
         enum class WrrahVal {
@@ -705,8 +673,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,WrrahVal> wrrah{}; 
         namespace WrrahValC{
-            constexpr Register::FieldValue<decltype(wrrah),WrrahVal::low> low{};
-            constexpr Register::FieldValue<decltype(wrrah),WrrahVal::high> high{};
+            constexpr Register::FieldValue<decltype(wrrah)::Type,WrrahVal::low> low{};
+            constexpr Register::FieldValue<decltype(wrrah)::Type,WrrahVal::high> high{};
         }
         ///Write Signal Read Data Wait State. 
         enum class WrrdwVal {
@@ -715,8 +683,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,WrrdwVal> wrrdw{}; 
         namespace WrrdwValC{
-            constexpr Register::FieldValue<decltype(wrrdw),WrrdwVal::low> low{};
-            constexpr Register::FieldValue<decltype(wrrdw),WrrdwVal::high> high{};
+            constexpr Register::FieldValue<decltype(wrrdw)::Type,WrrdwVal::low> low{};
+            constexpr Register::FieldValue<decltype(wrrdw)::Type,WrrdwVal::high> high{};
         }
         ///Write Signal Read Data Hold State. 
         enum class WrrdhVal {
@@ -725,8 +693,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,WrrdhVal> wrrdh{}; 
         namespace WrrdhValC{
-            constexpr Register::FieldValue<decltype(wrrdh),WrrdhVal::low> low{};
-            constexpr Register::FieldValue<decltype(wrrdh),WrrdhVal::high> high{};
+            constexpr Register::FieldValue<decltype(wrrdh)::Type,WrrdhVal::low> low{};
+            constexpr Register::FieldValue<decltype(wrrdh)::Type,WrrdhVal::high> high{};
         }
         ///Address Latch Enable Read Address Setup State. 
         enum class AlerasVal {
@@ -735,8 +703,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,AlerasVal> aleras{}; 
         namespace AlerasValC{
-            constexpr Register::FieldValue<decltype(aleras),AlerasVal::low> low{};
-            constexpr Register::FieldValue<decltype(aleras),AlerasVal::high> high{};
+            constexpr Register::FieldValue<decltype(aleras)::Type,AlerasVal::low> low{};
+            constexpr Register::FieldValue<decltype(aleras)::Type,AlerasVal::high> high{};
         }
         ///Address Latch Enable Read Address Hold State. 
         enum class AlerahVal {
@@ -745,8 +713,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,AlerahVal> alerah{}; 
         namespace AlerahValC{
-            constexpr Register::FieldValue<decltype(alerah),AlerahVal::low> low{};
-            constexpr Register::FieldValue<decltype(alerah),AlerahVal::high> high{};
+            constexpr Register::FieldValue<decltype(alerah)::Type,AlerahVal::low> low{};
+            constexpr Register::FieldValue<decltype(alerah)::Type,AlerahVal::high> high{};
         }
         ///Address Latch Enable Read Data Wait State. 
         enum class AlerdwVal {
@@ -755,8 +723,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,AlerdwVal> alerdw{}; 
         namespace AlerdwValC{
-            constexpr Register::FieldValue<decltype(alerdw),AlerdwVal::low> low{};
-            constexpr Register::FieldValue<decltype(alerdw),AlerdwVal::high> high{};
+            constexpr Register::FieldValue<decltype(alerdw)::Type,AlerdwVal::low> low{};
+            constexpr Register::FieldValue<decltype(alerdw)::Type,AlerdwVal::high> high{};
         }
         ///Address Latch Enable Read Data Hold State. 
         enum class AlerdhVal {
@@ -765,8 +733,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,AlerdhVal> alerdh{}; 
         namespace AlerdhValC{
-            constexpr Register::FieldValue<decltype(alerdh),AlerdhVal::low> low{};
-            constexpr Register::FieldValue<decltype(alerdh),AlerdhVal::high> high{};
+            constexpr Register::FieldValue<decltype(alerdh)::Type,AlerdhVal::low> low{};
+            constexpr Register::FieldValue<decltype(alerdh)::Type,AlerdhVal::high> high{};
         }
     }
     namespace Noneifwcst1{    ///<Interface Write Control States
@@ -778,8 +746,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CswasVal> cswas{}; 
         namespace CswasValC{
-            constexpr Register::FieldValue<decltype(cswas),CswasVal::low> low{};
-            constexpr Register::FieldValue<decltype(cswas),CswasVal::high> high{};
+            constexpr Register::FieldValue<decltype(cswas)::Type,CswasVal::low> low{};
+            constexpr Register::FieldValue<decltype(cswas)::Type,CswasVal::high> high{};
         }
         ///Chip Select Write Address Hold State. 
         enum class CswahVal {
@@ -788,8 +756,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,CswahVal> cswah{}; 
         namespace CswahValC{
-            constexpr Register::FieldValue<decltype(cswah),CswahVal::low> low{};
-            constexpr Register::FieldValue<decltype(cswah),CswahVal::high> high{};
+            constexpr Register::FieldValue<decltype(cswah)::Type,CswahVal::low> low{};
+            constexpr Register::FieldValue<decltype(cswah)::Type,CswahVal::high> high{};
         }
         ///Chip Select Write Data Wait State. 
         enum class CswdwVal {
@@ -798,8 +766,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,CswdwVal> cswdw{}; 
         namespace CswdwValC{
-            constexpr Register::FieldValue<decltype(cswdw),CswdwVal::low> low{};
-            constexpr Register::FieldValue<decltype(cswdw),CswdwVal::high> high{};
+            constexpr Register::FieldValue<decltype(cswdw)::Type,CswdwVal::low> low{};
+            constexpr Register::FieldValue<decltype(cswdw)::Type,CswdwVal::high> high{};
         }
         ///Chip Select Write Data Hold State. 
         enum class CswdhVal {
@@ -808,8 +776,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,CswdhVal> cswdh{}; 
         namespace CswdhValC{
-            constexpr Register::FieldValue<decltype(cswdh),CswdhVal::low> low{};
-            constexpr Register::FieldValue<decltype(cswdh),CswdhVal::high> high{};
+            constexpr Register::FieldValue<decltype(cswdh)::Type,CswdhVal::low> low{};
+            constexpr Register::FieldValue<decltype(cswdh)::Type,CswdhVal::high> high{};
         }
         ///Output Enable Write Address Setup State. 
         enum class OewasVal {
@@ -818,8 +786,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,OewasVal> oewas{}; 
         namespace OewasValC{
-            constexpr Register::FieldValue<decltype(oewas),OewasVal::low> low{};
-            constexpr Register::FieldValue<decltype(oewas),OewasVal::high> high{};
+            constexpr Register::FieldValue<decltype(oewas)::Type,OewasVal::low> low{};
+            constexpr Register::FieldValue<decltype(oewas)::Type,OewasVal::high> high{};
         }
         ///Output Enable Write Address Hold State. 
         enum class OewahVal {
@@ -828,8 +796,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,OewahVal> oewah{}; 
         namespace OewahValC{
-            constexpr Register::FieldValue<decltype(oewah),OewahVal::low> low{};
-            constexpr Register::FieldValue<decltype(oewah),OewahVal::high> high{};
+            constexpr Register::FieldValue<decltype(oewah)::Type,OewahVal::low> low{};
+            constexpr Register::FieldValue<decltype(oewah)::Type,OewahVal::high> high{};
         }
         ///Output Enable Write Data Wait State. 
         enum class OewdwVal {
@@ -838,8 +806,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,OewdwVal> oewdw{}; 
         namespace OewdwValC{
-            constexpr Register::FieldValue<decltype(oewdw),OewdwVal::low> low{};
-            constexpr Register::FieldValue<decltype(oewdw),OewdwVal::high> high{};
+            constexpr Register::FieldValue<decltype(oewdw)::Type,OewdwVal::low> low{};
+            constexpr Register::FieldValue<decltype(oewdw)::Type,OewdwVal::high> high{};
         }
         ///Output Enable Write Data Hold State. 
         enum class OewdhVal {
@@ -848,8 +816,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,OewdhVal> oewdh{}; 
         namespace OewdhValC{
-            constexpr Register::FieldValue<decltype(oewdh),OewdhVal::low> low{};
-            constexpr Register::FieldValue<decltype(oewdh),OewdhVal::high> high{};
+            constexpr Register::FieldValue<decltype(oewdh)::Type,OewdhVal::low> low{};
+            constexpr Register::FieldValue<decltype(oewdh)::Type,OewdhVal::high> high{};
         }
         ///Write Signal Write Address Setup State. 
         enum class WrwasVal {
@@ -858,8 +826,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,WrwasVal> wrwas{}; 
         namespace WrwasValC{
-            constexpr Register::FieldValue<decltype(wrwas),WrwasVal::low> low{};
-            constexpr Register::FieldValue<decltype(wrwas),WrwasVal::high> high{};
+            constexpr Register::FieldValue<decltype(wrwas)::Type,WrwasVal::low> low{};
+            constexpr Register::FieldValue<decltype(wrwas)::Type,WrwasVal::high> high{};
         }
         ///Write Signal Write Address Hold State. 
         enum class WrwahVal {
@@ -868,8 +836,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,WrwahVal> wrwah{}; 
         namespace WrwahValC{
-            constexpr Register::FieldValue<decltype(wrwah),WrwahVal::low> low{};
-            constexpr Register::FieldValue<decltype(wrwah),WrwahVal::high> high{};
+            constexpr Register::FieldValue<decltype(wrwah)::Type,WrwahVal::low> low{};
+            constexpr Register::FieldValue<decltype(wrwah)::Type,WrwahVal::high> high{};
         }
         ///Write Signal Write Data Wait State. 
         enum class WrwdwVal {
@@ -878,8 +846,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,WrwdwVal> wrwdw{}; 
         namespace WrwdwValC{
-            constexpr Register::FieldValue<decltype(wrwdw),WrwdwVal::low> low{};
-            constexpr Register::FieldValue<decltype(wrwdw),WrwdwVal::high> high{};
+            constexpr Register::FieldValue<decltype(wrwdw)::Type,WrwdwVal::low> low{};
+            constexpr Register::FieldValue<decltype(wrwdw)::Type,WrwdwVal::high> high{};
         }
         ///Write Signal Write Data Hold State. 
         enum class WrwdhVal {
@@ -888,8 +856,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,WrwdhVal> wrwdh{}; 
         namespace WrwdhValC{
-            constexpr Register::FieldValue<decltype(wrwdh),WrwdhVal::low> low{};
-            constexpr Register::FieldValue<decltype(wrwdh),WrwdhVal::high> high{};
+            constexpr Register::FieldValue<decltype(wrwdh)::Type,WrwdhVal::low> low{};
+            constexpr Register::FieldValue<decltype(wrwdh)::Type,WrwdhVal::high> high{};
         }
         ///Address Latch Enable Write Address Setup State. 
         enum class AlewasVal {
@@ -898,8 +866,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,AlewasVal> alewas{}; 
         namespace AlewasValC{
-            constexpr Register::FieldValue<decltype(alewas),AlewasVal::low> low{};
-            constexpr Register::FieldValue<decltype(alewas),AlewasVal::high> high{};
+            constexpr Register::FieldValue<decltype(alewas)::Type,AlewasVal::low> low{};
+            constexpr Register::FieldValue<decltype(alewas)::Type,AlewasVal::high> high{};
         }
         ///Address Latch Enable Write Address Hold State. 
         enum class AlewahVal {
@@ -908,8 +876,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,AlewahVal> alewah{}; 
         namespace AlewahValC{
-            constexpr Register::FieldValue<decltype(alewah),AlewahVal::low> low{};
-            constexpr Register::FieldValue<decltype(alewah),AlewahVal::high> high{};
+            constexpr Register::FieldValue<decltype(alewah)::Type,AlewahVal::low> low{};
+            constexpr Register::FieldValue<decltype(alewah)::Type,AlewahVal::high> high{};
         }
         ///Address Latch Enable Write Data Wait State. 
         enum class AlewdwVal {
@@ -918,8 +886,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,AlewdwVal> alewdw{}; 
         namespace AlewdwValC{
-            constexpr Register::FieldValue<decltype(alewdw),AlewdwVal::low> low{};
-            constexpr Register::FieldValue<decltype(alewdw),AlewdwVal::high> high{};
+            constexpr Register::FieldValue<decltype(alewdw)::Type,AlewdwVal::low> low{};
+            constexpr Register::FieldValue<decltype(alewdw)::Type,AlewdwVal::high> high{};
         }
         ///Address Latch Enable Write Data Hold State. 
         enum class AlewdhVal {
@@ -928,8 +896,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,AlewdhVal> alewdh{}; 
         namespace AlewdhValC{
-            constexpr Register::FieldValue<decltype(alewdh),AlewdhVal::low> low{};
-            constexpr Register::FieldValue<decltype(alewdh),AlewdhVal::high> high{};
+            constexpr Register::FieldValue<decltype(alewdh)::Type,AlewdhVal::low> low{};
+            constexpr Register::FieldValue<decltype(alewdh)::Type,AlewdhVal::high> high{};
         }
     }
 }

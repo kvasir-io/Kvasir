@@ -6,15 +6,11 @@ namespace Kvasir {
         using Addr = Register::Address<0xf0003008,0xffffff00,0,unsigned>;
         ///Each bit in the ASC field indicates whether there is a corresponding connection to the crossbar switch's slave input port.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> asc{}; 
-        namespace AscValC{
-        }
     }
     namespace McmPlamc{    ///<Crossbar Switch (AXBS) Master Configuration
         using Addr = Register::Address<0xf000300a,0xffffff00,0,unsigned>;
         ///Each bit in the AMC field indicates whether there is a corresponding connection to the AXBS master input port.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> amc{}; 
-        namespace AmcValC{
-        }
     }
     namespace McmPlacr{    ///<Platform Control Register
         using Addr = Register::Address<0xf000300c,0xfffe01ff,0,unsigned>;
@@ -25,13 +21,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,ArbVal> arb{}; 
         namespace ArbValC{
-            constexpr Register::FieldValue<decltype(arb),ArbVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(arb),ArbVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::v1> v1{};
         }
         ///Clear Flash Controller Cache
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> cfcc{}; 
-        namespace CfccValC{
-        }
         ///Disable Flash Controller Data Caching
         enum class DfcdaVal {
             v0=0x00000000,     ///<Enable flash controller data caching
@@ -39,8 +33,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,DfcdaVal> dfcda{}; 
         namespace DfcdaValC{
-            constexpr Register::FieldValue<decltype(dfcda),DfcdaVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dfcda),DfcdaVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dfcda)::Type,DfcdaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dfcda)::Type,DfcdaVal::v1> v1{};
         }
         ///Disable Flash Controller Instruction Caching
         enum class DfcicVal {
@@ -49,8 +43,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,DfcicVal> dfcic{}; 
         namespace DfcicValC{
-            constexpr Register::FieldValue<decltype(dfcic),DfcicVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dfcic),DfcicVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dfcic)::Type,DfcicVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dfcic)::Type,DfcicVal::v1> v1{};
         }
         ///Disable Flash Controller Cache
         enum class DfccVal {
@@ -59,8 +53,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,DfccVal> dfcc{}; 
         namespace DfccValC{
-            constexpr Register::FieldValue<decltype(dfcc),DfccVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dfcc),DfccVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dfcc)::Type,DfccVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dfcc)::Type,DfccVal::v1> v1{};
         }
         ///Enable Flash Data Speculation
         enum class EfdsVal {
@@ -69,8 +63,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,EfdsVal> efds{}; 
         namespace EfdsValC{
-            constexpr Register::FieldValue<decltype(efds),EfdsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(efds),EfdsVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(efds)::Type,EfdsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(efds)::Type,EfdsVal::v1> v1{};
         }
         ///Disable Flash Controller Speculation
         enum class DfcsVal {
@@ -79,8 +73,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DfcsVal> dfcs{}; 
         namespace DfcsValC{
-            constexpr Register::FieldValue<decltype(dfcs),DfcsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dfcs),DfcsVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dfcs)::Type,DfcsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dfcs)::Type,DfcsVal::v1> v1{};
         }
         ///Enable Stalling Flash Controller
         enum class EsfcVal {
@@ -89,8 +83,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,EsfcVal> esfc{}; 
         namespace EsfcValC{
-            constexpr Register::FieldValue<decltype(esfc),EsfcVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(esfc),EsfcVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(esfc)::Type,EsfcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(esfc)::Type,EsfcVal::v1> v1{};
         }
     }
     namespace McmCpo{    ///<Compute Operation Control Register
@@ -102,8 +96,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CporeqVal> cporeq{}; 
         namespace CporeqValC{
-            constexpr Register::FieldValue<decltype(cporeq),CporeqVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(cporeq),CporeqVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(cporeq)::Type,CporeqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cporeq)::Type,CporeqVal::v1> v1{};
         }
         ///Compute Operation acknowledge
         enum class CpoackVal {
@@ -112,8 +106,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,CpoackVal> cpoack{}; 
         namespace CpoackValC{
-            constexpr Register::FieldValue<decltype(cpoack),CpoackVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(cpoack),CpoackVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(cpoack)::Type,CpoackVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cpoack)::Type,CpoackVal::v1> v1{};
         }
         ///Compute Operation wakeup on interrupt
         enum class CpowoiVal {
@@ -122,8 +116,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,CpowoiVal> cpowoi{}; 
         namespace CpowoiValC{
-            constexpr Register::FieldValue<decltype(cpowoi),CpowoiVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(cpowoi),CpowoiVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(cpowoi)::Type,CpowoiVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cpowoi)::Type,CpowoiVal::v1> v1{};
         }
     }
 }

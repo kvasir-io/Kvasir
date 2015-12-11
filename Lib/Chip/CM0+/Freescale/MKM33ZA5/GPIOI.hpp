@@ -6,22 +6,16 @@ namespace Kvasir {
         using Addr = Register::Address<0x400ff080,0xffffff00,0,unsigned char>;
         ///Port Data Output
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pdo{}; 
-        namespace PdoValC{
-        }
     }
     namespace GpioiPdir{    ///<Port Data Input Register
         using Addr = Register::Address<0x400ff090,0xffffff00,0,unsigned char>;
         ///Port Data Input
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pdi{}; 
-        namespace PdiValC{
-        }
     }
     namespace GpioiPddr{    ///<Port Data Direction Register
         using Addr = Register::Address<0x400ff094,0xffffff00,0,unsigned char>;
         ///Port Data Direction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pdd{}; 
-        namespace PddValC{
-        }
     }
     namespace GpioiGacr{    ///<GPIO Attribute Checker Register
         using Addr = Register::Address<0x400ff09c,0xffffff78,0,unsigned char>;
@@ -38,14 +32,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,AcbVal> acb{}; 
         namespace AcbValC{
-            constexpr Register::FieldValue<decltype(acb),AcbVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(acb),AcbVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(acb),AcbVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(acb),AcbVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(acb),AcbVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(acb),AcbVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(acb),AcbVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(acb),AcbVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(acb)::Type,AcbVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(acb)::Type,AcbVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(acb)::Type,AcbVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(acb)::Type,AcbVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(acb)::Type,AcbVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(acb)::Type,AcbVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(acb)::Type,AcbVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(acb)::Type,AcbVal::v111> v111{};
         }
         ///Read-Only Byte
         enum class RobVal {
@@ -54,8 +48,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,RobVal> rob{}; 
         namespace RobValC{
-            constexpr Register::FieldValue<decltype(rob),RobVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rob),RobVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(rob)::Type,RobVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rob)::Type,RobVal::v1> v1{};
         }
     }
 }

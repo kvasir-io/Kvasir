@@ -6,35 +6,21 @@ namespace Kvasir {
         using Addr = Register::Address<0x4005f000,0x00000000,0,unsigned>;
         ///Feature Specification Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> feature{}; 
-        namespace FeatureValC{
-        }
         ///Minor Version Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> minor{}; 
-        namespace MinorValC{
-        }
         ///Major Version Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> major{}; 
-        namespace MajorValC{
-        }
     }
     namespace FlexioParam{    ///<Parameter Register
         using Addr = Register::Address<0x4005f004,0x00000000,0,unsigned>;
         ///Shifter Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> shifter{}; 
-        namespace ShifterValC{
-        }
         ///Timer Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> timer{}; 
-        namespace TimerValC{
-        }
         ///Pin Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> pin{}; 
-        namespace PinValC{
-        }
         ///Trigger Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> trigger{}; 
-        namespace TriggerValC{
-        }
     }
     namespace FlexioCtrl{    ///<FlexIO Control Register
         using Addr = Register::Address<0x4005f008,0x3ffffff8,0,unsigned>;
@@ -45,8 +31,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,FlexenVal> flexen{}; 
         namespace FlexenValC{
-            constexpr Register::FieldValue<decltype(flexen),FlexenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(flexen),FlexenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(flexen)::Type,FlexenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(flexen)::Type,FlexenVal::v1> v1{};
         }
         ///Software Reset
         enum class SwrstVal {
@@ -55,8 +41,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,SwrstVal> swrst{}; 
         namespace SwrstValC{
-            constexpr Register::FieldValue<decltype(swrst),SwrstVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(swrst),SwrstVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(swrst)::Type,SwrstVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(swrst)::Type,SwrstVal::v1> v1{};
         }
         ///Fast Access
         enum class FastaccVal {
@@ -65,8 +51,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,FastaccVal> fastacc{}; 
         namespace FastaccValC{
-            constexpr Register::FieldValue<decltype(fastacc),FastaccVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(fastacc),FastaccVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(fastacc)::Type,FastaccVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(fastacc)::Type,FastaccVal::v1> v1{};
         }
         ///Debug Enable
         enum class DbgeVal {
@@ -75,8 +61,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,DbgeVal> dbge{}; 
         namespace DbgeValC{
-            constexpr Register::FieldValue<decltype(dbge),DbgeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dbge),DbgeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dbge)::Type,DbgeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dbge)::Type,DbgeVal::v1> v1{};
         }
         ///Doze Enable
         enum class DozenVal {
@@ -85,58 +71,44 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,DozenVal> dozen{}; 
         namespace DozenValC{
-            constexpr Register::FieldValue<decltype(dozen),DozenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dozen),DozenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dozen)::Type,DozenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dozen)::Type,DozenVal::v1> v1{};
         }
     }
     namespace FlexioShiftstat{    ///<Shifter Status Register
         using Addr = Register::Address<0x4005f010,0xfffffff0,0,unsigned>;
         ///Shifter Status Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ssf{}; 
-        namespace SsfValC{
-        }
     }
     namespace FlexioShifterr{    ///<Shifter Error Register
         using Addr = Register::Address<0x4005f014,0xfffffff0,0,unsigned>;
         ///Shifter Error Flags
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> sef{}; 
-        namespace SefValC{
-        }
     }
     namespace FlexioTimstat{    ///<Timer Status Register
         using Addr = Register::Address<0x4005f018,0xfffffff0,0,unsigned>;
         ///Timer Status Flags
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> tsf{}; 
-        namespace TsfValC{
-        }
     }
     namespace FlexioShiftsien{    ///<Shifter Status Interrupt Enable
         using Addr = Register::Address<0x4005f020,0xfffffff0,0,unsigned>;
         ///Shifter Status Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ssie{}; 
-        namespace SsieValC{
-        }
     }
     namespace FlexioShifteien{    ///<Shifter Error Interrupt Enable
         using Addr = Register::Address<0x4005f024,0xfffffff0,0,unsigned>;
         ///Shifter Error Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> seie{}; 
-        namespace SeieValC{
-        }
     }
     namespace FlexioTimien{    ///<Timer Interrupt Enable Register
         using Addr = Register::Address<0x4005f028,0xfffffff0,0,unsigned>;
         ///Timer Status Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> teie{}; 
-        namespace TeieValC{
-        }
     }
     namespace FlexioShiftsden{    ///<Shifter Status DMA Enable
         using Addr = Register::Address<0x4005f030,0xfffffff0,0,unsigned>;
         ///Shifter Status DMA Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ssde{}; 
-        namespace SsdeValC{
-        }
     }
     namespace FlexioShiftctl0{    ///<Shifter Control N Register
         using Addr = Register::Address<0x4005f080,0xfc7cf878,0,unsigned>;
@@ -150,11 +122,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,SmodVal> smod{}; 
         namespace SmodValC{
-            constexpr Register::FieldValue<decltype(smod),SmodVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(smod),SmodVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(smod),SmodVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(smod),SmodVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(smod),SmodVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v101> v101{};
         }
         ///Shifter Pin Polarity
         enum class PinpolVal {
@@ -163,13 +135,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,PinpolVal> pinpol{}; 
         namespace PinpolValC{
-            constexpr Register::FieldValue<decltype(pinpol),PinpolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(pinpol),PinpolVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v1> v1{};
         }
         ///Shifter Pin Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> pinsel{}; 
-        namespace PinselValC{
-        }
         ///Shifter Pin Configuration
         enum class PincfgVal {
             v00=0x00000000,     ///<Shifter pin output disabled
@@ -179,10 +149,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,PincfgVal> pincfg{}; 
         namespace PincfgValC{
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v11> v11{};
         }
         ///Timer Polarity
         enum class TimpolVal {
@@ -191,13 +161,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,TimpolVal> timpol{}; 
         namespace TimpolValC{
-            constexpr Register::FieldValue<decltype(timpol),TimpolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(timpol),TimpolVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(timpol)::Type,TimpolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(timpol)::Type,TimpolVal::v1> v1{};
         }
         ///Timer Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,unsigned> timsel{}; 
-        namespace TimselValC{
-        }
     }
     namespace FlexioShiftctl1{    ///<Shifter Control N Register
         using Addr = Register::Address<0x4005f084,0xfc7cf878,0,unsigned>;
@@ -211,11 +179,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,SmodVal> smod{}; 
         namespace SmodValC{
-            constexpr Register::FieldValue<decltype(smod),SmodVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(smod),SmodVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(smod),SmodVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(smod),SmodVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(smod),SmodVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v101> v101{};
         }
         ///Shifter Pin Polarity
         enum class PinpolVal {
@@ -224,13 +192,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,PinpolVal> pinpol{}; 
         namespace PinpolValC{
-            constexpr Register::FieldValue<decltype(pinpol),PinpolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(pinpol),PinpolVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v1> v1{};
         }
         ///Shifter Pin Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> pinsel{}; 
-        namespace PinselValC{
-        }
         ///Shifter Pin Configuration
         enum class PincfgVal {
             v00=0x00000000,     ///<Shifter pin output disabled
@@ -240,10 +206,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,PincfgVal> pincfg{}; 
         namespace PincfgValC{
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v11> v11{};
         }
         ///Timer Polarity
         enum class TimpolVal {
@@ -252,13 +218,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,TimpolVal> timpol{}; 
         namespace TimpolValC{
-            constexpr Register::FieldValue<decltype(timpol),TimpolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(timpol),TimpolVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(timpol)::Type,TimpolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(timpol)::Type,TimpolVal::v1> v1{};
         }
         ///Timer Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,unsigned> timsel{}; 
-        namespace TimselValC{
-        }
     }
     namespace FlexioShiftctl2{    ///<Shifter Control N Register
         using Addr = Register::Address<0x4005f088,0xfc7cf878,0,unsigned>;
@@ -272,11 +236,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,SmodVal> smod{}; 
         namespace SmodValC{
-            constexpr Register::FieldValue<decltype(smod),SmodVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(smod),SmodVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(smod),SmodVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(smod),SmodVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(smod),SmodVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v101> v101{};
         }
         ///Shifter Pin Polarity
         enum class PinpolVal {
@@ -285,13 +249,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,PinpolVal> pinpol{}; 
         namespace PinpolValC{
-            constexpr Register::FieldValue<decltype(pinpol),PinpolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(pinpol),PinpolVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v1> v1{};
         }
         ///Shifter Pin Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> pinsel{}; 
-        namespace PinselValC{
-        }
         ///Shifter Pin Configuration
         enum class PincfgVal {
             v00=0x00000000,     ///<Shifter pin output disabled
@@ -301,10 +263,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,PincfgVal> pincfg{}; 
         namespace PincfgValC{
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v11> v11{};
         }
         ///Timer Polarity
         enum class TimpolVal {
@@ -313,13 +275,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,TimpolVal> timpol{}; 
         namespace TimpolValC{
-            constexpr Register::FieldValue<decltype(timpol),TimpolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(timpol),TimpolVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(timpol)::Type,TimpolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(timpol)::Type,TimpolVal::v1> v1{};
         }
         ///Timer Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,unsigned> timsel{}; 
-        namespace TimselValC{
-        }
     }
     namespace FlexioShiftctl3{    ///<Shifter Control N Register
         using Addr = Register::Address<0x4005f08c,0xfc7cf878,0,unsigned>;
@@ -333,11 +293,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,SmodVal> smod{}; 
         namespace SmodValC{
-            constexpr Register::FieldValue<decltype(smod),SmodVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(smod),SmodVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(smod),SmodVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(smod),SmodVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(smod),SmodVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(smod)::Type,SmodVal::v101> v101{};
         }
         ///Shifter Pin Polarity
         enum class PinpolVal {
@@ -346,13 +306,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,PinpolVal> pinpol{}; 
         namespace PinpolValC{
-            constexpr Register::FieldValue<decltype(pinpol),PinpolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(pinpol),PinpolVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v1> v1{};
         }
         ///Shifter Pin Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> pinsel{}; 
-        namespace PinselValC{
-        }
         ///Shifter Pin Configuration
         enum class PincfgVal {
             v00=0x00000000,     ///<Shifter pin output disabled
@@ -362,10 +320,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,PincfgVal> pincfg{}; 
         namespace PincfgValC{
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v11> v11{};
         }
         ///Timer Polarity
         enum class TimpolVal {
@@ -374,13 +332,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,TimpolVal> timpol{}; 
         namespace TimpolValC{
-            constexpr Register::FieldValue<decltype(timpol),TimpolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(timpol),TimpolVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(timpol)::Type,TimpolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(timpol)::Type,TimpolVal::v1> v1{};
         }
         ///Timer Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,unsigned> timsel{}; 
-        namespace TimselValC{
-        }
     }
     namespace FlexioShiftcfg0{    ///<Shifter Configuration N Register
         using Addr = Register::Address<0x4005f100,0xfffffecc,0,unsigned>;
@@ -393,10 +349,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,SstartVal> sstart{}; 
         namespace SstartValC{
-            constexpr Register::FieldValue<decltype(sstart),SstartVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(sstart),SstartVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(sstart),SstartVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(sstart),SstartVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(sstart)::Type,SstartVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(sstart)::Type,SstartVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(sstart)::Type,SstartVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(sstart)::Type,SstartVal::v11> v11{};
         }
         ///Shifter Stop bit
         enum class SstopVal {
@@ -407,10 +363,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,SstopVal> sstop{}; 
         namespace SstopValC{
-            constexpr Register::FieldValue<decltype(sstop),SstopVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(sstop),SstopVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(sstop),SstopVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(sstop),SstopVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(sstop)::Type,SstopVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(sstop)::Type,SstopVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(sstop)::Type,SstopVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(sstop)::Type,SstopVal::v11> v11{};
         }
         ///Input Source
         enum class InsrcVal {
@@ -419,8 +375,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,InsrcVal> insrc{}; 
         namespace InsrcValC{
-            constexpr Register::FieldValue<decltype(insrc),InsrcVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(insrc),InsrcVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(insrc)::Type,InsrcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(insrc)::Type,InsrcVal::v1> v1{};
         }
     }
     namespace FlexioShiftcfg1{    ///<Shifter Configuration N Register
@@ -434,10 +390,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,SstartVal> sstart{}; 
         namespace SstartValC{
-            constexpr Register::FieldValue<decltype(sstart),SstartVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(sstart),SstartVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(sstart),SstartVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(sstart),SstartVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(sstart)::Type,SstartVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(sstart)::Type,SstartVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(sstart)::Type,SstartVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(sstart)::Type,SstartVal::v11> v11{};
         }
         ///Shifter Stop bit
         enum class SstopVal {
@@ -448,10 +404,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,SstopVal> sstop{}; 
         namespace SstopValC{
-            constexpr Register::FieldValue<decltype(sstop),SstopVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(sstop),SstopVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(sstop),SstopVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(sstop),SstopVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(sstop)::Type,SstopVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(sstop)::Type,SstopVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(sstop)::Type,SstopVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(sstop)::Type,SstopVal::v11> v11{};
         }
         ///Input Source
         enum class InsrcVal {
@@ -460,8 +416,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,InsrcVal> insrc{}; 
         namespace InsrcValC{
-            constexpr Register::FieldValue<decltype(insrc),InsrcVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(insrc),InsrcVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(insrc)::Type,InsrcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(insrc)::Type,InsrcVal::v1> v1{};
         }
     }
     namespace FlexioShiftcfg2{    ///<Shifter Configuration N Register
@@ -475,10 +431,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,SstartVal> sstart{}; 
         namespace SstartValC{
-            constexpr Register::FieldValue<decltype(sstart),SstartVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(sstart),SstartVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(sstart),SstartVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(sstart),SstartVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(sstart)::Type,SstartVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(sstart)::Type,SstartVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(sstart)::Type,SstartVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(sstart)::Type,SstartVal::v11> v11{};
         }
         ///Shifter Stop bit
         enum class SstopVal {
@@ -489,10 +445,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,SstopVal> sstop{}; 
         namespace SstopValC{
-            constexpr Register::FieldValue<decltype(sstop),SstopVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(sstop),SstopVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(sstop),SstopVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(sstop),SstopVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(sstop)::Type,SstopVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(sstop)::Type,SstopVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(sstop)::Type,SstopVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(sstop)::Type,SstopVal::v11> v11{};
         }
         ///Input Source
         enum class InsrcVal {
@@ -501,8 +457,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,InsrcVal> insrc{}; 
         namespace InsrcValC{
-            constexpr Register::FieldValue<decltype(insrc),InsrcVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(insrc),InsrcVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(insrc)::Type,InsrcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(insrc)::Type,InsrcVal::v1> v1{};
         }
     }
     namespace FlexioShiftcfg3{    ///<Shifter Configuration N Register
@@ -516,10 +472,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,SstartVal> sstart{}; 
         namespace SstartValC{
-            constexpr Register::FieldValue<decltype(sstart),SstartVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(sstart),SstartVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(sstart),SstartVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(sstart),SstartVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(sstart)::Type,SstartVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(sstart)::Type,SstartVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(sstart)::Type,SstartVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(sstart)::Type,SstartVal::v11> v11{};
         }
         ///Shifter Stop bit
         enum class SstopVal {
@@ -530,10 +486,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,SstopVal> sstop{}; 
         namespace SstopValC{
-            constexpr Register::FieldValue<decltype(sstop),SstopVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(sstop),SstopVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(sstop),SstopVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(sstop),SstopVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(sstop)::Type,SstopVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(sstop)::Type,SstopVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(sstop)::Type,SstopVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(sstop)::Type,SstopVal::v11> v11{};
         }
         ///Input Source
         enum class InsrcVal {
@@ -542,121 +498,89 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,InsrcVal> insrc{}; 
         namespace InsrcValC{
-            constexpr Register::FieldValue<decltype(insrc),InsrcVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(insrc),InsrcVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(insrc)::Type,InsrcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(insrc)::Type,InsrcVal::v1> v1{};
         }
     }
     namespace FlexioShiftbuf0{    ///<Shifter Buffer N Register
         using Addr = Register::Address<0x4005f200,0x00000000,0,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbuf{}; 
-        namespace ShiftbufValC{
-        }
     }
     namespace FlexioShiftbuf1{    ///<Shifter Buffer N Register
         using Addr = Register::Address<0x4005f204,0x00000000,0,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbuf{}; 
-        namespace ShiftbufValC{
-        }
     }
     namespace FlexioShiftbuf2{    ///<Shifter Buffer N Register
         using Addr = Register::Address<0x4005f208,0x00000000,0,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbuf{}; 
-        namespace ShiftbufValC{
-        }
     }
     namespace FlexioShiftbuf3{    ///<Shifter Buffer N Register
         using Addr = Register::Address<0x4005f20c,0x00000000,0,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbuf{}; 
-        namespace ShiftbufValC{
-        }
     }
     namespace FlexioShiftbufbis0{    ///<Shifter Buffer N Bit Swapped Register
         using Addr = Register::Address<0x4005f280,0x00000000,0,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbufbis{}; 
-        namespace ShiftbufbisValC{
-        }
     }
     namespace FlexioShiftbufbis1{    ///<Shifter Buffer N Bit Swapped Register
         using Addr = Register::Address<0x4005f284,0x00000000,0,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbufbis{}; 
-        namespace ShiftbufbisValC{
-        }
     }
     namespace FlexioShiftbufbis2{    ///<Shifter Buffer N Bit Swapped Register
         using Addr = Register::Address<0x4005f288,0x00000000,0,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbufbis{}; 
-        namespace ShiftbufbisValC{
-        }
     }
     namespace FlexioShiftbufbis3{    ///<Shifter Buffer N Bit Swapped Register
         using Addr = Register::Address<0x4005f28c,0x00000000,0,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbufbis{}; 
-        namespace ShiftbufbisValC{
-        }
     }
     namespace FlexioShiftbufbys0{    ///<Shifter Buffer N Byte Swapped Register
         using Addr = Register::Address<0x4005f300,0x00000000,0,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbufbys{}; 
-        namespace ShiftbufbysValC{
-        }
     }
     namespace FlexioShiftbufbys1{    ///<Shifter Buffer N Byte Swapped Register
         using Addr = Register::Address<0x4005f304,0x00000000,0,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbufbys{}; 
-        namespace ShiftbufbysValC{
-        }
     }
     namespace FlexioShiftbufbys2{    ///<Shifter Buffer N Byte Swapped Register
         using Addr = Register::Address<0x4005f308,0x00000000,0,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbufbys{}; 
-        namespace ShiftbufbysValC{
-        }
     }
     namespace FlexioShiftbufbys3{    ///<Shifter Buffer N Byte Swapped Register
         using Addr = Register::Address<0x4005f30c,0x00000000,0,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbufbys{}; 
-        namespace ShiftbufbysValC{
-        }
     }
     namespace FlexioShiftbufbbs0{    ///<Shifter Buffer N Bit Byte Swapped Register
         using Addr = Register::Address<0x4005f380,0x00000000,0,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbufbbs{}; 
-        namespace ShiftbufbbsValC{
-        }
     }
     namespace FlexioShiftbufbbs1{    ///<Shifter Buffer N Bit Byte Swapped Register
         using Addr = Register::Address<0x4005f384,0x00000000,0,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbufbbs{}; 
-        namespace ShiftbufbbsValC{
-        }
     }
     namespace FlexioShiftbufbbs2{    ///<Shifter Buffer N Bit Byte Swapped Register
         using Addr = Register::Address<0x4005f388,0x00000000,0,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbufbbs{}; 
-        namespace ShiftbufbbsValC{
-        }
     }
     namespace FlexioShiftbufbbs3{    ///<Shifter Buffer N Bit Byte Swapped Register
         using Addr = Register::Address<0x4005f38c,0x00000000,0,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbufbbs{}; 
-        namespace ShiftbufbbsValC{
-        }
     }
     namespace FlexioTimctl0{    ///<Timer Control N Register
         using Addr = Register::Address<0x4005f400,0xf03cf87c,0,unsigned>;
@@ -669,10 +593,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,TimodVal> timod{}; 
         namespace TimodValC{
-            constexpr Register::FieldValue<decltype(timod),TimodVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(timod),TimodVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(timod),TimodVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(timod),TimodVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(timod)::Type,TimodVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(timod)::Type,TimodVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(timod)::Type,TimodVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(timod)::Type,TimodVal::v11> v11{};
         }
         ///Timer Pin Polarity
         enum class PinpolVal {
@@ -681,13 +605,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,PinpolVal> pinpol{}; 
         namespace PinpolValC{
-            constexpr Register::FieldValue<decltype(pinpol),PinpolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(pinpol),PinpolVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v1> v1{};
         }
         ///Timer Pin Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> pinsel{}; 
-        namespace PinselValC{
-        }
         ///Timer Pin Configuration
         enum class PincfgVal {
             v00=0x00000000,     ///<Timer pin output disabled
@@ -697,10 +619,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,PincfgVal> pincfg{}; 
         namespace PincfgValC{
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v11> v11{};
         }
         ///Trigger Source
         enum class TrgsrcVal {
@@ -709,8 +631,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,TrgsrcVal> trgsrc{}; 
         namespace TrgsrcValC{
-            constexpr Register::FieldValue<decltype(trgsrc),TrgsrcVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(trgsrc),TrgsrcVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(trgsrc)::Type,TrgsrcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(trgsrc)::Type,TrgsrcVal::v1> v1{};
         }
         ///Trigger Polarity
         enum class TrgpolVal {
@@ -719,13 +641,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,TrgpolVal> trgpol{}; 
         namespace TrgpolValC{
-            constexpr Register::FieldValue<decltype(trgpol),TrgpolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(trgpol),TrgpolVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(trgpol)::Type,TrgpolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(trgpol)::Type,TrgpolVal::v1> v1{};
         }
         ///Trigger Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> trgsel{}; 
-        namespace TrgselValC{
-        }
     }
     namespace FlexioTimctl1{    ///<Timer Control N Register
         using Addr = Register::Address<0x4005f404,0xf03cf87c,0,unsigned>;
@@ -738,10 +658,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,TimodVal> timod{}; 
         namespace TimodValC{
-            constexpr Register::FieldValue<decltype(timod),TimodVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(timod),TimodVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(timod),TimodVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(timod),TimodVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(timod)::Type,TimodVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(timod)::Type,TimodVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(timod)::Type,TimodVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(timod)::Type,TimodVal::v11> v11{};
         }
         ///Timer Pin Polarity
         enum class PinpolVal {
@@ -750,13 +670,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,PinpolVal> pinpol{}; 
         namespace PinpolValC{
-            constexpr Register::FieldValue<decltype(pinpol),PinpolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(pinpol),PinpolVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v1> v1{};
         }
         ///Timer Pin Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> pinsel{}; 
-        namespace PinselValC{
-        }
         ///Timer Pin Configuration
         enum class PincfgVal {
             v00=0x00000000,     ///<Timer pin output disabled
@@ -766,10 +684,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,PincfgVal> pincfg{}; 
         namespace PincfgValC{
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v11> v11{};
         }
         ///Trigger Source
         enum class TrgsrcVal {
@@ -778,8 +696,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,TrgsrcVal> trgsrc{}; 
         namespace TrgsrcValC{
-            constexpr Register::FieldValue<decltype(trgsrc),TrgsrcVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(trgsrc),TrgsrcVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(trgsrc)::Type,TrgsrcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(trgsrc)::Type,TrgsrcVal::v1> v1{};
         }
         ///Trigger Polarity
         enum class TrgpolVal {
@@ -788,13 +706,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,TrgpolVal> trgpol{}; 
         namespace TrgpolValC{
-            constexpr Register::FieldValue<decltype(trgpol),TrgpolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(trgpol),TrgpolVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(trgpol)::Type,TrgpolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(trgpol)::Type,TrgpolVal::v1> v1{};
         }
         ///Trigger Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> trgsel{}; 
-        namespace TrgselValC{
-        }
     }
     namespace FlexioTimctl2{    ///<Timer Control N Register
         using Addr = Register::Address<0x4005f408,0xf03cf87c,0,unsigned>;
@@ -807,10 +723,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,TimodVal> timod{}; 
         namespace TimodValC{
-            constexpr Register::FieldValue<decltype(timod),TimodVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(timod),TimodVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(timod),TimodVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(timod),TimodVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(timod)::Type,TimodVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(timod)::Type,TimodVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(timod)::Type,TimodVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(timod)::Type,TimodVal::v11> v11{};
         }
         ///Timer Pin Polarity
         enum class PinpolVal {
@@ -819,13 +735,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,PinpolVal> pinpol{}; 
         namespace PinpolValC{
-            constexpr Register::FieldValue<decltype(pinpol),PinpolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(pinpol),PinpolVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v1> v1{};
         }
         ///Timer Pin Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> pinsel{}; 
-        namespace PinselValC{
-        }
         ///Timer Pin Configuration
         enum class PincfgVal {
             v00=0x00000000,     ///<Timer pin output disabled
@@ -835,10 +749,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,PincfgVal> pincfg{}; 
         namespace PincfgValC{
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v11> v11{};
         }
         ///Trigger Source
         enum class TrgsrcVal {
@@ -847,8 +761,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,TrgsrcVal> trgsrc{}; 
         namespace TrgsrcValC{
-            constexpr Register::FieldValue<decltype(trgsrc),TrgsrcVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(trgsrc),TrgsrcVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(trgsrc)::Type,TrgsrcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(trgsrc)::Type,TrgsrcVal::v1> v1{};
         }
         ///Trigger Polarity
         enum class TrgpolVal {
@@ -857,13 +771,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,TrgpolVal> trgpol{}; 
         namespace TrgpolValC{
-            constexpr Register::FieldValue<decltype(trgpol),TrgpolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(trgpol),TrgpolVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(trgpol)::Type,TrgpolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(trgpol)::Type,TrgpolVal::v1> v1{};
         }
         ///Trigger Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> trgsel{}; 
-        namespace TrgselValC{
-        }
     }
     namespace FlexioTimctl3{    ///<Timer Control N Register
         using Addr = Register::Address<0x4005f40c,0xf03cf87c,0,unsigned>;
@@ -876,10 +788,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,TimodVal> timod{}; 
         namespace TimodValC{
-            constexpr Register::FieldValue<decltype(timod),TimodVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(timod),TimodVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(timod),TimodVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(timod),TimodVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(timod)::Type,TimodVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(timod)::Type,TimodVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(timod)::Type,TimodVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(timod)::Type,TimodVal::v11> v11{};
         }
         ///Timer Pin Polarity
         enum class PinpolVal {
@@ -888,13 +800,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,PinpolVal> pinpol{}; 
         namespace PinpolValC{
-            constexpr Register::FieldValue<decltype(pinpol),PinpolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(pinpol),PinpolVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pinpol)::Type,PinpolVal::v1> v1{};
         }
         ///Timer Pin Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> pinsel{}; 
-        namespace PinselValC{
-        }
         ///Timer Pin Configuration
         enum class PincfgVal {
             v00=0x00000000,     ///<Timer pin output disabled
@@ -904,10 +814,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,PincfgVal> pincfg{}; 
         namespace PincfgValC{
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(pincfg),PincfgVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pincfg)::Type,PincfgVal::v11> v11{};
         }
         ///Trigger Source
         enum class TrgsrcVal {
@@ -916,8 +826,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,TrgsrcVal> trgsrc{}; 
         namespace TrgsrcValC{
-            constexpr Register::FieldValue<decltype(trgsrc),TrgsrcVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(trgsrc),TrgsrcVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(trgsrc)::Type,TrgsrcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(trgsrc)::Type,TrgsrcVal::v1> v1{};
         }
         ///Trigger Polarity
         enum class TrgpolVal {
@@ -926,13 +836,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,TrgpolVal> trgpol{}; 
         namespace TrgpolValC{
-            constexpr Register::FieldValue<decltype(trgpol),TrgpolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(trgpol),TrgpolVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(trgpol)::Type,TrgpolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(trgpol)::Type,TrgpolVal::v1> v1{};
         }
         ///Trigger Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> trgsel{}; 
-        namespace TrgselValC{
-        }
     }
     namespace FlexioTimcfg0{    ///<Timer Configuration N Register
         using Addr = Register::Address<0x4005f480,0xfcc888cd,0,unsigned>;
@@ -943,8 +851,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TstartVal> tstart{}; 
         namespace TstartValC{
-            constexpr Register::FieldValue<decltype(tstart),TstartVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tstart),TstartVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(tstart)::Type,TstartVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tstart)::Type,TstartVal::v1> v1{};
         }
         ///Timer Stop Bit
         enum class TstopVal {
@@ -955,10 +863,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,TstopVal> tstop{}; 
         namespace TstopValC{
-            constexpr Register::FieldValue<decltype(tstop),TstopVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(tstop),TstopVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(tstop),TstopVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(tstop),TstopVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v11> v11{};
         }
         ///Timer Enable
         enum class TimenaVal {
@@ -973,14 +881,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,TimenaVal> timena{}; 
         namespace TimenaValC{
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v111> v111{};
         }
         ///Timer Disable
         enum class TimdisVal {
@@ -994,13 +902,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,TimdisVal> timdis{}; 
         namespace TimdisValC{
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v110> v110{};
         }
         ///Timer Reset
         enum class TimrstVal {
@@ -1013,12 +921,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,TimrstVal> timrst{}; 
         namespace TimrstValC{
-            constexpr Register::FieldValue<decltype(timrst),TimrstVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(timrst),TimrstVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(timrst),TimrstVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(timrst),TimrstVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(timrst),TimrstVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(timrst),TimrstVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v111> v111{};
         }
         ///Timer Decrement
         enum class TimdecVal {
@@ -1029,10 +937,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,TimdecVal> timdec{}; 
         namespace TimdecValC{
-            constexpr Register::FieldValue<decltype(timdec),TimdecVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(timdec),TimdecVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(timdec),TimdecVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(timdec),TimdecVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(timdec)::Type,TimdecVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(timdec)::Type,TimdecVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(timdec)::Type,TimdecVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(timdec)::Type,TimdecVal::v11> v11{};
         }
         ///Timer Output
         enum class TimoutVal {
@@ -1043,10 +951,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,TimoutVal> timout{}; 
         namespace TimoutValC{
-            constexpr Register::FieldValue<decltype(timout),TimoutVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(timout),TimoutVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(timout),TimoutVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(timout),TimoutVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v11> v11{};
         }
     }
     namespace FlexioTimcfg1{    ///<Timer Configuration N Register
@@ -1058,8 +966,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TstartVal> tstart{}; 
         namespace TstartValC{
-            constexpr Register::FieldValue<decltype(tstart),TstartVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tstart),TstartVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(tstart)::Type,TstartVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tstart)::Type,TstartVal::v1> v1{};
         }
         ///Timer Stop Bit
         enum class TstopVal {
@@ -1070,10 +978,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,TstopVal> tstop{}; 
         namespace TstopValC{
-            constexpr Register::FieldValue<decltype(tstop),TstopVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(tstop),TstopVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(tstop),TstopVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(tstop),TstopVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v11> v11{};
         }
         ///Timer Enable
         enum class TimenaVal {
@@ -1088,14 +996,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,TimenaVal> timena{}; 
         namespace TimenaValC{
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v111> v111{};
         }
         ///Timer Disable
         enum class TimdisVal {
@@ -1109,13 +1017,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,TimdisVal> timdis{}; 
         namespace TimdisValC{
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v110> v110{};
         }
         ///Timer Reset
         enum class TimrstVal {
@@ -1128,12 +1036,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,TimrstVal> timrst{}; 
         namespace TimrstValC{
-            constexpr Register::FieldValue<decltype(timrst),TimrstVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(timrst),TimrstVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(timrst),TimrstVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(timrst),TimrstVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(timrst),TimrstVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(timrst),TimrstVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v111> v111{};
         }
         ///Timer Decrement
         enum class TimdecVal {
@@ -1144,10 +1052,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,TimdecVal> timdec{}; 
         namespace TimdecValC{
-            constexpr Register::FieldValue<decltype(timdec),TimdecVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(timdec),TimdecVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(timdec),TimdecVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(timdec),TimdecVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(timdec)::Type,TimdecVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(timdec)::Type,TimdecVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(timdec)::Type,TimdecVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(timdec)::Type,TimdecVal::v11> v11{};
         }
         ///Timer Output
         enum class TimoutVal {
@@ -1158,10 +1066,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,TimoutVal> timout{}; 
         namespace TimoutValC{
-            constexpr Register::FieldValue<decltype(timout),TimoutVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(timout),TimoutVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(timout),TimoutVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(timout),TimoutVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v11> v11{};
         }
     }
     namespace FlexioTimcfg2{    ///<Timer Configuration N Register
@@ -1173,8 +1081,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TstartVal> tstart{}; 
         namespace TstartValC{
-            constexpr Register::FieldValue<decltype(tstart),TstartVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tstart),TstartVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(tstart)::Type,TstartVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tstart)::Type,TstartVal::v1> v1{};
         }
         ///Timer Stop Bit
         enum class TstopVal {
@@ -1185,10 +1093,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,TstopVal> tstop{}; 
         namespace TstopValC{
-            constexpr Register::FieldValue<decltype(tstop),TstopVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(tstop),TstopVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(tstop),TstopVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(tstop),TstopVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v11> v11{};
         }
         ///Timer Enable
         enum class TimenaVal {
@@ -1203,14 +1111,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,TimenaVal> timena{}; 
         namespace TimenaValC{
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v111> v111{};
         }
         ///Timer Disable
         enum class TimdisVal {
@@ -1224,13 +1132,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,TimdisVal> timdis{}; 
         namespace TimdisValC{
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v110> v110{};
         }
         ///Timer Reset
         enum class TimrstVal {
@@ -1243,12 +1151,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,TimrstVal> timrst{}; 
         namespace TimrstValC{
-            constexpr Register::FieldValue<decltype(timrst),TimrstVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(timrst),TimrstVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(timrst),TimrstVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(timrst),TimrstVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(timrst),TimrstVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(timrst),TimrstVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v111> v111{};
         }
         ///Timer Decrement
         enum class TimdecVal {
@@ -1259,10 +1167,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,TimdecVal> timdec{}; 
         namespace TimdecValC{
-            constexpr Register::FieldValue<decltype(timdec),TimdecVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(timdec),TimdecVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(timdec),TimdecVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(timdec),TimdecVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(timdec)::Type,TimdecVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(timdec)::Type,TimdecVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(timdec)::Type,TimdecVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(timdec)::Type,TimdecVal::v11> v11{};
         }
         ///Timer Output
         enum class TimoutVal {
@@ -1273,10 +1181,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,TimoutVal> timout{}; 
         namespace TimoutValC{
-            constexpr Register::FieldValue<decltype(timout),TimoutVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(timout),TimoutVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(timout),TimoutVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(timout),TimoutVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v11> v11{};
         }
     }
     namespace FlexioTimcfg3{    ///<Timer Configuration N Register
@@ -1288,8 +1196,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TstartVal> tstart{}; 
         namespace TstartValC{
-            constexpr Register::FieldValue<decltype(tstart),TstartVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tstart),TstartVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(tstart)::Type,TstartVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tstart)::Type,TstartVal::v1> v1{};
         }
         ///Timer Stop Bit
         enum class TstopVal {
@@ -1300,10 +1208,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,TstopVal> tstop{}; 
         namespace TstopValC{
-            constexpr Register::FieldValue<decltype(tstop),TstopVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(tstop),TstopVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(tstop),TstopVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(tstop),TstopVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(tstop)::Type,TstopVal::v11> v11{};
         }
         ///Timer Enable
         enum class TimenaVal {
@@ -1318,14 +1226,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,TimenaVal> timena{}; 
         namespace TimenaValC{
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(timena),TimenaVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(timena)::Type,TimenaVal::v111> v111{};
         }
         ///Timer Disable
         enum class TimdisVal {
@@ -1339,13 +1247,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,TimdisVal> timdis{}; 
         namespace TimdisValC{
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(timdis),TimdisVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(timdis)::Type,TimdisVal::v110> v110{};
         }
         ///Timer Reset
         enum class TimrstVal {
@@ -1358,12 +1266,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,TimrstVal> timrst{}; 
         namespace TimrstValC{
-            constexpr Register::FieldValue<decltype(timrst),TimrstVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(timrst),TimrstVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(timrst),TimrstVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(timrst),TimrstVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(timrst),TimrstVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(timrst),TimrstVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(timrst)::Type,TimrstVal::v111> v111{};
         }
         ///Timer Decrement
         enum class TimdecVal {
@@ -1374,10 +1282,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,TimdecVal> timdec{}; 
         namespace TimdecValC{
-            constexpr Register::FieldValue<decltype(timdec),TimdecVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(timdec),TimdecVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(timdec),TimdecVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(timdec),TimdecVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(timdec)::Type,TimdecVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(timdec)::Type,TimdecVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(timdec)::Type,TimdecVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(timdec)::Type,TimdecVal::v11> v11{};
         }
         ///Timer Output
         enum class TimoutVal {
@@ -1388,38 +1296,30 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,TimoutVal> timout{}; 
         namespace TimoutValC{
-            constexpr Register::FieldValue<decltype(timout),TimoutVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(timout),TimoutVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(timout),TimoutVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(timout),TimoutVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(timout)::Type,TimoutVal::v11> v11{};
         }
     }
     namespace FlexioTimcmp0{    ///<Timer Compare N Register
         using Addr = Register::Address<0x4005f500,0xffff0000,0,unsigned>;
         ///Timer Compare Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmp{}; 
-        namespace CmpValC{
-        }
     }
     namespace FlexioTimcmp1{    ///<Timer Compare N Register
         using Addr = Register::Address<0x4005f504,0xffff0000,0,unsigned>;
         ///Timer Compare Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmp{}; 
-        namespace CmpValC{
-        }
     }
     namespace FlexioTimcmp2{    ///<Timer Compare N Register
         using Addr = Register::Address<0x4005f508,0xffff0000,0,unsigned>;
         ///Timer Compare Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmp{}; 
-        namespace CmpValC{
-        }
     }
     namespace FlexioTimcmp3{    ///<Timer Compare N Register
         using Addr = Register::Address<0x4005f50c,0xffff0000,0,unsigned>;
         ///Timer Compare Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmp{}; 
-        namespace CmpValC{
-        }
     }
 }

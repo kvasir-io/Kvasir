@@ -20,8 +20,8 @@ interrupts
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ControllerresetVal> controllerReset{}; 
         namespace ControllerresetValC{
-            constexpr Register::FieldValue<decltype(controllerReset),ControllerresetVal::nochange> nochange{};
-            constexpr Register::FieldValue<decltype(controllerReset),ControllerresetVal::reset> reset{};
+            constexpr Register::FieldValue<decltype(controllerReset)::Type,ControllerresetVal::nochange> nochange{};
+            constexpr Register::FieldValue<decltype(controllerReset)::Type,ControllerresetVal::reset> reset{};
         }
         ///fifo_reset. To reset FIFO, firmware should set bit to 1. This bit is auto-cleared after
 completion of reset operation.
@@ -32,8 +32,8 @@ auto-cleared after two AHB clocks.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,FiforesetVal> fifoReset{}; 
         namespace FiforesetValC{
-            constexpr Register::FieldValue<decltype(fifoReset),FiforesetVal::nochange> nochange{};
-            constexpr Register::FieldValue<decltype(fifoReset),FiforesetVal::reset> reset{};
+            constexpr Register::FieldValue<decltype(fifoReset)::Type,FiforesetVal::nochange> nochange{};
+            constexpr Register::FieldValue<decltype(fifoReset)::Type,FiforesetVal::reset> reset{};
         }
         ///dma_reset. To reset DMA interface, firmware should set bit to 1. This bit is
 auto-cleared after two AHB clocks.
@@ -43,8 +43,8 @@ auto-cleared after two AHB clocks.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,DmaresetVal> dmaReset{}; 
         namespace DmaresetValC{
-            constexpr Register::FieldValue<decltype(dmaReset),DmaresetVal::nochange> nochange{};
-            constexpr Register::FieldValue<decltype(dmaReset),DmaresetVal::reset> reset{};
+            constexpr Register::FieldValue<decltype(dmaReset)::Type,DmaresetVal::nochange> nochange{};
+            constexpr Register::FieldValue<decltype(dmaReset)::Type,DmaresetVal::reset> reset{};
         }
         ///Global interrupt enable/disable bit. The int port is 1 only when this bit is 1 and one or more unmasked
 interrupts are set.
@@ -54,8 +54,8 @@ interrupts are set.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,IntenableVal> intEnable{}; 
         namespace IntenableValC{
-            constexpr Register::FieldValue<decltype(intEnable),IntenableVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(intEnable),IntenableVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(intEnable)::Type,IntenableVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(intEnable)::Type,IntenableVal::enable> enable{};
         }
         ///dma_enable. Valid only if DWC_mobile_storage configured for External DMA
 interface.
@@ -70,8 +70,8 @@ prioritize simultaneous host/DMA access.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,DmaenableVal> dmaEnable{}; 
         namespace DmaenableValC{
-            constexpr Register::FieldValue<decltype(dmaEnable),DmaenableVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(dmaEnable),DmaenableVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(dmaEnable)::Type,DmaenableVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(dmaEnable)::Type,DmaenableVal::enable> enable{};
         }
         ///read_wait. For sending read-wait to SDIO cards.
         enum class ReadwaitVal {
@@ -80,8 +80,8 @@ prioritize simultaneous host/DMA access.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ReadwaitVal> readWait{}; 
         namespace ReadwaitValC{
-            constexpr Register::FieldValue<decltype(readWait),ReadwaitVal::clear> clear{};
-            constexpr Register::FieldValue<decltype(readWait),ReadwaitVal::assert> assert{};
+            constexpr Register::FieldValue<decltype(readWait)::Type,ReadwaitVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(readWait)::Type,ReadwaitVal::assert> assert{};
         }
         ///send_irq_response. Bit automatically clears once response is sent.
 To wait for MMC card interrupts, host issues CMD40, and
@@ -96,8 +96,8 @@ idle state.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SendirqresponseVal> sendIrqResponse{}; 
         namespace SendirqresponseValC{
-            constexpr Register::FieldValue<decltype(sendIrqResponse),SendirqresponseVal::nochange> nochange{};
-            constexpr Register::FieldValue<decltype(sendIrqResponse),SendirqresponseVal::sendresponse> sendresponse{};
+            constexpr Register::FieldValue<decltype(sendIrqResponse)::Type,SendirqresponseVal::nochange> nochange{};
+            constexpr Register::FieldValue<decltype(sendIrqResponse)::Type,SendirqresponseVal::sendresponse> sendresponse{};
         }
         ///abort_read_data. Used in SDIO card suspend sequence.
         enum class AbortreaddataVal {
@@ -110,8 +110,8 @@ resets to idle.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,AbortreaddataVal> abortReadData{}; 
         namespace AbortreaddataValC{
-            constexpr Register::FieldValue<decltype(abortReadData),AbortreaddataVal::nochange> nochange{};
-            constexpr Register::FieldValue<decltype(abortReadData),AbortreaddataVal::poll> poll{};
+            constexpr Register::FieldValue<decltype(abortReadData)::Type,AbortreaddataVal::nochange> nochange{};
+            constexpr Register::FieldValue<decltype(abortReadData)::Type,AbortreaddataVal::poll> poll{};
         }
         ///send_ccsd. When set, DWC_mobile_storage sends CCSD to CE-ATA device.
 Software sets this bit only if current command is expecting CCS (that is,
@@ -131,8 +131,8 @@ device
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,SendccsdVal> sendCcsd{}; 
         namespace SendccsdValC{
-            constexpr Register::FieldValue<decltype(sendCcsd),SendccsdVal::clear> clear{};
-            constexpr Register::FieldValue<decltype(sendCcsd),SendccsdVal::send> send{};
+            constexpr Register::FieldValue<decltype(sendCcsd)::Type,SendccsdVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(sendCcsd)::Type,SendccsdVal::send> send{};
         }
         ///send_auto_stop_ccsd. NOTE: Always set send_auto_stop_ccsd and send_ccsd bits together;
 send_auto_stop_ccsd should not be set independent of send_ccsd.
@@ -149,8 +149,8 @@ device.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,SendautostopccsdVal> sendAutoStopCcsd{}; 
         namespace SendautostopccsdValC{
-            constexpr Register::FieldValue<decltype(sendAutoStopCcsd),SendautostopccsdVal::clear> clear{};
-            constexpr Register::FieldValue<decltype(sendAutoStopCcsd),SendautostopccsdVal::send> send{};
+            constexpr Register::FieldValue<decltype(sendAutoStopCcsd)::Type,SendautostopccsdVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(sendAutoStopCcsd)::Type,SendautostopccsdVal::send> send{};
         }
         ///ceata_device_interrupt
 _status. Software should appropriately write to this bit after power-on reset or
@@ -165,19 +165,15 @@ control register)
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,CeatadeviceinterruptstatusVal> ceataDeviceInterruptStatus{}; 
         namespace CeatadeviceinterruptstatusValC{
-            constexpr Register::FieldValue<decltype(ceataDeviceInterruptStatus),CeatadeviceinterruptstatusVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(ceataDeviceInterruptStatus),CeatadeviceinterruptstatusVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(ceataDeviceInterruptStatus)::Type,CeatadeviceinterruptstatusVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(ceataDeviceInterruptStatus)::Type,CeatadeviceinterruptstatusVal::enable> enable{};
         }
         ///Card regulator-A voltage setting; output to card_volt_a port.
 Optional feature; ports can be used as general-purpose outputs.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> cardVoltageA{}; 
-        namespace CardvoltageaValC{
-        }
         ///Card regulator-B voltage setting; output to card_volt_b port.
 Optional feature; ports can be used as general-purpose outputs.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> cardVoltageB{}; 
-        namespace CardvoltagebValC{
-        }
         ///External open-drain pullup. Inverted value of this bit is output to ccmd_od_pullup_en_n port. When
 bit is set, command output always driven in open-drive mode; that is,
 DWC_mobile_storage drives either 0 or high impedance, and does not
@@ -188,8 +184,8 @@ drive hard 1.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,EnableodpullupVal> enableOdPullup{}; 
         namespace EnableodpullupValC{
-            constexpr Register::FieldValue<decltype(enableOdPullup),EnableodpullupVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(enableOdPullup),EnableodpullupVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(enableOdPullup)::Type,EnableodpullupVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(enableOdPullup)::Type,EnableodpullupVal::enable> enable{};
         }
         ///Present only for the Internal DMAC configuration; else, it is reserved.
         enum class UseinternaldmacVal {
@@ -198,8 +194,8 @@ drive hard 1.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,UseinternaldmacVal> useInternalDmac{}; 
         namespace UseinternaldmacValC{
-            constexpr Register::FieldValue<decltype(useInternalDmac),UseinternaldmacVal::host> host{};
-            constexpr Register::FieldValue<decltype(useInternalDmac),UseinternaldmacVal::dmac> dmac{};
+            constexpr Register::FieldValue<decltype(useInternalDmac)::Type,UseinternaldmacVal::host> host{};
+            constexpr Register::FieldValue<decltype(useInternalDmac)::Type,UseinternaldmacVal::dmac> dmac{};
         }
     }
     namespace Nonepwren{    ///<Power Enable Register
@@ -213,8 +209,6 @@ Only NUM_CARDS number of bits are implemented.
 Bit values output to card_power_en port.
 Optional feature; ports can be used as general-purpose outputs.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,0),Register::ReadWriteAccess,unsigned> powerEnable{}; 
-        namespace PowerenableValC{
-        }
     }
     namespace Noneclkdiv{    ///<Clock Divider Register
         using Addr = Register::Address<0x40004008,0x00000000,0,unsigned>;
@@ -222,24 +216,18 @@ Optional feature; ports can be used as general-purpose outputs.
 divide by 2*0 = 0 (no division, bypass), value of 1 means divide by 2*1 = 2,
 value of  ff  means divide by 2*255 = 510, and so on.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> clkDivider0{}; 
-        namespace Clkdivider0ValC{
-        }
         ///Clock divider-1 value. Clock division is 2*n. For example, value of 0 means
 divide by 2*0 = 0 (no division, bypass), value of 1 means divide by 2*1 = 2,
 value of  ff  means divide by 2*255 = 510, and so on.
 In MMC-Ver3.3-only mode, bits not implemented because only one clock
 divider is supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> clkDivider1{}; 
-        namespace Clkdivider1ValC{
-        }
         ///Clock divider-2 value. Clock division is 2*n. For example, value of 0 means
 divide by 2*0 = 0 (no division, bypass), value of 1 means divide by 2*1 = 2,
 value of  ff  means divide by 2*255 = 510, and so on.
 In MMC-Ver3.3-only mode, bits not implemented because only one clock
 divider is supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> clkDivider2{}; 
-        namespace Clkdivider2ValC{
-        }
         ///Clock divider-3 value. Clock division is 2*n. For example, value of 0 means
 divide by 2*0 = 0 (no division, bypass), a value of 1 means divide by 2*1 = 2, a
 value of  ff  means divide by 2*255 = 510, and so on.
@@ -250,8 +238,6 @@ value of  ff  means divide by 2*255 = 510, and so on.
 In MMC-Ver3.3-only mode, bits not implemented because only one clock
 divider is supported.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> clkDivider3{}; 
-        namespace Clkdivider3ValC{
-        }
     }
     namespace Noneclksrc{    ///<SD Clock Source Register
         using Addr = Register::Address<0x4000400c,0x00000000,0,unsigned>;
@@ -265,8 +251,6 @@ routes clock divider[3:0] outputs to cclk_out[15:0] pins, depending on bit value
 In MMC-Ver3.3-only controller, only one clock divider supported. The cclk_out is
 always from clock divider 0, and this register is not implemented.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> clkSource{}; 
-        namespace ClksourceValC{
-        }
     }
     namespace Noneclkena{    ///<Clock Enable Register
         using Addr = Register::Address<0x40004010,0x00000000,0,unsigned>;
@@ -284,8 +268,6 @@ supported.
 In MMC-Ver3.3-only mode, since there is only one cclk_out, only
 cclk_enable[0] is used.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cclkEnable{}; 
-        namespace CclkenableValC{
-        }
         ///Clock-enable control for up to 16 SD card clocks and one MMC card clock
 supported.
 0 - Clock disabled
@@ -300,8 +282,6 @@ if interrupts must be detected, clock should not be stopped).
 In MMC-Ver3.3-only mode, since there is only one cclk_out, only
 cclk_low_power[0] is used.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> cclkLowPower{}; 
-        namespace CclklowpowerValC{
-        }
     }
     namespace Nonetmout{    ///<Timeout Register
         using Addr = Register::Address<0x40004014,0x00000000,0,unsigned>;
@@ -309,16 +289,12 @@ cclk_low_power[0] is used.
 Value is in number of card output clocks - cclk_out.
 Value is in number of card output clocks - cclk_out.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> responseTimeout{}; 
-        namespace ResponsetimeoutValC{
-        }
         ///Value for card Data Read Timeout; same value also used for Data
 Starvation by Host timeout.
 Value is in number of card output clocks - cclk_out of selected card.
 Starvation by Host timeout.
 Value is in number of card output clocks - cclk_out of selected card.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> dataTimeout{}; 
-        namespace DatatimeoutValC{
-        }
     }
     namespace Nonectype{    ///<Card Type Register
         using Addr = Register::Address<0x40004018,0x00000000,0,unsigned>;
@@ -328,22 +304,16 @@ Value is in number of card output clocks - cclk_out of selected card.
 Bit[15] corresponds to card[15], bit[0] corresponds to card[0].
 Only NUM_CARDS*2 number of bits are implemented.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cardWidth0{}; 
-        namespace Cardwidth0ValC{
-        }
         ///One bit per card indicates if card is 8-bit:
 0 - Non 8-bit mode
 1 - 8-bit mode
 Bit[31] corresponds to card[15]; bit[16] corresponds to card[0].
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> cardWidth1{}; 
-        namespace Cardwidth1ValC{
-        }
     }
     namespace Noneblksiz{    ///<Block Size Register
         using Addr = Register::Address<0x4000401c,0xffff0000,0,unsigned>;
         ///Block size
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> blockSize{}; 
-        namespace BlocksizeValC{
-        }
     }
     namespace Nonebytcnt{    ///<Byte Count Register
         using Addr = Register::Address<0x40004020,0x00000000,0,unsigned>;
@@ -353,113 +323,73 @@ For undefined number of byte transfers, byte count should be set to 0. When byte
 count is set to 0, it is responsibility of host to explicitly send stop/abort command
 to terminate data transfer.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> byteCount{}; 
-        namespace BytecountValC{
-        }
     }
     namespace Noneintmask{    ///<Interrupt Mask Register
         using Addr = Register::Address<0x40004024,0x00000000,0,unsigned>;
         ///Card detect. Bits used to mask unwanted interrupts. Value of 0 masks interrupt; value of 1
 enables interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cdet{}; 
-        namespace CdetValC{
-        }
         ///Response error. Bits used to mask unwanted interrupts. Value of 0 masks interrupt; value of 1
 enables interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> re{}; 
-        namespace ReValC{
-        }
         ///Command done. Bits used to mask unwanted interrupts. Value of 0 masks interrupt; value of 1
 enables interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> cdone{}; 
-        namespace CdoneValC{
-        }
         ///Data transfer over. Bits used to mask unwanted interrupts. Value of 0 masks interrupt; value of 1
 enables interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> dto{}; 
-        namespace DtoValC{
-        }
         ///Transmit FIFO data request. Bits used to mask unwanted interrupts. Value of 0 masks interrupt; value of 1
 enables interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> txdr{}; 
-        namespace TxdrValC{
-        }
         ///Receive FIFO data request. Bits used to mask unwanted interrupts. Value of 0 masks interrupt; value of 1
 enables interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rxdr{}; 
-        namespace RxdrValC{
-        }
         ///Response CRC error. Bits used to mask unwanted interrupts. Value of 0 masks interrupt; value of 1
 enables interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rcrc{}; 
-        namespace RcrcValC{
-        }
         ///Data CRC error. Bits used to mask unwanted interrupts. Value of 0 masks interrupt; value of 1
 enables interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dcrc{}; 
-        namespace DcrcValC{
-        }
         ///Response timeout. Bits used to mask unwanted interrupts. Value of 0 masks interrupt; value of 1
 enables interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> rto{}; 
-        namespace RtoValC{
-        }
         ///Data read timeout. Bits used to mask unwanted interrupts. Value of 0 masks interrupt; value of 1
 enables interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> drto{}; 
-        namespace DrtoValC{
-        }
         ///Data starvation-by-host timeout (HTO) /Volt_switch_int. Bits used to mask unwanted interrupts. Value of 0 masks interrupt; value of 1
 enables interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> hto{}; 
-        namespace HtoValC{
-        }
         ///FIFO underrun/overrun error. Bits used to mask unwanted interrupts. Value of 0 masks interrupt; value of 1
 enables interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> frun{}; 
-        namespace FrunValC{
-        }
         ///Hardware locked write error. Bits used to mask unwanted interrupts. Value of 0 masks interrupt; value of 1
 enables interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> hle{}; 
-        namespace HleValC{
-        }
         ///Start-bit error. Bits used to mask unwanted interrupts. Value of 0 masks interrupt; value of 1
 enables interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> sbe{}; 
-        namespace SbeValC{
-        }
         ///Auto command done. Bits used to mask unwanted interrupts. Value of 0 masks interrupt; value of 1
 enables interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> acd{}; 
-        namespace AcdValC{
-        }
         ///End-bit error (read)/Write no CRC. Bits used to mask unwanted interrupts. Value of 0 masks interrupt; value of 1
 enables interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ebe{}; 
-        namespace EbeValC{
-        }
         ///Mask SDIO interrupts
 One bit for each card. Bit[31] corresponds to card[15], and bit[16] corresponds to
 card[0]. When masked, SDIO interrupt detection for that card is disabled.
 A 0 masks an interrupt, and 1 enables an interrupt.
 In MMC-Ver3.3-only mode, these bits are always 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> sdioIntMask{}; 
-        namespace SdiointmaskValC{
-        }
     }
     namespace Nonecmdarg{    ///<Command Argument Register
         using Addr = Register::Address<0x40004028,0x00000000,0,unsigned>;
         ///Value indicates command argument to be passed to card.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cmdArg{}; 
-        namespace CmdargValC{
-        }
     }
     namespace Nonecmd{    ///<Command Register
         using Addr = Register::Address<0x4000402c,0x60000000,0,unsigned>;
         ///Command index
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> cmdIndex{}; 
-        namespace CmdindexValC{
-        }
         ///response expect
         enum class ResponseexpectVal {
             noresponse=0x00000000,     ///<No response expected from card
@@ -467,8 +397,8 @@ In MMC-Ver3.3-only mode, these bits are always 0.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ResponseexpectVal> responseExpect{}; 
         namespace ResponseexpectValC{
-            constexpr Register::FieldValue<decltype(responseExpect),ResponseexpectVal::noresponse> noresponse{};
-            constexpr Register::FieldValue<decltype(responseExpect),ResponseexpectVal::response> response{};
+            constexpr Register::FieldValue<decltype(responseExpect)::Type,ResponseexpectVal::noresponse> noresponse{};
+            constexpr Register::FieldValue<decltype(responseExpect)::Type,ResponseexpectVal::response> response{};
         }
         ///response length
         enum class ResponselengthVal {
@@ -477,8 +407,8 @@ In MMC-Ver3.3-only mode, these bits are always 0.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,ResponselengthVal> responseLength{}; 
         namespace ResponselengthValC{
-            constexpr Register::FieldValue<decltype(responseLength),ResponselengthVal::shortresponse> shortresponse{};
-            constexpr Register::FieldValue<decltype(responseLength),ResponselengthVal::longresponse> longresponse{};
+            constexpr Register::FieldValue<decltype(responseLength)::Type,ResponselengthVal::shortresponse> shortresponse{};
+            constexpr Register::FieldValue<decltype(responseLength)::Type,ResponselengthVal::longresponse> longresponse{};
         }
         ///check  response crc Some of command responses do not return valid CRC bits.
 Software should disable CRC checks for those commands in order
@@ -489,8 +419,8 @@ to disable CRC checking by controller.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,CheckresponsecrcVal> checkResponseCrc{}; 
         namespace CheckresponsecrcValC{
-            constexpr Register::FieldValue<decltype(checkResponseCrc),CheckresponsecrcVal::donotcheckcrc> donotcheckcrc{};
-            constexpr Register::FieldValue<decltype(checkResponseCrc),CheckresponsecrcVal::checkcrc> checkcrc{};
+            constexpr Register::FieldValue<decltype(checkResponseCrc)::Type,CheckresponsecrcVal::donotcheckcrc> donotcheckcrc{};
+            constexpr Register::FieldValue<decltype(checkResponseCrc)::Type,CheckresponsecrcVal::checkcrc> checkcrc{};
         }
         ///data expected
         enum class DataexpectedVal {
@@ -499,8 +429,8 @@ to disable CRC checking by controller.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,DataexpectedVal> dataExpected{}; 
         namespace DataexpectedValC{
-            constexpr Register::FieldValue<decltype(dataExpected),DataexpectedVal::nodatatxf> nodatatxf{};
-            constexpr Register::FieldValue<decltype(dataExpected),DataexpectedVal::datatxf> datatxf{};
+            constexpr Register::FieldValue<decltype(dataExpected)::Type,DataexpectedVal::nodatatxf> nodatatxf{};
+            constexpr Register::FieldValue<decltype(dataExpected)::Type,DataexpectedVal::datatxf> datatxf{};
         }
         ///read/write. Don't care if no data expected from card.
         enum class ReadwriteVal {
@@ -509,8 +439,8 @@ to disable CRC checking by controller.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,ReadwriteVal> readWrite{}; 
         namespace ReadwriteValC{
-            constexpr Register::FieldValue<decltype(readWrite),ReadwriteVal::readcard> readcard{};
-            constexpr Register::FieldValue<decltype(readWrite),ReadwriteVal::datatxf> datatxf{};
+            constexpr Register::FieldValue<decltype(readWrite)::Type,ReadwriteVal::readcard> readcard{};
+            constexpr Register::FieldValue<decltype(readWrite)::Type,ReadwriteVal::datatxf> datatxf{};
         }
         ///transfer mode. Don' t care if no data expected.
         enum class TransfermodeVal {
@@ -519,8 +449,8 @@ to disable CRC checking by controller.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,TransfermodeVal> transferMode{}; 
         namespace TransfermodeValC{
-            constexpr Register::FieldValue<decltype(transferMode),TransfermodeVal::blocktxf> blocktxf{};
-            constexpr Register::FieldValue<decltype(transferMode),TransfermodeVal::streamtxf> streamtxf{};
+            constexpr Register::FieldValue<decltype(transferMode)::Type,TransfermodeVal::blocktxf> blocktxf{};
+            constexpr Register::FieldValue<decltype(transferMode)::Type,TransfermodeVal::streamtxf> streamtxf{};
         }
         ///send auto stop.  When set, DWC_mobile_storage sends stop command to
 SD_MMC_CEATA cards at end of data transfer. Refer to Table 3-8
@@ -539,8 +469,8 @@ Don't care if no data expected from card.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,SendautostopVal> sendAutoStop{}; 
         namespace SendautostopValC{
-            constexpr Register::FieldValue<decltype(sendAutoStop),SendautostopVal::nostop> nostop{};
-            constexpr Register::FieldValue<decltype(sendAutoStop),SendautostopVal::stop> stop{};
+            constexpr Register::FieldValue<decltype(sendAutoStop)::Type,SendautostopVal::nostop> nostop{};
+            constexpr Register::FieldValue<decltype(sendAutoStop)::Type,SendautostopVal::stop> stop{};
         }
         ///wait prvdata complete. The wait_prvdata_complete = 0 option typically used to query
 status of card during data transfer or to stop current data transfer;
@@ -553,8 +483,8 @@ command.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,WaitprvdatacompleteVal> waitPrvdataComplete{}; 
         namespace WaitprvdatacompleteValC{
-            constexpr Register::FieldValue<decltype(waitPrvdataComplete),WaitprvdatacompleteVal::send> send{};
-            constexpr Register::FieldValue<decltype(waitPrvdataComplete),WaitprvdatacompleteVal::wait> wait{};
+            constexpr Register::FieldValue<decltype(waitPrvdataComplete)::Type,WaitprvdatacompleteVal::send> send{};
+            constexpr Register::FieldValue<decltype(waitPrvdataComplete)::Type,WaitprvdatacompleteVal::wait> wait{};
         }
         ///stop abort cmd. When open-ended or predefined data transfer is in progress, and
 host issues stop or abort command to stop data transfer, bit should
@@ -573,8 +503,8 @@ in progress..
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,StopabortcmdVal> stopAbortCmd{}; 
         namespace StopabortcmdValC{
-            constexpr Register::FieldValue<decltype(stopAbortCmd),StopabortcmdVal::nostopabort> nostopabort{};
-            constexpr Register::FieldValue<decltype(stopAbortCmd),StopabortcmdVal::stopabort> stopabort{};
+            constexpr Register::FieldValue<decltype(stopAbortCmd)::Type,StopabortcmdVal::nostopabort> nostopabort{};
+            constexpr Register::FieldValue<decltype(stopAbortCmd)::Type,StopabortcmdVal::stopabort> stopabort{};
         }
         ///send initialization.  After power on, 80 clocks must be sent to card for initialization
 before sending any commands to card. Bit should be set while
@@ -588,8 +518,8 @@ sending this command.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,SendinitializationVal> sendInitialization{}; 
         namespace SendinitializationValC{
-            constexpr Register::FieldValue<decltype(sendInitialization),SendinitializationVal::noinit> noinit{};
-            constexpr Register::FieldValue<decltype(sendInitialization),SendinitializationVal::init> init{};
+            constexpr Register::FieldValue<decltype(sendInitialization)::Type,SendinitializationVal::noinit> noinit{};
+            constexpr Register::FieldValue<decltype(sendInitialization)::Type,SendinitializationVal::init> init{};
         }
         ///card number. Card number in use. Represents physical slot number of card being
 accessed. In MMC-Ver3.3-only mode, up to 30 cards are supported;
@@ -601,8 +531,6 @@ In addition, in SD mode this is used to mux or demux signals from
 selected card because each card is interfaced to
 DWC_mobile_storage by separate bus.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> cardNumber{}; 
-        namespace CardnumberValC{
-        }
         ///update clock registers only. Following register values transferred into card clock domain:
 CLKDIV, CLRSRC, CLKENA.
 Changes card clocks (change frequency, truncate off or on, and set
@@ -623,8 +551,8 @@ card clock domain
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,UpdateclockregistersonlyVal> updateClockRegistersOnly{}; 
         namespace UpdateclockregistersonlyValC{
-            constexpr Register::FieldValue<decltype(updateClockRegistersOnly),UpdateclockregistersonlyVal::normal> normal{};
-            constexpr Register::FieldValue<decltype(updateClockRegistersOnly),UpdateclockregistersonlyVal::nocommand> nocommand{};
+            constexpr Register::FieldValue<decltype(updateClockRegistersOnly)::Type,UpdateclockregistersonlyVal::normal> normal{};
+            constexpr Register::FieldValue<decltype(updateClockRegistersOnly)::Type,UpdateclockregistersonlyVal::nocommand> nocommand{};
         }
         ///read ceata device. Software should set this bit to indicate that CE-ATA device is being
 accessed for read transfer. This bit is used to disable read data
@@ -640,8 +568,8 @@ towards CE-ATA device.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,ReadceatadeviceVal> readCeataDevice{}; 
         namespace ReadceatadeviceValC{
-            constexpr Register::FieldValue<decltype(readCeataDevice),ReadceatadeviceVal::noread> noread{};
-            constexpr Register::FieldValue<decltype(readCeataDevice),ReadceatadeviceVal::read> read{};
+            constexpr Register::FieldValue<decltype(readCeataDevice)::Type,ReadceatadeviceVal::noread> noread{};
+            constexpr Register::FieldValue<decltype(readCeataDevice)::Type,ReadceatadeviceVal::read> read{};
         }
         ///ccs expected. If the command expects Command Completion Signal (CCS) from
 the CE-ATA device, the software should set this control bit.
@@ -658,28 +586,22 @@ from CE-ATA device.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,CcsexpectedVal> ccsExpected{}; 
         namespace CcsexpectedValC{
-            constexpr Register::FieldValue<decltype(ccsExpected),CcsexpectedVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(ccsExpected),CcsexpectedVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(ccsExpected)::Type,CcsexpectedVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(ccsExpected)::Type,CcsexpectedVal::enable> enable{};
         }
         ///Enable Boot - this bit should be set only for mandatory boot mode.
 When Software sets this bit along with start_cmd, CIU starts the
 boot sequence for the corresponding card by asserting the CMD
 line low. Do NOT set disable_boot and enable_boot together.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> enableBoot{}; 
-        namespace EnablebootValC{
-        }
         ///Expect Boot Acknowledge. When Software sets this bit along with
 enable_boot, CIU expects a boot acknowledge start pattern of 0-1-0
 from the selected card.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> expectBootAck{}; 
-        namespace ExpectbootackValC{
-        }
         ///Disable Boot. When software sets this bit along with start_cmd, CIU
 terminates the boot operation. Do NOT set disable_boot and
 enable_boot together.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> disableBoot{}; 
-        namespace DisablebootValC{
-        }
         ///Boot Mode
         enum class BootmodeVal {
             mandatoryboot=0x00000000,     ///<Mandatory Boot operation
@@ -687,8 +609,8 @@ enable_boot together.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,BootmodeVal> bootMode{}; 
         namespace BootmodeValC{
-            constexpr Register::FieldValue<decltype(bootMode),BootmodeVal::mandatoryboot> mandatoryboot{};
-            constexpr Register::FieldValue<decltype(bootMode),BootmodeVal::altboot> altboot{};
+            constexpr Register::FieldValue<decltype(bootMode)::Type,BootmodeVal::mandatoryboot> mandatoryboot{};
+            constexpr Register::FieldValue<decltype(bootMode)::Type,BootmodeVal::altboot> altboot{};
         }
         ///Voltage switch bit
         enum class VoltswitchVal {
@@ -697,8 +619,8 @@ enable_boot together.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,VoltswitchVal> voltSwitch{}; 
         namespace VoltswitchValC{
-            constexpr Register::FieldValue<decltype(voltSwitch),VoltswitchVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(voltSwitch),VoltswitchVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(voltSwitch)::Type,VoltswitchVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(voltSwitch)::Type,VoltswitchVal::enable> enable{};
         }
         ///Start command. Once command is taken by CIU, bit is cleared.
 When bit is set, host should not attempt to write to any command
@@ -708,15 +630,11 @@ Once command is sent and response is received from
 SD_MMC_CEATA cards, Command Done bit is set in raw interrupt
 register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> startCmd{}; 
-        namespace StartcmdValC{
-        }
     }
     namespace Noneresp0{    ///<Response Register 0
         using Addr = Register::Address<0x40004030,0x00000000,0,unsigned>;
         ///Bit[31:0] of response
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> response0{}; 
-        namespace Response0ValC{
-        }
     }
     namespace Noneresp1{    ///<Response Register 1
         using Addr = Register::Address<0x40004034,0x00000000,0,unsigned>;
@@ -727,89 +645,51 @@ register. Additional auto-stop issued only for data transfer commands, and
 response type is always  short  for them. For information on when CIU sends
 auto-stop commands, refer to  Auto-Stop  on page 93.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> response1{}; 
-        namespace Response1ValC{
-        }
     }
     namespace Noneresp2{    ///<Response Register 2
         using Addr = Register::Address<0x40004038,0x00000000,0,unsigned>;
         ///Bit[95:64] of long response
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> response2{}; 
-        namespace Response2ValC{
-        }
     }
     namespace Noneresp3{    ///<Response Register 3
         using Addr = Register::Address<0x4000403c,0x00000000,0,unsigned>;
         ///Bit[127:96] of long response
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> response3{}; 
-        namespace Response3ValC{
-        }
     }
     namespace Nonemintsts{    ///<Masked Interrupt Status Register
         using Addr = Register::Address<0x40004040,0x00000000,0,unsigned>;
         ///Card detect. Interrupt enabled only if corresponding bit in interrupt mask register is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cdet{}; 
-        namespace CdetValC{
-        }
         ///Response error. Interrupt enabled only if corresponding bit in interrupt mask register is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> re{}; 
-        namespace ReValC{
-        }
         ///Command done. Interrupt enabled only if corresponding bit in interrupt mask register is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> cdone{}; 
-        namespace CdoneValC{
-        }
         ///Data transfer over. Interrupt enabled only if corresponding bit in interrupt mask register is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> dto{}; 
-        namespace DtoValC{
-        }
         ///Transmit FIFO data request. Interrupt enabled only if corresponding bit in interrupt mask register is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> txdr{}; 
-        namespace TxdrValC{
-        }
         ///Receive FIFO data request. Interrupt enabled only if corresponding bit in interrupt mask register is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rxdr{}; 
-        namespace RxdrValC{
-        }
         ///Response CRC error. Interrupt enabled only if corresponding bit in interrupt mask register is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rcrc{}; 
-        namespace RcrcValC{
-        }
         ///Data CRC error. Interrupt enabled only if corresponding bit in interrupt mask register is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dcrc{}; 
-        namespace DcrcValC{
-        }
         ///Response timeout. Interrupt enabled only if corresponding bit in interrupt mask register is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> rto{}; 
-        namespace RtoValC{
-        }
         ///Data read timeout . Interrupt enabled only if corresponding bit in interrupt mask register is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> drto{}; 
-        namespace DrtoValC{
-        }
         ///Data starvation-by-host timeout (HTO) . Interrupt enabled only if corresponding bit in interrupt mask register is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> hto{}; 
-        namespace HtoValC{
-        }
         ///FIFO underrun/overrun error. Interrupt enabled only if corresponding bit in interrupt mask register is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> frun{}; 
-        namespace FrunValC{
-        }
         ///Hardware locked write error. Interrupt enabled only if corresponding bit in interrupt mask register is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> hle{}; 
-        namespace HleValC{
-        }
         ///Start-bit error. Interrupt enabled only if corresponding bit in interrupt mask register is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> sbe{}; 
-        namespace SbeValC{
-        }
         ///Auto command done. Interrupt enabled only if corresponding bit in interrupt mask register is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> acd{}; 
-        namespace AcdValC{
-        }
         ///End-bit error (read)/write no CRC. Interrupt enabled only if corresponding bit in interrupt mask register is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ebe{}; 
-        namespace EbeValC{
-        }
         ///Interrupt from SDIO card; one bit for each card. Bit[31] corresponds to
 Card[15], and bit[16] is for Card[0]. SDIO interrupt for card enabled only if
 corresponding sdio_int_mask bit is set in Interrupt mask register (mask bit 1
@@ -818,91 +698,57 @@ enables interrupt; 0 masks interrupt).
 1 - SDIO interrupt from card
 In MMC-Ver3.3-only mode, bits always 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> sdioInterrupt{}; 
-        namespace SdiointerruptValC{
-        }
     }
     namespace Nonerintsts{    ///<Raw Interrupt Status Register
         using Addr = Register::Address<0x40004044,0x00000000,0,unsigned>;
         ///Card detect. Writes to bits clear status bit. Value of 1 clears status bit, and value of 0
 leaves bit intact. Bits are logged regardless of interrupt mask status.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cdet{}; 
-        namespace CdetValC{
-        }
         ///Response error. Writes to bits clear status bit. Value of 1 clears status bit, and value of 0
 leaves bit intact. Bits are logged regardless of interrupt mask status.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> re{}; 
-        namespace ReValC{
-        }
         ///Command done. Writes to bits clear status bit. Value of 1 clears status bit, and value of 0
 leaves bit intact. Bits are logged regardless of interrupt mask status.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> cdone{}; 
-        namespace CdoneValC{
-        }
         ///Data transfer over. Writes to bits clear status bit. Value of 1 clears status bit, and value of 0
 leaves bit intact. Bits are logged regardless of interrupt mask status.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> dto{}; 
-        namespace DtoValC{
-        }
         ///Transmit FIFO data request. Writes to bits clear status bit. Value of 1 clears status bit, and value of 0
 leaves bit intact. Bits are logged regardless of interrupt mask status.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> txdr{}; 
-        namespace TxdrValC{
-        }
         ///Receive FIFO data request. Writes to bits clear status bit. Value of 1 clears status bit, and value of 0
 leaves bit intact. Bits are logged regardless of interrupt mask status.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rxdr{}; 
-        namespace RxdrValC{
-        }
         ///Response CRC error. Writes to bits clear status bit. Value of 1 clears status bit, and value of 0
 leaves bit intact. Bits are logged regardless of interrupt mask status.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> rcrc{}; 
-        namespace RcrcValC{
-        }
         ///Data CRC error. Writes to bits clear status bit. Value of 1 clears status bit, and value of 0
 leaves bit intact. Bits are logged regardless of interrupt mask status.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> dcrc{}; 
-        namespace DcrcValC{
-        }
         ///Response timeout (RTO)/Boot Ack Received (BAR). Writes to bits clear status bit. Value of 1 clears status bit, and value of 0
 leaves bit intact. Bits are logged regardless of interrupt mask status.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> rtoBar{}; 
-        namespace RtobarValC{
-        }
         ///Data read timeout (DRTO)/Boot Data Start (BDS). Writes to bits clear status bit. Value of 1 clears status bit, and value of 0
 leaves bit intact. Bits are logged regardless of interrupt mask status.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> drtoBds{}; 
-        namespace DrtobdsValC{
-        }
         ///Data starvation-by-host timeout (HTO) . Writes to bits clear status bit. Value of 1 clears status bit, and value of 0
 leaves bit intact. Bits are logged regardless of interrupt mask status./Volt_switch_int
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> hto{}; 
-        namespace HtoValC{
-        }
         ///FIFO underrun/overrun error. Writes to bits clear status bit. Value of 1 clears status bit, and value of 0
 leaves bit intact. Bits are logged regardless of interrupt mask status.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> frun{}; 
-        namespace FrunValC{
-        }
         ///Hardware locked write error. Writes to bits clear status bit. Value of 1 clears status bit, and value of 0
 leaves bit intact. Bits are logged regardless of interrupt mask status.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> hle{}; 
-        namespace HleValC{
-        }
         ///Start-bit error. Writes to bits clear status bit. Value of 1 clears status bit, and value of 0
 leaves bit intact. Bits are logged regardless of interrupt mask status.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> sbe{}; 
-        namespace SbeValC{
-        }
         ///Auto command done. Writes to bits clear status bit. Value of 1 clears status bit, and value of 0
 leaves bit intact. Bits are logged regardless of interrupt mask status.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> acd{}; 
-        namespace AcdValC{
-        }
         ///End-bit error (read)/write no CRC. Writes to bits clear status bit. Value of 1 clears status bit, and value of 0
 leaves bit intact. Bits are logged regardless of interrupt mask status.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> ebe{}; 
-        namespace EbeValC{
-        }
         ///Interrupt from SDIO card; one bit for each card. Bit[31] corresponds to
 Card[15], and bit[16] is for Card[0]. Writes to these bits clear them. Value
 of 1 clears bit and 0 leaves bit intact.
@@ -911,28 +757,18 @@ of 1 clears bit and 0 leaves bit intact.
 In MMC-Ver3.3-only mode, bits always 0.
 Bits are logged regardless of interrupt-mask status.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> sdioInterrupt{}; 
-        namespace SdiointerruptValC{
-        }
     }
     namespace Nonestatus{    ///<Status Register
         using Addr = Register::Address<0x40004048,0x00000000,0,unsigned>;
         ///FIFO reached Receive watermark level; not qualified with data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fifoRxWatermark{}; 
-        namespace FiforxwatermarkValC{
-        }
         ///FIFO reached Transmit watermark level; not qualified with data
 transfer.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> fifoTxWatermark{}; 
-        namespace FifotxwatermarkValC{
-        }
         ///FIFO is empty status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> fifoEmpty{}; 
-        namespace FifoemptyValC{
-        }
         ///FIFO is full status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> fifoFull{}; 
-        namespace FifofullValC{
-        }
         ///Command FSM states:
 0 - Idle
 1 - Send init sequence
@@ -963,42 +799,26 @@ Due to this, while command FSM is in  Wait for CCS state  or
  Send CCSD  or  Boot Mode , the Status register indicates status
 as 0 for the bit field 7:4.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> cmdfsmstates{}; 
-        namespace CmdfsmstatesValC{
-        }
         ///Raw selected card_data[3]; checks whether card is present
 0 - card not present
 1 - card present
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> data3Status{}; 
-        namespace Data3statusValC{
-        }
         ///Inverted version of raw selected card_data[0]
 0 - card data not busy
 1 - card data busy
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> dataBusy{}; 
-        namespace DatabusyValC{
-        }
         ///Data transmit or receive state-machine is busy
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> dataStateMcBusy{}; 
-        namespace DatastatemcbusyValC{
-        }
         ///Index of previous response, including any auto-stop sent by core.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,11),Register::ReadWriteAccess,unsigned> responseIndex{}; 
-        namespace ResponseindexValC{
-        }
         ///FIFO count - Number of filled locations in FIFO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,17),Register::ReadWriteAccess,unsigned> fifoCount{}; 
-        namespace FifocountValC{
-        }
         ///DMA acknowledge signal state; either dw_dma_ack or
 ge_dma_ack, depending on DW-DMA or Generic-DMA selection.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> dmaAck{}; 
-        namespace DmaackValC{
-        }
         ///DMA request signal state; either dw_dma_req or ge_dma_req,
 depending on DW-DMA or Generic-DMA selection.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> dmaReq{}; 
-        namespace DmareqValC{
-        }
     }
     namespace Nonefifoth{    ///<FIFO Threshold Watermark Register
         using Addr = Register::Address<0x4000404c,0x8000f000,0,unsigned>;
@@ -1022,8 +842,6 @@ Limitation: TX_WMark >= 1;
 Recommended: FIFO_DEPTH/2; (means less than or equal to
 FIFO_DEPTH/2).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> txWmark{}; 
-        namespace TxwmarkValC{
-        }
         ///FIFO threshold watermark level when receiving data to card.
 When FIFO data count reaches greater than this number,
 DMA/FIFO request is raised. During end of packet, request is
@@ -1050,8 +868,6 @@ are less than threshold. In this case, there will be some data left in
 the FIFO. It is the responsibility of the application to reset the
 FIFO after the CCS timeout.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,16),Register::ReadWriteAccess,unsigned> rxWmark{}; 
-        namespace RxwmarkValC{
-        }
         ///Burst size of multiple transaction; should be programmed same as
 DW-DMA controller multiple-transaction-size SRC/DEST_MSIZE.The units for transfers is the H_DATA_WIDTH parameter. A single
 transfer (dw_dma_single assertion in case of Non DW DMA
@@ -1089,14 +905,14 @@ MSize = 8, TX_WMark = 8, RX_WMark = 7
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,28),Register::ReadWriteAccess,DwdmamutipletransactionsizeVal> dwDmaMutipleTransactionSize{}; 
         namespace DwdmamutipletransactionsizeValC{
-            constexpr Register::FieldValue<decltype(dwDmaMutipleTransactionSize),DwdmamutipletransactionsizeVal::v1txf> v1txf{};
-            constexpr Register::FieldValue<decltype(dwDmaMutipleTransactionSize),DwdmamutipletransactionsizeVal::v4txf> v4txf{};
-            constexpr Register::FieldValue<decltype(dwDmaMutipleTransactionSize),DwdmamutipletransactionsizeVal::v8txf> v8txf{};
-            constexpr Register::FieldValue<decltype(dwDmaMutipleTransactionSize),DwdmamutipletransactionsizeVal::v16txf> v16txf{};
-            constexpr Register::FieldValue<decltype(dwDmaMutipleTransactionSize),DwdmamutipletransactionsizeVal::v32txf> v32txf{};
-            constexpr Register::FieldValue<decltype(dwDmaMutipleTransactionSize),DwdmamutipletransactionsizeVal::v64txf> v64txf{};
-            constexpr Register::FieldValue<decltype(dwDmaMutipleTransactionSize),DwdmamutipletransactionsizeVal::v128txf> v128txf{};
-            constexpr Register::FieldValue<decltype(dwDmaMutipleTransactionSize),DwdmamutipletransactionsizeVal::v256txf> v256txf{};
+            constexpr Register::FieldValue<decltype(dwDmaMutipleTransactionSize)::Type,DwdmamutipletransactionsizeVal::v1txf> v1txf{};
+            constexpr Register::FieldValue<decltype(dwDmaMutipleTransactionSize)::Type,DwdmamutipletransactionsizeVal::v4txf> v4txf{};
+            constexpr Register::FieldValue<decltype(dwDmaMutipleTransactionSize)::Type,DwdmamutipletransactionsizeVal::v8txf> v8txf{};
+            constexpr Register::FieldValue<decltype(dwDmaMutipleTransactionSize)::Type,DwdmamutipletransactionsizeVal::v16txf> v16txf{};
+            constexpr Register::FieldValue<decltype(dwDmaMutipleTransactionSize)::Type,DwdmamutipletransactionsizeVal::v32txf> v32txf{};
+            constexpr Register::FieldValue<decltype(dwDmaMutipleTransactionSize)::Type,DwdmamutipletransactionsizeVal::v64txf> v64txf{};
+            constexpr Register::FieldValue<decltype(dwDmaMutipleTransactionSize)::Type,DwdmamutipletransactionsizeVal::v128txf> v128txf{};
+            constexpr Register::FieldValue<decltype(dwDmaMutipleTransactionSize)::Type,DwdmamutipletransactionsizeVal::v256txf> v256txf{};
         }
     }
     namespace Nonecdetect{    ///<Card Detect Register
@@ -1105,8 +921,6 @@ MSize = 8, TX_WMark = 8, RX_WMark = 7
 0 represents presence of card. Only NUM_CARDS number of bits
 are implemented.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,0),Register::ReadWriteAccess,unsigned> cardDetectN{}; 
-        namespace CarddetectnValC{
-        }
     }
     namespace Nonewrtprt{    ///<Write Protect Register
         using Addr = Register::Address<0x40004054,0xc0000000,0,unsigned>;
@@ -1114,21 +928,15 @@ are implemented.
 1 represents write protection. Only NUM_CARDS number of bits are
 implemented.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,0),Register::ReadWriteAccess,unsigned> writeProtect{}; 
-        namespace WriteprotectValC{
-        }
     }
     namespace Nonegpio{    ///<General Purpose Input/Output Register
         using Addr = Register::Address<0x40004058,0xff000000,0,unsigned>;
         ///Value on gpi input ports; this portion of register is read-only. Valid only when
 AREA_OPTIMIZED parameter is 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> gpi{}; 
-        namespace GpiValC{
-        }
         ///Value needed to be driven to gpo pins; this portion of register is read/write. Valid
 only when AREA_OPTIMIZED parameter is 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,8),Register::ReadWriteAccess,unsigned> gpo{}; 
-        namespace GpoValC{
-        }
     }
     namespace Nonetcbcnt{    ///<Transferred CIU Card Byte Count Register
         using Addr = Register::Address<0x4000405c,0x00000000,0,unsigned>;
@@ -1145,8 +953,6 @@ When AREA_OPTIMIZED parameter is 1, register should be
 read only after data transfer completes; during data transfer,
 register returns 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> transCardByteCount{}; 
-        namespace TranscardbytecountValC{
-        }
     }
     namespace Nonetbbcnt{    ///<Transferred Host to BIU-FIFO Byte Count Register
         using Addr = Register::Address<0x40004060,0x00000000,0,unsigned>;
@@ -1161,16 +967,12 @@ stored in temporary register. When higher 16 bits are read, data
 from temporary register is supplied.
 Both TCBCNT and TBBCNT share same coherency register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> transFifoByteCount{}; 
-        namespace TransfifobytecountValC{
-        }
     }
     namespace Nonedebnce{    ///<Debounce Count Register
         using Addr = Register::Address<0x40004064,0xff000000,0,unsigned>;
         ///Number of host clocks (clk) used by debounce filter logic; typical
 debounce time is 5-25 ms.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> debounceCount{}; 
-        namespace DebouncecountValC{
-        }
     }
     namespace Noneusrid{    ///<User ID Register
         using Addr = Register::Address<0x40004068,0x00000000,0,unsigned>;
@@ -1178,16 +980,12 @@ debounce time is 5-25 ms.
 by user while configuring core before synthesis.
 Can also be used as scratch pad register by user.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> usrid{}; 
-        namespace UsridValC{
-        }
     }
     namespace Noneverid{    ///<Version ID Register
         using Addr = Register::Address<0x4000406c,0x00000000,0,unsigned>;
         ///Synopsys version identification register; register value is hard-wired. Can be
 read by firmware to support different versions of core.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> verid{}; 
-        namespace VeridValC{
-        }
     }
     namespace NoneuhsReg{    ///<UHS-1 Register
         using Addr = Register::Address<0x40004074,0x00000000,0,unsigned>;
@@ -1202,8 +1000,6 @@ value programmed in the register.
 VOLT_REG[0] should be set to 1 for card number 0 in order to make it
 operate for 1.8V.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> voltReg{}; 
-        namespace VoltregValC{
-        }
         ///DDR mode. Determines the voltage fed to the buffers by an external
 voltage regulator.
 0 - Non-DDR mode
@@ -1211,8 +1007,6 @@ voltage regulator.
 UHS_REG [16] should be set for card number 0, UHS_REG [17] for card
 number 1 and so on.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> ddrReg{}; 
-        namespace DdrregValC{
-        }
     }
     namespace NonerstN{    ///<Hardware Reset
         using Addr = Register::Address<0x40004078,0xffff0000,0,unsigned>;
@@ -1224,36 +1018,26 @@ be re-initialized. CARD_RESET[0] should be set to 1 to reset card
 number 0, and CARD_RESET[15] should be set to reset card number 15.
 The number of bits implemented is restricted to NUM_CARDS.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cardReset{}; 
-        namespace CardresetValC{
-        }
     }
     namespace Nonebmod{    ///<Bus Mode Register
         using Addr = Register::Address<0x40004080,0xfffff800,0,unsigned>;
         ///Software Reset. When set, the DMA Controller resets all its internal registers.
 SWR is read/write. It is automatically cleared after 1 clock cycle.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> swr{}; 
-        namespace SwrValC{
-        }
         ///Fixed Burst. Controls whether the AHB Master interface performs fixed burst
 transfers or not. When set, the AHB will use only SINGLE, INCR4, INCR8 or
 INCR16 during start of normal burst transfers. When reset, the AHB will use
 SINGLE and INCR burst transfer operations.
 FB is read/write.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> fb{}; 
-        namespace FbValC{
-        }
         ///Descriptor Skip Length. Specifies the number of HWord/Word/Dword (depending
 on 16/32/64-bit bus) to skip between two unchained descriptors. This is applicable
 only for dual buffer structure.
 DSL is read/write.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,2),Register::ReadWriteAccess,unsigned> dsl{}; 
-        namespace DslValC{
-        }
         ///IDMAC Enable. When set, the IDMAC is enabled.
 DE is read/write.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> de{}; 
-        namespace DeValC{
-        }
         ///Programmable Burst Length. These bits indicate the maximum number of beats to
 be performed in one IDMAC transaction. The IDMAC will always attempt to burst
 as specified in PBL each time it starts a Burst transfer on the host bus. The
@@ -1273,14 +1057,14 @@ PBL is a read-only value.
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,PblVal> pbl{}; 
         namespace PblValC{
-            constexpr Register::FieldValue<decltype(pbl),PblVal::v1txf> v1txf{};
-            constexpr Register::FieldValue<decltype(pbl),PblVal::v4txf> v4txf{};
-            constexpr Register::FieldValue<decltype(pbl),PblVal::v8txf> v8txf{};
-            constexpr Register::FieldValue<decltype(pbl),PblVal::v16txf> v16txf{};
-            constexpr Register::FieldValue<decltype(pbl),PblVal::v32txf> v32txf{};
-            constexpr Register::FieldValue<decltype(pbl),PblVal::v64txf> v64txf{};
-            constexpr Register::FieldValue<decltype(pbl),PblVal::v128txf> v128txf{};
-            constexpr Register::FieldValue<decltype(pbl),PblVal::v256txf> v256txf{};
+            constexpr Register::FieldValue<decltype(pbl)::Type,PblVal::v1txf> v1txf{};
+            constexpr Register::FieldValue<decltype(pbl)::Type,PblVal::v4txf> v4txf{};
+            constexpr Register::FieldValue<decltype(pbl)::Type,PblVal::v8txf> v8txf{};
+            constexpr Register::FieldValue<decltype(pbl)::Type,PblVal::v16txf> v16txf{};
+            constexpr Register::FieldValue<decltype(pbl)::Type,PblVal::v32txf> v32txf{};
+            constexpr Register::FieldValue<decltype(pbl)::Type,PblVal::v64txf> v64txf{};
+            constexpr Register::FieldValue<decltype(pbl)::Type,PblVal::v128txf> v128txf{};
+            constexpr Register::FieldValue<decltype(pbl)::Type,PblVal::v256txf> v256txf{};
         }
     }
     namespace Nonepldmnd{    ///<Poll Demand Register
@@ -1291,8 +1075,6 @@ IDMAC FSM to resume normal descriptor fetch operation. This is a write
 only register.
 PD bit is write-only.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pd{}; 
-        namespace PdValC{
-        }
     }
     namespace Nonedbaddr{    ///<Descriptor List Base Address Register
         using Addr = Register::Address<0x40004088,0x00000000,0,unsigned>;
@@ -1300,31 +1082,21 @@ PD bit is write-only.
 The LSB bits [0/1/2:0] for 16/32/64-bit bus-width) are ignored and taken as
 all-zero by the IDMAC internally. Hence these LSB bits are read-only.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> sdl{}; 
-        namespace SdlValC{
-        }
     }
     namespace Noneidsts{    ///<Internal DMAC Status Register
         using Addr = Register::Address<0x4000408c,0xfffe00c8,0,unsigned>;
         ///Transmit Interrupt. Indicates that data transmission is finished for a descriptor. Writing
 a 1  clears this bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ti{}; 
-        namespace TiValC{
-        }
         ///Receive Interrupt. Indicates the completion of data reception for a descriptor. Writing a
 1 clears this bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ri{}; 
-        namespace RiValC{
-        }
         ///Fatal Bus Error Interrupt. Indicates that a Bus Error occurred (IDSTS[12:10]). When
 this bit is set, the DMA disables all its bus accesses. Writing a 1 clears this bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> fbe{}; 
-        namespace FbeValC{
-        }
         ///Descriptor Unavailable Interrupt. This bit is set when the descriptor is unavailable due
 to OWN bit = 0 (DES0[31] =0). Writing a 1 clears this bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> du{}; 
-        namespace DuValC{
-        }
         ///Card Error Summary. Indicates the status of the transaction to/from the card; also
 present in RINTSTS. Indicates the logical OR of the following bits:
 EBE - End Bit Error
@@ -1336,8 +1108,6 @@ DCRC - Data CRC for Receive
 RE - Response Error
 Writing a 1 clears this bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ces{}; 
-        namespace CesValC{
-        }
         ///Normal Interrupt Summary. Logical OR of the following:
 IDSTS[0] - Transmit Interrupt
 IDSTS[1] - Receive Interrupt
@@ -1345,8 +1115,6 @@ Only unmasked bits affect this bit.
 This is a sticky bit and must be cleared each time a corresponding bit that causes NIS
 to be set is cleared. Writing a 1 clears this bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> nis{}; 
-        namespace NisValC{
-        }
         ///Abnormal Interrupt Summary. Logical OR of the following:
 IDSTS[2] - Fatal Bus Interrupt
 IDSTS[4] - DU bit Interrupt
@@ -1355,8 +1123,6 @@ Only unmasked bits affect this bit.
 This is a sticky bit and must be cleared each time a corresponding bit that causes AIS
 to be set is cleared. Writing a 1 clears this bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> ais{}; 
-        namespace AisValC{
-        }
         ///Error Bits. Indicates the type of error that caused a Bus Error. Valid only with Fatal Bus
 Error bit (IDSTS[2]) set. This field does not generate an interrupt.
 001 - Host Abort received during transmission
@@ -1364,8 +1130,6 @@ Error bit (IDSTS[2]) set. This field does not generate an interrupt.
 Others: Reserved
 EB is read-only.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,10),Register::ReadWriteAccess,unsigned> eb{}; 
-        namespace EbValC{
-        }
         ///DMAC FSM present state.
 0 - DMA_IDLE
 1 - DMA_SUSPEND
@@ -1378,52 +1142,36 @@ EB is read-only.
 8 - DESC_CLOSE
 This bit is read-only.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,13),Register::ReadWriteAccess,unsigned> fsm{}; 
-        namespace FsmValC{
-        }
     }
     namespace Noneidinten{    ///<Internal DMAC Interrupt Enable Register
         using Addr = Register::Address<0x40004090,0xfffffcc8,0,unsigned>;
         ///Transmit Interrupt Enable. When set with Normal Interrupt Summary Enable,
 Transmit Interrupt is enabled. When reset, Transmit Interrupt is disabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ti{}; 
-        namespace TiValC{
-        }
         ///Receive Interrupt Enable. When set with Normal Interrupt Summary Enable,
 Receive Interrupt is enabled. When reset, Receive Interrupt is disabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ri{}; 
-        namespace RiValC{
-        }
         ///Fatal Bus Error Enable. When set with Abnormal Interrupt Summary Enable, the
 Fatal Bus Error Interrupt is enabled. When reset, Fatal Bus Error Enable Interrupt is
 disabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> fbe{}; 
-        namespace FbeValC{
-        }
         ///Descriptor Unavailable Interrupt. When set along with Abnormal Interrupt Summary
 Enable, the DU interrupt is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> du{}; 
-        namespace DuValC{
-        }
         ///Card Error summary Interrupt Enable. When set, it enables the Card Interrupt
 summary.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ces{}; 
-        namespace CesValC{
-        }
         ///Normal Interrupt Summary Enable. When set, a normal interrupt is enabled. When
 reset, a normal interrupt is disabled. This bit enables the following bits:
 IDINTEN[0] - Transmit Interrupt
 IDINTEN[1] - Receive Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> nis{}; 
-        namespace NisValC{
-        }
         ///Abnormal Interrupt Summary Enable. When set, an abnormal interrupt is enabled.
 This bit enables the following bits:
 IDINTEN[2] - Fatal Bus Error Interrupt
 IDINTEN[4] - DU Interrupt
 IDINTEN[5] - Card Error Summary Interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> ais{}; 
-        namespace AisValC{
-        }
     }
     namespace Nonedscaddr{    ///<Current Host Descriptor Address Register
         using Addr = Register::Address<0x40004094,0x00000000,0,unsigned>;
@@ -1431,8 +1179,6 @@ IDINTEN[5] - Card Error Summary Interrupt
 IDMAC during operation. This register points to the start address of the
 current descriptor read by the IDMAC.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> hda{}; 
-        namespace HdaValC{
-        }
     }
     namespace Nonebufaddr{    ///<Current Buffer Descriptor Address Register
         using Addr = Register::Address<0x40004098,0x00000000,0,unsigned>;
@@ -1440,7 +1186,5 @@ current descriptor read by the IDMAC.
 during operation. This register points to the current Data Buffer Address
 being accessed by the IDMAC.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> hba{}; 
-        namespace HbaValC{
-        }
     }
 }

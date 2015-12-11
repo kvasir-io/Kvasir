@@ -15,12 +15,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,In0rangeVal> in0range{}; 
         namespace In0rangeValC{
-            constexpr Register::FieldValue<decltype(in0range),In0rangeVal::v6Ma> v6Ma{};
-            constexpr Register::FieldValue<decltype(in0range),In0rangeVal::v5Ma> v5Ma{};
-            constexpr Register::FieldValue<decltype(in0range),In0rangeVal::v4Ma> v4Ma{};
-            constexpr Register::FieldValue<decltype(in0range),In0rangeVal::v3Ma> v3Ma{};
-            constexpr Register::FieldValue<decltype(in0range),In0rangeVal::v2Ma> v2Ma{};
-            constexpr Register::FieldValue<decltype(in0range),In0rangeVal::v1Ma> v1Ma{};
+            constexpr Register::FieldValue<decltype(in0range)::Type,In0rangeVal::v6Ma> v6Ma{};
+            constexpr Register::FieldValue<decltype(in0range)::Type,In0rangeVal::v5Ma> v5Ma{};
+            constexpr Register::FieldValue<decltype(in0range)::Type,In0rangeVal::v4Ma> v4Ma{};
+            constexpr Register::FieldValue<decltype(in0range)::Type,In0rangeVal::v3Ma> v3Ma{};
+            constexpr Register::FieldValue<decltype(in0range)::Type,In0rangeVal::v2Ma> v2Ma{};
+            constexpr Register::FieldValue<decltype(in0range)::Type,In0rangeVal::v1Ma> v1Ma{};
         }
         ///Input 1 Range. 
         enum class In1rangeVal {
@@ -33,12 +33,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,In1rangeVal> in1range{}; 
         namespace In1rangeValC{
-            constexpr Register::FieldValue<decltype(in1range),In1rangeVal::v6Ma> v6Ma{};
-            constexpr Register::FieldValue<decltype(in1range),In1rangeVal::v5Ma> v5Ma{};
-            constexpr Register::FieldValue<decltype(in1range),In1rangeVal::v4Ma> v4Ma{};
-            constexpr Register::FieldValue<decltype(in1range),In1rangeVal::v3Ma> v3Ma{};
-            constexpr Register::FieldValue<decltype(in1range),In1rangeVal::v2Ma> v2Ma{};
-            constexpr Register::FieldValue<decltype(in1range),In1rangeVal::v1Ma> v1Ma{};
+            constexpr Register::FieldValue<decltype(in1range)::Type,In1rangeVal::v6Ma> v6Ma{};
+            constexpr Register::FieldValue<decltype(in1range)::Type,In1rangeVal::v5Ma> v5Ma{};
+            constexpr Register::FieldValue<decltype(in1range)::Type,In1rangeVal::v4Ma> v4Ma{};
+            constexpr Register::FieldValue<decltype(in1range)::Type,In1rangeVal::v3Ma> v3Ma{};
+            constexpr Register::FieldValue<decltype(in1range)::Type,In1rangeVal::v2Ma> v2Ma{};
+            constexpr Register::FieldValue<decltype(in1range)::Type,In1rangeVal::v1Ma> v1Ma{};
         }
         ///Converter 0 Enable. 
         enum class C0enVal {
@@ -47,8 +47,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,C0enVal> c0en{}; 
         namespace C0enValC{
-            constexpr Register::FieldValue<decltype(c0en),C0enVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(c0en),C0enVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(c0en)::Type,C0enVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(c0en)::Type,C0enVal::enabled> enabled{};
         }
         ///Converter 1 Enable. 
         enum class C1enVal {
@@ -57,8 +57,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,C1enVal> c1en{}; 
         namespace C1enValC{
-            constexpr Register::FieldValue<decltype(c1en),C1enVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(c1en),C1enVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(c1en)::Type,C1enVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(c1en)::Type,C1enVal::enabled> enabled{};
         }
     }
 }

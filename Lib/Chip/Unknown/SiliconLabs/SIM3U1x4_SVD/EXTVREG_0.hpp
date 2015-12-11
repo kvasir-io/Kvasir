@@ -11,8 +11,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,SaenVal> saen{}; 
         namespace SaenValC{
-            constexpr Register::FieldValue<decltype(saen),SaenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(saen),SaenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(saen)::Type,SaenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(saen)::Type,SaenVal::enabled> enabled{};
         }
         ///Weak Pull Up/Down Enable. 
         enum class WpullenVal {
@@ -21,8 +21,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,WpullenVal> wpullen{}; 
         namespace WpullenValC{
-            constexpr Register::FieldValue<decltype(wpullen),WpullenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(wpullen),WpullenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(wpullen)::Type,WpullenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(wpullen)::Type,WpullenVal::enabled> enabled{};
         }
         ///Foldback Limiting Enable. 
         enum class FblenVal {
@@ -31,8 +31,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,FblenVal> fblen{}; 
         namespace FblenValC{
-            constexpr Register::FieldValue<decltype(fblen),FblenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(fblen),FblenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(fblen)::Type,FblenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(fblen)::Type,FblenVal::enabled> enabled{};
         }
         ///NPN/PNP Type Select. 
         enum class PnselVal {
@@ -41,8 +41,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,PnselVal> pnsel{}; 
         namespace PnselValC{
-            constexpr Register::FieldValue<decltype(pnsel),PnselVal::npn> npn{};
-            constexpr Register::FieldValue<decltype(pnsel),PnselVal::pnp> pnp{};
+            constexpr Register::FieldValue<decltype(pnsel)::Type,PnselVal::npn> npn{};
+            constexpr Register::FieldValue<decltype(pnsel)::Type,PnselVal::pnp> pnp{};
         }
         ///Foldback Sensing Pin Select. 
         enum class FbpinselVal {
@@ -51,8 +51,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,FbpinselVal> fbpinsel{}; 
         namespace FbpinselValC{
-            constexpr Register::FieldValue<decltype(fbpinsel),FbpinselVal::exregsn> exregsn{};
-            constexpr Register::FieldValue<decltype(fbpinsel),FbpinselVal::vregin> vregin{};
+            constexpr Register::FieldValue<decltype(fbpinsel)::Type,FbpinselVal::exregsn> exregsn{};
+            constexpr Register::FieldValue<decltype(fbpinsel)::Type,FbpinselVal::vregin> vregin{};
         }
         ///External Regulator Enable. 
         enum class EvregenVal {
@@ -61,8 +61,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,EvregenVal> evregen{}; 
         namespace EvregenValC{
-            constexpr Register::FieldValue<decltype(evregen),EvregenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(evregen),EvregenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(evregen)::Type,EvregenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(evregen)::Type,EvregenVal::enabled> enabled{};
         }
     }
     namespace Noneconfig{    ///<Module Configuration
@@ -76,10 +76,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,IminfineVal> iminfine{}; 
         namespace IminfineValC{
-            constexpr Register::FieldValue<decltype(iminfine),IminfineVal::v0Ua> v0Ua{};
-            constexpr Register::FieldValue<decltype(iminfine),IminfineVal::v0p25Ua> v0p25Ua{};
-            constexpr Register::FieldValue<decltype(iminfine),IminfineVal::v0p5Ua> v0p5Ua{};
-            constexpr Register::FieldValue<decltype(iminfine),IminfineVal::v0p75Ua> v0p75Ua{};
+            constexpr Register::FieldValue<decltype(iminfine)::Type,IminfineVal::v0Ua> v0Ua{};
+            constexpr Register::FieldValue<decltype(iminfine)::Type,IminfineVal::v0p25Ua> v0p25Ua{};
+            constexpr Register::FieldValue<decltype(iminfine)::Type,IminfineVal::v0p5Ua> v0p5Ua{};
+            constexpr Register::FieldValue<decltype(iminfine)::Type,IminfineVal::v0p75Ua> v0p75Ua{};
         }
         ///Minimum Current Select. 
         enum class IminVal {
@@ -94,14 +94,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,2),Register::ReadWriteAccess,IminVal> imin{}; 
         namespace IminValC{
-            constexpr Register::FieldValue<decltype(imin),IminVal::v1Ua> v1Ua{};
-            constexpr Register::FieldValue<decltype(imin),IminVal::v2Ua> v2Ua{};
-            constexpr Register::FieldValue<decltype(imin),IminVal::v3Ua> v3Ua{};
-            constexpr Register::FieldValue<decltype(imin),IminVal::v4Ua> v4Ua{};
-            constexpr Register::FieldValue<decltype(imin),IminVal::v5Ua> v5Ua{};
-            constexpr Register::FieldValue<decltype(imin),IminVal::v6Ua> v6Ua{};
-            constexpr Register::FieldValue<decltype(imin),IminVal::v7Ua> v7Ua{};
-            constexpr Register::FieldValue<decltype(imin),IminVal::v8Ua> v8Ua{};
+            constexpr Register::FieldValue<decltype(imin)::Type,IminVal::v1Ua> v1Ua{};
+            constexpr Register::FieldValue<decltype(imin)::Type,IminVal::v2Ua> v2Ua{};
+            constexpr Register::FieldValue<decltype(imin)::Type,IminVal::v3Ua> v3Ua{};
+            constexpr Register::FieldValue<decltype(imin)::Type,IminVal::v4Ua> v4Ua{};
+            constexpr Register::FieldValue<decltype(imin)::Type,IminVal::v5Ua> v5Ua{};
+            constexpr Register::FieldValue<decltype(imin)::Type,IminVal::v6Ua> v6Ua{};
+            constexpr Register::FieldValue<decltype(imin)::Type,IminVal::v7Ua> v7Ua{};
+            constexpr Register::FieldValue<decltype(imin)::Type,IminVal::v8Ua> v8Ua{};
         }
         ///Foldback Voltage Offset Select. 
         enum class FbvoselVal {
@@ -116,14 +116,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,FbvoselVal> fbvosel{}; 
         namespace FbvoselValC{
-            constexpr Register::FieldValue<decltype(fbvosel),FbvoselVal::v0V> v0V{};
-            constexpr Register::FieldValue<decltype(fbvosel),FbvoselVal::v0p5V> v0p5V{};
-            constexpr Register::FieldValue<decltype(fbvosel),FbvoselVal::v1V> v1V{};
-            constexpr Register::FieldValue<decltype(fbvosel),FbvoselVal::v1p5V> v1p5V{};
-            constexpr Register::FieldValue<decltype(fbvosel),FbvoselVal::v2V> v2V{};
-            constexpr Register::FieldValue<decltype(fbvosel),FbvoselVal::v2p5V> v2p5V{};
-            constexpr Register::FieldValue<decltype(fbvosel),FbvoselVal::v3V> v3V{};
-            constexpr Register::FieldValue<decltype(fbvosel),FbvoselVal::v3p5V> v3p5V{};
+            constexpr Register::FieldValue<decltype(fbvosel)::Type,FbvoselVal::v0V> v0V{};
+            constexpr Register::FieldValue<decltype(fbvosel)::Type,FbvoselVal::v0p5V> v0p5V{};
+            constexpr Register::FieldValue<decltype(fbvosel)::Type,FbvoselVal::v1V> v1V{};
+            constexpr Register::FieldValue<decltype(fbvosel)::Type,FbvoselVal::v1p5V> v1p5V{};
+            constexpr Register::FieldValue<decltype(fbvosel)::Type,FbvoselVal::v2V> v2V{};
+            constexpr Register::FieldValue<decltype(fbvosel)::Type,FbvoselVal::v2p5V> v2p5V{};
+            constexpr Register::FieldValue<decltype(fbvosel)::Type,FbvoselVal::v3V> v3V{};
+            constexpr Register::FieldValue<decltype(fbvosel)::Type,FbvoselVal::v3p5V> v3p5V{};
         }
         ///Voltage Sense Gain Multiplier. 
         enum class FbrateVal {
@@ -137,13 +137,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,FbrateVal> fbrate{}; 
         namespace FbrateValC{
-            constexpr Register::FieldValue<decltype(fbrate),FbrateVal::v4UaPerV> v4UaPerV{};
-            constexpr Register::FieldValue<decltype(fbrate),FbrateVal::v2UaPerV> v2UaPerV{};
-            constexpr Register::FieldValue<decltype(fbrate),FbrateVal::v1UaPerV> v1UaPerV{};
-            constexpr Register::FieldValue<decltype(fbrate),FbrateVal::v0p5UaPerV> v0p5UaPerV{};
-            constexpr Register::FieldValue<decltype(fbrate),FbrateVal::v8UaPerV> v8UaPerV{};
-            constexpr Register::FieldValue<decltype(fbrate),FbrateVal::v16UaPerV> v16UaPerV{};
-            constexpr Register::FieldValue<decltype(fbrate),FbrateVal::v32UaPerV> v32UaPerV{};
+            constexpr Register::FieldValue<decltype(fbrate)::Type,FbrateVal::v4UaPerV> v4UaPerV{};
+            constexpr Register::FieldValue<decltype(fbrate)::Type,FbrateVal::v2UaPerV> v2UaPerV{};
+            constexpr Register::FieldValue<decltype(fbrate)::Type,FbrateVal::v1UaPerV> v1UaPerV{};
+            constexpr Register::FieldValue<decltype(fbrate)::Type,FbrateVal::v0p5UaPerV> v0p5UaPerV{};
+            constexpr Register::FieldValue<decltype(fbrate)::Type,FbrateVal::v8UaPerV> v8UaPerV{};
+            constexpr Register::FieldValue<decltype(fbrate)::Type,FbrateVal::v16UaPerV> v16UaPerV{};
+            constexpr Register::FieldValue<decltype(fbrate)::Type,FbrateVal::v32UaPerV> v32UaPerV{};
         }
         ///Maximum Current Select. 
         enum class ImaxVal {
@@ -158,19 +158,17 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,ImaxVal> imax{}; 
         namespace ImaxValC{
-            constexpr Register::FieldValue<decltype(imax),ImaxVal::v2Ua> v2Ua{};
-            constexpr Register::FieldValue<decltype(imax),ImaxVal::v3Ua> v3Ua{};
-            constexpr Register::FieldValue<decltype(imax),ImaxVal::v4Ua> v4Ua{};
-            constexpr Register::FieldValue<decltype(imax),ImaxVal::v5Ua> v5Ua{};
-            constexpr Register::FieldValue<decltype(imax),ImaxVal::v6Ua> v6Ua{};
-            constexpr Register::FieldValue<decltype(imax),ImaxVal::v7Ua> v7Ua{};
-            constexpr Register::FieldValue<decltype(imax),ImaxVal::v8Ua> v8Ua{};
-            constexpr Register::FieldValue<decltype(imax),ImaxVal::v9Ua> v9Ua{};
+            constexpr Register::FieldValue<decltype(imax)::Type,ImaxVal::v2Ua> v2Ua{};
+            constexpr Register::FieldValue<decltype(imax)::Type,ImaxVal::v3Ua> v3Ua{};
+            constexpr Register::FieldValue<decltype(imax)::Type,ImaxVal::v4Ua> v4Ua{};
+            constexpr Register::FieldValue<decltype(imax)::Type,ImaxVal::v5Ua> v5Ua{};
+            constexpr Register::FieldValue<decltype(imax)::Type,ImaxVal::v6Ua> v6Ua{};
+            constexpr Register::FieldValue<decltype(imax)::Type,ImaxVal::v7Ua> v7Ua{};
+            constexpr Register::FieldValue<decltype(imax)::Type,ImaxVal::v8Ua> v8Ua{};
+            constexpr Register::FieldValue<decltype(imax)::Type,ImaxVal::v9Ua> v9Ua{};
         }
         ///Regulator Output Voltage Select. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,24),Register::ReadWriteAccess,unsigned> voutsel{}; 
-        namespace VoutselValC{
-        }
     }
     namespace Nonestatus{    ///<Module Status
         using Addr = Register::Address<0x40042020,0xfffffffe,0,unsigned>;
@@ -181,8 +179,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,FbmaxfVal> fbmaxf{}; 
         namespace FbmaxfValC{
-            constexpr Register::FieldValue<decltype(fbmaxf),FbmaxfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(fbmaxf),FbmaxfVal::set> set{};
+            constexpr Register::FieldValue<decltype(fbmaxf)::Type,FbmaxfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(fbmaxf)::Type,FbmaxfVal::set> set{};
         }
     }
     namespace Nonecscontrol{    ///<Current Sense Control
@@ -194,8 +192,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,IsnsenVal> isnsen{}; 
         namespace IsnsenValC{
-            constexpr Register::FieldValue<decltype(isnsen),IsnsenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(isnsen),IsnsenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(isnsen)::Type,IsnsenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(isnsen)::Type,IsnsenVal::enabled> enabled{};
         }
         ///ADC Current Sense Enable. 
         enum class AdcisnsenVal {
@@ -204,8 +202,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,AdcisnsenVal> adcisnsen{}; 
         namespace AdcisnsenValC{
-            constexpr Register::FieldValue<decltype(adcisnsen),AdcisnsenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(adcisnsen),AdcisnsenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(adcisnsen)::Type,AdcisnsenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(adcisnsen)::Type,AdcisnsenVal::enabled> enabled{};
         }
     }
     namespace Nonecsconfig{    ///<Current Sense Configuration
@@ -220,11 +218,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,IsadcgainVal> isadcgain{}; 
         namespace IsadcgainValC{
-            constexpr Register::FieldValue<decltype(isadcgain),IsadcgainVal::v16x> v16x{};
-            constexpr Register::FieldValue<decltype(isadcgain),IsadcgainVal::v8x> v8x{};
-            constexpr Register::FieldValue<decltype(isadcgain),IsadcgainVal::v4x> v4x{};
-            constexpr Register::FieldValue<decltype(isadcgain),IsadcgainVal::v2x> v2x{};
-            constexpr Register::FieldValue<decltype(isadcgain),IsadcgainVal::v1x> v1x{};
+            constexpr Register::FieldValue<decltype(isadcgain)::Type,IsadcgainVal::v16x> v16x{};
+            constexpr Register::FieldValue<decltype(isadcgain)::Type,IsadcgainVal::v8x> v8x{};
+            constexpr Register::FieldValue<decltype(isadcgain)::Type,IsadcgainVal::v4x> v4x{};
+            constexpr Register::FieldValue<decltype(isadcgain)::Type,IsadcgainVal::v2x> v2x{};
+            constexpr Register::FieldValue<decltype(isadcgain)::Type,IsadcgainVal::v1x> v1x{};
         }
         ///External Regulator Current Sense Gain. 
         enum class IsogainVal {
@@ -236,11 +234,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,3),Register::ReadWriteAccess,IsogainVal> isogain{}; 
         namespace IsogainValC{
-            constexpr Register::FieldValue<decltype(isogain),IsogainVal::v16x> v16x{};
-            constexpr Register::FieldValue<decltype(isogain),IsogainVal::v8x> v8x{};
-            constexpr Register::FieldValue<decltype(isogain),IsogainVal::v4x> v4x{};
-            constexpr Register::FieldValue<decltype(isogain),IsogainVal::v2x> v2x{};
-            constexpr Register::FieldValue<decltype(isogain),IsogainVal::v1x> v1x{};
+            constexpr Register::FieldValue<decltype(isogain)::Type,IsogainVal::v16x> v16x{};
+            constexpr Register::FieldValue<decltype(isogain)::Type,IsogainVal::v8x> v8x{};
+            constexpr Register::FieldValue<decltype(isogain)::Type,IsogainVal::v4x> v4x{};
+            constexpr Register::FieldValue<decltype(isogain)::Type,IsogainVal::v2x> v2x{};
+            constexpr Register::FieldValue<decltype(isogain)::Type,IsogainVal::v1x> v1x{};
         }
         ///External Regulator Current Sense Input Select. 
         enum class IsinselVal {
@@ -250,9 +248,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,IsinselVal> isinsel{}; 
         namespace IsinselValC{
-            constexpr Register::FieldValue<decltype(isinsel),IsinselVal::mode0> mode0{};
-            constexpr Register::FieldValue<decltype(isinsel),IsinselVal::mode1> mode1{};
-            constexpr Register::FieldValue<decltype(isinsel),IsinselVal::mode2> mode2{};
+            constexpr Register::FieldValue<decltype(isinsel)::Type,IsinselVal::mode0> mode0{};
+            constexpr Register::FieldValue<decltype(isinsel)::Type,IsinselVal::mode1> mode1{};
+            constexpr Register::FieldValue<decltype(isinsel)::Type,IsinselVal::mode2> mode2{};
         }
     }
 }

@@ -11,8 +11,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EnableVal> enable{}; 
         namespace EnableValC{
-            constexpr Register::FieldValue<decltype(enable),EnableVal::disabledTheSpiIs> disabledTheSpiIs{};
-            constexpr Register::FieldValue<decltype(enable),EnableVal::enabledTheSpiIs> enabledTheSpiIs{};
+            constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::disabledTheSpiIs> disabledTheSpiIs{};
+            constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabledTheSpiIs> enabledTheSpiIs{};
         }
         ///Master mode select.
         enum class MasterVal {
@@ -21,8 +21,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,MasterVal> master{}; 
         namespace MasterValC{
-            constexpr Register::FieldValue<decltype(master),MasterVal::slaveModeTheSpi> slaveModeTheSpi{};
-            constexpr Register::FieldValue<decltype(master),MasterVal::masterModeTheSpi> masterModeTheSpi{};
+            constexpr Register::FieldValue<decltype(master)::Type,MasterVal::slaveModeTheSpi> slaveModeTheSpi{};
+            constexpr Register::FieldValue<decltype(master)::Type,MasterVal::masterModeTheSpi> masterModeTheSpi{};
         }
         ///LSB First mode enable.
         enum class LsbfVal {
@@ -31,8 +31,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,LsbfVal> lsbf{}; 
         namespace LsbfValC{
-            constexpr Register::FieldValue<decltype(lsbf),LsbfVal::standardDataIsTr> standardDataIsTr{};
-            constexpr Register::FieldValue<decltype(lsbf),LsbfVal::reverseDataIsTra> reverseDataIsTra{};
+            constexpr Register::FieldValue<decltype(lsbf)::Type,LsbfVal::standardDataIsTr> standardDataIsTr{};
+            constexpr Register::FieldValue<decltype(lsbf)::Type,LsbfVal::reverseDataIsTra> reverseDataIsTra{};
         }
         ///Clock Phase select. .
         enum class CphaVal {
@@ -41,8 +41,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CphaVal> cpha{}; 
         namespace CphaValC{
-            constexpr Register::FieldValue<decltype(cpha),CphaVal::changeTheSpiCapt> changeTheSpiCapt{};
-            constexpr Register::FieldValue<decltype(cpha),CphaVal::captureTheSpiCha> captureTheSpiCha{};
+            constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::changeTheSpiCapt> changeTheSpiCapt{};
+            constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::captureTheSpiCha> captureTheSpiCha{};
         }
         ///Clock Polarity select.
         enum class CpolVal {
@@ -51,8 +51,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,CpolVal> cpol{}; 
         namespace CpolValC{
-            constexpr Register::FieldValue<decltype(cpol),CpolVal::lowTheRestState> lowTheRestState{};
-            constexpr Register::FieldValue<decltype(cpol),CpolVal::highTheRestState> highTheRestState{};
+            constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::lowTheRestState> lowTheRestState{};
+            constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::highTheRestState> highTheRestState{};
         }
         ///Loopback mode enable. Loopback mode applies only to Master mode, and connects transmit and receive data connected together to allow simple software testing.
         enum class LoopVal {
@@ -61,8 +61,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,LoopVal> loop{}; 
         namespace LoopValC{
-            constexpr Register::FieldValue<decltype(loop),LoopVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(loop),LoopVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(loop)::Type,LoopVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(loop)::Type,LoopVal::enabled> enabled{};
         }
         ///SSEL Polarity select.
         enum class SpolVal {
@@ -71,67 +71,41 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,SpolVal> spol{}; 
         namespace SpolValC{
-            constexpr Register::FieldValue<decltype(spol),SpolVal::lowTheSselPinIs> lowTheSselPinIs{};
-            constexpr Register::FieldValue<decltype(spol),SpolVal::highTheSselPinI> highTheSselPinI{};
+            constexpr Register::FieldValue<decltype(spol)::Type,SpolVal::lowTheSselPinIs> lowTheSselPinIs{};
+            constexpr Register::FieldValue<decltype(spol)::Type,SpolVal::highTheSselPinI> highTheSselPinI{};
         }
     }
     namespace Nonedly{    ///<SPI Delay register
         using Addr = Register::Address<0x40058004,0xffff0000,0,unsigned>;
         ///Controls the amount of time between SSEL assertion and the beginning of a data frame.  There is always one SPI clock time between SSEL assertion and the first clock edge. This is not considered part of the pre-delay. 0x0 = No additional time is inserted. 0x1 = 1 SPI clock time is inserted. 0x2 = 2 SPI clock times are inserted. ... 0xF = 15 SPI clock times are inserted.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> preDelay{}; 
-        namespace PredelayValC{
-        }
         ///Controls the amount of time between the end of a data frame and SSEL deassertion.  0x0 = No additional time is inserted. 0x1 = 1 SPI clock time is inserted. 0x2 = 2 SPI clock times are inserted. ... 0xF = 15 SPI clock times are inserted.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> postDelay{}; 
-        namespace PostdelayValC{
-        }
         ///Controls the minimum amount of time between adjacent data frames.  0x0 = No additional time is inserted. 0x1 = 1 SPI clock time is inserted. 0x2 = 2 SPI clock times are inserted. ... 0xF = 15 SPI clock times are inserted.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> frameDelay{}; 
-        namespace FramedelayValC{
-        }
         ///Controls the minimum amount of time that the SSELs are deasserted between transfers.  0x0 = The minimum time that SSEL is deasserted is 1 SPI clock time. (Zero added time.) 0x1 = The minimum time that SSEL is deasserted is 2 SPI clock times. 0x2 = The minimum time that SSEL is deasserted is 3 SPI clock times. ... 0xF = The minimum time that SSEL is deasserted is 16 SPI clock times.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> transferDelay{}; 
-        namespace TransferdelayValC{
-        }
     }
     namespace Nonestat{    ///<SPI Status. Some status flags can be cleared by writing a 1 to that bit position
         using Addr = Register::Address<0x40058008,0xfffffe00,0,unsigned>;
         ///Receiver Ready flag. When 1, indicates that data is available to be read from the receiver buffer. Cleared after a read of the RXDAT register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
-        namespace RxrdyValC{
-        }
         ///Transmitter Ready flag. When 1, this bit indicates that data may be written to the transmit buffer. Previous data may still be in the process of being transmitted. Cleared when data is written to TXDAT or TXDATCTL until the data is moved to the transmit shift register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
-        namespace TxrdyValC{
-        }
         ///Receiver Overrun interrupt flag. This flag is set when the beginning of a received character is detected while the receiver buffer is still in use. If this occurs, the receiver buffer contents are preserved, and the incoming data is lost. Data received by the SPI should be considered undefined if RxOv is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxov{}; 
-        namespace RxovValC{
-        }
         ///Transmitter Underrun interrupt flag. This flag applies only to slave mode (Master = 0). In this case, the transmitter must begin sending new data on the next input clock if the transmitter is idle. If that data is not available in the transmitter holding register at that point, there is no data to transmit and the TxUr flag is set. Data transmitted by the SPI should be considered undefined if TxUr is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txur{}; 
-        namespace TxurValC{
-        }
         ///Slave Select Assert. This flag is set whenever any slave select transitions from deasserted to asserted, in both master and slave modes. This allows determining when the SPI transmit/receive functions become busy, and allows waking up the device from reduced power modes when a slave mode access begins. This flag is cleared by software.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ssa{}; 
-        namespace SsaValC{
-        }
         ///Slave Select Deassert. This flag is set whenever any asserted slave selects transition to deasserted, in both master and slave modes. This allows determining when the SPI transmit/receive functions become idle. This flag is cleared by software.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ssd{}; 
-        namespace SsdValC{
-        }
         ///Stalled status flag. This indicates whether the SPI is currently in a stall condition.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> stalled{}; 
-        namespace StalledValC{
-        }
         ///End Transfer control bit. Software can set this bit to force an end to the current transfer when the transmitter finishes any activity already in progress, as if the EOT flag had been set prior to the last transmission. This capability is included to support cases where it is not known when transmit data is written that it will be the end of a transfer. The bit is cleared when the transmitter becomes Idle as the transfer comes to an end. Forcing an end of transfer in this manner causes any specified FrameDelay and TransferDelay to be inserted.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> endtransfer{}; 
-        namespace EndtransferValC{
-        }
         ///Idle status flag. This bit is 1 whenever the SPI master function is fully idle. This means that the transmit holding register is empty and the transmitter is not in the process of sending data.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> idle{}; 
-        namespace IdleValC{
-        }
     }
     namespace Noneintenset{    ///<SPI Interrupt Enable read and Set. A complete value may be read from this register. Writing a 1 to any implemented bit position causes that bit to be set.
         using Addr = Register::Address<0x4005800c,0xffffffc0,0,unsigned>;
@@ -142,8 +116,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RxrdyenVal> rxrdyen{}; 
         namespace RxrdyenValC{
-            constexpr Register::FieldValue<decltype(rxrdyen),RxrdyenVal::noInterruptWillBe> noInterruptWillBe{};
-            constexpr Register::FieldValue<decltype(rxrdyen),RxrdyenVal::anInterruptWillBe> anInterruptWillBe{};
+            constexpr Register::FieldValue<decltype(rxrdyen)::Type,RxrdyenVal::noInterruptWillBe> noInterruptWillBe{};
+            constexpr Register::FieldValue<decltype(rxrdyen)::Type,RxrdyenVal::anInterruptWillBe> anInterruptWillBe{};
         }
         ///Determines whether an interrupt occurs when the transmitter holding register is available.
         enum class TxrdyenVal {
@@ -152,8 +126,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TxrdyenVal> txrdyen{}; 
         namespace TxrdyenValC{
-            constexpr Register::FieldValue<decltype(txrdyen),TxrdyenVal::noInterruptWillBe> noInterruptWillBe{};
-            constexpr Register::FieldValue<decltype(txrdyen),TxrdyenVal::anInterruptWillBe> anInterruptWillBe{};
+            constexpr Register::FieldValue<decltype(txrdyen)::Type,TxrdyenVal::noInterruptWillBe> noInterruptWillBe{};
+            constexpr Register::FieldValue<decltype(txrdyen)::Type,TxrdyenVal::anInterruptWillBe> anInterruptWillBe{};
         }
         ///Determines whether an interrupt occurs when a receiver overrun occurs. This happens in slave mode when there is a need for the receiver to move newly received data to the RXDAT register when it is already in use. The interface prevents receiver overrun in Master mode by not allowing a new transmission to begin when a receiver overrun would otherwise occur.
         enum class RxovenVal {
@@ -162,8 +136,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,RxovenVal> rxoven{}; 
         namespace RxovenValC{
-            constexpr Register::FieldValue<decltype(rxoven),RxovenVal::noInterruptWillBe> noInterruptWillBe{};
-            constexpr Register::FieldValue<decltype(rxoven),RxovenVal::anInterruptWillBe> anInterruptWillBe{};
+            constexpr Register::FieldValue<decltype(rxoven)::Type,RxovenVal::noInterruptWillBe> noInterruptWillBe{};
+            constexpr Register::FieldValue<decltype(rxoven)::Type,RxovenVal::anInterruptWillBe> anInterruptWillBe{};
         }
         ///Determines whether an interrupt occurs when a transmitter underrun occurs. This happens in slave mode when there is a need to transmit data when none is available.
         enum class TxurenVal {
@@ -172,8 +146,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,TxurenVal> txuren{}; 
         namespace TxurenValC{
-            constexpr Register::FieldValue<decltype(txuren),TxurenVal::noInterruptWillBe> noInterruptWillBe{};
-            constexpr Register::FieldValue<decltype(txuren),TxurenVal::anInterruptWillBe> anInterruptWillBe{};
+            constexpr Register::FieldValue<decltype(txuren)::Type,TxurenVal::noInterruptWillBe> noInterruptWillBe{};
+            constexpr Register::FieldValue<decltype(txuren)::Type,TxurenVal::anInterruptWillBe> anInterruptWillBe{};
         }
         ///Determines whether an interrupt occurs when one or more Slave Select is asserted.
         enum class SsaenVal {
@@ -182,8 +156,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SsaenVal> ssaen{}; 
         namespace SsaenValC{
-            constexpr Register::FieldValue<decltype(ssaen),SsaenVal::noInterruptWillBe> noInterruptWillBe{};
-            constexpr Register::FieldValue<decltype(ssaen),SsaenVal::anInterruptWillBe> anInterruptWillBe{};
+            constexpr Register::FieldValue<decltype(ssaen)::Type,SsaenVal::noInterruptWillBe> noInterruptWillBe{};
+            constexpr Register::FieldValue<decltype(ssaen)::Type,SsaenVal::anInterruptWillBe> anInterruptWillBe{};
         }
         ///Determines whether an interrupt occurs when all Slave Selects are deasserted.
         enum class SsdenVal {
@@ -192,58 +166,38 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SsdenVal> ssden{}; 
         namespace SsdenValC{
-            constexpr Register::FieldValue<decltype(ssden),SsdenVal::noInterruptWillBe> noInterruptWillBe{};
-            constexpr Register::FieldValue<decltype(ssden),SsdenVal::anInterruptWillBe> anInterruptWillBe{};
+            constexpr Register::FieldValue<decltype(ssden)::Type,SsdenVal::noInterruptWillBe> noInterruptWillBe{};
+            constexpr Register::FieldValue<decltype(ssden)::Type,SsdenVal::anInterruptWillBe> anInterruptWillBe{};
         }
     }
     namespace Noneintenclr{    ///<SPI Interrupt Enable Clear. Writing a 1 to any implemented bit position causes the corresponding bit in INTENSET to be cleared.
         using Addr = Register::Address<0x40058010,0xffffffc0,0,unsigned>;
         ///Writing 1 clears the corresponding bits in the INTENSET register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdyen{}; 
-        namespace RxrdyenValC{
-        }
         ///Writing 1 clears the corresponding bits in the INTENSET register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdyen{}; 
-        namespace TxrdyenValC{
-        }
         ///Writing 1 clears the corresponding bits in the INTENSET register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxoven{}; 
-        namespace RxovenValC{
-        }
         ///Writing 1 clears the corresponding bits in the INTENSET register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txuren{}; 
-        namespace TxurenValC{
-        }
         ///Writing 1 clears the corresponding bits in the INTENSET register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ssaen{}; 
-        namespace SsaenValC{
-        }
         ///Writing 1 clears the corresponding bits in the INTENSET register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ssden{}; 
-        namespace SsdenValC{
-        }
     }
     namespace Nonerxdat{    ///<SPI Receive Data
         using Addr = Register::Address<0x40058014,0xffee0000,0,unsigned>;
         ///Receiver Data. This contains the next piece of received data. The number of bits that are used depends on the FLen setting in TXCTL / TXDATCTL.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rxdat{}; 
-        namespace RxdatValC{
-        }
         ///Slave Select for receive. This field allows the state of the  SSEL pin to be saved along with received data. The value will reflect the SSEL pin for both master and slave operation. A zero indicates that a slave select is active. The actual polarity of each slave select pin is configured by the related SPOL bit in CFG.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rxsseln{}; 
-        namespace RxsselnValC{
-        }
         ///Start of Transfer flag. This flag will be 1 if this is the first frame after SSEL went from  deasserted to  asserted (i.e., any previous transfer has ended). This information can be used to identify the first piece of data in cases where the frame length is greater than 16 bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> sot{}; 
-        namespace SotValC{
-        }
     }
     namespace Nonetxdatctl{    ///<SPI Transmit Data with Control
         using Addr = Register::Address<0x40058018,0xf08e0000,0,unsigned>;
         ///Transmit Data. This field provides from 1 to 16 bits of data to be transmitted.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txdat{}; 
-        namespace TxdatValC{
-        }
         ///Transmit Slave Select . This field controls what is output for SSEL in master mode.  The active state of the SSEL function is configured by bits in the CFG register.
         enum class TxsselnVal {
             sselAsserted=0x00000000,     ///<SSEL  asserted.
@@ -251,8 +205,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,TxsselnVal> txsseln{}; 
         namespace TxsselnValC{
-            constexpr Register::FieldValue<decltype(txsseln),TxsselnVal::sselAsserted> sselAsserted{};
-            constexpr Register::FieldValue<decltype(txsseln),TxsselnVal::sselNotAsserted> sselNotAsserted{};
+            constexpr Register::FieldValue<decltype(txsseln)::Type,TxsselnVal::sselAsserted> sselAsserted{};
+            constexpr Register::FieldValue<decltype(txsseln)::Type,TxsselnVal::sselNotAsserted> sselNotAsserted{};
         }
         ///End of Transfer. The asserted SSEL will be deasserted at the end of a transfer, and remain so for at least the time specified by the Transfer_delay value in the DLY register.
         enum class EotVal {
@@ -261,8 +215,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,EotVal> eot{}; 
         namespace EotValC{
-            constexpr Register::FieldValue<decltype(eot),EotVal::sselNotDeasserted> sselNotDeasserted{};
-            constexpr Register::FieldValue<decltype(eot),EotVal::sselDeassertedThi> sselDeassertedThi{};
+            constexpr Register::FieldValue<decltype(eot)::Type,EotVal::sselNotDeasserted> sselNotDeasserted{};
+            constexpr Register::FieldValue<decltype(eot)::Type,EotVal::sselDeassertedThi> sselDeassertedThi{};
         }
         ///End of Frame. Between frames, a delay may be inserted, as defined by the Frame_delay value in the DLY register. The end of a frame may not be particularly meaningful if the FRAME_DELAY value = 0. This control can be used as part of the support for frame lengths greater than 16 bits.
         enum class EofVal {
@@ -271,8 +225,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,EofVal> eof{}; 
         namespace EofValC{
-            constexpr Register::FieldValue<decltype(eof),EofVal::dataNotEofThisP> dataNotEofThisP{};
-            constexpr Register::FieldValue<decltype(eof),EofVal::dataEofThisPiece> dataEofThisPiece{};
+            constexpr Register::FieldValue<decltype(eof)::Type,EofVal::dataNotEofThisP> dataNotEofThisP{};
+            constexpr Register::FieldValue<decltype(eof)::Type,EofVal::dataEofThisPiece> dataEofThisPiece{};
         }
         ///Receive Ignore. This allows data to be transmitted using the SPI without the need to read unneeded data from the receiver to simplify the transmit process.
         enum class RxignoreVal {
@@ -281,76 +235,48 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,RxignoreVal> rxignore{}; 
         namespace RxignoreValC{
-            constexpr Register::FieldValue<decltype(rxignore),RxignoreVal::readReceivedData> readReceivedData{};
-            constexpr Register::FieldValue<decltype(rxignore),RxignoreVal::ignoreReceivedData> ignoreReceivedData{};
+            constexpr Register::FieldValue<decltype(rxignore)::Type,RxignoreVal::readReceivedData> readReceivedData{};
+            constexpr Register::FieldValue<decltype(rxignore)::Type,RxignoreVal::ignoreReceivedData> ignoreReceivedData{};
         }
         ///Frame Length. Specifies the frame length from 1 to 16 bits. Note that frame lengths greater than 16 bits are supported by multiple sequential frames Note that if a 1-bit frame is selected, the master function will always insert a delay with a length of one SCK time following the single clock seen on the SCK pin. 0x0 = Data frame is 1 bit in length. 0x1 = Data frame is 1 bit in length. 0x2 = Data frame is 3 bits in length. ... 0xF = Data frame is 16 bits in length.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> flen{}; 
-        namespace FlenValC{
-        }
     }
     namespace Nonetxdat{    ///<SPI Transmit Data
         using Addr = Register::Address<0x4005801c,0xffff0000,0,unsigned>;
         ///Transmit Data. This field provides from 4 to 16 bits of data to be transmitted.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace Nonetxctl{    ///<SPI Transmit Control
         using Addr = Register::Address<0x40058020,0xf08effff,0,unsigned>;
         ///Transmit Slave Select.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> txSsel{}; 
-        namespace TxsselValC{
-        }
         ///End of Transfer.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> eot{}; 
-        namespace EotValC{
-        }
         ///End of Frame.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> eof{}; 
-        namespace EofValC{
-        }
         ///Receive Ignore.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> rxignore{}; 
-        namespace RxignoreValC{
-        }
         ///Frame Length.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> flen{}; 
-        namespace FlenValC{
-        }
     }
     namespace Nonediv{    ///<SPI clock Divider
         using Addr = Register::Address<0x40058024,0xffff0000,0,unsigned>;
         ///Rate divider value -1. Specifies how the PCLK for the SPI is divided to produce the SPI clock rate in master mode.  DIVVAL is -1 encoded such that the value 0 results in PCLK/1, the value 1 results in PCLK/2, etc. the maximum possible divide is for the value 0xFFFF, which results in PCLK/65536.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> divval{}; 
-        namespace DivvalValC{
-        }
     }
     namespace Noneintstat{    ///<SPI Interrupt Status
         using Addr = Register::Address<0x40058028,0xffffffc0,0,unsigned>;
         ///Receiver Ready flag.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxrdy{}; 
-        namespace RxrdyValC{
-        }
         ///Transmitter Ready flag.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txrdy{}; 
-        namespace TxrdyValC{
-        }
         ///Receiver Overrun interrupt flag.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rxov{}; 
-        namespace RxovValC{
-        }
         ///Transmitter Underrun interrupt flag.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txur{}; 
-        namespace TxurValC{
-        }
         ///Slave Select Assert.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ssa{}; 
-        namespace SsaValC{
-        }
         ///Slave Select Deassert.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ssd{}; 
-        namespace SsdValC{
-        }
     }
 }

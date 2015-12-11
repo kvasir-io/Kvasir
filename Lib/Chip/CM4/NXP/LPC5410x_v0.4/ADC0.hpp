@@ -13,8 +13,6 @@ namespace Kvasir {
 								high-impedance analog source) a slower clock may be desirable. This
 								field is ignored in the asynchronous operating mode.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> clkdiv{}; 
-        namespace ClkdivValC{
-        }
         ///Select clock mode.
         enum class AsynmodeVal {
             synchronousMode=0x00000000,     ///<Synchronous mode. The ADC clock is derived from the
@@ -33,8 +31,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,AsynmodeVal> asynmode{}; 
         namespace AsynmodeValC{
-            constexpr Register::FieldValue<decltype(asynmode),AsynmodeVal::synchronousMode> synchronousMode{};
-            constexpr Register::FieldValue<decltype(asynmode),AsynmodeVal::asynchronousMode> asynchronousMode{};
+            constexpr Register::FieldValue<decltype(asynmode)::Type,AsynmodeVal::synchronousMode> synchronousMode{};
+            constexpr Register::FieldValue<decltype(asynmode)::Type,AsynmodeVal::asynchronousMode> asynchronousMode{};
         }
         ///The number of bits of ADC resolution. Accuracy can be
 								reduced to achieve higher conversion rates. A single conversion
@@ -62,10 +60,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,ResolVal> resol{}; 
         namespace ResolValC{
-            constexpr Register::FieldValue<decltype(resol),ResolVal::v6BitResolution> v6BitResolution{};
-            constexpr Register::FieldValue<decltype(resol),ResolVal::v8BitResolution> v8BitResolution{};
-            constexpr Register::FieldValue<decltype(resol),ResolVal::v10BitResolution> v10BitResolution{};
-            constexpr Register::FieldValue<decltype(resol),ResolVal::v12BitResolution> v12BitResolution{};
+            constexpr Register::FieldValue<decltype(resol)::Type,ResolVal::v6BitResolution> v6BitResolution{};
+            constexpr Register::FieldValue<decltype(resol)::Type,ResolVal::v8BitResolution> v8BitResolution{};
+            constexpr Register::FieldValue<decltype(resol)::Type,ResolVal::v10BitResolution> v10BitResolution{};
+            constexpr Register::FieldValue<decltype(resol)::Type,ResolVal::v12BitResolution> v12BitResolution{};
         }
         ///Bypass Calibration. This bit may be set to avoid the need
 								to calibrate if offset error is not a concern in the
@@ -84,8 +82,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,BypasscalVal> bypasscal{}; 
         namespace BypasscalValC{
-            constexpr Register::FieldValue<decltype(bypasscal),BypasscalVal::calibrate> calibrate{};
-            constexpr Register::FieldValue<decltype(bypasscal),BypasscalVal::bypassCalibration> bypassCalibration{};
+            constexpr Register::FieldValue<decltype(bypasscal)::Type,BypasscalVal::calibrate> calibrate{};
+            constexpr Register::FieldValue<decltype(bypasscal)::Type,BypasscalVal::bypassCalibration> bypassCalibration{};
         }
         ///Sample Time. The default sampling period (TSAMP = 000) at
 								the start of each conversion is 2.5 ADC clock periods. Depending on
@@ -104,8 +102,6 @@ namespace Kvasir {
 								two clocks to 9.5 ADC clock cycles. A complete 12-bit conversion
 								will require 22 ADC clocks.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> tsamp{}; 
-        namespace TsampValC{
-        }
     }
     namespace NoneseqaCtrl{    ///<ADC Conversion Sequence-A control Register: Controls triggering and
 						channel selection for conversion sequence-A. Also specifies interrupt mode
@@ -122,8 +118,6 @@ namespace Kvasir {
 								changed while the SEQA_ENA bit (bit 31) is LOW. It is allowed to
 								change this field and set bit 31 in the same write.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> channels{}; 
-        namespace ChannelsValC{
-        }
         ///Selects which of the available hardware trigger sources
 								will cause this conversion sequence to be initiated. Program the
 								trigger input number in this field. See Table 351. In order to avoid
@@ -131,8 +125,6 @@ namespace Kvasir {
 								field only when the SEQA_ENA bit (bit 31) is low. It is safe to
 								change this field and set bit 31 in the same write.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,12),Register::ReadWriteAccess,unsigned> trigger{}; 
-        namespace TriggerValC{
-        }
         ///Select the polarity of the selected input trigger for this
 								conversion sequence. In order to avoid generating a spurious
 								trigger, it is recommended writing to this field only when the
@@ -148,8 +140,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,TrigpolVal> trigpol{}; 
         namespace TrigpolValC{
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::negativeEdge> negativeEdge{};
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::positiveEdge> positiveEdge{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::negativeEdge> negativeEdge{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::positiveEdge> positiveEdge{};
         }
         ///Setting this bit allows the hardware trigger input to
 								bypass synchronization flip-flop stages and therefore shorten the
@@ -176,8 +168,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,SyncbypassVal> syncbypass{}; 
         namespace SyncbypassValC{
-            constexpr Register::FieldValue<decltype(syncbypass),SyncbypassVal::enableTriggerSynch> enableTriggerSynch{};
-            constexpr Register::FieldValue<decltype(syncbypass),SyncbypassVal::bypassTriggerSynch> bypassTriggerSynch{};
+            constexpr Register::FieldValue<decltype(syncbypass)::Type,SyncbypassVal::enableTriggerSynch> enableTriggerSynch{};
+            constexpr Register::FieldValue<decltype(syncbypass)::Type,SyncbypassVal::bypassTriggerSynch> bypassTriggerSynch{};
         }
         ///Writing a 1 to this field will launch one pass through this
 								conversion sequence. The behavior will be identical to a sequence
@@ -186,8 +178,6 @@ namespace Kvasir {
 								written to launch a conversion sequence. It will consequently always
 								read back as a zero.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> start{}; 
-        namespace StartValC{
-        }
         ///Writing a 1 to this bit will cause this conversion sequence
 								to be continuously cycled through. Other sequence A triggers will be
 								ignored while this bit is set. Repeated conversions can be halted by
@@ -195,8 +185,6 @@ namespace Kvasir {
 								completed before conversions are terminated. Note that a new
 								sequence could begin just before BURST is cleared.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> burst{}; 
-        namespace BurstValC{
-        }
         ///When this bit is set, a hardware trigger or a write to the
 								START bit will launch a single conversion on the next channel in the
 								sequence instead of the default response of launching an entire
@@ -207,8 +195,6 @@ namespace Kvasir {
 								or at the end of the entire sequence, depending on the state of the
 								MODE bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> singlestep{}; 
-        namespace SinglestepValC{
-        }
         ///Set priority for sequence A.
         enum class LowprioVal {
             lowPriority=0x00000000,     ///<Low priority. Any B trigger which occurs while an A
@@ -226,8 +212,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,LowprioVal> lowprio{}; 
         namespace LowprioValC{
-            constexpr Register::FieldValue<decltype(lowprio),LowprioVal::lowPriority> lowPriority{};
-            constexpr Register::FieldValue<decltype(lowprio),LowprioVal::highPriority> highPriority{};
+            constexpr Register::FieldValue<decltype(lowprio)::Type,LowprioVal::lowPriority> lowPriority{};
+            constexpr Register::FieldValue<decltype(lowprio)::Type,LowprioVal::highPriority> highPriority{};
         }
         ///Indicates whether the primary method for retrieving
 								conversion results for this sequence will be accomplished via
@@ -255,8 +241,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::endOfConversion> endOfConversion{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::endOfSequence> endOfSequence{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::endOfConversion> endOfConversion{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::endOfSequence> endOfSequence{};
         }
         ///Sequence Enable. In order to avoid spuriously triggering
 								the sequence, care should be taken to only set the SEQA_ENA bit when
@@ -279,8 +265,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,SeqaenaVal> seqaEna{}; 
         namespace SeqaenaValC{
-            constexpr Register::FieldValue<decltype(seqaEna),SeqaenaVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(seqaEna),SeqaenaVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(seqaEna)::Type,SeqaenaVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(seqaEna)::Type,SeqaenaVal::enabled> enabled{};
         }
     }
     namespace NoneseqbCtrl{    ///<ADC Conversion Sequence-B Control Register: Controls triggering and
@@ -298,8 +284,6 @@ namespace Kvasir {
 								changed while the SEQB_ENA bit (bit 31) is LOW. It is allowed to
 								change this field and set bit 31 in the same write.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> channels{}; 
-        namespace ChannelsValC{
-        }
         ///Selects which of the available hardware trigger sources
 								will cause this conversion sequence to be initiated. Program the
 								trigger input number in this field. See Table 351. In order to avoid
@@ -307,8 +291,6 @@ namespace Kvasir {
 								field only when the SEQB_ENA bit (bit 31) is low. It is safe to
 								change this field and set bit 31 in the same write.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,12),Register::ReadWriteAccess,unsigned> trigger{}; 
-        namespace TriggerValC{
-        }
         ///Select the polarity of the selected input trigger for this
 								conversion sequence. In order to avoid generating a spurious
 								trigger, it is recommended writing to this field only when the
@@ -324,8 +306,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,TrigpolVal> trigpol{}; 
         namespace TrigpolValC{
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::negativeEdge> negativeEdge{};
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::positiveEdge> positiveEdge{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::negativeEdge> negativeEdge{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::positiveEdge> positiveEdge{};
         }
         ///Setting this bit allows the hardware trigger input to
 								bypass synchronization flip-flop stages and therefore shorten the
@@ -352,8 +334,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,SyncbypassVal> syncbypass{}; 
         namespace SyncbypassValC{
-            constexpr Register::FieldValue<decltype(syncbypass),SyncbypassVal::enableSynchronizati> enableSynchronizati{};
-            constexpr Register::FieldValue<decltype(syncbypass),SyncbypassVal::bypassSynchronizati> bypassSynchronizati{};
+            constexpr Register::FieldValue<decltype(syncbypass)::Type,SyncbypassVal::enableSynchronizati> enableSynchronizati{};
+            constexpr Register::FieldValue<decltype(syncbypass)::Type,SyncbypassVal::bypassSynchronizati> bypassSynchronizati{};
         }
         ///Writing a 1 to this field will launch one pass through this
 								conversion sequence. The behavior will be identical to a sequence
@@ -362,16 +344,12 @@ namespace Kvasir {
 								written to launch a conversion sequence. It will consequently always
 								read back as a zero.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> start{}; 
-        namespace StartValC{
-        }
         ///Writing a 1 to this bit will cause this conversion sequence
 								to be continuously cycled through. Other sequence B triggers will be
 								ignored while this bit is set. Repeated conversions can be halted by
 								clearing this bit. The sequence currently in progress will be
 								completed before conversions are terminated.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> burst{}; 
-        namespace BurstValC{
-        }
         ///When this bit is set, a hardware trigger or a write to the
 								START bit will launch a single conversion on the next channel in the
 								sequence instead of the default response of launching an entire
@@ -382,8 +360,6 @@ namespace Kvasir {
 								or at the end of the entire sequence, depending on the state of the
 								MODE bit.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> singlestep{}; 
-        namespace SinglestepValC{
-        }
         ///Indicates whether the primary method for retrieving
 								conversion results for this sequence will be accomplished via
 								reading the global data register (SEQB_GDAT) at the end of each
@@ -410,8 +386,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::endOfConversion> endOfConversion{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::endOfSequence> endOfSequence{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::endOfConversion> endOfConversion{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::endOfSequence> endOfSequence{};
         }
         ///Sequence Enable. In order to avoid spuriously triggering
 								the sequence, care should be taken to only set the SEQB_ENA bit when
@@ -434,8 +410,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,SeqbenaVal> seqbEna{}; 
         namespace SeqbenaValC{
-            constexpr Register::FieldValue<decltype(seqbEna),SeqbenaVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(seqbEna),SeqbenaVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(seqbEna)::Type,SeqbenaVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(seqbEna)::Type,SeqbenaVal::enabled> enabled{};
         }
     }
     namespace NoneseqaGdat{    ///<ADC Sequence-A Global Data Register. This register contains the
@@ -453,28 +429,20 @@ namespace Kvasir {
 								DATAVALID = 1 indicates that this result has not yet been
 								read.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> result{}; 
-        namespace ResultValC{
-        }
         ///Indicates whether the result of the last conversion
 								performed was above, below or within the range established by the
 								designated threshold comparison registers (THRn_LOW and
 								THRn_HIGH).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> thcmprange{}; 
-        namespace ThcmprangeValC{
-        }
         ///Indicates whether the result of the last conversion
 								performed represented a crossing of the threshold level established
 								by the designated LOW threshold comparison register (THRn_LOW) and,
 								if so, in what direction the crossing occurred.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> thcmpcross{}; 
-        namespace ThcmpcrossValC{
-        }
         ///These bits contain the channel from which the RESULT bits
 								were converted (e.g. 0000 identifies channel 0, 0001 channel 1,
 								etc.).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,26),Register::ReadWriteAccess,unsigned> chn{}; 
-        namespace ChnValC{
-        }
         ///This bit is set if a new conversion result is loaded into
 								the RESULT field before a previous result has been read - i.e. while
 								the DATAVALID bit is set. This bit is cleared, along with the
@@ -483,8 +451,6 @@ namespace Kvasir {
 								SEQAA_CTRL) for the corresponding sequence is set to 0 (and if the
 								overrun interrupt is enabled).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
-        namespace OverrunValC{
-        }
         ///This bit is set to 1 at the end of each conversion when a
 								new result is loaded into the RESULT field. It is cleared whenever
 								this register is read. This bit will cause a conversion-complete
@@ -492,8 +458,6 @@ namespace Kvasir {
 								SEQA_CTRL) for that sequence is set to 0 (and if the interrupt is
 								enabled).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> datavalid{}; 
-        namespace DatavalidValC{
-        }
     }
     namespace NoneseqbGdat{    ///<ADC Sequence-B Global Data Register. This register contains the
 						result of the most recent ADC conversion performed under
@@ -510,28 +474,20 @@ namespace Kvasir {
 								DATAVALID = 1 indicates that this result has not yet been
 								read.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> result{}; 
-        namespace ResultValC{
-        }
         ///Indicates whether the result of the last conversion
 								performed was above, below or within the range established by the
 								designated threshold comparison registers (THRn_LOW and
 								THRn_HIGH).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> thcmprange{}; 
-        namespace ThcmprangeValC{
-        }
         ///Indicates whether the result of the last conversion
 								performed represented a crossing of the threshold level established
 								by the designated LOW threshold comparison register (THRn_LOW) and,
 								if so, in what direction the crossing occurred.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> thcmpcross{}; 
-        namespace ThcmpcrossValC{
-        }
         ///These bits contain the channel from which the RESULT bits
 								were converted (e.g. 0000 identifies channel 0, 0001 channel 1,
 								etc.).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,26),Register::ReadWriteAccess,unsigned> chn{}; 
-        namespace ChnValC{
-        }
         ///This bit is set if a new conversion result is loaded into
 								the RESULT field before a previous result has been read - i.e. while
 								the DATAVALID bit is set. This bit is cleared, along with the
@@ -540,8 +496,6 @@ namespace Kvasir {
 								SEQB_CTRL) for the corresponding sequence is set to 0 (and if the
 								overrun interrupt is enabled).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
-        namespace OverrunValC{
-        }
         ///This bit is set to 1 at the end of each conversion when a
 								new result is loaded into the RESULT field. It is cleared whenever
 								this register is read. This bit will cause a conversion-complete
@@ -549,8 +503,6 @@ namespace Kvasir {
 								SEQB_CTRL) for that sequence is set to 0 (and if the interrupt is
 								enabled).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> datavalid{}; 
-        namespace DatavalidValC{
-        }
     }
     namespace Nonedat0{    ///<ADC Channel 0 Data Register. This register contains the result of
 						the most recent conversion completed on channel 0.
@@ -563,8 +515,6 @@ namespace Kvasir {
 								that on VREFN, while 0xFFF indicates that the voltage on the input
 								was close to, equal to, or greater than that on VREFP.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> result{}; 
-        namespace ResultValC{
-        }
         ///Threshold Range Comparison result. 0x0 = In Range: The last
 								completed conversion was greater than or equal to the value
 								programmed into the designated LOW threshold register (THRn_LOW) but
@@ -576,8 +526,6 @@ namespace Kvasir {
 								the designated HIGH threshold register (THRn_HIGH). 0x3 =
 								Reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> thcmprange{}; 
-        namespace ThcmprangeValC{
-        }
         ///Threshold Crossing Comparison result. 0x0 = No threshold
 								Crossing detected: The most recent completed conversion on this
 								channel had the same relationship (above or below) to the threshold
@@ -594,15 +542,11 @@ namespace Kvasir {
 								threshold register (THRn_LOW) and the current sample is above that
 								threshold.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> thcmpcross{}; 
-        namespace ThcmpcrossValC{
-        }
         ///This field is hard-coded to contain the channel number that
 								this particular register relates to (i.e. this field will contain
 								0b0000 for the DAT0 register, 0b0001 for the DAT1 register,
 								etc)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,26),Register::ReadWriteAccess,unsigned> channel{}; 
-        namespace ChannelValC{
-        }
         ///This bit will be set to a 1 if a new conversion on this
 								channel completes and overwrites the previous contents of the RESULT
 								field before it has been read - i.e. while the DONE bit is set. This
@@ -617,8 +561,6 @@ namespace Kvasir {
 								between the two sequences. Any erratic OVERRUN behavior will also
 								affect overrun interrupt generation, if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
-        namespace OverrunValC{
-        }
         ///This bit is set to 1 when an ADC conversion on this channel
 								completes. This bit is cleared whenever this register is read or
 								when the data related to this channel is read from either of the
@@ -629,8 +571,6 @@ namespace Kvasir {
 								sequences. Any erratic OVERRUN behavior will also affect overrun
 								interrupt generation, if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> datavalid{}; 
-        namespace DatavalidValC{
-        }
     }
     namespace Nonedat1{    ///<ADC Channel 0 Data Register. This register contains the result of
 						the most recent conversion completed on channel 0.
@@ -643,8 +583,6 @@ namespace Kvasir {
 								that on VREFN, while 0xFFF indicates that the voltage on the input
 								was close to, equal to, or greater than that on VREFP.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> result{}; 
-        namespace ResultValC{
-        }
         ///Threshold Range Comparison result. 0x0 = In Range: The last
 								completed conversion was greater than or equal to the value
 								programmed into the designated LOW threshold register (THRn_LOW) but
@@ -656,8 +594,6 @@ namespace Kvasir {
 								the designated HIGH threshold register (THRn_HIGH). 0x3 =
 								Reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> thcmprange{}; 
-        namespace ThcmprangeValC{
-        }
         ///Threshold Crossing Comparison result. 0x0 = No threshold
 								Crossing detected: The most recent completed conversion on this
 								channel had the same relationship (above or below) to the threshold
@@ -674,15 +610,11 @@ namespace Kvasir {
 								threshold register (THRn_LOW) and the current sample is above that
 								threshold.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> thcmpcross{}; 
-        namespace ThcmpcrossValC{
-        }
         ///This field is hard-coded to contain the channel number that
 								this particular register relates to (i.e. this field will contain
 								0b0000 for the DAT0 register, 0b0001 for the DAT1 register,
 								etc)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,26),Register::ReadWriteAccess,unsigned> channel{}; 
-        namespace ChannelValC{
-        }
         ///This bit will be set to a 1 if a new conversion on this
 								channel completes and overwrites the previous contents of the RESULT
 								field before it has been read - i.e. while the DONE bit is set. This
@@ -697,8 +629,6 @@ namespace Kvasir {
 								between the two sequences. Any erratic OVERRUN behavior will also
 								affect overrun interrupt generation, if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
-        namespace OverrunValC{
-        }
         ///This bit is set to 1 when an ADC conversion on this channel
 								completes. This bit is cleared whenever this register is read or
 								when the data related to this channel is read from either of the
@@ -709,8 +639,6 @@ namespace Kvasir {
 								sequences. Any erratic OVERRUN behavior will also affect overrun
 								interrupt generation, if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> datavalid{}; 
-        namespace DatavalidValC{
-        }
     }
     namespace Nonedat2{    ///<ADC Channel 0 Data Register. This register contains the result of
 						the most recent conversion completed on channel 0.
@@ -723,8 +651,6 @@ namespace Kvasir {
 								that on VREFN, while 0xFFF indicates that the voltage on the input
 								was close to, equal to, or greater than that on VREFP.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> result{}; 
-        namespace ResultValC{
-        }
         ///Threshold Range Comparison result. 0x0 = In Range: The last
 								completed conversion was greater than or equal to the value
 								programmed into the designated LOW threshold register (THRn_LOW) but
@@ -736,8 +662,6 @@ namespace Kvasir {
 								the designated HIGH threshold register (THRn_HIGH). 0x3 =
 								Reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> thcmprange{}; 
-        namespace ThcmprangeValC{
-        }
         ///Threshold Crossing Comparison result. 0x0 = No threshold
 								Crossing detected: The most recent completed conversion on this
 								channel had the same relationship (above or below) to the threshold
@@ -754,15 +678,11 @@ namespace Kvasir {
 								threshold register (THRn_LOW) and the current sample is above that
 								threshold.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> thcmpcross{}; 
-        namespace ThcmpcrossValC{
-        }
         ///This field is hard-coded to contain the channel number that
 								this particular register relates to (i.e. this field will contain
 								0b0000 for the DAT0 register, 0b0001 for the DAT1 register,
 								etc)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,26),Register::ReadWriteAccess,unsigned> channel{}; 
-        namespace ChannelValC{
-        }
         ///This bit will be set to a 1 if a new conversion on this
 								channel completes and overwrites the previous contents of the RESULT
 								field before it has been read - i.e. while the DONE bit is set. This
@@ -777,8 +697,6 @@ namespace Kvasir {
 								between the two sequences. Any erratic OVERRUN behavior will also
 								affect overrun interrupt generation, if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
-        namespace OverrunValC{
-        }
         ///This bit is set to 1 when an ADC conversion on this channel
 								completes. This bit is cleared whenever this register is read or
 								when the data related to this channel is read from either of the
@@ -789,8 +707,6 @@ namespace Kvasir {
 								sequences. Any erratic OVERRUN behavior will also affect overrun
 								interrupt generation, if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> datavalid{}; 
-        namespace DatavalidValC{
-        }
     }
     namespace Nonedat3{    ///<ADC Channel 0 Data Register. This register contains the result of
 						the most recent conversion completed on channel 0.
@@ -803,8 +719,6 @@ namespace Kvasir {
 								that on VREFN, while 0xFFF indicates that the voltage on the input
 								was close to, equal to, or greater than that on VREFP.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> result{}; 
-        namespace ResultValC{
-        }
         ///Threshold Range Comparison result. 0x0 = In Range: The last
 								completed conversion was greater than or equal to the value
 								programmed into the designated LOW threshold register (THRn_LOW) but
@@ -816,8 +730,6 @@ namespace Kvasir {
 								the designated HIGH threshold register (THRn_HIGH). 0x3 =
 								Reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> thcmprange{}; 
-        namespace ThcmprangeValC{
-        }
         ///Threshold Crossing Comparison result. 0x0 = No threshold
 								Crossing detected: The most recent completed conversion on this
 								channel had the same relationship (above or below) to the threshold
@@ -834,15 +746,11 @@ namespace Kvasir {
 								threshold register (THRn_LOW) and the current sample is above that
 								threshold.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> thcmpcross{}; 
-        namespace ThcmpcrossValC{
-        }
         ///This field is hard-coded to contain the channel number that
 								this particular register relates to (i.e. this field will contain
 								0b0000 for the DAT0 register, 0b0001 for the DAT1 register,
 								etc)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,26),Register::ReadWriteAccess,unsigned> channel{}; 
-        namespace ChannelValC{
-        }
         ///This bit will be set to a 1 if a new conversion on this
 								channel completes and overwrites the previous contents of the RESULT
 								field before it has been read - i.e. while the DONE bit is set. This
@@ -857,8 +765,6 @@ namespace Kvasir {
 								between the two sequences. Any erratic OVERRUN behavior will also
 								affect overrun interrupt generation, if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
-        namespace OverrunValC{
-        }
         ///This bit is set to 1 when an ADC conversion on this channel
 								completes. This bit is cleared whenever this register is read or
 								when the data related to this channel is read from either of the
@@ -869,8 +775,6 @@ namespace Kvasir {
 								sequences. Any erratic OVERRUN behavior will also affect overrun
 								interrupt generation, if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> datavalid{}; 
-        namespace DatavalidValC{
-        }
     }
     namespace Nonedat4{    ///<ADC Channel 0 Data Register. This register contains the result of
 						the most recent conversion completed on channel 0.
@@ -883,8 +787,6 @@ namespace Kvasir {
 								that on VREFN, while 0xFFF indicates that the voltage on the input
 								was close to, equal to, or greater than that on VREFP.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> result{}; 
-        namespace ResultValC{
-        }
         ///Threshold Range Comparison result. 0x0 = In Range: The last
 								completed conversion was greater than or equal to the value
 								programmed into the designated LOW threshold register (THRn_LOW) but
@@ -896,8 +798,6 @@ namespace Kvasir {
 								the designated HIGH threshold register (THRn_HIGH). 0x3 =
 								Reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> thcmprange{}; 
-        namespace ThcmprangeValC{
-        }
         ///Threshold Crossing Comparison result. 0x0 = No threshold
 								Crossing detected: The most recent completed conversion on this
 								channel had the same relationship (above or below) to the threshold
@@ -914,15 +814,11 @@ namespace Kvasir {
 								threshold register (THRn_LOW) and the current sample is above that
 								threshold.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> thcmpcross{}; 
-        namespace ThcmpcrossValC{
-        }
         ///This field is hard-coded to contain the channel number that
 								this particular register relates to (i.e. this field will contain
 								0b0000 for the DAT0 register, 0b0001 for the DAT1 register,
 								etc)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,26),Register::ReadWriteAccess,unsigned> channel{}; 
-        namespace ChannelValC{
-        }
         ///This bit will be set to a 1 if a new conversion on this
 								channel completes and overwrites the previous contents of the RESULT
 								field before it has been read - i.e. while the DONE bit is set. This
@@ -937,8 +833,6 @@ namespace Kvasir {
 								between the two sequences. Any erratic OVERRUN behavior will also
 								affect overrun interrupt generation, if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
-        namespace OverrunValC{
-        }
         ///This bit is set to 1 when an ADC conversion on this channel
 								completes. This bit is cleared whenever this register is read or
 								when the data related to this channel is read from either of the
@@ -949,8 +843,6 @@ namespace Kvasir {
 								sequences. Any erratic OVERRUN behavior will also affect overrun
 								interrupt generation, if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> datavalid{}; 
-        namespace DatavalidValC{
-        }
     }
     namespace Nonedat5{    ///<ADC Channel 0 Data Register. This register contains the result of
 						the most recent conversion completed on channel 0.
@@ -963,8 +855,6 @@ namespace Kvasir {
 								that on VREFN, while 0xFFF indicates that the voltage on the input
 								was close to, equal to, or greater than that on VREFP.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> result{}; 
-        namespace ResultValC{
-        }
         ///Threshold Range Comparison result. 0x0 = In Range: The last
 								completed conversion was greater than or equal to the value
 								programmed into the designated LOW threshold register (THRn_LOW) but
@@ -976,8 +866,6 @@ namespace Kvasir {
 								the designated HIGH threshold register (THRn_HIGH). 0x3 =
 								Reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> thcmprange{}; 
-        namespace ThcmprangeValC{
-        }
         ///Threshold Crossing Comparison result. 0x0 = No threshold
 								Crossing detected: The most recent completed conversion on this
 								channel had the same relationship (above or below) to the threshold
@@ -994,15 +882,11 @@ namespace Kvasir {
 								threshold register (THRn_LOW) and the current sample is above that
 								threshold.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> thcmpcross{}; 
-        namespace ThcmpcrossValC{
-        }
         ///This field is hard-coded to contain the channel number that
 								this particular register relates to (i.e. this field will contain
 								0b0000 for the DAT0 register, 0b0001 for the DAT1 register,
 								etc)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,26),Register::ReadWriteAccess,unsigned> channel{}; 
-        namespace ChannelValC{
-        }
         ///This bit will be set to a 1 if a new conversion on this
 								channel completes and overwrites the previous contents of the RESULT
 								field before it has been read - i.e. while the DONE bit is set. This
@@ -1017,8 +901,6 @@ namespace Kvasir {
 								between the two sequences. Any erratic OVERRUN behavior will also
 								affect overrun interrupt generation, if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
-        namespace OverrunValC{
-        }
         ///This bit is set to 1 when an ADC conversion on this channel
 								completes. This bit is cleared whenever this register is read or
 								when the data related to this channel is read from either of the
@@ -1029,8 +911,6 @@ namespace Kvasir {
 								sequences. Any erratic OVERRUN behavior will also affect overrun
 								interrupt generation, if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> datavalid{}; 
-        namespace DatavalidValC{
-        }
     }
     namespace Nonedat6{    ///<ADC Channel 0 Data Register. This register contains the result of
 						the most recent conversion completed on channel 0.
@@ -1043,8 +923,6 @@ namespace Kvasir {
 								that on VREFN, while 0xFFF indicates that the voltage on the input
 								was close to, equal to, or greater than that on VREFP.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> result{}; 
-        namespace ResultValC{
-        }
         ///Threshold Range Comparison result. 0x0 = In Range: The last
 								completed conversion was greater than or equal to the value
 								programmed into the designated LOW threshold register (THRn_LOW) but
@@ -1056,8 +934,6 @@ namespace Kvasir {
 								the designated HIGH threshold register (THRn_HIGH). 0x3 =
 								Reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> thcmprange{}; 
-        namespace ThcmprangeValC{
-        }
         ///Threshold Crossing Comparison result. 0x0 = No threshold
 								Crossing detected: The most recent completed conversion on this
 								channel had the same relationship (above or below) to the threshold
@@ -1074,15 +950,11 @@ namespace Kvasir {
 								threshold register (THRn_LOW) and the current sample is above that
 								threshold.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> thcmpcross{}; 
-        namespace ThcmpcrossValC{
-        }
         ///This field is hard-coded to contain the channel number that
 								this particular register relates to (i.e. this field will contain
 								0b0000 for the DAT0 register, 0b0001 for the DAT1 register,
 								etc)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,26),Register::ReadWriteAccess,unsigned> channel{}; 
-        namespace ChannelValC{
-        }
         ///This bit will be set to a 1 if a new conversion on this
 								channel completes and overwrites the previous contents of the RESULT
 								field before it has been read - i.e. while the DONE bit is set. This
@@ -1097,8 +969,6 @@ namespace Kvasir {
 								between the two sequences. Any erratic OVERRUN behavior will also
 								affect overrun interrupt generation, if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
-        namespace OverrunValC{
-        }
         ///This bit is set to 1 when an ADC conversion on this channel
 								completes. This bit is cleared whenever this register is read or
 								when the data related to this channel is read from either of the
@@ -1109,8 +979,6 @@ namespace Kvasir {
 								sequences. Any erratic OVERRUN behavior will also affect overrun
 								interrupt generation, if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> datavalid{}; 
-        namespace DatavalidValC{
-        }
     }
     namespace Nonedat7{    ///<ADC Channel 0 Data Register. This register contains the result of
 						the most recent conversion completed on channel 0.
@@ -1123,8 +991,6 @@ namespace Kvasir {
 								that on VREFN, while 0xFFF indicates that the voltage on the input
 								was close to, equal to, or greater than that on VREFP.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> result{}; 
-        namespace ResultValC{
-        }
         ///Threshold Range Comparison result. 0x0 = In Range: The last
 								completed conversion was greater than or equal to the value
 								programmed into the designated LOW threshold register (THRn_LOW) but
@@ -1136,8 +1002,6 @@ namespace Kvasir {
 								the designated HIGH threshold register (THRn_HIGH). 0x3 =
 								Reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> thcmprange{}; 
-        namespace ThcmprangeValC{
-        }
         ///Threshold Crossing Comparison result. 0x0 = No threshold
 								Crossing detected: The most recent completed conversion on this
 								channel had the same relationship (above or below) to the threshold
@@ -1154,15 +1018,11 @@ namespace Kvasir {
 								threshold register (THRn_LOW) and the current sample is above that
 								threshold.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> thcmpcross{}; 
-        namespace ThcmpcrossValC{
-        }
         ///This field is hard-coded to contain the channel number that
 								this particular register relates to (i.e. this field will contain
 								0b0000 for the DAT0 register, 0b0001 for the DAT1 register,
 								etc)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,26),Register::ReadWriteAccess,unsigned> channel{}; 
-        namespace ChannelValC{
-        }
         ///This bit will be set to a 1 if a new conversion on this
 								channel completes and overwrites the previous contents of the RESULT
 								field before it has been read - i.e. while the DONE bit is set. This
@@ -1177,8 +1037,6 @@ namespace Kvasir {
 								between the two sequences. Any erratic OVERRUN behavior will also
 								affect overrun interrupt generation, if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
-        namespace OverrunValC{
-        }
         ///This bit is set to 1 when an ADC conversion on this channel
 								completes. This bit is cleared whenever this register is read or
 								when the data related to this channel is read from either of the
@@ -1189,8 +1047,6 @@ namespace Kvasir {
 								sequences. Any erratic OVERRUN behavior will also affect overrun
 								interrupt generation, if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> datavalid{}; 
-        namespace DatavalidValC{
-        }
     }
     namespace Nonedat8{    ///<ADC Channel 0 Data Register. This register contains the result of
 						the most recent conversion completed on channel 0.
@@ -1203,8 +1059,6 @@ namespace Kvasir {
 								that on VREFN, while 0xFFF indicates that the voltage on the input
 								was close to, equal to, or greater than that on VREFP.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> result{}; 
-        namespace ResultValC{
-        }
         ///Threshold Range Comparison result. 0x0 = In Range: The last
 								completed conversion was greater than or equal to the value
 								programmed into the designated LOW threshold register (THRn_LOW) but
@@ -1216,8 +1070,6 @@ namespace Kvasir {
 								the designated HIGH threshold register (THRn_HIGH). 0x3 =
 								Reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> thcmprange{}; 
-        namespace ThcmprangeValC{
-        }
         ///Threshold Crossing Comparison result. 0x0 = No threshold
 								Crossing detected: The most recent completed conversion on this
 								channel had the same relationship (above or below) to the threshold
@@ -1234,15 +1086,11 @@ namespace Kvasir {
 								threshold register (THRn_LOW) and the current sample is above that
 								threshold.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> thcmpcross{}; 
-        namespace ThcmpcrossValC{
-        }
         ///This field is hard-coded to contain the channel number that
 								this particular register relates to (i.e. this field will contain
 								0b0000 for the DAT0 register, 0b0001 for the DAT1 register,
 								etc)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,26),Register::ReadWriteAccess,unsigned> channel{}; 
-        namespace ChannelValC{
-        }
         ///This bit will be set to a 1 if a new conversion on this
 								channel completes and overwrites the previous contents of the RESULT
 								field before it has been read - i.e. while the DONE bit is set. This
@@ -1257,8 +1105,6 @@ namespace Kvasir {
 								between the two sequences. Any erratic OVERRUN behavior will also
 								affect overrun interrupt generation, if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
-        namespace OverrunValC{
-        }
         ///This bit is set to 1 when an ADC conversion on this channel
 								completes. This bit is cleared whenever this register is read or
 								when the data related to this channel is read from either of the
@@ -1269,8 +1115,6 @@ namespace Kvasir {
 								sequences. Any erratic OVERRUN behavior will also affect overrun
 								interrupt generation, if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> datavalid{}; 
-        namespace DatavalidValC{
-        }
     }
     namespace Nonedat9{    ///<ADC Channel 0 Data Register. This register contains the result of
 						the most recent conversion completed on channel 0.
@@ -1283,8 +1127,6 @@ namespace Kvasir {
 								that on VREFN, while 0xFFF indicates that the voltage on the input
 								was close to, equal to, or greater than that on VREFP.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> result{}; 
-        namespace ResultValC{
-        }
         ///Threshold Range Comparison result. 0x0 = In Range: The last
 								completed conversion was greater than or equal to the value
 								programmed into the designated LOW threshold register (THRn_LOW) but
@@ -1296,8 +1138,6 @@ namespace Kvasir {
 								the designated HIGH threshold register (THRn_HIGH). 0x3 =
 								Reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> thcmprange{}; 
-        namespace ThcmprangeValC{
-        }
         ///Threshold Crossing Comparison result. 0x0 = No threshold
 								Crossing detected: The most recent completed conversion on this
 								channel had the same relationship (above or below) to the threshold
@@ -1314,15 +1154,11 @@ namespace Kvasir {
 								threshold register (THRn_LOW) and the current sample is above that
 								threshold.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> thcmpcross{}; 
-        namespace ThcmpcrossValC{
-        }
         ///This field is hard-coded to contain the channel number that
 								this particular register relates to (i.e. this field will contain
 								0b0000 for the DAT0 register, 0b0001 for the DAT1 register,
 								etc)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,26),Register::ReadWriteAccess,unsigned> channel{}; 
-        namespace ChannelValC{
-        }
         ///This bit will be set to a 1 if a new conversion on this
 								channel completes and overwrites the previous contents of the RESULT
 								field before it has been read - i.e. while the DONE bit is set. This
@@ -1337,8 +1173,6 @@ namespace Kvasir {
 								between the two sequences. Any erratic OVERRUN behavior will also
 								affect overrun interrupt generation, if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
-        namespace OverrunValC{
-        }
         ///This bit is set to 1 when an ADC conversion on this channel
 								completes. This bit is cleared whenever this register is read or
 								when the data related to this channel is read from either of the
@@ -1349,8 +1183,6 @@ namespace Kvasir {
 								sequences. Any erratic OVERRUN behavior will also affect overrun
 								interrupt generation, if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> datavalid{}; 
-        namespace DatavalidValC{
-        }
     }
     namespace Nonedat10{    ///<ADC Channel 0 Data Register. This register contains the result of
 						the most recent conversion completed on channel 0.
@@ -1363,8 +1195,6 @@ namespace Kvasir {
 								that on VREFN, while 0xFFF indicates that the voltage on the input
 								was close to, equal to, or greater than that on VREFP.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> result{}; 
-        namespace ResultValC{
-        }
         ///Threshold Range Comparison result. 0x0 = In Range: The last
 								completed conversion was greater than or equal to the value
 								programmed into the designated LOW threshold register (THRn_LOW) but
@@ -1376,8 +1206,6 @@ namespace Kvasir {
 								the designated HIGH threshold register (THRn_HIGH). 0x3 =
 								Reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> thcmprange{}; 
-        namespace ThcmprangeValC{
-        }
         ///Threshold Crossing Comparison result. 0x0 = No threshold
 								Crossing detected: The most recent completed conversion on this
 								channel had the same relationship (above or below) to the threshold
@@ -1394,15 +1222,11 @@ namespace Kvasir {
 								threshold register (THRn_LOW) and the current sample is above that
 								threshold.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> thcmpcross{}; 
-        namespace ThcmpcrossValC{
-        }
         ///This field is hard-coded to contain the channel number that
 								this particular register relates to (i.e. this field will contain
 								0b0000 for the DAT0 register, 0b0001 for the DAT1 register,
 								etc)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,26),Register::ReadWriteAccess,unsigned> channel{}; 
-        namespace ChannelValC{
-        }
         ///This bit will be set to a 1 if a new conversion on this
 								channel completes and overwrites the previous contents of the RESULT
 								field before it has been read - i.e. while the DONE bit is set. This
@@ -1417,8 +1241,6 @@ namespace Kvasir {
 								between the two sequences. Any erratic OVERRUN behavior will also
 								affect overrun interrupt generation, if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
-        namespace OverrunValC{
-        }
         ///This bit is set to 1 when an ADC conversion on this channel
 								completes. This bit is cleared whenever this register is read or
 								when the data related to this channel is read from either of the
@@ -1429,8 +1251,6 @@ namespace Kvasir {
 								sequences. Any erratic OVERRUN behavior will also affect overrun
 								interrupt generation, if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> datavalid{}; 
-        namespace DatavalidValC{
-        }
     }
     namespace Nonedat11{    ///<ADC Channel 0 Data Register. This register contains the result of
 						the most recent conversion completed on channel 0.
@@ -1443,8 +1263,6 @@ namespace Kvasir {
 								that on VREFN, while 0xFFF indicates that the voltage on the input
 								was close to, equal to, or greater than that on VREFP.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> result{}; 
-        namespace ResultValC{
-        }
         ///Threshold Range Comparison result. 0x0 = In Range: The last
 								completed conversion was greater than or equal to the value
 								programmed into the designated LOW threshold register (THRn_LOW) but
@@ -1456,8 +1274,6 @@ namespace Kvasir {
 								the designated HIGH threshold register (THRn_HIGH). 0x3 =
 								Reserved.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> thcmprange{}; 
-        namespace ThcmprangeValC{
-        }
         ///Threshold Crossing Comparison result. 0x0 = No threshold
 								Crossing detected: The most recent completed conversion on this
 								channel had the same relationship (above or below) to the threshold
@@ -1474,15 +1290,11 @@ namespace Kvasir {
 								threshold register (THRn_LOW) and the current sample is above that
 								threshold.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> thcmpcross{}; 
-        namespace ThcmpcrossValC{
-        }
         ///This field is hard-coded to contain the channel number that
 								this particular register relates to (i.e. this field will contain
 								0b0000 for the DAT0 register, 0b0001 for the DAT1 register,
 								etc)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,26),Register::ReadWriteAccess,unsigned> channel{}; 
-        namespace ChannelValC{
-        }
         ///This bit will be set to a 1 if a new conversion on this
 								channel completes and overwrites the previous contents of the RESULT
 								field before it has been read - i.e. while the DONE bit is set. This
@@ -1497,8 +1309,6 @@ namespace Kvasir {
 								between the two sequences. Any erratic OVERRUN behavior will also
 								affect overrun interrupt generation, if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> overrun{}; 
-        namespace OverrunValC{
-        }
         ///This bit is set to 1 when an ADC conversion on this channel
 								completes. This bit is cleared whenever this register is read or
 								when the data related to this channel is read from either of the
@@ -1509,8 +1319,6 @@ namespace Kvasir {
 								sequences. Any erratic OVERRUN behavior will also affect overrun
 								interrupt generation, if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> datavalid{}; 
-        namespace DatavalidValC{
-        }
     }
     namespace Nonethr0Low{    ///<ADC Low Compare Threshold Register 0: Contains the lower threshold
 						level for automatic threshold comparison for any channels linked to
@@ -1519,8 +1327,6 @@ namespace Kvasir {
         ///Low threshold value against which ADC results will be
 								compared
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> thrlow{}; 
-        namespace ThrlowValC{
-        }
     }
     namespace Nonethr1Low{    ///<ADC Low Compare Threshold Register 1: Contains the lower threshold
 						level for automatic threshold comparison for any channels linked to
@@ -1529,8 +1335,6 @@ namespace Kvasir {
         ///Low threshold value against which ADC results will be
 								compared
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> thrlow{}; 
-        namespace ThrlowValC{
-        }
     }
     namespace Nonethr0High{    ///<ADC High Compare Threshold Register 0: Contains the upper threshold
 						level for automatic threshold comparison for any channels linked to
@@ -1539,8 +1343,6 @@ namespace Kvasir {
         ///High threshold value against which ADC results will be
 								compared
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> thrhigh{}; 
-        namespace ThrhighValC{
-        }
     }
     namespace Nonethr1High{    ///<ADC High Compare Threshold Register 1: Contains the upper threshold
 						level for automatic threshold comparison for any channels linked to
@@ -1549,8 +1351,6 @@ namespace Kvasir {
         ///High threshold value against which ADC results will be
 								compared
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> thrhigh{}; 
-        namespace ThrhighValC{
-        }
     }
     namespace NonechanThrsel{    ///<ADC Channel-Threshold Select Register. Specifies which set of
 						threshold compare registers are to be used for each channel
@@ -1566,64 +1366,42 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ch0thrselVal> ch0Thrsel{}; 
         namespace Ch0thrselValC{
-            constexpr Register::FieldValue<decltype(ch0Thrsel),Ch0thrselVal::threshold0> threshold0{};
-            constexpr Register::FieldValue<decltype(ch0Thrsel),Ch0thrselVal::threshold1> threshold1{};
+            constexpr Register::FieldValue<decltype(ch0Thrsel)::Type,Ch0thrselVal::threshold0> threshold0{};
+            constexpr Register::FieldValue<decltype(ch0Thrsel)::Type,Ch0thrselVal::threshold1> threshold1{};
         }
         ///Threshold select for channel 1. See description for channel
 								0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ch1Thrsel{}; 
-        namespace Ch1thrselValC{
-        }
         ///Threshold select for channel 2. See description for channel
 								0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> ch2Thrsel{}; 
-        namespace Ch2thrselValC{
-        }
         ///Threshold select for channel 3. See description for channel
 								0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> ch3Thrsel{}; 
-        namespace Ch3thrselValC{
-        }
         ///Threshold select for channel 4. See description for channel
 								0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ch4Thrsel{}; 
-        namespace Ch4thrselValC{
-        }
         ///Threshold select for channel 5. See description for channel
 								0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ch5Thrsel{}; 
-        namespace Ch5thrselValC{
-        }
         ///Threshold select for channel 6. See description for channel
 								0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> ch6Thrsel{}; 
-        namespace Ch6thrselValC{
-        }
         ///Threshold select for channel 7. See description for channel
 								0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> ch7Thrsel{}; 
-        namespace Ch7thrselValC{
-        }
         ///Threshold select for channel 8. See description for channel
 								0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> ch8Thrsel{}; 
-        namespace Ch8thrselValC{
-        }
         ///Threshold select for channel 9. See description for channel
 								0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> ch9Thrsel{}; 
-        namespace Ch9thrselValC{
-        }
         ///Threshold select for channel 10. See description for
 								channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> ch10Thrsel{}; 
-        namespace Ch10thrselValC{
-        }
         ///Threshold select for channel 11. See description for
 								channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> ch11Thrsel{}; 
-        namespace Ch11thrselValC{
-        }
     }
     namespace Noneinten{    ///<ADC Interrupt Enable Register. This register contains enable bits
 						that enable the sequence-A, sequence-B, threshold compare and data overrun
@@ -1642,8 +1420,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,SeqaintenVal> seqaInten{}; 
         namespace SeqaintenValC{
-            constexpr Register::FieldValue<decltype(seqaInten),SeqaintenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(seqaInten),SeqaintenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(seqaInten)::Type,SeqaintenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(seqaInten)::Type,SeqaintenVal::enabled> enabled{};
         }
         ///Sequence B interrupt enable.
         enum class SeqbintenVal {
@@ -1658,8 +1436,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,SeqbintenVal> seqbInten{}; 
         namespace SeqbintenValC{
-            constexpr Register::FieldValue<decltype(seqbInten),SeqbintenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(seqbInten),SeqbintenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(seqbInten)::Type,SeqbintenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(seqbInten)::Type,SeqbintenVal::enabled> enabled{};
         }
         ///Overrun interrupt enable.
         enum class OvrintenVal {
@@ -1675,8 +1453,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,OvrintenVal> ovrInten{}; 
         namespace OvrintenValC{
-            constexpr Register::FieldValue<decltype(ovrInten),OvrintenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(ovrInten),OvrintenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ovrInten)::Type,OvrintenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ovrInten)::Type,OvrintenVal::enabled> enabled{};
         }
         ///Threshold comparison interrupt enable for channel
 								0.
@@ -1687,65 +1465,43 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,Adcmpinten0Val> adcmpinten0{}; 
         namespace Adcmpinten0ValC{
-            constexpr Register::FieldValue<decltype(adcmpinten0),Adcmpinten0Val::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(adcmpinten0),Adcmpinten0Val::outsideThreshold> outsideThreshold{};
-            constexpr Register::FieldValue<decltype(adcmpinten0),Adcmpinten0Val::crossingThreshold> crossingThreshold{};
+            constexpr Register::FieldValue<decltype(adcmpinten0)::Type,Adcmpinten0Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(adcmpinten0)::Type,Adcmpinten0Val::outsideThreshold> outsideThreshold{};
+            constexpr Register::FieldValue<decltype(adcmpinten0)::Type,Adcmpinten0Val::crossingThreshold> crossingThreshold{};
         }
         ///Channel 1 threshold comparison interrupt enable. See
 								description for channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,5),Register::ReadWriteAccess,unsigned> adcmpinten1{}; 
-        namespace Adcmpinten1ValC{
-        }
         ///Channel 2 threshold comparison interrupt enable. See
 								description for channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,7),Register::ReadWriteAccess,unsigned> adcmpinten2{}; 
-        namespace Adcmpinten2ValC{
-        }
         ///Channel 3 threshold comparison interrupt enable. See
 								description for channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,unsigned> adcmpinten3{}; 
-        namespace Adcmpinten3ValC{
-        }
         ///Channel 4 threshold comparison interrupt enable. See
 								description for channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,unsigned> adcmpinten4{}; 
-        namespace Adcmpinten4ValC{
-        }
         ///Channel 5 threshold comparison interrupt enable. See
 								description for channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,13),Register::ReadWriteAccess,unsigned> adcmpinten5{}; 
-        namespace Adcmpinten5ValC{
-        }
         ///Channel 6 threshold comparison interrupt enable. See
 								description for channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,15),Register::ReadWriteAccess,unsigned> adcmpinten6{}; 
-        namespace Adcmpinten6ValC{
-        }
         ///Channel 7 threshold comparison interrupt enable. See
 								description for channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,17),Register::ReadWriteAccess,unsigned> adcmpinten7{}; 
-        namespace Adcmpinten7ValC{
-        }
         ///Channel 8 threshold comparison interrupt enable. See
 								description for channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,19),Register::ReadWriteAccess,unsigned> adcmpinten8{}; 
-        namespace Adcmpinten8ValC{
-        }
         ///Channel 9 threshold comparison interrupt enable. See
 								description for channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,21),Register::ReadWriteAccess,unsigned> adcmpinten9{}; 
-        namespace Adcmpinten9ValC{
-        }
         ///Channel 10 threshold comparison interrupt enable. See
 								description for channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,23),Register::ReadWriteAccess,unsigned> adcmpinten10{}; 
-        namespace Adcmpinten10ValC{
-        }
         ///Channel 21 threshold comparison interrupt enable. See
 								description for channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,25),Register::ReadWriteAccess,unsigned> adcmpinten11{}; 
-        namespace Adcmpinten11ValC{
-        }
     }
     namespace Noneflags{    ///<ADC Flags Register. Contains the four interrupt/DMA trigger flags
 						and the individual component overrun and threshold-compare flags. (The
@@ -1757,133 +1513,81 @@ namespace Kvasir {
 								enabled to do so in the INTEN register. This bit is cleared by
 								writing a 1.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> thcmp0{}; 
-        namespace Thcmp0ValC{
-        }
         ///Threshold comparison event on Channel 1. See description
 								for channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> thcmp1{}; 
-        namespace Thcmp1ValC{
-        }
         ///Threshold comparison event on Channel 2. See description
 								for channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> thcmp2{}; 
-        namespace Thcmp2ValC{
-        }
         ///Threshold comparison event on Channel 3. See description
 								for channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> thcmp3{}; 
-        namespace Thcmp3ValC{
-        }
         ///Threshold comparison event on Channel 4. See description
 								for channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> thcmp4{}; 
-        namespace Thcmp4ValC{
-        }
         ///Threshold comparison event on Channel 5. See description
 								for channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> thcmp5{}; 
-        namespace Thcmp5ValC{
-        }
         ///Threshold comparison event on Channel 6. See description
 								for channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> thcmp6{}; 
-        namespace Thcmp6ValC{
-        }
         ///Threshold comparison event on Channel 7. See description
 								for channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> thcmp7{}; 
-        namespace Thcmp7ValC{
-        }
         ///Threshold comparison event on Channel 8. See description
 								for channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> thcmp8{}; 
-        namespace Thcmp8ValC{
-        }
         ///Threshold comparison event on Channel 9. See description
 								for channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> thcmp9{}; 
-        namespace Thcmp9ValC{
-        }
         ///Threshold comparison event on Channel 10. See description
 								for channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> thcmp10{}; 
-        namespace Thcmp10ValC{
-        }
         ///Threshold comparison event on Channel 11. See description
 								for channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> thcmp11{}; 
-        namespace Thcmp11ValC{
-        }
         ///Mirrors the OVERRRUN status flag from the result register
 								for ADC channel 0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> overrun0{}; 
-        namespace Overrun0ValC{
-        }
         ///Mirrors the OVERRRUN status flag from the result register
 								for ADC channel 1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> overrun1{}; 
-        namespace Overrun1ValC{
-        }
         ///Mirrors the OVERRRUN status flag from the result register
 								for ADC channel 2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> overrun2{}; 
-        namespace Overrun2ValC{
-        }
         ///Mirrors the OVERRRUN status flag from the result register
 								for ADC channel 3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> overrun3{}; 
-        namespace Overrun3ValC{
-        }
         ///Mirrors the OVERRRUN status flag from the result register
 								for ADC channel 4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> overrun4{}; 
-        namespace Overrun4ValC{
-        }
         ///Mirrors the OVERRRUN status flag from the result register
 								for ADC channel 5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> overrun5{}; 
-        namespace Overrun5ValC{
-        }
         ///Mirrors the OVERRRUN status flag from the result register
 								for ADC channel 6
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> overrun6{}; 
-        namespace Overrun6ValC{
-        }
         ///Mirrors the OVERRRUN status flag from the result register
 								for ADC channel 7
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> overrun7{}; 
-        namespace Overrun7ValC{
-        }
         ///Mirrors the OVERRRUN status flag from the result register
 								for ADC channel 8
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> overrun8{}; 
-        namespace Overrun8ValC{
-        }
         ///Mirrors the OVERRRUN status flag from the result register
 								for ADC channel 9
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> overrun9{}; 
-        namespace Overrun9ValC{
-        }
         ///Mirrors the OVERRRUN status flag from the result register
 								for ADC channel 10
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> overrun10{}; 
-        namespace Overrun10ValC{
-        }
         ///Mirrors the OVERRRUN status flag from the result register
 								for ADC channel 11
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> overrun11{}; 
-        namespace Overrun11ValC{
-        }
         ///Mirrors the global OVERRUN status flag in the SEQA_GDAT
 								register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> seqaOvr{}; 
-        namespace SeqaovrValC{
-        }
         ///Mirrors the global OVERRUN status flag in the SEQB_GDAT
 								register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> seqbOvr{}; 
-        namespace SeqbovrValC{
-        }
         ///Sequence A interrupt/DMA trigger. If the MODE bit in the
 								SEQA_CTRL register is 0, this flag will mirror the DATAVALID bit in
 								the sequence A global data register (SEQA_GDAT), which is set at the
@@ -1894,8 +1598,6 @@ namespace Kvasir {
 								by writing a 1 to this SEQA_INT bit. This interrupt must be enabled
 								in the INTEN register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> seqaInt{}; 
-        namespace SeqaintValC{
-        }
         ///Sequence A interrupt/DMA trigger. If the MODE bit in the
 								SEQB_CTRL register is 0, this flag will mirror the DATAVALID bit in
 								the sequence A global data register (SEQB_GDAT), which is set at the
@@ -1906,8 +1608,6 @@ namespace Kvasir {
 								by writing a 1 to this SEQB_INT bit. This interrupt must be enabled
 								in the INTEN register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> seqbInt{}; 
-        namespace SeqbintValC{
-        }
         ///Threshold Comparison Interrupt. This bit will be set if any
 								of the THCMP flags in the lower bits of this register are set to 1
 								(due to an enabled out-of-range or threshold-crossing event on any
@@ -1917,8 +1617,6 @@ namespace Kvasir {
 								threshold flags are cleared via writing 1s to those
 								bits.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> thcmpInt{}; 
-        namespace ThcmpintValC{
-        }
         ///Overrun Interrupt flag. Any overrun bit in any of the
 								individual channel data registers will cause this interrupt. In
 								addition, if the MODE bit in either of the SEQn_CTRL registers is 0
@@ -1928,8 +1626,6 @@ namespace Kvasir {
 								overrun bits have been cleared via reading the corresponding data
 								registers.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ovrInt{}; 
-        namespace OvrintValC{
-        }
     }
     namespace Nonestartup{    ///<ADC Startup Register (typically only used by the ADC
 						API).
@@ -1940,12 +1636,8 @@ namespace Kvasir {
 								the ADC is powered up (typically by altering a system-level ADC
 								power control bit).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> adcEna{}; 
-        namespace AdcenaValC{
-        }
         ///tbd
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> adcInt{}; 
-        namespace AdcintValC{
-        }
     }
     namespace Nonecalib{    ///<ADC Calibration Register.
         using Addr = Register::Address<0x1c034070,0xfffffe00,0,unsigned>;
@@ -1954,8 +1646,6 @@ namespace Kvasir {
 								is cleared automatically when the calibration cycle
 								completes.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> calib{}; 
-        namespace CalibValC{
-        }
         ///Calibration required. This read-only bit indicates if
 								calibration is required when enabling the ADC. CALREQD will be 1 if
 								no calibration has been run since the chip was powered-up and if the
@@ -1967,13 +1657,9 @@ namespace Kvasir {
 								approximately 6 ADC clocks as opposed to 81 clocks required for
 								calibration.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> calreqd{}; 
-        namespace CalreqdValC{
-        }
         ///Calibration Value. This read-only field displays the
 								calibration value established during last calibration cycle. This
 								value is not typically of any use to the user.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,2),Register::ReadWriteAccess,unsigned> calvalue{}; 
-        namespace CalvalueValC{
-        }
     }
 }

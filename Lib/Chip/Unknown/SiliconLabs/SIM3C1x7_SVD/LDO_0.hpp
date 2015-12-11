@@ -11,8 +11,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,LdoibiasVal> ldoibias{}; 
         namespace LdoibiasValC{
-            constexpr Register::FieldValue<decltype(ldoibias),LdoibiasVal::highbias> highbias{};
-            constexpr Register::FieldValue<decltype(ldoibias),LdoibiasVal::lowbias> lowbias{};
+            constexpr Register::FieldValue<decltype(ldoibias)::Type,LdoibiasVal::highbias> highbias{};
+            constexpr Register::FieldValue<decltype(ldoibias)::Type,LdoibiasVal::lowbias> lowbias{};
         }
         ///LDO Analog Enable. 
         enum class LdoaenVal {
@@ -21,8 +21,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,LdoaenVal> ldoaen{}; 
         namespace LdoaenValC{
-            constexpr Register::FieldValue<decltype(ldoaen),LdoaenVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(ldoaen),LdoaenVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(ldoaen)::Type,LdoaenVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(ldoaen)::Type,LdoaenVal::enable> enable{};
         }
     }
 }

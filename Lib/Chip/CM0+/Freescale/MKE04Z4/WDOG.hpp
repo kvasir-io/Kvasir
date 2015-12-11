@@ -11,8 +11,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,StopVal> stop{}; 
         namespace StopValC{
-            constexpr Register::FieldValue<decltype(stop),StopVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(stop),StopVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(stop)::Type,StopVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(stop)::Type,StopVal::v1> v1{};
         }
         ///Wait Enable
         enum class WaitVal {
@@ -21,8 +21,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,WaitVal> wait{}; 
         namespace WaitValC{
-            constexpr Register::FieldValue<decltype(wait),WaitVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(wait),WaitVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(wait)::Type,WaitVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(wait)::Type,WaitVal::v1> v1{};
         }
         ///Debug Enable
         enum class DbgVal {
@@ -31,8 +31,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,DbgVal> dbg{}; 
         namespace DbgValC{
-            constexpr Register::FieldValue<decltype(dbg),DbgVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dbg),DbgVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dbg)::Type,DbgVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dbg)::Type,DbgVal::v1> v1{};
         }
         ///Watchdog Test
         enum class TstVal {
@@ -43,10 +43,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,TstVal> tst{}; 
         namespace TstValC{
-            constexpr Register::FieldValue<decltype(tst),TstVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(tst),TstVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(tst),TstVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(tst),TstVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(tst)::Type,TstVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(tst)::Type,TstVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(tst)::Type,TstVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(tst)::Type,TstVal::v11> v11{};
         }
         ///Allow updates
         enum class UpdateVal {
@@ -55,8 +55,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,UpdateVal> update{}; 
         namespace UpdateValC{
-            constexpr Register::FieldValue<decltype(update),UpdateVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(update),UpdateVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(update)::Type,UpdateVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(update)::Type,UpdateVal::v1> v1{};
         }
         ///Watchdog Interrupt
         enum class Int_Val {
@@ -65,8 +65,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Int_Val> int_{}; 
         namespace Int_ValC{
-            constexpr Register::FieldValue<decltype(int_),Int_Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(int_),Int_Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(int_)::Type,Int_Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(int_)::Type,Int_Val::v1> v1{};
         }
         ///Watchdog Enable
         enum class EnVal {
@@ -75,8 +75,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,EnVal> en{}; 
         namespace EnValC{
-            constexpr Register::FieldValue<decltype(en),EnVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(en),EnVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(en)::Type,EnVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(en)::Type,EnVal::v1> v1{};
         }
     }
     namespace WdogCs2{    ///<Watchdog Control and Status Register 2
@@ -90,10 +90,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,ClkVal> clk{}; 
         namespace ClkValC{
-            constexpr Register::FieldValue<decltype(clk),ClkVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(clk),ClkVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(clk),ClkVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(clk),ClkVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(clk)::Type,ClkVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(clk)::Type,ClkVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(clk)::Type,ClkVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(clk)::Type,ClkVal::v11> v11{};
         }
         ///Watchdog Prescalar
         enum class PresVal {
@@ -102,8 +102,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,PresVal> pres{}; 
         namespace PresValC{
-            constexpr Register::FieldValue<decltype(pres),PresVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(pres),PresVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(pres)::Type,PresVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pres)::Type,PresVal::v1> v1{};
         }
         ///Watchdog Interrupt Flag
         enum class FlgVal {
@@ -112,8 +112,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,FlgVal> flg{}; 
         namespace FlgValC{
-            constexpr Register::FieldValue<decltype(flg),FlgVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(flg),FlgVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(flg)::Type,FlgVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(flg)::Type,FlgVal::v1> v1{};
         }
         ///Watchdog Window
         enum class WinVal {
@@ -122,71 +122,53 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,WinVal> win{}; 
         namespace WinValC{
-            constexpr Register::FieldValue<decltype(win),WinVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(win),WinVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(win)::Type,WinVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(win)::Type,WinVal::v1> v1{};
         }
     }
     namespace WdogCnt{    ///<Watchdog Counter Register.
         using Addr = Register::Address<0x40052002,0xffff0000,0,unsigned>;
         ///Watchdog Counter Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cnt{}; 
-        namespace CntValC{
-        }
     }
     namespace WdogCnth{    ///<Watchdog Counter Register: High
         using Addr = Register::Address<0x40052002,0xffffff00,0,unsigned char>;
         ///High byte of the Watchdog Counter
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> cnthigh{}; 
-        namespace CnthighValC{
-        }
     }
     namespace WdogCntl{    ///<Watchdog Counter Register: Low
         using Addr = Register::Address<0x40052003,0xffffff00,0,unsigned char>;
         ///Low byte of the Watchdog Counter
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> cntlow{}; 
-        namespace CntlowValC{
-        }
     }
     namespace WdogToval{    ///<Watchdog Timeout Value Register.
         using Addr = Register::Address<0x40052004,0xffff0000,0,unsigned>;
         ///Watchdog Timeout Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> toval{}; 
-        namespace TovalValC{
-        }
     }
     namespace WdogTovalh{    ///<Watchdog Timeout Value Register: High
         using Addr = Register::Address<0x40052004,0xffffff00,0,unsigned char>;
         ///High byte of the timeout value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tovalhigh{}; 
-        namespace TovalhighValC{
-        }
     }
     namespace WdogTovall{    ///<Watchdog Timeout Value Register: Low
         using Addr = Register::Address<0x40052005,0xffffff00,0,unsigned char>;
         ///Low byte of the timeout value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tovallow{}; 
-        namespace TovallowValC{
-        }
     }
     namespace WdogWin{    ///<Watchdog Window Register.
         using Addr = Register::Address<0x40052006,0xffff0000,0,unsigned>;
         ///Watchdog Window Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> win{}; 
-        namespace WinValC{
-        }
     }
     namespace WdogWinh{    ///<Watchdog Window Register: High
         using Addr = Register::Address<0x40052006,0xffffff00,0,unsigned char>;
         ///High byte of Watchdog Window
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> winhigh{}; 
-        namespace WinhighValC{
-        }
     }
     namespace WdogWinl{    ///<Watchdog Window Register: Low
         using Addr = Register::Address<0x40052007,0xffffff00,0,unsigned char>;
         ///Low byte of Watchdog Window
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> winlow{}; 
-        namespace WinlowValC{
-        }
     }
 }

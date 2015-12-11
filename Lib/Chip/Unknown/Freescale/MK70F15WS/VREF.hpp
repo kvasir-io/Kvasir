@@ -6,8 +6,6 @@ namespace Kvasir {
         using Addr = Register::Address<0x40074000,0xffffffc0,0,unsigned char>;
         ///Trim bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> trim{}; 
-        namespace TrimValC{
-        }
     }
     namespace VrefSc{    ///<VREF Status and Control Register
         using Addr = Register::Address<0x40074001,0xffffff38,0,unsigned char>;
@@ -20,10 +18,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,ModelvVal> modeLv{}; 
         namespace ModelvValC{
-            constexpr Register::FieldValue<decltype(modeLv),ModelvVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(modeLv),ModelvVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(modeLv),ModelvVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(modeLv),ModelvVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(modeLv)::Type,ModelvVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(modeLv)::Type,ModelvVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(modeLv)::Type,ModelvVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(modeLv)::Type,ModelvVal::v11> v11{};
         }
         ///Internal Voltage Reference has settled
         enum class VrefstVal {
@@ -32,8 +30,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,VrefstVal> vrefst{}; 
         namespace VrefstValC{
-            constexpr Register::FieldValue<decltype(vrefst),VrefstVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(vrefst),VrefstVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(vrefst)::Type,VrefstVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(vrefst)::Type,VrefstVal::v1> v1{};
         }
         ///Regulator enable
         enum class RegenVal {
@@ -42,8 +40,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,RegenVal> regen{}; 
         namespace RegenValC{
-            constexpr Register::FieldValue<decltype(regen),RegenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(regen),RegenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(regen)::Type,RegenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(regen)::Type,RegenVal::v1> v1{};
         }
         ///Internal Voltage Reference enable
         enum class VrefenVal {
@@ -52,8 +50,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,VrefenVal> vrefen{}; 
         namespace VrefenValC{
-            constexpr Register::FieldValue<decltype(vrefen),VrefenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(vrefen),VrefenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(vrefen)::Type,VrefenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(vrefen)::Type,VrefenVal::v1> v1{};
         }
     }
 }

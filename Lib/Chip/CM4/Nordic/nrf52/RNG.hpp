@@ -20,8 +20,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValrdystopVal> valrdyStop{}; 
         namespace ValrdystopValC{
-            constexpr Register::FieldValue<decltype(valrdyStop),ValrdystopVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(valrdyStop),ValrdystopVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(valrdyStop)::Type,ValrdystopVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(valrdyStop)::Type,ValrdystopVal::enabled> enabled{};
         }
     }
     namespace Noneintenset{    ///<Enable interrupt
@@ -34,9 +34,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValrdyVal> valrdy{}; 
         namespace ValrdyValC{
-            constexpr Register::FieldValue<decltype(valrdy),ValrdyVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(valrdy),ValrdyVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(valrdy),ValrdyVal::set> set{};
+            constexpr Register::FieldValue<decltype(valrdy)::Type,ValrdyVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(valrdy)::Type,ValrdyVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(valrdy)::Type,ValrdyVal::set> set{};
         }
     }
     namespace Noneintenclr{    ///<Disable interrupt
@@ -49,9 +49,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValrdyVal> valrdy{}; 
         namespace ValrdyValC{
-            constexpr Register::FieldValue<decltype(valrdy),ValrdyVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(valrdy),ValrdyVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(valrdy),ValrdyVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(valrdy)::Type,ValrdyVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(valrdy)::Type,ValrdyVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(valrdy)::Type,ValrdyVal::clear> clear{};
         }
     }
     namespace Noneconfig{    ///<Configuration register
@@ -63,15 +63,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DercenVal> dercen{}; 
         namespace DercenValC{
-            constexpr Register::FieldValue<decltype(dercen),DercenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dercen),DercenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dercen)::Type,DercenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dercen)::Type,DercenVal::enabled> enabled{};
         }
     }
     namespace Nonevalue{    ///<Output random number
         using Addr = Register::Address<0x4000d508,0xffffff00,0,unsigned>;
         ///Generated random number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> value{}; 
-        namespace ValueValC{
-        }
     }
 }

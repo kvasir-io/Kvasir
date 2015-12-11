@@ -6,36 +6,24 @@ namespace Kvasir {
         using Addr = Register::Address<0x40076000,0xfffffff8,0,unsigned>;
         ///MIEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mien{}; 
-        namespace MienValC{
-        }
         ///OSM
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> osm{}; 
-        namespace OsmValC{
-        }
         ///CEN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> cen{}; 
-        namespace CenValC{
-        }
     }
     namespace Nonebftm0Sr{    ///<BFTM0_SR
         using Addr = Register::Address<0x40076004,0xfffffffe,0,unsigned>;
         ///MIF
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mif{}; 
-        namespace MifValC{
-        }
     }
     namespace Nonebftm0Cntr{    ///<BFTM0_CNTR
         using Addr = Register::Address<0x40076008,0x00000000,0,unsigned>;
         ///CNTR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cntr{}; 
-        namespace CntrValC{
-        }
     }
     namespace Nonebftm0Cmpr{    ///<BFTM0_CMPR
         using Addr = Register::Address<0x4007600c,0x00000000,0,unsigned>;
         ///CMP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cmp{}; 
-        namespace CmpValC{
-        }
     }
 }

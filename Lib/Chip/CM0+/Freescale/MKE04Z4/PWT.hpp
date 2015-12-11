@@ -11,8 +11,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PwtovVal> pwtov{}; 
         namespace PwtovValC{
-            constexpr Register::FieldValue<decltype(pwtov),PwtovVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(pwtov),PwtovVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(pwtov)::Type,PwtovVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pwtov)::Type,PwtovVal::v1> v1{};
         }
         ///PWT pulse width valid
         enum class PwtrdyVal {
@@ -21,8 +21,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,PwtrdyVal> pwtrdy{}; 
         namespace PwtrdyValC{
-            constexpr Register::FieldValue<decltype(pwtrdy),PwtrdyVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(pwtrdy),PwtrdyVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(pwtrdy)::Type,PwtrdyVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pwtrdy)::Type,PwtrdyVal::v1> v1{};
         }
         ///PWT Soft Reset
         enum class PwtsrVal {
@@ -31,8 +31,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,PwtsrVal> pwtsr{}; 
         namespace PwtsrValC{
-            constexpr Register::FieldValue<decltype(pwtsr),PwtsrVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(pwtsr),PwtsrVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(pwtsr)::Type,PwtsrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pwtsr)::Type,PwtsrVal::v1> v1{};
         }
         ///PWT counter overflow interrupt enable
         enum class PovieVal {
@@ -41,8 +41,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,PovieVal> povie{}; 
         namespace PovieValC{
-            constexpr Register::FieldValue<decltype(povie),PovieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(povie),PovieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(povie)::Type,PovieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(povie)::Type,PovieVal::v1> v1{};
         }
         ///PWT pulse width data ready interrupt enable
         enum class PrdyieVal {
@@ -51,8 +51,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,PrdyieVal> prdyie{}; 
         namespace PrdyieValC{
-            constexpr Register::FieldValue<decltype(prdyie),PrdyieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(prdyie),PrdyieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(prdyie)::Type,PrdyieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(prdyie)::Type,PrdyieVal::v1> v1{};
         }
         ///PWT module interrupt enable
         enum class PwtieVal {
@@ -61,8 +61,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,PwtieVal> pwtie{}; 
         namespace PwtieValC{
-            constexpr Register::FieldValue<decltype(pwtie),PwtieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(pwtie),PwtieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(pwtie)::Type,PwtieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pwtie)::Type,PwtieVal::v1> v1{};
         }
         ///PWT Module Enable
         enum class PwtenVal {
@@ -71,8 +71,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,PwtenVal> pwten{}; 
         namespace PwtenValC{
-            constexpr Register::FieldValue<decltype(pwten),PwtenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(pwten),PwtenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(pwten)::Type,PwtenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pwten)::Type,PwtenVal::v1> v1{};
         }
         ///PWT Clock Pre-scaler(CLKPRE) Setting
         enum class PreVal {
@@ -87,14 +87,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,PreVal> pre{}; 
         namespace PreValC{
-            constexpr Register::FieldValue<decltype(pre),PreVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(pre),PreVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(pre),PreVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(pre),PreVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(pre),PreVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(pre),PreVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(pre),PreVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(pre),PreVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(pre)::Type,PreVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(pre)::Type,PreVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(pre)::Type,PreVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(pre)::Type,PreVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(pre)::Type,PreVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(pre)::Type,PreVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(pre)::Type,PreVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(pre)::Type,PreVal::v111> v111{};
         }
         ///PWT input edge sensitivity
         enum class EdgeVal {
@@ -105,10 +105,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,EdgeVal> edge{}; 
         namespace EdgeValC{
-            constexpr Register::FieldValue<decltype(edge),EdgeVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(edge),EdgeVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(edge),EdgeVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(edge),EdgeVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(edge)::Type,EdgeVal::v11> v11{};
         }
         ///PWT Pulse Inputs Selection
         enum class PinselVal {
@@ -119,10 +119,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,13),Register::ReadWriteAccess,PinselVal> pinsel{}; 
         namespace PinselValC{
-            constexpr Register::FieldValue<decltype(pinsel),PinselVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(pinsel),PinselVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(pinsel),PinselVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(pinsel),PinselVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(pinsel)::Type,PinselVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(pinsel)::Type,PinselVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(pinsel)::Type,PinselVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(pinsel)::Type,PinselVal::v11> v11{};
         }
         ///PWT Clock Source Selection
         enum class PclksVal {
@@ -131,23 +131,17 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,PclksVal> pclks{}; 
         namespace PclksValC{
-            constexpr Register::FieldValue<decltype(pclks),PclksVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(pclks),PclksVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(pclks)::Type,PclksVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pclks)::Type,PclksVal::v1> v1{};
         }
         ///Positive Pulse Width
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> ppw{}; 
-        namespace PpwValC{
-        }
     }
     namespace PwtR2{    ///<Pulse Width Timer Register 2
         using Addr = Register::Address<0x40033004,0x00000000,0,unsigned>;
         ///Negative Pulse Width. It is suggested to use half-word(16bit) or word(32bit) to read out this value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> npw{}; 
-        namespace NpwValC{
-        }
         ///PWT counter.It is suggested to use half-word(16bit) or word(32bit) to read out this value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> pwtc{}; 
-        namespace PwtcValC{
-        }
     }
 }

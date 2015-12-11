@@ -21,9 +21,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DatardyVal> datardy{}; 
         namespace DatardyValC{
-            constexpr Register::FieldValue<decltype(datardy),DatardyVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(datardy),DatardyVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(datardy),DatardyVal::set> set{};
+            constexpr Register::FieldValue<decltype(datardy)::Type,DatardyVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(datardy)::Type,DatardyVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(datardy)::Type,DatardyVal::set> set{};
         }
     }
     namespace Noneintenclr{    ///<Disable interrupt
@@ -36,16 +36,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DatardyVal> datardy{}; 
         namespace DatardyValC{
-            constexpr Register::FieldValue<decltype(datardy),DatardyVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(datardy),DatardyVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(datardy),DatardyVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(datardy)::Type,DatardyVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(datardy)::Type,DatardyVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(datardy)::Type,DatardyVal::clear> clear{};
         }
     }
     namespace Nonetemp{    ///<Temperature in degC
         using Addr = Register::Address<0x4000c508,0x00000000,0,unsigned>;
         ///Temperature in degC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> temp{}; 
-        namespace TempValC{
-        }
     }
 }

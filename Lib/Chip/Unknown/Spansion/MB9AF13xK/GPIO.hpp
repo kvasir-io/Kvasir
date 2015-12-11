@@ -6,184 +6,106 @@ namespace Kvasir {
         using Addr = Register::Address<0x40033000,0xffff1fe0,0,unsigned>;
         ///Bit15 of PFR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> pf{}; 
-        namespace PfValC{
-        }
         ///Bit14 of PFR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> pe{}; 
-        namespace PeValC{
-        }
         ///Bit13 of PFR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> pd{}; 
-        namespace PdValC{
-        }
         ///Bit4 of PFR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> p4{}; 
-        namespace P4ValC{
-        }
         ///Bit3 of PFR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> p3{}; 
-        namespace P3ValC{
-        }
         ///Bit2 of PFR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> p2{}; 
-        namespace P2ValC{
-        }
         ///Bit1 of PFR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> p1{}; 
-        namespace P1ValC{
-        }
         ///Bit0 of PFR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p0{}; 
-        namespace P0ValC{
-        }
     }
     namespace Nonepfr1{    ///<Port function setting register 1
         using Addr = Register::Address<0x40033004,0xffffffc0,0,unsigned>;
         ///Bit5 of PFR1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> p5{}; 
-        namespace P5ValC{
-        }
         ///Bit4 of PFR1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> p4{}; 
-        namespace P4ValC{
-        }
         ///Bit3 of PFR1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> p3{}; 
-        namespace P3ValC{
-        }
         ///Bit2 of PFR1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> p2{}; 
-        namespace P2ValC{
-        }
         ///Bit1 of PFR1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> p1{}; 
-        namespace P1ValC{
-        }
         ///Bit0 of PFR1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p0{}; 
-        namespace P0ValC{
-        }
     }
     namespace Nonepfr2{    ///<Port function setting register 2
         using Addr = Register::Address<0x40033008,0xfffffff1,0,unsigned>;
         ///Bit3 of PFR2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> p3{}; 
-        namespace P3ValC{
-        }
         ///Bit2 of PFR2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> p2{}; 
-        namespace P2ValC{
-        }
         ///Bit1 of PFR2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> p1{}; 
-        namespace P1ValC{
-        }
     }
     namespace Nonepfr3{    ///<Port function setting register 3
         using Addr = Register::Address<0x4003300c,0xffff01ff,0,unsigned>;
         ///Bit15 of PFR3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> pf{}; 
-        namespace PfValC{
-        }
         ///Bit14 of PFR3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> pe{}; 
-        namespace PeValC{
-        }
         ///Bit13 of PFR3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> pd{}; 
-        namespace PdValC{
-        }
         ///Bit12 of PFR3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> pc{}; 
-        namespace PcValC{
-        }
         ///Bit11 of PFR3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> pb{}; 
-        namespace PbValC{
-        }
         ///Bit10 of PFR3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> pa{}; 
-        namespace PaValC{
-        }
         ///Bit9 of PFR3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> p9{}; 
-        namespace P9ValC{
-        }
     }
     namespace Nonepfr4{    ///<Port function setting register 4
         using Addr = Register::Address<0x40033010,0xfffff93f,0,unsigned>;
         ///Bit10 of PFR4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> pa{}; 
-        namespace PaValC{
-        }
         ///Bit9 of PFR4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> p9{}; 
-        namespace P9ValC{
-        }
         ///Bit7 of PFR4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> p7{}; 
-        namespace P7ValC{
-        }
         ///Bit6 of PFR4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> p6{}; 
-        namespace P6ValC{
-        }
     }
     namespace Nonepfr5{    ///<Port function setting register 5
         using Addr = Register::Address<0x40033014,0xfffffff8,0,unsigned>;
         ///Bit2 of PFR5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> p2{}; 
-        namespace P2ValC{
-        }
         ///Bit1 of PFR5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> p1{}; 
-        namespace P1ValC{
-        }
         ///Bit0 of PFR5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p0{}; 
-        namespace P0ValC{
-        }
     }
     namespace Nonepfr6{    ///<Port function setting register 6
         using Addr = Register::Address<0x40033018,0xfffffffc,0,unsigned>;
         ///Bit1 of PFR6
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> p1{}; 
-        namespace P1ValC{
-        }
         ///Bit0 of PFR6
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p0{}; 
-        namespace P0ValC{
-        }
     }
     namespace Nonepfr8{    ///<Port function setting register 8
         using Addr = Register::Address<0x40033020,0xfffffff8,0,unsigned>;
         ///Bit2 of PFR8
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> p2{}; 
-        namespace P2ValC{
-        }
         ///Bit1 of PFR8
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> p1{}; 
-        namespace P1ValC{
-        }
         ///Bit0 of PFR8
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p0{}; 
-        namespace P0ValC{
-        }
     }
     namespace Nonepfre{    ///<Port function setting register E
         using Addr = Register::Address<0x40033038,0xfffffff2,0,unsigned>;
         ///Bit2 of PFRE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> p3{}; 
-        namespace P3ValC{
-        }
         ///Bit1 of PFRE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> p2{}; 
-        namespace P2ValC{
-        }
         ///Bit0 of PFRE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p0{}; 
-        namespace P0ValC{
-        }
     }
     namespace Nonepcr0{    ///<Pull-up Setting Register 0
         using Addr = Register::Address<0x40033100,0xffffffff,0,unsigned>;
@@ -213,36 +135,20 @@ namespace Kvasir {
         using Addr = Register::Address<0x40033200,0xffff1fe0,0,unsigned>;
         ///Bit15 of DDR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> pf{}; 
-        namespace PfValC{
-        }
         ///Bit14 of DDR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> pe{}; 
-        namespace PeValC{
-        }
         ///Bit13 of DDR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> pd{}; 
-        namespace PdValC{
-        }
         ///Bit4 of DDR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> p4{}; 
-        namespace P4ValC{
-        }
         ///Bit3 of DDR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> p3{}; 
-        namespace P3ValC{
-        }
         ///Bit2 of DDR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> p2{}; 
-        namespace P2ValC{
-        }
         ///Bit1 of DDR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> p1{}; 
-        namespace P1ValC{
-        }
         ///Bit0 of DDR0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> p0{}; 
-        namespace P0ValC{
-        }
     }
     namespace Noneddr1{    ///<Port input/output direction setting register 1
         using Addr = Register::Address<0x40033204,0xffffffff,0,unsigned>;
@@ -326,275 +232,153 @@ namespace Kvasir {
         using Addr = Register::Address<0x40033500,0xffffffc0,0,unsigned>;
         ///Bit5 of ADE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> an5{}; 
-        namespace An5ValC{
-        }
         ///Bit4 of ADE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> an4{}; 
-        namespace An4ValC{
-        }
         ///Bit3 of ADE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> an3{}; 
-        namespace An3ValC{
-        }
         ///Bit2 of ADE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> an2{}; 
-        namespace An2ValC{
-        }
         ///Bit1 of ADE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> an1{}; 
-        namespace An1ValC{
-        }
         ///Bit0 of ADE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> an0{}; 
-        namespace An0ValC{
-        }
     }
     namespace Nonespsr{    ///<Special port setting register
         using Addr = Register::Address<0x40033580,0xfffffffa,0,unsigned>;
         ///Main clock(oscillation) pin setting bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> mainxc{}; 
-        namespace MainxcValC{
-        }
         ///Sub clock(oscillation) pin setting bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> subxc{}; 
-        namespace SubxcValC{
-        }
     }
     namespace Noneepfr00{    ///<Extended pin function setting register 00
         using Addr = Register::Address<0x40033600,0xfffcff08,0,unsigned>;
         ///JTAG function select bit1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> jtagen1s{}; 
-        namespace Jtagen1sValC{
-        }
         ///JTAG function select bit0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> jtagen0b{}; 
-        namespace Jtagen0bValC{
-        }
         ///Sub clock divide output function select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> suboute{}; 
-        namespace SubouteValC{
-        }
         ///RTC clock output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> rtccoe{}; 
-        namespace RtccoeValC{
-        }
         ///Internal high-speed CR oscillation output function select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,1),Register::ReadWriteAccess,unsigned> croute{}; 
-        namespace CrouteValC{
-        }
         ///NMIX function select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> nmis{}; 
-        namespace NmisValC{
-        }
     }
     namespace Noneepfr01{    ///<Extended pin function setting register 01
         using Addr = Register::Address<0x40033604,0x0000e000,0,unsigned>;
         ///IC03 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,unsigned> ic03s{}; 
-        namespace Ic03sValC{
-        }
         ///IC02 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,26),Register::ReadWriteAccess,unsigned> ic02s{}; 
-        namespace Ic02sValC{
-        }
         ///IC01 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,23),Register::ReadWriteAccess,unsigned> ic01s{}; 
-        namespace Ic01sValC{
-        }
         ///IC00 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,unsigned> ic00s{}; 
-        namespace Ic00sValC{
-        }
         ///FRCK0 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> frck0s{}; 
-        namespace Frck0sValC{
-        }
         ///DTTIX0 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,unsigned> dtti0s{}; 
-        namespace Dtti0sValC{
-        }
         ///DTTIX0 function select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> dtti0c{}; 
-        namespace Dtti0cValC{
-        }
         ///RTO05E output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> rto05e{}; 
-        namespace Rto05eValC{
-        }
         ///RTO04E output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> rto04e{}; 
-        namespace Rto04eValC{
-        }
         ///RTO03E output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> rto03e{}; 
-        namespace Rto03eValC{
-        }
         ///RTO02E output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> rto02e{}; 
-        namespace Rto02eValC{
-        }
         ///RTO01E output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> rto01e{}; 
-        namespace Rto01eValC{
-        }
         ///RTO00E output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> rto00e{}; 
-        namespace Rto00eValC{
-        }
     }
     namespace Noneepfr04{    ///<Extended pin function setting register 04
         using Addr = Register::Address<0x40033610,0xf0c3c083,0,unsigned>;
         ///TIOA3E output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,unsigned> tioa3e{}; 
-        namespace Tioa3eValC{
-        }
         ///TIOA3 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,unsigned> tioa3s{}; 
-        namespace Tioa3sValC{
-        }
         ///TIOB2 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,unsigned> tiob2s{}; 
-        namespace Tiob2sValC{
-        }
         ///TIOA2 output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,unsigned> tioa2e{}; 
-        namespace Tioa2eValC{
-        }
         ///TIOB1 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> tiob1s{}; 
-        namespace Tiob1sValC{
-        }
         ///TIOA1E output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> tioa1e{}; 
-        namespace Tioa1eValC{
-        }
         ///TIOA1 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> tioa1s{}; 
-        namespace Tioa1sValC{
-        }
         ///TIOB0 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> tiob0s{}; 
-        namespace Tiob0sValC{
-        }
         ///TIOA0 output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> tioa0e{}; 
-        namespace Tioa0eValC{
-        }
     }
     namespace Noneepfr05{    ///<Extended pin function setting register 05
         using Addr = Register::Address<0x40033614,0xc0fff0f3,0,unsigned>;
         ///TIOB7 input select Bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,unsigned> tiob7s{}; 
-        namespace Tiob7sValC{
-        }
         ///TIOA7E output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,unsigned> tioa7e{}; 
-        namespace Tioa7eValC{
-        }
         ///TIOA7 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,unsigned> tioa7s{}; 
-        namespace Tioa7sValC{
-        }
         ///TIOA5E output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> tioa5e{}; 
-        namespace Tioa5eValC{
-        }
         ///TIOA5 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> tioa5s{}; 
-        namespace Tioa5sValC{
-        }
         ///TIOA4 output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> tioa4e{}; 
-        namespace Tioa4eValC{
-        }
     }
     namespace Noneepfr06{    ///<Extended pin function setting register 06
         using Addr = Register::Address<0x40033618,0x3fffcf00,0,unsigned>;
         ///External interrupt 15 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> eint15s{}; 
-        namespace Eint15sValC{
-        }
         ///External interrupt 6 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> eint06s{}; 
-        namespace Eint06sValC{
-        }
         ///External interrupt 3 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> eint03s{}; 
-        namespace Eint03sValC{
-        }
         ///External interrupt 2 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> eint02s{}; 
-        namespace Eint02sValC{
-        }
         ///External interrupt 1 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,unsigned> eint01s{}; 
-        namespace Eint01sValC{
-        }
         ///External interrupt 0 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> eint00s{}; 
-        namespace Eint00sValC{
-        }
     }
     namespace Noneepfr07{    ///<Extended pin function setting register 07
         using Addr = Register::Address<0x4003361c,0xf03f000f,0,unsigned>;
         ///SCK3 input/output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,26),Register::ReadWriteAccess,unsigned> sck3b{}; 
-        namespace Sck3bValC{
-        }
         ///SOT3B input/output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,unsigned> sot3b{}; 
-        namespace Sot3bValC{
-        }
         ///SIN3S input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,22),Register::ReadWriteAccess,unsigned> sin3s{}; 
-        namespace Sin3sValC{
-        }
         ///SCK1 input/output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,unsigned> sck1b{}; 
-        namespace Sck1bValC{
-        }
         ///SCK1B input/output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> sot1b{}; 
-        namespace Sot1bValC{
-        }
         ///SIN1S input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> sin1s{}; 
-        namespace Sin1sValC{
-        }
         ///SCK0 input/output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> sck0b{}; 
-        namespace Sck0bValC{
-        }
         ///SOT0B input/output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,unsigned> sot0b{}; 
-        namespace Sot0bValC{
-        }
         ///SIN0S input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> sin0s{}; 
-        namespace Sin0sValC{
-        }
     }
     namespace Noneepfr08{    ///<Extended pin function setting register 08
         using Addr = Register::Address<0x40033620,0xffff03ff,0,unsigned>;
         ///SCK5 input/output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,unsigned> sck5b{}; 
-        namespace Sck5bValC{
-        }
         ///SOT5B input/output select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,unsigned> sot5b{}; 
-        namespace Sot5bValC{
-        }
         ///SIN5S input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,unsigned> sin5s{}; 
-        namespace Sin5sValC{
-        }
     }
     namespace Noneepfr09{    ///<Extended pin function setting register 09
         using Addr = Register::Address<0x40033624,0xffff0fff,0,unsigned>;
         ///ADTRG0 input select bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> adtrg0s{}; 
-        namespace Adtrg0sValC{
-        }
     }
     namespace Nonepzr0{    ///<Port Pseudo Open Drain Setting Register 0
         using Addr = Register::Address<0x40033700,0xffffffff,0,unsigned>;

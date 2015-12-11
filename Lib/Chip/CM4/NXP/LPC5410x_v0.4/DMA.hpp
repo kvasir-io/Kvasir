@@ -15,8 +15,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EnableVal> enable{}; 
         namespace EnableValC{
-            constexpr Register::FieldValue<decltype(enable),EnableVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(enable),EnableVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enabled> enabled{};
         }
     }
     namespace Noneintstat{    ///<Interrupt status.
@@ -31,8 +31,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ActiveintVal> activeint{}; 
         namespace ActiveintValC{
-            constexpr Register::FieldValue<decltype(activeint),ActiveintVal::notPending> notPending{};
-            constexpr Register::FieldValue<decltype(activeint),ActiveintVal::pending> pending{};
+            constexpr Register::FieldValue<decltype(activeint)::Type,ActiveintVal::notPending> notPending{};
+            constexpr Register::FieldValue<decltype(activeint)::Type,ActiveintVal::pending> pending{};
         }
         ///Summarizes whether any error interrupts are
 								pending.
@@ -44,8 +44,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,ActiveerrintVal> activeerrint{}; 
         namespace ActiveerrintValC{
-            constexpr Register::FieldValue<decltype(activeerrint),ActiveerrintVal::notPending> notPending{};
-            constexpr Register::FieldValue<decltype(activeerrint),ActiveerrintVal::pending> pending{};
+            constexpr Register::FieldValue<decltype(activeerrint)::Type,ActiveerrintVal::notPending> notPending{};
+            constexpr Register::FieldValue<decltype(activeerrint)::Type,ActiveerrintVal::pending> pending{};
         }
     }
     namespace Nonesrambase{    ///<SRAM address of the channel configuration table.
@@ -54,40 +54,30 @@ namespace Kvasir {
 								table. For 18 channels, the table must begin on a 512 byte
 								boundary.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,9),Register::ReadWriteAccess,unsigned> offset{}; 
-        namespace OffsetValC{
-        }
     }
     namespace Noneenableset0{    ///<Channel Enable read and Set for all DMA channels.
         using Addr = Register::Address<0x1c004020,0xffc00000,0,unsigned>;
         ///Enable for DMA channels. Bit n enables or disables DMA
 								channel n. 0 = disabled. 1 = enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,0),Register::ReadWriteAccess,unsigned> ena{}; 
-        namespace EnaValC{
-        }
     }
     namespace Noneenableclr0{    ///<Channel Enable Clear for all DMA channels.
         using Addr = Register::Address<0x1c004028,0xffc00000,0,unsigned>;
         ///Writing ones to this register clears the corresponding bits
 								in ENABLESET0. Bit n clears the channel enable bit n.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,0),Register::ReadWriteAccess,unsigned> clr{}; 
-        namespace ClrValC{
-        }
     }
     namespace Noneactive0{    ///<Channel Active status for all DMA channels.
         using Addr = Register::Address<0x1c004030,0xffc00000,0,unsigned>;
         ///Active flag for DMA channel n. Bit n corresponds to DMA
 								channel n. 0 = not active. 1 = active.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,0),Register::ReadWriteAccess,unsigned> act{}; 
-        namespace ActValC{
-        }
     }
     namespace Nonebusy0{    ///<Channel Busy status for all DMA channels.
         using Addr = Register::Address<0x1c004038,0xffc00000,0,unsigned>;
         ///Busy flag for DMA channel n. Bit n corresponds to DMA
 								channel n. 0 = not busy. 1 = busy.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,0),Register::ReadWriteAccess,unsigned> bsy{}; 
-        namespace BsyValC{
-        }
     }
     namespace Noneerrint0{    ///<Error Interrupt status for all DMA channels.
         using Addr = Register::Address<0x1c004040,0xffc00000,0,unsigned>;
@@ -95,8 +85,6 @@ namespace Kvasir {
 								to DMA channel n. 0 = error interrupt is not active. 1 = error
 								interrupt is active.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,0),Register::ReadWriteAccess,unsigned> err{}; 
-        namespace ErrValC{
-        }
     }
     namespace Noneintenset0{    ///<Interrupt Enable read and Set for all DMA channels.
         using Addr = Register::Address<0x1c004048,0xffc00000,0,unsigned>;
@@ -104,16 +92,12 @@ namespace Kvasir {
 								corresponds to DMA channel n. 0 = interrupt for DMA channel is
 								disabled. 1 = interrupt for DMA channel is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,0),Register::ReadWriteAccess,unsigned> inten{}; 
-        namespace IntenValC{
-        }
     }
     namespace Noneintenclr0{    ///<Interrupt Enable Clear for all DMA channels.
         using Addr = Register::Address<0x1c004050,0xffc00000,0,unsigned>;
         ///Writing ones to this register clears corresponding bits in
 								the INTENSET0. Bit n corresponds to DMA channel n.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,0),Register::ReadWriteAccess,unsigned> clr{}; 
-        namespace ClrValC{
-        }
     }
     namespace Noneinta0{    ///<Interrupt A status for all DMA channels.
         using Addr = Register::Address<0x1c004058,0xffc00000,0,unsigned>;
@@ -121,8 +105,6 @@ namespace Kvasir {
 								DMA channel n. 0 = the DMA channel interrupt A is not active. 1 =
 								the DMA channel interrupt A is active.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,0),Register::ReadWriteAccess,unsigned> ia{}; 
-        namespace IaValC{
-        }
     }
     namespace Noneintb0{    ///<Interrupt B status for all DMA channels.
         using Addr = Register::Address<0x1c004060,0xffc00000,0,unsigned>;
@@ -130,8 +112,6 @@ namespace Kvasir {
 								DMA channel n. 0 = the DMA channel interrupt B is not active. 1 =
 								the DMA channel interrupt B is active.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,0),Register::ReadWriteAccess,unsigned> ib{}; 
-        namespace IbValC{
-        }
     }
     namespace Nonesetvalid0{    ///<Set ValidPending control bits for all DMA channels.
         using Addr = Register::Address<0x1c004068,0xffc00000,0,unsigned>;
@@ -139,8 +119,6 @@ namespace Kvasir {
 								DMA channel n. 0 = no effect. 1 = sets the VALIDPENDING control bit
 								for DMA channel n.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,0),Register::ReadWriteAccess,unsigned> sv{}; 
-        namespace SvValC{
-        }
     }
     namespace Nonesettrig0{    ///<Set Trigger control bits for all DMA channels.
         using Addr = Register::Address<0x1c004070,0xffc00000,0,unsigned>;
@@ -148,8 +126,6 @@ namespace Kvasir {
 								corresponds to DMA channel n. 0 = no effect. 1 = sets the TRIG bit
 								for DMA channel n.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,0),Register::ReadWriteAccess,unsigned> trig{}; 
-        namespace TrigValC{
-        }
     }
     namespace Noneabort0{    ///<Channel Abort control for all DMA channels.
         using Addr = Register::Address<0x1c004078,0xffc00000,0,unsigned>;
@@ -157,8 +133,6 @@ namespace Kvasir {
 								channel n. 0 = no effect. 1 = aborts DMA operations on channel
 								n.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,0),Register::ReadWriteAccess,unsigned> abortctrl{}; 
-        namespace AbortctrlValC{
-        }
     }
     namespace Nonecfg0{    ///<Configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004400,0xfff8308c,0,unsigned>;
@@ -175,8 +149,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PeriphreqenVal> periphreqen{}; 
         namespace PeriphreqenValC{
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
@@ -186,8 +160,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HwtrigenVal> hwtrigen{}; 
         namespace HwtrigenValC{
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
         ///Trigger Polarity. Selects the polarity of a hardware
 								trigger for this channel.
@@ -201,8 +175,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TrigpolVal> trigpol{}; 
         namespace TrigpolValC{
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeLowFalling> activeLowFalling{};
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeHighRising> activeHighRising{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
         ///Trigger Type. Selects hardware trigger as edge triggered or
 								level triggered.
@@ -222,8 +196,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TrigtypeVal> trigtype{}; 
         namespace TrigtypeValC{
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::edge> edge{};
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::level> level{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
         ///Trigger Burst. Selects whether hardware triggers cause a
 								single or burst transfer.
@@ -239,8 +213,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigburstVal> trigburst{}; 
         namespace TrigburstValC{
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::singleTransfer> singleTransfer{};
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::burstTransfer> burstTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
         ///Burst Power is used in two ways. It always selects the
 								address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are
@@ -256,8 +230,6 @@ namespace Kvasir {
 								XFERCFG register must be an even multiple of the burst
 								size.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
-        namespace BurstpowerValC{
-        }
         ///Source Burst Wrap. When enabled, the source data address
 								for the DMA is wrapped, meaning that the source address range for
 								each burst will be the same. As an example, this could be used to
@@ -272,8 +244,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,SrcburstwrapVal> srcburstwrap{}; 
         namespace SrcburstwrapValC{
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
         ///Destination Burst Wrap. When enabled, the destination data
 								address for the DMA is wrapped, meaning that the destination address
@@ -289,15 +261,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DstburstwrapVal> dstburstwrap{}; 
         namespace DstburstwrapValC{
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
         }
         ///Priority of this channel when multiple DMA requests are
 								pending. Eight priority levels are supported. 0x0 = highest
 								priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
-        namespace ChpriorityValC{
-        }
     }
     namespace Nonecfg1{    ///<Configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004410,0xfff8308c,0,unsigned>;
@@ -314,8 +284,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PeriphreqenVal> periphreqen{}; 
         namespace PeriphreqenValC{
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
@@ -325,8 +295,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HwtrigenVal> hwtrigen{}; 
         namespace HwtrigenValC{
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
         ///Trigger Polarity. Selects the polarity of a hardware
 								trigger for this channel.
@@ -340,8 +310,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TrigpolVal> trigpol{}; 
         namespace TrigpolValC{
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeLowFalling> activeLowFalling{};
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeHighRising> activeHighRising{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
         ///Trigger Type. Selects hardware trigger as edge triggered or
 								level triggered.
@@ -361,8 +331,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TrigtypeVal> trigtype{}; 
         namespace TrigtypeValC{
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::edge> edge{};
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::level> level{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
         ///Trigger Burst. Selects whether hardware triggers cause a
 								single or burst transfer.
@@ -378,8 +348,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigburstVal> trigburst{}; 
         namespace TrigburstValC{
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::singleTransfer> singleTransfer{};
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::burstTransfer> burstTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
         ///Burst Power is used in two ways. It always selects the
 								address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are
@@ -395,8 +365,6 @@ namespace Kvasir {
 								XFERCFG register must be an even multiple of the burst
 								size.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
-        namespace BurstpowerValC{
-        }
         ///Source Burst Wrap. When enabled, the source data address
 								for the DMA is wrapped, meaning that the source address range for
 								each burst will be the same. As an example, this could be used to
@@ -411,8 +379,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,SrcburstwrapVal> srcburstwrap{}; 
         namespace SrcburstwrapValC{
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
         ///Destination Burst Wrap. When enabled, the destination data
 								address for the DMA is wrapped, meaning that the destination address
@@ -428,15 +396,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DstburstwrapVal> dstburstwrap{}; 
         namespace DstburstwrapValC{
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
         }
         ///Priority of this channel when multiple DMA requests are
 								pending. Eight priority levels are supported. 0x0 = highest
 								priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
-        namespace ChpriorityValC{
-        }
     }
     namespace Nonecfg2{    ///<Configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004420,0xfff8308c,0,unsigned>;
@@ -453,8 +419,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PeriphreqenVal> periphreqen{}; 
         namespace PeriphreqenValC{
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
@@ -464,8 +430,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HwtrigenVal> hwtrigen{}; 
         namespace HwtrigenValC{
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
         ///Trigger Polarity. Selects the polarity of a hardware
 								trigger for this channel.
@@ -479,8 +445,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TrigpolVal> trigpol{}; 
         namespace TrigpolValC{
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeLowFalling> activeLowFalling{};
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeHighRising> activeHighRising{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
         ///Trigger Type. Selects hardware trigger as edge triggered or
 								level triggered.
@@ -500,8 +466,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TrigtypeVal> trigtype{}; 
         namespace TrigtypeValC{
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::edge> edge{};
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::level> level{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
         ///Trigger Burst. Selects whether hardware triggers cause a
 								single or burst transfer.
@@ -517,8 +483,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigburstVal> trigburst{}; 
         namespace TrigburstValC{
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::singleTransfer> singleTransfer{};
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::burstTransfer> burstTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
         ///Burst Power is used in two ways. It always selects the
 								address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are
@@ -534,8 +500,6 @@ namespace Kvasir {
 								XFERCFG register must be an even multiple of the burst
 								size.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
-        namespace BurstpowerValC{
-        }
         ///Source Burst Wrap. When enabled, the source data address
 								for the DMA is wrapped, meaning that the source address range for
 								each burst will be the same. As an example, this could be used to
@@ -550,8 +514,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,SrcburstwrapVal> srcburstwrap{}; 
         namespace SrcburstwrapValC{
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
         ///Destination Burst Wrap. When enabled, the destination data
 								address for the DMA is wrapped, meaning that the destination address
@@ -567,15 +531,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DstburstwrapVal> dstburstwrap{}; 
         namespace DstburstwrapValC{
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
         }
         ///Priority of this channel when multiple DMA requests are
 								pending. Eight priority levels are supported. 0x0 = highest
 								priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
-        namespace ChpriorityValC{
-        }
     }
     namespace Nonecfg3{    ///<Configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004430,0xfff8308c,0,unsigned>;
@@ -592,8 +554,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PeriphreqenVal> periphreqen{}; 
         namespace PeriphreqenValC{
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
@@ -603,8 +565,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HwtrigenVal> hwtrigen{}; 
         namespace HwtrigenValC{
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
         ///Trigger Polarity. Selects the polarity of a hardware
 								trigger for this channel.
@@ -618,8 +580,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TrigpolVal> trigpol{}; 
         namespace TrigpolValC{
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeLowFalling> activeLowFalling{};
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeHighRising> activeHighRising{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
         ///Trigger Type. Selects hardware trigger as edge triggered or
 								level triggered.
@@ -639,8 +601,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TrigtypeVal> trigtype{}; 
         namespace TrigtypeValC{
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::edge> edge{};
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::level> level{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
         ///Trigger Burst. Selects whether hardware triggers cause a
 								single or burst transfer.
@@ -656,8 +618,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigburstVal> trigburst{}; 
         namespace TrigburstValC{
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::singleTransfer> singleTransfer{};
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::burstTransfer> burstTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
         ///Burst Power is used in two ways. It always selects the
 								address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are
@@ -673,8 +635,6 @@ namespace Kvasir {
 								XFERCFG register must be an even multiple of the burst
 								size.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
-        namespace BurstpowerValC{
-        }
         ///Source Burst Wrap. When enabled, the source data address
 								for the DMA is wrapped, meaning that the source address range for
 								each burst will be the same. As an example, this could be used to
@@ -689,8 +649,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,SrcburstwrapVal> srcburstwrap{}; 
         namespace SrcburstwrapValC{
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
         ///Destination Burst Wrap. When enabled, the destination data
 								address for the DMA is wrapped, meaning that the destination address
@@ -706,15 +666,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DstburstwrapVal> dstburstwrap{}; 
         namespace DstburstwrapValC{
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
         }
         ///Priority of this channel when multiple DMA requests are
 								pending. Eight priority levels are supported. 0x0 = highest
 								priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
-        namespace ChpriorityValC{
-        }
     }
     namespace Nonecfg4{    ///<Configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004440,0xfff8308c,0,unsigned>;
@@ -731,8 +689,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PeriphreqenVal> periphreqen{}; 
         namespace PeriphreqenValC{
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
@@ -742,8 +700,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HwtrigenVal> hwtrigen{}; 
         namespace HwtrigenValC{
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
         ///Trigger Polarity. Selects the polarity of a hardware
 								trigger for this channel.
@@ -757,8 +715,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TrigpolVal> trigpol{}; 
         namespace TrigpolValC{
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeLowFalling> activeLowFalling{};
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeHighRising> activeHighRising{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
         ///Trigger Type. Selects hardware trigger as edge triggered or
 								level triggered.
@@ -778,8 +736,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TrigtypeVal> trigtype{}; 
         namespace TrigtypeValC{
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::edge> edge{};
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::level> level{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
         ///Trigger Burst. Selects whether hardware triggers cause a
 								single or burst transfer.
@@ -795,8 +753,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigburstVal> trigburst{}; 
         namespace TrigburstValC{
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::singleTransfer> singleTransfer{};
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::burstTransfer> burstTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
         ///Burst Power is used in two ways. It always selects the
 								address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are
@@ -812,8 +770,6 @@ namespace Kvasir {
 								XFERCFG register must be an even multiple of the burst
 								size.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
-        namespace BurstpowerValC{
-        }
         ///Source Burst Wrap. When enabled, the source data address
 								for the DMA is wrapped, meaning that the source address range for
 								each burst will be the same. As an example, this could be used to
@@ -828,8 +784,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,SrcburstwrapVal> srcburstwrap{}; 
         namespace SrcburstwrapValC{
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
         ///Destination Burst Wrap. When enabled, the destination data
 								address for the DMA is wrapped, meaning that the destination address
@@ -845,15 +801,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DstburstwrapVal> dstburstwrap{}; 
         namespace DstburstwrapValC{
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
         }
         ///Priority of this channel when multiple DMA requests are
 								pending. Eight priority levels are supported. 0x0 = highest
 								priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
-        namespace ChpriorityValC{
-        }
     }
     namespace Nonecfg5{    ///<Configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004450,0xfff8308c,0,unsigned>;
@@ -870,8 +824,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PeriphreqenVal> periphreqen{}; 
         namespace PeriphreqenValC{
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
@@ -881,8 +835,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HwtrigenVal> hwtrigen{}; 
         namespace HwtrigenValC{
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
         ///Trigger Polarity. Selects the polarity of a hardware
 								trigger for this channel.
@@ -896,8 +850,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TrigpolVal> trigpol{}; 
         namespace TrigpolValC{
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeLowFalling> activeLowFalling{};
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeHighRising> activeHighRising{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
         ///Trigger Type. Selects hardware trigger as edge triggered or
 								level triggered.
@@ -917,8 +871,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TrigtypeVal> trigtype{}; 
         namespace TrigtypeValC{
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::edge> edge{};
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::level> level{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
         ///Trigger Burst. Selects whether hardware triggers cause a
 								single or burst transfer.
@@ -934,8 +888,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigburstVal> trigburst{}; 
         namespace TrigburstValC{
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::singleTransfer> singleTransfer{};
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::burstTransfer> burstTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
         ///Burst Power is used in two ways. It always selects the
 								address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are
@@ -951,8 +905,6 @@ namespace Kvasir {
 								XFERCFG register must be an even multiple of the burst
 								size.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
-        namespace BurstpowerValC{
-        }
         ///Source Burst Wrap. When enabled, the source data address
 								for the DMA is wrapped, meaning that the source address range for
 								each burst will be the same. As an example, this could be used to
@@ -967,8 +919,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,SrcburstwrapVal> srcburstwrap{}; 
         namespace SrcburstwrapValC{
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
         ///Destination Burst Wrap. When enabled, the destination data
 								address for the DMA is wrapped, meaning that the destination address
@@ -984,15 +936,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DstburstwrapVal> dstburstwrap{}; 
         namespace DstburstwrapValC{
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
         }
         ///Priority of this channel when multiple DMA requests are
 								pending. Eight priority levels are supported. 0x0 = highest
 								priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
-        namespace ChpriorityValC{
-        }
     }
     namespace Nonecfg6{    ///<Configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004460,0xfff8308c,0,unsigned>;
@@ -1009,8 +959,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PeriphreqenVal> periphreqen{}; 
         namespace PeriphreqenValC{
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
@@ -1020,8 +970,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HwtrigenVal> hwtrigen{}; 
         namespace HwtrigenValC{
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
         ///Trigger Polarity. Selects the polarity of a hardware
 								trigger for this channel.
@@ -1035,8 +985,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TrigpolVal> trigpol{}; 
         namespace TrigpolValC{
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeLowFalling> activeLowFalling{};
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeHighRising> activeHighRising{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
         ///Trigger Type. Selects hardware trigger as edge triggered or
 								level triggered.
@@ -1056,8 +1006,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TrigtypeVal> trigtype{}; 
         namespace TrigtypeValC{
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::edge> edge{};
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::level> level{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
         ///Trigger Burst. Selects whether hardware triggers cause a
 								single or burst transfer.
@@ -1073,8 +1023,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigburstVal> trigburst{}; 
         namespace TrigburstValC{
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::singleTransfer> singleTransfer{};
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::burstTransfer> burstTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
         ///Burst Power is used in two ways. It always selects the
 								address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are
@@ -1090,8 +1040,6 @@ namespace Kvasir {
 								XFERCFG register must be an even multiple of the burst
 								size.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
-        namespace BurstpowerValC{
-        }
         ///Source Burst Wrap. When enabled, the source data address
 								for the DMA is wrapped, meaning that the source address range for
 								each burst will be the same. As an example, this could be used to
@@ -1106,8 +1054,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,SrcburstwrapVal> srcburstwrap{}; 
         namespace SrcburstwrapValC{
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
         ///Destination Burst Wrap. When enabled, the destination data
 								address for the DMA is wrapped, meaning that the destination address
@@ -1123,15 +1071,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DstburstwrapVal> dstburstwrap{}; 
         namespace DstburstwrapValC{
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
         }
         ///Priority of this channel when multiple DMA requests are
 								pending. Eight priority levels are supported. 0x0 = highest
 								priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
-        namespace ChpriorityValC{
-        }
     }
     namespace Nonecfg7{    ///<Configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004470,0xfff8308c,0,unsigned>;
@@ -1148,8 +1094,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PeriphreqenVal> periphreqen{}; 
         namespace PeriphreqenValC{
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
@@ -1159,8 +1105,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HwtrigenVal> hwtrigen{}; 
         namespace HwtrigenValC{
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
         ///Trigger Polarity. Selects the polarity of a hardware
 								trigger for this channel.
@@ -1174,8 +1120,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TrigpolVal> trigpol{}; 
         namespace TrigpolValC{
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeLowFalling> activeLowFalling{};
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeHighRising> activeHighRising{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
         ///Trigger Type. Selects hardware trigger as edge triggered or
 								level triggered.
@@ -1195,8 +1141,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TrigtypeVal> trigtype{}; 
         namespace TrigtypeValC{
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::edge> edge{};
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::level> level{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
         ///Trigger Burst. Selects whether hardware triggers cause a
 								single or burst transfer.
@@ -1212,8 +1158,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigburstVal> trigburst{}; 
         namespace TrigburstValC{
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::singleTransfer> singleTransfer{};
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::burstTransfer> burstTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
         ///Burst Power is used in two ways. It always selects the
 								address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are
@@ -1229,8 +1175,6 @@ namespace Kvasir {
 								XFERCFG register must be an even multiple of the burst
 								size.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
-        namespace BurstpowerValC{
-        }
         ///Source Burst Wrap. When enabled, the source data address
 								for the DMA is wrapped, meaning that the source address range for
 								each burst will be the same. As an example, this could be used to
@@ -1245,8 +1189,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,SrcburstwrapVal> srcburstwrap{}; 
         namespace SrcburstwrapValC{
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
         ///Destination Burst Wrap. When enabled, the destination data
 								address for the DMA is wrapped, meaning that the destination address
@@ -1262,15 +1206,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DstburstwrapVal> dstburstwrap{}; 
         namespace DstburstwrapValC{
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
         }
         ///Priority of this channel when multiple DMA requests are
 								pending. Eight priority levels are supported. 0x0 = highest
 								priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
-        namespace ChpriorityValC{
-        }
     }
     namespace Nonecfg8{    ///<Configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004480,0xfff8308c,0,unsigned>;
@@ -1287,8 +1229,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PeriphreqenVal> periphreqen{}; 
         namespace PeriphreqenValC{
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
@@ -1298,8 +1240,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HwtrigenVal> hwtrigen{}; 
         namespace HwtrigenValC{
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
         ///Trigger Polarity. Selects the polarity of a hardware
 								trigger for this channel.
@@ -1313,8 +1255,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TrigpolVal> trigpol{}; 
         namespace TrigpolValC{
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeLowFalling> activeLowFalling{};
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeHighRising> activeHighRising{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
         ///Trigger Type. Selects hardware trigger as edge triggered or
 								level triggered.
@@ -1334,8 +1276,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TrigtypeVal> trigtype{}; 
         namespace TrigtypeValC{
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::edge> edge{};
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::level> level{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
         ///Trigger Burst. Selects whether hardware triggers cause a
 								single or burst transfer.
@@ -1351,8 +1293,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigburstVal> trigburst{}; 
         namespace TrigburstValC{
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::singleTransfer> singleTransfer{};
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::burstTransfer> burstTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
         ///Burst Power is used in two ways. It always selects the
 								address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are
@@ -1368,8 +1310,6 @@ namespace Kvasir {
 								XFERCFG register must be an even multiple of the burst
 								size.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
-        namespace BurstpowerValC{
-        }
         ///Source Burst Wrap. When enabled, the source data address
 								for the DMA is wrapped, meaning that the source address range for
 								each burst will be the same. As an example, this could be used to
@@ -1384,8 +1324,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,SrcburstwrapVal> srcburstwrap{}; 
         namespace SrcburstwrapValC{
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
         ///Destination Burst Wrap. When enabled, the destination data
 								address for the DMA is wrapped, meaning that the destination address
@@ -1401,15 +1341,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DstburstwrapVal> dstburstwrap{}; 
         namespace DstburstwrapValC{
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
         }
         ///Priority of this channel when multiple DMA requests are
 								pending. Eight priority levels are supported. 0x0 = highest
 								priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
-        namespace ChpriorityValC{
-        }
     }
     namespace Nonecfg9{    ///<Configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004490,0xfff8308c,0,unsigned>;
@@ -1426,8 +1364,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PeriphreqenVal> periphreqen{}; 
         namespace PeriphreqenValC{
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
@@ -1437,8 +1375,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HwtrigenVal> hwtrigen{}; 
         namespace HwtrigenValC{
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
         ///Trigger Polarity. Selects the polarity of a hardware
 								trigger for this channel.
@@ -1452,8 +1390,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TrigpolVal> trigpol{}; 
         namespace TrigpolValC{
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeLowFalling> activeLowFalling{};
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeHighRising> activeHighRising{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
         ///Trigger Type. Selects hardware trigger as edge triggered or
 								level triggered.
@@ -1473,8 +1411,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TrigtypeVal> trigtype{}; 
         namespace TrigtypeValC{
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::edge> edge{};
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::level> level{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
         ///Trigger Burst. Selects whether hardware triggers cause a
 								single or burst transfer.
@@ -1490,8 +1428,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigburstVal> trigburst{}; 
         namespace TrigburstValC{
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::singleTransfer> singleTransfer{};
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::burstTransfer> burstTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
         ///Burst Power is used in two ways. It always selects the
 								address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are
@@ -1507,8 +1445,6 @@ namespace Kvasir {
 								XFERCFG register must be an even multiple of the burst
 								size.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
-        namespace BurstpowerValC{
-        }
         ///Source Burst Wrap. When enabled, the source data address
 								for the DMA is wrapped, meaning that the source address range for
 								each burst will be the same. As an example, this could be used to
@@ -1523,8 +1459,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,SrcburstwrapVal> srcburstwrap{}; 
         namespace SrcburstwrapValC{
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
         ///Destination Burst Wrap. When enabled, the destination data
 								address for the DMA is wrapped, meaning that the destination address
@@ -1540,15 +1476,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DstburstwrapVal> dstburstwrap{}; 
         namespace DstburstwrapValC{
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
         }
         ///Priority of this channel when multiple DMA requests are
 								pending. Eight priority levels are supported. 0x0 = highest
 								priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
-        namespace ChpriorityValC{
-        }
     }
     namespace Nonecfg10{    ///<Configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c0044a0,0xfff8308c,0,unsigned>;
@@ -1565,8 +1499,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PeriphreqenVal> periphreqen{}; 
         namespace PeriphreqenValC{
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
@@ -1576,8 +1510,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HwtrigenVal> hwtrigen{}; 
         namespace HwtrigenValC{
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
         ///Trigger Polarity. Selects the polarity of a hardware
 								trigger for this channel.
@@ -1591,8 +1525,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TrigpolVal> trigpol{}; 
         namespace TrigpolValC{
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeLowFalling> activeLowFalling{};
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeHighRising> activeHighRising{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
         ///Trigger Type. Selects hardware trigger as edge triggered or
 								level triggered.
@@ -1612,8 +1546,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TrigtypeVal> trigtype{}; 
         namespace TrigtypeValC{
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::edge> edge{};
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::level> level{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
         ///Trigger Burst. Selects whether hardware triggers cause a
 								single or burst transfer.
@@ -1629,8 +1563,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigburstVal> trigburst{}; 
         namespace TrigburstValC{
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::singleTransfer> singleTransfer{};
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::burstTransfer> burstTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
         ///Burst Power is used in two ways. It always selects the
 								address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are
@@ -1646,8 +1580,6 @@ namespace Kvasir {
 								XFERCFG register must be an even multiple of the burst
 								size.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
-        namespace BurstpowerValC{
-        }
         ///Source Burst Wrap. When enabled, the source data address
 								for the DMA is wrapped, meaning that the source address range for
 								each burst will be the same. As an example, this could be used to
@@ -1662,8 +1594,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,SrcburstwrapVal> srcburstwrap{}; 
         namespace SrcburstwrapValC{
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
         ///Destination Burst Wrap. When enabled, the destination data
 								address for the DMA is wrapped, meaning that the destination address
@@ -1679,15 +1611,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DstburstwrapVal> dstburstwrap{}; 
         namespace DstburstwrapValC{
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
         }
         ///Priority of this channel when multiple DMA requests are
 								pending. Eight priority levels are supported. 0x0 = highest
 								priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
-        namespace ChpriorityValC{
-        }
     }
     namespace Nonecfg11{    ///<Configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c0044b0,0xfff8308c,0,unsigned>;
@@ -1704,8 +1634,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PeriphreqenVal> periphreqen{}; 
         namespace PeriphreqenValC{
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
@@ -1715,8 +1645,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HwtrigenVal> hwtrigen{}; 
         namespace HwtrigenValC{
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
         ///Trigger Polarity. Selects the polarity of a hardware
 								trigger for this channel.
@@ -1730,8 +1660,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TrigpolVal> trigpol{}; 
         namespace TrigpolValC{
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeLowFalling> activeLowFalling{};
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeHighRising> activeHighRising{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
         ///Trigger Type. Selects hardware trigger as edge triggered or
 								level triggered.
@@ -1751,8 +1681,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TrigtypeVal> trigtype{}; 
         namespace TrigtypeValC{
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::edge> edge{};
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::level> level{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
         ///Trigger Burst. Selects whether hardware triggers cause a
 								single or burst transfer.
@@ -1768,8 +1698,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigburstVal> trigburst{}; 
         namespace TrigburstValC{
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::singleTransfer> singleTransfer{};
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::burstTransfer> burstTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
         ///Burst Power is used in two ways. It always selects the
 								address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are
@@ -1785,8 +1715,6 @@ namespace Kvasir {
 								XFERCFG register must be an even multiple of the burst
 								size.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
-        namespace BurstpowerValC{
-        }
         ///Source Burst Wrap. When enabled, the source data address
 								for the DMA is wrapped, meaning that the source address range for
 								each burst will be the same. As an example, this could be used to
@@ -1801,8 +1729,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,SrcburstwrapVal> srcburstwrap{}; 
         namespace SrcburstwrapValC{
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
         ///Destination Burst Wrap. When enabled, the destination data
 								address for the DMA is wrapped, meaning that the destination address
@@ -1818,15 +1746,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DstburstwrapVal> dstburstwrap{}; 
         namespace DstburstwrapValC{
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
         }
         ///Priority of this channel when multiple DMA requests are
 								pending. Eight priority levels are supported. 0x0 = highest
 								priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
-        namespace ChpriorityValC{
-        }
     }
     namespace Nonecfg12{    ///<Configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c0044c0,0xfff8308c,0,unsigned>;
@@ -1843,8 +1769,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PeriphreqenVal> periphreqen{}; 
         namespace PeriphreqenValC{
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
@@ -1854,8 +1780,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HwtrigenVal> hwtrigen{}; 
         namespace HwtrigenValC{
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
         ///Trigger Polarity. Selects the polarity of a hardware
 								trigger for this channel.
@@ -1869,8 +1795,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TrigpolVal> trigpol{}; 
         namespace TrigpolValC{
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeLowFalling> activeLowFalling{};
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeHighRising> activeHighRising{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
         ///Trigger Type. Selects hardware trigger as edge triggered or
 								level triggered.
@@ -1890,8 +1816,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TrigtypeVal> trigtype{}; 
         namespace TrigtypeValC{
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::edge> edge{};
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::level> level{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
         ///Trigger Burst. Selects whether hardware triggers cause a
 								single or burst transfer.
@@ -1907,8 +1833,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigburstVal> trigburst{}; 
         namespace TrigburstValC{
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::singleTransfer> singleTransfer{};
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::burstTransfer> burstTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
         ///Burst Power is used in two ways. It always selects the
 								address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are
@@ -1924,8 +1850,6 @@ namespace Kvasir {
 								XFERCFG register must be an even multiple of the burst
 								size.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
-        namespace BurstpowerValC{
-        }
         ///Source Burst Wrap. When enabled, the source data address
 								for the DMA is wrapped, meaning that the source address range for
 								each burst will be the same. As an example, this could be used to
@@ -1940,8 +1864,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,SrcburstwrapVal> srcburstwrap{}; 
         namespace SrcburstwrapValC{
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
         ///Destination Burst Wrap. When enabled, the destination data
 								address for the DMA is wrapped, meaning that the destination address
@@ -1957,15 +1881,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DstburstwrapVal> dstburstwrap{}; 
         namespace DstburstwrapValC{
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
         }
         ///Priority of this channel when multiple DMA requests are
 								pending. Eight priority levels are supported. 0x0 = highest
 								priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
-        namespace ChpriorityValC{
-        }
     }
     namespace Nonecfg13{    ///<Configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c0044d0,0xfff8308c,0,unsigned>;
@@ -1982,8 +1904,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PeriphreqenVal> periphreqen{}; 
         namespace PeriphreqenValC{
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
@@ -1993,8 +1915,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HwtrigenVal> hwtrigen{}; 
         namespace HwtrigenValC{
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
         ///Trigger Polarity. Selects the polarity of a hardware
 								trigger for this channel.
@@ -2008,8 +1930,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TrigpolVal> trigpol{}; 
         namespace TrigpolValC{
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeLowFalling> activeLowFalling{};
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeHighRising> activeHighRising{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
         ///Trigger Type. Selects hardware trigger as edge triggered or
 								level triggered.
@@ -2029,8 +1951,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TrigtypeVal> trigtype{}; 
         namespace TrigtypeValC{
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::edge> edge{};
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::level> level{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
         ///Trigger Burst. Selects whether hardware triggers cause a
 								single or burst transfer.
@@ -2046,8 +1968,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigburstVal> trigburst{}; 
         namespace TrigburstValC{
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::singleTransfer> singleTransfer{};
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::burstTransfer> burstTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
         ///Burst Power is used in two ways. It always selects the
 								address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are
@@ -2063,8 +1985,6 @@ namespace Kvasir {
 								XFERCFG register must be an even multiple of the burst
 								size.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
-        namespace BurstpowerValC{
-        }
         ///Source Burst Wrap. When enabled, the source data address
 								for the DMA is wrapped, meaning that the source address range for
 								each burst will be the same. As an example, this could be used to
@@ -2079,8 +1999,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,SrcburstwrapVal> srcburstwrap{}; 
         namespace SrcburstwrapValC{
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
         ///Destination Burst Wrap. When enabled, the destination data
 								address for the DMA is wrapped, meaning that the destination address
@@ -2096,15 +2016,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DstburstwrapVal> dstburstwrap{}; 
         namespace DstburstwrapValC{
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
         }
         ///Priority of this channel when multiple DMA requests are
 								pending. Eight priority levels are supported. 0x0 = highest
 								priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
-        namespace ChpriorityValC{
-        }
     }
     namespace Nonecfg14{    ///<Configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c0044e0,0xfff8308c,0,unsigned>;
@@ -2121,8 +2039,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PeriphreqenVal> periphreqen{}; 
         namespace PeriphreqenValC{
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
@@ -2132,8 +2050,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HwtrigenVal> hwtrigen{}; 
         namespace HwtrigenValC{
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
         ///Trigger Polarity. Selects the polarity of a hardware
 								trigger for this channel.
@@ -2147,8 +2065,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TrigpolVal> trigpol{}; 
         namespace TrigpolValC{
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeLowFalling> activeLowFalling{};
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeHighRising> activeHighRising{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
         ///Trigger Type. Selects hardware trigger as edge triggered or
 								level triggered.
@@ -2168,8 +2086,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TrigtypeVal> trigtype{}; 
         namespace TrigtypeValC{
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::edge> edge{};
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::level> level{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
         ///Trigger Burst. Selects whether hardware triggers cause a
 								single or burst transfer.
@@ -2185,8 +2103,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigburstVal> trigburst{}; 
         namespace TrigburstValC{
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::singleTransfer> singleTransfer{};
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::burstTransfer> burstTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
         ///Burst Power is used in two ways. It always selects the
 								address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are
@@ -2202,8 +2120,6 @@ namespace Kvasir {
 								XFERCFG register must be an even multiple of the burst
 								size.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
-        namespace BurstpowerValC{
-        }
         ///Source Burst Wrap. When enabled, the source data address
 								for the DMA is wrapped, meaning that the source address range for
 								each burst will be the same. As an example, this could be used to
@@ -2218,8 +2134,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,SrcburstwrapVal> srcburstwrap{}; 
         namespace SrcburstwrapValC{
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
         ///Destination Burst Wrap. When enabled, the destination data
 								address for the DMA is wrapped, meaning that the destination address
@@ -2235,15 +2151,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DstburstwrapVal> dstburstwrap{}; 
         namespace DstburstwrapValC{
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
         }
         ///Priority of this channel when multiple DMA requests are
 								pending. Eight priority levels are supported. 0x0 = highest
 								priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
-        namespace ChpriorityValC{
-        }
     }
     namespace Nonecfg15{    ///<Configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c0044f0,0xfff8308c,0,unsigned>;
@@ -2260,8 +2174,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PeriphreqenVal> periphreqen{}; 
         namespace PeriphreqenValC{
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
@@ -2271,8 +2185,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HwtrigenVal> hwtrigen{}; 
         namespace HwtrigenValC{
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
         ///Trigger Polarity. Selects the polarity of a hardware
 								trigger for this channel.
@@ -2286,8 +2200,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TrigpolVal> trigpol{}; 
         namespace TrigpolValC{
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeLowFalling> activeLowFalling{};
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeHighRising> activeHighRising{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
         ///Trigger Type. Selects hardware trigger as edge triggered or
 								level triggered.
@@ -2307,8 +2221,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TrigtypeVal> trigtype{}; 
         namespace TrigtypeValC{
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::edge> edge{};
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::level> level{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
         ///Trigger Burst. Selects whether hardware triggers cause a
 								single or burst transfer.
@@ -2324,8 +2238,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigburstVal> trigburst{}; 
         namespace TrigburstValC{
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::singleTransfer> singleTransfer{};
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::burstTransfer> burstTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
         ///Burst Power is used in two ways. It always selects the
 								address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are
@@ -2341,8 +2255,6 @@ namespace Kvasir {
 								XFERCFG register must be an even multiple of the burst
 								size.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
-        namespace BurstpowerValC{
-        }
         ///Source Burst Wrap. When enabled, the source data address
 								for the DMA is wrapped, meaning that the source address range for
 								each burst will be the same. As an example, this could be used to
@@ -2357,8 +2269,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,SrcburstwrapVal> srcburstwrap{}; 
         namespace SrcburstwrapValC{
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
         ///Destination Burst Wrap. When enabled, the destination data
 								address for the DMA is wrapped, meaning that the destination address
@@ -2374,15 +2286,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DstburstwrapVal> dstburstwrap{}; 
         namespace DstburstwrapValC{
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
         }
         ///Priority of this channel when multiple DMA requests are
 								pending. Eight priority levels are supported. 0x0 = highest
 								priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
-        namespace ChpriorityValC{
-        }
     }
     namespace Nonecfg16{    ///<Configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004500,0xfff8308c,0,unsigned>;
@@ -2399,8 +2309,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PeriphreqenVal> periphreqen{}; 
         namespace PeriphreqenValC{
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
@@ -2410,8 +2320,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HwtrigenVal> hwtrigen{}; 
         namespace HwtrigenValC{
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
         ///Trigger Polarity. Selects the polarity of a hardware
 								trigger for this channel.
@@ -2425,8 +2335,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TrigpolVal> trigpol{}; 
         namespace TrigpolValC{
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeLowFalling> activeLowFalling{};
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeHighRising> activeHighRising{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
         ///Trigger Type. Selects hardware trigger as edge triggered or
 								level triggered.
@@ -2446,8 +2356,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TrigtypeVal> trigtype{}; 
         namespace TrigtypeValC{
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::edge> edge{};
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::level> level{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
         ///Trigger Burst. Selects whether hardware triggers cause a
 								single or burst transfer.
@@ -2463,8 +2373,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigburstVal> trigburst{}; 
         namespace TrigburstValC{
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::singleTransfer> singleTransfer{};
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::burstTransfer> burstTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
         ///Burst Power is used in two ways. It always selects the
 								address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are
@@ -2480,8 +2390,6 @@ namespace Kvasir {
 								XFERCFG register must be an even multiple of the burst
 								size.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
-        namespace BurstpowerValC{
-        }
         ///Source Burst Wrap. When enabled, the source data address
 								for the DMA is wrapped, meaning that the source address range for
 								each burst will be the same. As an example, this could be used to
@@ -2496,8 +2404,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,SrcburstwrapVal> srcburstwrap{}; 
         namespace SrcburstwrapValC{
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
         ///Destination Burst Wrap. When enabled, the destination data
 								address for the DMA is wrapped, meaning that the destination address
@@ -2513,15 +2421,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DstburstwrapVal> dstburstwrap{}; 
         namespace DstburstwrapValC{
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
         }
         ///Priority of this channel when multiple DMA requests are
 								pending. Eight priority levels are supported. 0x0 = highest
 								priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
-        namespace ChpriorityValC{
-        }
     }
     namespace Nonecfg17{    ///<Configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004510,0xfff8308c,0,unsigned>;
@@ -2538,8 +2444,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PeriphreqenVal> periphreqen{}; 
         namespace PeriphreqenValC{
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
@@ -2549,8 +2455,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HwtrigenVal> hwtrigen{}; 
         namespace HwtrigenValC{
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
         ///Trigger Polarity. Selects the polarity of a hardware
 								trigger for this channel.
@@ -2564,8 +2470,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TrigpolVal> trigpol{}; 
         namespace TrigpolValC{
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeLowFalling> activeLowFalling{};
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeHighRising> activeHighRising{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
         ///Trigger Type. Selects hardware trigger as edge triggered or
 								level triggered.
@@ -2585,8 +2491,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TrigtypeVal> trigtype{}; 
         namespace TrigtypeValC{
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::edge> edge{};
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::level> level{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
         ///Trigger Burst. Selects whether hardware triggers cause a
 								single or burst transfer.
@@ -2602,8 +2508,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigburstVal> trigburst{}; 
         namespace TrigburstValC{
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::singleTransfer> singleTransfer{};
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::burstTransfer> burstTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
         ///Burst Power is used in two ways. It always selects the
 								address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are
@@ -2619,8 +2525,6 @@ namespace Kvasir {
 								XFERCFG register must be an even multiple of the burst
 								size.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
-        namespace BurstpowerValC{
-        }
         ///Source Burst Wrap. When enabled, the source data address
 								for the DMA is wrapped, meaning that the source address range for
 								each burst will be the same. As an example, this could be used to
@@ -2635,8 +2539,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,SrcburstwrapVal> srcburstwrap{}; 
         namespace SrcburstwrapValC{
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
         ///Destination Burst Wrap. When enabled, the destination data
 								address for the DMA is wrapped, meaning that the destination address
@@ -2652,15 +2556,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DstburstwrapVal> dstburstwrap{}; 
         namespace DstburstwrapValC{
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
         }
         ///Priority of this channel when multiple DMA requests are
 								pending. Eight priority levels are supported. 0x0 = highest
 								priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
-        namespace ChpriorityValC{
-        }
     }
     namespace Nonecfg18{    ///<Configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004520,0xfff8308c,0,unsigned>;
@@ -2677,8 +2579,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PeriphreqenVal> periphreqen{}; 
         namespace PeriphreqenValC{
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
@@ -2688,8 +2590,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HwtrigenVal> hwtrigen{}; 
         namespace HwtrigenValC{
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
         ///Trigger Polarity. Selects the polarity of a hardware
 								trigger for this channel.
@@ -2703,8 +2605,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TrigpolVal> trigpol{}; 
         namespace TrigpolValC{
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeLowFalling> activeLowFalling{};
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeHighRising> activeHighRising{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
         ///Trigger Type. Selects hardware trigger as edge triggered or
 								level triggered.
@@ -2724,8 +2626,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TrigtypeVal> trigtype{}; 
         namespace TrigtypeValC{
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::edge> edge{};
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::level> level{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
         ///Trigger Burst. Selects whether hardware triggers cause a
 								single or burst transfer.
@@ -2741,8 +2643,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigburstVal> trigburst{}; 
         namespace TrigburstValC{
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::singleTransfer> singleTransfer{};
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::burstTransfer> burstTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
         ///Burst Power is used in two ways. It always selects the
 								address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are
@@ -2758,8 +2660,6 @@ namespace Kvasir {
 								XFERCFG register must be an even multiple of the burst
 								size.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
-        namespace BurstpowerValC{
-        }
         ///Source Burst Wrap. When enabled, the source data address
 								for the DMA is wrapped, meaning that the source address range for
 								each burst will be the same. As an example, this could be used to
@@ -2774,8 +2674,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,SrcburstwrapVal> srcburstwrap{}; 
         namespace SrcburstwrapValC{
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
         ///Destination Burst Wrap. When enabled, the destination data
 								address for the DMA is wrapped, meaning that the destination address
@@ -2791,15 +2691,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DstburstwrapVal> dstburstwrap{}; 
         namespace DstburstwrapValC{
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
         }
         ///Priority of this channel when multiple DMA requests are
 								pending. Eight priority levels are supported. 0x0 = highest
 								priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
-        namespace ChpriorityValC{
-        }
     }
     namespace Nonecfg19{    ///<Configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004530,0xfff8308c,0,unsigned>;
@@ -2816,8 +2714,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PeriphreqenVal> periphreqen{}; 
         namespace PeriphreqenValC{
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
@@ -2827,8 +2725,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HwtrigenVal> hwtrigen{}; 
         namespace HwtrigenValC{
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
         ///Trigger Polarity. Selects the polarity of a hardware
 								trigger for this channel.
@@ -2842,8 +2740,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TrigpolVal> trigpol{}; 
         namespace TrigpolValC{
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeLowFalling> activeLowFalling{};
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeHighRising> activeHighRising{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
         ///Trigger Type. Selects hardware trigger as edge triggered or
 								level triggered.
@@ -2863,8 +2761,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TrigtypeVal> trigtype{}; 
         namespace TrigtypeValC{
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::edge> edge{};
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::level> level{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
         ///Trigger Burst. Selects whether hardware triggers cause a
 								single or burst transfer.
@@ -2880,8 +2778,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigburstVal> trigburst{}; 
         namespace TrigburstValC{
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::singleTransfer> singleTransfer{};
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::burstTransfer> burstTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
         ///Burst Power is used in two ways. It always selects the
 								address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are
@@ -2897,8 +2795,6 @@ namespace Kvasir {
 								XFERCFG register must be an even multiple of the burst
 								size.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
-        namespace BurstpowerValC{
-        }
         ///Source Burst Wrap. When enabled, the source data address
 								for the DMA is wrapped, meaning that the source address range for
 								each burst will be the same. As an example, this could be used to
@@ -2913,8 +2809,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,SrcburstwrapVal> srcburstwrap{}; 
         namespace SrcburstwrapValC{
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
         ///Destination Burst Wrap. When enabled, the destination data
 								address for the DMA is wrapped, meaning that the destination address
@@ -2930,15 +2826,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DstburstwrapVal> dstburstwrap{}; 
         namespace DstburstwrapValC{
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
         }
         ///Priority of this channel when multiple DMA requests are
 								pending. Eight priority levels are supported. 0x0 = highest
 								priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
-        namespace ChpriorityValC{
-        }
     }
     namespace Nonecfg20{    ///<Configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004540,0xfff8308c,0,unsigned>;
@@ -2955,8 +2849,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PeriphreqenVal> periphreqen{}; 
         namespace PeriphreqenValC{
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
@@ -2966,8 +2860,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HwtrigenVal> hwtrigen{}; 
         namespace HwtrigenValC{
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
         ///Trigger Polarity. Selects the polarity of a hardware
 								trigger for this channel.
@@ -2981,8 +2875,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TrigpolVal> trigpol{}; 
         namespace TrigpolValC{
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeLowFalling> activeLowFalling{};
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeHighRising> activeHighRising{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
         ///Trigger Type. Selects hardware trigger as edge triggered or
 								level triggered.
@@ -3002,8 +2896,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TrigtypeVal> trigtype{}; 
         namespace TrigtypeValC{
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::edge> edge{};
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::level> level{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
         ///Trigger Burst. Selects whether hardware triggers cause a
 								single or burst transfer.
@@ -3019,8 +2913,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigburstVal> trigburst{}; 
         namespace TrigburstValC{
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::singleTransfer> singleTransfer{};
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::burstTransfer> burstTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
         ///Burst Power is used in two ways. It always selects the
 								address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are
@@ -3036,8 +2930,6 @@ namespace Kvasir {
 								XFERCFG register must be an even multiple of the burst
 								size.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
-        namespace BurstpowerValC{
-        }
         ///Source Burst Wrap. When enabled, the source data address
 								for the DMA is wrapped, meaning that the source address range for
 								each burst will be the same. As an example, this could be used to
@@ -3052,8 +2944,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,SrcburstwrapVal> srcburstwrap{}; 
         namespace SrcburstwrapValC{
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
         ///Destination Burst Wrap. When enabled, the destination data
 								address for the DMA is wrapped, meaning that the destination address
@@ -3069,15 +2961,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DstburstwrapVal> dstburstwrap{}; 
         namespace DstburstwrapValC{
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
         }
         ///Priority of this channel when multiple DMA requests are
 								pending. Eight priority levels are supported. 0x0 = highest
 								priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
-        namespace ChpriorityValC{
-        }
     }
     namespace Nonecfg21{    ///<Configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004550,0xfff8308c,0,unsigned>;
@@ -3094,8 +2984,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PeriphreqenVal> periphreqen{}; 
         namespace PeriphreqenValC{
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(periphreqen),PeriphreqenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(periphreqen)::Type,PeriphreqenVal::enabled> enabled{};
         }
         ///Hardware Triggering Enable for this channel.
         enum class HwtrigenVal {
@@ -3105,8 +2995,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HwtrigenVal> hwtrigen{}; 
         namespace HwtrigenValC{
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hwtrigen),HwtrigenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hwtrigen)::Type,HwtrigenVal::enabled> enabled{};
         }
         ///Trigger Polarity. Selects the polarity of a hardware
 								trigger for this channel.
@@ -3120,8 +3010,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TrigpolVal> trigpol{}; 
         namespace TrigpolValC{
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeLowFalling> activeLowFalling{};
-            constexpr Register::FieldValue<decltype(trigpol),TrigpolVal::activeHighRising> activeHighRising{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeLowFalling> activeLowFalling{};
+            constexpr Register::FieldValue<decltype(trigpol)::Type,TrigpolVal::activeHighRising> activeHighRising{};
         }
         ///Trigger Type. Selects hardware trigger as edge triggered or
 								level triggered.
@@ -3141,8 +3031,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TrigtypeVal> trigtype{}; 
         namespace TrigtypeValC{
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::edge> edge{};
-            constexpr Register::FieldValue<decltype(trigtype),TrigtypeVal::level> level{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::edge> edge{};
+            constexpr Register::FieldValue<decltype(trigtype)::Type,TrigtypeVal::level> level{};
         }
         ///Trigger Burst. Selects whether hardware triggers cause a
 								single or burst transfer.
@@ -3158,8 +3048,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigburstVal> trigburst{}; 
         namespace TrigburstValC{
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::singleTransfer> singleTransfer{};
-            constexpr Register::FieldValue<decltype(trigburst),TrigburstVal::burstTransfer> burstTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::singleTransfer> singleTransfer{};
+            constexpr Register::FieldValue<decltype(trigburst)::Type,TrigburstVal::burstTransfer> burstTransfer{};
         }
         ///Burst Power is used in two ways. It always selects the
 								address wrap size when SRCBURSTWRAP and/or DSTBURSTWRAP modes are
@@ -3175,8 +3065,6 @@ namespace Kvasir {
 								XFERCFG register must be an even multiple of the burst
 								size.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> burstpower{}; 
-        namespace BurstpowerValC{
-        }
         ///Source Burst Wrap. When enabled, the source data address
 								for the DMA is wrapped, meaning that the source address range for
 								each burst will be the same. As an example, this could be used to
@@ -3191,8 +3079,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,SrcburstwrapVal> srcburstwrap{}; 
         namespace SrcburstwrapValC{
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(srcburstwrap),SrcburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(srcburstwrap)::Type,SrcburstwrapVal::enabled> enabled{};
         }
         ///Destination Burst Wrap. When enabled, the destination data
 								address for the DMA is wrapped, meaning that the destination address
@@ -3208,15 +3096,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DstburstwrapVal> dstburstwrap{}; 
         namespace DstburstwrapValC{
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dstburstwrap),DstburstwrapVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dstburstwrap)::Type,DstburstwrapVal::enabled> enabled{};
         }
         ///Priority of this channel when multiple DMA requests are
 								pending. Eight priority levels are supported. 0x0 = highest
 								priority. 0x7 = lowest priority.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> chpriority{}; 
-        namespace ChpriorityValC{
-        }
     }
     namespace Nonectlstat0{    ///<Control and status register for DMA channel 0.
         using Addr = Register::Address<0x1c004404,0xfffffffa,0,unsigned>;
@@ -3230,8 +3116,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValidpendingVal> validpending{}; 
         namespace ValidpendingValC{
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::validPending> validPending{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
         ///Trigger flag. Indicates that the trigger for this channel
 								is currently set. This bit is cleared at the end of an entire
@@ -3245,8 +3131,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig),TrigVal::notTriggered> notTriggered{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::triggered> triggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
     }
     namespace Nonectlstat1{    ///<Control and status register for DMA channel 0.
@@ -3261,8 +3147,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValidpendingVal> validpending{}; 
         namespace ValidpendingValC{
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::validPending> validPending{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
         ///Trigger flag. Indicates that the trigger for this channel
 								is currently set. This bit is cleared at the end of an entire
@@ -3276,8 +3162,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig),TrigVal::notTriggered> notTriggered{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::triggered> triggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
     }
     namespace Nonectlstat2{    ///<Control and status register for DMA channel 0.
@@ -3292,8 +3178,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValidpendingVal> validpending{}; 
         namespace ValidpendingValC{
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::validPending> validPending{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
         ///Trigger flag. Indicates that the trigger for this channel
 								is currently set. This bit is cleared at the end of an entire
@@ -3307,8 +3193,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig),TrigVal::notTriggered> notTriggered{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::triggered> triggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
     }
     namespace Nonectlstat3{    ///<Control and status register for DMA channel 0.
@@ -3323,8 +3209,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValidpendingVal> validpending{}; 
         namespace ValidpendingValC{
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::validPending> validPending{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
         ///Trigger flag. Indicates that the trigger for this channel
 								is currently set. This bit is cleared at the end of an entire
@@ -3338,8 +3224,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig),TrigVal::notTriggered> notTriggered{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::triggered> triggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
     }
     namespace Nonectlstat4{    ///<Control and status register for DMA channel 0.
@@ -3354,8 +3240,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValidpendingVal> validpending{}; 
         namespace ValidpendingValC{
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::validPending> validPending{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
         ///Trigger flag. Indicates that the trigger for this channel
 								is currently set. This bit is cleared at the end of an entire
@@ -3369,8 +3255,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig),TrigVal::notTriggered> notTriggered{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::triggered> triggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
     }
     namespace Nonectlstat5{    ///<Control and status register for DMA channel 0.
@@ -3385,8 +3271,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValidpendingVal> validpending{}; 
         namespace ValidpendingValC{
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::validPending> validPending{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
         ///Trigger flag. Indicates that the trigger for this channel
 								is currently set. This bit is cleared at the end of an entire
@@ -3400,8 +3286,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig),TrigVal::notTriggered> notTriggered{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::triggered> triggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
     }
     namespace Nonectlstat6{    ///<Control and status register for DMA channel 0.
@@ -3416,8 +3302,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValidpendingVal> validpending{}; 
         namespace ValidpendingValC{
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::validPending> validPending{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
         ///Trigger flag. Indicates that the trigger for this channel
 								is currently set. This bit is cleared at the end of an entire
@@ -3431,8 +3317,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig),TrigVal::notTriggered> notTriggered{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::triggered> triggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
     }
     namespace Nonectlstat7{    ///<Control and status register for DMA channel 0.
@@ -3447,8 +3333,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValidpendingVal> validpending{}; 
         namespace ValidpendingValC{
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::validPending> validPending{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
         ///Trigger flag. Indicates that the trigger for this channel
 								is currently set. This bit is cleared at the end of an entire
@@ -3462,8 +3348,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig),TrigVal::notTriggered> notTriggered{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::triggered> triggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
     }
     namespace Nonectlstat8{    ///<Control and status register for DMA channel 0.
@@ -3478,8 +3364,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValidpendingVal> validpending{}; 
         namespace ValidpendingValC{
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::validPending> validPending{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
         ///Trigger flag. Indicates that the trigger for this channel
 								is currently set. This bit is cleared at the end of an entire
@@ -3493,8 +3379,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig),TrigVal::notTriggered> notTriggered{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::triggered> triggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
     }
     namespace Nonectlstat9{    ///<Control and status register for DMA channel 0.
@@ -3509,8 +3395,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValidpendingVal> validpending{}; 
         namespace ValidpendingValC{
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::validPending> validPending{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
         ///Trigger flag. Indicates that the trigger for this channel
 								is currently set. This bit is cleared at the end of an entire
@@ -3524,8 +3410,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig),TrigVal::notTriggered> notTriggered{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::triggered> triggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
     }
     namespace Nonectlstat10{    ///<Control and status register for DMA channel 0.
@@ -3540,8 +3426,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValidpendingVal> validpending{}; 
         namespace ValidpendingValC{
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::validPending> validPending{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
         ///Trigger flag. Indicates that the trigger for this channel
 								is currently set. This bit is cleared at the end of an entire
@@ -3555,8 +3441,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig),TrigVal::notTriggered> notTriggered{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::triggered> triggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
     }
     namespace Nonectlstat11{    ///<Control and status register for DMA channel 0.
@@ -3571,8 +3457,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValidpendingVal> validpending{}; 
         namespace ValidpendingValC{
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::validPending> validPending{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
         ///Trigger flag. Indicates that the trigger for this channel
 								is currently set. This bit is cleared at the end of an entire
@@ -3586,8 +3472,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig),TrigVal::notTriggered> notTriggered{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::triggered> triggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
     }
     namespace Nonectlstat12{    ///<Control and status register for DMA channel 0.
@@ -3602,8 +3488,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValidpendingVal> validpending{}; 
         namespace ValidpendingValC{
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::validPending> validPending{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
         ///Trigger flag. Indicates that the trigger for this channel
 								is currently set. This bit is cleared at the end of an entire
@@ -3617,8 +3503,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig),TrigVal::notTriggered> notTriggered{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::triggered> triggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
     }
     namespace Nonectlstat13{    ///<Control and status register for DMA channel 0.
@@ -3633,8 +3519,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValidpendingVal> validpending{}; 
         namespace ValidpendingValC{
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::validPending> validPending{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
         ///Trigger flag. Indicates that the trigger for this channel
 								is currently set. This bit is cleared at the end of an entire
@@ -3648,8 +3534,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig),TrigVal::notTriggered> notTriggered{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::triggered> triggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
     }
     namespace Nonectlstat14{    ///<Control and status register for DMA channel 0.
@@ -3664,8 +3550,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValidpendingVal> validpending{}; 
         namespace ValidpendingValC{
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::validPending> validPending{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
         ///Trigger flag. Indicates that the trigger for this channel
 								is currently set. This bit is cleared at the end of an entire
@@ -3679,8 +3565,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig),TrigVal::notTriggered> notTriggered{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::triggered> triggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
     }
     namespace Nonectlstat15{    ///<Control and status register for DMA channel 0.
@@ -3695,8 +3581,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValidpendingVal> validpending{}; 
         namespace ValidpendingValC{
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::validPending> validPending{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
         ///Trigger flag. Indicates that the trigger for this channel
 								is currently set. This bit is cleared at the end of an entire
@@ -3710,8 +3596,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig),TrigVal::notTriggered> notTriggered{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::triggered> triggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
     }
     namespace Nonectlstat16{    ///<Control and status register for DMA channel 0.
@@ -3726,8 +3612,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValidpendingVal> validpending{}; 
         namespace ValidpendingValC{
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::validPending> validPending{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
         ///Trigger flag. Indicates that the trigger for this channel
 								is currently set. This bit is cleared at the end of an entire
@@ -3741,8 +3627,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig),TrigVal::notTriggered> notTriggered{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::triggered> triggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
     }
     namespace Nonectlstat17{    ///<Control and status register for DMA channel 0.
@@ -3757,8 +3643,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValidpendingVal> validpending{}; 
         namespace ValidpendingValC{
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::validPending> validPending{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
         ///Trigger flag. Indicates that the trigger for this channel
 								is currently set. This bit is cleared at the end of an entire
@@ -3772,8 +3658,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig),TrigVal::notTriggered> notTriggered{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::triggered> triggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
     }
     namespace Nonectlstat18{    ///<Control and status register for DMA channel 0.
@@ -3788,8 +3674,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValidpendingVal> validpending{}; 
         namespace ValidpendingValC{
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::validPending> validPending{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
         ///Trigger flag. Indicates that the trigger for this channel
 								is currently set. This bit is cleared at the end of an entire
@@ -3803,8 +3689,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig),TrigVal::notTriggered> notTriggered{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::triggered> triggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
     }
     namespace Nonectlstat19{    ///<Control and status register for DMA channel 0.
@@ -3819,8 +3705,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValidpendingVal> validpending{}; 
         namespace ValidpendingValC{
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::validPending> validPending{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
         ///Trigger flag. Indicates that the trigger for this channel
 								is currently set. This bit is cleared at the end of an entire
@@ -3834,8 +3720,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig),TrigVal::notTriggered> notTriggered{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::triggered> triggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
     }
     namespace Nonectlstat20{    ///<Control and status register for DMA channel 0.
@@ -3850,8 +3736,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValidpendingVal> validpending{}; 
         namespace ValidpendingValC{
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::validPending> validPending{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
         ///Trigger flag. Indicates that the trigger for this channel
 								is currently set. This bit is cleared at the end of an entire
@@ -3865,8 +3751,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig),TrigVal::notTriggered> notTriggered{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::triggered> triggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
     }
     namespace Nonectlstat21{    ///<Control and status register for DMA channel 0.
@@ -3881,8 +3767,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ValidpendingVal> validpending{}; 
         namespace ValidpendingValC{
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(validpending),ValidpendingVal::validPending> validPending{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(validpending)::Type,ValidpendingVal::validPending> validPending{};
         }
         ///Trigger flag. Indicates that the trigger for this channel
 								is currently set. This bit is cleared at the end of an entire
@@ -3896,8 +3782,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig),TrigVal::notTriggered> notTriggered{};
-            constexpr Register::FieldValue<decltype(trig),TrigVal::triggered> triggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::notTriggered> notTriggered{};
+            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::triggered> triggered{};
         }
     }
     namespace Nonexfercfg0{    ///<Transfer configuration register for DMA channel 0.
@@ -3914,8 +3800,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CfgvalidVal> cfgvalid{}; 
         namespace CfgvalidValC{
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::notValid> notValid{};
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::valid> valid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
         ///Indicates whether the channel's control structure will be
 								reloaded when the current descriptor is exhausted. Reloading allows
@@ -3929,8 +3815,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ReloadVal> reload{}; 
         namespace ReloadValC{
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -3944,8 +3830,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwtrigVal> swtrig{}; 
         namespace SwtrigValC{
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::set> set{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::set> set{};
         }
         ///Clear Trigger.
         enum class ClrtrigVal {
@@ -3957,8 +3843,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrtrigVal> clrtrig{}; 
         namespace ClrtrigValC{
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::notCleared> notCleared{};
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::cleared> cleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
         }
         ///Set Interrupt flag A for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -3972,8 +3858,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SetintaVal> setinta{}; 
         namespace SetintaValC{
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::set> set{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
         ///Set Interrupt flag B for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -3987,8 +3873,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SetintbVal> setintb{}; 
         namespace SetintbValC{
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::set> set{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -4001,9 +3887,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,WidthVal> width{}; 
         namespace WidthValC{
-            constexpr Register::FieldValue<decltype(width),WidthVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v16Bit> v16Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v32Bit> v32Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32Bit> v32Bit{};
         }
         ///Determines whether the source address is incremented for
 								each DMA transfer.
@@ -4023,10 +3909,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,SrcincVal> srcinc{}; 
         namespace SrcincValC{
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
         ///Determines whether the destination address is incremented
 								for each DMA transfer.
@@ -4046,10 +3932,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,DstincVal> dstinc{}; 
         namespace DstincValC{
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
         }
         ///Total number of transfers to be performed, minus 1 encoded.
 								The number of bytes transferred is: (XFERCOUNT + 1) x data width (as
@@ -4060,8 +3946,6 @@ namespace Kvasir {
 								total of 2 transfers will be performed. ... 0x3FF = a total of 1,024
 								transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
-        namespace XfercountValC{
-        }
     }
     namespace Nonexfercfg1{    ///<Transfer configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004418,0xfc000cc0,0,unsigned>;
@@ -4077,8 +3961,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CfgvalidVal> cfgvalid{}; 
         namespace CfgvalidValC{
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::notValid> notValid{};
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::valid> valid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
         ///Indicates whether the channel's control structure will be
 								reloaded when the current descriptor is exhausted. Reloading allows
@@ -4092,8 +3976,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ReloadVal> reload{}; 
         namespace ReloadValC{
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -4107,8 +3991,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwtrigVal> swtrig{}; 
         namespace SwtrigValC{
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::set> set{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::set> set{};
         }
         ///Clear Trigger.
         enum class ClrtrigVal {
@@ -4120,8 +4004,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrtrigVal> clrtrig{}; 
         namespace ClrtrigValC{
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::notCleared> notCleared{};
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::cleared> cleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
         }
         ///Set Interrupt flag A for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -4135,8 +4019,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SetintaVal> setinta{}; 
         namespace SetintaValC{
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::set> set{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
         ///Set Interrupt flag B for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -4150,8 +4034,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SetintbVal> setintb{}; 
         namespace SetintbValC{
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::set> set{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -4164,9 +4048,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,WidthVal> width{}; 
         namespace WidthValC{
-            constexpr Register::FieldValue<decltype(width),WidthVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v16Bit> v16Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v32Bit> v32Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32Bit> v32Bit{};
         }
         ///Determines whether the source address is incremented for
 								each DMA transfer.
@@ -4186,10 +4070,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,SrcincVal> srcinc{}; 
         namespace SrcincValC{
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
         ///Determines whether the destination address is incremented
 								for each DMA transfer.
@@ -4209,10 +4093,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,DstincVal> dstinc{}; 
         namespace DstincValC{
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
         }
         ///Total number of transfers to be performed, minus 1 encoded.
 								The number of bytes transferred is: (XFERCOUNT + 1) x data width (as
@@ -4223,8 +4107,6 @@ namespace Kvasir {
 								total of 2 transfers will be performed. ... 0x3FF = a total of 1,024
 								transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
-        namespace XfercountValC{
-        }
     }
     namespace Nonexfercfg2{    ///<Transfer configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004428,0xfc000cc0,0,unsigned>;
@@ -4240,8 +4122,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CfgvalidVal> cfgvalid{}; 
         namespace CfgvalidValC{
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::notValid> notValid{};
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::valid> valid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
         ///Indicates whether the channel's control structure will be
 								reloaded when the current descriptor is exhausted. Reloading allows
@@ -4255,8 +4137,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ReloadVal> reload{}; 
         namespace ReloadValC{
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -4270,8 +4152,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwtrigVal> swtrig{}; 
         namespace SwtrigValC{
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::set> set{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::set> set{};
         }
         ///Clear Trigger.
         enum class ClrtrigVal {
@@ -4283,8 +4165,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrtrigVal> clrtrig{}; 
         namespace ClrtrigValC{
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::notCleared> notCleared{};
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::cleared> cleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
         }
         ///Set Interrupt flag A for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -4298,8 +4180,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SetintaVal> setinta{}; 
         namespace SetintaValC{
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::set> set{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
         ///Set Interrupt flag B for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -4313,8 +4195,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SetintbVal> setintb{}; 
         namespace SetintbValC{
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::set> set{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -4327,9 +4209,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,WidthVal> width{}; 
         namespace WidthValC{
-            constexpr Register::FieldValue<decltype(width),WidthVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v16Bit> v16Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v32Bit> v32Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32Bit> v32Bit{};
         }
         ///Determines whether the source address is incremented for
 								each DMA transfer.
@@ -4349,10 +4231,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,SrcincVal> srcinc{}; 
         namespace SrcincValC{
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
         ///Determines whether the destination address is incremented
 								for each DMA transfer.
@@ -4372,10 +4254,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,DstincVal> dstinc{}; 
         namespace DstincValC{
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
         }
         ///Total number of transfers to be performed, minus 1 encoded.
 								The number of bytes transferred is: (XFERCOUNT + 1) x data width (as
@@ -4386,8 +4268,6 @@ namespace Kvasir {
 								total of 2 transfers will be performed. ... 0x3FF = a total of 1,024
 								transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
-        namespace XfercountValC{
-        }
     }
     namespace Nonexfercfg3{    ///<Transfer configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004438,0xfc000cc0,0,unsigned>;
@@ -4403,8 +4283,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CfgvalidVal> cfgvalid{}; 
         namespace CfgvalidValC{
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::notValid> notValid{};
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::valid> valid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
         ///Indicates whether the channel's control structure will be
 								reloaded when the current descriptor is exhausted. Reloading allows
@@ -4418,8 +4298,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ReloadVal> reload{}; 
         namespace ReloadValC{
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -4433,8 +4313,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwtrigVal> swtrig{}; 
         namespace SwtrigValC{
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::set> set{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::set> set{};
         }
         ///Clear Trigger.
         enum class ClrtrigVal {
@@ -4446,8 +4326,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrtrigVal> clrtrig{}; 
         namespace ClrtrigValC{
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::notCleared> notCleared{};
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::cleared> cleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
         }
         ///Set Interrupt flag A for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -4461,8 +4341,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SetintaVal> setinta{}; 
         namespace SetintaValC{
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::set> set{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
         ///Set Interrupt flag B for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -4476,8 +4356,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SetintbVal> setintb{}; 
         namespace SetintbValC{
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::set> set{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -4490,9 +4370,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,WidthVal> width{}; 
         namespace WidthValC{
-            constexpr Register::FieldValue<decltype(width),WidthVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v16Bit> v16Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v32Bit> v32Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32Bit> v32Bit{};
         }
         ///Determines whether the source address is incremented for
 								each DMA transfer.
@@ -4512,10 +4392,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,SrcincVal> srcinc{}; 
         namespace SrcincValC{
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
         ///Determines whether the destination address is incremented
 								for each DMA transfer.
@@ -4535,10 +4415,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,DstincVal> dstinc{}; 
         namespace DstincValC{
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
         }
         ///Total number of transfers to be performed, minus 1 encoded.
 								The number of bytes transferred is: (XFERCOUNT + 1) x data width (as
@@ -4549,8 +4429,6 @@ namespace Kvasir {
 								total of 2 transfers will be performed. ... 0x3FF = a total of 1,024
 								transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
-        namespace XfercountValC{
-        }
     }
     namespace Nonexfercfg4{    ///<Transfer configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004448,0xfc000cc0,0,unsigned>;
@@ -4566,8 +4444,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CfgvalidVal> cfgvalid{}; 
         namespace CfgvalidValC{
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::notValid> notValid{};
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::valid> valid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
         ///Indicates whether the channel's control structure will be
 								reloaded when the current descriptor is exhausted. Reloading allows
@@ -4581,8 +4459,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ReloadVal> reload{}; 
         namespace ReloadValC{
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -4596,8 +4474,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwtrigVal> swtrig{}; 
         namespace SwtrigValC{
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::set> set{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::set> set{};
         }
         ///Clear Trigger.
         enum class ClrtrigVal {
@@ -4609,8 +4487,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrtrigVal> clrtrig{}; 
         namespace ClrtrigValC{
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::notCleared> notCleared{};
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::cleared> cleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
         }
         ///Set Interrupt flag A for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -4624,8 +4502,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SetintaVal> setinta{}; 
         namespace SetintaValC{
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::set> set{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
         ///Set Interrupt flag B for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -4639,8 +4517,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SetintbVal> setintb{}; 
         namespace SetintbValC{
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::set> set{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -4653,9 +4531,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,WidthVal> width{}; 
         namespace WidthValC{
-            constexpr Register::FieldValue<decltype(width),WidthVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v16Bit> v16Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v32Bit> v32Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32Bit> v32Bit{};
         }
         ///Determines whether the source address is incremented for
 								each DMA transfer.
@@ -4675,10 +4553,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,SrcincVal> srcinc{}; 
         namespace SrcincValC{
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
         ///Determines whether the destination address is incremented
 								for each DMA transfer.
@@ -4698,10 +4576,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,DstincVal> dstinc{}; 
         namespace DstincValC{
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
         }
         ///Total number of transfers to be performed, minus 1 encoded.
 								The number of bytes transferred is: (XFERCOUNT + 1) x data width (as
@@ -4712,8 +4590,6 @@ namespace Kvasir {
 								total of 2 transfers will be performed. ... 0x3FF = a total of 1,024
 								transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
-        namespace XfercountValC{
-        }
     }
     namespace Nonexfercfg5{    ///<Transfer configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004458,0xfc000cc0,0,unsigned>;
@@ -4729,8 +4605,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CfgvalidVal> cfgvalid{}; 
         namespace CfgvalidValC{
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::notValid> notValid{};
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::valid> valid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
         ///Indicates whether the channel's control structure will be
 								reloaded when the current descriptor is exhausted. Reloading allows
@@ -4744,8 +4620,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ReloadVal> reload{}; 
         namespace ReloadValC{
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -4759,8 +4635,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwtrigVal> swtrig{}; 
         namespace SwtrigValC{
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::set> set{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::set> set{};
         }
         ///Clear Trigger.
         enum class ClrtrigVal {
@@ -4772,8 +4648,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrtrigVal> clrtrig{}; 
         namespace ClrtrigValC{
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::notCleared> notCleared{};
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::cleared> cleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
         }
         ///Set Interrupt flag A for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -4787,8 +4663,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SetintaVal> setinta{}; 
         namespace SetintaValC{
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::set> set{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
         ///Set Interrupt flag B for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -4802,8 +4678,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SetintbVal> setintb{}; 
         namespace SetintbValC{
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::set> set{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -4816,9 +4692,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,WidthVal> width{}; 
         namespace WidthValC{
-            constexpr Register::FieldValue<decltype(width),WidthVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v16Bit> v16Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v32Bit> v32Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32Bit> v32Bit{};
         }
         ///Determines whether the source address is incremented for
 								each DMA transfer.
@@ -4838,10 +4714,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,SrcincVal> srcinc{}; 
         namespace SrcincValC{
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
         ///Determines whether the destination address is incremented
 								for each DMA transfer.
@@ -4861,10 +4737,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,DstincVal> dstinc{}; 
         namespace DstincValC{
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
         }
         ///Total number of transfers to be performed, minus 1 encoded.
 								The number of bytes transferred is: (XFERCOUNT + 1) x data width (as
@@ -4875,8 +4751,6 @@ namespace Kvasir {
 								total of 2 transfers will be performed. ... 0x3FF = a total of 1,024
 								transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
-        namespace XfercountValC{
-        }
     }
     namespace Nonexfercfg6{    ///<Transfer configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004468,0xfc000cc0,0,unsigned>;
@@ -4892,8 +4766,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CfgvalidVal> cfgvalid{}; 
         namespace CfgvalidValC{
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::notValid> notValid{};
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::valid> valid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
         ///Indicates whether the channel's control structure will be
 								reloaded when the current descriptor is exhausted. Reloading allows
@@ -4907,8 +4781,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ReloadVal> reload{}; 
         namespace ReloadValC{
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -4922,8 +4796,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwtrigVal> swtrig{}; 
         namespace SwtrigValC{
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::set> set{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::set> set{};
         }
         ///Clear Trigger.
         enum class ClrtrigVal {
@@ -4935,8 +4809,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrtrigVal> clrtrig{}; 
         namespace ClrtrigValC{
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::notCleared> notCleared{};
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::cleared> cleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
         }
         ///Set Interrupt flag A for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -4950,8 +4824,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SetintaVal> setinta{}; 
         namespace SetintaValC{
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::set> set{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
         ///Set Interrupt flag B for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -4965,8 +4839,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SetintbVal> setintb{}; 
         namespace SetintbValC{
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::set> set{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -4979,9 +4853,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,WidthVal> width{}; 
         namespace WidthValC{
-            constexpr Register::FieldValue<decltype(width),WidthVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v16Bit> v16Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v32Bit> v32Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32Bit> v32Bit{};
         }
         ///Determines whether the source address is incremented for
 								each DMA transfer.
@@ -5001,10 +4875,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,SrcincVal> srcinc{}; 
         namespace SrcincValC{
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
         ///Determines whether the destination address is incremented
 								for each DMA transfer.
@@ -5024,10 +4898,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,DstincVal> dstinc{}; 
         namespace DstincValC{
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
         }
         ///Total number of transfers to be performed, minus 1 encoded.
 								The number of bytes transferred is: (XFERCOUNT + 1) x data width (as
@@ -5038,8 +4912,6 @@ namespace Kvasir {
 								total of 2 transfers will be performed. ... 0x3FF = a total of 1,024
 								transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
-        namespace XfercountValC{
-        }
     }
     namespace Nonexfercfg7{    ///<Transfer configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004478,0xfc000cc0,0,unsigned>;
@@ -5055,8 +4927,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CfgvalidVal> cfgvalid{}; 
         namespace CfgvalidValC{
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::notValid> notValid{};
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::valid> valid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
         ///Indicates whether the channel's control structure will be
 								reloaded when the current descriptor is exhausted. Reloading allows
@@ -5070,8 +4942,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ReloadVal> reload{}; 
         namespace ReloadValC{
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -5085,8 +4957,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwtrigVal> swtrig{}; 
         namespace SwtrigValC{
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::set> set{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::set> set{};
         }
         ///Clear Trigger.
         enum class ClrtrigVal {
@@ -5098,8 +4970,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrtrigVal> clrtrig{}; 
         namespace ClrtrigValC{
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::notCleared> notCleared{};
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::cleared> cleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
         }
         ///Set Interrupt flag A for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -5113,8 +4985,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SetintaVal> setinta{}; 
         namespace SetintaValC{
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::set> set{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
         ///Set Interrupt flag B for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -5128,8 +5000,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SetintbVal> setintb{}; 
         namespace SetintbValC{
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::set> set{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -5142,9 +5014,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,WidthVal> width{}; 
         namespace WidthValC{
-            constexpr Register::FieldValue<decltype(width),WidthVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v16Bit> v16Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v32Bit> v32Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32Bit> v32Bit{};
         }
         ///Determines whether the source address is incremented for
 								each DMA transfer.
@@ -5164,10 +5036,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,SrcincVal> srcinc{}; 
         namespace SrcincValC{
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
         ///Determines whether the destination address is incremented
 								for each DMA transfer.
@@ -5187,10 +5059,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,DstincVal> dstinc{}; 
         namespace DstincValC{
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
         }
         ///Total number of transfers to be performed, minus 1 encoded.
 								The number of bytes transferred is: (XFERCOUNT + 1) x data width (as
@@ -5201,8 +5073,6 @@ namespace Kvasir {
 								total of 2 transfers will be performed. ... 0x3FF = a total of 1,024
 								transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
-        namespace XfercountValC{
-        }
     }
     namespace Nonexfercfg8{    ///<Transfer configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004488,0xfc000cc0,0,unsigned>;
@@ -5218,8 +5088,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CfgvalidVal> cfgvalid{}; 
         namespace CfgvalidValC{
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::notValid> notValid{};
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::valid> valid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
         ///Indicates whether the channel's control structure will be
 								reloaded when the current descriptor is exhausted. Reloading allows
@@ -5233,8 +5103,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ReloadVal> reload{}; 
         namespace ReloadValC{
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -5248,8 +5118,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwtrigVal> swtrig{}; 
         namespace SwtrigValC{
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::set> set{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::set> set{};
         }
         ///Clear Trigger.
         enum class ClrtrigVal {
@@ -5261,8 +5131,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrtrigVal> clrtrig{}; 
         namespace ClrtrigValC{
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::notCleared> notCleared{};
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::cleared> cleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
         }
         ///Set Interrupt flag A for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -5276,8 +5146,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SetintaVal> setinta{}; 
         namespace SetintaValC{
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::set> set{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
         ///Set Interrupt flag B for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -5291,8 +5161,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SetintbVal> setintb{}; 
         namespace SetintbValC{
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::set> set{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -5305,9 +5175,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,WidthVal> width{}; 
         namespace WidthValC{
-            constexpr Register::FieldValue<decltype(width),WidthVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v16Bit> v16Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v32Bit> v32Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32Bit> v32Bit{};
         }
         ///Determines whether the source address is incremented for
 								each DMA transfer.
@@ -5327,10 +5197,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,SrcincVal> srcinc{}; 
         namespace SrcincValC{
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
         ///Determines whether the destination address is incremented
 								for each DMA transfer.
@@ -5350,10 +5220,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,DstincVal> dstinc{}; 
         namespace DstincValC{
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
         }
         ///Total number of transfers to be performed, minus 1 encoded.
 								The number of bytes transferred is: (XFERCOUNT + 1) x data width (as
@@ -5364,8 +5234,6 @@ namespace Kvasir {
 								total of 2 transfers will be performed. ... 0x3FF = a total of 1,024
 								transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
-        namespace XfercountValC{
-        }
     }
     namespace Nonexfercfg9{    ///<Transfer configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004498,0xfc000cc0,0,unsigned>;
@@ -5381,8 +5249,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CfgvalidVal> cfgvalid{}; 
         namespace CfgvalidValC{
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::notValid> notValid{};
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::valid> valid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
         ///Indicates whether the channel's control structure will be
 								reloaded when the current descriptor is exhausted. Reloading allows
@@ -5396,8 +5264,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ReloadVal> reload{}; 
         namespace ReloadValC{
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -5411,8 +5279,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwtrigVal> swtrig{}; 
         namespace SwtrigValC{
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::set> set{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::set> set{};
         }
         ///Clear Trigger.
         enum class ClrtrigVal {
@@ -5424,8 +5292,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrtrigVal> clrtrig{}; 
         namespace ClrtrigValC{
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::notCleared> notCleared{};
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::cleared> cleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
         }
         ///Set Interrupt flag A for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -5439,8 +5307,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SetintaVal> setinta{}; 
         namespace SetintaValC{
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::set> set{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
         ///Set Interrupt flag B for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -5454,8 +5322,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SetintbVal> setintb{}; 
         namespace SetintbValC{
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::set> set{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -5468,9 +5336,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,WidthVal> width{}; 
         namespace WidthValC{
-            constexpr Register::FieldValue<decltype(width),WidthVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v16Bit> v16Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v32Bit> v32Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32Bit> v32Bit{};
         }
         ///Determines whether the source address is incremented for
 								each DMA transfer.
@@ -5490,10 +5358,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,SrcincVal> srcinc{}; 
         namespace SrcincValC{
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
         ///Determines whether the destination address is incremented
 								for each DMA transfer.
@@ -5513,10 +5381,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,DstincVal> dstinc{}; 
         namespace DstincValC{
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
         }
         ///Total number of transfers to be performed, minus 1 encoded.
 								The number of bytes transferred is: (XFERCOUNT + 1) x data width (as
@@ -5527,8 +5395,6 @@ namespace Kvasir {
 								total of 2 transfers will be performed. ... 0x3FF = a total of 1,024
 								transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
-        namespace XfercountValC{
-        }
     }
     namespace Nonexfercfg10{    ///<Transfer configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c0044a8,0xfc000cc0,0,unsigned>;
@@ -5544,8 +5410,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CfgvalidVal> cfgvalid{}; 
         namespace CfgvalidValC{
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::notValid> notValid{};
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::valid> valid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
         ///Indicates whether the channel's control structure will be
 								reloaded when the current descriptor is exhausted. Reloading allows
@@ -5559,8 +5425,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ReloadVal> reload{}; 
         namespace ReloadValC{
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -5574,8 +5440,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwtrigVal> swtrig{}; 
         namespace SwtrigValC{
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::set> set{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::set> set{};
         }
         ///Clear Trigger.
         enum class ClrtrigVal {
@@ -5587,8 +5453,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrtrigVal> clrtrig{}; 
         namespace ClrtrigValC{
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::notCleared> notCleared{};
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::cleared> cleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
         }
         ///Set Interrupt flag A for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -5602,8 +5468,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SetintaVal> setinta{}; 
         namespace SetintaValC{
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::set> set{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
         ///Set Interrupt flag B for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -5617,8 +5483,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SetintbVal> setintb{}; 
         namespace SetintbValC{
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::set> set{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -5631,9 +5497,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,WidthVal> width{}; 
         namespace WidthValC{
-            constexpr Register::FieldValue<decltype(width),WidthVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v16Bit> v16Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v32Bit> v32Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32Bit> v32Bit{};
         }
         ///Determines whether the source address is incremented for
 								each DMA transfer.
@@ -5653,10 +5519,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,SrcincVal> srcinc{}; 
         namespace SrcincValC{
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
         ///Determines whether the destination address is incremented
 								for each DMA transfer.
@@ -5676,10 +5542,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,DstincVal> dstinc{}; 
         namespace DstincValC{
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
         }
         ///Total number of transfers to be performed, minus 1 encoded.
 								The number of bytes transferred is: (XFERCOUNT + 1) x data width (as
@@ -5690,8 +5556,6 @@ namespace Kvasir {
 								total of 2 transfers will be performed. ... 0x3FF = a total of 1,024
 								transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
-        namespace XfercountValC{
-        }
     }
     namespace Nonexfercfg11{    ///<Transfer configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c0044b8,0xfc000cc0,0,unsigned>;
@@ -5707,8 +5571,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CfgvalidVal> cfgvalid{}; 
         namespace CfgvalidValC{
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::notValid> notValid{};
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::valid> valid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
         ///Indicates whether the channel's control structure will be
 								reloaded when the current descriptor is exhausted. Reloading allows
@@ -5722,8 +5586,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ReloadVal> reload{}; 
         namespace ReloadValC{
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -5737,8 +5601,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwtrigVal> swtrig{}; 
         namespace SwtrigValC{
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::set> set{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::set> set{};
         }
         ///Clear Trigger.
         enum class ClrtrigVal {
@@ -5750,8 +5614,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrtrigVal> clrtrig{}; 
         namespace ClrtrigValC{
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::notCleared> notCleared{};
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::cleared> cleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
         }
         ///Set Interrupt flag A for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -5765,8 +5629,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SetintaVal> setinta{}; 
         namespace SetintaValC{
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::set> set{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
         ///Set Interrupt flag B for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -5780,8 +5644,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SetintbVal> setintb{}; 
         namespace SetintbValC{
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::set> set{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -5794,9 +5658,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,WidthVal> width{}; 
         namespace WidthValC{
-            constexpr Register::FieldValue<decltype(width),WidthVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v16Bit> v16Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v32Bit> v32Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32Bit> v32Bit{};
         }
         ///Determines whether the source address is incremented for
 								each DMA transfer.
@@ -5816,10 +5680,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,SrcincVal> srcinc{}; 
         namespace SrcincValC{
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
         ///Determines whether the destination address is incremented
 								for each DMA transfer.
@@ -5839,10 +5703,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,DstincVal> dstinc{}; 
         namespace DstincValC{
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
         }
         ///Total number of transfers to be performed, minus 1 encoded.
 								The number of bytes transferred is: (XFERCOUNT + 1) x data width (as
@@ -5853,8 +5717,6 @@ namespace Kvasir {
 								total of 2 transfers will be performed. ... 0x3FF = a total of 1,024
 								transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
-        namespace XfercountValC{
-        }
     }
     namespace Nonexfercfg12{    ///<Transfer configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c0044c8,0xfc000cc0,0,unsigned>;
@@ -5870,8 +5732,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CfgvalidVal> cfgvalid{}; 
         namespace CfgvalidValC{
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::notValid> notValid{};
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::valid> valid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
         ///Indicates whether the channel's control structure will be
 								reloaded when the current descriptor is exhausted. Reloading allows
@@ -5885,8 +5747,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ReloadVal> reload{}; 
         namespace ReloadValC{
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -5900,8 +5762,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwtrigVal> swtrig{}; 
         namespace SwtrigValC{
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::set> set{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::set> set{};
         }
         ///Clear Trigger.
         enum class ClrtrigVal {
@@ -5913,8 +5775,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrtrigVal> clrtrig{}; 
         namespace ClrtrigValC{
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::notCleared> notCleared{};
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::cleared> cleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
         }
         ///Set Interrupt flag A for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -5928,8 +5790,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SetintaVal> setinta{}; 
         namespace SetintaValC{
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::set> set{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
         ///Set Interrupt flag B for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -5943,8 +5805,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SetintbVal> setintb{}; 
         namespace SetintbValC{
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::set> set{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -5957,9 +5819,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,WidthVal> width{}; 
         namespace WidthValC{
-            constexpr Register::FieldValue<decltype(width),WidthVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v16Bit> v16Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v32Bit> v32Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32Bit> v32Bit{};
         }
         ///Determines whether the source address is incremented for
 								each DMA transfer.
@@ -5979,10 +5841,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,SrcincVal> srcinc{}; 
         namespace SrcincValC{
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
         ///Determines whether the destination address is incremented
 								for each DMA transfer.
@@ -6002,10 +5864,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,DstincVal> dstinc{}; 
         namespace DstincValC{
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
         }
         ///Total number of transfers to be performed, minus 1 encoded.
 								The number of bytes transferred is: (XFERCOUNT + 1) x data width (as
@@ -6016,8 +5878,6 @@ namespace Kvasir {
 								total of 2 transfers will be performed. ... 0x3FF = a total of 1,024
 								transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
-        namespace XfercountValC{
-        }
     }
     namespace Nonexfercfg13{    ///<Transfer configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c0044d8,0xfc000cc0,0,unsigned>;
@@ -6033,8 +5893,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CfgvalidVal> cfgvalid{}; 
         namespace CfgvalidValC{
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::notValid> notValid{};
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::valid> valid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
         ///Indicates whether the channel's control structure will be
 								reloaded when the current descriptor is exhausted. Reloading allows
@@ -6048,8 +5908,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ReloadVal> reload{}; 
         namespace ReloadValC{
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -6063,8 +5923,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwtrigVal> swtrig{}; 
         namespace SwtrigValC{
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::set> set{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::set> set{};
         }
         ///Clear Trigger.
         enum class ClrtrigVal {
@@ -6076,8 +5936,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrtrigVal> clrtrig{}; 
         namespace ClrtrigValC{
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::notCleared> notCleared{};
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::cleared> cleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
         }
         ///Set Interrupt flag A for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -6091,8 +5951,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SetintaVal> setinta{}; 
         namespace SetintaValC{
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::set> set{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
         ///Set Interrupt flag B for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -6106,8 +5966,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SetintbVal> setintb{}; 
         namespace SetintbValC{
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::set> set{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -6120,9 +5980,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,WidthVal> width{}; 
         namespace WidthValC{
-            constexpr Register::FieldValue<decltype(width),WidthVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v16Bit> v16Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v32Bit> v32Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32Bit> v32Bit{};
         }
         ///Determines whether the source address is incremented for
 								each DMA transfer.
@@ -6142,10 +6002,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,SrcincVal> srcinc{}; 
         namespace SrcincValC{
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
         ///Determines whether the destination address is incremented
 								for each DMA transfer.
@@ -6165,10 +6025,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,DstincVal> dstinc{}; 
         namespace DstincValC{
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
         }
         ///Total number of transfers to be performed, minus 1 encoded.
 								The number of bytes transferred is: (XFERCOUNT + 1) x data width (as
@@ -6179,8 +6039,6 @@ namespace Kvasir {
 								total of 2 transfers will be performed. ... 0x3FF = a total of 1,024
 								transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
-        namespace XfercountValC{
-        }
     }
     namespace Nonexfercfg14{    ///<Transfer configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c0044e8,0xfc000cc0,0,unsigned>;
@@ -6196,8 +6054,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CfgvalidVal> cfgvalid{}; 
         namespace CfgvalidValC{
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::notValid> notValid{};
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::valid> valid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
         ///Indicates whether the channel's control structure will be
 								reloaded when the current descriptor is exhausted. Reloading allows
@@ -6211,8 +6069,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ReloadVal> reload{}; 
         namespace ReloadValC{
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -6226,8 +6084,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwtrigVal> swtrig{}; 
         namespace SwtrigValC{
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::set> set{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::set> set{};
         }
         ///Clear Trigger.
         enum class ClrtrigVal {
@@ -6239,8 +6097,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrtrigVal> clrtrig{}; 
         namespace ClrtrigValC{
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::notCleared> notCleared{};
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::cleared> cleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
         }
         ///Set Interrupt flag A for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -6254,8 +6112,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SetintaVal> setinta{}; 
         namespace SetintaValC{
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::set> set{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
         ///Set Interrupt flag B for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -6269,8 +6127,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SetintbVal> setintb{}; 
         namespace SetintbValC{
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::set> set{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -6283,9 +6141,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,WidthVal> width{}; 
         namespace WidthValC{
-            constexpr Register::FieldValue<decltype(width),WidthVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v16Bit> v16Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v32Bit> v32Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32Bit> v32Bit{};
         }
         ///Determines whether the source address is incremented for
 								each DMA transfer.
@@ -6305,10 +6163,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,SrcincVal> srcinc{}; 
         namespace SrcincValC{
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
         ///Determines whether the destination address is incremented
 								for each DMA transfer.
@@ -6328,10 +6186,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,DstincVal> dstinc{}; 
         namespace DstincValC{
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
         }
         ///Total number of transfers to be performed, minus 1 encoded.
 								The number of bytes transferred is: (XFERCOUNT + 1) x data width (as
@@ -6342,8 +6200,6 @@ namespace Kvasir {
 								total of 2 transfers will be performed. ... 0x3FF = a total of 1,024
 								transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
-        namespace XfercountValC{
-        }
     }
     namespace Nonexfercfg15{    ///<Transfer configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c0044f8,0xfc000cc0,0,unsigned>;
@@ -6359,8 +6215,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CfgvalidVal> cfgvalid{}; 
         namespace CfgvalidValC{
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::notValid> notValid{};
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::valid> valid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
         ///Indicates whether the channel's control structure will be
 								reloaded when the current descriptor is exhausted. Reloading allows
@@ -6374,8 +6230,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ReloadVal> reload{}; 
         namespace ReloadValC{
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -6389,8 +6245,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwtrigVal> swtrig{}; 
         namespace SwtrigValC{
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::set> set{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::set> set{};
         }
         ///Clear Trigger.
         enum class ClrtrigVal {
@@ -6402,8 +6258,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrtrigVal> clrtrig{}; 
         namespace ClrtrigValC{
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::notCleared> notCleared{};
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::cleared> cleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
         }
         ///Set Interrupt flag A for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -6417,8 +6273,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SetintaVal> setinta{}; 
         namespace SetintaValC{
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::set> set{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
         ///Set Interrupt flag B for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -6432,8 +6288,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SetintbVal> setintb{}; 
         namespace SetintbValC{
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::set> set{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -6446,9 +6302,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,WidthVal> width{}; 
         namespace WidthValC{
-            constexpr Register::FieldValue<decltype(width),WidthVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v16Bit> v16Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v32Bit> v32Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32Bit> v32Bit{};
         }
         ///Determines whether the source address is incremented for
 								each DMA transfer.
@@ -6468,10 +6324,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,SrcincVal> srcinc{}; 
         namespace SrcincValC{
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
         ///Determines whether the destination address is incremented
 								for each DMA transfer.
@@ -6491,10 +6347,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,DstincVal> dstinc{}; 
         namespace DstincValC{
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
         }
         ///Total number of transfers to be performed, minus 1 encoded.
 								The number of bytes transferred is: (XFERCOUNT + 1) x data width (as
@@ -6505,8 +6361,6 @@ namespace Kvasir {
 								total of 2 transfers will be performed. ... 0x3FF = a total of 1,024
 								transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
-        namespace XfercountValC{
-        }
     }
     namespace Nonexfercfg16{    ///<Transfer configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004508,0xfc000cc0,0,unsigned>;
@@ -6522,8 +6376,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CfgvalidVal> cfgvalid{}; 
         namespace CfgvalidValC{
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::notValid> notValid{};
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::valid> valid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
         ///Indicates whether the channel's control structure will be
 								reloaded when the current descriptor is exhausted. Reloading allows
@@ -6537,8 +6391,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ReloadVal> reload{}; 
         namespace ReloadValC{
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -6552,8 +6406,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwtrigVal> swtrig{}; 
         namespace SwtrigValC{
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::set> set{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::set> set{};
         }
         ///Clear Trigger.
         enum class ClrtrigVal {
@@ -6565,8 +6419,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrtrigVal> clrtrig{}; 
         namespace ClrtrigValC{
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::notCleared> notCleared{};
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::cleared> cleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
         }
         ///Set Interrupt flag A for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -6580,8 +6434,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SetintaVal> setinta{}; 
         namespace SetintaValC{
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::set> set{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
         ///Set Interrupt flag B for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -6595,8 +6449,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SetintbVal> setintb{}; 
         namespace SetintbValC{
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::set> set{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -6609,9 +6463,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,WidthVal> width{}; 
         namespace WidthValC{
-            constexpr Register::FieldValue<decltype(width),WidthVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v16Bit> v16Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v32Bit> v32Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32Bit> v32Bit{};
         }
         ///Determines whether the source address is incremented for
 								each DMA transfer.
@@ -6631,10 +6485,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,SrcincVal> srcinc{}; 
         namespace SrcincValC{
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
         ///Determines whether the destination address is incremented
 								for each DMA transfer.
@@ -6654,10 +6508,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,DstincVal> dstinc{}; 
         namespace DstincValC{
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
         }
         ///Total number of transfers to be performed, minus 1 encoded.
 								The number of bytes transferred is: (XFERCOUNT + 1) x data width (as
@@ -6668,8 +6522,6 @@ namespace Kvasir {
 								total of 2 transfers will be performed. ... 0x3FF = a total of 1,024
 								transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
-        namespace XfercountValC{
-        }
     }
     namespace Nonexfercfg17{    ///<Transfer configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004518,0xfc000cc0,0,unsigned>;
@@ -6685,8 +6537,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CfgvalidVal> cfgvalid{}; 
         namespace CfgvalidValC{
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::notValid> notValid{};
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::valid> valid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
         ///Indicates whether the channel's control structure will be
 								reloaded when the current descriptor is exhausted. Reloading allows
@@ -6700,8 +6552,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ReloadVal> reload{}; 
         namespace ReloadValC{
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -6715,8 +6567,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwtrigVal> swtrig{}; 
         namespace SwtrigValC{
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::set> set{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::set> set{};
         }
         ///Clear Trigger.
         enum class ClrtrigVal {
@@ -6728,8 +6580,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrtrigVal> clrtrig{}; 
         namespace ClrtrigValC{
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::notCleared> notCleared{};
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::cleared> cleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
         }
         ///Set Interrupt flag A for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -6743,8 +6595,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SetintaVal> setinta{}; 
         namespace SetintaValC{
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::set> set{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
         ///Set Interrupt flag B for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -6758,8 +6610,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SetintbVal> setintb{}; 
         namespace SetintbValC{
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::set> set{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -6772,9 +6624,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,WidthVal> width{}; 
         namespace WidthValC{
-            constexpr Register::FieldValue<decltype(width),WidthVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v16Bit> v16Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v32Bit> v32Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32Bit> v32Bit{};
         }
         ///Determines whether the source address is incremented for
 								each DMA transfer.
@@ -6794,10 +6646,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,SrcincVal> srcinc{}; 
         namespace SrcincValC{
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
         ///Determines whether the destination address is incremented
 								for each DMA transfer.
@@ -6817,10 +6669,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,DstincVal> dstinc{}; 
         namespace DstincValC{
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
         }
         ///Total number of transfers to be performed, minus 1 encoded.
 								The number of bytes transferred is: (XFERCOUNT + 1) x data width (as
@@ -6831,8 +6683,6 @@ namespace Kvasir {
 								total of 2 transfers will be performed. ... 0x3FF = a total of 1,024
 								transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
-        namespace XfercountValC{
-        }
     }
     namespace Nonexfercfg18{    ///<Transfer configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004528,0xfc000cc0,0,unsigned>;
@@ -6848,8 +6698,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CfgvalidVal> cfgvalid{}; 
         namespace CfgvalidValC{
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::notValid> notValid{};
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::valid> valid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
         ///Indicates whether the channel's control structure will be
 								reloaded when the current descriptor is exhausted. Reloading allows
@@ -6863,8 +6713,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ReloadVal> reload{}; 
         namespace ReloadValC{
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -6878,8 +6728,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwtrigVal> swtrig{}; 
         namespace SwtrigValC{
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::set> set{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::set> set{};
         }
         ///Clear Trigger.
         enum class ClrtrigVal {
@@ -6891,8 +6741,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrtrigVal> clrtrig{}; 
         namespace ClrtrigValC{
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::notCleared> notCleared{};
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::cleared> cleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
         }
         ///Set Interrupt flag A for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -6906,8 +6756,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SetintaVal> setinta{}; 
         namespace SetintaValC{
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::set> set{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
         ///Set Interrupt flag B for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -6921,8 +6771,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SetintbVal> setintb{}; 
         namespace SetintbValC{
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::set> set{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -6935,9 +6785,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,WidthVal> width{}; 
         namespace WidthValC{
-            constexpr Register::FieldValue<decltype(width),WidthVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v16Bit> v16Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v32Bit> v32Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32Bit> v32Bit{};
         }
         ///Determines whether the source address is incremented for
 								each DMA transfer.
@@ -6957,10 +6807,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,SrcincVal> srcinc{}; 
         namespace SrcincValC{
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
         ///Determines whether the destination address is incremented
 								for each DMA transfer.
@@ -6980,10 +6830,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,DstincVal> dstinc{}; 
         namespace DstincValC{
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
         }
         ///Total number of transfers to be performed, minus 1 encoded.
 								The number of bytes transferred is: (XFERCOUNT + 1) x data width (as
@@ -6994,8 +6844,6 @@ namespace Kvasir {
 								total of 2 transfers will be performed. ... 0x3FF = a total of 1,024
 								transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
-        namespace XfercountValC{
-        }
     }
     namespace Nonexfercfg19{    ///<Transfer configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004538,0xfc000cc0,0,unsigned>;
@@ -7011,8 +6859,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CfgvalidVal> cfgvalid{}; 
         namespace CfgvalidValC{
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::notValid> notValid{};
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::valid> valid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
         ///Indicates whether the channel's control structure will be
 								reloaded when the current descriptor is exhausted. Reloading allows
@@ -7026,8 +6874,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ReloadVal> reload{}; 
         namespace ReloadValC{
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -7041,8 +6889,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwtrigVal> swtrig{}; 
         namespace SwtrigValC{
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::set> set{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::set> set{};
         }
         ///Clear Trigger.
         enum class ClrtrigVal {
@@ -7054,8 +6902,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrtrigVal> clrtrig{}; 
         namespace ClrtrigValC{
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::notCleared> notCleared{};
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::cleared> cleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
         }
         ///Set Interrupt flag A for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -7069,8 +6917,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SetintaVal> setinta{}; 
         namespace SetintaValC{
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::set> set{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
         ///Set Interrupt flag B for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -7084,8 +6932,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SetintbVal> setintb{}; 
         namespace SetintbValC{
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::set> set{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -7098,9 +6946,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,WidthVal> width{}; 
         namespace WidthValC{
-            constexpr Register::FieldValue<decltype(width),WidthVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v16Bit> v16Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v32Bit> v32Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32Bit> v32Bit{};
         }
         ///Determines whether the source address is incremented for
 								each DMA transfer.
@@ -7120,10 +6968,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,SrcincVal> srcinc{}; 
         namespace SrcincValC{
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
         ///Determines whether the destination address is incremented
 								for each DMA transfer.
@@ -7143,10 +6991,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,DstincVal> dstinc{}; 
         namespace DstincValC{
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
         }
         ///Total number of transfers to be performed, minus 1 encoded.
 								The number of bytes transferred is: (XFERCOUNT + 1) x data width (as
@@ -7157,8 +7005,6 @@ namespace Kvasir {
 								total of 2 transfers will be performed. ... 0x3FF = a total of 1,024
 								transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
-        namespace XfercountValC{
-        }
     }
     namespace Nonexfercfg20{    ///<Transfer configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004548,0xfc000cc0,0,unsigned>;
@@ -7174,8 +7020,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CfgvalidVal> cfgvalid{}; 
         namespace CfgvalidValC{
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::notValid> notValid{};
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::valid> valid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
         ///Indicates whether the channel's control structure will be
 								reloaded when the current descriptor is exhausted. Reloading allows
@@ -7189,8 +7035,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ReloadVal> reload{}; 
         namespace ReloadValC{
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -7204,8 +7050,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwtrigVal> swtrig{}; 
         namespace SwtrigValC{
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::set> set{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::set> set{};
         }
         ///Clear Trigger.
         enum class ClrtrigVal {
@@ -7217,8 +7063,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrtrigVal> clrtrig{}; 
         namespace ClrtrigValC{
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::notCleared> notCleared{};
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::cleared> cleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
         }
         ///Set Interrupt flag A for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -7232,8 +7078,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SetintaVal> setinta{}; 
         namespace SetintaValC{
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::set> set{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
         ///Set Interrupt flag B for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -7247,8 +7093,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SetintbVal> setintb{}; 
         namespace SetintbValC{
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::set> set{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -7261,9 +7107,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,WidthVal> width{}; 
         namespace WidthValC{
-            constexpr Register::FieldValue<decltype(width),WidthVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v16Bit> v16Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v32Bit> v32Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32Bit> v32Bit{};
         }
         ///Determines whether the source address is incremented for
 								each DMA transfer.
@@ -7283,10 +7129,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,SrcincVal> srcinc{}; 
         namespace SrcincValC{
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
         ///Determines whether the destination address is incremented
 								for each DMA transfer.
@@ -7306,10 +7152,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,DstincVal> dstinc{}; 
         namespace DstincValC{
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
         }
         ///Total number of transfers to be performed, minus 1 encoded.
 								The number of bytes transferred is: (XFERCOUNT + 1) x data width (as
@@ -7320,8 +7166,6 @@ namespace Kvasir {
 								total of 2 transfers will be performed. ... 0x3FF = a total of 1,024
 								transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
-        namespace XfercountValC{
-        }
     }
     namespace Nonexfercfg21{    ///<Transfer configuration register for DMA channel 0.
         using Addr = Register::Address<0x1c004558,0xfc000cc0,0,unsigned>;
@@ -7337,8 +7181,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CfgvalidVal> cfgvalid{}; 
         namespace CfgvalidValC{
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::notValid> notValid{};
-            constexpr Register::FieldValue<decltype(cfgvalid),CfgvalidVal::valid> valid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::notValid> notValid{};
+            constexpr Register::FieldValue<decltype(cfgvalid)::Type,CfgvalidVal::valid> valid{};
         }
         ///Indicates whether the channel's control structure will be
 								reloaded when the current descriptor is exhausted. Reloading allows
@@ -7352,8 +7196,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ReloadVal> reload{}; 
         namespace ReloadValC{
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(reload),ReloadVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(reload)::Type,ReloadVal::enabled> enabled{};
         }
         ///Software Trigger.
         enum class SwtrigVal {
@@ -7367,8 +7211,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SwtrigVal> swtrig{}; 
         namespace SwtrigValC{
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(swtrig),SwtrigVal::set> set{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(swtrig)::Type,SwtrigVal::set> set{};
         }
         ///Clear Trigger.
         enum class ClrtrigVal {
@@ -7380,8 +7224,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrtrigVal> clrtrig{}; 
         namespace ClrtrigValC{
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::notCleared> notCleared{};
-            constexpr Register::FieldValue<decltype(clrtrig),ClrtrigVal::cleared> cleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::notCleared> notCleared{};
+            constexpr Register::FieldValue<decltype(clrtrig)::Type,ClrtrigVal::cleared> cleared{};
         }
         ///Set Interrupt flag A for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -7395,8 +7239,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SetintaVal> setinta{}; 
         namespace SetintaValC{
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setinta),SetintaVal::set> set{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setinta)::Type,SetintaVal::set> set{};
         }
         ///Set Interrupt flag B for this channel. There is no hardware
 								distinction between interrupt A and B. They can be used by software
@@ -7410,8 +7254,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SetintbVal> setintb{}; 
         namespace SetintbValC{
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(setintb),SetintbVal::set> set{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(setintb)::Type,SetintbVal::set> set{};
         }
         ///Transfer width used for this DMA channel.
         enum class WidthVal {
@@ -7424,9 +7268,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,WidthVal> width{}; 
         namespace WidthValC{
-            constexpr Register::FieldValue<decltype(width),WidthVal::v8Bit> v8Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v16Bit> v16Bit{};
-            constexpr Register::FieldValue<decltype(width),WidthVal::v32Bit> v32Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v8Bit> v8Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v16Bit> v16Bit{};
+            constexpr Register::FieldValue<decltype(width)::Type,WidthVal::v32Bit> v32Bit{};
         }
         ///Determines whether the source address is incremented for
 								each DMA transfer.
@@ -7446,10 +7290,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,SrcincVal> srcinc{}; 
         namespace SrcincValC{
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(srcinc),SrcincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(srcinc)::Type,SrcincVal::v4XWidth> v4XWidth{};
         }
         ///Determines whether the destination address is incremented
 								for each DMA transfer.
@@ -7469,10 +7313,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,DstincVal> dstinc{}; 
         namespace DstincValC{
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::noIncrement> noIncrement{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v1XWidth> v1XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v2XWidth> v2XWidth{};
-            constexpr Register::FieldValue<decltype(dstinc),DstincVal::v4XWidth> v4XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::noIncrement> noIncrement{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v1XWidth> v1XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v2XWidth> v2XWidth{};
+            constexpr Register::FieldValue<decltype(dstinc)::Type,DstincVal::v4XWidth> v4XWidth{};
         }
         ///Total number of transfers to be performed, minus 1 encoded.
 								The number of bytes transferred is: (XFERCOUNT + 1) x data width (as
@@ -7483,7 +7327,5 @@ namespace Kvasir {
 								total of 2 transfers will be performed. ... 0x3FF = a total of 1,024
 								transfers will be performed.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> xfercount{}; 
-        namespace XfercountValC{
-        }
     }
 }

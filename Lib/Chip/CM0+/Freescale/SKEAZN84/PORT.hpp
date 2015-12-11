@@ -13,10 +13,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,FltaVal> flta{}; 
         namespace FltaValC{
-            constexpr Register::FieldValue<decltype(flta),FltaVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(flta),FltaVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(flta),FltaVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(flta),FltaVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(flta)::Type,FltaVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(flta)::Type,FltaVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(flta)::Type,FltaVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(flta)::Type,FltaVal::v11> v11{};
         }
         ///Filter Selection for Input from PTB
         enum class FltbVal {
@@ -27,10 +27,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,FltbVal> fltb{}; 
         namespace FltbValC{
-            constexpr Register::FieldValue<decltype(fltb),FltbVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(fltb),FltbVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(fltb),FltbVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(fltb),FltbVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(fltb)::Type,FltbVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(fltb)::Type,FltbVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(fltb)::Type,FltbVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(fltb)::Type,FltbVal::v11> v11{};
         }
         ///Filter Selection for Input from PTC
         enum class FltcVal {
@@ -41,10 +41,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,FltcVal> fltc{}; 
         namespace FltcValC{
-            constexpr Register::FieldValue<decltype(fltc),FltcVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(fltc),FltcVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(fltc),FltcVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(fltc),FltcVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(fltc)::Type,FltcVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(fltc)::Type,FltcVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(fltc)::Type,FltcVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(fltc)::Type,FltcVal::v11> v11{};
         }
         ///Filter Selection For Input from SCL/SDA
         enum class FltiicVal {
@@ -55,10 +55,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,FltiicVal> fltiic{}; 
         namespace FltiicValC{
-            constexpr Register::FieldValue<decltype(fltiic),FltiicVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(fltiic),FltiicVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(fltiic),FltiicVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(fltiic),FltiicVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(fltiic)::Type,FltiicVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(fltiic)::Type,FltiicVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(fltiic)::Type,FltiicVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(fltiic)::Type,FltiicVal::v11> v11{};
         }
         ///Filter Selection For Input from FTM0CH0/FTM0CH1
         enum class Fltftm0Val {
@@ -69,10 +69,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,Fltftm0Val> fltftm0{}; 
         namespace Fltftm0ValC{
-            constexpr Register::FieldValue<decltype(fltftm0),Fltftm0Val::v00> v00{};
-            constexpr Register::FieldValue<decltype(fltftm0),Fltftm0Val::v01> v01{};
-            constexpr Register::FieldValue<decltype(fltftm0),Fltftm0Val::v10> v10{};
-            constexpr Register::FieldValue<decltype(fltftm0),Fltftm0Val::v11> v11{};
+            constexpr Register::FieldValue<decltype(fltftm0)::Type,Fltftm0Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(fltftm0)::Type,Fltftm0Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(fltftm0)::Type,Fltftm0Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(fltftm0)::Type,Fltftm0Val::v11> v11{};
         }
         ///Filter Selection For Input from PWT_IN1/PWT_IN0
         enum class FltpwtVal {
@@ -83,10 +83,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,FltpwtVal> fltpwt{}; 
         namespace FltpwtValC{
-            constexpr Register::FieldValue<decltype(fltpwt),FltpwtVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(fltpwt),FltpwtVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(fltpwt),FltpwtVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(fltpwt),FltpwtVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(fltpwt)::Type,FltpwtVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(fltpwt)::Type,FltpwtVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(fltpwt)::Type,FltpwtVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(fltpwt)::Type,FltpwtVal::v11> v11{};
         }
         ///Filter Selection for Input from RESET/IRQ
         enum class FltrstVal {
@@ -97,10 +97,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,FltrstVal> fltrst{}; 
         namespace FltrstValC{
-            constexpr Register::FieldValue<decltype(fltrst),FltrstVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(fltrst),FltrstVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(fltrst),FltrstVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(fltrst),FltrstVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(fltrst)::Type,FltrstVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(fltrst)::Type,FltrstVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(fltrst)::Type,FltrstVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(fltrst)::Type,FltrstVal::v11> v11{};
         }
         ///Filter selection for Input from KBI0
         enum class Fltkbi0Val {
@@ -111,10 +111,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,18),Register::ReadWriteAccess,Fltkbi0Val> fltkbi0{}; 
         namespace Fltkbi0ValC{
-            constexpr Register::FieldValue<decltype(fltkbi0),Fltkbi0Val::v00> v00{};
-            constexpr Register::FieldValue<decltype(fltkbi0),Fltkbi0Val::v01> v01{};
-            constexpr Register::FieldValue<decltype(fltkbi0),Fltkbi0Val::v10> v10{};
-            constexpr Register::FieldValue<decltype(fltkbi0),Fltkbi0Val::v11> v11{};
+            constexpr Register::FieldValue<decltype(fltkbi0)::Type,Fltkbi0Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(fltkbi0)::Type,Fltkbi0Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(fltkbi0)::Type,Fltkbi0Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(fltkbi0)::Type,Fltkbi0Val::v11> v11{};
         }
         ///Filter Selection for Input from KBI1
         enum class Fltkbi1Val {
@@ -125,10 +125,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,Fltkbi1Val> fltkbi1{}; 
         namespace Fltkbi1ValC{
-            constexpr Register::FieldValue<decltype(fltkbi1),Fltkbi1Val::v00> v00{};
-            constexpr Register::FieldValue<decltype(fltkbi1),Fltkbi1Val::v01> v01{};
-            constexpr Register::FieldValue<decltype(fltkbi1),Fltkbi1Val::v10> v10{};
-            constexpr Register::FieldValue<decltype(fltkbi1),Fltkbi1Val::v11> v11{};
+            constexpr Register::FieldValue<decltype(fltkbi1)::Type,Fltkbi1Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(fltkbi1)::Type,Fltkbi1Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(fltkbi1)::Type,Fltkbi1Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(fltkbi1)::Type,Fltkbi1Val::v11> v11{};
         }
         ///Filter Selection for Input from NMI
         enum class FltnmiVal {
@@ -139,10 +139,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,22),Register::ReadWriteAccess,FltnmiVal> fltnmi{}; 
         namespace FltnmiValC{
-            constexpr Register::FieldValue<decltype(fltnmi),FltnmiVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(fltnmi),FltnmiVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(fltnmi),FltnmiVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(fltnmi),FltnmiVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(fltnmi)::Type,FltnmiVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(fltnmi)::Type,FltnmiVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(fltnmi)::Type,FltnmiVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(fltnmi)::Type,FltnmiVal::v11> v11{};
         }
         ///Filter Division Set 1
         enum class Fltdiv1Val {
@@ -153,10 +153,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,Fltdiv1Val> fltdiv1{}; 
         namespace Fltdiv1ValC{
-            constexpr Register::FieldValue<decltype(fltdiv1),Fltdiv1Val::v00> v00{};
-            constexpr Register::FieldValue<decltype(fltdiv1),Fltdiv1Val::v01> v01{};
-            constexpr Register::FieldValue<decltype(fltdiv1),Fltdiv1Val::v10> v10{};
-            constexpr Register::FieldValue<decltype(fltdiv1),Fltdiv1Val::v11> v11{};
+            constexpr Register::FieldValue<decltype(fltdiv1)::Type,Fltdiv1Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(fltdiv1)::Type,Fltdiv1Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(fltdiv1)::Type,Fltdiv1Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(fltdiv1)::Type,Fltdiv1Val::v11> v11{};
         }
         ///Filter Division Set 2
         enum class Fltdiv2Val {
@@ -171,14 +171,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,26),Register::ReadWriteAccess,Fltdiv2Val> fltdiv2{}; 
         namespace Fltdiv2ValC{
-            constexpr Register::FieldValue<decltype(fltdiv2),Fltdiv2Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(fltdiv2),Fltdiv2Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(fltdiv2),Fltdiv2Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(fltdiv2),Fltdiv2Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(fltdiv2),Fltdiv2Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(fltdiv2),Fltdiv2Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(fltdiv2),Fltdiv2Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(fltdiv2),Fltdiv2Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(fltdiv2)::Type,Fltdiv2Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(fltdiv2)::Type,Fltdiv2Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(fltdiv2)::Type,Fltdiv2Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(fltdiv2)::Type,Fltdiv2Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(fltdiv2)::Type,Fltdiv2Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(fltdiv2)::Type,Fltdiv2Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(fltdiv2)::Type,Fltdiv2Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(fltdiv2)::Type,Fltdiv2Val::v111> v111{};
         }
         ///Filter Division Set 3
         enum class Fltdiv3Val {
@@ -193,14 +193,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,Fltdiv3Val> fltdiv3{}; 
         namespace Fltdiv3ValC{
-            constexpr Register::FieldValue<decltype(fltdiv3),Fltdiv3Val::v000> v000{};
-            constexpr Register::FieldValue<decltype(fltdiv3),Fltdiv3Val::v001> v001{};
-            constexpr Register::FieldValue<decltype(fltdiv3),Fltdiv3Val::v010> v010{};
-            constexpr Register::FieldValue<decltype(fltdiv3),Fltdiv3Val::v011> v011{};
-            constexpr Register::FieldValue<decltype(fltdiv3),Fltdiv3Val::v100> v100{};
-            constexpr Register::FieldValue<decltype(fltdiv3),Fltdiv3Val::v101> v101{};
-            constexpr Register::FieldValue<decltype(fltdiv3),Fltdiv3Val::v110> v110{};
-            constexpr Register::FieldValue<decltype(fltdiv3),Fltdiv3Val::v111> v111{};
+            constexpr Register::FieldValue<decltype(fltdiv3)::Type,Fltdiv3Val::v000> v000{};
+            constexpr Register::FieldValue<decltype(fltdiv3)::Type,Fltdiv3Val::v001> v001{};
+            constexpr Register::FieldValue<decltype(fltdiv3)::Type,Fltdiv3Val::v010> v010{};
+            constexpr Register::FieldValue<decltype(fltdiv3)::Type,Fltdiv3Val::v011> v011{};
+            constexpr Register::FieldValue<decltype(fltdiv3)::Type,Fltdiv3Val::v100> v100{};
+            constexpr Register::FieldValue<decltype(fltdiv3)::Type,Fltdiv3Val::v101> v101{};
+            constexpr Register::FieldValue<decltype(fltdiv3)::Type,Fltdiv3Val::v110> v110{};
+            constexpr Register::FieldValue<decltype(fltdiv3)::Type,Fltdiv3Val::v111> v111{};
         }
     }
     namespace PortPuel{    ///<Port Pullup Enable Low Register
@@ -212,8 +212,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ptape0Val> ptape0{}; 
         namespace Ptape0ValC{
-            constexpr Register::FieldValue<decltype(ptape0),Ptape0Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptape0),Ptape0Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptape0)::Type,Ptape0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptape0)::Type,Ptape0Val::v1> v1{};
         }
         ///Pull Enable for Port A Bit 1
         enum class Ptape1Val {
@@ -222,8 +222,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Ptape1Val> ptape1{}; 
         namespace Ptape1ValC{
-            constexpr Register::FieldValue<decltype(ptape1),Ptape1Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptape1),Ptape1Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptape1)::Type,Ptape1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptape1)::Type,Ptape1Val::v1> v1{};
         }
         ///Pull Enable for Port A Bit 2
         enum class Ptape2Val {
@@ -232,8 +232,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Ptape2Val> ptape2{}; 
         namespace Ptape2ValC{
-            constexpr Register::FieldValue<decltype(ptape2),Ptape2Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptape2),Ptape2Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptape2)::Type,Ptape2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptape2)::Type,Ptape2Val::v1> v1{};
         }
         ///Pull Enable for Port A Bit 3
         enum class Ptape3Val {
@@ -242,8 +242,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ptape3Val> ptape3{}; 
         namespace Ptape3ValC{
-            constexpr Register::FieldValue<decltype(ptape3),Ptape3Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptape3),Ptape3Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptape3)::Type,Ptape3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptape3)::Type,Ptape3Val::v1> v1{};
         }
         ///Pull Enable for Port A Bit 4
         enum class Ptape4Val {
@@ -252,8 +252,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Ptape4Val> ptape4{}; 
         namespace Ptape4ValC{
-            constexpr Register::FieldValue<decltype(ptape4),Ptape4Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptape4),Ptape4Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptape4)::Type,Ptape4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptape4)::Type,Ptape4Val::v1> v1{};
         }
         ///Pull Enable for Port A Bit 5
         enum class Ptape5Val {
@@ -262,8 +262,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Ptape5Val> ptape5{}; 
         namespace Ptape5ValC{
-            constexpr Register::FieldValue<decltype(ptape5),Ptape5Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptape5),Ptape5Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptape5)::Type,Ptape5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptape5)::Type,Ptape5Val::v1> v1{};
         }
         ///Pull Enable for Port A Bit 6
         enum class Ptape6Val {
@@ -272,8 +272,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Ptape6Val> ptape6{}; 
         namespace Ptape6ValC{
-            constexpr Register::FieldValue<decltype(ptape6),Ptape6Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptape6),Ptape6Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptape6)::Type,Ptape6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptape6)::Type,Ptape6Val::v1> v1{};
         }
         ///Pull Enable for Port A Bit 7
         enum class Ptape7Val {
@@ -282,8 +282,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ptape7Val> ptape7{}; 
         namespace Ptape7ValC{
-            constexpr Register::FieldValue<decltype(ptape7),Ptape7Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptape7),Ptape7Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptape7)::Type,Ptape7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptape7)::Type,Ptape7Val::v1> v1{};
         }
         ///Pull Enable for Port B Bit 0
         enum class Ptbpe0Val {
@@ -292,8 +292,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ptbpe0Val> ptbpe0{}; 
         namespace Ptbpe0ValC{
-            constexpr Register::FieldValue<decltype(ptbpe0),Ptbpe0Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptbpe0),Ptbpe0Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptbpe0)::Type,Ptbpe0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptbpe0)::Type,Ptbpe0Val::v1> v1{};
         }
         ///Pull Enable for Port B Bit 1
         enum class Ptbpe1Val {
@@ -302,8 +302,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Ptbpe1Val> ptbpe1{}; 
         namespace Ptbpe1ValC{
-            constexpr Register::FieldValue<decltype(ptbpe1),Ptbpe1Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptbpe1),Ptbpe1Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptbpe1)::Type,Ptbpe1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptbpe1)::Type,Ptbpe1Val::v1> v1{};
         }
         ///Pull Enable for Port B Bit 2
         enum class Ptbpe2Val {
@@ -312,8 +312,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ptbpe2Val> ptbpe2{}; 
         namespace Ptbpe2ValC{
-            constexpr Register::FieldValue<decltype(ptbpe2),Ptbpe2Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptbpe2),Ptbpe2Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptbpe2)::Type,Ptbpe2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptbpe2)::Type,Ptbpe2Val::v1> v1{};
         }
         ///Pull Enable for Port B Bit 3
         enum class Ptbpe3Val {
@@ -322,8 +322,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ptbpe3Val> ptbpe3{}; 
         namespace Ptbpe3ValC{
-            constexpr Register::FieldValue<decltype(ptbpe3),Ptbpe3Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptbpe3),Ptbpe3Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptbpe3)::Type,Ptbpe3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptbpe3)::Type,Ptbpe3Val::v1> v1{};
         }
         ///Pull Enable for Port B Bit 4
         enum class Ptbpe4Val {
@@ -332,8 +332,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Ptbpe4Val> ptbpe4{}; 
         namespace Ptbpe4ValC{
-            constexpr Register::FieldValue<decltype(ptbpe4),Ptbpe4Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptbpe4),Ptbpe4Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptbpe4)::Type,Ptbpe4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptbpe4)::Type,Ptbpe4Val::v1> v1{};
         }
         ///Pull Enable for Port B Bit 5
         enum class Ptbpe5Val {
@@ -342,8 +342,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Ptbpe5Val> ptbpe5{}; 
         namespace Ptbpe5ValC{
-            constexpr Register::FieldValue<decltype(ptbpe5),Ptbpe5Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptbpe5),Ptbpe5Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptbpe5)::Type,Ptbpe5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptbpe5)::Type,Ptbpe5Val::v1> v1{};
         }
         ///Pull Enable for Port B Bit 6
         enum class Ptbpe6Val {
@@ -352,8 +352,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Ptbpe6Val> ptbpe6{}; 
         namespace Ptbpe6ValC{
-            constexpr Register::FieldValue<decltype(ptbpe6),Ptbpe6Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptbpe6),Ptbpe6Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptbpe6)::Type,Ptbpe6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptbpe6)::Type,Ptbpe6Val::v1> v1{};
         }
         ///Pull Enable for Port B Bit 7
         enum class Ptbpe7Val {
@@ -362,8 +362,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Ptbpe7Val> ptbpe7{}; 
         namespace Ptbpe7ValC{
-            constexpr Register::FieldValue<decltype(ptbpe7),Ptbpe7Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptbpe7),Ptbpe7Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptbpe7)::Type,Ptbpe7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptbpe7)::Type,Ptbpe7Val::v1> v1{};
         }
         ///Pull Enable for Port C Bit 0
         enum class Ptcpe0Val {
@@ -372,8 +372,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Ptcpe0Val> ptcpe0{}; 
         namespace Ptcpe0ValC{
-            constexpr Register::FieldValue<decltype(ptcpe0),Ptcpe0Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptcpe0),Ptcpe0Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptcpe0)::Type,Ptcpe0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptcpe0)::Type,Ptcpe0Val::v1> v1{};
         }
         ///Pull Enable for Port C Bit 1
         enum class Ptcpe1Val {
@@ -382,8 +382,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Ptcpe1Val> ptcpe1{}; 
         namespace Ptcpe1ValC{
-            constexpr Register::FieldValue<decltype(ptcpe1),Ptcpe1Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptcpe1),Ptcpe1Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptcpe1)::Type,Ptcpe1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptcpe1)::Type,Ptcpe1Val::v1> v1{};
         }
         ///Pull Enable for Port C Bit 2
         enum class Ptcpe2Val {
@@ -392,8 +392,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Ptcpe2Val> ptcpe2{}; 
         namespace Ptcpe2ValC{
-            constexpr Register::FieldValue<decltype(ptcpe2),Ptcpe2Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptcpe2),Ptcpe2Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptcpe2)::Type,Ptcpe2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptcpe2)::Type,Ptcpe2Val::v1> v1{};
         }
         ///Pull Enable for Port C Bit 3
         enum class Ptcpe3Val {
@@ -402,8 +402,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,Ptcpe3Val> ptcpe3{}; 
         namespace Ptcpe3ValC{
-            constexpr Register::FieldValue<decltype(ptcpe3),Ptcpe3Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptcpe3),Ptcpe3Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptcpe3)::Type,Ptcpe3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptcpe3)::Type,Ptcpe3Val::v1> v1{};
         }
         ///Pull Enable for Port C Bit 4
         enum class Ptcpe4Val {
@@ -412,8 +412,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Ptcpe4Val> ptcpe4{}; 
         namespace Ptcpe4ValC{
-            constexpr Register::FieldValue<decltype(ptcpe4),Ptcpe4Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptcpe4),Ptcpe4Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptcpe4)::Type,Ptcpe4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptcpe4)::Type,Ptcpe4Val::v1> v1{};
         }
         ///Pull Enable for Port C Bit 5
         enum class Ptcpe5Val {
@@ -422,8 +422,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Ptcpe5Val> ptcpe5{}; 
         namespace Ptcpe5ValC{
-            constexpr Register::FieldValue<decltype(ptcpe5),Ptcpe5Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptcpe5),Ptcpe5Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptcpe5)::Type,Ptcpe5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptcpe5)::Type,Ptcpe5Val::v1> v1{};
         }
     }
     namespace PortHdrve{    ///<Port High Drive Enable Register
@@ -435,8 +435,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Ptb5Val> ptb5{}; 
         namespace Ptb5ValC{
-            constexpr Register::FieldValue<decltype(ptb5),Ptb5Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptb5),Ptb5Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptb5)::Type,Ptb5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptb5)::Type,Ptb5Val::v1> v1{};
         }
         ///High Current Drive Capability of PTC1
         enum class Ptc1Val {
@@ -445,8 +445,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Ptc1Val> ptc1{}; 
         namespace Ptc1ValC{
-            constexpr Register::FieldValue<decltype(ptc1),Ptc1Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptc1),Ptc1Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptc1)::Type,Ptc1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptc1)::Type,Ptc1Val::v1> v1{};
         }
         ///High Current Drive Capability of PTC5
         enum class Ptc5Val {
@@ -455,8 +455,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ptc5Val> ptc5{}; 
         namespace Ptc5ValC{
-            constexpr Register::FieldValue<decltype(ptc5),Ptc5Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(ptc5),Ptc5Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(ptc5)::Type,Ptc5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(ptc5)::Type,Ptc5Val::v1> v1{};
         }
     }
 }

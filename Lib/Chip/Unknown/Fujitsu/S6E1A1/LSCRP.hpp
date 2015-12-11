@@ -6,7 +6,5 @@ namespace Kvasir {
         using Addr = Register::Address<0x4003c000,0xffffffc0,0,unsigned char>;
         ///Low-speed CR Prescaler Load
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> lcrPrsld{}; 
-        namespace LcrprsldValC{
-        }
     }
 }

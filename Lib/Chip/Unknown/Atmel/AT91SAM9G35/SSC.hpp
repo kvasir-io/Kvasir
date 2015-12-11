@@ -6,31 +6,19 @@ namespace Kvasir {
         using Addr = Register::Address<0xf0010000,0xffff7cfc,0,unsigned>;
         ///Receive Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxen{}; 
-        namespace RxenValC{
-        }
         ///Receive Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxdis{}; 
-        namespace RxdisValC{
-        }
         ///Transmit Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txen{}; 
-        namespace TxenValC{
-        }
         ///Transmit Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txdis{}; 
-        namespace TxdisValC{
-        }
         ///Software Reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> swrst{}; 
-        namespace SwrstValC{
-        }
     }
     namespace SscCmr{    ///<Clock Mode Register
         using Addr = Register::Address<0xf0010004,0xfffff000,0,unsigned>;
         ///Clock Divider
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> div{}; 
-        namespace DivValC{
-        }
     }
     namespace SscRcmr{    ///<Receive Clock Mode Register
         using Addr = Register::Address<0xf0010010,0x0000e000,0,unsigned>;
@@ -42,18 +30,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,CksVal> cks{}; 
         namespace CksValC{
-            constexpr Register::FieldValue<decltype(cks),CksVal::mck> mck{};
-            constexpr Register::FieldValue<decltype(cks),CksVal::tk> tk{};
-            constexpr Register::FieldValue<decltype(cks),CksVal::rk> rk{};
+            constexpr Register::FieldValue<decltype(cks)::Type,CksVal::mck> mck{};
+            constexpr Register::FieldValue<decltype(cks)::Type,CksVal::tk> tk{};
+            constexpr Register::FieldValue<decltype(cks)::Type,CksVal::rk> rk{};
         }
         ///Receive Clock Output Mode Selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,2),Register::ReadWriteAccess,unsigned> cko{}; 
-        namespace CkoValC{
-        }
         ///Receive Clock Inversion
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> cki{}; 
-        namespace CkiValC{
-        }
         ///Receive Clock Gating Selection
         enum class CkgVal {
             none=0x00000000,     ///<None
@@ -62,9 +46,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,CkgVal> ckg{}; 
         namespace CkgValC{
-            constexpr Register::FieldValue<decltype(ckg),CkgVal::none> none{};
-            constexpr Register::FieldValue<decltype(ckg),CkgVal::continuous> continuous{};
-            constexpr Register::FieldValue<decltype(ckg),CkgVal::transfer> transfer{};
+            constexpr Register::FieldValue<decltype(ckg)::Type,CkgVal::none> none{};
+            constexpr Register::FieldValue<decltype(ckg)::Type,CkgVal::continuous> continuous{};
+            constexpr Register::FieldValue<decltype(ckg)::Type,CkgVal::transfer> transfer{};
         }
         ///Receive Start Selection
         enum class StartVal {
@@ -80,51 +64,35 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,StartVal> start{}; 
         namespace StartValC{
-            constexpr Register::FieldValue<decltype(start),StartVal::continuous> continuous{};
-            constexpr Register::FieldValue<decltype(start),StartVal::transmit> transmit{};
-            constexpr Register::FieldValue<decltype(start),StartVal::rfLow> rfLow{};
-            constexpr Register::FieldValue<decltype(start),StartVal::rfHigh> rfHigh{};
-            constexpr Register::FieldValue<decltype(start),StartVal::rfFalling> rfFalling{};
-            constexpr Register::FieldValue<decltype(start),StartVal::rfRising> rfRising{};
-            constexpr Register::FieldValue<decltype(start),StartVal::rfLevel> rfLevel{};
-            constexpr Register::FieldValue<decltype(start),StartVal::rfEdge> rfEdge{};
-            constexpr Register::FieldValue<decltype(start),StartVal::cmp0> cmp0{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::continuous> continuous{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::transmit> transmit{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::rfLow> rfLow{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::rfHigh> rfHigh{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::rfFalling> rfFalling{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::rfRising> rfRising{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::rfLevel> rfLevel{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::rfEdge> rfEdge{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::cmp0> cmp0{};
         }
         ///Receive Stop Selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> stop{}; 
-        namespace StopValC{
-        }
         ///Receive Start Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> sttdly{}; 
-        namespace SttdlyValC{
-        }
         ///Receive Period Divider Selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> period{}; 
-        namespace PeriodValC{
-        }
     }
     namespace SscRfmr{    ///<Receive Frame Mode Register
         using Addr = Register::Address<0xf0010014,0x0e80f040,0,unsigned>;
         ///Data Length
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> datlen{}; 
-        namespace DatlenValC{
-        }
         ///Loop Mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> loop{}; 
-        namespace LoopValC{
-        }
         ///Most Significant Bit First
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> msbf{}; 
-        namespace MsbfValC{
-        }
         ///Data Number per Frame
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> datnb{}; 
-        namespace DatnbValC{
-        }
         ///Receive Frame Sync Length
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> fslen{}; 
-        namespace FslenValC{
-        }
         ///Receive Frame Sync Output Selection
         enum class FsosVal {
             none=0x00000000,     ///<None
@@ -136,12 +104,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,FsosVal> fsos{}; 
         namespace FsosValC{
-            constexpr Register::FieldValue<decltype(fsos),FsosVal::none> none{};
-            constexpr Register::FieldValue<decltype(fsos),FsosVal::negative> negative{};
-            constexpr Register::FieldValue<decltype(fsos),FsosVal::positive> positive{};
-            constexpr Register::FieldValue<decltype(fsos),FsosVal::low> low{};
-            constexpr Register::FieldValue<decltype(fsos),FsosVal::high> high{};
-            constexpr Register::FieldValue<decltype(fsos),FsosVal::toggling> toggling{};
+            constexpr Register::FieldValue<decltype(fsos)::Type,FsosVal::none> none{};
+            constexpr Register::FieldValue<decltype(fsos)::Type,FsosVal::negative> negative{};
+            constexpr Register::FieldValue<decltype(fsos)::Type,FsosVal::positive> positive{};
+            constexpr Register::FieldValue<decltype(fsos)::Type,FsosVal::low> low{};
+            constexpr Register::FieldValue<decltype(fsos)::Type,FsosVal::high> high{};
+            constexpr Register::FieldValue<decltype(fsos)::Type,FsosVal::toggling> toggling{};
         }
         ///Frame Sync Edge Detection
         enum class FsedgeVal {
@@ -150,13 +118,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,FsedgeVal> fsedge{}; 
         namespace FsedgeValC{
-            constexpr Register::FieldValue<decltype(fsedge),FsedgeVal::positive> positive{};
-            constexpr Register::FieldValue<decltype(fsedge),FsedgeVal::negative> negative{};
+            constexpr Register::FieldValue<decltype(fsedge)::Type,FsedgeVal::positive> positive{};
+            constexpr Register::FieldValue<decltype(fsedge)::Type,FsedgeVal::negative> negative{};
         }
         ///FSLEN Field Extension
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> fslenExt{}; 
-        namespace FslenextValC{
-        }
     }
     namespace SscTcmr{    ///<Transmit Clock Mode Register
         using Addr = Register::Address<0xf0010018,0x0000f000,0,unsigned>;
@@ -168,18 +134,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,CksVal> cks{}; 
         namespace CksValC{
-            constexpr Register::FieldValue<decltype(cks),CksVal::mck> mck{};
-            constexpr Register::FieldValue<decltype(cks),CksVal::tk> tk{};
-            constexpr Register::FieldValue<decltype(cks),CksVal::rk> rk{};
+            constexpr Register::FieldValue<decltype(cks)::Type,CksVal::mck> mck{};
+            constexpr Register::FieldValue<decltype(cks)::Type,CksVal::tk> tk{};
+            constexpr Register::FieldValue<decltype(cks)::Type,CksVal::rk> rk{};
         }
         ///Transmit Clock Output Mode Selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,2),Register::ReadWriteAccess,unsigned> cko{}; 
-        namespace CkoValC{
-        }
         ///Transmit Clock Inversion
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> cki{}; 
-        namespace CkiValC{
-        }
         ///Transmit Clock Gating Selection
         enum class CkgVal {
             none=0x00000000,     ///<None
@@ -188,9 +150,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,CkgVal> ckg{}; 
         namespace CkgValC{
-            constexpr Register::FieldValue<decltype(ckg),CkgVal::none> none{};
-            constexpr Register::FieldValue<decltype(ckg),CkgVal::continuous> continuous{};
-            constexpr Register::FieldValue<decltype(ckg),CkgVal::transfer> transfer{};
+            constexpr Register::FieldValue<decltype(ckg)::Type,CkgVal::none> none{};
+            constexpr Register::FieldValue<decltype(ckg)::Type,CkgVal::continuous> continuous{};
+            constexpr Register::FieldValue<decltype(ckg)::Type,CkgVal::transfer> transfer{};
         }
         ///Transmit Start Selection
         enum class StartVal {
@@ -206,47 +168,33 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,StartVal> start{}; 
         namespace StartValC{
-            constexpr Register::FieldValue<decltype(start),StartVal::continuous> continuous{};
-            constexpr Register::FieldValue<decltype(start),StartVal::receive> receive{};
-            constexpr Register::FieldValue<decltype(start),StartVal::rfLow> rfLow{};
-            constexpr Register::FieldValue<decltype(start),StartVal::rfHigh> rfHigh{};
-            constexpr Register::FieldValue<decltype(start),StartVal::rfFalling> rfFalling{};
-            constexpr Register::FieldValue<decltype(start),StartVal::rfRising> rfRising{};
-            constexpr Register::FieldValue<decltype(start),StartVal::rfLevel> rfLevel{};
-            constexpr Register::FieldValue<decltype(start),StartVal::rfEdge> rfEdge{};
-            constexpr Register::FieldValue<decltype(start),StartVal::cmp0> cmp0{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::continuous> continuous{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::receive> receive{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::rfLow> rfLow{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::rfHigh> rfHigh{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::rfFalling> rfFalling{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::rfRising> rfRising{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::rfLevel> rfLevel{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::rfEdge> rfEdge{};
+            constexpr Register::FieldValue<decltype(start)::Type,StartVal::cmp0> cmp0{};
         }
         ///Transmit Start Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> sttdly{}; 
-        namespace SttdlyValC{
-        }
         ///Transmit Period Divider Selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> period{}; 
-        namespace PeriodValC{
-        }
     }
     namespace SscTfmr{    ///<Transmit Frame Mode Register
         using Addr = Register::Address<0xf001001c,0x0e00f040,0,unsigned>;
         ///Data Length
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> datlen{}; 
-        namespace DatlenValC{
-        }
         ///Data Default Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> datdef{}; 
-        namespace DatdefValC{
-        }
         ///Most Significant Bit First
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> msbf{}; 
-        namespace MsbfValC{
-        }
         ///Data Number per frame
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> datnb{}; 
-        namespace DatnbValC{
-        }
         ///Transmit Frame Sync Length
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> fslen{}; 
-        namespace FslenValC{
-        }
         ///Transmit Frame Sync Output Selection
         enum class FsosVal {
             none=0x00000000,     ///<None
@@ -258,17 +206,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,FsosVal> fsos{}; 
         namespace FsosValC{
-            constexpr Register::FieldValue<decltype(fsos),FsosVal::none> none{};
-            constexpr Register::FieldValue<decltype(fsos),FsosVal::negative> negative{};
-            constexpr Register::FieldValue<decltype(fsos),FsosVal::positive> positive{};
-            constexpr Register::FieldValue<decltype(fsos),FsosVal::low> low{};
-            constexpr Register::FieldValue<decltype(fsos),FsosVal::high> high{};
-            constexpr Register::FieldValue<decltype(fsos),FsosVal::toggling> toggling{};
+            constexpr Register::FieldValue<decltype(fsos)::Type,FsosVal::none> none{};
+            constexpr Register::FieldValue<decltype(fsos)::Type,FsosVal::negative> negative{};
+            constexpr Register::FieldValue<decltype(fsos)::Type,FsosVal::positive> positive{};
+            constexpr Register::FieldValue<decltype(fsos)::Type,FsosVal::low> low{};
+            constexpr Register::FieldValue<decltype(fsos)::Type,FsosVal::high> high{};
+            constexpr Register::FieldValue<decltype(fsos)::Type,FsosVal::toggling> toggling{};
         }
         ///Frame Sync Data Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> fsden{}; 
-        namespace FsdenValC{
-        }
         ///Frame Sync Edge Detection
         enum class FsedgeVal {
             positive=0x00000000,     ///<Positive Edge Detection
@@ -276,214 +222,128 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,FsedgeVal> fsedge{}; 
         namespace FsedgeValC{
-            constexpr Register::FieldValue<decltype(fsedge),FsedgeVal::positive> positive{};
-            constexpr Register::FieldValue<decltype(fsedge),FsedgeVal::negative> negative{};
+            constexpr Register::FieldValue<decltype(fsedge)::Type,FsedgeVal::positive> positive{};
+            constexpr Register::FieldValue<decltype(fsedge)::Type,FsedgeVal::negative> negative{};
         }
         ///FSLEN Field Extension
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> fslenExt{}; 
-        namespace FslenextValC{
-        }
     }
     namespace SscRhr{    ///<Receive Holding Register
         using Addr = Register::Address<0xf0010020,0x00000000,0,unsigned>;
         ///Receive Data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rdat{}; 
-        namespace RdatValC{
-        }
     }
     namespace SscThr{    ///<Transmit Holding Register
         using Addr = Register::Address<0xf0010024,0x00000000,0,unsigned>;
         ///Transmit Data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tdat{}; 
-        namespace TdatValC{
-        }
     }
     namespace SscRshr{    ///<Receive Sync. Holding Register
         using Addr = Register::Address<0xf0010030,0xffff0000,0,unsigned>;
         ///Receive Synchronization Data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rsdat{}; 
-        namespace RsdatValC{
-        }
     }
     namespace SscTshr{    ///<Transmit Sync. Holding Register
         using Addr = Register::Address<0xf0010034,0xffff0000,0,unsigned>;
         ///Transmit Synchronization Data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> tsdat{}; 
-        namespace TsdatValC{
-        }
     }
     namespace SscRc0r{    ///<Receive Compare 0 Register
         using Addr = Register::Address<0xf0010038,0xffff0000,0,unsigned>;
         ///Receive Compare Data 0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cp0{}; 
-        namespace Cp0ValC{
-        }
     }
     namespace SscRc1r{    ///<Receive Compare 1 Register
         using Addr = Register::Address<0xf001003c,0xffff0000,0,unsigned>;
         ///Receive Compare Data 1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cp1{}; 
-        namespace Cp1ValC{
-        }
     }
     namespace SscSr{    ///<Status Register
         using Addr = Register::Address<0xf0010040,0xfffcf0cc,0,unsigned>;
         ///Transmit Ready
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
-        namespace TxrdyValC{
-        }
         ///Transmit Empty
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txempty{}; 
-        namespace TxemptyValC{
-        }
         ///Receive Ready
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxrdy{}; 
-        namespace RxrdyValC{
-        }
         ///Receive Overrun
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovrun{}; 
-        namespace OvrunValC{
-        }
         ///Compare 0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> cp0{}; 
-        namespace Cp0ValC{
-        }
         ///Compare 1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> cp1{}; 
-        namespace Cp1ValC{
-        }
         ///Transmit Sync
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txsyn{}; 
-        namespace TxsynValC{
-        }
         ///Receive Sync
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> rxsyn{}; 
-        namespace RxsynValC{
-        }
         ///Transmit Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> txen{}; 
-        namespace TxenValC{
-        }
         ///Receive Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> rxen{}; 
-        namespace RxenValC{
-        }
     }
     namespace SscIer{    ///<Interrupt Enable Register
         using Addr = Register::Address<0xf0010044,0xfffff0cc,0,unsigned>;
         ///Transmit Ready Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
-        namespace TxrdyValC{
-        }
         ///Transmit Empty Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txempty{}; 
-        namespace TxemptyValC{
-        }
         ///Receive Ready Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxrdy{}; 
-        namespace RxrdyValC{
-        }
         ///Receive Overrun Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovrun{}; 
-        namespace OvrunValC{
-        }
         ///Compare 0 Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> cp0{}; 
-        namespace Cp0ValC{
-        }
         ///Compare 1 Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> cp1{}; 
-        namespace Cp1ValC{
-        }
         ///Tx Sync Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txsyn{}; 
-        namespace TxsynValC{
-        }
         ///Rx Sync Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> rxsyn{}; 
-        namespace RxsynValC{
-        }
     }
     namespace SscIdr{    ///<Interrupt Disable Register
         using Addr = Register::Address<0xf0010048,0xfffff0cc,0,unsigned>;
         ///Transmit Ready Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
-        namespace TxrdyValC{
-        }
         ///Transmit Empty Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txempty{}; 
-        namespace TxemptyValC{
-        }
         ///Receive Ready Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxrdy{}; 
-        namespace RxrdyValC{
-        }
         ///Receive Overrun Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovrun{}; 
-        namespace OvrunValC{
-        }
         ///Compare 0 Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> cp0{}; 
-        namespace Cp0ValC{
-        }
         ///Compare 1 Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> cp1{}; 
-        namespace Cp1ValC{
-        }
         ///Tx Sync Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txsyn{}; 
-        namespace TxsynValC{
-        }
         ///Rx Sync Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> rxsyn{}; 
-        namespace RxsynValC{
-        }
     }
     namespace SscImr{    ///<Interrupt Mask Register
         using Addr = Register::Address<0xf001004c,0xfffff0cc,0,unsigned>;
         ///Transmit Ready Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
-        namespace TxrdyValC{
-        }
         ///Transmit Empty Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> txempty{}; 
-        namespace TxemptyValC{
-        }
         ///Receive Ready Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rxrdy{}; 
-        namespace RxrdyValC{
-        }
         ///Receive Overrun Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> ovrun{}; 
-        namespace OvrunValC{
-        }
         ///Compare 0 Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> cp0{}; 
-        namespace Cp0ValC{
-        }
         ///Compare 1 Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> cp1{}; 
-        namespace Cp1ValC{
-        }
         ///Tx Sync Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> txsyn{}; 
-        namespace TxsynValC{
-        }
         ///Rx Sync Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> rxsyn{}; 
-        namespace RxsynValC{
-        }
     }
     namespace SscWpmr{    ///<Write Protect Mode Register
         using Addr = Register::Address<0xf00100e4,0x000000fe,0,unsigned>;
         ///Write Protect Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wpen{}; 
-        namespace WpenValC{
-        }
         ///Write Protect KEY
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> wpkey{}; 
-        namespace WpkeyValC{
-        }
     }
     namespace SscWpsr{    ///<Write Protect Status Register
         using Addr = Register::Address<0xf00100e8,0xffffffff,0,unsigned>;

@@ -6,19 +6,13 @@ namespace Kvasir {
         using Addr = Register::Address<0x40004000,0xffff000f,0,unsigned>;
         ///The voltage on the DAC_OUT pin (with respect to VSSA) is VALUE  x ((VREFP - V REFN)/4096) + VREFN.  This voltage will be stable the selected settling time (specified by the BIAS field in the DAC Control Register) after this field is modified.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> value{}; 
-        namespace ValueValC{
-        }
     }
     namespace Nonectrl{    ///<DAC Control register. This register contains bits to configure DAC operation and the interrupt/dma request flag.
         using Addr = Register::Address<0x40004004,0xffffe000,0,unsigned>;
         ///Interrupt/DMA request flag. This bit is read-only. 0 = This bit is cleared upon any write to the DACVAL register. 1 = This bit is set by hardware only if a hardware trigger has been selected as follows: - If the internal timer is selected, this bit will be set when the timer times-out.  - If an external trigger input is selected, this bit will be set when a transition of the specified polarity is detected on the selected input.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> intDmaFlag{}; 
-        namespace IntdmaflagValC{
-        }
         ///Hardware Trigger Source: If anyof these hardware trigger sources are selected, an interrupt/dma request will be generated when the specified trigger occurs. In addition, if double-buffering is enabled (the DBLBUF_ENA' bit is set), the DACVAL register will be loaded from the pre-buffer at the same time.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,1),Register::ReadWriteAccess,unsigned> trigSrc{}; 
-        namespace TrigsrcValC{
-        }
         ///Specifies the polarity of the selected external trigger input.  Does not apply if the TRIG_SRC field is set to 0.
         enum class PolarityVal {
             rising=0x00000000,     ///<Rising. A trigger will be asserted when a RISING edge is detected on the selected external trigger input.
@@ -26,8 +20,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,PolarityVal> polarity{}; 
         namespace PolarityValC{
-            constexpr Register::FieldValue<decltype(polarity),PolarityVal::rising> rising{};
-            constexpr Register::FieldValue<decltype(polarity),PolarityVal::falling> falling{};
+            constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::rising> rising{};
+            constexpr Register::FieldValue<decltype(polarity)::Type,PolarityVal::falling> falling{};
         }
         ///Permits bypassing of one synchronization flip-flop, if not required. Does not apply if the TRIG_SRC field is set to 0.
         enum class SyncbypassVal {
@@ -36,8 +30,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SyncbypassVal> syncBypass{}; 
         namespace SyncbypassValC{
-            constexpr Register::FieldValue<decltype(syncBypass),SyncbypassVal::synchronize> synchronize{};
-            constexpr Register::FieldValue<decltype(syncBypass),SyncbypassVal::notSynchronize> notSynchronize{};
+            constexpr Register::FieldValue<decltype(syncBypass)::Type,SyncbypassVal::synchronize> synchronize{};
+            constexpr Register::FieldValue<decltype(syncBypass)::Type,SyncbypassVal::notSynchronize> notSynchronize{};
         }
         ///Timer Enable
         enum class TimerenaVal {
@@ -46,8 +40,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TimerenaVal> timerEna{}; 
         namespace TimerenaValC{
-            constexpr Register::FieldValue<decltype(timerEna),TimerenaVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(timerEna),TimerenaVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(timerEna)::Type,TimerenaVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(timerEna)::Type,TimerenaVal::enabled> enabled{};
         }
         ///Double-Buffer Enable.
         enum class DblbufenaVal {
@@ -56,8 +50,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,DblbufenaVal> dblbufEna{}; 
         namespace DblbufenaValC{
-            constexpr Register::FieldValue<decltype(dblbufEna),DblbufenaVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dblbufEna),DblbufenaVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dblbufEna)::Type,DblbufenaVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dblbufEna)::Type,DblbufenaVal::enabled> enabled{};
         }
         ///Shutoff Enable
         enum class ShutoffenaVal {
@@ -66,23 +60,17 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,ShutoffenaVal> shutoffEna{}; 
         namespace ShutoffenaValC{
-            constexpr Register::FieldValue<decltype(shutoffEna),ShutoffenaVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(shutoffEna),ShutoffenaVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(shutoffEna)::Type,ShutoffenaVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(shutoffEna)::Type,ShutoffenaVal::enabled> enabled{};
         }
         ///Shutoff Flag. This is a read-only bit. Reflects the state of the DAC_SHUTOFF input if the Shutoff feature is enabled. 0 = DAC_SHUTOFF (port pin) input is low. DAC is outputting the voltage specified in the DAC VAL register. 1 = DAC_SHUTOFF (port pin) input is high. The DAC output is forced to zero. This bit serves as a flag only, If a processor interrupt is desired when a DAC shutoff condition occurrs, that can be accomplished by enabling the port pin selected as the DAC_SHUTOFF pin to directly generate a port interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> shutoffFlag{}; 
-        namespace ShutoffflagValC{
-        }
         ///These bits permit trading-off longer DAC settling times to achieve reduced power consumption. The default setting provides maximum speed but also maximum power.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,10),Register::ReadWriteAccess,unsigned> bias{}; 
-        namespace BiasValC{
-        }
     }
     namespace Nonecntval{    ///<DAC Counter Value register. This register contains the reload value for the internal DAC DMA/Interrupt timer.
         using Addr = Register::Address<0x40004008,0xffff0000,0,unsigned>;
         ///16-bit reload value for the internal DAC interrupt/DMA timer. The timer will overflow at the fixed rate of the system clock divided by CNTVAL+1.  Upon each overflow an interrupt/dma request will be generated and the DAC VAL register contents will be updated if double-buffering is enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cntval{}; 
-        namespace CntvalValC{
-        }
     }
 }

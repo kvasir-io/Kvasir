@@ -26,8 +26,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,RxptrupdVal> rxptrupd{}; 
         namespace RxptrupdValC{
-            constexpr Register::FieldValue<decltype(rxptrupd),RxptrupdVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(rxptrupd),RxptrupdVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(rxptrupd)::Type,RxptrupdVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(rxptrupd)::Type,RxptrupdVal::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_STOPPED event
         enum class StoppedVal {
@@ -36,8 +36,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,StoppedVal> stopped{}; 
         namespace StoppedValC{
-            constexpr Register::FieldValue<decltype(stopped),StoppedVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(stopped),StoppedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::enabled> enabled{};
         }
         ///Enable or disable interrupt on EVENTS_TXPTRUPD event
         enum class TxptrupdVal {
@@ -46,8 +46,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TxptrupdVal> txptrupd{}; 
         namespace TxptrupdValC{
-            constexpr Register::FieldValue<decltype(txptrupd),TxptrupdVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(txptrupd),TxptrupdVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(txptrupd)::Type,TxptrupdVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(txptrupd)::Type,TxptrupdVal::enabled> enabled{};
         }
     }
     namespace Noneintenset{    ///<Enable interrupt
@@ -60,9 +60,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,RxptrupdVal> rxptrupd{}; 
         namespace RxptrupdValC{
-            constexpr Register::FieldValue<decltype(rxptrupd),RxptrupdVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(rxptrupd),RxptrupdVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(rxptrupd),RxptrupdVal::set> set{};
+            constexpr Register::FieldValue<decltype(rxptrupd)::Type,RxptrupdVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(rxptrupd)::Type,RxptrupdVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(rxptrupd)::Type,RxptrupdVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_STOPPED event
         enum class StoppedVal {
@@ -72,9 +72,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,StoppedVal> stopped{}; 
         namespace StoppedValC{
-            constexpr Register::FieldValue<decltype(stopped),StoppedVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(stopped),StoppedVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(stopped),StoppedVal::set> set{};
+            constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_TXPTRUPD event
         enum class TxptrupdVal {
@@ -84,9 +84,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TxptrupdVal> txptrupd{}; 
         namespace TxptrupdValC{
-            constexpr Register::FieldValue<decltype(txptrupd),TxptrupdVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(txptrupd),TxptrupdVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(txptrupd),TxptrupdVal::set> set{};
+            constexpr Register::FieldValue<decltype(txptrupd)::Type,TxptrupdVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(txptrupd)::Type,TxptrupdVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(txptrupd)::Type,TxptrupdVal::set> set{};
         }
     }
     namespace Noneintenclr{    ///<Disable interrupt
@@ -99,9 +99,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,RxptrupdVal> rxptrupd{}; 
         namespace RxptrupdValC{
-            constexpr Register::FieldValue<decltype(rxptrupd),RxptrupdVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(rxptrupd),RxptrupdVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(rxptrupd),RxptrupdVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(rxptrupd)::Type,RxptrupdVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(rxptrupd)::Type,RxptrupdVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(rxptrupd)::Type,RxptrupdVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_STOPPED event
         enum class StoppedVal {
@@ -111,9 +111,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,StoppedVal> stopped{}; 
         namespace StoppedValC{
-            constexpr Register::FieldValue<decltype(stopped),StoppedVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(stopped),StoppedVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(stopped),StoppedVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(stopped)::Type,StoppedVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_TXPTRUPD event
         enum class TxptrupdVal {
@@ -123,9 +123,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TxptrupdVal> txptrupd{}; 
         namespace TxptrupdValC{
-            constexpr Register::FieldValue<decltype(txptrupd),TxptrupdVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(txptrupd),TxptrupdVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(txptrupd),TxptrupdVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(txptrupd)::Type,TxptrupdVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(txptrupd)::Type,TxptrupdVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(txptrupd)::Type,TxptrupdVal::clear> clear{};
         }
     }
     namespace Noneenable{    ///<Enable I<sup>2</sup>S module.
@@ -137,8 +137,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EnableVal> enable{}; 
         namespace EnableValC{
-            constexpr Register::FieldValue<decltype(enable),EnableVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(enable),EnableVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::enable> enable{};
         }
     }
 }

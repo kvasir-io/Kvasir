@@ -13,10 +13,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,BodrstlevVal> bodrstlev{}; 
         namespace BodrstlevValC{
-            constexpr Register::FieldValue<decltype(bodrstlev),BodrstlevVal::level01> level01{};
-            constexpr Register::FieldValue<decltype(bodrstlev),BodrstlevVal::level11> level11{};
-            constexpr Register::FieldValue<decltype(bodrstlev),BodrstlevVal::level22> level22{};
-            constexpr Register::FieldValue<decltype(bodrstlev),BodrstlevVal::level32> level32{};
+            constexpr Register::FieldValue<decltype(bodrstlev)::Type,BodrstlevVal::level01> level01{};
+            constexpr Register::FieldValue<decltype(bodrstlev)::Type,BodrstlevVal::level11> level11{};
+            constexpr Register::FieldValue<decltype(bodrstlev)::Type,BodrstlevVal::level22> level22{};
+            constexpr Register::FieldValue<decltype(bodrstlev)::Type,BodrstlevVal::level32> level32{};
         }
         ///BOD interrupt level
         enum class BodintvalVal {
@@ -27,10 +27,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,BodintvalVal> bodintval{}; 
         namespace BodintvalValC{
-            constexpr Register::FieldValue<decltype(bodintval),BodintvalVal::level02> level02{};
-            constexpr Register::FieldValue<decltype(bodintval),BodintvalVal::level12> level12{};
-            constexpr Register::FieldValue<decltype(bodintval),BodintvalVal::level22> level22{};
-            constexpr Register::FieldValue<decltype(bodintval),BodintvalVal::level33> level33{};
+            constexpr Register::FieldValue<decltype(bodintval)::Type,BodintvalVal::level02> level02{};
+            constexpr Register::FieldValue<decltype(bodintval)::Type,BodintvalVal::level12> level12{};
+            constexpr Register::FieldValue<decltype(bodintval)::Type,BodintvalVal::level22> level22{};
+            constexpr Register::FieldValue<decltype(bodintval)::Type,BodintvalVal::level33> level33{};
         }
         ///BOD reset enable
         enum class BodrstenaVal {
@@ -39,8 +39,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,BodrstenaVal> bodrstena{}; 
         namespace BodrstenaValC{
-            constexpr Register::FieldValue<decltype(bodrstena),BodrstenaVal::disableResetFuncti> disableResetFuncti{};
-            constexpr Register::FieldValue<decltype(bodrstena),BodrstenaVal::enableResetFunctio> enableResetFunctio{};
+            constexpr Register::FieldValue<decltype(bodrstena)::Type,BodrstenaVal::disableResetFuncti> disableResetFuncti{};
+            constexpr Register::FieldValue<decltype(bodrstena)::Type,BodrstenaVal::enableResetFunctio> enableResetFunctio{};
         }
     }
 }

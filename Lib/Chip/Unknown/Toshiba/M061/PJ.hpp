@@ -6,188 +6,106 @@ namespace Kvasir {
         using Addr = Register::Address<0x400c0900,0xffffffc0,0,unsigned>;
         ///PJ0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pj0{}; 
-        namespace Pj0ValC{
-        }
         ///PJ1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pj1{}; 
-        namespace Pj1ValC{
-        }
         ///PJ2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pj2{}; 
-        namespace Pj2ValC{
-        }
         ///PJ3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pj3{}; 
-        namespace Pj3ValC{
-        }
         ///PJ4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pj4{}; 
-        namespace Pj4ValC{
-        }
         ///PJ5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pj5{}; 
-        namespace Pj5ValC{
-        }
     }
     namespace Nonecr{    ///<PJ Control Register
         using Addr = Register::Address<0x400c0904,0xffffffe0,0,unsigned>;
         ///PJ0C
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pj0c{}; 
-        namespace Pj0cValC{
-        }
         ///PJ1C
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pj1c{}; 
-        namespace Pj1cValC{
-        }
         ///PJ2C
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pj2c{}; 
-        namespace Pj2cValC{
-        }
         ///PJ3C
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pj3c{}; 
-        namespace Pj3cValC{
-        }
         ///PJ4C
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pj4c{}; 
-        namespace Pj4cValC{
-        }
     }
     namespace Nonefr1{    ///<PJ Function Register 1
         using Addr = Register::Address<0x400c0908,0xffffffc0,0,unsigned>;
         ///PJ0F1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pj0f1{}; 
-        namespace Pj0f1ValC{
-        }
         ///PJ1F1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pj1f1{}; 
-        namespace Pj1f1ValC{
-        }
         ///PJ2F1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pj2f1{}; 
-        namespace Pj2f1ValC{
-        }
         ///PJ3F1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pj3f1{}; 
-        namespace Pj3f1ValC{
-        }
         ///PJ4F1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pj4f1{}; 
-        namespace Pj4f1ValC{
-        }
         ///PJ5F1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pj5f1{}; 
-        namespace Pj5f1ValC{
-        }
     }
     namespace Nonefr2{    ///<PJ Function Register 2
         using Addr = Register::Address<0x400c090c,0xffffffcb,0,unsigned>;
         ///PJ2F2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pj2f2{}; 
-        namespace Pj2f2ValC{
-        }
         ///PJ4F2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pj4f2{}; 
-        namespace Pj4f2ValC{
-        }
         ///PJ5F2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pj5f2{}; 
-        namespace Pj5f2ValC{
-        }
     }
     namespace Noneod{    ///<PJ OPJn Drain Control Register
         using Addr = Register::Address<0x400c0928,0xffffffe0,0,unsigned>;
         ///PJ0OD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pj0od{}; 
-        namespace Pj0odValC{
-        }
         ///PJ1OD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pj1od{}; 
-        namespace Pj1odValC{
-        }
         ///PJ2OD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pj2od{}; 
-        namespace Pj2odValC{
-        }
         ///PJ3OD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pj3od{}; 
-        namespace Pj3odValC{
-        }
         ///PJ4OD
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pj4od{}; 
-        namespace Pj4odValC{
-        }
     }
     namespace Nonepup{    ///<PJ Pull-Up Control Register
         using Addr = Register::Address<0x400c092c,0xffffffe0,0,unsigned>;
         ///PJ0UP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pj0up{}; 
-        namespace Pj0upValC{
-        }
         ///PJ1UP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pj1up{}; 
-        namespace Pj1upValC{
-        }
         ///PJ2UP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pj2up{}; 
-        namespace Pj2upValC{
-        }
         ///PJ3UP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pj3up{}; 
-        namespace Pj3upValC{
-        }
         ///PJ4UP
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pj4up{}; 
-        namespace Pj4upValC{
-        }
     }
     namespace Nonepdn{    ///<PJ Pull-Down Control Register
         using Addr = Register::Address<0x400c0930,0xffffffe0,0,unsigned>;
         ///PJ0DN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pj0dn{}; 
-        namespace Pj0dnValC{
-        }
         ///PJ1DN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pj1dn{}; 
-        namespace Pj1dnValC{
-        }
         ///PJ2DN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pj2dn{}; 
-        namespace Pj2dnValC{
-        }
         ///PJ3DN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pj3dn{}; 
-        namespace Pj3dnValC{
-        }
         ///PJ4DN
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pj4dn{}; 
-        namespace Pj4dnValC{
-        }
     }
     namespace Noneie{    ///<PJ Input Enable Control Register
         using Addr = Register::Address<0x400c0938,0xffffffc0,0,unsigned>;
         ///PJ0IE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pj0ie{}; 
-        namespace Pj0ieValC{
-        }
         ///PJ1IE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> pj1ie{}; 
-        namespace Pj1ieValC{
-        }
         ///PJ2IE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pj2ie{}; 
-        namespace Pj2ieValC{
-        }
         ///PJ3IE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pj3ie{}; 
-        namespace Pj3ieValC{
-        }
         ///PJ4IE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> pj4ie{}; 
-        namespace Pj4ieValC{
-        }
         ///PJ5IE
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> pj5ie{}; 
-        namespace Pj5ieValC{
-        }
     }
 }

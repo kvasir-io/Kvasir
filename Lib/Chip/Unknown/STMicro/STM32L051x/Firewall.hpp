@@ -6,15 +6,11 @@ namespace Kvasir {
         using Addr = Register::Address<0x40011c00,0xff0000ff,0,unsigned>;
         ///code segment start address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,8),Register::ReadWriteAccess,unsigned> add{}; 
-        namespace AddValC{
-        }
     }
     namespace NonefirewallCsl{    ///<Code segment length
         using Addr = Register::Address<0x40011c04,0xffc000ff,0,unsigned>;
         ///code segment length
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,8),Register::ReadWriteAccess,unsigned> leng{}; 
-        namespace LengValC{
-        }
     }
     namespace NonefirewallNvdssa{    ///<Non-volatile data segment start
           address
@@ -22,8 +18,6 @@ namespace Kvasir {
         ///Non-volatile data segment start
               address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,8),Register::ReadWriteAccess,unsigned> add{}; 
-        namespace AddValC{
-        }
     }
     namespace NonefirewallNvdsl{    ///<Non-volatile data segment
           length
@@ -31,8 +25,6 @@ namespace Kvasir {
         ///Non-volatile data segment
               length
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,8),Register::ReadWriteAccess,unsigned> leng{}; 
-        namespace LengValC{
-        }
     }
     namespace NonefirewallVdssa{    ///<Volatile data segment start
           address
@@ -40,30 +32,20 @@ namespace Kvasir {
         ///Volatile data segment start
               address
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,6),Register::ReadWriteAccess,unsigned> add{}; 
-        namespace AddValC{
-        }
     }
     namespace NonefirewallVdsl{    ///<Volatile data segment length
         using Addr = Register::Address<0x40011c14,0xffff003f,0,unsigned>;
         ///Non-volatile data segment
               length
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,6),Register::ReadWriteAccess,unsigned> leng{}; 
-        namespace LengValC{
-        }
     }
     namespace NonefirewallCr{    ///<Configuration register
         using Addr = Register::Address<0x40011c20,0xfffffff8,0,unsigned>;
         ///Volatile data execution
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> vde{}; 
-        namespace VdeValC{
-        }
         ///Volatile data shared
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> vds{}; 
-        namespace VdsValC{
-        }
         ///Firewall pre alarm
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fpa{}; 
-        namespace FpaValC{
-        }
     }
 }

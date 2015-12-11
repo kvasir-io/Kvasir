@@ -6,12 +6,8 @@ namespace Kvasir {
         using Addr = Register::Address<0x4003b000,0xf000f000,0,unsigned>;
         ///M Divider Value. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> m{}; 
-        namespace MValC{
-        }
         ///N Divider Value. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,16),Register::ReadWriteAccess,unsigned> n{}; 
-        namespace NValC{
-        }
     }
     namespace Nonecontrol{    ///<Module Control
         using Addr = Register::Address<0x4003b010,0x0bccf1f8,0,unsigned>;
@@ -22,8 +18,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,LlmtfVal> llmtf{}; 
         namespace LlmtfValC{
-            constexpr Register::FieldValue<decltype(llmtf),LlmtfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(llmtf),LlmtfVal::set> set{};
+            constexpr Register::FieldValue<decltype(llmtf)::Type,LlmtfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(llmtf)::Type,LlmtfVal::set> set{};
         }
         ///CAL Saturation (High) Flag. 
         enum class HlmtfVal {
@@ -32,8 +28,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HlmtfVal> hlmtf{}; 
         namespace HlmtfValC{
-            constexpr Register::FieldValue<decltype(hlmtf),HlmtfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(hlmtf),HlmtfVal::set> set{};
+            constexpr Register::FieldValue<decltype(hlmtf)::Type,HlmtfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(hlmtf)::Type,HlmtfVal::set> set{};
         }
         ///Phase-Lock and Frequency-Lock Locked Interrupt Flag. 
         enum class LckiVal {
@@ -42,8 +38,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,LckiVal> lcki{}; 
         namespace LckiValC{
-            constexpr Register::FieldValue<decltype(lcki),LckiVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(lcki),LckiVal::set> set{};
+            constexpr Register::FieldValue<decltype(lcki)::Type,LckiVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(lcki)::Type,LckiVal::set> set{};
         }
         ///Limit Interrupt Enable. 
         enum class LmtienVal {
@@ -52,8 +48,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,LmtienVal> lmtien{}; 
         namespace LmtienValC{
-            constexpr Register::FieldValue<decltype(lmtien),LmtienVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(lmtien),LmtienVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(lmtien)::Type,LmtienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(lmtien)::Type,LmtienVal::enabled> enabled{};
         }
         ///Locked Interrupt Enable. 
         enum class LckienVal {
@@ -62,8 +58,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,LckienVal> lckien{}; 
         namespace LckienValC{
-            constexpr Register::FieldValue<decltype(lckien),LckienVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(lckien),LckienVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(lckien)::Type,LckienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(lckien)::Type,LckienVal::enabled> enabled{};
         }
         ///Lock Interrupt Polarity. 
         enum class LckpolVal {
@@ -72,8 +68,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,LckpolVal> lckpol{}; 
         namespace LckpolValC{
-            constexpr Register::FieldValue<decltype(lckpol),LckpolVal::activeLow> activeLow{};
-            constexpr Register::FieldValue<decltype(lckpol),LckpolVal::activeHigh> activeHigh{};
+            constexpr Register::FieldValue<decltype(lckpol)::Type,LckpolVal::activeLow> activeLow{};
+            constexpr Register::FieldValue<decltype(lckpol)::Type,LckpolVal::activeHigh> activeHigh{};
         }
         ///Reference Clock Selection Control. 
         enum class RefselVal {
@@ -83,14 +79,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,RefselVal> refsel{}; 
         namespace RefselValC{
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::rtc0tclk> rtc0tclk{};
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::lposc0div> lposc0div{};
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::extosc0> extosc0{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::rtc0tclk> rtc0tclk{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::lposc0div> lposc0div{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::extosc0> extosc0{};
         }
         ///Lock Threshold Control. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,unsigned> lockth{}; 
-        namespace LockthValC{
-        }
         ///DCO Output Updates Stall. 
         enum class StallVal {
             disabled=0x00000000,     ///<In phase-lock and frequency-lock modes, spectrum spreading, and dithering operate normally, if enabled.
@@ -98,8 +92,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,StallVal> stall{}; 
         namespace StallValC{
-            constexpr Register::FieldValue<decltype(stall),StallVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(stall),StallVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(stall)::Type,StallVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(stall)::Type,StallVal::enabled> enabled{};
         }
         ///Dithering Enable. 
         enum class DithenVal {
@@ -108,8 +102,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,DithenVal> dithen{}; 
         namespace DithenValC{
-            constexpr Register::FieldValue<decltype(dithen),DithenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dithen),DithenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dithen)::Type,DithenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dithen)::Type,DithenVal::enabled> enabled{};
         }
         ///Edge Lock Select. 
         enum class EdgselVal {
@@ -118,8 +112,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,EdgselVal> edgsel{}; 
         namespace EdgselValC{
-            constexpr Register::FieldValue<decltype(edgsel),EdgselVal::fallingEdge> fallingEdge{};
-            constexpr Register::FieldValue<decltype(edgsel),EdgselVal::risingEdge> risingEdge{};
+            constexpr Register::FieldValue<decltype(edgsel)::Type,EdgselVal::fallingEdge> fallingEdge{};
+            constexpr Register::FieldValue<decltype(edgsel)::Type,EdgselVal::risingEdge> risingEdge{};
         }
         ///PLL Output Mode. 
         enum class OutmdVal {
@@ -130,10 +124,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,OutmdVal> outmd{}; 
         namespace OutmdValC{
-            constexpr Register::FieldValue<decltype(outmd),OutmdVal::off> off{};
-            constexpr Register::FieldValue<decltype(outmd),OutmdVal::dco> dco{};
-            constexpr Register::FieldValue<decltype(outmd),OutmdVal::fll> fll{};
-            constexpr Register::FieldValue<decltype(outmd),OutmdVal::pll> pll{};
+            constexpr Register::FieldValue<decltype(outmd)::Type,OutmdVal::off> off{};
+            constexpr Register::FieldValue<decltype(outmd)::Type,OutmdVal::dco> dco{};
+            constexpr Register::FieldValue<decltype(outmd)::Type,OutmdVal::fll> fll{};
+            constexpr Register::FieldValue<decltype(outmd)::Type,OutmdVal::pll> pll{};
         }
     }
     namespace Nonesspr{    ///<Spectrum Spreading Control
@@ -149,31 +143,23 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,SsampVal> ssamp{}; 
         namespace SsampValC{
-            constexpr Register::FieldValue<decltype(ssamp),SsampVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(ssamp),SsampVal::setting1> setting1{};
-            constexpr Register::FieldValue<decltype(ssamp),SsampVal::setting2> setting2{};
-            constexpr Register::FieldValue<decltype(ssamp),SsampVal::setting3> setting3{};
-            constexpr Register::FieldValue<decltype(ssamp),SsampVal::setting4> setting4{};
-            constexpr Register::FieldValue<decltype(ssamp),SsampVal::setting5> setting5{};
+            constexpr Register::FieldValue<decltype(ssamp)::Type,SsampVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ssamp)::Type,SsampVal::setting1> setting1{};
+            constexpr Register::FieldValue<decltype(ssamp)::Type,SsampVal::setting2> setting2{};
+            constexpr Register::FieldValue<decltype(ssamp)::Type,SsampVal::setting3> setting3{};
+            constexpr Register::FieldValue<decltype(ssamp)::Type,SsampVal::setting4> setting4{};
+            constexpr Register::FieldValue<decltype(ssamp)::Type,SsampVal::setting5> setting5{};
         }
         ///Spectrum Spreading Update Interval. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> ssuinv{}; 
-        namespace SsuinvValC{
-        }
     }
     namespace Nonecalconfig{    ///<Calibration Configuration
         using Addr = Register::Address<0x4003b030,0xfff80000,0,unsigned>;
         ///DCO Dither Setting. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> dither{}; 
-        namespace DitherValC{
-        }
         ///DCO Calibration Value. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> cal{}; 
-        namespace CalValC{
-        }
         ///DCO Range. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,16),Register::ReadWriteAccess,unsigned> range{}; 
-        namespace RangeValC{
-        }
     }
 }

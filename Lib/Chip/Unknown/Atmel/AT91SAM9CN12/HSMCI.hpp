@@ -6,62 +6,36 @@ namespace Kvasir {
         using Addr = Register::Address<0xf0008000,0xffffff70,0,unsigned>;
         ///Multi-Media Interface Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mcien{}; 
-        namespace McienValC{
-        }
         ///Multi-Media Interface Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> mcidis{}; 
-        namespace McidisValC{
-        }
         ///Power Save Mode Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pwsen{}; 
-        namespace PwsenValC{
-        }
         ///Power Save Mode Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> pwsdis{}; 
-        namespace PwsdisValC{
-        }
         ///Software Reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> swrst{}; 
-        namespace SwrstValC{
-        }
     }
     namespace HsmciMr{    ///<Mode Register
         using Addr = Register::Address<0xf0008004,0xfffe8000,0,unsigned>;
         ///Clock Divider
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> clkdiv{}; 
-        namespace ClkdivValC{
-        }
         ///Power Saving Divider
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> pwsdiv{}; 
-        namespace PwsdivValC{
-        }
         ///Read Proof Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> rdproof{}; 
-        namespace RdproofValC{
-        }
         ///Write Proof Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> wrproof{}; 
-        namespace WrproofValC{
-        }
         ///Force Byte Transfer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> fbyte{}; 
-        namespace FbyteValC{
-        }
         ///Padding Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> padv{}; 
-        namespace PadvValC{
-        }
         ///Clock divider is odd
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> clkodd{}; 
-        namespace ClkoddValC{
-        }
     }
     namespace HsmciDtor{    ///<Data Timeout Register
         using Addr = Register::Address<0xf0008008,0xffffff80,0,unsigned>;
         ///Data Timeout Cycle Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> dtocyc{}; 
-        namespace DtocycValC{
-        }
         ///Data Timeout Multiplier
         enum class DtomulVal {
             v1=0x00000000,     ///<DTOCYC
@@ -75,14 +49,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,DtomulVal> dtomul{}; 
         namespace DtomulValC{
-            constexpr Register::FieldValue<decltype(dtomul),DtomulVal::v1> v1{};
-            constexpr Register::FieldValue<decltype(dtomul),DtomulVal::v16> v16{};
-            constexpr Register::FieldValue<decltype(dtomul),DtomulVal::v128> v128{};
-            constexpr Register::FieldValue<decltype(dtomul),DtomulVal::v256> v256{};
-            constexpr Register::FieldValue<decltype(dtomul),DtomulVal::v1024> v1024{};
-            constexpr Register::FieldValue<decltype(dtomul),DtomulVal::v4096> v4096{};
-            constexpr Register::FieldValue<decltype(dtomul),DtomulVal::v65536> v65536{};
-            constexpr Register::FieldValue<decltype(dtomul),DtomulVal::v1048576> v1048576{};
+            constexpr Register::FieldValue<decltype(dtomul)::Type,DtomulVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dtomul)::Type,DtomulVal::v16> v16{};
+            constexpr Register::FieldValue<decltype(dtomul)::Type,DtomulVal::v128> v128{};
+            constexpr Register::FieldValue<decltype(dtomul)::Type,DtomulVal::v256> v256{};
+            constexpr Register::FieldValue<decltype(dtomul)::Type,DtomulVal::v1024> v1024{};
+            constexpr Register::FieldValue<decltype(dtomul)::Type,DtomulVal::v4096> v4096{};
+            constexpr Register::FieldValue<decltype(dtomul)::Type,DtomulVal::v65536> v65536{};
+            constexpr Register::FieldValue<decltype(dtomul)::Type,DtomulVal::v1048576> v1048576{};
         }
     }
     namespace HsmciSdcr{    ///<SD/SDIO Card Register
@@ -96,10 +70,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,SdcselVal> sdcsel{}; 
         namespace SdcselValC{
-            constexpr Register::FieldValue<decltype(sdcsel),SdcselVal::slota> slota{};
-            constexpr Register::FieldValue<decltype(sdcsel),SdcselVal::slotb> slotb{};
-            constexpr Register::FieldValue<decltype(sdcsel),SdcselVal::slotc> slotc{};
-            constexpr Register::FieldValue<decltype(sdcsel),SdcselVal::slotd> slotd{};
+            constexpr Register::FieldValue<decltype(sdcsel)::Type,SdcselVal::slota> slota{};
+            constexpr Register::FieldValue<decltype(sdcsel)::Type,SdcselVal::slotb> slotb{};
+            constexpr Register::FieldValue<decltype(sdcsel)::Type,SdcselVal::slotc> slotc{};
+            constexpr Register::FieldValue<decltype(sdcsel)::Type,SdcselVal::slotd> slotd{};
         }
         ///SDCard/SDIO Bus Width
         enum class SdcbusVal {
@@ -109,24 +83,20 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,SdcbusVal> sdcbus{}; 
         namespace SdcbusValC{
-            constexpr Register::FieldValue<decltype(sdcbus),SdcbusVal::v1> v1{};
-            constexpr Register::FieldValue<decltype(sdcbus),SdcbusVal::v4> v4{};
-            constexpr Register::FieldValue<decltype(sdcbus),SdcbusVal::v8> v8{};
+            constexpr Register::FieldValue<decltype(sdcbus)::Type,SdcbusVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(sdcbus)::Type,SdcbusVal::v4> v4{};
+            constexpr Register::FieldValue<decltype(sdcbus)::Type,SdcbusVal::v8> v8{};
         }
     }
     namespace HsmciArgr{    ///<Argument Register
         using Addr = Register::Address<0xf0008010,0x00000000,0,unsigned>;
         ///Command Argument
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> arg{}; 
-        namespace ArgValC{
-        }
     }
     namespace HsmciCmdr{    ///<Command Register
         using Addr = Register::Address<0xf0008014,0xf0c0e000,0,unsigned>;
         ///Command Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> cmdnb{}; 
-        namespace CmdnbValC{
-        }
         ///Response Type
         enum class RsptypVal {
             noresp=0x00000000,     ///<No response.
@@ -136,10 +106,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,RsptypVal> rsptyp{}; 
         namespace RsptypValC{
-            constexpr Register::FieldValue<decltype(rsptyp),RsptypVal::noresp> noresp{};
-            constexpr Register::FieldValue<decltype(rsptyp),RsptypVal::v48Bit> v48Bit{};
-            constexpr Register::FieldValue<decltype(rsptyp),RsptypVal::v136Bit> v136Bit{};
-            constexpr Register::FieldValue<decltype(rsptyp),RsptypVal::r1b> r1b{};
+            constexpr Register::FieldValue<decltype(rsptyp)::Type,RsptypVal::noresp> noresp{};
+            constexpr Register::FieldValue<decltype(rsptyp)::Type,RsptypVal::v48Bit> v48Bit{};
+            constexpr Register::FieldValue<decltype(rsptyp)::Type,RsptypVal::v136Bit> v136Bit{};
+            constexpr Register::FieldValue<decltype(rsptyp)::Type,RsptypVal::r1b> r1b{};
         }
         ///Special Command
         enum class SpcmdVal {
@@ -154,14 +124,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,SpcmdVal> spcmd{}; 
         namespace SpcmdValC{
-            constexpr Register::FieldValue<decltype(spcmd),SpcmdVal::std> std{};
-            constexpr Register::FieldValue<decltype(spcmd),SpcmdVal::init> init{};
-            constexpr Register::FieldValue<decltype(spcmd),SpcmdVal::sync> sync{};
-            constexpr Register::FieldValue<decltype(spcmd),SpcmdVal::ceAta> ceAta{};
-            constexpr Register::FieldValue<decltype(spcmd),SpcmdVal::itCmd> itCmd{};
-            constexpr Register::FieldValue<decltype(spcmd),SpcmdVal::itResp> itResp{};
-            constexpr Register::FieldValue<decltype(spcmd),SpcmdVal::bor> bor{};
-            constexpr Register::FieldValue<decltype(spcmd),SpcmdVal::ebo> ebo{};
+            constexpr Register::FieldValue<decltype(spcmd)::Type,SpcmdVal::std> std{};
+            constexpr Register::FieldValue<decltype(spcmd)::Type,SpcmdVal::init> init{};
+            constexpr Register::FieldValue<decltype(spcmd)::Type,SpcmdVal::sync> sync{};
+            constexpr Register::FieldValue<decltype(spcmd)::Type,SpcmdVal::ceAta> ceAta{};
+            constexpr Register::FieldValue<decltype(spcmd)::Type,SpcmdVal::itCmd> itCmd{};
+            constexpr Register::FieldValue<decltype(spcmd)::Type,SpcmdVal::itResp> itResp{};
+            constexpr Register::FieldValue<decltype(spcmd)::Type,SpcmdVal::bor> bor{};
+            constexpr Register::FieldValue<decltype(spcmd)::Type,SpcmdVal::ebo> ebo{};
         }
         ///Open Drain Command
         enum class OpdcmdVal {
@@ -170,8 +140,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,OpdcmdVal> opdcmd{}; 
         namespace OpdcmdValC{
-            constexpr Register::FieldValue<decltype(opdcmd),OpdcmdVal::pushpull> pushpull{};
-            constexpr Register::FieldValue<decltype(opdcmd),OpdcmdVal::opendrain> opendrain{};
+            constexpr Register::FieldValue<decltype(opdcmd)::Type,OpdcmdVal::pushpull> pushpull{};
+            constexpr Register::FieldValue<decltype(opdcmd)::Type,OpdcmdVal::opendrain> opendrain{};
         }
         ///Max Latency for Command to Response
         enum class MaxlatVal {
@@ -180,8 +150,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,MaxlatVal> maxlat{}; 
         namespace MaxlatValC{
-            constexpr Register::FieldValue<decltype(maxlat),MaxlatVal::v5> v5{};
-            constexpr Register::FieldValue<decltype(maxlat),MaxlatVal::v64> v64{};
+            constexpr Register::FieldValue<decltype(maxlat)::Type,MaxlatVal::v5> v5{};
+            constexpr Register::FieldValue<decltype(maxlat)::Type,MaxlatVal::v64> v64{};
         }
         ///Transfer Command
         enum class TrcmdVal {
@@ -191,9 +161,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,TrcmdVal> trcmd{}; 
         namespace TrcmdValC{
-            constexpr Register::FieldValue<decltype(trcmd),TrcmdVal::noData> noData{};
-            constexpr Register::FieldValue<decltype(trcmd),TrcmdVal::startData> startData{};
-            constexpr Register::FieldValue<decltype(trcmd),TrcmdVal::stopData> stopData{};
+            constexpr Register::FieldValue<decltype(trcmd)::Type,TrcmdVal::noData> noData{};
+            constexpr Register::FieldValue<decltype(trcmd)::Type,TrcmdVal::startData> startData{};
+            constexpr Register::FieldValue<decltype(trcmd)::Type,TrcmdVal::stopData> stopData{};
         }
         ///Transfer Direction
         enum class TrdirVal {
@@ -202,8 +172,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,TrdirVal> trdir{}; 
         namespace TrdirValC{
-            constexpr Register::FieldValue<decltype(trdir),TrdirVal::write> write{};
-            constexpr Register::FieldValue<decltype(trdir),TrdirVal::read> read{};
+            constexpr Register::FieldValue<decltype(trdir)::Type,TrdirVal::write> write{};
+            constexpr Register::FieldValue<decltype(trdir)::Type,TrdirVal::read> read{};
         }
         ///Transfer Type
         enum class TrtypVal {
@@ -215,11 +185,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,19),Register::ReadWriteAccess,TrtypVal> trtyp{}; 
         namespace TrtypValC{
-            constexpr Register::FieldValue<decltype(trtyp),TrtypVal::single> single{};
-            constexpr Register::FieldValue<decltype(trtyp),TrtypVal::multiple> multiple{};
-            constexpr Register::FieldValue<decltype(trtyp),TrtypVal::stream> stream{};
-            constexpr Register::FieldValue<decltype(trtyp),TrtypVal::byte> byte{};
-            constexpr Register::FieldValue<decltype(trtyp),TrtypVal::block> block{};
+            constexpr Register::FieldValue<decltype(trtyp)::Type,TrtypVal::single> single{};
+            constexpr Register::FieldValue<decltype(trtyp)::Type,TrtypVal::multiple> multiple{};
+            constexpr Register::FieldValue<decltype(trtyp)::Type,TrtypVal::stream> stream{};
+            constexpr Register::FieldValue<decltype(trtyp)::Type,TrtypVal::byte> byte{};
+            constexpr Register::FieldValue<decltype(trtyp)::Type,TrtypVal::block> block{};
         }
         ///SDIO Special Command
         enum class IospcmdVal {
@@ -229,9 +199,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,IospcmdVal> iospcmd{}; 
         namespace IospcmdValC{
-            constexpr Register::FieldValue<decltype(iospcmd),IospcmdVal::std> std{};
-            constexpr Register::FieldValue<decltype(iospcmd),IospcmdVal::suspend> suspend{};
-            constexpr Register::FieldValue<decltype(iospcmd),IospcmdVal::resume> resume{};
+            constexpr Register::FieldValue<decltype(iospcmd)::Type,IospcmdVal::std> std{};
+            constexpr Register::FieldValue<decltype(iospcmd)::Type,IospcmdVal::suspend> suspend{};
+            constexpr Register::FieldValue<decltype(iospcmd)::Type,IospcmdVal::resume> resume{};
         }
         ///ATA with Command Completion Signal
         enum class AtacsVal {
@@ -240,31 +210,23 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,AtacsVal> atacs{}; 
         namespace AtacsValC{
-            constexpr Register::FieldValue<decltype(atacs),AtacsVal::normal> normal{};
-            constexpr Register::FieldValue<decltype(atacs),AtacsVal::completion> completion{};
+            constexpr Register::FieldValue<decltype(atacs)::Type,AtacsVal::normal> normal{};
+            constexpr Register::FieldValue<decltype(atacs)::Type,AtacsVal::completion> completion{};
         }
         ///Boot Operation Acknowledge.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> bootAck{}; 
-        namespace BootackValC{
-        }
     }
     namespace HsmciBlkr{    ///<Block Register
         using Addr = Register::Address<0xf0008018,0x00000000,0,unsigned>;
         ///MMC/SDIO Block Count - SDIO Byte Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> bcnt{}; 
-        namespace BcntValC{
-        }
         ///Data Block Length
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> blklen{}; 
-        namespace BlklenValC{
-        }
     }
     namespace HsmciCstor{    ///<Completion Signal Timeout Register
         using Addr = Register::Address<0xf000801c,0xffffff80,0,unsigned>;
         ///Completion Signal Timeout Cycle Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> cstocyc{}; 
-        namespace CstocycValC{
-        }
         ///Completion Signal Timeout Multiplier
         enum class CstomulVal {
             v1=0x00000000,     ///<CSTOCYC x 1
@@ -278,2320 +240,1572 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,CstomulVal> cstomul{}; 
         namespace CstomulValC{
-            constexpr Register::FieldValue<decltype(cstomul),CstomulVal::v1> v1{};
-            constexpr Register::FieldValue<decltype(cstomul),CstomulVal::v16> v16{};
-            constexpr Register::FieldValue<decltype(cstomul),CstomulVal::v128> v128{};
-            constexpr Register::FieldValue<decltype(cstomul),CstomulVal::v256> v256{};
-            constexpr Register::FieldValue<decltype(cstomul),CstomulVal::v1024> v1024{};
-            constexpr Register::FieldValue<decltype(cstomul),CstomulVal::v4096> v4096{};
-            constexpr Register::FieldValue<decltype(cstomul),CstomulVal::v65536> v65536{};
-            constexpr Register::FieldValue<decltype(cstomul),CstomulVal::v1048576> v1048576{};
+            constexpr Register::FieldValue<decltype(cstomul)::Type,CstomulVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(cstomul)::Type,CstomulVal::v16> v16{};
+            constexpr Register::FieldValue<decltype(cstomul)::Type,CstomulVal::v128> v128{};
+            constexpr Register::FieldValue<decltype(cstomul)::Type,CstomulVal::v256> v256{};
+            constexpr Register::FieldValue<decltype(cstomul)::Type,CstomulVal::v1024> v1024{};
+            constexpr Register::FieldValue<decltype(cstomul)::Type,CstomulVal::v4096> v4096{};
+            constexpr Register::FieldValue<decltype(cstomul)::Type,CstomulVal::v65536> v65536{};
+            constexpr Register::FieldValue<decltype(cstomul)::Type,CstomulVal::v1048576> v1048576{};
         }
     }
     namespace HsmciRspr0{    ///<Response Register
         using Addr = Register::Address<0xf0008020,0x00000000,0,unsigned>;
         ///Response
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rsp{}; 
-        namespace RspValC{
-        }
     }
     namespace HsmciRspr1{    ///<Response Register
         using Addr = Register::Address<0xf0008024,0x00000000,0,unsigned>;
         ///Response
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rsp{}; 
-        namespace RspValC{
-        }
     }
     namespace HsmciRspr2{    ///<Response Register
         using Addr = Register::Address<0xf0008028,0x00000000,0,unsigned>;
         ///Response
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rsp{}; 
-        namespace RspValC{
-        }
     }
     namespace HsmciRspr3{    ///<Response Register
         using Addr = Register::Address<0xf000802c,0x00000000,0,unsigned>;
         ///Response
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rsp{}; 
-        namespace RspValC{
-        }
     }
     namespace HsmciRdr{    ///<Receive Data Register
         using Addr = Register::Address<0xf0008030,0x00000000,0,unsigned>;
         ///Data to Read
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciTdr{    ///<Transmit Data Register
         using Addr = Register::Address<0xf0008034,0x00000000,0,unsigned>;
         ///Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciSr{    ///<Status Register
         using Addr = Register::Address<0xf0008040,0x0000cec0,0,unsigned>;
         ///Command Ready
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cmdrdy{}; 
-        namespace CmdrdyValC{
-        }
         ///Receiver Ready
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxrdy{}; 
-        namespace RxrdyValC{
-        }
         ///Transmit Ready
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> txrdy{}; 
-        namespace TxrdyValC{
-        }
         ///Data Block Ended
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> blke{}; 
-        namespace BlkeValC{
-        }
         ///Data Transfer in Progress
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dtip{}; 
-        namespace DtipValC{
-        }
         ///HSMCI Not Busy
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> notbusy{}; 
-        namespace NotbusyValC{
-        }
         ///SDIO Interrupt for Slot A
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> sdioirqa{}; 
-        namespace SdioirqaValC{
-        }
         ///SDIO Read Wait Operation Status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> sdiowait{}; 
-        namespace SdiowaitValC{
-        }
         ///CE-ATA Completion Signal Received
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> csrcv{}; 
-        namespace CsrcvValC{
-        }
         ///Response Index Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rinde{}; 
-        namespace RindeValC{
-        }
         ///Response Direction Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> rdire{}; 
-        namespace RdireValC{
-        }
         ///Response CRC Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> rcrce{}; 
-        namespace RcrceValC{
-        }
         ///Response End Bit Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> rende{}; 
-        namespace RendeValC{
-        }
         ///Response Time-out Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> rtoe{}; 
-        namespace RtoeValC{
-        }
         ///Data CRC Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> dcrce{}; 
-        namespace DcrceValC{
-        }
         ///Data Time-out Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> dtoe{}; 
-        namespace DtoeValC{
-        }
         ///Completion Signal Time-out Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> cstoe{}; 
-        namespace CstoeValC{
-        }
         ///DMA Block Overrun Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> blkovre{}; 
-        namespace BlkovreValC{
-        }
         ///DMA Transfer done
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> dmadone{}; 
-        namespace DmadoneValC{
-        }
         ///FIFO empty flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> fifoempty{}; 
-        namespace FifoemptyValC{
-        }
         ///Transfer Done flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> xfrdone{}; 
-        namespace XfrdoneValC{
-        }
         ///Boot Operation Acknowledge Received
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> ackrcv{}; 
-        namespace AckrcvValC{
-        }
         ///Boot Operation Acknowledge Error
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> ackrcve{}; 
-        namespace AckrcveValC{
-        }
         ///Overrun
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> ovre{}; 
-        namespace OvreValC{
-        }
         ///Underrun
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> unre{}; 
-        namespace UnreValC{
-        }
     }
     namespace HsmciIer{    ///<Interrupt Enable Register
         using Addr = Register::Address<0xf0008044,0x0000cec0,0,unsigned>;
         ///Command Ready Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cmdrdy{}; 
-        namespace CmdrdyValC{
-        }
         ///Receiver Ready Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxrdy{}; 
-        namespace RxrdyValC{
-        }
         ///Transmit Ready Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> txrdy{}; 
-        namespace TxrdyValC{
-        }
         ///Data Block Ended Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> blke{}; 
-        namespace BlkeValC{
-        }
         ///Data Transfer in Progress Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dtip{}; 
-        namespace DtipValC{
-        }
         ///Data Not Busy Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> notbusy{}; 
-        namespace NotbusyValC{
-        }
         ///SDIO Interrupt for Slot A Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> sdioirqa{}; 
-        namespace SdioirqaValC{
-        }
         ///SDIO Read Wait Operation Status Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> sdiowait{}; 
-        namespace SdiowaitValC{
-        }
         ///Completion Signal Received Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> csrcv{}; 
-        namespace CsrcvValC{
-        }
         ///Response Index Error Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rinde{}; 
-        namespace RindeValC{
-        }
         ///Response Direction Error Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> rdire{}; 
-        namespace RdireValC{
-        }
         ///Response CRC Error Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> rcrce{}; 
-        namespace RcrceValC{
-        }
         ///Response End Bit Error Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> rende{}; 
-        namespace RendeValC{
-        }
         ///Response Time-out Error Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> rtoe{}; 
-        namespace RtoeValC{
-        }
         ///Data CRC Error Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> dcrce{}; 
-        namespace DcrceValC{
-        }
         ///Data Time-out Error Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> dtoe{}; 
-        namespace DtoeValC{
-        }
         ///Completion Signal Timeout Error Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> cstoe{}; 
-        namespace CstoeValC{
-        }
         ///DMA Block Overrun Error Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> blkovre{}; 
-        namespace BlkovreValC{
-        }
         ///DMA Transfer completed Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> dmadone{}; 
-        namespace DmadoneValC{
-        }
         ///FIFO empty Interrupt enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> fifoempty{}; 
-        namespace FifoemptyValC{
-        }
         ///Transfer Done Interrupt enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> xfrdone{}; 
-        namespace XfrdoneValC{
-        }
         ///Boot Acknowledge Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> ackrcv{}; 
-        namespace AckrcvValC{
-        }
         ///Boot Acknowledge Error Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> ackrcve{}; 
-        namespace AckrcveValC{
-        }
         ///Overrun Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> ovre{}; 
-        namespace OvreValC{
-        }
         ///Underrun Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> unre{}; 
-        namespace UnreValC{
-        }
     }
     namespace HsmciIdr{    ///<Interrupt Disable Register
         using Addr = Register::Address<0xf0008048,0x0000cec0,0,unsigned>;
         ///Command Ready Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cmdrdy{}; 
-        namespace CmdrdyValC{
-        }
         ///Receiver Ready Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxrdy{}; 
-        namespace RxrdyValC{
-        }
         ///Transmit Ready Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> txrdy{}; 
-        namespace TxrdyValC{
-        }
         ///Data Block Ended Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> blke{}; 
-        namespace BlkeValC{
-        }
         ///Data Transfer in Progress Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dtip{}; 
-        namespace DtipValC{
-        }
         ///Data Not Busy Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> notbusy{}; 
-        namespace NotbusyValC{
-        }
         ///SDIO Interrupt for Slot A Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> sdioirqa{}; 
-        namespace SdioirqaValC{
-        }
         ///SDIO Read Wait Operation Status Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> sdiowait{}; 
-        namespace SdiowaitValC{
-        }
         ///Completion Signal received interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> csrcv{}; 
-        namespace CsrcvValC{
-        }
         ///Response Index Error Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rinde{}; 
-        namespace RindeValC{
-        }
         ///Response Direction Error Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> rdire{}; 
-        namespace RdireValC{
-        }
         ///Response CRC Error Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> rcrce{}; 
-        namespace RcrceValC{
-        }
         ///Response End Bit Error Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> rende{}; 
-        namespace RendeValC{
-        }
         ///Response Time-out Error Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> rtoe{}; 
-        namespace RtoeValC{
-        }
         ///Data CRC Error Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> dcrce{}; 
-        namespace DcrceValC{
-        }
         ///Data Time-out Error Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> dtoe{}; 
-        namespace DtoeValC{
-        }
         ///Completion Signal Time out Error Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> cstoe{}; 
-        namespace CstoeValC{
-        }
         ///DMA Block Overrun Error Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> blkovre{}; 
-        namespace BlkovreValC{
-        }
         ///DMA Transfer completed Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> dmadone{}; 
-        namespace DmadoneValC{
-        }
         ///FIFO empty Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> fifoempty{}; 
-        namespace FifoemptyValC{
-        }
         ///Transfer Done Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> xfrdone{}; 
-        namespace XfrdoneValC{
-        }
         ///Boot Acknowledge Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> ackrcv{}; 
-        namespace AckrcvValC{
-        }
         ///Boot Acknowledge Error Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> ackrcve{}; 
-        namespace AckrcveValC{
-        }
         ///Overrun Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> ovre{}; 
-        namespace OvreValC{
-        }
         ///Underrun Interrupt Disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> unre{}; 
-        namespace UnreValC{
-        }
     }
     namespace HsmciImr{    ///<Interrupt Mask Register
         using Addr = Register::Address<0xf000804c,0x0000cec0,0,unsigned>;
         ///Command Ready Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cmdrdy{}; 
-        namespace CmdrdyValC{
-        }
         ///Receiver Ready Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxrdy{}; 
-        namespace RxrdyValC{
-        }
         ///Transmit Ready Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> txrdy{}; 
-        namespace TxrdyValC{
-        }
         ///Data Block Ended Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> blke{}; 
-        namespace BlkeValC{
-        }
         ///Data Transfer in Progress Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dtip{}; 
-        namespace DtipValC{
-        }
         ///Data Not Busy Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> notbusy{}; 
-        namespace NotbusyValC{
-        }
         ///SDIO Interrupt for Slot A Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> sdioirqa{}; 
-        namespace SdioirqaValC{
-        }
         ///SDIO Read Wait Operation Status Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> sdiowait{}; 
-        namespace SdiowaitValC{
-        }
         ///Completion Signal Received Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> csrcv{}; 
-        namespace CsrcvValC{
-        }
         ///Response Index Error Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rinde{}; 
-        namespace RindeValC{
-        }
         ///Response Direction Error Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> rdire{}; 
-        namespace RdireValC{
-        }
         ///Response CRC Error Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> rcrce{}; 
-        namespace RcrceValC{
-        }
         ///Response End Bit Error Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> rende{}; 
-        namespace RendeValC{
-        }
         ///Response Time-out Error Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> rtoe{}; 
-        namespace RtoeValC{
-        }
         ///Data CRC Error Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,unsigned> dcrce{}; 
-        namespace DcrceValC{
-        }
         ///Data Time-out Error Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> dtoe{}; 
-        namespace DtoeValC{
-        }
         ///Completion Signal Time-out Error Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> cstoe{}; 
-        namespace CstoeValC{
-        }
         ///DMA Block Overrun Error Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,unsigned> blkovre{}; 
-        namespace BlkovreValC{
-        }
         ///DMA Transfer Completed Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,unsigned> dmadone{}; 
-        namespace DmadoneValC{
-        }
         ///FIFO Empty Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> fifoempty{}; 
-        namespace FifoemptyValC{
-        }
         ///Transfer Done Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> xfrdone{}; 
-        namespace XfrdoneValC{
-        }
         ///Boot Operation Acknowledge Received Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,unsigned> ackrcv{}; 
-        namespace AckrcvValC{
-        }
         ///Boot Operation Acknowledge Error Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,unsigned> ackrcve{}; 
-        namespace AckrcveValC{
-        }
         ///Overrun Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> ovre{}; 
-        namespace OvreValC{
-        }
         ///Underrun Interrupt Mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> unre{}; 
-        namespace UnreValC{
-        }
     }
     namespace HsmciDma{    ///<DMA Configuration Register
         using Addr = Register::Address<0xf0008050,0xffffee8c,0,unsigned>;
         ///DMA Write Buffer Offset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> offset{}; 
-        namespace OffsetValC{
-        }
         ///DMA Channel Read and Write Chunk Size
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> chksize{}; 
-        namespace ChksizeValC{
-        }
         ///DMA Hardware Handshaking Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> dmaen{}; 
-        namespace DmaenValC{
-        }
         ///Read Optimization with padding
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> ropt{}; 
-        namespace RoptValC{
-        }
     }
     namespace HsmciCfg{    ///<Configuration Register
         using Addr = Register::Address<0xf0008054,0xffffeeee,0,unsigned>;
         ///HSMCI Internal FIFO control mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> fifomode{}; 
-        namespace FifomodeValC{
-        }
         ///Flow Error flag reset control mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> ferrctrl{}; 
-        namespace FerrctrlValC{
-        }
         ///High Speed Mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> hsmode{}; 
-        namespace HsmodeValC{
-        }
         ///Synchronize on the last block
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> lsync{}; 
-        namespace LsyncValC{
-        }
     }
     namespace HsmciWpmr{    ///<Write Protection Mode Register
         using Addr = Register::Address<0xf00080e4,0x000000fe,0,unsigned>;
         ///Write Protection Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wpEn{}; 
-        namespace WpenValC{
-        }
         ///Write Protection Key password
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> wpKey{}; 
-        namespace WpkeyValC{
-        }
     }
     namespace HsmciWpsr{    ///<Write Protection Status Register
         using Addr = Register::Address<0xf00080e8,0xff0000f0,0,unsigned>;
         ///Write Protection Violation Status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> wpVs{}; 
-        namespace WpvsValC{
-        }
         ///Write Protection Violation SouRCe
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,8),Register::ReadWriteAccess,unsigned> wpVsrc{}; 
-        namespace WpvsrcValC{
-        }
     }
     namespace HsmciFifo0{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008200,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo1{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008204,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo2{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008208,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo3{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000820c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo4{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008210,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo5{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008214,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo6{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008218,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo7{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000821c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo8{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008220,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo9{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008224,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo10{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008228,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo11{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000822c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo12{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008230,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo13{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008234,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo14{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008238,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo15{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000823c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo16{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008240,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo17{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008244,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo18{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008248,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo19{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000824c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo20{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008250,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo21{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008254,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo22{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008258,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo23{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000825c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo24{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008260,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo25{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008264,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo26{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008268,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo27{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000826c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo28{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008270,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo29{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008274,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo30{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008278,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo31{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000827c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo32{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008280,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo33{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008284,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo34{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008288,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo35{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000828c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo36{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008290,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo37{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008294,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo38{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008298,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo39{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000829c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo40{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00082a0,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo41{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00082a4,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo42{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00082a8,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo43{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00082ac,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo44{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00082b0,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo45{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00082b4,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo46{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00082b8,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo47{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00082bc,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo48{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00082c0,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo49{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00082c4,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo50{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00082c8,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo51{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00082cc,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo52{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00082d0,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo53{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00082d4,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo54{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00082d8,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo55{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00082dc,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo56{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00082e0,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo57{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00082e4,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo58{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00082e8,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo59{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00082ec,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo60{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00082f0,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo61{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00082f4,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo62{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00082f8,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo63{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00082fc,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo64{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008300,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo65{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008304,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo66{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008308,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo67{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000830c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo68{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008310,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo69{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008314,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo70{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008318,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo71{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000831c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo72{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008320,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo73{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008324,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo74{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008328,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo75{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000832c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo76{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008330,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo77{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008334,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo78{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008338,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo79{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000833c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo80{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008340,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo81{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008344,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo82{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008348,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo83{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000834c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo84{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008350,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo85{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008354,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo86{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008358,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo87{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000835c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo88{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008360,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo89{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008364,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo90{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008368,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo91{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000836c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo92{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008370,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo93{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008374,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo94{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008378,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo95{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000837c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo96{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008380,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo97{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008384,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo98{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008388,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo99{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000838c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo100{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008390,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo101{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008394,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo102{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008398,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo103{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000839c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo104{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00083a0,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo105{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00083a4,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo106{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00083a8,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo107{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00083ac,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo108{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00083b0,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo109{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00083b4,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo110{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00083b8,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo111{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00083bc,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo112{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00083c0,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo113{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00083c4,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo114{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00083c8,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo115{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00083cc,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo116{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00083d0,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo117{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00083d4,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo118{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00083d8,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo119{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00083dc,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo120{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00083e0,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo121{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00083e4,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo122{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00083e8,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo123{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00083ec,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo124{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00083f0,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo125{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00083f4,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo126{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00083f8,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo127{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00083fc,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo128{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008400,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo129{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008404,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo130{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008408,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo131{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000840c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo132{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008410,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo133{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008414,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo134{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008418,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo135{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000841c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo136{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008420,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo137{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008424,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo138{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008428,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo139{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000842c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo140{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008430,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo141{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008434,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo142{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008438,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo143{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000843c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo144{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008440,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo145{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008444,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo146{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008448,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo147{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000844c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo148{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008450,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo149{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008454,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo150{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008458,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo151{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000845c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo152{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008460,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo153{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008464,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo154{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008468,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo155{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000846c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo156{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008470,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo157{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008474,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo158{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008478,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo159{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000847c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo160{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008480,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo161{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008484,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo162{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008488,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo163{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000848c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo164{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008490,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo165{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008494,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo166{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008498,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo167{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000849c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo168{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00084a0,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo169{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00084a4,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo170{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00084a8,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo171{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00084ac,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo172{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00084b0,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo173{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00084b4,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo174{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00084b8,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo175{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00084bc,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo176{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00084c0,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo177{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00084c4,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo178{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00084c8,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo179{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00084cc,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo180{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00084d0,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo181{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00084d4,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo182{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00084d8,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo183{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00084dc,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo184{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00084e0,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo185{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00084e4,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo186{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00084e8,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo187{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00084ec,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo188{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00084f0,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo189{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00084f4,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo190{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00084f8,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo191{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00084fc,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo192{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008500,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo193{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008504,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo194{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008508,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo195{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000850c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo196{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008510,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo197{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008514,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo198{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008518,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo199{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000851c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo200{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008520,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo201{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008524,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo202{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008528,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo203{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000852c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo204{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008530,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo205{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008534,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo206{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008538,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo207{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000853c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo208{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008540,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo209{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008544,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo210{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008548,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo211{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000854c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo212{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008550,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo213{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008554,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo214{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008558,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo215{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000855c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo216{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008560,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo217{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008564,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo218{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008568,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo219{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000856c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo220{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008570,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo221{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008574,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo222{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008578,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo223{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000857c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo224{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008580,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo225{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008584,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo226{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008588,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo227{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000858c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo228{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008590,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo229{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008594,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo230{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf0008598,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo231{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf000859c,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo232{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00085a0,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo233{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00085a4,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo234{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00085a8,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo235{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00085ac,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo236{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00085b0,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo237{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00085b4,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo238{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00085b8,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo239{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00085bc,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo240{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00085c0,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo241{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00085c4,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo242{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00085c8,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo243{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00085cc,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo244{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00085d0,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo245{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00085d4,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo246{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00085d8,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo247{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00085dc,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo248{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00085e0,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo249{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00085e4,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo250{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00085e8,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo251{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00085ec,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo252{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00085f0,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo253{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00085f4,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo254{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00085f8,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace HsmciFifo255{    ///<FIFO Memory Aperture0
         using Addr = Register::Address<0xf00085fc,0x00000000,0,unsigned>;
         ///Data to Read or Data to Write
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
 }

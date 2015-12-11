@@ -47,11 +47,6 @@ namespace Io{
 		using Type = Pin<I>;
 	};
 
-	template<int Port, int Pin>
-	struct PinLocation {
-		using Type = PinLocation<Port,Pin>;
-	};
-
 	enum class PortAccess{ defaultMode, setClear, toggle, exclusiveMask, sharedMask, readModifyWrite };
 
 	template<PortAccess Access, typename... Ts>
@@ -68,5 +63,12 @@ namespace Io{
 		constexpr MPL::Value<PortAccess,PortAccess::readModifyWrite> readModifyWrite;
 	}
 
+}
+//Pin location needs to live in Register in order for the factory functions to be found by ADL
+namespace Register {
+	template<int Port, int Pin>
+	struct PinLocation {
+		using Type = PinLocation<Port, Pin>;
+	};
 }
 }

@@ -6,12 +6,8 @@ namespace Kvasir {
         using Addr = Register::Address<0x42004410,0xf8f44890,0,unsigned>;
         ///Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> enable{}; 
-        namespace EnableValC{
-        }
         ///Single-Shot Mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> single{}; 
-        namespace SingleValC{
-        }
         ///Speed Selection
         enum class SpeedVal {
             low=0x00000000,     ///<Low speed
@@ -19,8 +15,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,SpeedVal> speed{}; 
         namespace SpeedValC{
-            constexpr Register::FieldValue<decltype(speed),SpeedVal::low> low{};
-            constexpr Register::FieldValue<decltype(speed),SpeedVal::high> high{};
+            constexpr Register::FieldValue<decltype(speed)::Type,SpeedVal::low> low{};
+            constexpr Register::FieldValue<decltype(speed)::Type,SpeedVal::high> high{};
         }
         ///Interrupt Selection
         enum class IntselVal {
@@ -31,10 +27,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,5),Register::ReadWriteAccess,IntselVal> intsel{}; 
         namespace IntselValC{
-            constexpr Register::FieldValue<decltype(intsel),IntselVal::toggle> toggle{};
-            constexpr Register::FieldValue<decltype(intsel),IntselVal::rising> rising{};
-            constexpr Register::FieldValue<decltype(intsel),IntselVal::falling> falling{};
-            constexpr Register::FieldValue<decltype(intsel),IntselVal::eoc> eoc{};
+            constexpr Register::FieldValue<decltype(intsel)::Type,IntselVal::toggle> toggle{};
+            constexpr Register::FieldValue<decltype(intsel)::Type,IntselVal::rising> rising{};
+            constexpr Register::FieldValue<decltype(intsel)::Type,IntselVal::falling> falling{};
+            constexpr Register::FieldValue<decltype(intsel)::Type,IntselVal::eoc> eoc{};
         }
         ///Negative Input Mux Selection
         enum class MuxnegVal {
@@ -49,14 +45,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,MuxnegVal> muxneg{}; 
         namespace MuxnegValC{
-            constexpr Register::FieldValue<decltype(muxneg),MuxnegVal::pin0> pin0{};
-            constexpr Register::FieldValue<decltype(muxneg),MuxnegVal::pin1> pin1{};
-            constexpr Register::FieldValue<decltype(muxneg),MuxnegVal::pin2> pin2{};
-            constexpr Register::FieldValue<decltype(muxneg),MuxnegVal::pin3> pin3{};
-            constexpr Register::FieldValue<decltype(muxneg),MuxnegVal::gnd> gnd{};
-            constexpr Register::FieldValue<decltype(muxneg),MuxnegVal::vscale> vscale{};
-            constexpr Register::FieldValue<decltype(muxneg),MuxnegVal::bandgap> bandgap{};
-            constexpr Register::FieldValue<decltype(muxneg),MuxnegVal::dac> dac{};
+            constexpr Register::FieldValue<decltype(muxneg)::Type,MuxnegVal::pin0> pin0{};
+            constexpr Register::FieldValue<decltype(muxneg)::Type,MuxnegVal::pin1> pin1{};
+            constexpr Register::FieldValue<decltype(muxneg)::Type,MuxnegVal::pin2> pin2{};
+            constexpr Register::FieldValue<decltype(muxneg)::Type,MuxnegVal::pin3> pin3{};
+            constexpr Register::FieldValue<decltype(muxneg)::Type,MuxnegVal::gnd> gnd{};
+            constexpr Register::FieldValue<decltype(muxneg)::Type,MuxnegVal::vscale> vscale{};
+            constexpr Register::FieldValue<decltype(muxneg)::Type,MuxnegVal::bandgap> bandgap{};
+            constexpr Register::FieldValue<decltype(muxneg)::Type,MuxnegVal::dac> dac{};
         }
         ///Positive Input Mux Selection
         enum class MuxposVal {
@@ -67,15 +63,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,MuxposVal> muxpos{}; 
         namespace MuxposValC{
-            constexpr Register::FieldValue<decltype(muxpos),MuxposVal::pin0> pin0{};
-            constexpr Register::FieldValue<decltype(muxpos),MuxposVal::pin1> pin1{};
-            constexpr Register::FieldValue<decltype(muxpos),MuxposVal::pin2> pin2{};
-            constexpr Register::FieldValue<decltype(muxpos),MuxposVal::pin3> pin3{};
+            constexpr Register::FieldValue<decltype(muxpos)::Type,MuxposVal::pin0> pin0{};
+            constexpr Register::FieldValue<decltype(muxpos)::Type,MuxposVal::pin1> pin1{};
+            constexpr Register::FieldValue<decltype(muxpos)::Type,MuxposVal::pin2> pin2{};
+            constexpr Register::FieldValue<decltype(muxpos)::Type,MuxposVal::pin3> pin3{};
         }
         ///Swap Inputs and Invert
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> swap{}; 
-        namespace SwapValC{
-        }
         ///Output
         enum class OutVal {
             off=0x00000000,     ///<The output of COMPn is not routed to the COMPn I/O port
@@ -84,29 +78,21 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,OutVal> out{}; 
         namespace OutValC{
-            constexpr Register::FieldValue<decltype(out),OutVal::off> off{};
-            constexpr Register::FieldValue<decltype(out),OutVal::async> async{};
-            constexpr Register::FieldValue<decltype(out),OutVal::sync> sync{};
+            constexpr Register::FieldValue<decltype(out)::Type,OutVal::off> off{};
+            constexpr Register::FieldValue<decltype(out)::Type,OutVal::async> async{};
+            constexpr Register::FieldValue<decltype(out)::Type,OutVal::sync> sync{};
         }
         ///Hysteresis Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> hyst{}; 
-        namespace HystValC{
-        }
         ///Filter Length
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,24),Register::ReadWriteAccess,unsigned> flen{}; 
-        namespace FlenValC{
-        }
     }
     namespace AcCompctrl1{    ///<Comparator Control n
         using Addr = Register::Address<0x42004414,0xf8f44890,0,unsigned>;
         ///Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> enable{}; 
-        namespace EnableValC{
-        }
         ///Single-Shot Mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> single{}; 
-        namespace SingleValC{
-        }
         ///Speed Selection
         enum class SpeedVal {
             low=0x00000000,     ///<Low speed
@@ -114,8 +100,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,SpeedVal> speed{}; 
         namespace SpeedValC{
-            constexpr Register::FieldValue<decltype(speed),SpeedVal::low> low{};
-            constexpr Register::FieldValue<decltype(speed),SpeedVal::high> high{};
+            constexpr Register::FieldValue<decltype(speed)::Type,SpeedVal::low> low{};
+            constexpr Register::FieldValue<decltype(speed)::Type,SpeedVal::high> high{};
         }
         ///Interrupt Selection
         enum class IntselVal {
@@ -126,10 +112,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,5),Register::ReadWriteAccess,IntselVal> intsel{}; 
         namespace IntselValC{
-            constexpr Register::FieldValue<decltype(intsel),IntselVal::toggle> toggle{};
-            constexpr Register::FieldValue<decltype(intsel),IntselVal::rising> rising{};
-            constexpr Register::FieldValue<decltype(intsel),IntselVal::falling> falling{};
-            constexpr Register::FieldValue<decltype(intsel),IntselVal::eoc> eoc{};
+            constexpr Register::FieldValue<decltype(intsel)::Type,IntselVal::toggle> toggle{};
+            constexpr Register::FieldValue<decltype(intsel)::Type,IntselVal::rising> rising{};
+            constexpr Register::FieldValue<decltype(intsel)::Type,IntselVal::falling> falling{};
+            constexpr Register::FieldValue<decltype(intsel)::Type,IntselVal::eoc> eoc{};
         }
         ///Negative Input Mux Selection
         enum class MuxnegVal {
@@ -144,14 +130,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,MuxnegVal> muxneg{}; 
         namespace MuxnegValC{
-            constexpr Register::FieldValue<decltype(muxneg),MuxnegVal::pin0> pin0{};
-            constexpr Register::FieldValue<decltype(muxneg),MuxnegVal::pin1> pin1{};
-            constexpr Register::FieldValue<decltype(muxneg),MuxnegVal::pin2> pin2{};
-            constexpr Register::FieldValue<decltype(muxneg),MuxnegVal::pin3> pin3{};
-            constexpr Register::FieldValue<decltype(muxneg),MuxnegVal::gnd> gnd{};
-            constexpr Register::FieldValue<decltype(muxneg),MuxnegVal::vscale> vscale{};
-            constexpr Register::FieldValue<decltype(muxneg),MuxnegVal::bandgap> bandgap{};
-            constexpr Register::FieldValue<decltype(muxneg),MuxnegVal::dac> dac{};
+            constexpr Register::FieldValue<decltype(muxneg)::Type,MuxnegVal::pin0> pin0{};
+            constexpr Register::FieldValue<decltype(muxneg)::Type,MuxnegVal::pin1> pin1{};
+            constexpr Register::FieldValue<decltype(muxneg)::Type,MuxnegVal::pin2> pin2{};
+            constexpr Register::FieldValue<decltype(muxneg)::Type,MuxnegVal::pin3> pin3{};
+            constexpr Register::FieldValue<decltype(muxneg)::Type,MuxnegVal::gnd> gnd{};
+            constexpr Register::FieldValue<decltype(muxneg)::Type,MuxnegVal::vscale> vscale{};
+            constexpr Register::FieldValue<decltype(muxneg)::Type,MuxnegVal::bandgap> bandgap{};
+            constexpr Register::FieldValue<decltype(muxneg)::Type,MuxnegVal::dac> dac{};
         }
         ///Positive Input Mux Selection
         enum class MuxposVal {
@@ -162,15 +148,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,MuxposVal> muxpos{}; 
         namespace MuxposValC{
-            constexpr Register::FieldValue<decltype(muxpos),MuxposVal::pin0> pin0{};
-            constexpr Register::FieldValue<decltype(muxpos),MuxposVal::pin1> pin1{};
-            constexpr Register::FieldValue<decltype(muxpos),MuxposVal::pin2> pin2{};
-            constexpr Register::FieldValue<decltype(muxpos),MuxposVal::pin3> pin3{};
+            constexpr Register::FieldValue<decltype(muxpos)::Type,MuxposVal::pin0> pin0{};
+            constexpr Register::FieldValue<decltype(muxpos)::Type,MuxposVal::pin1> pin1{};
+            constexpr Register::FieldValue<decltype(muxpos)::Type,MuxposVal::pin2> pin2{};
+            constexpr Register::FieldValue<decltype(muxpos)::Type,MuxposVal::pin3> pin3{};
         }
         ///Swap Inputs and Invert
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> swap{}; 
-        namespace SwapValC{
-        }
         ///Output
         enum class OutVal {
             off=0x00000000,     ///<The output of COMPn is not routed to the COMPn I/O port
@@ -179,141 +163,89 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,16),Register::ReadWriteAccess,OutVal> out{}; 
         namespace OutValC{
-            constexpr Register::FieldValue<decltype(out),OutVal::off> off{};
-            constexpr Register::FieldValue<decltype(out),OutVal::async> async{};
-            constexpr Register::FieldValue<decltype(out),OutVal::sync> sync{};
+            constexpr Register::FieldValue<decltype(out)::Type,OutVal::off> off{};
+            constexpr Register::FieldValue<decltype(out)::Type,OutVal::async> async{};
+            constexpr Register::FieldValue<decltype(out)::Type,OutVal::sync> sync{};
         }
         ///Hysteresis Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> hyst{}; 
-        namespace HystValC{
-        }
         ///Filter Length
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,24),Register::ReadWriteAccess,unsigned> flen{}; 
-        namespace FlenValC{
-        }
     }
     namespace AcCtrla{    ///<Control A
         using Addr = Register::Address<0x42004400,0xffffff78,0,unsigned char>;
         ///Software Reset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> swrst{}; 
-        namespace SwrstValC{
-        }
         ///Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> enable{}; 
-        namespace EnableValC{
-        }
         ///Run in Standby
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> runstdby{}; 
-        namespace RunstdbyValC{
-        }
         ///Low-Power Mux
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> lpmux{}; 
-        namespace LpmuxValC{
-        }
     }
     namespace AcCtrlb{    ///<Control B
         using Addr = Register::Address<0x42004401,0xfffffffc,0,unsigned char>;
         ///Comparator 0 Start Comparison
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> start0{}; 
-        namespace Start0ValC{
-        }
         ///Comparator 1 Start Comparison
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> start1{}; 
-        namespace Start1ValC{
-        }
     }
     namespace AcEvctrl{    ///<Event Control
         using Addr = Register::Address<0x42004402,0xfffffcec,0,unsigned>;
         ///Comparator 0 Event Output Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> compeo0{}; 
-        namespace Compeo0ValC{
-        }
         ///Comparator 1 Event Output Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> compeo1{}; 
-        namespace Compeo1ValC{
-        }
         ///Window 0 Event Output Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> wineo0{}; 
-        namespace Wineo0ValC{
-        }
         ///Comparator 0 Event Input
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> compei0{}; 
-        namespace Compei0ValC{
-        }
         ///Comparator 1 Event Input
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> compei1{}; 
-        namespace Compei1ValC{
-        }
     }
     namespace AcIntenclr{    ///<Interrupt Enable Clear
         using Addr = Register::Address<0x42004404,0xffffffec,0,unsigned char>;
         ///Comparator 0 Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> comp0{}; 
-        namespace Comp0ValC{
-        }
         ///Comparator 1 Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> comp1{}; 
-        namespace Comp1ValC{
-        }
         ///Window 0 Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> win0{}; 
-        namespace Win0ValC{
-        }
     }
     namespace AcIntenset{    ///<Interrupt Enable Set
         using Addr = Register::Address<0x42004405,0xffffffec,0,unsigned char>;
         ///Comparator 0 Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> comp0{}; 
-        namespace Comp0ValC{
-        }
         ///Comparator 1 Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> comp1{}; 
-        namespace Comp1ValC{
-        }
         ///Window 0 Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> win0{}; 
-        namespace Win0ValC{
-        }
     }
     namespace AcIntflag{    ///<Interrupt Flag Status and Clear
         using Addr = Register::Address<0x42004406,0xffffffec,0,unsigned char>;
         ///Comparator 0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> comp0{}; 
-        namespace Comp0ValC{
-        }
         ///Comparator 1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> comp1{}; 
-        namespace Comp1ValC{
-        }
         ///Window 0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> win0{}; 
-        namespace Win0ValC{
-        }
     }
     namespace AcScaler0{    ///<Scaler n
         using Addr = Register::Address<0x42004420,0xffffffc0,0,unsigned char>;
         ///Scaler Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> value{}; 
-        namespace ValueValC{
-        }
     }
     namespace AcScaler1{    ///<Scaler n
         using Addr = Register::Address<0x42004421,0xffffffc0,0,unsigned char>;
         ///Scaler Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> value{}; 
-        namespace ValueValC{
-        }
     }
     namespace AcStatusa{    ///<Status A
         using Addr = Register::Address<0x42004408,0xffffffcc,0,unsigned char>;
         ///Comparator 0 Current State
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> state0{}; 
-        namespace State0ValC{
-        }
         ///Comparator 1 Current State
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> state1{}; 
-        namespace State1ValC{
-        }
         ///Window 0 Current State
         enum class Wstate0Val {
             above=0x00000000,     ///<Signal is above window
@@ -322,36 +254,26 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,Wstate0Val> wstate0{}; 
         namespace Wstate0ValC{
-            constexpr Register::FieldValue<decltype(wstate0),Wstate0Val::above> above{};
-            constexpr Register::FieldValue<decltype(wstate0),Wstate0Val::inside> inside{};
-            constexpr Register::FieldValue<decltype(wstate0),Wstate0Val::below> below{};
+            constexpr Register::FieldValue<decltype(wstate0)::Type,Wstate0Val::above> above{};
+            constexpr Register::FieldValue<decltype(wstate0)::Type,Wstate0Val::inside> inside{};
+            constexpr Register::FieldValue<decltype(wstate0)::Type,Wstate0Val::below> below{};
         }
     }
     namespace AcStatusb{    ///<Status B
         using Addr = Register::Address<0x42004409,0xffffff7c,0,unsigned char>;
         ///Comparator 0 Ready
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ready0{}; 
-        namespace Ready0ValC{
-        }
         ///Comparator 1 Ready
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ready1{}; 
-        namespace Ready1ValC{
-        }
         ///Synchronization Busy
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> syncbusy{}; 
-        namespace SyncbusyValC{
-        }
     }
     namespace AcStatusc{    ///<Status C
         using Addr = Register::Address<0x4200440a,0xffffffcc,0,unsigned char>;
         ///Comparator 0 Current State
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> state0{}; 
-        namespace State0ValC{
-        }
         ///Comparator 1 Current State
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> state1{}; 
-        namespace State1ValC{
-        }
         ///Window 0 Current State
         enum class Wstate0Val {
             above=0x00000000,     ///<Signal is above window
@@ -360,17 +282,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,Wstate0Val> wstate0{}; 
         namespace Wstate0ValC{
-            constexpr Register::FieldValue<decltype(wstate0),Wstate0Val::above> above{};
-            constexpr Register::FieldValue<decltype(wstate0),Wstate0Val::inside> inside{};
-            constexpr Register::FieldValue<decltype(wstate0),Wstate0Val::below> below{};
+            constexpr Register::FieldValue<decltype(wstate0)::Type,Wstate0Val::above> above{};
+            constexpr Register::FieldValue<decltype(wstate0)::Type,Wstate0Val::inside> inside{};
+            constexpr Register::FieldValue<decltype(wstate0)::Type,Wstate0Val::below> below{};
         }
     }
     namespace AcWinctrl{    ///<Window Control
         using Addr = Register::Address<0x4200440c,0xfffffff8,0,unsigned char>;
         ///Window 0 Mode Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wen0{}; 
-        namespace Wen0ValC{
-        }
         ///Window 0 Interrupt Selection
         enum class Wintsel0Val {
             above=0x00000000,     ///<Interrupt on signal above window
@@ -380,10 +300,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,1),Register::ReadWriteAccess,Wintsel0Val> wintsel0{}; 
         namespace Wintsel0ValC{
-            constexpr Register::FieldValue<decltype(wintsel0),Wintsel0Val::above> above{};
-            constexpr Register::FieldValue<decltype(wintsel0),Wintsel0Val::inside> inside{};
-            constexpr Register::FieldValue<decltype(wintsel0),Wintsel0Val::below> below{};
-            constexpr Register::FieldValue<decltype(wintsel0),Wintsel0Val::outside> outside{};
+            constexpr Register::FieldValue<decltype(wintsel0)::Type,Wintsel0Val::above> above{};
+            constexpr Register::FieldValue<decltype(wintsel0)::Type,Wintsel0Val::inside> inside{};
+            constexpr Register::FieldValue<decltype(wintsel0)::Type,Wintsel0Val::below> below{};
+            constexpr Register::FieldValue<decltype(wintsel0)::Type,Wintsel0Val::outside> outside{};
         }
     }
 }

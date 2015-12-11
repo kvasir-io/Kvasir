@@ -6,18 +6,12 @@ namespace Kvasir {
         using Addr = Register::Address<0x41fff010,0xfffffffe,0,unsigned>;
         ///SECBIT
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> secbit{}; 
-        namespace SecbitValC{
-        }
     }
     namespace Noneflcs{    ///<FC Flash Control Register
         using Addr = Register::Address<0x41fff020,0xffc0fffe,0,unsigned>;
         ///RDY_BSY
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rdyBsy{}; 
-        namespace RdybsyValC{
-        }
         ///BLPRO
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> blpro{}; 
-        namespace BlproValC{
-        }
     }
 }

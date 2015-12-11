@@ -11,8 +11,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,VbatrstfVal> vbatrstf{}; 
         namespace VbatrstfValC{
-            constexpr Register::FieldValue<decltype(vbatrstf),VbatrstfVal::vbatIsBelowReset> vbatIsBelowReset{};
-            constexpr Register::FieldValue<decltype(vbatrstf),VbatrstfVal::vbatIsAboveReset> vbatIsAboveReset{};
+            constexpr Register::FieldValue<decltype(vbatrstf)::Type,VbatrstfVal::vbatIsBelowReset> vbatIsBelowReset{};
+            constexpr Register::FieldValue<decltype(vbatrstf)::Type,VbatrstfVal::vbatIsAboveReset> vbatIsAboveReset{};
         }
         ///VBAT Low Interrupt Flag. 
         enum class VbatliVal {
@@ -21,8 +21,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,VbatliVal> vbatli{}; 
         namespace VbatliValC{
-            constexpr Register::FieldValue<decltype(vbatli),VbatliVal::vbatIsLow> vbatIsLow{};
-            constexpr Register::FieldValue<decltype(vbatli),VbatliVal::vbatIsOk> vbatIsOk{};
+            constexpr Register::FieldValue<decltype(vbatli)::Type,VbatliVal::vbatIsLow> vbatIsLow{};
+            constexpr Register::FieldValue<decltype(vbatli)::Type,VbatliVal::vbatIsOk> vbatIsOk{};
         }
         ///VBAT High Threshold Enable. 
         enum class VbathithenVal {
@@ -31,8 +31,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,VbathithenVal> vbathithen{}; 
         namespace VbathithenValC{
-            constexpr Register::FieldValue<decltype(vbathithen),VbathithenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(vbathithen),VbathithenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(vbathithen)::Type,VbathithenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(vbathithen)::Type,VbathithenVal::enabled> enabled{};
         }
         ///VBAT Low Interrupt Enable. 
         enum class VbatlienVal {
@@ -41,8 +41,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,VbatlienVal> vbatlien{}; 
         namespace VbatlienValC{
-            constexpr Register::FieldValue<decltype(vbatlien),VbatlienVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(vbatlien),VbatlienVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(vbatlien)::Type,VbatlienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(vbatlien)::Type,VbatlienVal::enabled> enabled{};
         }
         ///VBAT Supply Monitor Enable. 
         enum class VmonenVal {
@@ -51,8 +51,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,VmonenVal> vmonen{}; 
         namespace VmonenValC{
-            constexpr Register::FieldValue<decltype(vmonen),VmonenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(vmonen),VmonenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(vmonen)::Type,VmonenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(vmonen)::Type,VmonenVal::enabled> enabled{};
         }
     }
 }

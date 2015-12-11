@@ -13,10 +13,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,MapVal> map{}; 
         namespace MapValC{
-            constexpr Register::FieldValue<decltype(map),MapVal::bootLoaderModeIn> bootLoaderModeIn{};
-            constexpr Register::FieldValue<decltype(map),MapVal::userRamModeInter> userRamModeInter{};
-            constexpr Register::FieldValue<decltype(map),MapVal::userFlashModeInt> userFlashModeInt{};
-            constexpr Register::FieldValue<decltype(map),MapVal::userFlashModeInt> userFlashModeInt{};
+            constexpr Register::FieldValue<decltype(map)::Type,MapVal::bootLoaderModeIn> bootLoaderModeIn{};
+            constexpr Register::FieldValue<decltype(map)::Type,MapVal::userRamModeInter> userRamModeInter{};
+            constexpr Register::FieldValue<decltype(map)::Type,MapVal::userFlashModeInt> userFlashModeInt{};
+            constexpr Register::FieldValue<decltype(map)::Type,MapVal::userFlashModeInt> userFlashModeInt{};
         }
     }
     namespace Nonepresetctrl{    ///<Peripheral reset control
@@ -28,16 +28,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ssp0rstnVal> ssp0RstN{}; 
         namespace Ssp0rstnValC{
-            constexpr Register::FieldValue<decltype(ssp0RstN),Ssp0rstnVal::resetsTheSpi0Peri> resetsTheSpi0Peri{};
-            constexpr Register::FieldValue<decltype(ssp0RstN),Ssp0rstnVal::spi0ResetDeAssert> spi0ResetDeAssert{};
+            constexpr Register::FieldValue<decltype(ssp0RstN)::Type,Ssp0rstnVal::resetsTheSpi0Peri> resetsTheSpi0Peri{};
+            constexpr Register::FieldValue<decltype(ssp0RstN)::Type,Ssp0rstnVal::spi0ResetDeAssert> spi0ResetDeAssert{};
         }
     }
     namespace Nonesyspllctrl{    ///<System PLL control
         using Addr = Register::Address<0x40048008,0xffffff80,0,unsigned>;
         ///Feedback divider value. The division value M is the programmed MSEL value + 1. 00000: Division ratio M = 1 to 11111: Division ration M = 32
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> msel{}; 
-        namespace MselValC{
-        }
         ///Post divider ratio P. The division ratio is 2 x P.
         enum class PselVal {
             pEq1=0x00000000,     ///<P = 1
@@ -47,10 +45,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,5),Register::ReadWriteAccess,PselVal> psel{}; 
         namespace PselValC{
-            constexpr Register::FieldValue<decltype(psel),PselVal::pEq1> pEq1{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::pEq2> pEq2{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::pEq4> pEq4{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::pEq8> pEq8{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::pEq1> pEq1{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::pEq2> pEq2{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::pEq4> pEq4{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::pEq8> pEq8{};
         }
     }
     namespace Nonesyspllstat{    ///<System PLL status
@@ -62,8 +60,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,LockVal> lock{}; 
         namespace LockValC{
-            constexpr Register::FieldValue<decltype(lock),LockVal::pllNotLocked> pllNotLocked{};
-            constexpr Register::FieldValue<decltype(lock),LockVal::pllLocked> pllLocked{};
+            constexpr Register::FieldValue<decltype(lock)::Type,LockVal::pllNotLocked> pllNotLocked{};
+            constexpr Register::FieldValue<decltype(lock)::Type,LockVal::pllLocked> pllLocked{};
         }
     }
     namespace Nonesysoscctrl{    ///<System oscillator control
@@ -75,8 +73,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,BypassVal> bypass{}; 
         namespace BypassValC{
-            constexpr Register::FieldValue<decltype(bypass),BypassVal::oscillatorIsNotBy> oscillatorIsNotBy{};
-            constexpr Register::FieldValue<decltype(bypass),BypassVal::bypassEnabledPll> bypassEnabledPll{};
+            constexpr Register::FieldValue<decltype(bypass)::Type,BypassVal::oscillatorIsNotBy> oscillatorIsNotBy{};
+            constexpr Register::FieldValue<decltype(bypass)::Type,BypassVal::bypassEnabledPll> bypassEnabledPll{};
         }
         ///Determines frequency range for Low-power oscillator.
         enum class FreqrangeVal {
@@ -85,16 +83,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,FreqrangeVal> freqrange{}; 
         namespace FreqrangeValC{
-            constexpr Register::FieldValue<decltype(freqrange),FreqrangeVal::v120MhzFrequency> v120MhzFrequency{};
-            constexpr Register::FieldValue<decltype(freqrange),FreqrangeVal::v1525MhzFrequenc> v1525MhzFrequenc{};
+            constexpr Register::FieldValue<decltype(freqrange)::Type,FreqrangeVal::v120MhzFrequency> v120MhzFrequency{};
+            constexpr Register::FieldValue<decltype(freqrange)::Type,FreqrangeVal::v1525MhzFrequenc> v1525MhzFrequenc{};
         }
     }
     namespace Nonewdtoscctrl{    ///<Watchdog oscillator control
         using Addr = Register::Address<0x40048024,0xfffffe00,0,unsigned>;
         ///Select divider for Fclkana.  wdt_osc_clk = Fclkana/ (2 x (1 + DIVSEL)) 00000: 2 x (1 + DIVSEL) = 2 00001: 2 x (1 + DIVSEL) = 4 to 11111: 2 x (1 + DIVSEL) = 64
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> divsel{}; 
-        namespace DivselValC{
-        }
         ///Select watchdog oscillator analog output frequency (Fclkana).
         enum class FreqselVal {
             v06Mhz=0x00000001,     ///<0.6 MHz
@@ -115,29 +111,27 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,5),Register::ReadWriteAccess,FreqselVal> freqsel{}; 
         namespace FreqselValC{
-            constexpr Register::FieldValue<decltype(freqsel),FreqselVal::v06Mhz> v06Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel),FreqselVal::v105Mhz> v105Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel),FreqselVal::v14Mhz> v14Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel),FreqselVal::v175Mhz> v175Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel),FreqselVal::v21Mhz> v21Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel),FreqselVal::v24Mhz> v24Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel),FreqselVal::v27Mhz> v27Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel),FreqselVal::v30Mhz> v30Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel),FreqselVal::v325Mhz> v325Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel),FreqselVal::v35Mhz> v35Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel),FreqselVal::v375Mhz> v375Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel),FreqselVal::v40Mhz> v40Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel),FreqselVal::v42Mhz> v42Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel),FreqselVal::v44Mhz> v44Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel),FreqselVal::v46Mhz> v46Mhz{};
+            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v06Mhz> v06Mhz{};
+            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v105Mhz> v105Mhz{};
+            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v14Mhz> v14Mhz{};
+            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v175Mhz> v175Mhz{};
+            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v21Mhz> v21Mhz{};
+            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v24Mhz> v24Mhz{};
+            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v27Mhz> v27Mhz{};
+            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v30Mhz> v30Mhz{};
+            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v325Mhz> v325Mhz{};
+            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v35Mhz> v35Mhz{};
+            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v375Mhz> v375Mhz{};
+            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v40Mhz> v40Mhz{};
+            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v42Mhz> v42Mhz{};
+            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v44Mhz> v44Mhz{};
+            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v46Mhz> v46Mhz{};
         }
     }
     namespace Noneircctrl{    ///<IRC control
         using Addr = Register::Address<0x40048028,0xffffff00,0,unsigned>;
         ///Trim value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> trim{}; 
-        namespace TrimValC{
-        }
     }
     namespace Nonesysrststat{    ///<System reset status register
         using Addr = Register::Address<0x40048030,0xffffffe0,0,unsigned>;
@@ -148,8 +142,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PorVal> por{}; 
         namespace PorValC{
-            constexpr Register::FieldValue<decltype(por),PorVal::noPorDetected> noPorDetected{};
-            constexpr Register::FieldValue<decltype(por),PorVal::porDetectedWritin> porDetectedWritin{};
+            constexpr Register::FieldValue<decltype(por)::Type,PorVal::noPorDetected> noPorDetected{};
+            constexpr Register::FieldValue<decltype(por)::Type,PorVal::porDetectedWritin> porDetectedWritin{};
         }
         ///Status of the external RESET pin
         enum class ExtrstVal {
@@ -158,8 +152,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ExtrstVal> extrst{}; 
         namespace ExtrstValC{
-            constexpr Register::FieldValue<decltype(extrst),ExtrstVal::noResetPinEventD> noResetPinEventD{};
-            constexpr Register::FieldValue<decltype(extrst),ExtrstVal::resetDetectedWrit> resetDetectedWrit{};
+            constexpr Register::FieldValue<decltype(extrst)::Type,ExtrstVal::noResetPinEventD> noResetPinEventD{};
+            constexpr Register::FieldValue<decltype(extrst)::Type,ExtrstVal::resetDetectedWrit> resetDetectedWrit{};
         }
         ///Status of the Watchdog reset
         enum class WdtVal {
@@ -168,8 +162,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WdtVal> wdt{}; 
         namespace WdtValC{
-            constexpr Register::FieldValue<decltype(wdt),WdtVal::noWdtResetDetecte> noWdtResetDetecte{};
-            constexpr Register::FieldValue<decltype(wdt),WdtVal::wdtResetDetected> wdtResetDetected{};
+            constexpr Register::FieldValue<decltype(wdt)::Type,WdtVal::noWdtResetDetecte> noWdtResetDetecte{};
+            constexpr Register::FieldValue<decltype(wdt)::Type,WdtVal::wdtResetDetected> wdtResetDetected{};
         }
         ///Status of the Brown-out detect reset
         enum class BodVal {
@@ -178,8 +172,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,BodVal> bod{}; 
         namespace BodValC{
-            constexpr Register::FieldValue<decltype(bod),BodVal::noBodResetDetecte> noBodResetDetecte{};
-            constexpr Register::FieldValue<decltype(bod),BodVal::bodResetDetected> bodResetDetected{};
+            constexpr Register::FieldValue<decltype(bod)::Type,BodVal::noBodResetDetecte> noBodResetDetecte{};
+            constexpr Register::FieldValue<decltype(bod)::Type,BodVal::bodResetDetected> bodResetDetected{};
         }
         ///Status of the software system reset
         enum class SysrstVal {
@@ -188,8 +182,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SysrstVal> sysrst{}; 
         namespace SysrstValC{
-            constexpr Register::FieldValue<decltype(sysrst),SysrstVal::noSystemResetDete> noSystemResetDete{};
-            constexpr Register::FieldValue<decltype(sysrst),SysrstVal::systemResetDetecte> systemResetDetecte{};
+            constexpr Register::FieldValue<decltype(sysrst)::Type,SysrstVal::noSystemResetDete> noSystemResetDete{};
+            constexpr Register::FieldValue<decltype(sysrst)::Type,SysrstVal::systemResetDetecte> systemResetDetecte{};
         }
     }
     namespace Nonesyspllclksel{    ///<System PLL clock source select
@@ -201,8 +195,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,SelVal> sel{}; 
         namespace SelValC{
-            constexpr Register::FieldValue<decltype(sel),SelVal::ircOscillator> ircOscillator{};
-            constexpr Register::FieldValue<decltype(sel),SelVal::systemOscillator> systemOscillator{};
+            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::ircOscillator> ircOscillator{};
+            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::systemOscillator> systemOscillator{};
         }
     }
     namespace Nonesyspllclkuen{    ///<System PLL clock source update enable
@@ -214,8 +208,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EnaVal> ena{}; 
         namespace EnaValC{
-            constexpr Register::FieldValue<decltype(ena),EnaVal::noChange> noChange{};
-            constexpr Register::FieldValue<decltype(ena),EnaVal::updateClockSource> updateClockSource{};
+            constexpr Register::FieldValue<decltype(ena)::Type,EnaVal::noChange> noChange{};
+            constexpr Register::FieldValue<decltype(ena)::Type,EnaVal::updateClockSource> updateClockSource{};
         }
     }
     namespace Nonemainclksel{    ///<Main clock source select
@@ -229,10 +223,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,SelVal> sel{}; 
         namespace SelValC{
-            constexpr Register::FieldValue<decltype(sel),SelVal::ircOscillator> ircOscillator{};
-            constexpr Register::FieldValue<decltype(sel),SelVal::inputClockToSyste> inputClockToSyste{};
-            constexpr Register::FieldValue<decltype(sel),SelVal::wdtOscillator> wdtOscillator{};
-            constexpr Register::FieldValue<decltype(sel),SelVal::systemPllClockOut> systemPllClockOut{};
+            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::ircOscillator> ircOscillator{};
+            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::inputClockToSyste> inputClockToSyste{};
+            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::wdtOscillator> wdtOscillator{};
+            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::systemPllClockOut> systemPllClockOut{};
         }
     }
     namespace Nonemainclkuen{    ///<Main clock source update enable
@@ -244,16 +238,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EnaVal> ena{}; 
         namespace EnaValC{
-            constexpr Register::FieldValue<decltype(ena),EnaVal::noChange> noChange{};
-            constexpr Register::FieldValue<decltype(ena),EnaVal::updateClockSource> updateClockSource{};
+            constexpr Register::FieldValue<decltype(ena)::Type,EnaVal::noChange> noChange{};
+            constexpr Register::FieldValue<decltype(ena)::Type,EnaVal::updateClockSource> updateClockSource{};
         }
     }
     namespace Nonesysahbclkdiv{    ///<System AHB clock divider
         using Addr = Register::Address<0x40048078,0xffffff00,0,unsigned>;
         ///System AHB clock divider values 0: System clock disabled.  1: Divide by 1. to 255: Divide by 255.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
-        namespace DivValC{
-        }
     }
     namespace Nonesysahbclkctrl{    ///<System AHB clock control
         using Addr = Register::Address<0x40048080,0xfffe4020,0,unsigned>;
@@ -263,7 +255,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,SysVal> sys{}; 
         namespace SysValC{
-            constexpr Register::FieldValue<decltype(sys),SysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(sys)::Type,SysVal::enable> enable{};
         }
         ///Enables clock for ROM.
         enum class RomVal {
@@ -272,8 +264,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,RomVal> rom{}; 
         namespace RomValC{
-            constexpr Register::FieldValue<decltype(rom),RomVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(rom),RomVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(rom)::Type,RomVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(rom)::Type,RomVal::enable> enable{};
         }
         ///Enables clock for RAM.
         enum class RamVal {
@@ -282,8 +274,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,RamVal> ram{}; 
         namespace RamValC{
-            constexpr Register::FieldValue<decltype(ram),RamVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(ram),RamVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(ram)::Type,RamVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(ram)::Type,RamVal::enable> enable{};
         }
         ///Enables clock for flash register interface.
         enum class FlashregVal {
@@ -292,8 +284,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,FlashregVal> flashreg{}; 
         namespace FlashregValC{
-            constexpr Register::FieldValue<decltype(flashreg),FlashregVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(flashreg),FlashregVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(flashreg)::Type,FlashregVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(flashreg)::Type,FlashregVal::enabled> enabled{};
         }
         ///Enables clock for flash array access.
         enum class FlasharrayVal {
@@ -302,8 +294,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,FlasharrayVal> flasharray{}; 
         namespace FlasharrayValC{
-            constexpr Register::FieldValue<decltype(flasharray),FlasharrayVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(flasharray),FlasharrayVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(flasharray)::Type,FlasharrayVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(flasharray)::Type,FlasharrayVal::enabled> enabled{};
         }
         ///Enables clock for GPIO.
         enum class GpioVal {
@@ -312,8 +304,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,GpioVal> gpio{}; 
         namespace GpioValC{
-            constexpr Register::FieldValue<decltype(gpio),GpioVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(gpio),GpioVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(gpio)::Type,GpioVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(gpio)::Type,GpioVal::enable> enable{};
         }
         ///Enables clock for 16-bit counter/timer 0.
         enum class Ct16b0Val {
@@ -322,8 +314,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ct16b0Val> ct16b0{}; 
         namespace Ct16b0ValC{
-            constexpr Register::FieldValue<decltype(ct16b0),Ct16b0Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(ct16b0),Ct16b0Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(ct16b0)::Type,Ct16b0Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(ct16b0)::Type,Ct16b0Val::enable> enable{};
         }
         ///Enables clock for 16-bit counter/timer 1.
         enum class Ct16b1Val {
@@ -332,8 +324,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ct16b1Val> ct16b1{}; 
         namespace Ct16b1ValC{
-            constexpr Register::FieldValue<decltype(ct16b1),Ct16b1Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(ct16b1),Ct16b1Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(ct16b1)::Type,Ct16b1Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(ct16b1)::Type,Ct16b1Val::enable> enable{};
         }
         ///Enables clock for 32-bit counter/timer 0.
         enum class Ct32b0Val {
@@ -342,8 +334,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Ct32b0Val> ct32b0{}; 
         namespace Ct32b0ValC{
-            constexpr Register::FieldValue<decltype(ct32b0),Ct32b0Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(ct32b0),Ct32b0Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(ct32b0)::Type,Ct32b0Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(ct32b0)::Type,Ct32b0Val::enable> enable{};
         }
         ///Enables clock for 32-bit counter/timer 1.
         enum class Ct32b1Val {
@@ -352,8 +344,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ct32b1Val> ct32b1{}; 
         namespace Ct32b1ValC{
-            constexpr Register::FieldValue<decltype(ct32b1),Ct32b1Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(ct32b1),Ct32b1Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(ct32b1)::Type,Ct32b1Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(ct32b1)::Type,Ct32b1Val::enable> enable{};
         }
         ///Enables clock for SPI0.
         enum class Ssp0Val {
@@ -362,8 +354,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ssp0Val> ssp0{}; 
         namespace Ssp0ValC{
-            constexpr Register::FieldValue<decltype(ssp0),Ssp0Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(ssp0),Ssp0Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(ssp0)::Type,Ssp0Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(ssp0)::Type,Ssp0Val::enable> enable{};
         }
         ///Enables clock for UART.
         enum class UartVal {
@@ -372,8 +364,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,UartVal> uart{}; 
         namespace UartValC{
-            constexpr Register::FieldValue<decltype(uart),UartVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(uart),UartVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(uart)::Type,UartVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(uart)::Type,UartVal::enable> enable{};
         }
         ///Enables clock for ADC.
         enum class AdcVal {
@@ -382,8 +374,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,AdcVal> adc{}; 
         namespace AdcValC{
-            constexpr Register::FieldValue<decltype(adc),AdcVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(adc),AdcVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(adc)::Type,AdcVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(adc)::Type,AdcVal::enable> enable{};
         }
         ///Enables clock for WDT.
         enum class WdtVal {
@@ -392,8 +384,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,WdtVal> wdt{}; 
         namespace WdtValC{
-            constexpr Register::FieldValue<decltype(wdt),WdtVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(wdt),WdtVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(wdt)::Type,WdtVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(wdt)::Type,WdtVal::enable> enable{};
         }
         ///Enables clock for I/O configuration block.
         enum class IoconVal {
@@ -402,23 +394,19 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,IoconVal> iocon{}; 
         namespace IoconValC{
-            constexpr Register::FieldValue<decltype(iocon),IoconVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(iocon),IoconVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(iocon)::Type,IoconVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(iocon)::Type,IoconVal::enable> enable{};
         }
     }
     namespace Nonessp0clkdiv{    ///<SPI0 clock divder
         using Addr = Register::Address<0x40048094,0xffffff00,0,unsigned>;
         ///SPI0_PCLK clock divider values 0: Disable SPI0_PCLK.  1: Divide by 1. to 255: Divide by 255.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
-        namespace DivValC{
-        }
     }
     namespace Noneuartclkdiv{    ///<UART clock divder
         using Addr = Register::Address<0x40048098,0xffffff00,0,unsigned>;
         ///UART_PCLK clock divider values 0: Disable UART_PCLK.  1: Divide by 1. to 255: Divide by 255.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
-        namespace DivValC{
-        }
     }
     namespace Nonewdtclksel{    ///<WDT clock source select
         using Addr = Register::Address<0x400480d0,0xfffffffc,0,unsigned>;
@@ -430,9 +418,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,SelVal> sel{}; 
         namespace SelValC{
-            constexpr Register::FieldValue<decltype(sel),SelVal::ircOscillator> ircOscillator{};
-            constexpr Register::FieldValue<decltype(sel),SelVal::mainClock> mainClock{};
-            constexpr Register::FieldValue<decltype(sel),SelVal::watchdogOscillator> watchdogOscillator{};
+            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::ircOscillator> ircOscillator{};
+            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::mainClock> mainClock{};
+            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::watchdogOscillator> watchdogOscillator{};
         }
     }
     namespace Nonewdtclkuen{    ///<WDT clock source update enable
@@ -444,16 +432,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EnaVal> ena{}; 
         namespace EnaValC{
-            constexpr Register::FieldValue<decltype(ena),EnaVal::noChange> noChange{};
-            constexpr Register::FieldValue<decltype(ena),EnaVal::updateClockSource> updateClockSource{};
+            constexpr Register::FieldValue<decltype(ena)::Type,EnaVal::noChange> noChange{};
+            constexpr Register::FieldValue<decltype(ena)::Type,EnaVal::updateClockSource> updateClockSource{};
         }
     }
     namespace Nonewdtclkdiv{    ///<WDT clock divider
         using Addr = Register::Address<0x400480d8,0xffffff00,0,unsigned>;
         ///WDT clock divider values 0: Disable WDCLK.  1: Divide by 1. to 255: Divide by 255.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
-        namespace DivValC{
-        }
     }
     namespace Noneclkoutclksel{    ///<CLKOUT clock source select
         using Addr = Register::Address<0x400480e0,0xfffffffc,0,unsigned>;
@@ -466,10 +452,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,SelVal> sel{}; 
         namespace SelValC{
-            constexpr Register::FieldValue<decltype(sel),SelVal::ircOscillator> ircOscillator{};
-            constexpr Register::FieldValue<decltype(sel),SelVal::systemOscillator> systemOscillator{};
-            constexpr Register::FieldValue<decltype(sel),SelVal::watchdogOscillator> watchdogOscillator{};
-            constexpr Register::FieldValue<decltype(sel),SelVal::mainClock> mainClock{};
+            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::ircOscillator> ircOscillator{};
+            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::systemOscillator> systemOscillator{};
+            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::watchdogOscillator> watchdogOscillator{};
+            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::mainClock> mainClock{};
         }
     }
     namespace Noneclkoutuen{    ///<CLKOUT clock source update enable
@@ -481,63 +467,39 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EnaVal> ena{}; 
         namespace EnaValC{
-            constexpr Register::FieldValue<decltype(ena),EnaVal::noChange> noChange{};
-            constexpr Register::FieldValue<decltype(ena),EnaVal::updateClockSource> updateClockSource{};
+            constexpr Register::FieldValue<decltype(ena)::Type,EnaVal::noChange> noChange{};
+            constexpr Register::FieldValue<decltype(ena)::Type,EnaVal::updateClockSource> updateClockSource{};
         }
     }
     namespace Noneclkoutclkdiv{    ///<CLKOUT clock divider
         using Addr = Register::Address<0x400480e8,0xffffff00,0,unsigned>;
         ///Clock output divider values 0: Disable CLKOUT.  1: Divide by 1. to 255: Divide by 255.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
-        namespace DivValC{
-        }
     }
     namespace Nonepioporcap0{    ///<POR captured PIO status 0
         using Addr = Register::Address<0x40048100,0xfff300fe,0,unsigned>;
         ///Raw reset status input PIO0_0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cappio00{}; 
-        namespace Cappio00ValC{
-        }
         ///Raw reset status input PIO0_8
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> cappio08{}; 
-        namespace Cappio08ValC{
-        }
         ///Raw reset status input PIO0_9
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> cappio09{}; 
-        namespace Cappio09ValC{
-        }
         ///Raw reset status input PIO0_10
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> cappio010{}; 
-        namespace Cappio010ValC{
-        }
         ///Raw reset status input PIO0_11
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> cappio011{}; 
-        namespace Cappio011ValC{
-        }
         ///Raw reset status input PIO1_0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> cappio10{}; 
-        namespace Cappio10ValC{
-        }
         ///Raw reset status input PIO1_1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,unsigned> cappio11{}; 
-        namespace Cappio11ValC{
-        }
         ///Raw reset status input PIO1_2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> cappio12{}; 
-        namespace Cappio12ValC{
-        }
         ///Raw reset status input PIO1_3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> cappio13{}; 
-        namespace Cappio13ValC{
-        }
         ///Raw reset status input PIO1_6
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> cappio16{}; 
-        namespace Cappio16ValC{
-        }
         ///Raw reset status input PIO1_7
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,unsigned> cappio17{}; 
-        namespace Cappio17ValC{
-        }
     }
     namespace Nonebodctrl{    ///<BOD control
         using Addr = Register::Address<0x40048150,0xffffffe0,0,unsigned>;
@@ -550,10 +512,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,BodrstlevVal> bodrstlev{}; 
         namespace BodrstlevValC{
-            constexpr Register::FieldValue<decltype(bodrstlev),BodrstlevVal::level0Reserved> level0Reserved{};
-            constexpr Register::FieldValue<decltype(bodrstlev),BodrstlevVal::level1TheResetA> level1TheResetA{};
-            constexpr Register::FieldValue<decltype(bodrstlev),BodrstlevVal::level2TheResetA> level2TheResetA{};
-            constexpr Register::FieldValue<decltype(bodrstlev),BodrstlevVal::level3TheResetA> level3TheResetA{};
+            constexpr Register::FieldValue<decltype(bodrstlev)::Type,BodrstlevVal::level0Reserved> level0Reserved{};
+            constexpr Register::FieldValue<decltype(bodrstlev)::Type,BodrstlevVal::level1TheResetA> level1TheResetA{};
+            constexpr Register::FieldValue<decltype(bodrstlev)::Type,BodrstlevVal::level2TheResetA> level2TheResetA{};
+            constexpr Register::FieldValue<decltype(bodrstlev)::Type,BodrstlevVal::level3TheResetA> level3TheResetA{};
         }
         ///BOD interrupt level
         enum class BodintvalVal {
@@ -564,10 +526,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,BodintvalVal> bodintval{}; 
         namespace BodintvalValC{
-            constexpr Register::FieldValue<decltype(bodintval),BodintvalVal::level0Reserved> level0Reserved{};
-            constexpr Register::FieldValue<decltype(bodintval),BodintvalVal::level1theInterrup> level1theInterrup{};
-            constexpr Register::FieldValue<decltype(bodintval),BodintvalVal::level2TheInterru> level2TheInterru{};
-            constexpr Register::FieldValue<decltype(bodintval),BodintvalVal::level3TheInterru> level3TheInterru{};
+            constexpr Register::FieldValue<decltype(bodintval)::Type,BodintvalVal::level0Reserved> level0Reserved{};
+            constexpr Register::FieldValue<decltype(bodintval)::Type,BodintvalVal::level1theInterrup> level1theInterrup{};
+            constexpr Register::FieldValue<decltype(bodintval)::Type,BodintvalVal::level2TheInterru> level2TheInterru{};
+            constexpr Register::FieldValue<decltype(bodintval)::Type,BodintvalVal::level3TheInterru> level3TheInterru{};
         }
         ///BOD reset enable
         enum class BodrstenaVal {
@@ -576,16 +538,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,BodrstenaVal> bodrstena{}; 
         namespace BodrstenaValC{
-            constexpr Register::FieldValue<decltype(bodrstena),BodrstenaVal::disableResetFuncti> disableResetFuncti{};
-            constexpr Register::FieldValue<decltype(bodrstena),BodrstenaVal::enableResetFunctio> enableResetFunctio{};
+            constexpr Register::FieldValue<decltype(bodrstena)::Type,BodrstenaVal::disableResetFuncti> disableResetFuncti{};
+            constexpr Register::FieldValue<decltype(bodrstena)::Type,BodrstenaVal::enableResetFunctio> enableResetFunctio{};
         }
     }
     namespace Nonesystckcal{    ///<System tick counter calibration
         using Addr = Register::Address<0x40048154,0xfc000000,0,unsigned>;
         ///System tick timer calibration value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,0),Register::ReadWriteAccess,unsigned> cal{}; 
-        namespace CalValC{
-        }
     }
     namespace Nonestartaprp0{    ///<Start logic edge control register 0
         using Addr = Register::Address<0x40048200,0xffffe0fe,0,unsigned>;
@@ -596,8 +556,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Aprpio00Val> aprpio00{}; 
         namespace Aprpio00ValC{
-            constexpr Register::FieldValue<decltype(aprpio00),Aprpio00Val::fallingEdge> fallingEdge{};
-            constexpr Register::FieldValue<decltype(aprpio00),Aprpio00Val::risingEdge> risingEdge{};
+            constexpr Register::FieldValue<decltype(aprpio00)::Type,Aprpio00Val::fallingEdge> fallingEdge{};
+            constexpr Register::FieldValue<decltype(aprpio00)::Type,Aprpio00Val::risingEdge> risingEdge{};
         }
         ///Edge select for start logic input PIO0_8
         enum class Aprpio08Val {
@@ -606,8 +566,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Aprpio08Val> aprpio08{}; 
         namespace Aprpio08ValC{
-            constexpr Register::FieldValue<decltype(aprpio08),Aprpio08Val::fallingEdge> fallingEdge{};
-            constexpr Register::FieldValue<decltype(aprpio08),Aprpio08Val::risingEdge> risingEdge{};
+            constexpr Register::FieldValue<decltype(aprpio08)::Type,Aprpio08Val::fallingEdge> fallingEdge{};
+            constexpr Register::FieldValue<decltype(aprpio08)::Type,Aprpio08Val::risingEdge> risingEdge{};
         }
         ///Edge select for start logic input PIO0_9
         enum class Aprpio09Val {
@@ -616,8 +576,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Aprpio09Val> aprpio09{}; 
         namespace Aprpio09ValC{
-            constexpr Register::FieldValue<decltype(aprpio09),Aprpio09Val::fallingEdge> fallingEdge{};
-            constexpr Register::FieldValue<decltype(aprpio09),Aprpio09Val::risingEdge> risingEdge{};
+            constexpr Register::FieldValue<decltype(aprpio09)::Type,Aprpio09Val::fallingEdge> fallingEdge{};
+            constexpr Register::FieldValue<decltype(aprpio09)::Type,Aprpio09Val::risingEdge> risingEdge{};
         }
         ///Edge select for start logic input PIO0_10
         enum class Aprpio010Val {
@@ -626,8 +586,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Aprpio010Val> aprpio010{}; 
         namespace Aprpio010ValC{
-            constexpr Register::FieldValue<decltype(aprpio010),Aprpio010Val::fallingEdge> fallingEdge{};
-            constexpr Register::FieldValue<decltype(aprpio010),Aprpio010Val::risingEdge> risingEdge{};
+            constexpr Register::FieldValue<decltype(aprpio010)::Type,Aprpio010Val::fallingEdge> fallingEdge{};
+            constexpr Register::FieldValue<decltype(aprpio010)::Type,Aprpio010Val::risingEdge> risingEdge{};
         }
         ///Edge select for start logic input PIO0_11
         enum class Aprpio011Val {
@@ -636,8 +596,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Aprpio011Val> aprpio011{}; 
         namespace Aprpio011ValC{
-            constexpr Register::FieldValue<decltype(aprpio011),Aprpio011Val::fallingEdge> fallingEdge{};
-            constexpr Register::FieldValue<decltype(aprpio011),Aprpio011Val::risingEdge> risingEdge{};
+            constexpr Register::FieldValue<decltype(aprpio011)::Type,Aprpio011Val::fallingEdge> fallingEdge{};
+            constexpr Register::FieldValue<decltype(aprpio011)::Type,Aprpio011Val::risingEdge> risingEdge{};
         }
         ///Edge select for start logic input PIO1_0.
         enum class Aprpio10Val {
@@ -646,8 +606,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Aprpio10Val> aprpio10{}; 
         namespace Aprpio10ValC{
-            constexpr Register::FieldValue<decltype(aprpio10),Aprpio10Val::fallingEdge> fallingEdge{};
-            constexpr Register::FieldValue<decltype(aprpio10),Aprpio10Val::risingEdge> risingEdge{};
+            constexpr Register::FieldValue<decltype(aprpio10)::Type,Aprpio10Val::fallingEdge> fallingEdge{};
+            constexpr Register::FieldValue<decltype(aprpio10)::Type,Aprpio10Val::risingEdge> risingEdge{};
         }
     }
     namespace Nonestarterp0{    ///<Start logic signal enable register 0
@@ -659,8 +619,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Erpio00Val> erpio00{}; 
         namespace Erpio00ValC{
-            constexpr Register::FieldValue<decltype(erpio00),Erpio00Val::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(erpio00),Erpio00Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(erpio00)::Type,Erpio00Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(erpio00)::Type,Erpio00Val::enabled> enabled{};
         }
         ///Enable start signal for start logic input PIO0_8
         enum class Erpio08Val {
@@ -669,8 +629,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Erpio08Val> erpio08{}; 
         namespace Erpio08ValC{
-            constexpr Register::FieldValue<decltype(erpio08),Erpio08Val::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(erpio08),Erpio08Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(erpio08)::Type,Erpio08Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(erpio08)::Type,Erpio08Val::enabled> enabled{};
         }
         ///Enable start signal for start logic input PIO0_9
         enum class Erpio09Val {
@@ -679,8 +639,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Erpio09Val> erpio09{}; 
         namespace Erpio09ValC{
-            constexpr Register::FieldValue<decltype(erpio09),Erpio09Val::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(erpio09),Erpio09Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(erpio09)::Type,Erpio09Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(erpio09)::Type,Erpio09Val::enabled> enabled{};
         }
         ///Enable start signal for start logic input PIO0_10
         enum class Erpio010Val {
@@ -689,8 +649,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Erpio010Val> erpio010{}; 
         namespace Erpio010ValC{
-            constexpr Register::FieldValue<decltype(erpio010),Erpio010Val::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(erpio010),Erpio010Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(erpio010)::Type,Erpio010Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(erpio010)::Type,Erpio010Val::enabled> enabled{};
         }
         ///Enable start signal for start logic input PIO0_11
         enum class Erpio011Val {
@@ -699,8 +659,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Erpio011Val> erpio011{}; 
         namespace Erpio011ValC{
-            constexpr Register::FieldValue<decltype(erpio011),Erpio011Val::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(erpio011),Erpio011Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(erpio011)::Type,Erpio011Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(erpio011)::Type,Erpio011Val::enabled> enabled{};
         }
         ///Enable start signal for start logic input PIO1_0
         enum class Erpio10Val {
@@ -709,8 +669,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Erpio10Val> erpio10{}; 
         namespace Erpio10ValC{
-            constexpr Register::FieldValue<decltype(erpio10),Erpio10Val::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(erpio10),Erpio10Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(erpio10)::Type,Erpio10Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(erpio10)::Type,Erpio10Val::enabled> enabled{};
         }
     }
     namespace Nonestartrsrp0clr{    ///<Start logic reset register 0
@@ -722,8 +682,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Rsrpio00Val> rsrpio00{}; 
         namespace Rsrpio00ValC{
-            constexpr Register::FieldValue<decltype(rsrpio00),Rsrpio00Val::> {};
-            constexpr Register::FieldValue<decltype(rsrpio00),Rsrpio00Val::writeResetStartS> writeResetStartS{};
+            constexpr Register::FieldValue<decltype(rsrpio00)::Type,Rsrpio00Val::> {};
+            constexpr Register::FieldValue<decltype(rsrpio00)::Type,Rsrpio00Val::writeResetStartS> writeResetStartS{};
         }
         ///Start signal reset for start logic input PIO0_8
         enum class Rsrpio08Val {
@@ -732,8 +692,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Rsrpio08Val> rsrpio08{}; 
         namespace Rsrpio08ValC{
-            constexpr Register::FieldValue<decltype(rsrpio08),Rsrpio08Val::> {};
-            constexpr Register::FieldValue<decltype(rsrpio08),Rsrpio08Val::writeResetStartS> writeResetStartS{};
+            constexpr Register::FieldValue<decltype(rsrpio08)::Type,Rsrpio08Val::> {};
+            constexpr Register::FieldValue<decltype(rsrpio08)::Type,Rsrpio08Val::writeResetStartS> writeResetStartS{};
         }
         ///Start signal reset for start logic input PIO0_9
         enum class Rsrpio09Val {
@@ -742,8 +702,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Rsrpio09Val> rsrpio09{}; 
         namespace Rsrpio09ValC{
-            constexpr Register::FieldValue<decltype(rsrpio09),Rsrpio09Val::> {};
-            constexpr Register::FieldValue<decltype(rsrpio09),Rsrpio09Val::writeResetStartS> writeResetStartS{};
+            constexpr Register::FieldValue<decltype(rsrpio09)::Type,Rsrpio09Val::> {};
+            constexpr Register::FieldValue<decltype(rsrpio09)::Type,Rsrpio09Val::writeResetStartS> writeResetStartS{};
         }
         ///Start signal reset for start logic input PIO0_10
         enum class Rsrpio010Val {
@@ -752,8 +712,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Rsrpio010Val> rsrpio010{}; 
         namespace Rsrpio010ValC{
-            constexpr Register::FieldValue<decltype(rsrpio010),Rsrpio010Val::> {};
-            constexpr Register::FieldValue<decltype(rsrpio010),Rsrpio010Val::writeResetStartS> writeResetStartS{};
+            constexpr Register::FieldValue<decltype(rsrpio010)::Type,Rsrpio010Val::> {};
+            constexpr Register::FieldValue<decltype(rsrpio010)::Type,Rsrpio010Val::writeResetStartS> writeResetStartS{};
         }
         ///Start signal reset for start logic input PIO0_11
         enum class Rsrpio011Val {
@@ -762,8 +722,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Rsrpio011Val> rsrpio011{}; 
         namespace Rsrpio011ValC{
-            constexpr Register::FieldValue<decltype(rsrpio011),Rsrpio011Val::> {};
-            constexpr Register::FieldValue<decltype(rsrpio011),Rsrpio011Val::writeResetStartS> writeResetStartS{};
+            constexpr Register::FieldValue<decltype(rsrpio011)::Type,Rsrpio011Val::> {};
+            constexpr Register::FieldValue<decltype(rsrpio011)::Type,Rsrpio011Val::writeResetStartS> writeResetStartS{};
         }
         ///Start signal reset for start logic input PIO1_0
         enum class Rsrpio10Val {
@@ -772,8 +732,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Rsrpio10Val> rsrpio10{}; 
         namespace Rsrpio10ValC{
-            constexpr Register::FieldValue<decltype(rsrpio10),Rsrpio10Val::> {};
-            constexpr Register::FieldValue<decltype(rsrpio10),Rsrpio10Val::writeResetStartS> writeResetStartS{};
+            constexpr Register::FieldValue<decltype(rsrpio10)::Type,Rsrpio10Val::> {};
+            constexpr Register::FieldValue<decltype(rsrpio10)::Type,Rsrpio10Val::writeResetStartS> writeResetStartS{};
         }
     }
     namespace Nonestartsrp0{    ///<Start logic status register 0
@@ -785,8 +745,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Srpio00Val> srpio00{}; 
         namespace Srpio00ValC{
-            constexpr Register::FieldValue<decltype(srpio00),Srpio00Val::noStartSignalRece> noStartSignalRece{};
-            constexpr Register::FieldValue<decltype(srpio00),Srpio00Val::startSignalPending> startSignalPending{};
+            constexpr Register::FieldValue<decltype(srpio00)::Type,Srpio00Val::noStartSignalRece> noStartSignalRece{};
+            constexpr Register::FieldValue<decltype(srpio00)::Type,Srpio00Val::startSignalPending> startSignalPending{};
         }
         ///Start signal status for start logic input PIO0_8
         enum class Srpio08Val {
@@ -795,8 +755,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Srpio08Val> srpio08{}; 
         namespace Srpio08ValC{
-            constexpr Register::FieldValue<decltype(srpio08),Srpio08Val::noStartSignalRece> noStartSignalRece{};
-            constexpr Register::FieldValue<decltype(srpio08),Srpio08Val::startSignalPending> startSignalPending{};
+            constexpr Register::FieldValue<decltype(srpio08)::Type,Srpio08Val::noStartSignalRece> noStartSignalRece{};
+            constexpr Register::FieldValue<decltype(srpio08)::Type,Srpio08Val::startSignalPending> startSignalPending{};
         }
         ///Start signal status for start logic input PIO0_9
         enum class Srpio09Val {
@@ -805,8 +765,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Srpio09Val> srpio09{}; 
         namespace Srpio09ValC{
-            constexpr Register::FieldValue<decltype(srpio09),Srpio09Val::noStartSignalRece> noStartSignalRece{};
-            constexpr Register::FieldValue<decltype(srpio09),Srpio09Val::startSignalPending> startSignalPending{};
+            constexpr Register::FieldValue<decltype(srpio09)::Type,Srpio09Val::noStartSignalRece> noStartSignalRece{};
+            constexpr Register::FieldValue<decltype(srpio09)::Type,Srpio09Val::startSignalPending> startSignalPending{};
         }
         ///Start signal status for start logic input PIO0_10
         enum class Srpio010Val {
@@ -815,8 +775,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Srpio010Val> srpio010{}; 
         namespace Srpio010ValC{
-            constexpr Register::FieldValue<decltype(srpio010),Srpio010Val::noStartSignalRece> noStartSignalRece{};
-            constexpr Register::FieldValue<decltype(srpio010),Srpio010Val::startSignalPending> startSignalPending{};
+            constexpr Register::FieldValue<decltype(srpio010)::Type,Srpio010Val::noStartSignalRece> noStartSignalRece{};
+            constexpr Register::FieldValue<decltype(srpio010)::Type,Srpio010Val::startSignalPending> startSignalPending{};
         }
         ///Start signal status for start logic input PIO0_11
         enum class Srpio011Val {
@@ -825,8 +785,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Srpio011Val> srpio011{}; 
         namespace Srpio011ValC{
-            constexpr Register::FieldValue<decltype(srpio011),Srpio011Val::noStartSignalRece> noStartSignalRece{};
-            constexpr Register::FieldValue<decltype(srpio011),Srpio011Val::startSignalPending> startSignalPending{};
+            constexpr Register::FieldValue<decltype(srpio011)::Type,Srpio011Val::noStartSignalRece> noStartSignalRece{};
+            constexpr Register::FieldValue<decltype(srpio011)::Type,Srpio011Val::startSignalPending> startSignalPending{};
         }
         ///Start signal status for start logic input PIO1_0
         enum class Srpio10Val {
@@ -835,8 +795,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Srpio10Val> srpio10{}; 
         namespace Srpio10ValC{
-            constexpr Register::FieldValue<decltype(srpio10),Srpio10Val::noStartSignalRece> noStartSignalRece{};
-            constexpr Register::FieldValue<decltype(srpio10),Srpio10Val::startSignalPending> startSignalPending{};
+            constexpr Register::FieldValue<decltype(srpio10)::Type,Srpio10Val::noStartSignalRece> noStartSignalRece{};
+            constexpr Register::FieldValue<decltype(srpio10)::Type,Srpio10Val::startSignalPending> startSignalPending{};
         }
     }
     namespace Nonepdsleepcfg{    ///<Power-down states in Deep-sleep mode
@@ -848,8 +808,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,BodpdVal> bodPd{}; 
         namespace BodpdValC{
-            constexpr Register::FieldValue<decltype(bodPd),BodpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(bodPd),BodpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(bodPd)::Type,BodpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(bodPd)::Type,BodpdVal::poweredDown> poweredDown{};
         }
         ///Watchdog oscillator power control in Deep-sleep mode, see Table 35.
         enum class WdtoscpdVal {
@@ -858,8 +818,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,WdtoscpdVal> wdtoscPd{}; 
         namespace WdtoscpdValC{
-            constexpr Register::FieldValue<decltype(wdtoscPd),WdtoscpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(wdtoscPd),WdtoscpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(wdtoscPd)::Type,WdtoscpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(wdtoscPd)::Type,WdtoscpdVal::poweredDown> poweredDown{};
         }
     }
     namespace Nonepdawakecfg{    ///<Power-down states after wake-up from Deep-sleep mode
@@ -871,8 +831,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IrcoutpdVal> ircoutPd{}; 
         namespace IrcoutpdValC{
-            constexpr Register::FieldValue<decltype(ircoutPd),IrcoutpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(ircoutPd),IrcoutpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(ircoutPd)::Type,IrcoutpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(ircoutPd)::Type,IrcoutpdVal::poweredDown> poweredDown{};
         }
         ///IRC oscillator power-down wake-up configuration
         enum class IrcpdVal {
@@ -881,8 +841,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,IrcpdVal> ircPd{}; 
         namespace IrcpdValC{
-            constexpr Register::FieldValue<decltype(ircPd),IrcpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(ircPd),IrcpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(ircPd)::Type,IrcpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(ircPd)::Type,IrcpdVal::poweredDown> poweredDown{};
         }
         ///Flash wake-up configuration
         enum class FlashpdVal {
@@ -891,8 +851,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,FlashpdVal> flashPd{}; 
         namespace FlashpdValC{
-            constexpr Register::FieldValue<decltype(flashPd),FlashpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(flashPd),FlashpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(flashPd)::Type,FlashpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(flashPd)::Type,FlashpdVal::poweredDown> poweredDown{};
         }
         ///BOD wake-up configuration
         enum class BodpdVal {
@@ -901,8 +861,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,BodpdVal> bodPd{}; 
         namespace BodpdValC{
-            constexpr Register::FieldValue<decltype(bodPd),BodpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(bodPd),BodpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(bodPd)::Type,BodpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(bodPd)::Type,BodpdVal::poweredDown> poweredDown{};
         }
         ///ADC wake-up configuration
         enum class AdcpdVal {
@@ -911,8 +871,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,AdcpdVal> adcPd{}; 
         namespace AdcpdValC{
-            constexpr Register::FieldValue<decltype(adcPd),AdcpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(adcPd),AdcpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(adcPd)::Type,AdcpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(adcPd)::Type,AdcpdVal::poweredDown> poweredDown{};
         }
         ///System oscillator wake-up configuration
         enum class SysoscpdVal {
@@ -921,8 +881,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SysoscpdVal> sysoscPd{}; 
         namespace SysoscpdValC{
-            constexpr Register::FieldValue<decltype(sysoscPd),SysoscpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(sysoscPd),SysoscpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(sysoscPd)::Type,SysoscpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(sysoscPd)::Type,SysoscpdVal::poweredDown> poweredDown{};
         }
         ///Watchdog oscillator wake-up configuration
         enum class WdtoscpdVal {
@@ -931,8 +891,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,WdtoscpdVal> wdtoscPd{}; 
         namespace WdtoscpdValC{
-            constexpr Register::FieldValue<decltype(wdtoscPd),WdtoscpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(wdtoscPd),WdtoscpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(wdtoscPd)::Type,WdtoscpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(wdtoscPd)::Type,WdtoscpdVal::poweredDown> poweredDown{};
         }
         ///System PLL wake-up configuration
         enum class SyspllpdVal {
@@ -941,8 +901,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SyspllpdVal> syspllPd{}; 
         namespace SyspllpdValC{
-            constexpr Register::FieldValue<decltype(syspllPd),SyspllpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(syspllPd),SyspllpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(syspllPd)::Type,SyspllpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(syspllPd)::Type,SyspllpdVal::poweredDown> poweredDown{};
         }
     }
     namespace Nonepdruncfg{    ///<Power-down configuration register
@@ -954,8 +914,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IrcoutpdVal> ircoutPd{}; 
         namespace IrcoutpdValC{
-            constexpr Register::FieldValue<decltype(ircoutPd),IrcoutpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(ircoutPd),IrcoutpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(ircoutPd)::Type,IrcoutpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(ircoutPd)::Type,IrcoutpdVal::poweredDown> poweredDown{};
         }
         ///IRC oscillator power-down
         enum class IrcpdVal {
@@ -964,8 +924,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,IrcpdVal> ircPd{}; 
         namespace IrcpdValC{
-            constexpr Register::FieldValue<decltype(ircPd),IrcpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(ircPd),IrcpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(ircPd)::Type,IrcpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(ircPd)::Type,IrcpdVal::poweredDown> poweredDown{};
         }
         ///Flash power-down
         enum class FlashpdVal {
@@ -974,8 +934,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,FlashpdVal> flashPd{}; 
         namespace FlashpdValC{
-            constexpr Register::FieldValue<decltype(flashPd),FlashpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(flashPd),FlashpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(flashPd)::Type,FlashpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(flashPd)::Type,FlashpdVal::poweredDown> poweredDown{};
         }
         ///BOD power-down
         enum class BodpdVal {
@@ -984,8 +944,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,BodpdVal> bodPd{}; 
         namespace BodpdValC{
-            constexpr Register::FieldValue<decltype(bodPd),BodpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(bodPd),BodpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(bodPd)::Type,BodpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(bodPd)::Type,BodpdVal::poweredDown> poweredDown{};
         }
         ///ADC power-down
         enum class AdcpdVal {
@@ -994,8 +954,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,AdcpdVal> adcPd{}; 
         namespace AdcpdValC{
-            constexpr Register::FieldValue<decltype(adcPd),AdcpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(adcPd),AdcpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(adcPd)::Type,AdcpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(adcPd)::Type,AdcpdVal::poweredDown> poweredDown{};
         }
         ///System oscillator power-down
         enum class SysoscpdVal {
@@ -1004,8 +964,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SysoscpdVal> sysoscPd{}; 
         namespace SysoscpdValC{
-            constexpr Register::FieldValue<decltype(sysoscPd),SysoscpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(sysoscPd),SysoscpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(sysoscPd)::Type,SysoscpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(sysoscPd)::Type,SysoscpdVal::poweredDown> poweredDown{};
         }
         ///Watchdog oscillator power-down
         enum class WdtoscpdVal {
@@ -1014,8 +974,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,WdtoscpdVal> wdtoscPd{}; 
         namespace WdtoscpdValC{
-            constexpr Register::FieldValue<decltype(wdtoscPd),WdtoscpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(wdtoscPd),WdtoscpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(wdtoscPd)::Type,WdtoscpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(wdtoscPd)::Type,WdtoscpdVal::poweredDown> poweredDown{};
         }
         ///System PLL power-down
         enum class SyspllpdVal {
@@ -1024,15 +984,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SyspllpdVal> syspllPd{}; 
         namespace SyspllpdValC{
-            constexpr Register::FieldValue<decltype(syspllPd),SyspllpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(syspllPd),SyspllpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(syspllPd)::Type,SyspllpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(syspllPd)::Type,SyspllpdVal::poweredDown> poweredDown{};
         }
     }
     namespace NonedeviceId{    ///<Device ID
         using Addr = Register::Address<0x400483f4,0x00000000,0,unsigned>;
         ///Part ID numbers for LPC1102/04 parts LPC1102 = 0x2500 102B LPC1104 = 0x2548 102B
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> deviceid{}; 
-        namespace DeviceidValC{
-        }
     }
 }

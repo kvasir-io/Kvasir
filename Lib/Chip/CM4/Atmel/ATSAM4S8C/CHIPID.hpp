@@ -6,8 +6,6 @@ namespace Kvasir {
         using Addr = Register::Address<0x400e0740,0x00000000,0,unsigned>;
         ///Version of the Device
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> version{}; 
-        namespace VersionValC{
-        }
         ///Embedded Processor
         enum class EprocVal {
             arm946es=0x00000001,     ///<ARM946ES
@@ -20,13 +18,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,EprocVal> eproc{}; 
         namespace EprocValC{
-            constexpr Register::FieldValue<decltype(eproc),EprocVal::arm946es> arm946es{};
-            constexpr Register::FieldValue<decltype(eproc),EprocVal::arm7tdmi> arm7tdmi{};
-            constexpr Register::FieldValue<decltype(eproc),EprocVal::cm3> cm3{};
-            constexpr Register::FieldValue<decltype(eproc),EprocVal::arm920t> arm920t{};
-            constexpr Register::FieldValue<decltype(eproc),EprocVal::arm926ejs> arm926ejs{};
-            constexpr Register::FieldValue<decltype(eproc),EprocVal::ca5> ca5{};
-            constexpr Register::FieldValue<decltype(eproc),EprocVal::cm4> cm4{};
+            constexpr Register::FieldValue<decltype(eproc)::Type,EprocVal::arm946es> arm946es{};
+            constexpr Register::FieldValue<decltype(eproc)::Type,EprocVal::arm7tdmi> arm7tdmi{};
+            constexpr Register::FieldValue<decltype(eproc)::Type,EprocVal::cm3> cm3{};
+            constexpr Register::FieldValue<decltype(eproc)::Type,EprocVal::arm920t> arm920t{};
+            constexpr Register::FieldValue<decltype(eproc)::Type,EprocVal::arm926ejs> arm926ejs{};
+            constexpr Register::FieldValue<decltype(eproc)::Type,EprocVal::ca5> ca5{};
+            constexpr Register::FieldValue<decltype(eproc)::Type,EprocVal::cm4> cm4{};
         }
         ///Nonvolatile Program Memory Size
         enum class NvpsizVal {
@@ -43,16 +41,16 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,NvpsizVal> nvpsiz{}; 
         namespace NvpsizValC{
-            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::none> none{};
-            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v8k> v8k{};
-            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v16k> v16k{};
-            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v32k> v32k{};
-            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v64k> v64k{};
-            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v128k> v128k{};
-            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v256k> v256k{};
-            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v512k> v512k{};
-            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v1024k> v1024k{};
-            constexpr Register::FieldValue<decltype(nvpsiz),NvpsizVal::v2048k> v2048k{};
+            constexpr Register::FieldValue<decltype(nvpsiz)::Type,NvpsizVal::none> none{};
+            constexpr Register::FieldValue<decltype(nvpsiz)::Type,NvpsizVal::v8k> v8k{};
+            constexpr Register::FieldValue<decltype(nvpsiz)::Type,NvpsizVal::v16k> v16k{};
+            constexpr Register::FieldValue<decltype(nvpsiz)::Type,NvpsizVal::v32k> v32k{};
+            constexpr Register::FieldValue<decltype(nvpsiz)::Type,NvpsizVal::v64k> v64k{};
+            constexpr Register::FieldValue<decltype(nvpsiz)::Type,NvpsizVal::v128k> v128k{};
+            constexpr Register::FieldValue<decltype(nvpsiz)::Type,NvpsizVal::v256k> v256k{};
+            constexpr Register::FieldValue<decltype(nvpsiz)::Type,NvpsizVal::v512k> v512k{};
+            constexpr Register::FieldValue<decltype(nvpsiz)::Type,NvpsizVal::v1024k> v1024k{};
+            constexpr Register::FieldValue<decltype(nvpsiz)::Type,NvpsizVal::v2048k> v2048k{};
         }
         ///Second Nonvolatile Program Memory Size
         enum class Nvpsiz2Val {
@@ -69,16 +67,16 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,Nvpsiz2Val> nvpsiz2{}; 
         namespace Nvpsiz2ValC{
-            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::none> none{};
-            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v8k> v8k{};
-            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v16k> v16k{};
-            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v32k> v32k{};
-            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v64k> v64k{};
-            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v128k> v128k{};
-            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v256k> v256k{};
-            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v512k> v512k{};
-            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v1024k> v1024k{};
-            constexpr Register::FieldValue<decltype(nvpsiz2),Nvpsiz2Val::v2048k> v2048k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::none> none{};
+            constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::v8k> v8k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::v16k> v16k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::v32k> v32k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::v64k> v64k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::v128k> v128k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::v256k> v256k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::v512k> v512k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::v1024k> v1024k{};
+            constexpr Register::FieldValue<decltype(nvpsiz2)::Type,Nvpsiz2Val::v2048k> v2048k{};
         }
         ///Internal SRAM Size
         enum class SramsizVal {
@@ -101,22 +99,22 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,SramsizVal> sramsiz{}; 
         namespace SramsizValC{
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v48k> v48k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v192k> v192k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v2k> v2k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v6k> v6k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v24k> v24k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v4k> v4k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v80k> v80k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v160k> v160k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v8k> v8k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v16k> v16k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v32k> v32k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v64k> v64k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v128k> v128k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v256k> v256k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v96k> v96k{};
-            constexpr Register::FieldValue<decltype(sramsiz),SramsizVal::v512k> v512k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v48k> v48k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v192k> v192k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v2k> v2k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v6k> v6k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v24k> v24k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v4k> v4k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v80k> v80k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v160k> v160k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v8k> v8k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v16k> v16k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v32k> v32k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v64k> v64k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v128k> v128k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v256k> v256k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v96k> v96k{};
+            constexpr Register::FieldValue<decltype(sramsiz)::Type,SramsizVal::v512k> v512k{};
         }
         ///Architecture Identifier
         enum class ArchVal {
@@ -167,50 +165,50 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,20),Register::ReadWriteAccess,ArchVal> arch{}; 
         namespace ArchValC{
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam9xx> at91sam9xx{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam9xexx> at91sam9xexx{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91x34> at91x34{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::cap7> cap7{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::cap9> cap9{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::cap11> cap11{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::cm4p> cm4p{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91x40> at91x40{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91x42> at91x42{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91x55> at91x55{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam7axx> at91sam7axx{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam7aqxx> at91sam7aqxx{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91x63> at91x63{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::sam4cxxc> sam4cxxc{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::sam4mxxc> sam4mxxc{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam7sxx> at91sam7sxx{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam7xcxx> at91sam7xcxx{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam7sexx> at91sam7sexx{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam7lxx> at91sam7lxx{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam7xxx> at91sam7xxx{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91sam7slxx> at91sam7slxx{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::sam3uxc> sam3uxc{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::sam3uxe> sam3uxe{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::sam3axc> sam3axc{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::sam3xxc> sam3xxc{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::sam3xxe> sam3xxe{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::sam3xxg> sam3xxg{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::sam3sxa> sam3sxa{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::sam4sxa> sam4sxa{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::sam3sxb> sam3sxb{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::sam4sxb> sam4sxb{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::sam3sxc> sam3sxc{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::sam4sxc> sam4sxc{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at91x92> at91x92{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::sam3nxa> sam3nxa{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::sam3nxb> sam3nxb{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::sam3nxc> sam3nxc{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::sam3sdxb> sam3sdxb{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::sam3sdxc> sam3sdxc{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::sam5a> sam5a{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::sam4lxa> sam4lxa{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::sam4lxb> sam4lxb{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::sam4lxc> sam4lxc{};
-            constexpr Register::FieldValue<decltype(arch),ArchVal::at75cxx> at75cxx{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91sam9xx> at91sam9xx{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91sam9xexx> at91sam9xexx{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91x34> at91x34{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::cap7> cap7{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::cap9> cap9{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::cap11> cap11{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::cm4p> cm4p{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91x40> at91x40{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91x42> at91x42{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91x55> at91x55{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91sam7axx> at91sam7axx{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91sam7aqxx> at91sam7aqxx{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91x63> at91x63{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::sam4cxxc> sam4cxxc{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::sam4mxxc> sam4mxxc{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91sam7sxx> at91sam7sxx{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91sam7xcxx> at91sam7xcxx{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91sam7sexx> at91sam7sexx{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91sam7lxx> at91sam7lxx{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91sam7xxx> at91sam7xxx{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91sam7slxx> at91sam7slxx{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::sam3uxc> sam3uxc{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::sam3uxe> sam3uxe{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::sam3axc> sam3axc{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::sam3xxc> sam3xxc{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::sam3xxe> sam3xxe{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::sam3xxg> sam3xxg{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::sam3sxa> sam3sxa{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::sam4sxa> sam4sxa{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::sam3sxb> sam3sxb{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::sam4sxb> sam4sxb{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::sam3sxc> sam3sxc{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::sam4sxc> sam4sxc{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at91x92> at91x92{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::sam3nxa> sam3nxa{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::sam3nxb> sam3nxb{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::sam3nxc> sam3nxc{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::sam3sdxb> sam3sdxb{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::sam3sdxc> sam3sdxc{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::sam5a> sam5a{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::sam4lxa> sam4lxa{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::sam4lxb> sam4lxb{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::sam4lxc> sam4lxc{};
+            constexpr Register::FieldValue<decltype(arch)::Type,ArchVal::at75cxx> at75cxx{};
         }
         ///Nonvolatile Program Memory Type
         enum class NvptypVal {
@@ -222,22 +220,18 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,28),Register::ReadWriteAccess,NvptypVal> nvptyp{}; 
         namespace NvptypValC{
-            constexpr Register::FieldValue<decltype(nvptyp),NvptypVal::rom> rom{};
-            constexpr Register::FieldValue<decltype(nvptyp),NvptypVal::romless> romless{};
-            constexpr Register::FieldValue<decltype(nvptyp),NvptypVal::flash> flash{};
-            constexpr Register::FieldValue<decltype(nvptyp),NvptypVal::romFlash> romFlash{};
-            constexpr Register::FieldValue<decltype(nvptyp),NvptypVal::sram> sram{};
+            constexpr Register::FieldValue<decltype(nvptyp)::Type,NvptypVal::rom> rom{};
+            constexpr Register::FieldValue<decltype(nvptyp)::Type,NvptypVal::romless> romless{};
+            constexpr Register::FieldValue<decltype(nvptyp)::Type,NvptypVal::flash> flash{};
+            constexpr Register::FieldValue<decltype(nvptyp)::Type,NvptypVal::romFlash> romFlash{};
+            constexpr Register::FieldValue<decltype(nvptyp)::Type,NvptypVal::sram> sram{};
         }
         ///Extension Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ext{}; 
-        namespace ExtValC{
-        }
     }
     namespace ChipidExid{    ///<Chip ID Extension Register
         using Addr = Register::Address<0x400e0744,0x00000000,0,unsigned>;
         ///Chip ID Extension
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> exid{}; 
-        namespace ExidValC{
-        }
     }
 }

@@ -6,15 +6,11 @@ namespace Kvasir {
         using Addr = Register::Address<0xf0003008,0xffffff00,0,unsigned>;
         ///Each bit in the ASC field indicates whether there is a corresponding connection to the crossbar switch's slave input port.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> asc{}; 
-        namespace AscValC{
-        }
     }
     namespace McmPlamc{    ///<Crossbar Switch (AXBS) Master Configuration
         using Addr = Register::Address<0xf000300a,0xffffff00,0,unsigned>;
         ///Each bit in the AMC field indicates whether there is a corresponding connection to the AXBS master input port.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> amc{}; 
-        namespace AmcValC{
-        }
     }
     namespace McmPlacr{    ///<Platform Control Register
         using Addr = Register::Address<0xf000300c,0xfffe3fff,0,unsigned>;
@@ -25,8 +21,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,EfdsVal> efds{}; 
         namespace EfdsValC{
-            constexpr Register::FieldValue<decltype(efds),EfdsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(efds),EfdsVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(efds)::Type,EfdsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(efds)::Type,EfdsVal::v1> v1{};
         }
         ///Disable Flash Controller Speculation
         enum class DfcsVal {
@@ -35,8 +31,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,DfcsVal> dfcs{}; 
         namespace DfcsValC{
-            constexpr Register::FieldValue<decltype(dfcs),DfcsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dfcs),DfcsVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dfcs)::Type,DfcsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dfcs)::Type,DfcsVal::v1> v1{};
         }
         ///Enable Stalling Flash Controller
         enum class EsfcVal {
@@ -45,8 +41,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,EsfcVal> esfc{}; 
         namespace EsfcValC{
-            constexpr Register::FieldValue<decltype(esfc),EsfcVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(esfc),EsfcVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(esfc)::Type,EsfcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(esfc)::Type,EsfcVal::v1> v1{};
         }
     }
     namespace McmCpo{    ///<Compute Operation Control Register
@@ -58,8 +54,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CporeqVal> cporeq{}; 
         namespace CporeqValC{
-            constexpr Register::FieldValue<decltype(cporeq),CporeqVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(cporeq),CporeqVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(cporeq)::Type,CporeqVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cporeq)::Type,CporeqVal::v1> v1{};
         }
         ///Compute Operation Acknowledge
         enum class CpoackVal {
@@ -68,8 +64,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,CpoackVal> cpoack{}; 
         namespace CpoackValC{
-            constexpr Register::FieldValue<decltype(cpoack),CpoackVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(cpoack),CpoackVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(cpoack)::Type,CpoackVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cpoack)::Type,CpoackVal::v1> v1{};
         }
         ///Compute Operation Wake-up on Interrupt
         enum class CpowoiVal {
@@ -78,8 +74,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,CpowoiVal> cpowoi{}; 
         namespace CpowoiValC{
-            constexpr Register::FieldValue<decltype(cpowoi),CpowoiVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(cpowoi),CpowoiVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(cpowoi)::Type,CpowoiVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cpowoi)::Type,CpowoiVal::v1> v1{};
         }
     }
 }

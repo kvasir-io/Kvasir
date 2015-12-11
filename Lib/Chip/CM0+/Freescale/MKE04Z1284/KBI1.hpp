@@ -6,15 +6,11 @@ namespace Kvasir {
         using Addr = Register::Address<0x4007a000,0x00000000,0,unsigned>;
         ///KBI Pin Enables
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> kbipe{}; 
-        namespace KbipeValC{
-        }
     }
     namespace Kbi1Es{    ///<KBI Edge Select Register
         using Addr = Register::Address<0x4007a004,0x00000000,0,unsigned>;
         ///KBI Edge Selects
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> kbedg{}; 
-        namespace KbedgValC{
-        }
     }
     namespace Kbi1Sc{    ///<KBI Status and Control Register
         using Addr = Register::Address<0x4007a008,0xffffffc0,0,unsigned>;
@@ -25,8 +21,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,KbmodVal> kbmod{}; 
         namespace KbmodValC{
-            constexpr Register::FieldValue<decltype(kbmod),KbmodVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(kbmod),KbmodVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(kbmod)::Type,KbmodVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(kbmod)::Type,KbmodVal::v1> v1{};
         }
         ///KBI Interrupt Enable
         enum class KbieVal {
@@ -35,13 +31,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,KbieVal> kbie{}; 
         namespace KbieValC{
-            constexpr Register::FieldValue<decltype(kbie),KbieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(kbie),KbieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(kbie)::Type,KbieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(kbie)::Type,KbieVal::v1> v1{};
         }
         ///KBI Acknowledge
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> kback{}; 
-        namespace KbackValC{
-        }
         ///KBI Interrupt Flag
         enum class KbfVal {
             v0=0x00000000,     ///<KBI interrupt request not detected.
@@ -49,8 +43,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,KbfVal> kbf{}; 
         namespace KbfValC{
-            constexpr Register::FieldValue<decltype(kbf),KbfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(kbf),KbfVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(kbf)::Type,KbfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(kbf)::Type,KbfVal::v1> v1{};
         }
         ///Real KBI_SP register enable
         enum class KbspenVal {
@@ -59,19 +53,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,KbspenVal> kbspen{}; 
         namespace KbspenValC{
-            constexpr Register::FieldValue<decltype(kbspen),KbspenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(kbspen),KbspenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(kbspen)::Type,KbspenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(kbspen)::Type,KbspenVal::v1> v1{};
         }
         ///Reset KBI_SP registe
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> rstkbsp{}; 
-        namespace RstkbspValC{
-        }
     }
     namespace Kbi1Sp{    ///<KBI Source Pin Register
         using Addr = Register::Address<0x4007a00c,0x00000000,0,unsigned>;
         ///KBI Source Pin
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> sp{}; 
-        namespace SpValC{
-        }
     }
 }

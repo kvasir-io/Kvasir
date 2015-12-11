@@ -8,8 +8,6 @@ namespace Kvasir {
         ///Compare register. Holds the 32 LSBs of the value which is
 								compared to the counter.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ricomp{}; 
-        namespace RicompValC{
-        }
     }
     namespace Nonemask{    ///<Mask LSB register. This register holds the 32 LSB s of the mask
 						value. A 1 written to any bit will force the compare to be true for the
@@ -21,8 +19,6 @@ namespace Kvasir {
 								register (causes the comparison of the register bits to be always
 								true).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rimask{}; 
-        namespace RimaskValC{
-        }
     }
     namespace Nonectrl{    ///<Control register.
         using Addr = Register::Address<0x40070008,0xfffffff0,0,unsigned>;
@@ -38,8 +34,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RitintVal> ritint{}; 
         namespace RitintValC{
-            constexpr Register::FieldValue<decltype(ritint),RitintVal::match> match{};
-            constexpr Register::FieldValue<decltype(ritint),RitintVal::nomtch> nomtch{};
+            constexpr Register::FieldValue<decltype(ritint)::Type,RitintVal::match> match{};
+            constexpr Register::FieldValue<decltype(ritint)::Type,RitintVal::nomtch> nomtch{};
         }
         ///Timer enable clear
         enum class RitenclrVal {
@@ -52,8 +48,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,RitenclrVal> ritenclr{}; 
         namespace RitenclrValC{
-            constexpr Register::FieldValue<decltype(ritenclr),RitenclrVal::clear> clear{};
-            constexpr Register::FieldValue<decltype(ritenclr),RitenclrVal::noclear> noclear{};
+            constexpr Register::FieldValue<decltype(ritenclr)::Type,RitenclrVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(ritenclr)::Type,RitenclrVal::noclear> noclear{};
         }
         ///Timer enable for debug
         enum class RitenbrVal {
@@ -64,8 +60,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,RitenbrVal> ritenbr{}; 
         namespace RitenbrValC{
-            constexpr Register::FieldValue<decltype(ritenbr),RitenbrVal::halt> halt{};
-            constexpr Register::FieldValue<decltype(ritenbr),RitenbrVal::debug> debug{};
+            constexpr Register::FieldValue<decltype(ritenbr)::Type,RitenbrVal::halt> halt{};
+            constexpr Register::FieldValue<decltype(ritenbr)::Type,RitenbrVal::debug> debug{};
         }
         ///Timer enable.
         enum class RitenVal {
@@ -75,8 +71,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,RitenVal> riten{}; 
         namespace RitenValC{
-            constexpr Register::FieldValue<decltype(riten),RitenVal::timerEnabled> timerEnabled{};
-            constexpr Register::FieldValue<decltype(riten),RitenVal::timerDisabled> timerDisabled{};
+            constexpr Register::FieldValue<decltype(riten)::Type,RitenVal::timerEnabled> timerEnabled{};
+            constexpr Register::FieldValue<decltype(riten)::Type,RitenVal::timerDisabled> timerDisabled{};
         }
     }
     namespace Nonecounter{    ///<Counter LSB register. 32 LSBs of the counter.
@@ -86,8 +82,6 @@ namespace Kvasir {
 								by the RITNEBR bit in RICTRL). Can be loaded to any value in
 								software.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ricounter{}; 
-        namespace RicounterValC{
-        }
     }
     namespace NonecompvalH{    ///<Compare value MSB register. Holds the 16 MSBs of the compare
 						value.
@@ -95,8 +89,6 @@ namespace Kvasir {
         ///Compare value MSB register. Holds the 16 MSBs of the value
 								which is compared to the counter.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ricomp{}; 
-        namespace RicompValC{
-        }
     }
     namespace NonemaskH{    ///<Mask MSB register. This register holds the 16 MSBs of the mask
 						value. A 1 written to any bit will force a compare on the corresponding bit
@@ -108,8 +100,6 @@ namespace Kvasir {
 								register (causes the comparison of the register bits to be always
 								true).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rimask{}; 
-        namespace RimaskValC{
-        }
     }
     namespace NonecounterH{    ///<Counter MSB register. 16 MSBs of the counter.
         using Addr = Register::Address<0x4007001c,0xffff0000,0,unsigned>;
@@ -118,7 +108,5 @@ namespace Kvasir {
 								enabled by the RITNEBR bit in RICTRL). Can be loaded to any value in
 								software.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ricounter{}; 
-        namespace RicounterValC{
-        }
     }
 }

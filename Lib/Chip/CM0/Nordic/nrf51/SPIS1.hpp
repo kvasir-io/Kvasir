@@ -23,8 +23,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,EndacquireVal> endAcquire{}; 
         namespace EndacquireValC{
-            constexpr Register::FieldValue<decltype(endAcquire),EndacquireVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(endAcquire),EndacquireVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(endAcquire)::Type,EndacquireVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(endAcquire)::Type,EndacquireVal::enabled> enabled{};
         }
     }
     namespace Noneintenset{    ///<Interrupt enable set register.
@@ -37,9 +37,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,EndVal> end{}; 
         namespace EndValC{
-            constexpr Register::FieldValue<decltype(end),EndVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(end),EndVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(end),EndVal::set> set{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::set> set{};
         }
         ///Enable interrupt on ACQUIRED event.
         enum class AcquiredVal {
@@ -49,9 +49,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,AcquiredVal> acquired{}; 
         namespace AcquiredValC{
-            constexpr Register::FieldValue<decltype(acquired),AcquiredVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(acquired),AcquiredVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(acquired),AcquiredVal::set> set{};
+            constexpr Register::FieldValue<decltype(acquired)::Type,AcquiredVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(acquired)::Type,AcquiredVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(acquired)::Type,AcquiredVal::set> set{};
         }
     }
     namespace Noneintenclr{    ///<Interrupt enable clear register.
@@ -64,9 +64,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,EndVal> end{}; 
         namespace EndValC{
-            constexpr Register::FieldValue<decltype(end),EndVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(end),EndVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(end),EndVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(end)::Type,EndVal::clear> clear{};
         }
         ///Disable interrupt on ACQUIRED event.
         enum class AcquiredVal {
@@ -76,9 +76,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,AcquiredVal> acquired{}; 
         namespace AcquiredValC{
-            constexpr Register::FieldValue<decltype(acquired),AcquiredVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(acquired),AcquiredVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(acquired),AcquiredVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(acquired)::Type,AcquiredVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(acquired)::Type,AcquiredVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(acquired)::Type,AcquiredVal::clear> clear{};
         }
     }
     namespace Nonesemstat{    ///<Semaphore status.
@@ -92,10 +92,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,SemstatVal> semstat{}; 
         namespace SemstatValC{
-            constexpr Register::FieldValue<decltype(semstat),SemstatVal::free> free{};
-            constexpr Register::FieldValue<decltype(semstat),SemstatVal::cpu> cpu{};
-            constexpr Register::FieldValue<decltype(semstat),SemstatVal::spis> spis{};
-            constexpr Register::FieldValue<decltype(semstat),SemstatVal::cpupending> cpupending{};
+            constexpr Register::FieldValue<decltype(semstat)::Type,SemstatVal::free> free{};
+            constexpr Register::FieldValue<decltype(semstat)::Type,SemstatVal::cpu> cpu{};
+            constexpr Register::FieldValue<decltype(semstat)::Type,SemstatVal::spis> spis{};
+            constexpr Register::FieldValue<decltype(semstat)::Type,SemstatVal::cpupending> cpupending{};
         }
     }
     namespace Nonestatus{    ///<Status from last transaction.
@@ -108,9 +108,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,OverreadVal> overread{}; 
         namespace OverreadValC{
-            constexpr Register::FieldValue<decltype(overread),OverreadVal::notpresent> notpresent{};
-            constexpr Register::FieldValue<decltype(overread),OverreadVal::present> present{};
-            constexpr Register::FieldValue<decltype(overread),OverreadVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(overread)::Type,OverreadVal::notpresent> notpresent{};
+            constexpr Register::FieldValue<decltype(overread)::Type,OverreadVal::present> present{};
+            constexpr Register::FieldValue<decltype(overread)::Type,OverreadVal::clear> clear{};
         }
         ///RX buffer overflow detected, and prevented.
         enum class OverflowVal {
@@ -120,17 +120,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,OverflowVal> overflow{}; 
         namespace OverflowValC{
-            constexpr Register::FieldValue<decltype(overflow),OverflowVal::notpresent> notpresent{};
-            constexpr Register::FieldValue<decltype(overflow),OverflowVal::present> present{};
-            constexpr Register::FieldValue<decltype(overflow),OverflowVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(overflow)::Type,OverflowVal::notpresent> notpresent{};
+            constexpr Register::FieldValue<decltype(overflow)::Type,OverflowVal::present> present{};
+            constexpr Register::FieldValue<decltype(overflow)::Type,OverflowVal::clear> clear{};
         }
     }
     namespace Noneenable{    ///<Enable SPIS.
         using Addr = Register::Address<0x40004500,0xfffffff8,0,unsigned>;
         ///Enable or disable SPIS.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> enable{}; 
-        namespace EnableValC{
-        }
     }
     namespace Nonepselsck{    ///<Pin select for SCK.
         using Addr = Register::Address<0x40004508,0xffffffff,0,unsigned>;
@@ -151,15 +149,11 @@ namespace Kvasir {
         using Addr = Register::Address<0x40004538,0xffffff00,0,unsigned>;
         ///Maximum number of bytes in the receive buffer.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> maxrx{}; 
-        namespace MaxrxValC{
-        }
     }
     namespace Noneamountrx{    ///<Number of bytes received in last granted transaction.
         using Addr = Register::Address<0x4000453c,0xffffff00,0,unsigned>;
         ///Number of bytes received in last granted transaction.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> amountrx{}; 
-        namespace AmountrxValC{
-        }
     }
     namespace Nonetxdptr{    ///<TX data pointer.
         using Addr = Register::Address<0x40004544,0xffffffff,0,unsigned>;
@@ -168,15 +162,11 @@ namespace Kvasir {
         using Addr = Register::Address<0x40004548,0xffffff00,0,unsigned>;
         ///Maximum number of bytes in the transmit buffer.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> maxtx{}; 
-        namespace MaxtxValC{
-        }
     }
     namespace Noneamounttx{    ///<Number of bytes transmitted in last granted transaction.
         using Addr = Register::Address<0x4000454c,0xffffff00,0,unsigned>;
         ///Number of bytes transmitted in last granted transaction.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> amounttx{}; 
-        namespace AmounttxValC{
-        }
     }
     namespace Noneconfig{    ///<Configuration register.
         using Addr = Register::Address<0x40004554,0xfffffff8,0,unsigned>;
@@ -187,8 +177,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,OrderVal> order{}; 
         namespace OrderValC{
-            constexpr Register::FieldValue<decltype(order),OrderVal::msbfirst> msbfirst{};
-            constexpr Register::FieldValue<decltype(order),OrderVal::lsbfirst> lsbfirst{};
+            constexpr Register::FieldValue<decltype(order)::Type,OrderVal::msbfirst> msbfirst{};
+            constexpr Register::FieldValue<decltype(order)::Type,OrderVal::lsbfirst> lsbfirst{};
         }
         ///Serial clock (SCK) phase.
         enum class CphaVal {
@@ -197,8 +187,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,CphaVal> cpha{}; 
         namespace CphaValC{
-            constexpr Register::FieldValue<decltype(cpha),CphaVal::leading> leading{};
-            constexpr Register::FieldValue<decltype(cpha),CphaVal::trailing> trailing{};
+            constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::leading> leading{};
+            constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::trailing> trailing{};
         }
         ///Serial clock (SCK) polarity.
         enum class CpolVal {
@@ -207,23 +197,19 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,CpolVal> cpol{}; 
         namespace CpolValC{
-            constexpr Register::FieldValue<decltype(cpol),CpolVal::activehigh> activehigh{};
-            constexpr Register::FieldValue<decltype(cpol),CpolVal::activelow> activelow{};
+            constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::activehigh> activehigh{};
+            constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::activelow> activelow{};
         }
     }
     namespace Nonedef{    ///<Default character.
         using Addr = Register::Address<0x4000455c,0xffffff00,0,unsigned>;
         ///Default character.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> def{}; 
-        namespace DefValC{
-        }
     }
     namespace Noneorc{    ///<Over-read character.
         using Addr = Register::Address<0x400045c0,0xffffff00,0,unsigned>;
         ///Over-read character.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> orc{}; 
-        namespace OrcValC{
-        }
     }
     namespace Nonepower{    ///<Peripheral power control.
         using Addr = Register::Address<0x40004ffc,0xfffffffe,0,unsigned>;
@@ -234,8 +220,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PowerVal> power{}; 
         namespace PowerValC{
-            constexpr Register::FieldValue<decltype(power),PowerVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(power),PowerVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(power)::Type,PowerVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(power)::Type,PowerVal::enabled> enabled{};
         }
     }
 }

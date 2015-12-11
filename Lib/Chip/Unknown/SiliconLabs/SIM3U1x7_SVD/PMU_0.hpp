@@ -10,7 +10,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,WakeclrVal> wakeclr{}; 
         namespace WakeclrValC{
-            constexpr Register::FieldValue<decltype(wakeclr),WakeclrVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(wakeclr)::Type,WakeclrVal::clear> clear{};
         }
         ///Peripheral Low Power Enable. 
         enum class PerilpenVal {
@@ -19,8 +19,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,PerilpenVal> perilpen{}; 
         namespace PerilpenValC{
-            constexpr Register::FieldValue<decltype(perilpen),PerilpenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(perilpen),PerilpenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(perilpen)::Type,PerilpenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(perilpen)::Type,PerilpenVal::enabled> enabled{};
         }
         ///Pin Low Power Enable. 
         enum class PinlpenVal {
@@ -29,8 +29,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,PinlpenVal> pinlpen{}; 
         namespace PinlpenValC{
-            constexpr Register::FieldValue<decltype(pinlpen),PinlpenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pinlpen),PinlpenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pinlpen)::Type,PinlpenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pinlpen)::Type,PinlpenVal::enabled> enabled{};
         }
         ///Pin Wake Match Enable. 
         enum class PwakeenVal {
@@ -39,8 +39,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,PwakeenVal> pwakeen{}; 
         namespace PwakeenValC{
-            constexpr Register::FieldValue<decltype(pwakeen),PwakeenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pwakeen),PwakeenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pwakeen)::Type,PwakeenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pwakeen)::Type,PwakeenVal::enabled> enabled{};
         }
         ///PMU Asleep Pin Enable. 
         enum class PmuaslpenVal {
@@ -49,8 +49,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,PmuaslpenVal> pmuaslpen{}; 
         namespace PmuaslpenValC{
-            constexpr Register::FieldValue<decltype(pmuaslpen),PmuaslpenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pmuaslpen),PmuaslpenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pmuaslpen)::Type,PmuaslpenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pmuaslpen)::Type,PmuaslpenVal::enabled> enabled{};
         }
     }
     namespace Noneconfig{    ///<Module Configuration
@@ -62,8 +62,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Rtc0frenVal> rtc0fren{}; 
         namespace Rtc0frenValC{
-            constexpr Register::FieldValue<decltype(rtc0fren),Rtc0frenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(rtc0fren),Rtc0frenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(rtc0fren)::Type,Rtc0frenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(rtc0fren)::Type,Rtc0frenVal::enabled> enabled{};
         }
         ///RTC0 Alarm RTC0/LPTIMER0 Reset Enable. 
         enum class Rtc0arenVal {
@@ -72,8 +72,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Rtc0arenVal> rtc0aren{}; 
         namespace Rtc0arenValC{
-            constexpr Register::FieldValue<decltype(rtc0aren),Rtc0arenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(rtc0aren),Rtc0arenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(rtc0aren)::Type,Rtc0arenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(rtc0aren)::Type,Rtc0arenVal::enabled> enabled{};
         }
         ///Comparator 0 RTC0/LPTIMER0 Reset Enable. 
         enum class Cmp0renVal {
@@ -82,8 +82,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Cmp0renVal> cmp0ren{}; 
         namespace Cmp0renValC{
-            constexpr Register::FieldValue<decltype(cmp0ren),Cmp0renVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(cmp0ren),Cmp0renVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(cmp0ren)::Type,Cmp0renVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(cmp0ren)::Type,Cmp0renVal::enabled> enabled{};
         }
         ///Pin Wake RTC0/LPTIMER0 Reset Enable. 
         enum class PwakerenVal {
@@ -92,8 +92,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,PwakerenVal> pwakeren{}; 
         namespace PwakerenValC{
-            constexpr Register::FieldValue<decltype(pwakeren),PwakerenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pwakeren),PwakerenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pwakeren)::Type,PwakerenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pwakeren)::Type,PwakerenVal::enabled> enabled{};
         }
         ///Low Power Timer RTC0/LPTIMER0 Reset Enable. 
         enum class Lpt0renVal {
@@ -102,8 +102,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Lpt0renVal> lpt0ren{}; 
         namespace Lpt0renValC{
-            constexpr Register::FieldValue<decltype(lpt0ren),Lpt0renVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(lpt0ren),Lpt0renVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(lpt0ren)::Type,Lpt0renVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(lpt0ren)::Type,Lpt0renVal::enabled> enabled{};
         }
     }
     namespace Nonestatus{    ///<Module Status
@@ -115,8 +115,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Pm9efVal> pm9ef{}; 
         namespace Pm9efValC{
-            constexpr Register::FieldValue<decltype(pm9ef),Pm9efVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(pm9ef),Pm9efVal::set> set{};
+            constexpr Register::FieldValue<decltype(pm9ef)::Type,Pm9efVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(pm9ef)::Type,Pm9efVal::set> set{};
         }
         ///Pin Wake Status Flag. 
         enum class PwakefVal {
@@ -125,8 +125,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,PwakefVal> pwakef{}; 
         namespace PwakefValC{
-            constexpr Register::FieldValue<decltype(pwakef),PwakefVal::set> set{};
-            constexpr Register::FieldValue<decltype(pwakef),PwakefVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(pwakef)::Type,PwakefVal::set> set{};
+            constexpr Register::FieldValue<decltype(pwakef)::Type,PwakefVal::notSet> notSet{};
         }
         ///Power-On Reset Flag. 
         enum class PorfVal {
@@ -135,8 +135,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,PorfVal> porf{}; 
         namespace PorfValC{
-            constexpr Register::FieldValue<decltype(porf),PorfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(porf),PorfVal::set> set{};
+            constexpr Register::FieldValue<decltype(porf)::Type,PorfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(porf)::Type,PorfVal::set> set{};
         }
     }
     namespace Nonewakeen{    ///<Wake Source Enable
@@ -148,8 +148,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Rtc0fwenVal> rtc0fwen{}; 
         namespace Rtc0fwenValC{
-            constexpr Register::FieldValue<decltype(rtc0fwen),Rtc0fwenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(rtc0fwen),Rtc0fwenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(rtc0fwen)::Type,Rtc0fwenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(rtc0fwen)::Type,Rtc0fwenVal::enabled> enabled{};
         }
         ///RTC0 Alarm Wake Enable. 
         enum class Rtc0awenVal {
@@ -158,8 +158,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Rtc0awenVal> rtc0awen{}; 
         namespace Rtc0awenValC{
-            constexpr Register::FieldValue<decltype(rtc0awen),Rtc0awenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(rtc0awen),Rtc0awenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(rtc0awen)::Type,Rtc0awenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(rtc0awen)::Type,Rtc0awenVal::enabled> enabled{};
         }
         ///Comparator 0 Wake Enable. 
         enum class Cmp0wenVal {
@@ -168,8 +168,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Cmp0wenVal> cmp0wen{}; 
         namespace Cmp0wenValC{
-            constexpr Register::FieldValue<decltype(cmp0wen),Cmp0wenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(cmp0wen),Cmp0wenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(cmp0wen)::Type,Cmp0wenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(cmp0wen)::Type,Cmp0wenVal::enabled> enabled{};
         }
         ///Pin Wake Wake Enable. 
         enum class PwakewenVal {
@@ -178,8 +178,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,PwakewenVal> pwakewen{}; 
         namespace PwakewenValC{
-            constexpr Register::FieldValue<decltype(pwakewen),PwakewenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pwakewen),PwakewenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pwakewen)::Type,PwakewenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pwakewen)::Type,PwakewenVal::enabled> enabled{};
         }
         ///Low Power Timer Wake Enable. 
         enum class Lpt0wenVal {
@@ -188,8 +188,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Lpt0wenVal> lpt0wen{}; 
         namespace Lpt0wenValC{
-            constexpr Register::FieldValue<decltype(lpt0wen),Lpt0wenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(lpt0wen),Lpt0wenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(lpt0wen)::Type,Lpt0wenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(lpt0wen)::Type,Lpt0wenVal::enabled> enabled{};
         }
         ///Reset Pin Wake Enable. 
         enum class RstwenVal {
@@ -198,8 +198,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,RstwenVal> rstwen{}; 
         namespace RstwenValC{
-            constexpr Register::FieldValue<decltype(rstwen),RstwenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(rstwen),RstwenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(rstwen)::Type,RstwenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(rstwen)::Type,RstwenVal::enabled> enabled{};
         }
     }
     namespace Nonewakestatus{    ///<Wake Source Status
@@ -211,8 +211,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Rtc0fwfVal> rtc0fwf{}; 
         namespace Rtc0fwfValC{
-            constexpr Register::FieldValue<decltype(rtc0fwf),Rtc0fwfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(rtc0fwf),Rtc0fwfVal::set> set{};
+            constexpr Register::FieldValue<decltype(rtc0fwf)::Type,Rtc0fwfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(rtc0fwf)::Type,Rtc0fwfVal::set> set{};
         }
         ///RTC0 Alarm Wake Flag. 
         enum class Rtc0awfVal {
@@ -221,8 +221,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Rtc0awfVal> rtc0awf{}; 
         namespace Rtc0awfValC{
-            constexpr Register::FieldValue<decltype(rtc0awf),Rtc0awfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(rtc0awf),Rtc0awfVal::set> set{};
+            constexpr Register::FieldValue<decltype(rtc0awf)::Type,Rtc0awfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(rtc0awf)::Type,Rtc0awfVal::set> set{};
         }
         ///Comparator 0 Wake Flag. 
         enum class Cmp0wfVal {
@@ -231,8 +231,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Cmp0wfVal> cmp0wf{}; 
         namespace Cmp0wfValC{
-            constexpr Register::FieldValue<decltype(cmp0wf),Cmp0wfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(cmp0wf),Cmp0wfVal::set> set{};
+            constexpr Register::FieldValue<decltype(cmp0wf)::Type,Cmp0wfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(cmp0wf)::Type,Cmp0wfVal::set> set{};
         }
         ///Pin Wake Wake Flag. 
         enum class PwakewfVal {
@@ -241,8 +241,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,PwakewfVal> pwakewf{}; 
         namespace PwakewfValC{
-            constexpr Register::FieldValue<decltype(pwakewf),PwakewfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(pwakewf),PwakewfVal::set> set{};
+            constexpr Register::FieldValue<decltype(pwakewf)::Type,PwakewfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(pwakewf)::Type,PwakewfVal::set> set{};
         }
         ///Low Power Timer Wake Flag. 
         enum class Lpt0wfVal {
@@ -251,8 +251,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Lpt0wfVal> lpt0wf{}; 
         namespace Lpt0wfValC{
-            constexpr Register::FieldValue<decltype(lpt0wf),Lpt0wfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(lpt0wf),Lpt0wfVal::set> set{};
+            constexpr Register::FieldValue<decltype(lpt0wf)::Type,Lpt0wfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(lpt0wf)::Type,Lpt0wfVal::set> set{};
         }
         ///Reset Pin Wake Flag. 
         enum class RstwfVal {
@@ -261,8 +261,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,RstwfVal> rstwf{}; 
         namespace RstwfValC{
-            constexpr Register::FieldValue<decltype(rstwf),RstwfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(rstwf),RstwfVal::set> set{};
+            constexpr Register::FieldValue<decltype(rstwf)::Type,RstwfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(rstwf)::Type,RstwfVal::set> set{};
         }
     }
     namespace Nonepwen{    ///<Pin Wake Pin Enable
@@ -274,8 +274,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Pw0enVal> pw0en{}; 
         namespace Pw0enValC{
-            constexpr Register::FieldValue<decltype(pw0en),Pw0enVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pw0en),Pw0enVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pw0en)::Type,Pw0enVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pw0en)::Type,Pw0enVal::enabled> enabled{};
         }
         ///WAKE.1 Enable. 
         enum class Pw1enVal {
@@ -284,8 +284,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Pw1enVal> pw1en{}; 
         namespace Pw1enValC{
-            constexpr Register::FieldValue<decltype(pw1en),Pw1enVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pw1en),Pw1enVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pw1en)::Type,Pw1enVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pw1en)::Type,Pw1enVal::enabled> enabled{};
         }
         ///WAKE.2 Enable. 
         enum class Pw2enVal {
@@ -294,8 +294,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Pw2enVal> pw2en{}; 
         namespace Pw2enValC{
-            constexpr Register::FieldValue<decltype(pw2en),Pw2enVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pw2en),Pw2enVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pw2en)::Type,Pw2enVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pw2en)::Type,Pw2enVal::enabled> enabled{};
         }
         ///WAKE.3 Enable. 
         enum class Pw3enVal {
@@ -304,8 +304,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Pw3enVal> pw3en{}; 
         namespace Pw3enValC{
-            constexpr Register::FieldValue<decltype(pw3en),Pw3enVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pw3en),Pw3enVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pw3en)::Type,Pw3enVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pw3en)::Type,Pw3enVal::enabled> enabled{};
         }
         ///WAKE.4 Enable. 
         enum class Pw4enVal {
@@ -314,8 +314,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Pw4enVal> pw4en{}; 
         namespace Pw4enValC{
-            constexpr Register::FieldValue<decltype(pw4en),Pw4enVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pw4en),Pw4enVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pw4en)::Type,Pw4enVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pw4en)::Type,Pw4enVal::enabled> enabled{};
         }
         ///WAKE.5 Enable. 
         enum class Pw5enVal {
@@ -324,8 +324,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Pw5enVal> pw5en{}; 
         namespace Pw5enValC{
-            constexpr Register::FieldValue<decltype(pw5en),Pw5enVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pw5en),Pw5enVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pw5en)::Type,Pw5enVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pw5en)::Type,Pw5enVal::enabled> enabled{};
         }
         ///WAKE.6 Enable. 
         enum class Pw6enVal {
@@ -334,8 +334,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Pw6enVal> pw6en{}; 
         namespace Pw6enValC{
-            constexpr Register::FieldValue<decltype(pw6en),Pw6enVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pw6en),Pw6enVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pw6en)::Type,Pw6enVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pw6en)::Type,Pw6enVal::enabled> enabled{};
         }
         ///WAKE.7 Enable. 
         enum class Pw7enVal {
@@ -344,8 +344,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Pw7enVal> pw7en{}; 
         namespace Pw7enValC{
-            constexpr Register::FieldValue<decltype(pw7en),Pw7enVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pw7en),Pw7enVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pw7en)::Type,Pw7enVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pw7en)::Type,Pw7enVal::enabled> enabled{};
         }
         ///WAKE.8 Enable. 
         enum class Pw8enVal {
@@ -354,8 +354,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Pw8enVal> pw8en{}; 
         namespace Pw8enValC{
-            constexpr Register::FieldValue<decltype(pw8en),Pw8enVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pw8en),Pw8enVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pw8en)::Type,Pw8enVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pw8en)::Type,Pw8enVal::enabled> enabled{};
         }
         ///WAKE.9 Enable. 
         enum class Pw9enVal {
@@ -364,8 +364,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Pw9enVal> pw9en{}; 
         namespace Pw9enValC{
-            constexpr Register::FieldValue<decltype(pw9en),Pw9enVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pw9en),Pw9enVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pw9en)::Type,Pw9enVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pw9en)::Type,Pw9enVal::enabled> enabled{};
         }
         ///WAKE.10 Enable. 
         enum class Pw10enVal {
@@ -374,8 +374,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Pw10enVal> pw10en{}; 
         namespace Pw10enValC{
-            constexpr Register::FieldValue<decltype(pw10en),Pw10enVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pw10en),Pw10enVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pw10en)::Type,Pw10enVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pw10en)::Type,Pw10enVal::enabled> enabled{};
         }
         ///WAKE.11 Enable. 
         enum class Pw11enVal {
@@ -384,8 +384,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Pw11enVal> pw11en{}; 
         namespace Pw11enValC{
-            constexpr Register::FieldValue<decltype(pw11en),Pw11enVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pw11en),Pw11enVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pw11en)::Type,Pw11enVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pw11en)::Type,Pw11enVal::enabled> enabled{};
         }
         ///WAKE.12 Enable. 
         enum class Pw12enVal {
@@ -394,8 +394,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Pw12enVal> pw12en{}; 
         namespace Pw12enValC{
-            constexpr Register::FieldValue<decltype(pw12en),Pw12enVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pw12en),Pw12enVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pw12en)::Type,Pw12enVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pw12en)::Type,Pw12enVal::enabled> enabled{};
         }
         ///WAKE.13 Enable. 
         enum class Pw13enVal {
@@ -404,8 +404,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Pw13enVal> pw13en{}; 
         namespace Pw13enValC{
-            constexpr Register::FieldValue<decltype(pw13en),Pw13enVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pw13en),Pw13enVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pw13en)::Type,Pw13enVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pw13en)::Type,Pw13enVal::enabled> enabled{};
         }
         ///WAKE.14 Enable. 
         enum class Pw14enVal {
@@ -414,8 +414,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Pw14enVal> pw14en{}; 
         namespace Pw14enValC{
-            constexpr Register::FieldValue<decltype(pw14en),Pw14enVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pw14en),Pw14enVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pw14en)::Type,Pw14enVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pw14en)::Type,Pw14enVal::enabled> enabled{};
         }
         ///WAKE.15 Enable. 
         enum class Pw15enVal {
@@ -424,8 +424,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Pw15enVal> pw15en{}; 
         namespace Pw15enValC{
-            constexpr Register::FieldValue<decltype(pw15en),Pw15enVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pw15en),Pw15enVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pw15en)::Type,Pw15enVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pw15en)::Type,Pw15enVal::enabled> enabled{};
         }
     }
     namespace Nonepwpol{    ///<Pin Wake Pin Polarity Select
@@ -437,8 +437,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Pw0polVal> pw0pol{}; 
         namespace Pw0polValC{
-            constexpr Register::FieldValue<decltype(pw0pol),Pw0polVal::low> low{};
-            constexpr Register::FieldValue<decltype(pw0pol),Pw0polVal::high> high{};
+            constexpr Register::FieldValue<decltype(pw0pol)::Type,Pw0polVal::low> low{};
+            constexpr Register::FieldValue<decltype(pw0pol)::Type,Pw0polVal::high> high{};
         }
         ///WAKE.1 Polarity Select. 
         enum class Pw1polVal {
@@ -447,8 +447,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Pw1polVal> pw1pol{}; 
         namespace Pw1polValC{
-            constexpr Register::FieldValue<decltype(pw1pol),Pw1polVal::low> low{};
-            constexpr Register::FieldValue<decltype(pw1pol),Pw1polVal::high> high{};
+            constexpr Register::FieldValue<decltype(pw1pol)::Type,Pw1polVal::low> low{};
+            constexpr Register::FieldValue<decltype(pw1pol)::Type,Pw1polVal::high> high{};
         }
         ///WAKE.2 Polarity Select. 
         enum class Pw2polVal {
@@ -457,8 +457,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Pw2polVal> pw2pol{}; 
         namespace Pw2polValC{
-            constexpr Register::FieldValue<decltype(pw2pol),Pw2polVal::low> low{};
-            constexpr Register::FieldValue<decltype(pw2pol),Pw2polVal::high> high{};
+            constexpr Register::FieldValue<decltype(pw2pol)::Type,Pw2polVal::low> low{};
+            constexpr Register::FieldValue<decltype(pw2pol)::Type,Pw2polVal::high> high{};
         }
         ///WAKE.3 Polarity Select. 
         enum class Pw3polVal {
@@ -467,8 +467,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Pw3polVal> pw3pol{}; 
         namespace Pw3polValC{
-            constexpr Register::FieldValue<decltype(pw3pol),Pw3polVal::low> low{};
-            constexpr Register::FieldValue<decltype(pw3pol),Pw3polVal::high> high{};
+            constexpr Register::FieldValue<decltype(pw3pol)::Type,Pw3polVal::low> low{};
+            constexpr Register::FieldValue<decltype(pw3pol)::Type,Pw3polVal::high> high{};
         }
         ///WAKE.4 Polarity Select. 
         enum class Pw4polVal {
@@ -477,8 +477,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Pw4polVal> pw4pol{}; 
         namespace Pw4polValC{
-            constexpr Register::FieldValue<decltype(pw4pol),Pw4polVal::low> low{};
-            constexpr Register::FieldValue<decltype(pw4pol),Pw4polVal::high> high{};
+            constexpr Register::FieldValue<decltype(pw4pol)::Type,Pw4polVal::low> low{};
+            constexpr Register::FieldValue<decltype(pw4pol)::Type,Pw4polVal::high> high{};
         }
         ///WAKE.5 Polarity Select. 
         enum class Pw5polVal {
@@ -487,8 +487,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Pw5polVal> pw5pol{}; 
         namespace Pw5polValC{
-            constexpr Register::FieldValue<decltype(pw5pol),Pw5polVal::low> low{};
-            constexpr Register::FieldValue<decltype(pw5pol),Pw5polVal::high> high{};
+            constexpr Register::FieldValue<decltype(pw5pol)::Type,Pw5polVal::low> low{};
+            constexpr Register::FieldValue<decltype(pw5pol)::Type,Pw5polVal::high> high{};
         }
         ///WAKE.6 Polarity Select. 
         enum class Pw6polVal {
@@ -497,8 +497,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Pw6polVal> pw6pol{}; 
         namespace Pw6polValC{
-            constexpr Register::FieldValue<decltype(pw6pol),Pw6polVal::low> low{};
-            constexpr Register::FieldValue<decltype(pw6pol),Pw6polVal::high> high{};
+            constexpr Register::FieldValue<decltype(pw6pol)::Type,Pw6polVal::low> low{};
+            constexpr Register::FieldValue<decltype(pw6pol)::Type,Pw6polVal::high> high{};
         }
         ///WAKE.7 Polarity Select. 
         enum class Pw7polVal {
@@ -507,8 +507,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Pw7polVal> pw7pol{}; 
         namespace Pw7polValC{
-            constexpr Register::FieldValue<decltype(pw7pol),Pw7polVal::low> low{};
-            constexpr Register::FieldValue<decltype(pw7pol),Pw7polVal::high> high{};
+            constexpr Register::FieldValue<decltype(pw7pol)::Type,Pw7polVal::low> low{};
+            constexpr Register::FieldValue<decltype(pw7pol)::Type,Pw7polVal::high> high{};
         }
         ///WAKE.8 Polarity Select. 
         enum class Pw8polVal {
@@ -517,8 +517,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Pw8polVal> pw8pol{}; 
         namespace Pw8polValC{
-            constexpr Register::FieldValue<decltype(pw8pol),Pw8polVal::low> low{};
-            constexpr Register::FieldValue<decltype(pw8pol),Pw8polVal::high> high{};
+            constexpr Register::FieldValue<decltype(pw8pol)::Type,Pw8polVal::low> low{};
+            constexpr Register::FieldValue<decltype(pw8pol)::Type,Pw8polVal::high> high{};
         }
         ///WAKE.9 Polarity Select. 
         enum class Pw9polVal {
@@ -527,8 +527,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Pw9polVal> pw9pol{}; 
         namespace Pw9polValC{
-            constexpr Register::FieldValue<decltype(pw9pol),Pw9polVal::low> low{};
-            constexpr Register::FieldValue<decltype(pw9pol),Pw9polVal::high> high{};
+            constexpr Register::FieldValue<decltype(pw9pol)::Type,Pw9polVal::low> low{};
+            constexpr Register::FieldValue<decltype(pw9pol)::Type,Pw9polVal::high> high{};
         }
         ///WAKE.10 Polarity Select. 
         enum class Pw10polVal {
@@ -537,8 +537,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Pw10polVal> pw10pol{}; 
         namespace Pw10polValC{
-            constexpr Register::FieldValue<decltype(pw10pol),Pw10polVal::low> low{};
-            constexpr Register::FieldValue<decltype(pw10pol),Pw10polVal::high> high{};
+            constexpr Register::FieldValue<decltype(pw10pol)::Type,Pw10polVal::low> low{};
+            constexpr Register::FieldValue<decltype(pw10pol)::Type,Pw10polVal::high> high{};
         }
         ///WAKE.11 Polarity Select. 
         enum class Pw11polVal {
@@ -547,8 +547,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Pw11polVal> pw11pol{}; 
         namespace Pw11polValC{
-            constexpr Register::FieldValue<decltype(pw11pol),Pw11polVal::low> low{};
-            constexpr Register::FieldValue<decltype(pw11pol),Pw11polVal::high> high{};
+            constexpr Register::FieldValue<decltype(pw11pol)::Type,Pw11polVal::low> low{};
+            constexpr Register::FieldValue<decltype(pw11pol)::Type,Pw11polVal::high> high{};
         }
         ///WAKE.12 Polarity Select. 
         enum class Pw12polVal {
@@ -557,8 +557,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Pw12polVal> pw12pol{}; 
         namespace Pw12polValC{
-            constexpr Register::FieldValue<decltype(pw12pol),Pw12polVal::low> low{};
-            constexpr Register::FieldValue<decltype(pw12pol),Pw12polVal::high> high{};
+            constexpr Register::FieldValue<decltype(pw12pol)::Type,Pw12polVal::low> low{};
+            constexpr Register::FieldValue<decltype(pw12pol)::Type,Pw12polVal::high> high{};
         }
         ///WAKE.13 Polarity Select. 
         enum class Pw13polVal {
@@ -567,8 +567,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Pw13polVal> pw13pol{}; 
         namespace Pw13polValC{
-            constexpr Register::FieldValue<decltype(pw13pol),Pw13polVal::low> low{};
-            constexpr Register::FieldValue<decltype(pw13pol),Pw13polVal::high> high{};
+            constexpr Register::FieldValue<decltype(pw13pol)::Type,Pw13polVal::low> low{};
+            constexpr Register::FieldValue<decltype(pw13pol)::Type,Pw13polVal::high> high{};
         }
         ///WAKE.14 Polarity Select. 
         enum class Pw14polVal {
@@ -577,8 +577,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Pw14polVal> pw14pol{}; 
         namespace Pw14polValC{
-            constexpr Register::FieldValue<decltype(pw14pol),Pw14polVal::low> low{};
-            constexpr Register::FieldValue<decltype(pw14pol),Pw14polVal::high> high{};
+            constexpr Register::FieldValue<decltype(pw14pol)::Type,Pw14polVal::low> low{};
+            constexpr Register::FieldValue<decltype(pw14pol)::Type,Pw14polVal::high> high{};
         }
         ///WAKE.15 Polarity Select. 
         enum class Pw15polVal {
@@ -587,8 +587,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Pw15polVal> pw15pol{}; 
         namespace Pw15polValC{
-            constexpr Register::FieldValue<decltype(pw15pol),Pw15polVal::low> low{};
-            constexpr Register::FieldValue<decltype(pw15pol),Pw15polVal::high> high{};
+            constexpr Register::FieldValue<decltype(pw15pol)::Type,Pw15polVal::low> low{};
+            constexpr Register::FieldValue<decltype(pw15pol)::Type,Pw15polVal::high> high{};
         }
     }
 }

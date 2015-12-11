@@ -13,10 +13,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,SpmdVal> spmd{}; 
         namespace SpmdValC{
-            constexpr Register::FieldValue<decltype(spmd),SpmdVal::mode0> mode0{};
-            constexpr Register::FieldValue<decltype(spmd),SpmdVal::mode1> mode1{};
-            constexpr Register::FieldValue<decltype(spmd),SpmdVal::mode2> mode2{};
-            constexpr Register::FieldValue<decltype(spmd),SpmdVal::mode3> mode3{};
+            constexpr Register::FieldValue<decltype(spmd)::Type,SpmdVal::mode0> mode0{};
+            constexpr Register::FieldValue<decltype(spmd)::Type,SpmdVal::mode1> mode1{};
+            constexpr Register::FieldValue<decltype(spmd)::Type,SpmdVal::mode2> mode2{};
+            constexpr Register::FieldValue<decltype(spmd)::Type,SpmdVal::mode3> mode3{};
         }
         ///Read Store Mode Enable. 
         enum class RdsenVal {
@@ -25,8 +25,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,RdsenVal> rdsen{}; 
         namespace RdsenValC{
-            constexpr Register::FieldValue<decltype(rdsen),RdsenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(rdsen),RdsenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(rdsen)::Type,RdsenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(rdsen)::Type,RdsenVal::enabled> enabled{};
         }
         ///Data Prefetch Enable. 
         enum class DpfenVal {
@@ -35,8 +35,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,DpfenVal> dpfen{}; 
         namespace DpfenValC{
-            constexpr Register::FieldValue<decltype(dpfen),DpfenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dpfen),DpfenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dpfen)::Type,DpfenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dpfen)::Type,DpfenVal::enabled> enabled{};
         }
         ///Prefetch Inhibit. 
         enum class PfinhVal {
@@ -45,8 +45,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,PfinhVal> pfinh{}; 
         namespace PfinhValC{
-            constexpr Register::FieldValue<decltype(pfinh),PfinhVal::inactive> inactive{};
-            constexpr Register::FieldValue<decltype(pfinh),PfinhVal::active> active{};
+            constexpr Register::FieldValue<decltype(pfinh)::Type,PfinhVal::inactive> inactive{};
+            constexpr Register::FieldValue<decltype(pfinh)::Type,PfinhVal::active> active{};
         }
         ///Flash Write Sequence Enable. 
         enum class SqwenVal {
@@ -55,8 +55,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,SqwenVal> sqwen{}; 
         namespace SqwenValC{
-            constexpr Register::FieldValue<decltype(sqwen),SqwenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(sqwen),SqwenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(sqwen)::Type,SqwenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(sqwen)::Type,SqwenVal::enabled> enabled{};
         }
         ///Flash Page Erase Enable. 
         enum class EraseenVal {
@@ -65,8 +65,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,EraseenVal> eraseen{}; 
         namespace EraseenValC{
-            constexpr Register::FieldValue<decltype(eraseen),EraseenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(eraseen),EraseenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(eraseen)::Type,EraseenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(eraseen)::Type,EraseenVal::enabled> enabled{};
         }
         ///Flash Buffer Status. 
         enum class BufstsVal {
@@ -75,8 +75,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,BufstsVal> bufsts{}; 
         namespace BufstsValC{
-            constexpr Register::FieldValue<decltype(bufsts),BufstsVal::empty> empty{};
-            constexpr Register::FieldValue<decltype(bufsts),BufstsVal::full> full{};
+            constexpr Register::FieldValue<decltype(bufsts)::Type,BufstsVal::empty> empty{};
+            constexpr Register::FieldValue<decltype(bufsts)::Type,BufstsVal::full> full{};
         }
         ///Flash Operation Busy Flag. 
         enum class BusyfVal {
@@ -85,30 +85,24 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,BusyfVal> busyf{}; 
         namespace BusyfValC{
-            constexpr Register::FieldValue<decltype(busyf),BusyfVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(busyf),BusyfVal::set> set{};
+            constexpr Register::FieldValue<decltype(busyf)::Type,BusyfVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(busyf)::Type,BusyfVal::set> set{};
         }
     }
     namespace Nonewraddr{    ///<Flash Write Address
         using Addr = Register::Address<0x4002e0a0,0x00000000,0,unsigned>;
         ///Flash Write Address. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> wraddr{}; 
-        namespace WraddrValC{
-        }
     }
     namespace Nonewrdata{    ///<Flash Write Data
         using Addr = Register::Address<0x4002e0b0,0x00000000,0,unsigned>;
         ///Flash Write Data. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> wrdata{}; 
-        namespace WrdataValC{
-        }
     }
     namespace Nonekey{    ///<Flash Modification Key
         using Addr = Register::Address<0x4002e0c0,0xffffff00,0,unsigned>;
         ///Flash Key. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> key{}; 
-        namespace KeyValC{
-        }
     }
     namespace Nonetcontrol{    ///<Flash Timing Control
         using Addr = Register::Address<0x4002e0d0,0xffffffbf,0,unsigned>;
@@ -119,8 +113,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,FlrtmdVal> flrtmd{}; 
         namespace FlrtmdValC{
-            constexpr Register::FieldValue<decltype(flrtmd),FlrtmdVal::slow> slow{};
-            constexpr Register::FieldValue<decltype(flrtmd),FlrtmdVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(flrtmd)::Type,FlrtmdVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(flrtmd)::Type,FlrtmdVal::fast> fast{};
         }
     }
 }

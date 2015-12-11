@@ -6,37 +6,25 @@ namespace Kvasir {
         using Addr = Register::Address<0x400b6000,0x00000003,0,unsigned>;
         ///Screen start address of LCD panel
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> ssa{}; 
-        namespace SsaValC{
-        }
     }
     namespace LcdcLsr{    ///<LCDC size register
         using Addr = Register::Address<0x400b6004,0xf80ffc00,0,unsigned>;
         ///Screen height
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> ymax{}; 
-        namespace YmaxValC{
-        }
         ///Screen width divided by 16
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,20),Register::ReadWriteAccess,unsigned> xmax{}; 
-        namespace XmaxValC{
-        }
     }
     namespace LcdcLvpwr{    ///<LCDC virtual page width register
         using Addr = Register::Address<0x400b6008,0xfffff800,0,unsigned>;
         ///Virtual page width
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> vpw{}; 
-        namespace VpwValC{
-        }
     }
     namespace LcdcLcpr{    ///<LCDC cursor position register
         using Addr = Register::Address<0x400b600c,0x2c00fc00,0,unsigned>;
         ///Cursor Y position
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> cyp{}; 
-        namespace CypValC{
-        }
         ///Cursor X position
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> cxp{}; 
-        namespace CxpValC{
-        }
         ///Arithmetic operation control
         enum class OpVal {
             v0=0x00000000,     ///<Disable arithmetic operation
@@ -44,28 +32,20 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,OpVal> op{}; 
         namespace OpValC{
-            constexpr Register::FieldValue<decltype(op),OpVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(op),OpVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(op)::Type,OpVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(op)::Type,OpVal::v1> v1{};
         }
         ///Cursor control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> cc{}; 
-        namespace CcValC{
-        }
     }
     namespace LcdcLcwhb{    ///<LCDC cursor width, height, and blink register
         using Addr = Register::Address<0x400b6010,0x60e0ff00,0,unsigned>;
         ///Blink divisor
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> bd{}; 
-        namespace BdValC{
-        }
         ///Cursor height
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> ch{}; 
-        namespace ChValC{
-        }
         ///Cursor width
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> cw{}; 
-        namespace CwValC{
-        }
         ///Blink enable
         enum class BkenVal {
             v0=0x00000000,     ///<Blink is disabled.
@@ -73,31 +53,23 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,BkenVal> bkEn{}; 
         namespace BkenValC{
-            constexpr Register::FieldValue<decltype(bkEn),BkenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(bkEn),BkenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(bkEn)::Type,BkenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bkEn)::Type,BkenVal::v1> v1{};
         }
     }
     namespace LcdcLccmr{    ///<LCDC color cursor mapping register
         using Addr = Register::Address<0x400b6014,0xfffc0000,0,unsigned>;
         ///Cursor blue field
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> curColB{}; 
-        namespace CurcolbValC{
-        }
         ///Cursor green field
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,6),Register::ReadWriteAccess,unsigned> curColG{}; 
-        namespace CurcolgValC{
-        }
         ///Cursor red field
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,12),Register::ReadWriteAccess,unsigned> curColR{}; 
-        namespace CurcolrValC{
-        }
     }
     namespace LcdcLpcr{    ///<LCDC panel configuration register
         using Addr = Register::Address<0x400b6018,0x00000040,0,unsigned>;
         ///Pixel clock divider
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> pcd{}; 
-        namespace PcdValC{
-        }
         ///LSCLK select
         enum class SclkselVal {
             v0=0x00000000,     ///<Disable OE and LSCLK in TFT mode when no data output.
@@ -105,13 +77,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SclkselVal> sclksel{}; 
         namespace SclkselValC{
-            constexpr Register::FieldValue<decltype(sclksel),SclkselVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(sclksel),SclkselVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(sclksel)::Type,SclkselVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sclksel)::Type,SclkselVal::v1> v1{};
         }
         ///Alternate crystal direction
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,8),Register::ReadWriteAccess,unsigned> acd{}; 
-        namespace AcdValC{
-        }
         ///ACD clock source select
         enum class AcdselVal {
             v0=0x00000000,     ///<Use FLM as a clock source for ACD count.
@@ -119,8 +89,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,AcdselVal> acdsel{}; 
         namespace AcdselValC{
-            constexpr Register::FieldValue<decltype(acdsel),AcdselVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(acdsel),AcdselVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(acdsel)::Type,AcdselVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(acdsel)::Type,AcdselVal::v1> v1{};
         }
         ///Reverse vertical scan
         enum class RevvsVal {
@@ -129,8 +99,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,RevvsVal> revVs{}; 
         namespace RevvsValC{
-            constexpr Register::FieldValue<decltype(revVs),RevvsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(revVs),RevvsVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(revVs)::Type,RevvsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(revVs)::Type,RevvsVal::v1> v1{};
         }
         ///Swap select
         enum class SwapselVal {
@@ -139,8 +109,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,SwapselVal> swapSel{}; 
         namespace SwapselValC{
-            constexpr Register::FieldValue<decltype(swapSel),SwapselVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(swapSel),SwapselVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(swapSel)::Type,SwapselVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(swapSel)::Type,SwapselVal::v1> v1{};
         }
         ///Endian select
         enum class EndselVal {
@@ -149,8 +119,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,EndselVal> endSel{}; 
         namespace EndselValC{
-            constexpr Register::FieldValue<decltype(endSel),EndselVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(endSel),EndselVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(endSel)::Type,EndselVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(endSel)::Type,EndselVal::v1> v1{};
         }
         ///LSCLK idle enable
         enum class SclkidleVal {
@@ -159,8 +129,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,SclkidleVal> sclkidle{}; 
         namespace SclkidleValC{
-            constexpr Register::FieldValue<decltype(sclkidle),SclkidleVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(sclkidle),SclkidleVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(sclkidle)::Type,SclkidleVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sclkidle)::Type,SclkidleVal::v1> v1{};
         }
         ///Output enable polarity
         enum class OepolVal {
@@ -169,8 +139,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,OepolVal> oepol{}; 
         namespace OepolValC{
-            constexpr Register::FieldValue<decltype(oepol),OepolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(oepol),OepolVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(oepol)::Type,OepolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(oepol)::Type,OepolVal::v1> v1{};
         }
         ///LCD shift clock polarity
         enum class ClkpolVal {
@@ -179,8 +149,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,ClkpolVal> clkpol{}; 
         namespace ClkpolValC{
-            constexpr Register::FieldValue<decltype(clkpol),ClkpolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(clkpol),ClkpolVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(clkpol)::Type,ClkpolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(clkpol)::Type,ClkpolVal::v1> v1{};
         }
         ///Line pulse polarity
         enum class LppolVal {
@@ -189,8 +159,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,LppolVal> lppol{}; 
         namespace LppolValC{
-            constexpr Register::FieldValue<decltype(lppol),LppolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(lppol),LppolVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(lppol)::Type,LppolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lppol)::Type,LppolVal::v1> v1{};
         }
         ///First line marker polarity
         enum class FlmpolVal {
@@ -199,8 +169,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,FlmpolVal> flmpol{}; 
         namespace FlmpolValC{
-            constexpr Register::FieldValue<decltype(flmpol),FlmpolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(flmpol),FlmpolVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(flmpol)::Type,FlmpolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(flmpol)::Type,FlmpolVal::v1> v1{};
         }
         ///Pixel polarity
         enum class PixpolVal {
@@ -209,8 +179,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,PixpolVal> pixpol{}; 
         namespace PixpolValC{
-            constexpr Register::FieldValue<decltype(pixpol),PixpolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(pixpol),PixpolVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(pixpol)::Type,PixpolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pixpol)::Type,PixpolVal::v1> v1{};
         }
         ///Bits per pixel
         enum class BpixVal {
@@ -225,14 +195,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,25),Register::ReadWriteAccess,BpixVal> bpix{}; 
         namespace BpixValC{
-            constexpr Register::FieldValue<decltype(bpix),BpixVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(bpix),BpixVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(bpix),BpixVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(bpix),BpixVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(bpix),BpixVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(bpix),BpixVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(bpix),BpixVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(bpix),BpixVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(bpix)::Type,BpixVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(bpix)::Type,BpixVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(bpix)::Type,BpixVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(bpix)::Type,BpixVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(bpix)::Type,BpixVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(bpix)::Type,BpixVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(bpix)::Type,BpixVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(bpix)::Type,BpixVal::v111> v111{};
         }
         ///Panel bus width
         enum class PbsizVal {
@@ -243,10 +213,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,PbsizVal> pbsiz{}; 
         namespace PbsizValC{
-            constexpr Register::FieldValue<decltype(pbsiz),PbsizVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(pbsiz),PbsizVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(pbsiz),PbsizVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(pbsiz),PbsizVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(pbsiz)::Type,PbsizVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(pbsiz)::Type,PbsizVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(pbsiz)::Type,PbsizVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(pbsiz)::Type,PbsizVal::v011> v011{};
         }
         ///Interfaces to color display
         enum class ColorVal {
@@ -255,8 +225,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,ColorVal> color{}; 
         namespace ColorValC{
-            constexpr Register::FieldValue<decltype(color),ColorVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(color),ColorVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(color)::Type,ColorVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(color)::Type,ColorVal::v1> v1{};
         }
         ///Interfaces to TFT display
         enum class TftVal {
@@ -265,53 +235,37 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,TftVal> tft{}; 
         namespace TftValC{
-            constexpr Register::FieldValue<decltype(tft),TftVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tft),TftVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(tft)::Type,TftVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(tft)::Type,TftVal::v1> v1{};
         }
     }
     namespace LcdcLhcr{    ///<LCDC horizontal configuration register
         using Addr = Register::Address<0x400b601c,0x03ff0000,0,unsigned>;
         ///Wait between HSYNC and start of next line
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> hWait2{}; 
-        namespace Hwait2ValC{
-        }
         ///Wait between OE and HSYNC
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> hWait1{}; 
-        namespace Hwait1ValC{
-        }
         ///Horizontal sync pulse width
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> hWidth{}; 
-        namespace HwidthValC{
-        }
     }
     namespace LcdcLvcr{    ///<LCDC vertical configuration register
         using Addr = Register::Address<0x400b6020,0x03ff0000,0,unsigned>;
         ///Wait between frames 2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> vWait2{}; 
-        namespace Vwait2ValC{
-        }
         ///Wait between frames 1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> vWait1{}; 
-        namespace Vwait1ValC{
-        }
         ///Vertical sync pulse width
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,26),Register::ReadWriteAccess,unsigned> vWidth{}; 
-        namespace VwidthValC{
-        }
     }
     namespace LcdcLpor{    ///<LCDC panning offset register
         using Addr = Register::Address<0x400b6024,0xffffffe0,0,unsigned>;
         ///Panning offset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> pos{}; 
-        namespace PosValC{
-        }
     }
     namespace LcdcLpccr{    ///<LCDC PWM contrast control register
         using Addr = Register::Address<0x400b602c,0xffff7800,0,unsigned>;
         ///Pulse-width
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pw{}; 
-        namespace PwValC{
-        }
         ///Contrast control enable
         enum class CcenVal {
             v0=0x00000000,     ///<Contrast control is off.
@@ -319,8 +273,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,CcenVal> ccEn{}; 
         namespace CcenValC{
-            constexpr Register::FieldValue<decltype(ccEn),CcenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ccEn),CcenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ccEn)::Type,CcenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ccEn)::Type,CcenVal::v1> v1{};
         }
         ///Source select
         enum class ScrVal {
@@ -331,10 +285,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,9),Register::ReadWriteAccess,ScrVal> scr{}; 
         namespace ScrValC{
-            constexpr Register::FieldValue<decltype(scr),ScrVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(scr),ScrVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(scr),ScrVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(scr),ScrVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(scr)::Type,ScrVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(scr)::Type,ScrVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(scr)::Type,ScrVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(scr)::Type,ScrVal::v11> v11{};
         }
         ///LD mask
         enum class LdmskVal {
@@ -343,20 +297,16 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,LdmskVal> ldmsk{}; 
         namespace LdmskValC{
-            constexpr Register::FieldValue<decltype(ldmsk),LdmskVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ldmsk),LdmskVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ldmsk)::Type,LdmskVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ldmsk)::Type,LdmskVal::v1> v1{};
         }
     }
     namespace LcdcLdcr{    ///<LCDC DMA control register
         using Addr = Register::Address<0x400b6030,0x7f80ff80,0,unsigned>;
         ///DMA trigger mark
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> tm{}; 
-        namespace TmValC{
-        }
         ///DMA high mark
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> hm{}; 
-        namespace HmValC{
-        }
         ///Burst length
         enum class BurstVal {
             v0=0x00000000,     ///<Burst length is dynamic.
@@ -364,8 +314,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,BurstVal> burst{}; 
         namespace BurstValC{
-            constexpr Register::FieldValue<decltype(burst),BurstVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(burst),BurstVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(burst)::Type,BurstVal::v1> v1{};
         }
     }
     namespace LcdcLrmcr{    ///<LCDC refresh mode control register
@@ -377,8 +327,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,SelfrefVal> selfRef{}; 
         namespace SelfrefValC{
-            constexpr Register::FieldValue<decltype(selfRef),SelfrefVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(selfRef),SelfrefVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(selfRef)::Type,SelfrefVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(selfRef)::Type,SelfrefVal::v1> v1{};
         }
     }
     namespace LcdcLicr{    ///<LCDC interrupt configuration register
@@ -390,8 +340,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IntconVal> intcon{}; 
         namespace IntconValC{
-            constexpr Register::FieldValue<decltype(intcon),IntconVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(intcon),IntconVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(intcon)::Type,IntconVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(intcon)::Type,IntconVal::v1> v1{};
         }
         ///Interrupt source
         enum class IntsynVal {
@@ -400,8 +350,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,IntsynVal> intsyn{}; 
         namespace IntsynValC{
-            constexpr Register::FieldValue<decltype(intsyn),IntsynVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(intsyn),IntsynVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(intsyn)::Type,IntsynVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(intsyn)::Type,IntsynVal::v1> v1{};
         }
         ///Graphic window interrupt condition
         enum class GwintconVal {
@@ -410,8 +360,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,GwintconVal> gwIntCon{}; 
         namespace GwintconValC{
-            constexpr Register::FieldValue<decltype(gwIntCon),GwintconVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(gwIntCon),GwintconVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(gwIntCon)::Type,GwintconVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(gwIntCon)::Type,GwintconVal::v1> v1{};
         }
     }
     namespace LcdcLier{    ///<LCDC interrupt enable register
@@ -423,8 +373,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,BofenVal> bofEn{}; 
         namespace BofenValC{
-            constexpr Register::FieldValue<decltype(bofEn),BofenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(bofEn),BofenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(bofEn)::Type,BofenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bofEn)::Type,BofenVal::v1> v1{};
         }
         ///End of frame interrupt enable
         enum class EofenVal {
@@ -433,8 +383,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,EofenVal> eofEn{}; 
         namespace EofenValC{
-            constexpr Register::FieldValue<decltype(eofEn),EofenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(eofEn),EofenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(eofEn)::Type,EofenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(eofEn)::Type,EofenVal::v1> v1{};
         }
         ///Under run error interrupt enable
         enum class UdrerrenVal {
@@ -443,8 +393,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,UdrerrenVal> udrErrEn{}; 
         namespace UdrerrenValC{
-            constexpr Register::FieldValue<decltype(udrErrEn),UdrerrenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(udrErrEn),UdrerrenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(udrErrEn)::Type,UdrerrenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(udrErrEn)::Type,UdrerrenVal::v1> v1{};
         }
         ///Graphic window beginning of frame interrupt enable
         enum class GwbofenVal {
@@ -453,8 +403,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,GwbofenVal> gwBofEn{}; 
         namespace GwbofenValC{
-            constexpr Register::FieldValue<decltype(gwBofEn),GwbofenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(gwBofEn),GwbofenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(gwBofEn)::Type,GwbofenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(gwBofEn)::Type,GwbofenVal::v1> v1{};
         }
         ///Graphic window end of frame interrupt enable
         enum class GweofenVal {
@@ -463,8 +413,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,GweofenVal> gwEofEn{}; 
         namespace GweofenValC{
-            constexpr Register::FieldValue<decltype(gwEofEn),GweofenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(gwEofEn),GweofenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(gwEofEn)::Type,GweofenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(gwEofEn)::Type,GweofenVal::v1> v1{};
         }
         ///Graphic window under run error interrupt enable
         enum class GwudrerrenVal {
@@ -473,8 +423,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,GwudrerrenVal> gwUdrErrEn{}; 
         namespace GwudrerrenValC{
-            constexpr Register::FieldValue<decltype(gwUdrErrEn),GwudrerrenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(gwUdrErrEn),GwudrerrenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(gwUdrErrEn)::Type,GwudrerrenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(gwUdrErrEn)::Type,GwudrerrenVal::v1> v1{};
         }
     }
     namespace LcdcLisr{    ///<LCDC interrupt status register
@@ -486,8 +436,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,BofVal> bof{}; 
         namespace BofValC{
-            constexpr Register::FieldValue<decltype(bof),BofVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(bof),BofVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(bof)::Type,BofVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bof)::Type,BofVal::v1> v1{};
         }
         ///End of frame
         enum class EofVal {
@@ -496,8 +446,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,EofVal> eof{}; 
         namespace EofValC{
-            constexpr Register::FieldValue<decltype(eof),EofVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(eof),EofVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(eof)::Type,EofVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(eof)::Type,EofVal::v1> v1{};
         }
         ///Under run error
         enum class UdrerrVal {
@@ -506,8 +456,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,UdrerrVal> udrErr{}; 
         namespace UdrerrValC{
-            constexpr Register::FieldValue<decltype(udrErr),UdrerrVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(udrErr),UdrerrVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(udrErr)::Type,UdrerrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(udrErr)::Type,UdrerrVal::v1> v1{};
         }
         ///Graphic window beginning of frame
         enum class GwbofVal {
@@ -516,8 +466,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,GwbofVal> gwBof{}; 
         namespace GwbofValC{
-            constexpr Register::FieldValue<decltype(gwBof),GwbofVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(gwBof),GwbofVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(gwBof)::Type,GwbofVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(gwBof)::Type,GwbofVal::v1> v1{};
         }
         ///Graphic window end of frame
         enum class GweofVal {
@@ -526,8 +476,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,GweofVal> gwEof{}; 
         namespace GweofValC{
-            constexpr Register::FieldValue<decltype(gwEof),GweofVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(gwEof),GweofVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(gwEof)::Type,GweofVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(gwEof)::Type,GweofVal::v1> v1{};
         }
         ///Graphic window under run error
         enum class GwudrerrVal {
@@ -536,67 +486,47 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,GwudrerrVal> gwUdrErr{}; 
         namespace GwudrerrValC{
-            constexpr Register::FieldValue<decltype(gwUdrErr),GwudrerrVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(gwUdrErr),GwudrerrVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(gwUdrErr)::Type,GwudrerrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(gwUdrErr)::Type,GwudrerrVal::v1> v1{};
         }
     }
     namespace LcdcLgwsar{    ///<LCDC graphic window start address register
         using Addr = Register::Address<0x400b6050,0x00000003,0,unsigned>;
         ///Graphic window start address on LCD screen
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> gwsa{}; 
-        namespace GwsaValC{
-        }
     }
     namespace LcdcLgwsr{    ///<LCDC graphic window size register
         using Addr = Register::Address<0x400b6054,0xf80ffc00,0,unsigned>;
         ///Graphic window height
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> gwh{}; 
-        namespace GwhValC{
-        }
         ///Graphic window width divided by 16
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,20),Register::ReadWriteAccess,unsigned> gww{}; 
-        namespace GwwValC{
-        }
     }
     namespace LcdcLgwvpwr{    ///<LCDC graphic window virtual page width register
         using Addr = Register::Address<0x400b6058,0xfffff800,0,unsigned>;
         ///Graphic window virtual page width
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> gwvpw{}; 
-        namespace GwvpwValC{
-        }
     }
     namespace LcdcLgwpor{    ///<LCDC graphic window panning offset register
         using Addr = Register::Address<0x400b605c,0xffffffe0,0,unsigned>;
         ///Graphic window panning offset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> gwpo{}; 
-        namespace GwpoValC{
-        }
     }
     namespace LcdcLgwpr{    ///<LCDC graphic window position register
         using Addr = Register::Address<0x400b6060,0xfc00fc00,0,unsigned>;
         ///Graphic window Y position
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> gwyp{}; 
-        namespace GwypValC{
-        }
         ///Graphic window X position
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,16),Register::ReadWriteAccess,unsigned> gwxp{}; 
-        namespace GwxpValC{
-        }
     }
     namespace LcdcLgwcr{    ///<LCDC graphic window control register
         using Addr = Register::Address<0x400b6064,0x001c0000,0,unsigned>;
         ///Graphic window color keying blue component
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> gwckb{}; 
-        namespace GwckbValC{
-        }
         ///Graphic window color keying green component
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,6),Register::ReadWriteAccess,unsigned> gwckg{}; 
-        namespace GwckgValC{
-        }
         ///Graphic window color keying red component
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,12),Register::ReadWriteAccess,unsigned> gwckr{}; 
-        namespace GwckrValC{
-        }
         ///Graphic window reverse vertical scan
         enum class GwrvsVal {
             v0=0x00000000,     ///<Vertical scan in normal direction.
@@ -604,8 +534,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,GwrvsVal> gwRvs{}; 
         namespace GwrvsValC{
-            constexpr Register::FieldValue<decltype(gwRvs),GwrvsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(gwRvs),GwrvsVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(gwRvs)::Type,GwrvsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(gwRvs)::Type,GwrvsVal::v1> v1{};
         }
         ///Graphic window enable
         enum class GweVal {
@@ -614,8 +544,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,GweVal> gwe{}; 
         namespace GweValC{
-            constexpr Register::FieldValue<decltype(gwe),GweVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(gwe),GweVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(gwe)::Type,GweVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(gwe)::Type,GweVal::v1> v1{};
         }
         ///Graphic window color keying enable
         enum class GwckeVal {
@@ -624,24 +554,18 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,GwckeVal> gwcke{}; 
         namespace GwckeValC{
-            constexpr Register::FieldValue<decltype(gwcke),GwckeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(gwcke),GwckeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(gwcke)::Type,GwckeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(gwcke)::Type,GwckeVal::v1> v1{};
         }
         ///Graphic window alpha value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> gwav{}; 
-        namespace GwavValC{
-        }
     }
     namespace LcdcLgwdcr{    ///<LCDC graphic window DMA control register
         using Addr = Register::Address<0x400b6068,0x7f80ff80,0,unsigned>;
         ///Graphic window DMA low mark
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> gwtm{}; 
-        namespace GwtmValC{
-        }
         ///Graphic window DMA high mark
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,16),Register::ReadWriteAccess,unsigned> gwhm{}; 
-        namespace GwhmValC{
-        }
         ///Graphic window DMA burst type
         enum class GwbtVal {
             v0=0x00000000,     ///<Burst length is dynamic.
@@ -649,24 +573,18 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,GwbtVal> gwbt{}; 
         namespace GwbtValC{
-            constexpr Register::FieldValue<decltype(gwbt),GwbtVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(gwbt),GwbtVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(gwbt)::Type,GwbtVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(gwbt)::Type,GwbtVal::v1> v1{};
         }
     }
     namespace LcdcLauscr{    ///<LCDC AUS mode control register
         using Addr = Register::Address<0x400b6080,0x7f000000,0,unsigned>;
         ///AUS graphic window color keying blue component
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> agwckb{}; 
-        namespace AgwckbValC{
-        }
         ///AUS graphic window color keying green component
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> agwckg{}; 
-        namespace AgwckgValC{
-        }
         ///AUS graphic window color keying red component
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> agwckr{}; 
-        namespace AgwckrValC{
-        }
         ///AUS mode control
         enum class AusmodeVal {
             v0=0x00000000,     ///<Normal mode
@@ -674,23 +592,17 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,AusmodeVal> ausMode{}; 
         namespace AusmodeValC{
-            constexpr Register::FieldValue<decltype(ausMode),AusmodeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ausMode),AusmodeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ausMode)::Type,AusmodeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ausMode)::Type,AusmodeVal::v1> v1{};
         }
     }
     namespace LcdcLausccr{    ///<LCDC AUS mode cursor control register
         using Addr = Register::Address<0x400b6084,0xff000000,0,unsigned>;
         ///AUS cursor red field
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> acurColB{}; 
-        namespace AcurcolbValC{
-        }
         ///AUS cursor green field
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> acurColG{}; 
-        namespace AcurcolgValC{
-        }
         ///AUS cursor red field
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> acurColR{}; 
-        namespace AcurcolrValC{
-        }
     }
 }

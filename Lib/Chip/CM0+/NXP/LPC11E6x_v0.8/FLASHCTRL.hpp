@@ -11,33 +11,25 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,FlashtimVal> flashtim{}; 
         namespace FlashtimValC{
-            constexpr Register::FieldValue<decltype(flashtim),FlashtimVal::v1SystemClockFlash> v1SystemClockFlash{};
-            constexpr Register::FieldValue<decltype(flashtim),FlashtimVal::v2SystemClocksFlas> v2SystemClocksFlas{};
+            constexpr Register::FieldValue<decltype(flashtim)::Type,FlashtimVal::v1SystemClockFlash> v1SystemClockFlash{};
+            constexpr Register::FieldValue<decltype(flashtim)::Type,FlashtimVal::v2SystemClocksFlas> v2SystemClocksFlas{};
         }
     }
     namespace Nonefmsstart{    ///<Signature start address register
         using Addr = Register::Address<0x4003c020,0xfffe0000,0,unsigned>;
         ///Signature generation start address (corresponds to AHB byte address bits[20:4]).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,0),Register::ReadWriteAccess,unsigned> start{}; 
-        namespace StartValC{
-        }
     }
     namespace Nonefmsstop{    ///<Signature stop-address register
         using Addr = Register::Address<0x4003c024,0xfffc0000,0,unsigned>;
         ///Stop address for signature generation (the word specified by STOPA is included in the address range). The address is in units of memory words, not bytes.  If the option bistprotection=1, bits 2:0 cannot be written and are forced to 111.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,0),Register::ReadWriteAccess,unsigned> stopa{}; 
-        namespace StopaValC{
-        }
         ///When this bit is written to 1, signature generation starts. At the end of signature generation, this bit is automatically cleared.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> strtbist{}; 
-        namespace StrtbistValC{
-        }
     }
     namespace Nonefmsw0{    ///<Signature Word 
         using Addr = Register::Address<0x4003c02c,0x00000000,0,unsigned>;
         ///32-bit signature.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> sig{}; 
-        namespace SigValC{
-        }
     }
 }

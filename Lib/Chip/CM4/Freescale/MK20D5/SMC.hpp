@@ -11,8 +11,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,AvllsVal> avlls{}; 
         namespace AvllsValC{
-            constexpr Register::FieldValue<decltype(avlls),AvllsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(avlls),AvllsVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(avlls)::Type,AvllsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(avlls)::Type,AvllsVal::v1> v1{};
         }
         ///Allow low leakage stop mode
         enum class AllsVal {
@@ -21,8 +21,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,AllsVal> alls{}; 
         namespace AllsValC{
-            constexpr Register::FieldValue<decltype(alls),AllsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(alls),AllsVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(alls)::Type,AllsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(alls)::Type,AllsVal::v1> v1{};
         }
         ///Allow very low power modes
         enum class AvlpVal {
@@ -31,8 +31,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,AvlpVal> avlp{}; 
         namespace AvlpValC{
-            constexpr Register::FieldValue<decltype(avlp),AvlpVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(avlp),AvlpVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(avlp)::Type,AvlpVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(avlp)::Type,AvlpVal::v1> v1{};
         }
     }
     namespace SmcPmctrl{    ///<Power Mode Control Register
@@ -47,11 +47,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,StopmVal> stopm{}; 
         namespace StopmValC{
-            constexpr Register::FieldValue<decltype(stopm),StopmVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(stopm),StopmVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(stopm),StopmVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(stopm),StopmVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(stopm),StopmVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(stopm)::Type,StopmVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(stopm)::Type,StopmVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(stopm)::Type,StopmVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(stopm)::Type,StopmVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(stopm)::Type,StopmVal::v110> v110{};
         }
         ///Stop Aborted
         enum class StopaVal {
@@ -60,8 +60,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,StopaVal> stopa{}; 
         namespace StopaValC{
-            constexpr Register::FieldValue<decltype(stopa),StopaVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(stopa),StopaVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(stopa)::Type,StopaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(stopa)::Type,StopaVal::v1> v1{};
         }
         ///Run Mode Control
         enum class RunmVal {
@@ -70,8 +70,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,5),Register::ReadWriteAccess,RunmVal> runm{}; 
         namespace RunmValC{
-            constexpr Register::FieldValue<decltype(runm),RunmVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(runm),RunmVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(runm)::Type,RunmVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(runm)::Type,RunmVal::v10> v10{};
         }
         ///Low Power Wake Up on Interrupt
         enum class LpwuiVal {
@@ -80,16 +80,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,LpwuiVal> lpwui{}; 
         namespace LpwuiValC{
-            constexpr Register::FieldValue<decltype(lpwui),LpwuiVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(lpwui),LpwuiVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(lpwui)::Type,LpwuiVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lpwui)::Type,LpwuiVal::v1> v1{};
         }
     }
     namespace SmcVllsctrl{    ///<VLLS Control Register
         using Addr = Register::Address<0x4007e002,0xffffffd8,0,unsigned char>;
         ///VLLS Mode Control.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> vllsm{}; 
-        namespace VllsmValC{
-        }
         ///POR Power Option
         enum class PorpoVal {
             v0=0x00000000,     ///<POR detect circuit is enabled in VLLS0
@@ -97,15 +95,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,PorpoVal> porpo{}; 
         namespace PorpoValC{
-            constexpr Register::FieldValue<decltype(porpo),PorpoVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(porpo),PorpoVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(porpo)::Type,PorpoVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(porpo)::Type,PorpoVal::v1> v1{};
         }
     }
     namespace SmcPmstat{    ///<Power Mode Status Register
         using Addr = Register::Address<0x4007e003,0xffffff80,0,unsigned char>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> pmstat{}; 
-        namespace PmstatValC{
-        }
     }
 }

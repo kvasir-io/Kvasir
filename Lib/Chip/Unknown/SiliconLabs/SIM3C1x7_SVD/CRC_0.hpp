@@ -11,8 +11,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,SinitenVal> siniten{}; 
         namespace SinitenValC{
-            constexpr Register::FieldValue<decltype(siniten),SinitenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(siniten),SinitenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(siniten)::Type,SinitenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(siniten)::Type,SinitenVal::enabled> enabled{};
         }
         ///Seed Setting. 
         enum class SeedVal {
@@ -21,8 +21,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,SeedVal> seed{}; 
         namespace SeedValC{
-            constexpr Register::FieldValue<decltype(seed),SeedVal::allZeroes> allZeroes{};
-            constexpr Register::FieldValue<decltype(seed),SeedVal::allOnes> allOnes{};
+            constexpr Register::FieldValue<decltype(seed)::Type,SeedVal::allZeroes> allZeroes{};
+            constexpr Register::FieldValue<decltype(seed)::Type,SeedVal::allOnes> allOnes{};
         }
         ///CRC Enable. 
         enum class CrcenVal {
@@ -31,8 +31,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,CrcenVal> crcen{}; 
         namespace CrcenValC{
-            constexpr Register::FieldValue<decltype(crcen),CrcenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(crcen),CrcenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(crcen)::Type,CrcenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(crcen)::Type,CrcenVal::enabled> enabled{};
         }
         ///Polynomial Selection. 
         enum class PolyselVal {
@@ -43,10 +43,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,PolyselVal> polysel{}; 
         namespace PolyselValC{
-            constexpr Register::FieldValue<decltype(polysel),PolyselVal::crc3204c11db7> crc3204c11db7{};
-            constexpr Register::FieldValue<decltype(polysel),PolyselVal::crc161021> crc161021{};
-            constexpr Register::FieldValue<decltype(polysel),PolyselVal::crc163d65> crc163d65{};
-            constexpr Register::FieldValue<decltype(polysel),PolyselVal::crc168005> crc168005{};
+            constexpr Register::FieldValue<decltype(polysel)::Type,PolyselVal::crc3204c11db7> crc3204c11db7{};
+            constexpr Register::FieldValue<decltype(polysel)::Type,PolyselVal::crc161021> crc161021{};
+            constexpr Register::FieldValue<decltype(polysel)::Type,PolyselVal::crc163d65> crc163d65{};
+            constexpr Register::FieldValue<decltype(polysel)::Type,PolyselVal::crc168005> crc168005{};
         }
         ///Byte Mode Enable. 
         enum class BmdenVal {
@@ -55,8 +55,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,BmdenVal> bmden{}; 
         namespace BmdenValC{
-            constexpr Register::FieldValue<decltype(bmden),BmdenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(bmden),BmdenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(bmden)::Type,BmdenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(bmden)::Type,BmdenVal::enabled> enabled{};
         }
         ///Byte-Level Bit Reversal Enable. 
         enum class BbrenVal {
@@ -65,8 +65,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,BbrenVal> bbren{}; 
         namespace BbrenValC{
-            constexpr Register::FieldValue<decltype(bbren),BbrenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(bbren),BbrenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(bbren)::Type,BbrenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(bbren)::Type,BbrenVal::enabled> enabled{};
         }
         ///Input Processing Order. 
         enum class OrderVal {
@@ -76,23 +76,19 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,OrderVal> order{}; 
         namespace OrderValC{
-            constexpr Register::FieldValue<decltype(order),OrderVal::noReorder> noReorder{};
-            constexpr Register::FieldValue<decltype(order),OrderVal::bigEndian16> bigEndian16{};
-            constexpr Register::FieldValue<decltype(order),OrderVal::bigEndian32> bigEndian32{};
+            constexpr Register::FieldValue<decltype(order)::Type,OrderVal::noReorder> noReorder{};
+            constexpr Register::FieldValue<decltype(order)::Type,OrderVal::bigEndian16> bigEndian16{};
+            constexpr Register::FieldValue<decltype(order)::Type,OrderVal::bigEndian32> bigEndian32{};
         }
     }
     namespace Nonedata{    ///<Input/Result Data
         using Addr = Register::Address<0x40028010,0x00000000,0,unsigned>;
         ///Input/Result Data. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace Nonerdata{    ///<Bit-Reversed Output Data
         using Addr = Register::Address<0x40028020,0x00000000,0,unsigned>;
         ///Bit-Reversed Output Data. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rdata{}; 
-        namespace RdataValC{
-        }
     }
 }

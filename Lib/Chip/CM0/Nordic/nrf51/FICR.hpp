@@ -15,8 +15,6 @@ namespace Kvasir {
         using Addr = Register::Address<0x1000002c,0xffffff00,0,unsigned>;
         ///Pre-programmed factory code present.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ppfc{}; 
-        namespace PpfcValC{
-        }
     }
     namespace Nonenumramblock{    ///<Number of individualy controllable RAM blocks.
         using Addr = Register::Address<0x10000034,0xffffffff,0,unsigned>;
@@ -40,12 +38,8 @@ namespace Kvasir {
         using Addr = Register::Address<0x1000005c,0x00000000,0,unsigned>;
         ///Hardware Identification Number.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> hwid{}; 
-        namespace HwidValC{
-        }
         ///Firmware Identification Number pre-loaded into the flash.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> fwid{}; 
-        namespace FwidValC{
-        }
     }
     namespace Nonedeviceid0{    ///<Device identifier.
         using Addr = Register::Address<0x10000060,0xffffffff,0,unsigned>;
@@ -86,8 +80,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DeviceaddrtypeVal> deviceaddrtype{}; 
         namespace DeviceaddrtypeValC{
-            constexpr Register::FieldValue<decltype(deviceaddrtype),DeviceaddrtypeVal::public_> public_{};
-            constexpr Register::FieldValue<decltype(deviceaddrtype),DeviceaddrtypeVal::random> random{};
+            constexpr Register::FieldValue<decltype(deviceaddrtype)::Type,DeviceaddrtypeVal::public_> public_{};
+            constexpr Register::FieldValue<decltype(deviceaddrtype)::Type,DeviceaddrtypeVal::random> random{};
         }
     }
     namespace Nonedeviceaddr0{    ///<Device address.
@@ -105,8 +99,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Nrf1mbitVal> nrf1mbit{}; 
         namespace Nrf1mbitValC{
-            constexpr Register::FieldValue<decltype(nrf1mbit),Nrf1mbitVal::override> override{};
-            constexpr Register::FieldValue<decltype(nrf1mbit),Nrf1mbitVal::notoverride> notoverride{};
+            constexpr Register::FieldValue<decltype(nrf1mbit)::Type,Nrf1mbitVal::override> override{};
+            constexpr Register::FieldValue<decltype(nrf1mbit)::Type,Nrf1mbitVal::notoverride> notoverride{};
         }
         ///Override default values for BLE_1Mbit mode.
         enum class Ble1mbitVal {
@@ -115,8 +109,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ble1mbitVal> ble1mbit{}; 
         namespace Ble1mbitValC{
-            constexpr Register::FieldValue<decltype(ble1mbit),Ble1mbitVal::override> override{};
-            constexpr Register::FieldValue<decltype(ble1mbit),Ble1mbitVal::notoverride> notoverride{};
+            constexpr Register::FieldValue<decltype(ble1mbit)::Type,Ble1mbitVal::override> override{};
+            constexpr Register::FieldValue<decltype(ble1mbit)::Type,Ble1mbitVal::notoverride> notoverride{};
         }
     }
     namespace Nonenrf1mbit0{    ///<Override values for the OVERRIDEn registers in RADIO for NRF_1Mbit mode.

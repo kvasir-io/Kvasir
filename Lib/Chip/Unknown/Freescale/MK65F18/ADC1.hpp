@@ -41,38 +41,38 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,AdchVal> adch{}; 
         namespace AdchValC{
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v00000> v00000{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v00001> v00001{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v00010> v00010{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v00011> v00011{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v00100> v00100{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v00101> v00101{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v00110> v00110{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v00111> v00111{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v01000> v01000{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v01001> v01001{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v01010> v01010{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v01011> v01011{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v01100> v01100{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v01101> v01101{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v01110> v01110{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v01111> v01111{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v10000> v10000{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v10001> v10001{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v10010> v10010{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v10011> v10011{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v10100> v10100{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v10101> v10101{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v10110> v10110{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v10111> v10111{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v11000> v11000{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v11001> v11001{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v11010> v11010{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v11011> v11011{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v11100> v11100{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v11101> v11101{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v11110> v11110{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v11111> v11111{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00000> v00000{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00001> v00001{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00010> v00010{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00011> v00011{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00100> v00100{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00101> v00101{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00110> v00110{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00111> v00111{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01000> v01000{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01001> v01001{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01010> v01010{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01011> v01011{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01100> v01100{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01101> v01101{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01110> v01110{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01111> v01111{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10000> v10000{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10001> v10001{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10010> v10010{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10011> v10011{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10100> v10100{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10101> v10101{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10110> v10110{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10111> v10111{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11000> v11000{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11001> v11001{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11010> v11010{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11011> v11011{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11100> v11100{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11101> v11101{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11110> v11110{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11111> v11111{};
         }
         ///Differential Mode Enable
         enum class DiffVal {
@@ -81,8 +81,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,DiffVal> diff{}; 
         namespace DiffValC{
-            constexpr Register::FieldValue<decltype(diff),DiffVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(diff),DiffVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(diff)::Type,DiffVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(diff)::Type,DiffVal::v1> v1{};
         }
         ///Interrupt Enable
         enum class AienVal {
@@ -91,8 +91,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,AienVal> aien{}; 
         namespace AienValC{
-            constexpr Register::FieldValue<decltype(aien),AienVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(aien),AienVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v1> v1{};
         }
         ///Conversion Complete Flag
         enum class CocoVal {
@@ -101,8 +101,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,CocoVal> coco{}; 
         namespace CocoValC{
-            constexpr Register::FieldValue<decltype(coco),CocoVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(coco),CocoVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v1> v1{};
         }
     }
     namespace Adc1Sc1b{    ///<ADC Status and Control Registers 1
@@ -144,38 +144,38 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,AdchVal> adch{}; 
         namespace AdchValC{
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v00000> v00000{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v00001> v00001{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v00010> v00010{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v00011> v00011{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v00100> v00100{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v00101> v00101{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v00110> v00110{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v00111> v00111{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v01000> v01000{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v01001> v01001{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v01010> v01010{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v01011> v01011{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v01100> v01100{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v01101> v01101{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v01110> v01110{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v01111> v01111{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v10000> v10000{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v10001> v10001{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v10010> v10010{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v10011> v10011{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v10100> v10100{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v10101> v10101{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v10110> v10110{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v10111> v10111{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v11000> v11000{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v11001> v11001{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v11010> v11010{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v11011> v11011{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v11100> v11100{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v11101> v11101{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v11110> v11110{};
-            constexpr Register::FieldValue<decltype(adch),AdchVal::v11111> v11111{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00000> v00000{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00001> v00001{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00010> v00010{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00011> v00011{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00100> v00100{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00101> v00101{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00110> v00110{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v00111> v00111{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01000> v01000{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01001> v01001{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01010> v01010{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01011> v01011{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01100> v01100{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01101> v01101{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01110> v01110{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v01111> v01111{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10000> v10000{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10001> v10001{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10010> v10010{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10011> v10011{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10100> v10100{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10101> v10101{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10110> v10110{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v10111> v10111{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11000> v11000{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11001> v11001{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11010> v11010{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11011> v11011{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11100> v11100{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11101> v11101{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11110> v11110{};
+            constexpr Register::FieldValue<decltype(adch)::Type,AdchVal::v11111> v11111{};
         }
         ///Differential Mode Enable
         enum class DiffVal {
@@ -184,8 +184,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,DiffVal> diff{}; 
         namespace DiffValC{
-            constexpr Register::FieldValue<decltype(diff),DiffVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(diff),DiffVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(diff)::Type,DiffVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(diff)::Type,DiffVal::v1> v1{};
         }
         ///Interrupt Enable
         enum class AienVal {
@@ -194,8 +194,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,AienVal> aien{}; 
         namespace AienValC{
-            constexpr Register::FieldValue<decltype(aien),AienVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(aien),AienVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(aien)::Type,AienVal::v1> v1{};
         }
         ///Conversion Complete Flag
         enum class CocoVal {
@@ -204,8 +204,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,CocoVal> coco{}; 
         namespace CocoValC{
-            constexpr Register::FieldValue<decltype(coco),CocoVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(coco),CocoVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v1> v1{};
         }
     }
     namespace Adc1Cfg1{    ///<ADC Configuration Register 1
@@ -219,10 +219,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,AdiclkVal> adiclk{}; 
         namespace AdiclkValC{
-            constexpr Register::FieldValue<decltype(adiclk),AdiclkVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(adiclk),AdiclkVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(adiclk),AdiclkVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(adiclk),AdiclkVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(adiclk)::Type,AdiclkVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(adiclk)::Type,AdiclkVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(adiclk)::Type,AdiclkVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(adiclk)::Type,AdiclkVal::v11> v11{};
         }
         ///Conversion mode selection
         enum class ModeVal {
@@ -233,10 +233,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::v11> v11{};
         }
         ///Sample Time Configuration
         enum class AdlsmpVal {
@@ -245,8 +245,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,AdlsmpVal> adlsmp{}; 
         namespace AdlsmpValC{
-            constexpr Register::FieldValue<decltype(adlsmp),AdlsmpVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(adlsmp),AdlsmpVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(adlsmp)::Type,AdlsmpVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(adlsmp)::Type,AdlsmpVal::v1> v1{};
         }
         ///Clock Divide Select
         enum class AdivVal {
@@ -257,10 +257,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,5),Register::ReadWriteAccess,AdivVal> adiv{}; 
         namespace AdivValC{
-            constexpr Register::FieldValue<decltype(adiv),AdivVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(adiv),AdivVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(adiv),AdivVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(adiv),AdivVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(adiv)::Type,AdivVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(adiv)::Type,AdivVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(adiv)::Type,AdivVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(adiv)::Type,AdivVal::v11> v11{};
         }
         ///Low-Power Configuration
         enum class AdlpcVal {
@@ -269,8 +269,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,AdlpcVal> adlpc{}; 
         namespace AdlpcValC{
-            constexpr Register::FieldValue<decltype(adlpc),AdlpcVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(adlpc),AdlpcVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(adlpc)::Type,AdlpcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(adlpc)::Type,AdlpcVal::v1> v1{};
         }
     }
     namespace Adc1Cfg2{    ///<ADC Configuration Register 2
@@ -284,10 +284,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,AdlstsVal> adlsts{}; 
         namespace AdlstsValC{
-            constexpr Register::FieldValue<decltype(adlsts),AdlstsVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(adlsts),AdlstsVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(adlsts),AdlstsVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(adlsts),AdlstsVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(adlsts)::Type,AdlstsVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(adlsts)::Type,AdlstsVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(adlsts)::Type,AdlstsVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(adlsts)::Type,AdlstsVal::v11> v11{};
         }
         ///High-Speed Configuration
         enum class AdhscVal {
@@ -296,8 +296,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,AdhscVal> adhsc{}; 
         namespace AdhscValC{
-            constexpr Register::FieldValue<decltype(adhsc),AdhscVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(adhsc),AdhscVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(adhsc)::Type,AdhscVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(adhsc)::Type,AdhscVal::v1> v1{};
         }
         ///Asynchronous Clock Output Enable
         enum class AdackenVal {
@@ -306,8 +306,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,AdackenVal> adacken{}; 
         namespace AdackenValC{
-            constexpr Register::FieldValue<decltype(adacken),AdackenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(adacken),AdackenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(adacken)::Type,AdackenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(adacken)::Type,AdackenVal::v1> v1{};
         }
         ///ADC Mux Select
         enum class MuxselVal {
@@ -316,37 +316,29 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,MuxselVal> muxsel{}; 
         namespace MuxselValC{
-            constexpr Register::FieldValue<decltype(muxsel),MuxselVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(muxsel),MuxselVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(muxsel)::Type,MuxselVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(muxsel)::Type,MuxselVal::v1> v1{};
         }
     }
     namespace Adc1Ra{    ///<ADC Data Result Register
         using Addr = Register::Address<0x400bb010,0xffff0000,0,unsigned>;
         ///Data result
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> d{}; 
-        namespace DValC{
-        }
     }
     namespace Adc1Rb{    ///<ADC Data Result Register
         using Addr = Register::Address<0x400bb014,0xffff0000,0,unsigned>;
         ///Data result
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> d{}; 
-        namespace DValC{
-        }
     }
     namespace Adc1Cv1{    ///<Compare Value Registers
         using Addr = Register::Address<0x400bb018,0xffff0000,0,unsigned>;
         ///Compare Value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cv{}; 
-        namespace CvValC{
-        }
     }
     namespace Adc1Cv2{    ///<Compare Value Registers
         using Addr = Register::Address<0x400bb01c,0xffff0000,0,unsigned>;
         ///Compare Value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cv{}; 
-        namespace CvValC{
-        }
     }
     namespace Adc1Sc2{    ///<Status and Control Register 2
         using Addr = Register::Address<0x400bb020,0xffffff00,0,unsigned>;
@@ -359,10 +351,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,RefselVal> refsel{}; 
         namespace RefselValC{
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(refsel),RefselVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(refsel)::Type,RefselVal::v11> v11{};
         }
         ///DMA Enable
         enum class DmaenVal {
@@ -371,8 +363,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,DmaenVal> dmaen{}; 
         namespace DmaenValC{
-            constexpr Register::FieldValue<decltype(dmaen),DmaenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dmaen),DmaenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v1> v1{};
         }
         ///Compare Function Range Enable
         enum class AcrenVal {
@@ -381,8 +373,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,AcrenVal> acren{}; 
         namespace AcrenValC{
-            constexpr Register::FieldValue<decltype(acren),AcrenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(acren),AcrenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(acren)::Type,AcrenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(acren)::Type,AcrenVal::v1> v1{};
         }
         ///Compare Function Greater Than Enable
         enum class AcfgtVal {
@@ -391,8 +383,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,AcfgtVal> acfgt{}; 
         namespace AcfgtValC{
-            constexpr Register::FieldValue<decltype(acfgt),AcfgtVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(acfgt),AcfgtVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(acfgt)::Type,AcfgtVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(acfgt)::Type,AcfgtVal::v1> v1{};
         }
         ///Compare Function Enable
         enum class AcfeVal {
@@ -401,8 +393,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,AcfeVal> acfe{}; 
         namespace AcfeValC{
-            constexpr Register::FieldValue<decltype(acfe),AcfeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(acfe),AcfeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(acfe)::Type,AcfeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(acfe)::Type,AcfeVal::v1> v1{};
         }
         ///Conversion Trigger Select
         enum class AdtrgVal {
@@ -411,8 +403,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,AdtrgVal> adtrg{}; 
         namespace AdtrgValC{
-            constexpr Register::FieldValue<decltype(adtrg),AdtrgVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(adtrg),AdtrgVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(adtrg)::Type,AdtrgVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(adtrg)::Type,AdtrgVal::v1> v1{};
         }
         ///Conversion Active
         enum class AdactVal {
@@ -421,8 +413,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,AdactVal> adact{}; 
         namespace AdactValC{
-            constexpr Register::FieldValue<decltype(adact),AdactVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(adact),AdactVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(adact)::Type,AdactVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(adact)::Type,AdactVal::v1> v1{};
         }
     }
     namespace Adc1Sc3{    ///<Status and Control Register 3
@@ -436,10 +428,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,AvgsVal> avgs{}; 
         namespace AvgsValC{
-            constexpr Register::FieldValue<decltype(avgs),AvgsVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(avgs),AvgsVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(avgs),AvgsVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(avgs),AvgsVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(avgs)::Type,AvgsVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(avgs)::Type,AvgsVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(avgs)::Type,AvgsVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(avgs)::Type,AvgsVal::v11> v11{};
         }
         ///Hardware Average Enable
         enum class AvgeVal {
@@ -448,8 +440,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,AvgeVal> avge{}; 
         namespace AvgeValC{
-            constexpr Register::FieldValue<decltype(avge),AvgeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(avge),AvgeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(avge)::Type,AvgeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(avge)::Type,AvgeVal::v1> v1{};
         }
         ///Continuous Conversion Enable
         enum class AdcoVal {
@@ -458,8 +450,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,AdcoVal> adco{}; 
         namespace AdcoValC{
-            constexpr Register::FieldValue<decltype(adco),AdcoVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(adco),AdcoVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(adco)::Type,AdcoVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(adco)::Type,AdcoVal::v1> v1{};
         }
         ///Calibration Failed Flag
         enum class CalfVal {
@@ -468,131 +460,95 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,CalfVal> calf{}; 
         namespace CalfValC{
-            constexpr Register::FieldValue<decltype(calf),CalfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(calf),CalfVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(calf)::Type,CalfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(calf)::Type,CalfVal::v1> v1{};
         }
         ///Calibration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> cal{}; 
-        namespace CalValC{
-        }
     }
     namespace Adc1Ofs{    ///<ADC Offset Correction Register
         using Addr = Register::Address<0x400bb028,0xffff0000,0,unsigned>;
         ///Offset Error Correction Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ofs{}; 
-        namespace OfsValC{
-        }
     }
     namespace Adc1Pg{    ///<ADC Plus-Side Gain Register
         using Addr = Register::Address<0x400bb02c,0xffff0000,0,unsigned>;
         ///Plus-Side Gain
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> pg{}; 
-        namespace PgValC{
-        }
     }
     namespace Adc1Mg{    ///<ADC Minus-Side Gain Register
         using Addr = Register::Address<0x400bb030,0xffff0000,0,unsigned>;
         ///Minus-Side Gain
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mg{}; 
-        namespace MgValC{
-        }
     }
     namespace Adc1Clpd{    ///<ADC Plus-Side General Calibration Value Register
         using Addr = Register::Address<0x400bb034,0xffffffc0,0,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> clpd{}; 
-        namespace ClpdValC{
-        }
     }
     namespace Adc1Clps{    ///<ADC Plus-Side General Calibration Value Register
         using Addr = Register::Address<0x400bb038,0xffffffc0,0,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> clps{}; 
-        namespace ClpsValC{
-        }
     }
     namespace Adc1Clp4{    ///<ADC Plus-Side General Calibration Value Register
         using Addr = Register::Address<0x400bb03c,0xfffffc00,0,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> clp4{}; 
-        namespace Clp4ValC{
-        }
     }
     namespace Adc1Clp3{    ///<ADC Plus-Side General Calibration Value Register
         using Addr = Register::Address<0x400bb040,0xfffffe00,0,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> clp3{}; 
-        namespace Clp3ValC{
-        }
     }
     namespace Adc1Clp2{    ///<ADC Plus-Side General Calibration Value Register
         using Addr = Register::Address<0x400bb044,0xffffff00,0,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> clp2{}; 
-        namespace Clp2ValC{
-        }
     }
     namespace Adc1Clp1{    ///<ADC Plus-Side General Calibration Value Register
         using Addr = Register::Address<0x400bb048,0xffffff80,0,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> clp1{}; 
-        namespace Clp1ValC{
-        }
     }
     namespace Adc1Clp0{    ///<ADC Plus-Side General Calibration Value Register
         using Addr = Register::Address<0x400bb04c,0xffffffc0,0,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> clp0{}; 
-        namespace Clp0ValC{
-        }
     }
     namespace Adc1Clmd{    ///<ADC Minus-Side General Calibration Value Register
         using Addr = Register::Address<0x400bb054,0xffffffc0,0,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> clmd{}; 
-        namespace ClmdValC{
-        }
     }
     namespace Adc1Clms{    ///<ADC Minus-Side General Calibration Value Register
         using Addr = Register::Address<0x400bb058,0xffffffc0,0,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> clms{}; 
-        namespace ClmsValC{
-        }
     }
     namespace Adc1Clm4{    ///<ADC Minus-Side General Calibration Value Register
         using Addr = Register::Address<0x400bb05c,0xfffffc00,0,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> clm4{}; 
-        namespace Clm4ValC{
-        }
     }
     namespace Adc1Clm3{    ///<ADC Minus-Side General Calibration Value Register
         using Addr = Register::Address<0x400bb060,0xfffffe00,0,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,0),Register::ReadWriteAccess,unsigned> clm3{}; 
-        namespace Clm3ValC{
-        }
     }
     namespace Adc1Clm2{    ///<ADC Minus-Side General Calibration Value Register
         using Addr = Register::Address<0x400bb064,0xffffff00,0,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> clm2{}; 
-        namespace Clm2ValC{
-        }
     }
     namespace Adc1Clm1{    ///<ADC Minus-Side General Calibration Value Register
         using Addr = Register::Address<0x400bb068,0xffffff80,0,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> clm1{}; 
-        namespace Clm1ValC{
-        }
     }
     namespace Adc1Clm0{    ///<ADC Minus-Side General Calibration Value Register
         using Addr = Register::Address<0x400bb06c,0xffffffc0,0,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> clm0{}; 
-        namespace Clm0ValC{
-        }
     }
 }

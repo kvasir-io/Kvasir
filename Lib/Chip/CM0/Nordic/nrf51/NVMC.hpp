@@ -11,8 +11,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ReadyVal> ready{}; 
         namespace ReadyValC{
-            constexpr Register::FieldValue<decltype(ready),ReadyVal::busy> busy{};
-            constexpr Register::FieldValue<decltype(ready),ReadyVal::ready> ready{};
+            constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::busy> busy{};
+            constexpr Register::FieldValue<decltype(ready)::Type,ReadyVal::ready> ready{};
         }
     }
     namespace Noneconfig{    ///<Configuration register.
@@ -25,9 +25,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,WenVal> wen{}; 
         namespace WenValC{
-            constexpr Register::FieldValue<decltype(wen),WenVal::ren> ren{};
-            constexpr Register::FieldValue<decltype(wen),WenVal::wen> wen{};
-            constexpr Register::FieldValue<decltype(wen),WenVal::een> een{};
+            constexpr Register::FieldValue<decltype(wen)::Type,WenVal::ren> ren{};
+            constexpr Register::FieldValue<decltype(wen)::Type,WenVal::wen> wen{};
+            constexpr Register::FieldValue<decltype(wen)::Type,WenVal::een> een{};
         }
     }
     namespace Noneerasepage{    ///<Register for erasing a non-protected non-volatile memory page.
@@ -45,8 +45,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EraseallVal> eraseall{}; 
         namespace EraseallValC{
-            constexpr Register::FieldValue<decltype(eraseall),EraseallVal::nooperation> nooperation{};
-            constexpr Register::FieldValue<decltype(eraseall),EraseallVal::erase> erase{};
+            constexpr Register::FieldValue<decltype(eraseall)::Type,EraseallVal::nooperation> nooperation{};
+            constexpr Register::FieldValue<decltype(eraseall)::Type,EraseallVal::erase> erase{};
         }
     }
     namespace Noneerasepcr0{    ///<Register for erasing a protected non-volatile memory page.
@@ -61,8 +61,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EraseuicrVal> eraseuicr{}; 
         namespace EraseuicrValC{
-            constexpr Register::FieldValue<decltype(eraseuicr),EraseuicrVal::nooperation> nooperation{};
-            constexpr Register::FieldValue<decltype(eraseuicr),EraseuicrVal::erase> erase{};
+            constexpr Register::FieldValue<decltype(eraseuicr)::Type,EraseuicrVal::nooperation> nooperation{};
+            constexpr Register::FieldValue<decltype(eraseuicr)::Type,EraseuicrVal::erase> erase{};
         }
     }
 }

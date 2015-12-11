@@ -6,8 +6,6 @@ namespace Kvasir {
         using Addr = Register::Address<0x400e1000,0xfffe003f,0,unsigned>;
         ///After the selected settling time after this field is written with a new VALUE, the voltage on the DACOUT pin (with respect to VSSA) is VALUE/1024 X VDDA.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,6),Register::ReadWriteAccess,unsigned> value{}; 
-        namespace ValueValC{
-        }
         ///Settling time
         enum class BiasVal {
             short=0x00000000,     ///<The settling time of the DAC is 1 micros max, and the maximum current is 700 microA.
@@ -15,8 +13,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,BiasVal> bias{}; 
         namespace BiasValC{
-            constexpr Register::FieldValue<decltype(bias),BiasVal::short> short{};
-            constexpr Register::FieldValue<decltype(bias),BiasVal::long_> long_{};
+            constexpr Register::FieldValue<decltype(bias)::Type,BiasVal::short> short{};
+            constexpr Register::FieldValue<decltype(bias)::Type,BiasVal::long_> long_{};
         }
     }
     namespace Nonectrl{    ///<DAC control register.
@@ -28,8 +26,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IntdmareqVal> intDmaReq{}; 
         namespace IntdmareqValC{
-            constexpr Register::FieldValue<decltype(intDmaReq),IntdmareqVal::clr> clr{};
-            constexpr Register::FieldValue<decltype(intDmaReq),IntdmareqVal::set> set{};
+            constexpr Register::FieldValue<decltype(intDmaReq)::Type,IntdmareqVal::clr> clr{};
+            constexpr Register::FieldValue<decltype(intDmaReq)::Type,IntdmareqVal::set> set{};
         }
         ///DMA double-buffering
         enum class DblbufenaVal {
@@ -38,8 +36,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DblbufenaVal> dblbufEna{}; 
         namespace DblbufenaValC{
-            constexpr Register::FieldValue<decltype(dblbufEna),DblbufenaVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dblbufEna),DblbufenaVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dblbufEna)::Type,DblbufenaVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dblbufEna)::Type,DblbufenaVal::enabled> enabled{};
         }
         ///DMA time-out
         enum class CntenaVal {
@@ -48,8 +46,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,CntenaVal> cntEna{}; 
         namespace CntenaValC{
-            constexpr Register::FieldValue<decltype(cntEna),CntenaVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(cntEna),CntenaVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(cntEna)::Type,CntenaVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(cntEna)::Type,CntenaVal::enabled> enabled{};
         }
         ///DMA enable
         enum class DmaenaVal {
@@ -58,15 +56,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,DmaenaVal> dmaEna{}; 
         namespace DmaenaValC{
-            constexpr Register::FieldValue<decltype(dmaEna),DmaenaVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dmaEna),DmaenaVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dmaEna)::Type,DmaenaVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dmaEna)::Type,DmaenaVal::enabled> enabled{};
         }
     }
     namespace Nonecntval{    ///<DAC counter value register.
         using Addr = Register::Address<0x400e1008,0xffff0000,0,unsigned>;
         ///16-bit reload value for the DAC interrupt/DMA timer.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> value{}; 
-        namespace ValueValC{
-        }
     }
 }

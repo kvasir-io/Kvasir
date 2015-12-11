@@ -6,11 +6,7 @@ namespace Kvasir {
         using Addr = Register::Address<0x40025100,0xffff00ff,0,unsigned>;
         /// bitfield SEL23_ 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> sel23{}; 
-        namespace Sel23ValC{
-        }
         /// bitfield SEL01_ 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> sel01{}; 
-        namespace Sel01ValC{
-        }
     }
 }

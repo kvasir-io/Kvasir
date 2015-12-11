@@ -295,5 +295,10 @@ namespace Kvasir {
 		//it does nothing
 		void apply(){};
 		void apply(MPL::List<>){};
+
+		template<typename TField, typename TField::DataType Value>
+		inline bool fieldEquals(FieldValue<TField, Value> ) {
+			return apply(Action<TField,ReadAction>{}) == Value;
+		}
 	}
 }

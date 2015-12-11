@@ -8,8 +8,6 @@ namespace Kvasir {
 								configures the pin interrupt selected in PINTSELn. 0 = Edge
 								sensitive 1 = Level sensitive
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pmode{}; 
-        namespace PmodeValC{
-        }
     }
     namespace Noneienr{    ///<Pin interrupt level or rising edge interrupt enable
 						register
@@ -19,8 +17,6 @@ namespace Kvasir {
 								0 = Disable rising edge or level interrupt. 1 = Enable rising edge
 								or level interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> enrl{}; 
-        namespace EnrlValC{
-        }
     }
     namespace Nonesienr{    ///<Pin interrupt level or rising edge interrupt set
 						register
@@ -29,8 +25,6 @@ namespace Kvasir {
 								enabling interrupts. Bit n sets bit n in the IENR register. 0 = No
 								operation. 1 = Enable rising edge or level interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> setenrl{}; 
-        namespace SetenrlValC{
-        }
     }
     namespace Nonecienr{    ///<Pin interrupt level (rising edge interrupt) clear
 						register
@@ -40,8 +34,6 @@ namespace Kvasir {
 								= No operation. 1 = Disable rising edge or level
 								interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> cenrl{}; 
-        namespace CenrlValC{
-        }
     }
     namespace Noneienf{    ///<Pin interrupt active level or falling edge interrupt enable
 						register
@@ -52,8 +44,6 @@ namespace Kvasir {
 								active interrupt level LOW. 1 = Enable falling edge interrupt
 								enabled or set active interrupt level HIGH.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> enaf{}; 
-        namespace EnafValC{
-        }
     }
     namespace Nonesienf{    ///<Pin interrupt active level or falling edge interrupt set
 						register
@@ -63,8 +53,6 @@ namespace Kvasir {
 								operation. 1 = Select HIGH-active interrupt or enable falling edge
 								interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> setenaf{}; 
-        namespace SetenafValC{
-        }
     }
     namespace Nonecienf{    ///<Pin interrupt active level or falling edge interrupt clear
 						register
@@ -74,8 +62,6 @@ namespace Kvasir {
 								No operation. 1 = LOW-active interrupt selected or falling edge
 								interrupt disabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> cenaf{}; 
-        namespace CenafValC{
-        }
     }
     namespace Nonerise{    ///<Pin interrupt rising edge register
         using Addr = Register::Address<0x4001801c,0xffffff00,0,unsigned>;
@@ -86,8 +72,6 @@ namespace Kvasir {
 								since Reset or the last time a one was written to this bit. Write 1:
 								clear rising edge detection for this pin.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rdet{}; 
-        namespace RdetValC{
-        }
     }
     namespace Nonefall{    ///<Pin interrupt falling edge register
         using Addr = Register::Address<0x40018020,0xffffff00,0,unsigned>;
@@ -98,8 +82,6 @@ namespace Kvasir {
 								since Reset or the last time a one was written to this bit. Write 1:
 								clear falling edge detection for this pin.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> fdet{}; 
-        namespace FdetValC{
-        }
     }
     namespace Noneist{    ///<Pin interrupt status register
         using Addr = Register::Address<0x40018024,0xffffff00,0,unsigned>;
@@ -112,8 +94,6 @@ namespace Kvasir {
 								(level-sensitive): switch the active level for this pin (in the IENF
 								register).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pstat{}; 
-        namespace PstatValC{
-        }
     }
     namespace Nonepmctrl{    ///<Pattern match interrupt control register
         using Addr = Register::Address<0x40018028,0x00fffffc,0,unsigned>;
@@ -128,8 +108,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,SelpmatchVal> selPmatch{}; 
         namespace SelpmatchValC{
-            constexpr Register::FieldValue<decltype(selPmatch),SelpmatchVal::pinInterrupt> pinInterrupt{};
-            constexpr Register::FieldValue<decltype(selPmatch),SelpmatchVal::patternMatch> patternMatch{};
+            constexpr Register::FieldValue<decltype(selPmatch)::Type,SelpmatchVal::pinInterrupt> pinInterrupt{};
+            constexpr Register::FieldValue<decltype(selPmatch)::Type,SelpmatchVal::patternMatch> patternMatch{};
         }
         ///Enables the RXEV output to the CPU and/or to a GPIO output
 								when the specified boolean expression evaluates to
@@ -142,16 +122,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,EnarxevVal> enaRxev{}; 
         namespace EnarxevValC{
-            constexpr Register::FieldValue<decltype(enaRxev),EnarxevVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(enaRxev),EnarxevVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(enaRxev)::Type,EnarxevVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(enaRxev)::Type,EnarxevVal::enabled> enabled{};
         }
         ///This field displays the current state of pattern matches. A
 								1 in any bit of this field indicates that the corresponding product
 								term is matched by the current state of the appropriate
 								inputs.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> pmat{}; 
-        namespace PmatValC{
-        }
     }
     namespace Nonepmsrc{    ///<Pattern match interrupt bit-slice source register
         using Addr = Register::Address<0x4001802c,0x000000ff,0,unsigned>;
@@ -176,14 +154,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,Src0Val> src0{}; 
         namespace Src0ValC{
-            constexpr Register::FieldValue<decltype(src0),Src0Val::input0> input0{};
-            constexpr Register::FieldValue<decltype(src0),Src0Val::input1> input1{};
-            constexpr Register::FieldValue<decltype(src0),Src0Val::input2> input2{};
-            constexpr Register::FieldValue<decltype(src0),Src0Val::input3> input3{};
-            constexpr Register::FieldValue<decltype(src0),Src0Val::input4> input4{};
-            constexpr Register::FieldValue<decltype(src0),Src0Val::input5> input5{};
-            constexpr Register::FieldValue<decltype(src0),Src0Val::input6> input6{};
-            constexpr Register::FieldValue<decltype(src0),Src0Val::input7> input7{};
+            constexpr Register::FieldValue<decltype(src0)::Type,Src0Val::input0> input0{};
+            constexpr Register::FieldValue<decltype(src0)::Type,Src0Val::input1> input1{};
+            constexpr Register::FieldValue<decltype(src0)::Type,Src0Val::input2> input2{};
+            constexpr Register::FieldValue<decltype(src0)::Type,Src0Val::input3> input3{};
+            constexpr Register::FieldValue<decltype(src0)::Type,Src0Val::input4> input4{};
+            constexpr Register::FieldValue<decltype(src0)::Type,Src0Val::input5> input5{};
+            constexpr Register::FieldValue<decltype(src0)::Type,Src0Val::input6> input6{};
+            constexpr Register::FieldValue<decltype(src0)::Type,Src0Val::input7> input7{};
         }
         ///Selects the input source for bit slice 1
         enum class Src1Val {
@@ -206,14 +184,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,11),Register::ReadWriteAccess,Src1Val> src1{}; 
         namespace Src1ValC{
-            constexpr Register::FieldValue<decltype(src1),Src1Val::input0> input0{};
-            constexpr Register::FieldValue<decltype(src1),Src1Val::input1> input1{};
-            constexpr Register::FieldValue<decltype(src1),Src1Val::input2> input2{};
-            constexpr Register::FieldValue<decltype(src1),Src1Val::input3> input3{};
-            constexpr Register::FieldValue<decltype(src1),Src1Val::input4> input4{};
-            constexpr Register::FieldValue<decltype(src1),Src1Val::input5> input5{};
-            constexpr Register::FieldValue<decltype(src1),Src1Val::input6> input6{};
-            constexpr Register::FieldValue<decltype(src1),Src1Val::input7> input7{};
+            constexpr Register::FieldValue<decltype(src1)::Type,Src1Val::input0> input0{};
+            constexpr Register::FieldValue<decltype(src1)::Type,Src1Val::input1> input1{};
+            constexpr Register::FieldValue<decltype(src1)::Type,Src1Val::input2> input2{};
+            constexpr Register::FieldValue<decltype(src1)::Type,Src1Val::input3> input3{};
+            constexpr Register::FieldValue<decltype(src1)::Type,Src1Val::input4> input4{};
+            constexpr Register::FieldValue<decltype(src1)::Type,Src1Val::input5> input5{};
+            constexpr Register::FieldValue<decltype(src1)::Type,Src1Val::input6> input6{};
+            constexpr Register::FieldValue<decltype(src1)::Type,Src1Val::input7> input7{};
         }
         ///Selects the input source for bit slice 2
         enum class Src2Val {
@@ -236,14 +214,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,14),Register::ReadWriteAccess,Src2Val> src2{}; 
         namespace Src2ValC{
-            constexpr Register::FieldValue<decltype(src2),Src2Val::input0> input0{};
-            constexpr Register::FieldValue<decltype(src2),Src2Val::input1> input1{};
-            constexpr Register::FieldValue<decltype(src2),Src2Val::input2> input2{};
-            constexpr Register::FieldValue<decltype(src2),Src2Val::input3> input3{};
-            constexpr Register::FieldValue<decltype(src2),Src2Val::input4> input4{};
-            constexpr Register::FieldValue<decltype(src2),Src2Val::input5> input5{};
-            constexpr Register::FieldValue<decltype(src2),Src2Val::input6> input6{};
-            constexpr Register::FieldValue<decltype(src2),Src2Val::input7> input7{};
+            constexpr Register::FieldValue<decltype(src2)::Type,Src2Val::input0> input0{};
+            constexpr Register::FieldValue<decltype(src2)::Type,Src2Val::input1> input1{};
+            constexpr Register::FieldValue<decltype(src2)::Type,Src2Val::input2> input2{};
+            constexpr Register::FieldValue<decltype(src2)::Type,Src2Val::input3> input3{};
+            constexpr Register::FieldValue<decltype(src2)::Type,Src2Val::input4> input4{};
+            constexpr Register::FieldValue<decltype(src2)::Type,Src2Val::input5> input5{};
+            constexpr Register::FieldValue<decltype(src2)::Type,Src2Val::input6> input6{};
+            constexpr Register::FieldValue<decltype(src2)::Type,Src2Val::input7> input7{};
         }
         ///Selects the input source for bit slice 3
         enum class Src3Val {
@@ -266,14 +244,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,17),Register::ReadWriteAccess,Src3Val> src3{}; 
         namespace Src3ValC{
-            constexpr Register::FieldValue<decltype(src3),Src3Val::input0> input0{};
-            constexpr Register::FieldValue<decltype(src3),Src3Val::input1> input1{};
-            constexpr Register::FieldValue<decltype(src3),Src3Val::input2> input2{};
-            constexpr Register::FieldValue<decltype(src3),Src3Val::input3> input3{};
-            constexpr Register::FieldValue<decltype(src3),Src3Val::input4> input4{};
-            constexpr Register::FieldValue<decltype(src3),Src3Val::input5> input5{};
-            constexpr Register::FieldValue<decltype(src3),Src3Val::input6> input6{};
-            constexpr Register::FieldValue<decltype(src3),Src3Val::input7> input7{};
+            constexpr Register::FieldValue<decltype(src3)::Type,Src3Val::input0> input0{};
+            constexpr Register::FieldValue<decltype(src3)::Type,Src3Val::input1> input1{};
+            constexpr Register::FieldValue<decltype(src3)::Type,Src3Val::input2> input2{};
+            constexpr Register::FieldValue<decltype(src3)::Type,Src3Val::input3> input3{};
+            constexpr Register::FieldValue<decltype(src3)::Type,Src3Val::input4> input4{};
+            constexpr Register::FieldValue<decltype(src3)::Type,Src3Val::input5> input5{};
+            constexpr Register::FieldValue<decltype(src3)::Type,Src3Val::input6> input6{};
+            constexpr Register::FieldValue<decltype(src3)::Type,Src3Val::input7> input7{};
         }
         ///Selects the input source for bit slice 4
         enum class Src4Val {
@@ -296,14 +274,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,Src4Val> src4{}; 
         namespace Src4ValC{
-            constexpr Register::FieldValue<decltype(src4),Src4Val::input0> input0{};
-            constexpr Register::FieldValue<decltype(src4),Src4Val::input1> input1{};
-            constexpr Register::FieldValue<decltype(src4),Src4Val::input2> input2{};
-            constexpr Register::FieldValue<decltype(src4),Src4Val::input3> input3{};
-            constexpr Register::FieldValue<decltype(src4),Src4Val::input4> input4{};
-            constexpr Register::FieldValue<decltype(src4),Src4Val::input5> input5{};
-            constexpr Register::FieldValue<decltype(src4),Src4Val::input6> input6{};
-            constexpr Register::FieldValue<decltype(src4),Src4Val::input7> input7{};
+            constexpr Register::FieldValue<decltype(src4)::Type,Src4Val::input0> input0{};
+            constexpr Register::FieldValue<decltype(src4)::Type,Src4Val::input1> input1{};
+            constexpr Register::FieldValue<decltype(src4)::Type,Src4Val::input2> input2{};
+            constexpr Register::FieldValue<decltype(src4)::Type,Src4Val::input3> input3{};
+            constexpr Register::FieldValue<decltype(src4)::Type,Src4Val::input4> input4{};
+            constexpr Register::FieldValue<decltype(src4)::Type,Src4Val::input5> input5{};
+            constexpr Register::FieldValue<decltype(src4)::Type,Src4Val::input6> input6{};
+            constexpr Register::FieldValue<decltype(src4)::Type,Src4Val::input7> input7{};
         }
         ///Selects the input source for bit slice 5
         enum class Src5Val {
@@ -326,14 +304,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,23),Register::ReadWriteAccess,Src5Val> src5{}; 
         namespace Src5ValC{
-            constexpr Register::FieldValue<decltype(src5),Src5Val::input0> input0{};
-            constexpr Register::FieldValue<decltype(src5),Src5Val::input1> input1{};
-            constexpr Register::FieldValue<decltype(src5),Src5Val::input2> input2{};
-            constexpr Register::FieldValue<decltype(src5),Src5Val::input3> input3{};
-            constexpr Register::FieldValue<decltype(src5),Src5Val::input4> input4{};
-            constexpr Register::FieldValue<decltype(src5),Src5Val::input5> input5{};
-            constexpr Register::FieldValue<decltype(src5),Src5Val::input6> input6{};
-            constexpr Register::FieldValue<decltype(src5),Src5Val::input7> input7{};
+            constexpr Register::FieldValue<decltype(src5)::Type,Src5Val::input0> input0{};
+            constexpr Register::FieldValue<decltype(src5)::Type,Src5Val::input1> input1{};
+            constexpr Register::FieldValue<decltype(src5)::Type,Src5Val::input2> input2{};
+            constexpr Register::FieldValue<decltype(src5)::Type,Src5Val::input3> input3{};
+            constexpr Register::FieldValue<decltype(src5)::Type,Src5Val::input4> input4{};
+            constexpr Register::FieldValue<decltype(src5)::Type,Src5Val::input5> input5{};
+            constexpr Register::FieldValue<decltype(src5)::Type,Src5Val::input6> input6{};
+            constexpr Register::FieldValue<decltype(src5)::Type,Src5Val::input7> input7{};
         }
         ///Selects the input source for bit slice 6
         enum class Src6Val {
@@ -356,14 +334,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,26),Register::ReadWriteAccess,Src6Val> src6{}; 
         namespace Src6ValC{
-            constexpr Register::FieldValue<decltype(src6),Src6Val::input0> input0{};
-            constexpr Register::FieldValue<decltype(src6),Src6Val::input1> input1{};
-            constexpr Register::FieldValue<decltype(src6),Src6Val::input2> input2{};
-            constexpr Register::FieldValue<decltype(src6),Src6Val::input3> input3{};
-            constexpr Register::FieldValue<decltype(src6),Src6Val::input4> input4{};
-            constexpr Register::FieldValue<decltype(src6),Src6Val::input5> input5{};
-            constexpr Register::FieldValue<decltype(src6),Src6Val::input6> input6{};
-            constexpr Register::FieldValue<decltype(src6),Src6Val::input7> input7{};
+            constexpr Register::FieldValue<decltype(src6)::Type,Src6Val::input0> input0{};
+            constexpr Register::FieldValue<decltype(src6)::Type,Src6Val::input1> input1{};
+            constexpr Register::FieldValue<decltype(src6)::Type,Src6Val::input2> input2{};
+            constexpr Register::FieldValue<decltype(src6)::Type,Src6Val::input3> input3{};
+            constexpr Register::FieldValue<decltype(src6)::Type,Src6Val::input4> input4{};
+            constexpr Register::FieldValue<decltype(src6)::Type,Src6Val::input5> input5{};
+            constexpr Register::FieldValue<decltype(src6)::Type,Src6Val::input6> input6{};
+            constexpr Register::FieldValue<decltype(src6)::Type,Src6Val::input7> input7{};
         }
         ///Selects the input source for bit slice 7
         enum class Src7Val {
@@ -386,14 +364,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,Src7Val> src7{}; 
         namespace Src7ValC{
-            constexpr Register::FieldValue<decltype(src7),Src7Val::input0> input0{};
-            constexpr Register::FieldValue<decltype(src7),Src7Val::input1> input1{};
-            constexpr Register::FieldValue<decltype(src7),Src7Val::input2> input2{};
-            constexpr Register::FieldValue<decltype(src7),Src7Val::input3> input3{};
-            constexpr Register::FieldValue<decltype(src7),Src7Val::input4> input4{};
-            constexpr Register::FieldValue<decltype(src7),Src7Val::input5> input5{};
-            constexpr Register::FieldValue<decltype(src7),Src7Val::input6> input6{};
-            constexpr Register::FieldValue<decltype(src7),Src7Val::input7> input7{};
+            constexpr Register::FieldValue<decltype(src7)::Type,Src7Val::input0> input0{};
+            constexpr Register::FieldValue<decltype(src7)::Type,Src7Val::input1> input1{};
+            constexpr Register::FieldValue<decltype(src7)::Type,Src7Val::input2> input2{};
+            constexpr Register::FieldValue<decltype(src7)::Type,Src7Val::input3> input3{};
+            constexpr Register::FieldValue<decltype(src7)::Type,Src7Val::input4> input4{};
+            constexpr Register::FieldValue<decltype(src7)::Type,Src7Val::input5> input5{};
+            constexpr Register::FieldValue<decltype(src7)::Type,Src7Val::input6> input6{};
+            constexpr Register::FieldValue<decltype(src7)::Type,Src7Val::input7> input7{};
         }
     }
     namespace Nonepmcfg{    ///<Pattern match interrupt bit slice configuration
@@ -409,8 +387,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Prodendpts0Val> prodEndpts0{}; 
         namespace Prodendpts0ValC{
-            constexpr Register::FieldValue<decltype(prodEndpts0),Prodendpts0Val::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(prodEndpts0),Prodendpts0Val::endpoint> endpoint{};
+            constexpr Register::FieldValue<decltype(prodEndpts0)::Type,Prodendpts0Val::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(prodEndpts0)::Type,Prodendpts0Val::endpoint> endpoint{};
         }
         ///Determines whether slice 1 is an endpoint.
         enum class Prodendpts1Val {
@@ -422,8 +400,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Prodendpts1Val> prodEndpts1{}; 
         namespace Prodendpts1ValC{
-            constexpr Register::FieldValue<decltype(prodEndpts1),Prodendpts1Val::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(prodEndpts1),Prodendpts1Val::endpoint> endpoint{};
+            constexpr Register::FieldValue<decltype(prodEndpts1)::Type,Prodendpts1Val::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(prodEndpts1)::Type,Prodendpts1Val::endpoint> endpoint{};
         }
         ///Determines whether slice 2 is an endpoint.
         enum class Prodendpts2Val {
@@ -435,8 +413,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Prodendpts2Val> prodEndpts2{}; 
         namespace Prodendpts2ValC{
-            constexpr Register::FieldValue<decltype(prodEndpts2),Prodendpts2Val::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(prodEndpts2),Prodendpts2Val::endpoint> endpoint{};
+            constexpr Register::FieldValue<decltype(prodEndpts2)::Type,Prodendpts2Val::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(prodEndpts2)::Type,Prodendpts2Val::endpoint> endpoint{};
         }
         ///Determines whether slice 3 is an endpoint.
         enum class Prodendpts3Val {
@@ -448,8 +426,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Prodendpts3Val> prodEndpts3{}; 
         namespace Prodendpts3ValC{
-            constexpr Register::FieldValue<decltype(prodEndpts3),Prodendpts3Val::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(prodEndpts3),Prodendpts3Val::endpoint> endpoint{};
+            constexpr Register::FieldValue<decltype(prodEndpts3)::Type,Prodendpts3Val::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(prodEndpts3)::Type,Prodendpts3Val::endpoint> endpoint{};
         }
         ///Determines whether slice 4 is an endpoint.
         enum class Prodendpts4Val {
@@ -461,8 +439,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Prodendpts4Val> prodEndpts4{}; 
         namespace Prodendpts4ValC{
-            constexpr Register::FieldValue<decltype(prodEndpts4),Prodendpts4Val::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(prodEndpts4),Prodendpts4Val::endpoint> endpoint{};
+            constexpr Register::FieldValue<decltype(prodEndpts4)::Type,Prodendpts4Val::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(prodEndpts4)::Type,Prodendpts4Val::endpoint> endpoint{};
         }
         ///Determines whether slice 5 is an endpoint.
         enum class Prodendpts5Val {
@@ -474,8 +452,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Prodendpts5Val> prodEndpts5{}; 
         namespace Prodendpts5ValC{
-            constexpr Register::FieldValue<decltype(prodEndpts5),Prodendpts5Val::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(prodEndpts5),Prodendpts5Val::endpoint> endpoint{};
+            constexpr Register::FieldValue<decltype(prodEndpts5)::Type,Prodendpts5Val::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(prodEndpts5)::Type,Prodendpts5Val::endpoint> endpoint{};
         }
         ///Determines whether slice 6 is an endpoint.
         enum class Prodendpts6Val {
@@ -487,8 +465,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Prodendpts6Val> prodEndpts6{}; 
         namespace Prodendpts6ValC{
-            constexpr Register::FieldValue<decltype(prodEndpts6),Prodendpts6Val::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(prodEndpts6),Prodendpts6Val::endpoint> endpoint{};
+            constexpr Register::FieldValue<decltype(prodEndpts6)::Type,Prodendpts6Val::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(prodEndpts6)::Type,Prodendpts6Val::endpoint> endpoint{};
         }
         ///Specifies the match contribution condition for bit slice
 								0.
@@ -526,14 +504,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,Cfg0Val> cfg0{}; 
         namespace Cfg0ValC{
-            constexpr Register::FieldValue<decltype(cfg0),Cfg0Val::constantHigh> constantHigh{};
-            constexpr Register::FieldValue<decltype(cfg0),Cfg0Val::stickyRisingEdge> stickyRisingEdge{};
-            constexpr Register::FieldValue<decltype(cfg0),Cfg0Val::stickyFallingEdge> stickyFallingEdge{};
-            constexpr Register::FieldValue<decltype(cfg0),Cfg0Val::stickyRisingOrFal> stickyRisingOrFal{};
-            constexpr Register::FieldValue<decltype(cfg0),Cfg0Val::highLevel> highLevel{};
-            constexpr Register::FieldValue<decltype(cfg0),Cfg0Val::lowLevel> lowLevel{};
-            constexpr Register::FieldValue<decltype(cfg0),Cfg0Val::constant0> constant0{};
-            constexpr Register::FieldValue<decltype(cfg0),Cfg0Val::event> event{};
+            constexpr Register::FieldValue<decltype(cfg0)::Type,Cfg0Val::constantHigh> constantHigh{};
+            constexpr Register::FieldValue<decltype(cfg0)::Type,Cfg0Val::stickyRisingEdge> stickyRisingEdge{};
+            constexpr Register::FieldValue<decltype(cfg0)::Type,Cfg0Val::stickyFallingEdge> stickyFallingEdge{};
+            constexpr Register::FieldValue<decltype(cfg0)::Type,Cfg0Val::stickyRisingOrFal> stickyRisingOrFal{};
+            constexpr Register::FieldValue<decltype(cfg0)::Type,Cfg0Val::highLevel> highLevel{};
+            constexpr Register::FieldValue<decltype(cfg0)::Type,Cfg0Val::lowLevel> lowLevel{};
+            constexpr Register::FieldValue<decltype(cfg0)::Type,Cfg0Val::constant0> constant0{};
+            constexpr Register::FieldValue<decltype(cfg0)::Type,Cfg0Val::event> event{};
         }
         ///Specifies the match contribution condition for bit slice
 								1.
@@ -571,14 +549,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,11),Register::ReadWriteAccess,Cfg1Val> cfg1{}; 
         namespace Cfg1ValC{
-            constexpr Register::FieldValue<decltype(cfg1),Cfg1Val::constantHigh> constantHigh{};
-            constexpr Register::FieldValue<decltype(cfg1),Cfg1Val::stickyRisingEdge> stickyRisingEdge{};
-            constexpr Register::FieldValue<decltype(cfg1),Cfg1Val::stickyFallingEdge> stickyFallingEdge{};
-            constexpr Register::FieldValue<decltype(cfg1),Cfg1Val::stickyRisingOrFal> stickyRisingOrFal{};
-            constexpr Register::FieldValue<decltype(cfg1),Cfg1Val::highLevel> highLevel{};
-            constexpr Register::FieldValue<decltype(cfg1),Cfg1Val::lowLevel> lowLevel{};
-            constexpr Register::FieldValue<decltype(cfg1),Cfg1Val::constant0> constant0{};
-            constexpr Register::FieldValue<decltype(cfg1),Cfg1Val::event> event{};
+            constexpr Register::FieldValue<decltype(cfg1)::Type,Cfg1Val::constantHigh> constantHigh{};
+            constexpr Register::FieldValue<decltype(cfg1)::Type,Cfg1Val::stickyRisingEdge> stickyRisingEdge{};
+            constexpr Register::FieldValue<decltype(cfg1)::Type,Cfg1Val::stickyFallingEdge> stickyFallingEdge{};
+            constexpr Register::FieldValue<decltype(cfg1)::Type,Cfg1Val::stickyRisingOrFal> stickyRisingOrFal{};
+            constexpr Register::FieldValue<decltype(cfg1)::Type,Cfg1Val::highLevel> highLevel{};
+            constexpr Register::FieldValue<decltype(cfg1)::Type,Cfg1Val::lowLevel> lowLevel{};
+            constexpr Register::FieldValue<decltype(cfg1)::Type,Cfg1Val::constant0> constant0{};
+            constexpr Register::FieldValue<decltype(cfg1)::Type,Cfg1Val::event> event{};
         }
         ///Specifies the match contribution condition for bit slice
 								2.
@@ -616,14 +594,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,14),Register::ReadWriteAccess,Cfg2Val> cfg2{}; 
         namespace Cfg2ValC{
-            constexpr Register::FieldValue<decltype(cfg2),Cfg2Val::constantHigh> constantHigh{};
-            constexpr Register::FieldValue<decltype(cfg2),Cfg2Val::stickyRisingEdge> stickyRisingEdge{};
-            constexpr Register::FieldValue<decltype(cfg2),Cfg2Val::stickyFallingEdge> stickyFallingEdge{};
-            constexpr Register::FieldValue<decltype(cfg2),Cfg2Val::stickyRisingOrFal> stickyRisingOrFal{};
-            constexpr Register::FieldValue<decltype(cfg2),Cfg2Val::highLevel> highLevel{};
-            constexpr Register::FieldValue<decltype(cfg2),Cfg2Val::lowLevel> lowLevel{};
-            constexpr Register::FieldValue<decltype(cfg2),Cfg2Val::constant0> constant0{};
-            constexpr Register::FieldValue<decltype(cfg2),Cfg2Val::event> event{};
+            constexpr Register::FieldValue<decltype(cfg2)::Type,Cfg2Val::constantHigh> constantHigh{};
+            constexpr Register::FieldValue<decltype(cfg2)::Type,Cfg2Val::stickyRisingEdge> stickyRisingEdge{};
+            constexpr Register::FieldValue<decltype(cfg2)::Type,Cfg2Val::stickyFallingEdge> stickyFallingEdge{};
+            constexpr Register::FieldValue<decltype(cfg2)::Type,Cfg2Val::stickyRisingOrFal> stickyRisingOrFal{};
+            constexpr Register::FieldValue<decltype(cfg2)::Type,Cfg2Val::highLevel> highLevel{};
+            constexpr Register::FieldValue<decltype(cfg2)::Type,Cfg2Val::lowLevel> lowLevel{};
+            constexpr Register::FieldValue<decltype(cfg2)::Type,Cfg2Val::constant0> constant0{};
+            constexpr Register::FieldValue<decltype(cfg2)::Type,Cfg2Val::event> event{};
         }
         ///Specifies the match contribution condition for bit slice
 								3.
@@ -661,14 +639,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,17),Register::ReadWriteAccess,Cfg3Val> cfg3{}; 
         namespace Cfg3ValC{
-            constexpr Register::FieldValue<decltype(cfg3),Cfg3Val::constantHigh> constantHigh{};
-            constexpr Register::FieldValue<decltype(cfg3),Cfg3Val::stickyRisingEdge> stickyRisingEdge{};
-            constexpr Register::FieldValue<decltype(cfg3),Cfg3Val::stickyFallingEdge> stickyFallingEdge{};
-            constexpr Register::FieldValue<decltype(cfg3),Cfg3Val::stickyRisingOrFal> stickyRisingOrFal{};
-            constexpr Register::FieldValue<decltype(cfg3),Cfg3Val::highLevel> highLevel{};
-            constexpr Register::FieldValue<decltype(cfg3),Cfg3Val::lowLevel> lowLevel{};
-            constexpr Register::FieldValue<decltype(cfg3),Cfg3Val::constant0> constant0{};
-            constexpr Register::FieldValue<decltype(cfg3),Cfg3Val::event> event{};
+            constexpr Register::FieldValue<decltype(cfg3)::Type,Cfg3Val::constantHigh> constantHigh{};
+            constexpr Register::FieldValue<decltype(cfg3)::Type,Cfg3Val::stickyRisingEdge> stickyRisingEdge{};
+            constexpr Register::FieldValue<decltype(cfg3)::Type,Cfg3Val::stickyFallingEdge> stickyFallingEdge{};
+            constexpr Register::FieldValue<decltype(cfg3)::Type,Cfg3Val::stickyRisingOrFal> stickyRisingOrFal{};
+            constexpr Register::FieldValue<decltype(cfg3)::Type,Cfg3Val::highLevel> highLevel{};
+            constexpr Register::FieldValue<decltype(cfg3)::Type,Cfg3Val::lowLevel> lowLevel{};
+            constexpr Register::FieldValue<decltype(cfg3)::Type,Cfg3Val::constant0> constant0{};
+            constexpr Register::FieldValue<decltype(cfg3)::Type,Cfg3Val::event> event{};
         }
         ///Specifies the match contribution condition for bit slice
 								4.
@@ -706,14 +684,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,Cfg4Val> cfg4{}; 
         namespace Cfg4ValC{
-            constexpr Register::FieldValue<decltype(cfg4),Cfg4Val::constantHigh> constantHigh{};
-            constexpr Register::FieldValue<decltype(cfg4),Cfg4Val::stickyRisingEdge> stickyRisingEdge{};
-            constexpr Register::FieldValue<decltype(cfg4),Cfg4Val::stickyFallingEdge> stickyFallingEdge{};
-            constexpr Register::FieldValue<decltype(cfg4),Cfg4Val::stickyRisingOrFal> stickyRisingOrFal{};
-            constexpr Register::FieldValue<decltype(cfg4),Cfg4Val::highLevel> highLevel{};
-            constexpr Register::FieldValue<decltype(cfg4),Cfg4Val::lowLevel> lowLevel{};
-            constexpr Register::FieldValue<decltype(cfg4),Cfg4Val::constant0> constant0{};
-            constexpr Register::FieldValue<decltype(cfg4),Cfg4Val::event> event{};
+            constexpr Register::FieldValue<decltype(cfg4)::Type,Cfg4Val::constantHigh> constantHigh{};
+            constexpr Register::FieldValue<decltype(cfg4)::Type,Cfg4Val::stickyRisingEdge> stickyRisingEdge{};
+            constexpr Register::FieldValue<decltype(cfg4)::Type,Cfg4Val::stickyFallingEdge> stickyFallingEdge{};
+            constexpr Register::FieldValue<decltype(cfg4)::Type,Cfg4Val::stickyRisingOrFal> stickyRisingOrFal{};
+            constexpr Register::FieldValue<decltype(cfg4)::Type,Cfg4Val::highLevel> highLevel{};
+            constexpr Register::FieldValue<decltype(cfg4)::Type,Cfg4Val::lowLevel> lowLevel{};
+            constexpr Register::FieldValue<decltype(cfg4)::Type,Cfg4Val::constant0> constant0{};
+            constexpr Register::FieldValue<decltype(cfg4)::Type,Cfg4Val::event> event{};
         }
         ///Specifies the match contribution condition for bit slice
 								5.
@@ -751,14 +729,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,23),Register::ReadWriteAccess,Cfg5Val> cfg5{}; 
         namespace Cfg5ValC{
-            constexpr Register::FieldValue<decltype(cfg5),Cfg5Val::constantHigh> constantHigh{};
-            constexpr Register::FieldValue<decltype(cfg5),Cfg5Val::stickyRisingEdge> stickyRisingEdge{};
-            constexpr Register::FieldValue<decltype(cfg5),Cfg5Val::stickyFallingEdge> stickyFallingEdge{};
-            constexpr Register::FieldValue<decltype(cfg5),Cfg5Val::stickyRisingOrFal> stickyRisingOrFal{};
-            constexpr Register::FieldValue<decltype(cfg5),Cfg5Val::highLevel> highLevel{};
-            constexpr Register::FieldValue<decltype(cfg5),Cfg5Val::lowLevel> lowLevel{};
-            constexpr Register::FieldValue<decltype(cfg5),Cfg5Val::constant0> constant0{};
-            constexpr Register::FieldValue<decltype(cfg5),Cfg5Val::event> event{};
+            constexpr Register::FieldValue<decltype(cfg5)::Type,Cfg5Val::constantHigh> constantHigh{};
+            constexpr Register::FieldValue<decltype(cfg5)::Type,Cfg5Val::stickyRisingEdge> stickyRisingEdge{};
+            constexpr Register::FieldValue<decltype(cfg5)::Type,Cfg5Val::stickyFallingEdge> stickyFallingEdge{};
+            constexpr Register::FieldValue<decltype(cfg5)::Type,Cfg5Val::stickyRisingOrFal> stickyRisingOrFal{};
+            constexpr Register::FieldValue<decltype(cfg5)::Type,Cfg5Val::highLevel> highLevel{};
+            constexpr Register::FieldValue<decltype(cfg5)::Type,Cfg5Val::lowLevel> lowLevel{};
+            constexpr Register::FieldValue<decltype(cfg5)::Type,Cfg5Val::constant0> constant0{};
+            constexpr Register::FieldValue<decltype(cfg5)::Type,Cfg5Val::event> event{};
         }
         ///Specifies the match contribution condition for bit slice
 								6.
@@ -796,14 +774,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,26),Register::ReadWriteAccess,Cfg6Val> cfg6{}; 
         namespace Cfg6ValC{
-            constexpr Register::FieldValue<decltype(cfg6),Cfg6Val::constantHigh> constantHigh{};
-            constexpr Register::FieldValue<decltype(cfg6),Cfg6Val::stickyRisingEdge> stickyRisingEdge{};
-            constexpr Register::FieldValue<decltype(cfg6),Cfg6Val::stickyFallingEdge> stickyFallingEdge{};
-            constexpr Register::FieldValue<decltype(cfg6),Cfg6Val::stickyRisingOrFal> stickyRisingOrFal{};
-            constexpr Register::FieldValue<decltype(cfg6),Cfg6Val::highLevel> highLevel{};
-            constexpr Register::FieldValue<decltype(cfg6),Cfg6Val::lowLevel> lowLevel{};
-            constexpr Register::FieldValue<decltype(cfg6),Cfg6Val::constant0> constant0{};
-            constexpr Register::FieldValue<decltype(cfg6),Cfg6Val::event> event{};
+            constexpr Register::FieldValue<decltype(cfg6)::Type,Cfg6Val::constantHigh> constantHigh{};
+            constexpr Register::FieldValue<decltype(cfg6)::Type,Cfg6Val::stickyRisingEdge> stickyRisingEdge{};
+            constexpr Register::FieldValue<decltype(cfg6)::Type,Cfg6Val::stickyFallingEdge> stickyFallingEdge{};
+            constexpr Register::FieldValue<decltype(cfg6)::Type,Cfg6Val::stickyRisingOrFal> stickyRisingOrFal{};
+            constexpr Register::FieldValue<decltype(cfg6)::Type,Cfg6Val::highLevel> highLevel{};
+            constexpr Register::FieldValue<decltype(cfg6)::Type,Cfg6Val::lowLevel> lowLevel{};
+            constexpr Register::FieldValue<decltype(cfg6)::Type,Cfg6Val::constant0> constant0{};
+            constexpr Register::FieldValue<decltype(cfg6)::Type,Cfg6Val::event> event{};
         }
         ///Specifies the match contribution condition for bit slice
 								7.
@@ -841,14 +819,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,29),Register::ReadWriteAccess,Cfg7Val> cfg7{}; 
         namespace Cfg7ValC{
-            constexpr Register::FieldValue<decltype(cfg7),Cfg7Val::constantHigh> constantHigh{};
-            constexpr Register::FieldValue<decltype(cfg7),Cfg7Val::stickyRisingEdge> stickyRisingEdge{};
-            constexpr Register::FieldValue<decltype(cfg7),Cfg7Val::stickyFallingEdge> stickyFallingEdge{};
-            constexpr Register::FieldValue<decltype(cfg7),Cfg7Val::stickyRisingOrFal> stickyRisingOrFal{};
-            constexpr Register::FieldValue<decltype(cfg7),Cfg7Val::highLevel> highLevel{};
-            constexpr Register::FieldValue<decltype(cfg7),Cfg7Val::lowLevel> lowLevel{};
-            constexpr Register::FieldValue<decltype(cfg7),Cfg7Val::constant0> constant0{};
-            constexpr Register::FieldValue<decltype(cfg7),Cfg7Val::event> event{};
+            constexpr Register::FieldValue<decltype(cfg7)::Type,Cfg7Val::constantHigh> constantHigh{};
+            constexpr Register::FieldValue<decltype(cfg7)::Type,Cfg7Val::stickyRisingEdge> stickyRisingEdge{};
+            constexpr Register::FieldValue<decltype(cfg7)::Type,Cfg7Val::stickyFallingEdge> stickyFallingEdge{};
+            constexpr Register::FieldValue<decltype(cfg7)::Type,Cfg7Val::stickyRisingOrFal> stickyRisingOrFal{};
+            constexpr Register::FieldValue<decltype(cfg7)::Type,Cfg7Val::highLevel> highLevel{};
+            constexpr Register::FieldValue<decltype(cfg7)::Type,Cfg7Val::lowLevel> lowLevel{};
+            constexpr Register::FieldValue<decltype(cfg7)::Type,Cfg7Val::constant0> constant0{};
+            constexpr Register::FieldValue<decltype(cfg7)::Type,Cfg7Val::event> event{};
         }
     }
 }

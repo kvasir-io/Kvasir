@@ -6,8 +6,6 @@ namespace Kvasir {
         using Addr = Register::Address<0x4001e000,0xffff8000,0,unsigned>;
         ///Pulse Generator Counter. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> count{}; 
-        namespace CountValC{
-        }
         ///Speed Select. 
         enum class SselVal {
             normal=0x00000000,     ///<The SSG module runs at normal speed, where each pulse and phase cycle consists of 16 ADC clocks.
@@ -15,8 +13,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,SselVal> ssel{}; 
         namespace SselValC{
-            constexpr Register::FieldValue<decltype(ssel),SselVal::normal> normal{};
-            constexpr Register::FieldValue<decltype(ssel),SselVal::double_> double_{};
+            constexpr Register::FieldValue<decltype(ssel)::Type,SselVal::normal> normal{};
+            constexpr Register::FieldValue<decltype(ssel)::Type,SselVal::double_> double_{};
         }
         ///Phase Generator Free-Run Enable. 
         enum class PhgfrenVal {
@@ -25,8 +23,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,PhgfrenVal> phgfren{}; 
         namespace PhgfrenValC{
-            constexpr Register::FieldValue<decltype(phgfren),PhgfrenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(phgfren),PhgfrenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(phgfren)::Type,PhgfrenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(phgfren)::Type,PhgfrenVal::enabled> enabled{};
         }
         ///Pulse Generator Free-Run Enable. 
         enum class PugfrenVal {
@@ -35,8 +33,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,PugfrenVal> pugfren{}; 
         namespace PugfrenValC{
-            constexpr Register::FieldValue<decltype(pugfren),PugfrenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(pugfren),PugfrenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(pugfren)::Type,PugfrenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(pugfren)::Type,PugfrenVal::enabled> enabled{};
         }
     }
     namespace Nonecontrol{    ///<Module Control
@@ -48,8 +46,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ex0invenVal> ex0inven{}; 
         namespace Ex0invenValC{
-            constexpr Register::FieldValue<decltype(ex0inven),Ex0invenVal::normal> normal{};
-            constexpr Register::FieldValue<decltype(ex0inven),Ex0invenVal::invert> invert{};
+            constexpr Register::FieldValue<decltype(ex0inven)::Type,Ex0invenVal::normal> normal{};
+            constexpr Register::FieldValue<decltype(ex0inven)::Type,Ex0invenVal::invert> invert{};
         }
         ///Output 1 Invert Enable. 
         enum class Ex1invenVal {
@@ -58,8 +56,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Ex1invenVal> ex1inven{}; 
         namespace Ex1invenValC{
-            constexpr Register::FieldValue<decltype(ex1inven),Ex1invenVal::normal> normal{};
-            constexpr Register::FieldValue<decltype(ex1inven),Ex1invenVal::invert> invert{};
+            constexpr Register::FieldValue<decltype(ex1inven)::Type,Ex1invenVal::normal> normal{};
+            constexpr Register::FieldValue<decltype(ex1inven)::Type,Ex1invenVal::invert> invert{};
         }
         ///Output 2 Invert Enable. 
         enum class Ex2invenVal {
@@ -68,8 +66,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Ex2invenVal> ex2inven{}; 
         namespace Ex2invenValC{
-            constexpr Register::FieldValue<decltype(ex2inven),Ex2invenVal::normal> normal{};
-            constexpr Register::FieldValue<decltype(ex2inven),Ex2invenVal::invert> invert{};
+            constexpr Register::FieldValue<decltype(ex2inven)::Type,Ex2invenVal::normal> normal{};
+            constexpr Register::FieldValue<decltype(ex2inven)::Type,Ex2invenVal::invert> invert{};
         }
         ///Output 3 Invert Enable. 
         enum class Ex3invenVal {
@@ -78,8 +76,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ex3invenVal> ex3inven{}; 
         namespace Ex3invenValC{
-            constexpr Register::FieldValue<decltype(ex3inven),Ex3invenVal::normal> normal{};
-            constexpr Register::FieldValue<decltype(ex3inven),Ex3invenVal::invert> invert{};
+            constexpr Register::FieldValue<decltype(ex3inven)::Type,Ex3invenVal::normal> normal{};
+            constexpr Register::FieldValue<decltype(ex3inven)::Type,Ex3invenVal::invert> invert{};
         }
         ///Output 0 Enable. 
         enum class Ex0enVal {
@@ -88,8 +86,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Ex0enVal> ex0en{}; 
         namespace Ex0enValC{
-            constexpr Register::FieldValue<decltype(ex0en),Ex0enVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(ex0en),Ex0enVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ex0en)::Type,Ex0enVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ex0en)::Type,Ex0enVal::enabled> enabled{};
         }
         ///Output 1 Enable. 
         enum class Ex1enVal {
@@ -98,8 +96,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Ex1enVal> ex1en{}; 
         namespace Ex1enValC{
-            constexpr Register::FieldValue<decltype(ex1en),Ex1enVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(ex1en),Ex1enVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ex1en)::Type,Ex1enVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ex1en)::Type,Ex1enVal::enabled> enabled{};
         }
         ///Output 2 Enable. 
         enum class Ex2enVal {
@@ -108,8 +106,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Ex2enVal> ex2en{}; 
         namespace Ex2enValC{
-            constexpr Register::FieldValue<decltype(ex2en),Ex2enVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(ex2en),Ex2enVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ex2en)::Type,Ex2enVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ex2en)::Type,Ex2enVal::enabled> enabled{};
         }
         ///Output 3 Enable. 
         enum class Ex3enVal {
@@ -118,8 +116,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ex3enVal> ex3en{}; 
         namespace Ex3enValC{
-            constexpr Register::FieldValue<decltype(ex3en),Ex3enVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(ex3en),Ex3enVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ex3en)::Type,Ex3enVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ex3en)::Type,Ex3enVal::enabled> enabled{};
         }
         ///SSG Module Status. 
         enum class StatusVal {
@@ -128,8 +126,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,StatusVal> status{}; 
         namespace StatusValC{
-            constexpr Register::FieldValue<decltype(status),StatusVal::idle> idle{};
-            constexpr Register::FieldValue<decltype(status),StatusVal::active> active{};
+            constexpr Register::FieldValue<decltype(status)::Type,StatusVal::idle> idle{};
+            constexpr Register::FieldValue<decltype(status)::Type,StatusVal::active> active{};
         }
     }
 }

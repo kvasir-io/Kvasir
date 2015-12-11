@@ -13,10 +13,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,HystctrVal> hystctr{}; 
         namespace HystctrValC{
-            constexpr Register::FieldValue<decltype(hystctr),HystctrVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(hystctr),HystctrVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(hystctr),HystctrVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(hystctr),HystctrVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(hystctr)::Type,HystctrVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(hystctr)::Type,HystctrVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(hystctr)::Type,HystctrVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(hystctr)::Type,HystctrVal::v11> v11{};
         }
         ///Filter Sample Count
         enum class FiltercntVal {
@@ -31,14 +31,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,FiltercntVal> filterCnt{}; 
         namespace FiltercntValC{
-            constexpr Register::FieldValue<decltype(filterCnt),FiltercntVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(filterCnt),FiltercntVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(filterCnt),FiltercntVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(filterCnt),FiltercntVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(filterCnt),FiltercntVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(filterCnt),FiltercntVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(filterCnt),FiltercntVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(filterCnt),FiltercntVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(filterCnt)::Type,FiltercntVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(filterCnt)::Type,FiltercntVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(filterCnt)::Type,FiltercntVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(filterCnt)::Type,FiltercntVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(filterCnt)::Type,FiltercntVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(filterCnt)::Type,FiltercntVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(filterCnt)::Type,FiltercntVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(filterCnt)::Type,FiltercntVal::v111> v111{};
         }
     }
     namespace Cmp1Cr1{    ///<CMP Control Register 1
@@ -50,8 +50,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EnVal> en{}; 
         namespace EnValC{
-            constexpr Register::FieldValue<decltype(en),EnVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(en),EnVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(en)::Type,EnVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(en)::Type,EnVal::v1> v1{};
         }
         ///Comparator Output Pin Enable
         enum class OpeVal {
@@ -60,8 +60,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,OpeVal> ope{}; 
         namespace OpeValC{
-            constexpr Register::FieldValue<decltype(ope),OpeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ope),OpeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ope)::Type,OpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ope)::Type,OpeVal::v1> v1{};
         }
         ///Comparator Output Select
         enum class CosVal {
@@ -70,8 +70,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,CosVal> cos{}; 
         namespace CosValC{
-            constexpr Register::FieldValue<decltype(cos),CosVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(cos),CosVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(cos)::Type,CosVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cos)::Type,CosVal::v1> v1{};
         }
         ///Comparator INVERT
         enum class InvVal {
@@ -80,8 +80,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::v1> v1{};
         }
         ///Power Mode Select
         enum class PmodeVal {
@@ -90,8 +90,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,PmodeVal> pmode{}; 
         namespace PmodeValC{
-            constexpr Register::FieldValue<decltype(pmode),PmodeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(pmode),PmodeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(pmode)::Type,PmodeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pmode)::Type,PmodeVal::v1> v1{};
         }
         ///Windowing Enable
         enum class WeVal {
@@ -100,8 +100,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,WeVal> we{}; 
         namespace WeValC{
-            constexpr Register::FieldValue<decltype(we),WeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(we),WeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(we)::Type,WeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(we)::Type,WeVal::v1> v1{};
         }
         ///Sample Enable
         enum class SeVal {
@@ -110,23 +110,19 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SeVal> se{}; 
         namespace SeValC{
-            constexpr Register::FieldValue<decltype(se),SeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(se),SeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(se)::Type,SeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(se)::Type,SeVal::v1> v1{};
         }
     }
     namespace Cmp1Fpr{    ///<CMP Filter Period Register
         using Addr = Register::Address<0x4007300a,0xffffff00,0,unsigned char>;
         ///Filter Sample Period
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> filtPer{}; 
-        namespace FiltperValC{
-        }
     }
     namespace Cmp1Scr{    ///<CMP Status and Control Register
         using Addr = Register::Address<0x4007300b,0xffffffa0,0,unsigned char>;
         ///Analog Comparator Output
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cout{}; 
-        namespace CoutValC{
-        }
         ///Analog Comparator Flag Falling
         enum class CffVal {
             v0=0x00000000,     ///<Falling-edge on COUT has not been detected.
@@ -134,8 +130,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,CffVal> cff{}; 
         namespace CffValC{
-            constexpr Register::FieldValue<decltype(cff),CffVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(cff),CffVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(cff)::Type,CffVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cff)::Type,CffVal::v1> v1{};
         }
         ///Analog Comparator Flag Rising
         enum class CfrVal {
@@ -144,8 +140,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,CfrVal> cfr{}; 
         namespace CfrValC{
-            constexpr Register::FieldValue<decltype(cfr),CfrVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(cfr),CfrVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(cfr)::Type,CfrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cfr)::Type,CfrVal::v1> v1{};
         }
         ///Comparator Interrupt Enable Falling
         enum class IefVal {
@@ -154,8 +150,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,IefVal> ief{}; 
         namespace IefValC{
-            constexpr Register::FieldValue<decltype(ief),IefVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ief),IefVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ief)::Type,IefVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ief)::Type,IefVal::v1> v1{};
         }
         ///Comparator Interrupt Enable Rising
         enum class IerVal {
@@ -164,8 +160,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,IerVal> ier{}; 
         namespace IerValC{
-            constexpr Register::FieldValue<decltype(ier),IerVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ier),IerVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ier)::Type,IerVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ier)::Type,IerVal::v1> v1{};
         }
         ///DMA Enable Control
         enum class DmaenVal {
@@ -174,16 +170,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,DmaenVal> dmaen{}; 
         namespace DmaenValC{
-            constexpr Register::FieldValue<decltype(dmaen),DmaenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dmaen),DmaenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v1> v1{};
         }
     }
     namespace Cmp1Daccr{    ///<DAC Control Register
         using Addr = Register::Address<0x4007300c,0xffffff00,0,unsigned char>;
         ///DAC Output Voltage Select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> vosel{}; 
-        namespace VoselValC{
-        }
         ///Supply Voltage Reference Source Select
         enum class VrselVal {
             v0=0x00000000,     ///<V is selected as resistor ladder network supply reference V. in1 in
@@ -191,8 +185,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,VrselVal> vrsel{}; 
         namespace VrselValC{
-            constexpr Register::FieldValue<decltype(vrsel),VrselVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(vrsel),VrselVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(vrsel)::Type,VrselVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(vrsel)::Type,VrselVal::v1> v1{};
         }
         ///DAC Enable
         enum class DacenVal {
@@ -201,8 +195,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,DacenVal> dacen{}; 
         namespace DacenValC{
-            constexpr Register::FieldValue<decltype(dacen),DacenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dacen),DacenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(dacen)::Type,DacenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(dacen)::Type,DacenVal::v1> v1{};
         }
     }
     namespace Cmp1Muxcr{    ///<MUX Control Register
@@ -220,14 +214,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,MselVal> msel{}; 
         namespace MselValC{
-            constexpr Register::FieldValue<decltype(msel),MselVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(msel),MselVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(msel),MselVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(msel),MselVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(msel),MselVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(msel),MselVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(msel),MselVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(msel),MselVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(msel)::Type,MselVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(msel)::Type,MselVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(msel)::Type,MselVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(msel)::Type,MselVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(msel)::Type,MselVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(msel)::Type,MselVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(msel)::Type,MselVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(msel)::Type,MselVal::v111> v111{};
         }
         ///Plus Input Mux Control
         enum class PselVal {
@@ -242,14 +236,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,3),Register::ReadWriteAccess,PselVal> psel{}; 
         namespace PselValC{
-            constexpr Register::FieldValue<decltype(psel),PselVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(psel),PselVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::v111> v111{};
         }
         ///Pass Through Mode Enable
         enum class PstmVal {
@@ -258,8 +252,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,PstmVal> pstm{}; 
         namespace PstmValC{
-            constexpr Register::FieldValue<decltype(pstm),PstmVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(pstm),PstmVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(pstm)::Type,PstmVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(pstm)::Type,PstmVal::v1> v1{};
         }
     }
 }

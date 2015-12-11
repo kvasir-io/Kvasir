@@ -11,8 +11,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,VroffVal> vroff{}; 
         namespace VroffValC{
-            constexpr Register::FieldValue<decltype(vroff),VroffVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(vroff),VroffVal::stopVreg> stopVreg{};
+            constexpr Register::FieldValue<decltype(vroff)::Type,VroffVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(vroff)::Type,VroffVal::stopVreg> stopVreg{};
         }
         ///Crystal Oscillator Select
         enum class XtalselVal {
@@ -21,13 +21,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,XtalselVal> xtalsel{}; 
         namespace XtalselValC{
-            constexpr Register::FieldValue<decltype(xtalsel),XtalselVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(xtalsel),XtalselVal::crystalSel> crystalSel{};
+            constexpr Register::FieldValue<decltype(xtalsel)::Type,XtalselVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(xtalsel)::Type,XtalselVal::crystalSel> crystalSel{};
         }
         ///Password
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> key{}; 
-        namespace KeyValC{
-        }
     }
     namespace SupcSmmr{    ///<Supply Controller Supply Monitor Mode Register
         using Addr = Register::Address<0x400e1414,0xffffc8f0,0,unsigned>;
@@ -52,22 +50,22 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,SmthVal> smth{}; 
         namespace SmthValC{
-            constexpr Register::FieldValue<decltype(smth),SmthVal::v19v> v19v{};
-            constexpr Register::FieldValue<decltype(smth),SmthVal::v20v> v20v{};
-            constexpr Register::FieldValue<decltype(smth),SmthVal::v21v> v21v{};
-            constexpr Register::FieldValue<decltype(smth),SmthVal::v22v> v22v{};
-            constexpr Register::FieldValue<decltype(smth),SmthVal::v23v> v23v{};
-            constexpr Register::FieldValue<decltype(smth),SmthVal::v24v> v24v{};
-            constexpr Register::FieldValue<decltype(smth),SmthVal::v25v> v25v{};
-            constexpr Register::FieldValue<decltype(smth),SmthVal::v26v> v26v{};
-            constexpr Register::FieldValue<decltype(smth),SmthVal::v27v> v27v{};
-            constexpr Register::FieldValue<decltype(smth),SmthVal::v28v> v28v{};
-            constexpr Register::FieldValue<decltype(smth),SmthVal::v29v> v29v{};
-            constexpr Register::FieldValue<decltype(smth),SmthVal::v30v> v30v{};
-            constexpr Register::FieldValue<decltype(smth),SmthVal::v31v> v31v{};
-            constexpr Register::FieldValue<decltype(smth),SmthVal::v32v> v32v{};
-            constexpr Register::FieldValue<decltype(smth),SmthVal::v33v> v33v{};
-            constexpr Register::FieldValue<decltype(smth),SmthVal::v34v> v34v{};
+            constexpr Register::FieldValue<decltype(smth)::Type,SmthVal::v19v> v19v{};
+            constexpr Register::FieldValue<decltype(smth)::Type,SmthVal::v20v> v20v{};
+            constexpr Register::FieldValue<decltype(smth)::Type,SmthVal::v21v> v21v{};
+            constexpr Register::FieldValue<decltype(smth)::Type,SmthVal::v22v> v22v{};
+            constexpr Register::FieldValue<decltype(smth)::Type,SmthVal::v23v> v23v{};
+            constexpr Register::FieldValue<decltype(smth)::Type,SmthVal::v24v> v24v{};
+            constexpr Register::FieldValue<decltype(smth)::Type,SmthVal::v25v> v25v{};
+            constexpr Register::FieldValue<decltype(smth)::Type,SmthVal::v26v> v26v{};
+            constexpr Register::FieldValue<decltype(smth)::Type,SmthVal::v27v> v27v{};
+            constexpr Register::FieldValue<decltype(smth)::Type,SmthVal::v28v> v28v{};
+            constexpr Register::FieldValue<decltype(smth)::Type,SmthVal::v29v> v29v{};
+            constexpr Register::FieldValue<decltype(smth)::Type,SmthVal::v30v> v30v{};
+            constexpr Register::FieldValue<decltype(smth)::Type,SmthVal::v31v> v31v{};
+            constexpr Register::FieldValue<decltype(smth)::Type,SmthVal::v32v> v32v{};
+            constexpr Register::FieldValue<decltype(smth)::Type,SmthVal::v33v> v33v{};
+            constexpr Register::FieldValue<decltype(smth)::Type,SmthVal::v34v> v34v{};
         }
         ///Supply Monitor Sampling Period
         enum class SmsmplVal {
@@ -79,11 +77,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,SmsmplVal> smsmpl{}; 
         namespace SmsmplValC{
-            constexpr Register::FieldValue<decltype(smsmpl),SmsmplVal::smd> smd{};
-            constexpr Register::FieldValue<decltype(smsmpl),SmsmplVal::csm> csm{};
-            constexpr Register::FieldValue<decltype(smsmpl),SmsmplVal::v32slck> v32slck{};
-            constexpr Register::FieldValue<decltype(smsmpl),SmsmplVal::v256slck> v256slck{};
-            constexpr Register::FieldValue<decltype(smsmpl),SmsmplVal::v2048slck> v2048slck{};
+            constexpr Register::FieldValue<decltype(smsmpl)::Type,SmsmplVal::smd> smd{};
+            constexpr Register::FieldValue<decltype(smsmpl)::Type,SmsmplVal::csm> csm{};
+            constexpr Register::FieldValue<decltype(smsmpl)::Type,SmsmplVal::v32slck> v32slck{};
+            constexpr Register::FieldValue<decltype(smsmpl)::Type,SmsmplVal::v256slck> v256slck{};
+            constexpr Register::FieldValue<decltype(smsmpl)::Type,SmsmplVal::v2048slck> v2048slck{};
         }
         ///Supply Monitor Reset Enable
         enum class SmrstenVal {
@@ -92,8 +90,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,SmrstenVal> smrsten{}; 
         namespace SmrstenValC{
-            constexpr Register::FieldValue<decltype(smrsten),SmrstenVal::notEnable> notEnable{};
-            constexpr Register::FieldValue<decltype(smrsten),SmrstenVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(smrsten)::Type,SmrstenVal::notEnable> notEnable{};
+            constexpr Register::FieldValue<decltype(smrsten)::Type,SmrstenVal::enable> enable{};
         }
         ///Supply Monitor Interrupt Enable
         enum class SmienVal {
@@ -102,8 +100,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,SmienVal> smien{}; 
         namespace SmienValC{
-            constexpr Register::FieldValue<decltype(smien),SmienVal::notEnable> notEnable{};
-            constexpr Register::FieldValue<decltype(smien),SmienVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(smien)::Type,SmienVal::notEnable> notEnable{};
+            constexpr Register::FieldValue<decltype(smien)::Type,SmienVal::enable> enable{};
         }
     }
     namespace SupcMr{    ///<Supply Controller Mode Register
@@ -115,8 +113,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,BodrstenVal> bodrsten{}; 
         namespace BodrstenValC{
-            constexpr Register::FieldValue<decltype(bodrsten),BodrstenVal::notEnable> notEnable{};
-            constexpr Register::FieldValue<decltype(bodrsten),BodrstenVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(bodrsten)::Type,BodrstenVal::notEnable> notEnable{};
+            constexpr Register::FieldValue<decltype(bodrsten)::Type,BodrstenVal::enable> enable{};
         }
         ///Brownout Detector Disable
         enum class BoddisVal {
@@ -125,8 +123,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,BoddisVal> boddis{}; 
         namespace BoddisValC{
-            constexpr Register::FieldValue<decltype(boddis),BoddisVal::enable> enable{};
-            constexpr Register::FieldValue<decltype(boddis),BoddisVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(boddis)::Type,BoddisVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(boddis)::Type,BoddisVal::disable> disable{};
         }
         ///Voltage Regulator enable
         enum class OnregVal {
@@ -135,8 +133,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,OnregVal> onreg{}; 
         namespace OnregValC{
-            constexpr Register::FieldValue<decltype(onreg),OnregVal::onregUnused> onregUnused{};
-            constexpr Register::FieldValue<decltype(onreg),OnregVal::onregUsed> onregUsed{};
+            constexpr Register::FieldValue<decltype(onreg)::Type,OnregVal::onregUnused> onregUnused{};
+            constexpr Register::FieldValue<decltype(onreg)::Type,OnregVal::onregUsed> onregUsed{};
         }
         ///Oscillator Bypass
         enum class OscbypassVal {
@@ -145,13 +143,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,OscbypassVal> oscbypass{}; 
         namespace OscbypassValC{
-            constexpr Register::FieldValue<decltype(oscbypass),OscbypassVal::noEffect> noEffect{};
-            constexpr Register::FieldValue<decltype(oscbypass),OscbypassVal::bypass> bypass{};
+            constexpr Register::FieldValue<decltype(oscbypass)::Type,OscbypassVal::noEffect> noEffect{};
+            constexpr Register::FieldValue<decltype(oscbypass)::Type,OscbypassVal::bypass> bypass{};
         }
         ///Password Key
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> key{}; 
-        namespace KeyValC{
-        }
     }
     namespace SupcWumr{    ///<Supply Controller Wake Up Mode Register
         using Addr = Register::Address<0x400e141c,0xffff8ff1,0,unsigned>;
@@ -162,8 +158,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,SmenVal> smen{}; 
         namespace SmenValC{
-            constexpr Register::FieldValue<decltype(smen),SmenVal::notEnable> notEnable{};
-            constexpr Register::FieldValue<decltype(smen),SmenVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(smen)::Type,SmenVal::notEnable> notEnable{};
+            constexpr Register::FieldValue<decltype(smen)::Type,SmenVal::enable> enable{};
         }
         ///Real Time Timer Wake Up Enable
         enum class RttenVal {
@@ -172,8 +168,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,RttenVal> rtten{}; 
         namespace RttenValC{
-            constexpr Register::FieldValue<decltype(rtten),RttenVal::notEnable> notEnable{};
-            constexpr Register::FieldValue<decltype(rtten),RttenVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(rtten)::Type,RttenVal::notEnable> notEnable{};
+            constexpr Register::FieldValue<decltype(rtten)::Type,RttenVal::enable> enable{};
         }
         ///Real Time Clock Wake Up Enable
         enum class RtcenVal {
@@ -182,8 +178,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,RtcenVal> rtcen{}; 
         namespace RtcenValC{
-            constexpr Register::FieldValue<decltype(rtcen),RtcenVal::notEnable> notEnable{};
-            constexpr Register::FieldValue<decltype(rtcen),RtcenVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(rtcen)::Type,RtcenVal::notEnable> notEnable{};
+            constexpr Register::FieldValue<decltype(rtcen)::Type,RtcenVal::enable> enable{};
         }
         ///Wake Up Inputs Debouncer Period
         enum class WkupdbcVal {
@@ -196,12 +192,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,WkupdbcVal> wkupdbc{}; 
         namespace WkupdbcValC{
-            constexpr Register::FieldValue<decltype(wkupdbc),WkupdbcVal::immediate> immediate{};
-            constexpr Register::FieldValue<decltype(wkupdbc),WkupdbcVal::v3Sclk> v3Sclk{};
-            constexpr Register::FieldValue<decltype(wkupdbc),WkupdbcVal::v32Sclk> v32Sclk{};
-            constexpr Register::FieldValue<decltype(wkupdbc),WkupdbcVal::v512Sclk> v512Sclk{};
-            constexpr Register::FieldValue<decltype(wkupdbc),WkupdbcVal::v4096Sclk> v4096Sclk{};
-            constexpr Register::FieldValue<decltype(wkupdbc),WkupdbcVal::v32768Sclk> v32768Sclk{};
+            constexpr Register::FieldValue<decltype(wkupdbc)::Type,WkupdbcVal::immediate> immediate{};
+            constexpr Register::FieldValue<decltype(wkupdbc)::Type,WkupdbcVal::v3Sclk> v3Sclk{};
+            constexpr Register::FieldValue<decltype(wkupdbc)::Type,WkupdbcVal::v32Sclk> v32Sclk{};
+            constexpr Register::FieldValue<decltype(wkupdbc)::Type,WkupdbcVal::v512Sclk> v512Sclk{};
+            constexpr Register::FieldValue<decltype(wkupdbc)::Type,WkupdbcVal::v4096Sclk> v4096Sclk{};
+            constexpr Register::FieldValue<decltype(wkupdbc)::Type,WkupdbcVal::v32768Sclk> v32768Sclk{};
         }
     }
     namespace SupcWuir{    ///<Supply Controller Wake Up Inputs Register
@@ -213,8 +209,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Wkupen0Val> wkupen0{}; 
         namespace Wkupen0ValC{
-            constexpr Register::FieldValue<decltype(wkupen0),Wkupen0Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(wkupen0),Wkupen0Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(wkupen0)::Type,Wkupen0Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(wkupen0)::Type,Wkupen0Val::enable> enable{};
         }
         ///Wake Up Input Enable 1
         enum class Wkupen1Val {
@@ -223,8 +219,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Wkupen1Val> wkupen1{}; 
         namespace Wkupen1ValC{
-            constexpr Register::FieldValue<decltype(wkupen1),Wkupen1Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(wkupen1),Wkupen1Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(wkupen1)::Type,Wkupen1Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(wkupen1)::Type,Wkupen1Val::enable> enable{};
         }
         ///Wake Up Input Enable 2
         enum class Wkupen2Val {
@@ -233,8 +229,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Wkupen2Val> wkupen2{}; 
         namespace Wkupen2ValC{
-            constexpr Register::FieldValue<decltype(wkupen2),Wkupen2Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(wkupen2),Wkupen2Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(wkupen2)::Type,Wkupen2Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(wkupen2)::Type,Wkupen2Val::enable> enable{};
         }
         ///Wake Up Input Enable 3
         enum class Wkupen3Val {
@@ -243,8 +239,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Wkupen3Val> wkupen3{}; 
         namespace Wkupen3ValC{
-            constexpr Register::FieldValue<decltype(wkupen3),Wkupen3Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(wkupen3),Wkupen3Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(wkupen3)::Type,Wkupen3Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(wkupen3)::Type,Wkupen3Val::enable> enable{};
         }
         ///Wake Up Input Enable 4
         enum class Wkupen4Val {
@@ -253,8 +249,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Wkupen4Val> wkupen4{}; 
         namespace Wkupen4ValC{
-            constexpr Register::FieldValue<decltype(wkupen4),Wkupen4Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(wkupen4),Wkupen4Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(wkupen4)::Type,Wkupen4Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(wkupen4)::Type,Wkupen4Val::enable> enable{};
         }
         ///Wake Up Input Enable 5
         enum class Wkupen5Val {
@@ -263,8 +259,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Wkupen5Val> wkupen5{}; 
         namespace Wkupen5ValC{
-            constexpr Register::FieldValue<decltype(wkupen5),Wkupen5Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(wkupen5),Wkupen5Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(wkupen5)::Type,Wkupen5Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(wkupen5)::Type,Wkupen5Val::enable> enable{};
         }
         ///Wake Up Input Enable 6
         enum class Wkupen6Val {
@@ -273,8 +269,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Wkupen6Val> wkupen6{}; 
         namespace Wkupen6ValC{
-            constexpr Register::FieldValue<decltype(wkupen6),Wkupen6Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(wkupen6),Wkupen6Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(wkupen6)::Type,Wkupen6Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(wkupen6)::Type,Wkupen6Val::enable> enable{};
         }
         ///Wake Up Input Enable 7
         enum class Wkupen7Val {
@@ -283,8 +279,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Wkupen7Val> wkupen7{}; 
         namespace Wkupen7ValC{
-            constexpr Register::FieldValue<decltype(wkupen7),Wkupen7Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(wkupen7),Wkupen7Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(wkupen7)::Type,Wkupen7Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(wkupen7)::Type,Wkupen7Val::enable> enable{};
         }
         ///Wake Up Input Enable 8
         enum class Wkupen8Val {
@@ -293,8 +289,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Wkupen8Val> wkupen8{}; 
         namespace Wkupen8ValC{
-            constexpr Register::FieldValue<decltype(wkupen8),Wkupen8Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(wkupen8),Wkupen8Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(wkupen8)::Type,Wkupen8Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(wkupen8)::Type,Wkupen8Val::enable> enable{};
         }
         ///Wake Up Input Enable 9
         enum class Wkupen9Val {
@@ -303,8 +299,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Wkupen9Val> wkupen9{}; 
         namespace Wkupen9ValC{
-            constexpr Register::FieldValue<decltype(wkupen9),Wkupen9Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(wkupen9),Wkupen9Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(wkupen9)::Type,Wkupen9Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(wkupen9)::Type,Wkupen9Val::enable> enable{};
         }
         ///Wake Up Input Enable 10
         enum class Wkupen10Val {
@@ -313,8 +309,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Wkupen10Val> wkupen10{}; 
         namespace Wkupen10ValC{
-            constexpr Register::FieldValue<decltype(wkupen10),Wkupen10Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(wkupen10),Wkupen10Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(wkupen10)::Type,Wkupen10Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(wkupen10)::Type,Wkupen10Val::enable> enable{};
         }
         ///Wake Up Input Enable 11
         enum class Wkupen11Val {
@@ -323,8 +319,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Wkupen11Val> wkupen11{}; 
         namespace Wkupen11ValC{
-            constexpr Register::FieldValue<decltype(wkupen11),Wkupen11Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(wkupen11),Wkupen11Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(wkupen11)::Type,Wkupen11Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(wkupen11)::Type,Wkupen11Val::enable> enable{};
         }
         ///Wake Up Input Enable 12
         enum class Wkupen12Val {
@@ -333,8 +329,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Wkupen12Val> wkupen12{}; 
         namespace Wkupen12ValC{
-            constexpr Register::FieldValue<decltype(wkupen12),Wkupen12Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(wkupen12),Wkupen12Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(wkupen12)::Type,Wkupen12Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(wkupen12)::Type,Wkupen12Val::enable> enable{};
         }
         ///Wake Up Input Enable 13
         enum class Wkupen13Val {
@@ -343,8 +339,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Wkupen13Val> wkupen13{}; 
         namespace Wkupen13ValC{
-            constexpr Register::FieldValue<decltype(wkupen13),Wkupen13Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(wkupen13),Wkupen13Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(wkupen13)::Type,Wkupen13Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(wkupen13)::Type,Wkupen13Val::enable> enable{};
         }
         ///Wake Up Input Enable 14
         enum class Wkupen14Val {
@@ -353,8 +349,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Wkupen14Val> wkupen14{}; 
         namespace Wkupen14ValC{
-            constexpr Register::FieldValue<decltype(wkupen14),Wkupen14Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(wkupen14),Wkupen14Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(wkupen14)::Type,Wkupen14Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(wkupen14)::Type,Wkupen14Val::enable> enable{};
         }
         ///Wake Up Input Enable 15
         enum class Wkupen15Val {
@@ -363,8 +359,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Wkupen15Val> wkupen15{}; 
         namespace Wkupen15ValC{
-            constexpr Register::FieldValue<decltype(wkupen15),Wkupen15Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(wkupen15),Wkupen15Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(wkupen15)::Type,Wkupen15Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(wkupen15)::Type,Wkupen15Val::enable> enable{};
         }
         ///Wake Up Input Type 0
         enum class Wkupt0Val {
@@ -373,8 +369,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Wkupt0Val> wkupt0{}; 
         namespace Wkupt0ValC{
-            constexpr Register::FieldValue<decltype(wkupt0),Wkupt0Val::highToLow> highToLow{};
-            constexpr Register::FieldValue<decltype(wkupt0),Wkupt0Val::lowToHigh> lowToHigh{};
+            constexpr Register::FieldValue<decltype(wkupt0)::Type,Wkupt0Val::highToLow> highToLow{};
+            constexpr Register::FieldValue<decltype(wkupt0)::Type,Wkupt0Val::lowToHigh> lowToHigh{};
         }
         ///Wake Up Input Type 1
         enum class Wkupt1Val {
@@ -383,8 +379,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Wkupt1Val> wkupt1{}; 
         namespace Wkupt1ValC{
-            constexpr Register::FieldValue<decltype(wkupt1),Wkupt1Val::highToLow> highToLow{};
-            constexpr Register::FieldValue<decltype(wkupt1),Wkupt1Val::lowToHigh> lowToHigh{};
+            constexpr Register::FieldValue<decltype(wkupt1)::Type,Wkupt1Val::highToLow> highToLow{};
+            constexpr Register::FieldValue<decltype(wkupt1)::Type,Wkupt1Val::lowToHigh> lowToHigh{};
         }
         ///Wake Up Input Type 2
         enum class Wkupt2Val {
@@ -393,8 +389,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Wkupt2Val> wkupt2{}; 
         namespace Wkupt2ValC{
-            constexpr Register::FieldValue<decltype(wkupt2),Wkupt2Val::highToLow> highToLow{};
-            constexpr Register::FieldValue<decltype(wkupt2),Wkupt2Val::lowToHigh> lowToHigh{};
+            constexpr Register::FieldValue<decltype(wkupt2)::Type,Wkupt2Val::highToLow> highToLow{};
+            constexpr Register::FieldValue<decltype(wkupt2)::Type,Wkupt2Val::lowToHigh> lowToHigh{};
         }
         ///Wake Up Input Type 3
         enum class Wkupt3Val {
@@ -403,8 +399,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,Wkupt3Val> wkupt3{}; 
         namespace Wkupt3ValC{
-            constexpr Register::FieldValue<decltype(wkupt3),Wkupt3Val::highToLow> highToLow{};
-            constexpr Register::FieldValue<decltype(wkupt3),Wkupt3Val::lowToHigh> lowToHigh{};
+            constexpr Register::FieldValue<decltype(wkupt3)::Type,Wkupt3Val::highToLow> highToLow{};
+            constexpr Register::FieldValue<decltype(wkupt3)::Type,Wkupt3Val::lowToHigh> lowToHigh{};
         }
         ///Wake Up Input Type 4
         enum class Wkupt4Val {
@@ -413,8 +409,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Wkupt4Val> wkupt4{}; 
         namespace Wkupt4ValC{
-            constexpr Register::FieldValue<decltype(wkupt4),Wkupt4Val::highToLow> highToLow{};
-            constexpr Register::FieldValue<decltype(wkupt4),Wkupt4Val::lowToHigh> lowToHigh{};
+            constexpr Register::FieldValue<decltype(wkupt4)::Type,Wkupt4Val::highToLow> highToLow{};
+            constexpr Register::FieldValue<decltype(wkupt4)::Type,Wkupt4Val::lowToHigh> lowToHigh{};
         }
         ///Wake Up Input Type 5
         enum class Wkupt5Val {
@@ -423,8 +419,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Wkupt5Val> wkupt5{}; 
         namespace Wkupt5ValC{
-            constexpr Register::FieldValue<decltype(wkupt5),Wkupt5Val::highToLow> highToLow{};
-            constexpr Register::FieldValue<decltype(wkupt5),Wkupt5Val::lowToHigh> lowToHigh{};
+            constexpr Register::FieldValue<decltype(wkupt5)::Type,Wkupt5Val::highToLow> highToLow{};
+            constexpr Register::FieldValue<decltype(wkupt5)::Type,Wkupt5Val::lowToHigh> lowToHigh{};
         }
         ///Wake Up Input Type 6
         enum class Wkupt6Val {
@@ -433,8 +429,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,Wkupt6Val> wkupt6{}; 
         namespace Wkupt6ValC{
-            constexpr Register::FieldValue<decltype(wkupt6),Wkupt6Val::highToLow> highToLow{};
-            constexpr Register::FieldValue<decltype(wkupt6),Wkupt6Val::lowToHigh> lowToHigh{};
+            constexpr Register::FieldValue<decltype(wkupt6)::Type,Wkupt6Val::highToLow> highToLow{};
+            constexpr Register::FieldValue<decltype(wkupt6)::Type,Wkupt6Val::lowToHigh> lowToHigh{};
         }
         ///Wake Up Input Type 7
         enum class Wkupt7Val {
@@ -443,8 +439,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,Wkupt7Val> wkupt7{}; 
         namespace Wkupt7ValC{
-            constexpr Register::FieldValue<decltype(wkupt7),Wkupt7Val::highToLow> highToLow{};
-            constexpr Register::FieldValue<decltype(wkupt7),Wkupt7Val::lowToHigh> lowToHigh{};
+            constexpr Register::FieldValue<decltype(wkupt7)::Type,Wkupt7Val::highToLow> highToLow{};
+            constexpr Register::FieldValue<decltype(wkupt7)::Type,Wkupt7Val::lowToHigh> lowToHigh{};
         }
         ///Wake Up Input Type 8
         enum class Wkupt8Val {
@@ -453,8 +449,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Wkupt8Val> wkupt8{}; 
         namespace Wkupt8ValC{
-            constexpr Register::FieldValue<decltype(wkupt8),Wkupt8Val::highToLow> highToLow{};
-            constexpr Register::FieldValue<decltype(wkupt8),Wkupt8Val::lowToHigh> lowToHigh{};
+            constexpr Register::FieldValue<decltype(wkupt8)::Type,Wkupt8Val::highToLow> highToLow{};
+            constexpr Register::FieldValue<decltype(wkupt8)::Type,Wkupt8Val::lowToHigh> lowToHigh{};
         }
         ///Wake Up Input Type 9
         enum class Wkupt9Val {
@@ -463,8 +459,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Wkupt9Val> wkupt9{}; 
         namespace Wkupt9ValC{
-            constexpr Register::FieldValue<decltype(wkupt9),Wkupt9Val::highToLow> highToLow{};
-            constexpr Register::FieldValue<decltype(wkupt9),Wkupt9Val::lowToHigh> lowToHigh{};
+            constexpr Register::FieldValue<decltype(wkupt9)::Type,Wkupt9Val::highToLow> highToLow{};
+            constexpr Register::FieldValue<decltype(wkupt9)::Type,Wkupt9Val::lowToHigh> lowToHigh{};
         }
         ///Wake Up Input Type 10
         enum class Wkupt10Val {
@@ -473,8 +469,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Wkupt10Val> wkupt10{}; 
         namespace Wkupt10ValC{
-            constexpr Register::FieldValue<decltype(wkupt10),Wkupt10Val::highToLow> highToLow{};
-            constexpr Register::FieldValue<decltype(wkupt10),Wkupt10Val::lowToHigh> lowToHigh{};
+            constexpr Register::FieldValue<decltype(wkupt10)::Type,Wkupt10Val::highToLow> highToLow{};
+            constexpr Register::FieldValue<decltype(wkupt10)::Type,Wkupt10Val::lowToHigh> lowToHigh{};
         }
         ///Wake Up Input Type 11
         enum class Wkupt11Val {
@@ -483,8 +479,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,Wkupt11Val> wkupt11{}; 
         namespace Wkupt11ValC{
-            constexpr Register::FieldValue<decltype(wkupt11),Wkupt11Val::highToLow> highToLow{};
-            constexpr Register::FieldValue<decltype(wkupt11),Wkupt11Val::lowToHigh> lowToHigh{};
+            constexpr Register::FieldValue<decltype(wkupt11)::Type,Wkupt11Val::highToLow> highToLow{};
+            constexpr Register::FieldValue<decltype(wkupt11)::Type,Wkupt11Val::lowToHigh> lowToHigh{};
         }
         ///Wake Up Input Type 12
         enum class Wkupt12Val {
@@ -493,8 +489,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,Wkupt12Val> wkupt12{}; 
         namespace Wkupt12ValC{
-            constexpr Register::FieldValue<decltype(wkupt12),Wkupt12Val::highToLow> highToLow{};
-            constexpr Register::FieldValue<decltype(wkupt12),Wkupt12Val::lowToHigh> lowToHigh{};
+            constexpr Register::FieldValue<decltype(wkupt12)::Type,Wkupt12Val::highToLow> highToLow{};
+            constexpr Register::FieldValue<decltype(wkupt12)::Type,Wkupt12Val::lowToHigh> lowToHigh{};
         }
         ///Wake Up Input Type 13
         enum class Wkupt13Val {
@@ -503,8 +499,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,Wkupt13Val> wkupt13{}; 
         namespace Wkupt13ValC{
-            constexpr Register::FieldValue<decltype(wkupt13),Wkupt13Val::highToLow> highToLow{};
-            constexpr Register::FieldValue<decltype(wkupt13),Wkupt13Val::lowToHigh> lowToHigh{};
+            constexpr Register::FieldValue<decltype(wkupt13)::Type,Wkupt13Val::highToLow> highToLow{};
+            constexpr Register::FieldValue<decltype(wkupt13)::Type,Wkupt13Val::lowToHigh> lowToHigh{};
         }
         ///Wake Up Input Type 14
         enum class Wkupt14Val {
@@ -513,8 +509,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,Wkupt14Val> wkupt14{}; 
         namespace Wkupt14ValC{
-            constexpr Register::FieldValue<decltype(wkupt14),Wkupt14Val::highToLow> highToLow{};
-            constexpr Register::FieldValue<decltype(wkupt14),Wkupt14Val::lowToHigh> lowToHigh{};
+            constexpr Register::FieldValue<decltype(wkupt14)::Type,Wkupt14Val::highToLow> highToLow{};
+            constexpr Register::FieldValue<decltype(wkupt14)::Type,Wkupt14Val::lowToHigh> lowToHigh{};
         }
         ///Wake Up Input Type 15
         enum class Wkupt15Val {
@@ -523,8 +519,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,Wkupt15Val> wkupt15{}; 
         namespace Wkupt15ValC{
-            constexpr Register::FieldValue<decltype(wkupt15),Wkupt15Val::highToLow> highToLow{};
-            constexpr Register::FieldValue<decltype(wkupt15),Wkupt15Val::lowToHigh> lowToHigh{};
+            constexpr Register::FieldValue<decltype(wkupt15)::Type,Wkupt15Val::highToLow> highToLow{};
+            constexpr Register::FieldValue<decltype(wkupt15)::Type,Wkupt15Val::lowToHigh> lowToHigh{};
         }
     }
     namespace SupcSr{    ///<Supply Controller Status Register
@@ -536,8 +532,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,WkupsVal> wkups{}; 
         namespace WkupsValC{
-            constexpr Register::FieldValue<decltype(wkups),WkupsVal::no> no{};
-            constexpr Register::FieldValue<decltype(wkups),WkupsVal::present> present{};
+            constexpr Register::FieldValue<decltype(wkups)::Type,WkupsVal::no> no{};
+            constexpr Register::FieldValue<decltype(wkups)::Type,WkupsVal::present> present{};
         }
         ///Supply Monitor Detection Wake Up Status
         enum class SmwsVal {
@@ -546,8 +542,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SmwsVal> smws{}; 
         namespace SmwsValC{
-            constexpr Register::FieldValue<decltype(smws),SmwsVal::no> no{};
-            constexpr Register::FieldValue<decltype(smws),SmwsVal::present> present{};
+            constexpr Register::FieldValue<decltype(smws)::Type,SmwsVal::no> no{};
+            constexpr Register::FieldValue<decltype(smws)::Type,SmwsVal::present> present{};
         }
         ///Brownout Detector Reset Status
         enum class BodrstsVal {
@@ -556,8 +552,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,BodrstsVal> bodrsts{}; 
         namespace BodrstsValC{
-            constexpr Register::FieldValue<decltype(bodrsts),BodrstsVal::no> no{};
-            constexpr Register::FieldValue<decltype(bodrsts),BodrstsVal::present> present{};
+            constexpr Register::FieldValue<decltype(bodrsts)::Type,BodrstsVal::no> no{};
+            constexpr Register::FieldValue<decltype(bodrsts)::Type,BodrstsVal::present> present{};
         }
         ///Supply Monitor Reset Status
         enum class SmrstsVal {
@@ -566,8 +562,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SmrstsVal> smrsts{}; 
         namespace SmrstsValC{
-            constexpr Register::FieldValue<decltype(smrsts),SmrstsVal::no> no{};
-            constexpr Register::FieldValue<decltype(smrsts),SmrstsVal::present> present{};
+            constexpr Register::FieldValue<decltype(smrsts)::Type,SmrstsVal::no> no{};
+            constexpr Register::FieldValue<decltype(smrsts)::Type,SmrstsVal::present> present{};
         }
         ///Supply Monitor Status
         enum class SmsVal {
@@ -576,8 +572,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SmsVal> sms{}; 
         namespace SmsValC{
-            constexpr Register::FieldValue<decltype(sms),SmsVal::no> no{};
-            constexpr Register::FieldValue<decltype(sms),SmsVal::present> present{};
+            constexpr Register::FieldValue<decltype(sms)::Type,SmsVal::no> no{};
+            constexpr Register::FieldValue<decltype(sms)::Type,SmsVal::present> present{};
         }
         ///Supply Monitor Output Status
         enum class SmosVal {
@@ -586,8 +582,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,SmosVal> smos{}; 
         namespace SmosValC{
-            constexpr Register::FieldValue<decltype(smos),SmosVal::high> high{};
-            constexpr Register::FieldValue<decltype(smos),SmosVal::low> low{};
+            constexpr Register::FieldValue<decltype(smos)::Type,SmosVal::high> high{};
+            constexpr Register::FieldValue<decltype(smos)::Type,SmosVal::low> low{};
         }
         ///32-kHz Oscillator Selection Status
         enum class OscselVal {
@@ -596,8 +592,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,OscselVal> oscsel{}; 
         namespace OscselValC{
-            constexpr Register::FieldValue<decltype(oscsel),OscselVal::rc> rc{};
-            constexpr Register::FieldValue<decltype(oscsel),OscselVal::cryst> cryst{};
+            constexpr Register::FieldValue<decltype(oscsel)::Type,OscselVal::rc> rc{};
+            constexpr Register::FieldValue<decltype(oscsel)::Type,OscselVal::cryst> cryst{};
         }
         ///WKUP Input Status 0
         enum class Wkupis0Val {
@@ -606,8 +602,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,Wkupis0Val> wkupis0{}; 
         namespace Wkupis0ValC{
-            constexpr Register::FieldValue<decltype(wkupis0),Wkupis0Val::dis> dis{};
-            constexpr Register::FieldValue<decltype(wkupis0),Wkupis0Val::en> en{};
+            constexpr Register::FieldValue<decltype(wkupis0)::Type,Wkupis0Val::dis> dis{};
+            constexpr Register::FieldValue<decltype(wkupis0)::Type,Wkupis0Val::en> en{};
         }
         ///WKUP Input Status 1
         enum class Wkupis1Val {
@@ -616,8 +612,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,Wkupis1Val> wkupis1{}; 
         namespace Wkupis1ValC{
-            constexpr Register::FieldValue<decltype(wkupis1),Wkupis1Val::dis> dis{};
-            constexpr Register::FieldValue<decltype(wkupis1),Wkupis1Val::en> en{};
+            constexpr Register::FieldValue<decltype(wkupis1)::Type,Wkupis1Val::dis> dis{};
+            constexpr Register::FieldValue<decltype(wkupis1)::Type,Wkupis1Val::en> en{};
         }
         ///WKUP Input Status 2
         enum class Wkupis2Val {
@@ -626,8 +622,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Wkupis2Val> wkupis2{}; 
         namespace Wkupis2ValC{
-            constexpr Register::FieldValue<decltype(wkupis2),Wkupis2Val::dis> dis{};
-            constexpr Register::FieldValue<decltype(wkupis2),Wkupis2Val::en> en{};
+            constexpr Register::FieldValue<decltype(wkupis2)::Type,Wkupis2Val::dis> dis{};
+            constexpr Register::FieldValue<decltype(wkupis2)::Type,Wkupis2Val::en> en{};
         }
         ///WKUP Input Status 3
         enum class Wkupis3Val {
@@ -636,8 +632,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,Wkupis3Val> wkupis3{}; 
         namespace Wkupis3ValC{
-            constexpr Register::FieldValue<decltype(wkupis3),Wkupis3Val::dis> dis{};
-            constexpr Register::FieldValue<decltype(wkupis3),Wkupis3Val::en> en{};
+            constexpr Register::FieldValue<decltype(wkupis3)::Type,Wkupis3Val::dis> dis{};
+            constexpr Register::FieldValue<decltype(wkupis3)::Type,Wkupis3Val::en> en{};
         }
         ///WKUP Input Status 4
         enum class Wkupis4Val {
@@ -646,8 +642,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,Wkupis4Val> wkupis4{}; 
         namespace Wkupis4ValC{
-            constexpr Register::FieldValue<decltype(wkupis4),Wkupis4Val::dis> dis{};
-            constexpr Register::FieldValue<decltype(wkupis4),Wkupis4Val::en> en{};
+            constexpr Register::FieldValue<decltype(wkupis4)::Type,Wkupis4Val::dis> dis{};
+            constexpr Register::FieldValue<decltype(wkupis4)::Type,Wkupis4Val::en> en{};
         }
         ///WKUP Input Status 5
         enum class Wkupis5Val {
@@ -656,8 +652,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Wkupis5Val> wkupis5{}; 
         namespace Wkupis5ValC{
-            constexpr Register::FieldValue<decltype(wkupis5),Wkupis5Val::dis> dis{};
-            constexpr Register::FieldValue<decltype(wkupis5),Wkupis5Val::en> en{};
+            constexpr Register::FieldValue<decltype(wkupis5)::Type,Wkupis5Val::dis> dis{};
+            constexpr Register::FieldValue<decltype(wkupis5)::Type,Wkupis5Val::en> en{};
         }
         ///WKUP Input Status 6
         enum class Wkupis6Val {
@@ -666,8 +662,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,Wkupis6Val> wkupis6{}; 
         namespace Wkupis6ValC{
-            constexpr Register::FieldValue<decltype(wkupis6),Wkupis6Val::dis> dis{};
-            constexpr Register::FieldValue<decltype(wkupis6),Wkupis6Val::en> en{};
+            constexpr Register::FieldValue<decltype(wkupis6)::Type,Wkupis6Val::dis> dis{};
+            constexpr Register::FieldValue<decltype(wkupis6)::Type,Wkupis6Val::en> en{};
         }
         ///WKUP Input Status 7
         enum class Wkupis7Val {
@@ -676,8 +672,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,Wkupis7Val> wkupis7{}; 
         namespace Wkupis7ValC{
-            constexpr Register::FieldValue<decltype(wkupis7),Wkupis7Val::dis> dis{};
-            constexpr Register::FieldValue<decltype(wkupis7),Wkupis7Val::en> en{};
+            constexpr Register::FieldValue<decltype(wkupis7)::Type,Wkupis7Val::dis> dis{};
+            constexpr Register::FieldValue<decltype(wkupis7)::Type,Wkupis7Val::en> en{};
         }
         ///WKUP Input Status 8
         enum class Wkupis8Val {
@@ -686,8 +682,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,Wkupis8Val> wkupis8{}; 
         namespace Wkupis8ValC{
-            constexpr Register::FieldValue<decltype(wkupis8),Wkupis8Val::dis> dis{};
-            constexpr Register::FieldValue<decltype(wkupis8),Wkupis8Val::en> en{};
+            constexpr Register::FieldValue<decltype(wkupis8)::Type,Wkupis8Val::dis> dis{};
+            constexpr Register::FieldValue<decltype(wkupis8)::Type,Wkupis8Val::en> en{};
         }
         ///WKUP Input Status 9
         enum class Wkupis9Val {
@@ -696,8 +692,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,Wkupis9Val> wkupis9{}; 
         namespace Wkupis9ValC{
-            constexpr Register::FieldValue<decltype(wkupis9),Wkupis9Val::dis> dis{};
-            constexpr Register::FieldValue<decltype(wkupis9),Wkupis9Val::en> en{};
+            constexpr Register::FieldValue<decltype(wkupis9)::Type,Wkupis9Val::dis> dis{};
+            constexpr Register::FieldValue<decltype(wkupis9)::Type,Wkupis9Val::en> en{};
         }
         ///WKUP Input Status 10
         enum class Wkupis10Val {
@@ -706,8 +702,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,Wkupis10Val> wkupis10{}; 
         namespace Wkupis10ValC{
-            constexpr Register::FieldValue<decltype(wkupis10),Wkupis10Val::dis> dis{};
-            constexpr Register::FieldValue<decltype(wkupis10),Wkupis10Val::en> en{};
+            constexpr Register::FieldValue<decltype(wkupis10)::Type,Wkupis10Val::dis> dis{};
+            constexpr Register::FieldValue<decltype(wkupis10)::Type,Wkupis10Val::en> en{};
         }
         ///WKUP Input Status 11
         enum class Wkupis11Val {
@@ -716,8 +712,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,Wkupis11Val> wkupis11{}; 
         namespace Wkupis11ValC{
-            constexpr Register::FieldValue<decltype(wkupis11),Wkupis11Val::dis> dis{};
-            constexpr Register::FieldValue<decltype(wkupis11),Wkupis11Val::en> en{};
+            constexpr Register::FieldValue<decltype(wkupis11)::Type,Wkupis11Val::dis> dis{};
+            constexpr Register::FieldValue<decltype(wkupis11)::Type,Wkupis11Val::en> en{};
         }
         ///WKUP Input Status 12
         enum class Wkupis12Val {
@@ -726,8 +722,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,Wkupis12Val> wkupis12{}; 
         namespace Wkupis12ValC{
-            constexpr Register::FieldValue<decltype(wkupis12),Wkupis12Val::dis> dis{};
-            constexpr Register::FieldValue<decltype(wkupis12),Wkupis12Val::en> en{};
+            constexpr Register::FieldValue<decltype(wkupis12)::Type,Wkupis12Val::dis> dis{};
+            constexpr Register::FieldValue<decltype(wkupis12)::Type,Wkupis12Val::en> en{};
         }
         ///WKUP Input Status 13
         enum class Wkupis13Val {
@@ -736,8 +732,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,Wkupis13Val> wkupis13{}; 
         namespace Wkupis13ValC{
-            constexpr Register::FieldValue<decltype(wkupis13),Wkupis13Val::dis> dis{};
-            constexpr Register::FieldValue<decltype(wkupis13),Wkupis13Val::en> en{};
+            constexpr Register::FieldValue<decltype(wkupis13)::Type,Wkupis13Val::dis> dis{};
+            constexpr Register::FieldValue<decltype(wkupis13)::Type,Wkupis13Val::en> en{};
         }
         ///WKUP Input Status 14
         enum class Wkupis14Val {
@@ -746,8 +742,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,Wkupis14Val> wkupis14{}; 
         namespace Wkupis14ValC{
-            constexpr Register::FieldValue<decltype(wkupis14),Wkupis14Val::dis> dis{};
-            constexpr Register::FieldValue<decltype(wkupis14),Wkupis14Val::en> en{};
+            constexpr Register::FieldValue<decltype(wkupis14)::Type,Wkupis14Val::dis> dis{};
+            constexpr Register::FieldValue<decltype(wkupis14)::Type,Wkupis14Val::en> en{};
         }
         ///WKUP Input Status 15
         enum class Wkupis15Val {
@@ -756,8 +752,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,Wkupis15Val> wkupis15{}; 
         namespace Wkupis15ValC{
-            constexpr Register::FieldValue<decltype(wkupis15),Wkupis15Val::dis> dis{};
-            constexpr Register::FieldValue<decltype(wkupis15),Wkupis15Val::en> en{};
+            constexpr Register::FieldValue<decltype(wkupis15)::Type,Wkupis15Val::dis> dis{};
+            constexpr Register::FieldValue<decltype(wkupis15)::Type,Wkupis15Val::en> en{};
         }
     }
 }

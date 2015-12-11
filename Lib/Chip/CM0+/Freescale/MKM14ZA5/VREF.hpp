@@ -6,8 +6,6 @@ namespace Kvasir {
         using Addr = Register::Address<0x4006f000,0xffffff80,0,unsigned char>;
         ///Trim bits
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> trim{}; 
-        namespace TrimValC{
-        }
         ///Chop oscillator enable. When set, internal chopping operation is enabled and the internal analog offset will be minimized.
         enum class ChopenVal {
             v0=0x00000000,     ///<Chop oscillator is disabled.
@@ -15,8 +13,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ChopenVal> chopen{}; 
         namespace ChopenValC{
-            constexpr Register::FieldValue<decltype(chopen),ChopenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(chopen),ChopenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(chopen)::Type,ChopenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chopen)::Type,ChopenVal::v1> v1{};
         }
     }
     namespace VrefVrefhSc{    ///<VREF Status and Control Register
@@ -29,9 +27,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,ModelvVal> modeLv{}; 
         namespace ModelvValC{
-            constexpr Register::FieldValue<decltype(modeLv),ModelvVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(modeLv),ModelvVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(modeLv),ModelvVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(modeLv)::Type,ModelvVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(modeLv)::Type,ModelvVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(modeLv)::Type,ModelvVal::v10> v10{};
         }
         ///Internal Voltage Reference stable
         enum class VrefstVal {
@@ -40,8 +38,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,VrefstVal> vrefst{}; 
         namespace VrefstValC{
-            constexpr Register::FieldValue<decltype(vrefst),VrefstVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(vrefst),VrefstVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(vrefst)::Type,VrefstVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(vrefst)::Type,VrefstVal::v1> v1{};
         }
         ///Second order curvature compensation enable
         enum class IcompenVal {
@@ -50,8 +48,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,IcompenVal> icompen{}; 
         namespace IcompenValC{
-            constexpr Register::FieldValue<decltype(icompen),IcompenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(icompen),IcompenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(icompen)::Type,IcompenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(icompen)::Type,IcompenVal::v1> v1{};
         }
         ///Regulator enable
         enum class RegenVal {
@@ -60,8 +58,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,RegenVal> regen{}; 
         namespace RegenValC{
-            constexpr Register::FieldValue<decltype(regen),RegenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(regen),RegenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(regen)::Type,RegenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(regen)::Type,RegenVal::v1> v1{};
         }
         ///Internal Voltage Reference enable
         enum class VrefenVal {
@@ -70,16 +68,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,VrefenVal> vrefen{}; 
         namespace VrefenValC{
-            constexpr Register::FieldValue<decltype(vrefen),VrefenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(vrefen),VrefenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(vrefen)::Type,VrefenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(vrefen)::Type,VrefenVal::v1> v1{};
         }
     }
     namespace VrefVreflTrm{    ///<VREFL TRIM Register
         using Addr = Register::Address<0x4006f005,0xffffffe0,0,unsigned char>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> vreflTrim{}; 
-        namespace VrefltrimValC{
-        }
         ///no description available
         enum class VreflenVal {
             v0=0x00000000,     ///<Disable
@@ -87,8 +83,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,VreflenVal> vreflEn{}; 
         namespace VreflenValC{
-            constexpr Register::FieldValue<decltype(vreflEn),VreflenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(vreflEn),VreflenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(vreflEn)::Type,VreflenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(vreflEn)::Type,VreflenVal::v1> v1{};
         }
         ///no description available
         enum class VreflselVal {
@@ -97,8 +93,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,VreflselVal> vreflSel{}; 
         namespace VreflselValC{
-            constexpr Register::FieldValue<decltype(vreflSel),VreflselVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(vreflSel),VreflselVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(vreflSel)::Type,VreflselVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(vreflSel)::Type,VreflselVal::v1> v1{};
         }
     }
 }

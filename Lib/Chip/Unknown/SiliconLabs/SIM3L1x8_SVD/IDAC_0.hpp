@@ -17,14 +17,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,OupdtVal> oupdt{}; 
         namespace OupdtValC{
-            constexpr Register::FieldValue<decltype(oupdt),OupdtVal::dacnt8> dacnt8{};
-            constexpr Register::FieldValue<decltype(oupdt),OupdtVal::dacnt9> dacnt9{};
-            constexpr Register::FieldValue<decltype(oupdt),OupdtVal::dacnt10> dacnt10{};
-            constexpr Register::FieldValue<decltype(oupdt),OupdtVal::dacnt11> dacnt11{};
-            constexpr Register::FieldValue<decltype(oupdt),OupdtVal::dacnt12> dacnt12{};
-            constexpr Register::FieldValue<decltype(oupdt),OupdtVal::dacnt13> dacnt13{};
-            constexpr Register::FieldValue<decltype(oupdt),OupdtVal::dacnt14> dacnt14{};
-            constexpr Register::FieldValue<decltype(oupdt),OupdtVal::dacnt15> dacnt15{};
+            constexpr Register::FieldValue<decltype(oupdt)::Type,OupdtVal::dacnt8> dacnt8{};
+            constexpr Register::FieldValue<decltype(oupdt)::Type,OupdtVal::dacnt9> dacnt9{};
+            constexpr Register::FieldValue<decltype(oupdt)::Type,OupdtVal::dacnt10> dacnt10{};
+            constexpr Register::FieldValue<decltype(oupdt)::Type,OupdtVal::dacnt11> dacnt11{};
+            constexpr Register::FieldValue<decltype(oupdt)::Type,OupdtVal::dacnt12> dacnt12{};
+            constexpr Register::FieldValue<decltype(oupdt)::Type,OupdtVal::dacnt13> dacnt13{};
+            constexpr Register::FieldValue<decltype(oupdt)::Type,OupdtVal::dacnt14> dacnt14{};
+            constexpr Register::FieldValue<decltype(oupdt)::Type,OupdtVal::dacnt15> dacnt15{};
         }
         ///Edge Trigger Source Select. 
         enum class EtrigVal {
@@ -39,14 +39,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,3),Register::ReadWriteAccess,EtrigVal> etrig{}; 
         namespace EtrigValC{
-            constexpr Register::FieldValue<decltype(etrig),EtrigVal::dacnt0> dacnt0{};
-            constexpr Register::FieldValue<decltype(etrig),EtrigVal::dacnt1> dacnt1{};
-            constexpr Register::FieldValue<decltype(etrig),EtrigVal::dacnt2> dacnt2{};
-            constexpr Register::FieldValue<decltype(etrig),EtrigVal::dacnt3> dacnt3{};
-            constexpr Register::FieldValue<decltype(etrig),EtrigVal::dacnt4> dacnt4{};
-            constexpr Register::FieldValue<decltype(etrig),EtrigVal::dacnt5> dacnt5{};
-            constexpr Register::FieldValue<decltype(etrig),EtrigVal::dacnt6> dacnt6{};
-            constexpr Register::FieldValue<decltype(etrig),EtrigVal::dacnt7> dacnt7{};
+            constexpr Register::FieldValue<decltype(etrig)::Type,EtrigVal::dacnt0> dacnt0{};
+            constexpr Register::FieldValue<decltype(etrig)::Type,EtrigVal::dacnt1> dacnt1{};
+            constexpr Register::FieldValue<decltype(etrig)::Type,EtrigVal::dacnt2> dacnt2{};
+            constexpr Register::FieldValue<decltype(etrig)::Type,EtrigVal::dacnt3> dacnt3{};
+            constexpr Register::FieldValue<decltype(etrig)::Type,EtrigVal::dacnt4> dacnt4{};
+            constexpr Register::FieldValue<decltype(etrig)::Type,EtrigVal::dacnt5> dacnt5{};
+            constexpr Register::FieldValue<decltype(etrig)::Type,EtrigVal::dacnt6> dacnt6{};
+            constexpr Register::FieldValue<decltype(etrig)::Type,EtrigVal::dacnt7> dacnt7{};
         }
         ///Output Mode. 
         enum class OutmdVal {
@@ -56,9 +56,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,OutmdVal> outmd{}; 
         namespace OutmdValC{
-            constexpr Register::FieldValue<decltype(outmd),OutmdVal::v0p5Ma> v0p5Ma{};
-            constexpr Register::FieldValue<decltype(outmd),OutmdVal::v1Ma> v1Ma{};
-            constexpr Register::FieldValue<decltype(outmd),OutmdVal::v2Ma> v2Ma{};
+            constexpr Register::FieldValue<decltype(outmd)::Type,OutmdVal::v0p5Ma> v0p5Ma{};
+            constexpr Register::FieldValue<decltype(outmd)::Type,OutmdVal::v1Ma> v1Ma{};
+            constexpr Register::FieldValue<decltype(outmd)::Type,OutmdVal::v2Ma> v2Ma{};
         }
         ///Data Input Format. 
         enum class InfmtVal {
@@ -68,9 +68,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,InfmtVal> infmt{}; 
         namespace InfmtValC{
-            constexpr Register::FieldValue<decltype(infmt),InfmtVal::v110Bit> v110Bit{};
-            constexpr Register::FieldValue<decltype(infmt),InfmtVal::v210Bit> v210Bit{};
-            constexpr Register::FieldValue<decltype(infmt),InfmtVal::v48Bit> v48Bit{};
+            constexpr Register::FieldValue<decltype(infmt)::Type,InfmtVal::v110Bit> v110Bit{};
+            constexpr Register::FieldValue<decltype(infmt)::Type,InfmtVal::v210Bit> v210Bit{};
+            constexpr Register::FieldValue<decltype(infmt)::Type,InfmtVal::v48Bit> v48Bit{};
         }
         ///DMA Run. 
         enum class DmarunVal {
@@ -79,8 +79,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,DmarunVal> dmarun{}; 
         namespace DmarunValC{
-            constexpr Register::FieldValue<decltype(dmarun),DmarunVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dmarun),DmarunVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dmarun)::Type,DmarunVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dmarun)::Type,DmarunVal::enabled> enabled{};
         }
         ///Data Justification Select. 
         enum class JselVal {
@@ -89,8 +89,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,JselVal> jsel{}; 
         namespace JselValC{
-            constexpr Register::FieldValue<decltype(jsel),JselVal::right> right{};
-            constexpr Register::FieldValue<decltype(jsel),JselVal::left> left{};
+            constexpr Register::FieldValue<decltype(jsel)::Type,JselVal::right> right{};
+            constexpr Register::FieldValue<decltype(jsel)::Type,JselVal::left> left{};
         }
         ///Data Buffer Reset. 
         enum class BufresetVal {
@@ -98,7 +98,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,BufresetVal> bufreset{}; 
         namespace BufresetValC{
-            constexpr Register::FieldValue<decltype(bufreset),BufresetVal::reset> reset{};
+            constexpr Register::FieldValue<decltype(bufreset)::Type,BufresetVal::reset> reset{};
         }
         ///Trigger Source Inhibit. 
         enum class TriginhVal {
@@ -107,8 +107,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,TriginhVal> triginh{}; 
         namespace TriginhValC{
-            constexpr Register::FieldValue<decltype(triginh),TriginhVal::inactive> inactive{};
-            constexpr Register::FieldValue<decltype(triginh),TriginhVal::active> active{};
+            constexpr Register::FieldValue<decltype(triginh)::Type,TriginhVal::inactive> inactive{};
+            constexpr Register::FieldValue<decltype(triginh)::Type,TriginhVal::active> active{};
         }
         ///Wrap Mode Enable. 
         enum class WrapenVal {
@@ -117,8 +117,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,WrapenVal> wrapen{}; 
         namespace WrapenValC{
-            constexpr Register::FieldValue<decltype(wrapen),WrapenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(wrapen),WrapenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(wrapen)::Type,WrapenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(wrapen)::Type,WrapenVal::enabled> enabled{};
         }
         ///FIFO Overrun Interrupt Enable. 
         enum class OrienVal {
@@ -127,8 +127,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,OrienVal> orien{}; 
         namespace OrienValC{
-            constexpr Register::FieldValue<decltype(orien),OrienVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(orien),OrienVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(orien)::Type,OrienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(orien)::Type,OrienVal::enabled> enabled{};
         }
         ///FIFO Underrun Interrupt Enable. 
         enum class UrienVal {
@@ -137,8 +137,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,UrienVal> urien{}; 
         namespace UrienValC{
-            constexpr Register::FieldValue<decltype(urien),UrienVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(urien),UrienVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(urien)::Type,UrienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(urien)::Type,UrienVal::enabled> enabled{};
         }
         ///FIFO Went Empty Interrupt Enable. 
         enum class WeienVal {
@@ -147,8 +147,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,WeienVal> weien{}; 
         namespace WeienValC{
-            constexpr Register::FieldValue<decltype(weien),WeienVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(weien),WeienVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(weien)::Type,WeienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(weien)::Type,WeienVal::enabled> enabled{};
         }
         ///IDAC Debug Mode. 
         enum class DbgmdVal {
@@ -157,8 +157,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,DbgmdVal> dbgmd{}; 
         namespace DbgmdValC{
-            constexpr Register::FieldValue<decltype(dbgmd),DbgmdVal::run> run{};
-            constexpr Register::FieldValue<decltype(dbgmd),DbgmdVal::halt> halt{};
+            constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::run> run{};
+            constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::halt> halt{};
         }
         ///Load Resistor Enable. 
         enum class LoadenVal {
@@ -167,8 +167,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,LoadenVal> loaden{}; 
         namespace LoadenValC{
-            constexpr Register::FieldValue<decltype(loaden),LoadenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(loaden),LoadenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(loaden)::Type,LoadenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(loaden)::Type,LoadenVal::enabled> enabled{};
         }
         ///IDAC Enable. 
         enum class IdacenVal {
@@ -177,16 +177,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,IdacenVal> idacen{}; 
         namespace IdacenValC{
-            constexpr Register::FieldValue<decltype(idacen),IdacenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(idacen),IdacenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(idacen)::Type,IdacenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(idacen)::Type,IdacenVal::enabled> enabled{};
         }
     }
     namespace Nonedata{    ///<Output Data
         using Addr = Register::Address<0x40031010,0x00000000,0,unsigned>;
         ///Output Data. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
-        namespace DataValC{
-        }
     }
     namespace Nonebufstatus{    ///<FIFO Buffer Status
         using Addr = Register::Address<0x40031020,0xffffff88,0,unsigned>;
@@ -200,11 +198,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,LevelVal> level{}; 
         namespace LevelValC{
-            constexpr Register::FieldValue<decltype(level),LevelVal::empty> empty{};
-            constexpr Register::FieldValue<decltype(level),LevelVal::v1word> v1word{};
-            constexpr Register::FieldValue<decltype(level),LevelVal::v2words> v2words{};
-            constexpr Register::FieldValue<decltype(level),LevelVal::v3words> v3words{};
-            constexpr Register::FieldValue<decltype(level),LevelVal::v4words> v4words{};
+            constexpr Register::FieldValue<decltype(level)::Type,LevelVal::empty> empty{};
+            constexpr Register::FieldValue<decltype(level)::Type,LevelVal::v1word> v1word{};
+            constexpr Register::FieldValue<decltype(level)::Type,LevelVal::v2words> v2words{};
+            constexpr Register::FieldValue<decltype(level)::Type,LevelVal::v3words> v3words{};
+            constexpr Register::FieldValue<decltype(level)::Type,LevelVal::v4words> v4words{};
         }
         ///FIFO Overrun Interrupt Flag. 
         enum class OriVal {
@@ -213,8 +211,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,OriVal> ori{}; 
         namespace OriValC{
-            constexpr Register::FieldValue<decltype(ori),OriVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(ori),OriVal::set> set{};
+            constexpr Register::FieldValue<decltype(ori)::Type,OriVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(ori)::Type,OriVal::set> set{};
         }
         ///FIFO Underrun Interrupt Flag. 
         enum class UriVal {
@@ -223,8 +221,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,UriVal> uri{}; 
         namespace UriValC{
-            constexpr Register::FieldValue<decltype(uri),UriVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(uri),UriVal::set> set{};
+            constexpr Register::FieldValue<decltype(uri)::Type,UriVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(uri)::Type,UriVal::set> set{};
         }
         ///FIFO Went Empty Interrupt Flag. 
         enum class WeiVal {
@@ -233,37 +231,27 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,WeiVal> wei{}; 
         namespace WeiValC{
-            constexpr Register::FieldValue<decltype(wei),WeiVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(wei),WeiVal::set> set{};
+            constexpr Register::FieldValue<decltype(wei)::Type,WeiVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(wei)::Type,WeiVal::set> set{};
         }
     }
     namespace Nonebuffer10{    ///<FIFO Buffer Entries 0 and 1
         using Addr = Register::Address<0x40031030,0x00000000,0,unsigned>;
         ///FIFO Buffer Entry 0. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> buffer0{}; 
-        namespace Buffer0ValC{
-        }
         ///FIFO Buffer Entry 1. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> buffer1{}; 
-        namespace Buffer1ValC{
-        }
     }
     namespace Nonebuffer32{    ///<FIFO Buffer Entries 2 and 3
         using Addr = Register::Address<0x40031040,0x00000000,0,unsigned>;
         ///FIFO Buffer Entry 2. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> buffer2{}; 
-        namespace Buffer2ValC{
-        }
         ///FIFO Buffer Entry 3. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> buffer3{}; 
-        namespace Buffer3ValC{
-        }
     }
     namespace Nonegainadj{    ///<Output Current Gain Adjust
         using Addr = Register::Address<0x40031050,0xffffffe0,0,unsigned>;
         ///Output Current Gain Adjust. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> gainadj{}; 
-        namespace GainadjValC{
-        }
     }
 }

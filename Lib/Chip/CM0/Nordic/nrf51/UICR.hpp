@@ -9,26 +9,18 @@ namespace Kvasir {
         using Addr = Register::Address<0x10001004,0xffff0000,0,unsigned>;
         ///Readback protect region 0. Will be ignored if pre-programmed factory code is present on the chip.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pr0{}; 
-        namespace Pr0ValC{
-        }
         ///Readback protect all code in the device.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> pall{}; 
-        namespace PallValC{
-        }
     }
     namespace Nonextalfreq{    ///<Reset value for CLOCK XTALFREQ register.
         using Addr = Register::Address<0x10001008,0xffffff00,0,unsigned>;
         ///Reset value for CLOCK XTALFREQ register.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> xtalfreq{}; 
-        namespace XtalfreqValC{
-        }
     }
     namespace Nonefwid{    ///<Firmware ID.
         using Addr = Register::Address<0x10001010,0xffff0000,0,unsigned>;
         ///Identification number for the firmware loaded into the chip.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> fwid{}; 
-        namespace FwidValC{
-        }
     }
     namespace Nonebootloaderaddr{    ///<Bootloader start address.
         using Addr = Register::Address<0x10001014,0xffffffff,0,unsigned>;

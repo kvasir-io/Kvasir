@@ -13,10 +13,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
         ///Hysteresis.
         enum class HysVal {
@@ -25,8 +25,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
         ///Invert input
         enum class InvVal {
@@ -35,8 +35,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -45,8 +45,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -57,10 +57,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,SmodeVal> sMode{}; 
         namespace SmodeValC{
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::bypassInputFilter> bypassInputFilter{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::bypassInputFilter> bypassInputFilter{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
         }
         ///Select peripheral clock divider for input filter sampling clock. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -74,13 +74,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,ClkdivVal> clkDiv{}; 
         namespace ClkdivValC{
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
         }
     }
     namespace Nonepio013{    ///<I/O configuration for pin PIO0_13
@@ -94,10 +94,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
         ///Hysteresis.
         enum class HysVal {
@@ -106,8 +106,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
         ///Invert input
         enum class InvVal {
@@ -116,8 +116,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -126,8 +126,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -138,10 +138,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,SmodeVal> sMode{}; 
         namespace SmodeValC{
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::bypassInputFilter> bypassInputFilter{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::bypassInputFilter> bypassInputFilter{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
         }
         ///Select peripheral clock divider for input filter sampling clock. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -155,13 +155,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,ClkdivVal> clkDiv{}; 
         namespace ClkdivValC{
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
         }
     }
     namespace Nonepio012{    ///<I/O configuration for pin PIO0_12
@@ -175,10 +175,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
         ///Hysteresis.
         enum class HysVal {
@@ -187,8 +187,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
         ///Invert input
         enum class InvVal {
@@ -197,8 +197,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -207,8 +207,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -219,10 +219,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,SmodeVal> sMode{}; 
         namespace SmodeValC{
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::bypassInputFilter> bypassInputFilter{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::bypassInputFilter> bypassInputFilter{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
         }
         ///Select peripheral clock divider for input filter sampling clock. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -236,13 +236,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,ClkdivVal> clkDiv{}; 
         namespace ClkdivValC{
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
         }
     }
     namespace Nonepio05{    ///<I/O configuration for pin PIO0_5/RESET
@@ -256,10 +256,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
         ///Hysteresis.
         enum class HysVal {
@@ -268,8 +268,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
         ///Invert input
         enum class InvVal {
@@ -278,8 +278,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -288,8 +288,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -300,10 +300,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,SmodeVal> sMode{}; 
         namespace SmodeValC{
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::bypassInputFilter> bypassInputFilter{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::bypassInputFilter> bypassInputFilter{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
         }
         ///Select peripheral clock divider for input filter sampling clock. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -317,13 +317,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,ClkdivVal> clkDiv{}; 
         namespace ClkdivValC{
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
         }
     }
     namespace Nonepio04{    ///<I/O configuration for pin PIO0_4
@@ -337,10 +337,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
         ///Hysteresis.
         enum class HysVal {
@@ -349,8 +349,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
         ///Invert input
         enum class InvVal {
@@ -359,8 +359,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -369,8 +369,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -381,10 +381,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,SmodeVal> sMode{}; 
         namespace SmodeValC{
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::bypassInputFilter> bypassInputFilter{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::bypassInputFilter> bypassInputFilter{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
         }
         ///Select peripheral clock divider for input filter sampling clock. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -398,13 +398,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,ClkdivVal> clkDiv{}; 
         namespace ClkdivValC{
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
         }
     }
     namespace Nonepio03{    ///<I/O configuration for pin PIO0_3/SWCLK
@@ -418,10 +418,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
         ///Hysteresis.
         enum class HysVal {
@@ -430,8 +430,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
         ///Invert input.
         enum class InvVal {
@@ -440,8 +440,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -450,8 +450,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -462,10 +462,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,SmodeVal> sMode{}; 
         namespace SmodeValC{
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::bypassInputFilter> bypassInputFilter{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::bypassInputFilter> bypassInputFilter{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
         }
         ///Select peripheral clock divider for input filter sampling clock. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -479,13 +479,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,ClkdivVal> clkDiv{}; 
         namespace ClkdivValC{
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
         }
     }
     namespace Nonepio02{    ///<I/O configuration for pin PIO0_2/SWDIO
@@ -499,10 +499,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
         ///Hysteresis.
         enum class HysVal {
@@ -511,8 +511,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
         ///Invert input.
         enum class InvVal {
@@ -521,8 +521,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -531,8 +531,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -543,10 +543,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,SmodeVal> sMode{}; 
         namespace SmodeValC{
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::bypassInputFilter> bypassInputFilter{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::bypassInputFilter> bypassInputFilter{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
         }
         ///Select peripheral clock divider for input filter sampling clock. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -560,13 +560,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,ClkdivVal> clkDiv{}; 
         namespace ClkdivValC{
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
         }
     }
     namespace Nonepio011{    ///<I/O configuration for pin PIO0_11. This is the pin configuration for the true open-drain pin.
@@ -578,8 +578,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
         ///Selects I2C mode.  Select Standard mode (I2CMODE = 00, default) or Standard I/O functionality (I2CMODE = 01) if the pin function is GPIO (FUNC = 000).
         enum class I2cmodeVal {
@@ -589,9 +589,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,I2cmodeVal> i2cmode{}; 
         namespace I2cmodeValC{
-            constexpr Register::FieldValue<decltype(i2cmode),I2cmodeVal::standardMode> standardMode{};
-            constexpr Register::FieldValue<decltype(i2cmode),I2cmodeVal::standardIo> standardIo{};
-            constexpr Register::FieldValue<decltype(i2cmode),I2cmodeVal::fastModePlusI2c> fastModePlusI2c{};
+            constexpr Register::FieldValue<decltype(i2cmode)::Type,I2cmodeVal::standardMode> standardMode{};
+            constexpr Register::FieldValue<decltype(i2cmode)::Type,I2cmodeVal::standardIo> standardIo{};
+            constexpr Register::FieldValue<decltype(i2cmode)::Type,I2cmodeVal::fastModePlusI2c> fastModePlusI2c{};
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -602,10 +602,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,SmodeVal> sMode{}; 
         namespace SmodeValC{
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::bypassInputFilter> bypassInputFilter{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::bypassInputFilter> bypassInputFilter{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
         }
         ///Select peripheral clock divider for input filter sampling clock. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -619,13 +619,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,ClkdivVal> clkDiv{}; 
         namespace ClkdivValC{
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
         }
     }
     namespace Nonepio010{    ///<I/O configuration for pin PIO0_10. This is the pin configuration for the true open-drain pin.
@@ -637,8 +637,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
         ///Selects I2C mode.  Select Standard mode (I2CMODE = 00, default) or Standard I/O functionality (I2CMODE = 01) if the pin function is GPIO (FUNC = 000).
         enum class I2cmodeVal {
@@ -648,9 +648,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,I2cmodeVal> i2cmode{}; 
         namespace I2cmodeValC{
-            constexpr Register::FieldValue<decltype(i2cmode),I2cmodeVal::standardMode> standardMode{};
-            constexpr Register::FieldValue<decltype(i2cmode),I2cmodeVal::standardIo> standardIo{};
-            constexpr Register::FieldValue<decltype(i2cmode),I2cmodeVal::fastModePlusI2c> fastModePlusI2c{};
+            constexpr Register::FieldValue<decltype(i2cmode)::Type,I2cmodeVal::standardMode> standardMode{};
+            constexpr Register::FieldValue<decltype(i2cmode)::Type,I2cmodeVal::standardIo> standardIo{};
+            constexpr Register::FieldValue<decltype(i2cmode)::Type,I2cmodeVal::fastModePlusI2c> fastModePlusI2c{};
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -661,10 +661,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,SmodeVal> sMode{}; 
         namespace SmodeValC{
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::bypassInputFilter> bypassInputFilter{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::bypassInputFilter> bypassInputFilter{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
         }
         ///Select peripheral clock divider for input filter sampling clock. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -678,13 +678,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,ClkdivVal> clkDiv{}; 
         namespace ClkdivValC{
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
         }
     }
     namespace Nonepio016{    ///<I/O configuration for pin PIO0_16
@@ -698,10 +698,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
         ///Hysteresis.
         enum class HysVal {
@@ -710,8 +710,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
         ///Invert input
         enum class InvVal {
@@ -720,8 +720,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -730,8 +730,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -742,10 +742,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,SmodeVal> sMode{}; 
         namespace SmodeValC{
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::bypassInputFilter> bypassInputFilter{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::bypassInputFilter> bypassInputFilter{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
         }
         ///Select peripheral clock divider for input filter sampling clock. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -759,13 +759,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,ClkdivVal> clkDiv{}; 
         namespace ClkdivValC{
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
         }
     }
     namespace Nonepio015{    ///<I/O configuration for pin PIO0_15
@@ -779,10 +779,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
         ///Hysteresis.
         enum class HysVal {
@@ -791,8 +791,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
         ///Invert input
         enum class InvVal {
@@ -801,8 +801,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -811,8 +811,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -823,10 +823,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,SmodeVal> sMode{}; 
         namespace SmodeValC{
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::bypassInputFilter> bypassInputFilter{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::bypassInputFilter> bypassInputFilter{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
         }
         ///Select peripheral clock divider for input filter sampling clock. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -840,13 +840,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,ClkdivVal> clkDiv{}; 
         namespace ClkdivValC{
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
         }
     }
     namespace Nonepio01{    ///<I/O configuration for pin PIO0_1/ACMP_I1/CLKIN
@@ -860,10 +860,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
         ///Hysteresis.
         enum class HysVal {
@@ -872,8 +872,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
         ///Invert input
         enum class InvVal {
@@ -882,8 +882,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -892,8 +892,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -904,10 +904,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,SmodeVal> sMode{}; 
         namespace SmodeValC{
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::bypassInputFilter> bypassInputFilter{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::bypassInputFilter> bypassInputFilter{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
         }
         ///Select peripheral clock divider for input filter sampling clock. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -921,13 +921,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,ClkdivVal> clkDiv{}; 
         namespace ClkdivValC{
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
         }
     }
     namespace Nonepio09{    ///<I/O configuration for pin PIO0_9/XTALOUT
@@ -941,10 +941,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
         ///Hysteresis.
         enum class HysVal {
@@ -953,8 +953,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
         ///Invert input
         enum class InvVal {
@@ -963,8 +963,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -973,8 +973,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -985,10 +985,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,SmodeVal> sMode{}; 
         namespace SmodeValC{
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::bypassInputFilter> bypassInputFilter{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::bypassInputFilter> bypassInputFilter{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
         }
         ///Select peripheral clock divider for input filter sampling clock. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -1002,13 +1002,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,ClkdivVal> clkDiv{}; 
         namespace ClkdivValC{
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
         }
     }
     namespace Nonepio08{    ///<I/O configuration for pin PIO0_8/XTALIN
@@ -1022,10 +1022,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
         ///Hysteresis.
         enum class HysVal {
@@ -1034,8 +1034,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
         ///Invert input
         enum class InvVal {
@@ -1044,8 +1044,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -1054,8 +1054,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -1066,10 +1066,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,SmodeVal> sMode{}; 
         namespace SmodeValC{
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::bypassInputFilter> bypassInputFilter{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::bypassInputFilter> bypassInputFilter{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
         }
         ///Select peripheral clock divider for input filter sampling clock. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -1083,13 +1083,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,ClkdivVal> clkDiv{}; 
         namespace ClkdivValC{
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
         }
     }
     namespace Nonepio07{    ///<I/O configuration for pin PIO0_7
@@ -1103,10 +1103,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
         ///Hysteresis.
         enum class HysVal {
@@ -1115,8 +1115,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
         ///Invert input
         enum class InvVal {
@@ -1125,8 +1125,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -1135,8 +1135,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -1147,10 +1147,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,SmodeVal> sMode{}; 
         namespace SmodeValC{
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::bypassInputFilter> bypassInputFilter{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::bypassInputFilter> bypassInputFilter{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
         }
         ///Select peripheral clock divider for input filter sampling clock. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -1164,13 +1164,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,ClkdivVal> clkDiv{}; 
         namespace ClkdivValC{
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
         }
     }
     namespace Nonepio06{    ///<I/O configuration for pin PIO0_6/VDDCMP
@@ -1184,10 +1184,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
         ///Hysteresis.
         enum class HysVal {
@@ -1196,8 +1196,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
         ///Invert input
         enum class InvVal {
@@ -1206,8 +1206,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -1216,8 +1216,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -1228,10 +1228,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,SmodeVal> sMode{}; 
         namespace SmodeValC{
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::bypassInputFilter> bypassInputFilter{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::bypassInputFilter> bypassInputFilter{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
         }
         ///Select peripheral clock divider for input filter sampling clock. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -1245,13 +1245,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,ClkdivVal> clkDiv{}; 
         namespace ClkdivValC{
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
         }
     }
     namespace Nonepio00{    ///<I/O configuration for pin PIO0_0/ACMP_I0
@@ -1265,10 +1265,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
         ///Hysteresis.
         enum class HysVal {
@@ -1277,8 +1277,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
         ///Invert input
         enum class InvVal {
@@ -1287,8 +1287,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -1297,8 +1297,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -1309,10 +1309,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,SmodeVal> sMode{}; 
         namespace SmodeValC{
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::bypassInputFilter> bypassInputFilter{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::bypassInputFilter> bypassInputFilter{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
         }
         ///Select peripheral clock divider for input filter sampling clock. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -1326,13 +1326,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,ClkdivVal> clkDiv{}; 
         namespace ClkdivValC{
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
         }
     }
     namespace Nonepio014{    ///<I/O configuration for pin PIO0_14
@@ -1346,10 +1346,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullDownResistorE> pullDownResistorE{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::pullUpResistorEna> pullUpResistorEna{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::repeaterMode> repeaterMode{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::inactiveNoPullDo> inactiveNoPullDo{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullDownResistorE> pullDownResistorE{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::pullUpResistorEna> pullUpResistorEna{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::repeaterMode> repeaterMode{};
         }
         ///Hysteresis.
         enum class HysVal {
@@ -1358,8 +1358,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HysVal> hys{}; 
         namespace HysValC{
-            constexpr Register::FieldValue<decltype(hys),HysVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(hys),HysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(hys)::Type,HysVal::enable> enable{};
         }
         ///Invert input
         enum class InvVal {
@@ -1368,8 +1368,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,InvVal> inv{}; 
         namespace InvValC{
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputNotInverted> inputNotInverted{};
-            constexpr Register::FieldValue<decltype(inv),InvVal::inputInvertedHigh> inputInvertedHigh{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputNotInverted> inputNotInverted{};
+            constexpr Register::FieldValue<decltype(inv)::Type,InvVal::inputInvertedHigh> inputInvertedHigh{};
         }
         ///Open-drain mode.
         enum class OdVal {
@@ -1378,8 +1378,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,OdVal> od{}; 
         namespace OdValC{
-            constexpr Register::FieldValue<decltype(od),OdVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(od),OdVal::openDrainModeEnab> openDrainModeEnab{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(od)::Type,OdVal::openDrainModeEnab> openDrainModeEnab{};
         }
         ///Digital filter sample mode.
         enum class SmodeVal {
@@ -1390,10 +1390,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,SmodeVal> sMode{}; 
         namespace SmodeValC{
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::bypassInputFilter> bypassInputFilter{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
-            constexpr Register::FieldValue<decltype(sMode),SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::bypassInputFilter> bypassInputFilter{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v1ClockCycleInput> v1ClockCycleInput{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v2ClockCyclesInpu> v2ClockCyclesInpu{};
+            constexpr Register::FieldValue<decltype(sMode)::Type,SmodeVal::v3ClockCyclesInpu> v3ClockCyclesInpu{};
         }
         ///Select peripheral clock divider for input filter sampling clock. Value 0x7 is reserved.
         enum class ClkdivVal {
@@ -1407,13 +1407,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,ClkdivVal> clkDiv{}; 
         namespace ClkdivValC{
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
-            constexpr Register::FieldValue<decltype(clkDiv),ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv0> ioconfiltrclkdiv0{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv1> ioconfiltrclkdiv1{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv2> ioconfiltrclkdiv2{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv3> ioconfiltrclkdiv3{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv4> ioconfiltrclkdiv4{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv5> ioconfiltrclkdiv5{};
+            constexpr Register::FieldValue<decltype(clkDiv)::Type,ClkdivVal::ioconfiltrclkdiv6> ioconfiltrclkdiv6{};
         }
     }
 }

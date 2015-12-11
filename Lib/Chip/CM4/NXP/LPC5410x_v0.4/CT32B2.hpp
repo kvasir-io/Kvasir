@@ -8,36 +8,20 @@ namespace Kvasir {
         using Addr = Register::Address<0x40004000,0xffffff00,0,unsigned>;
         ///Interrupt flag for match channel 0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mr0int{}; 
-        namespace Mr0intValC{
-        }
         ///Interrupt flag for match channel 1.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> mr1int{}; 
-        namespace Mr1intValC{
-        }
         ///Interrupt flag for match channel 2.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> mr2int{}; 
-        namespace Mr2intValC{
-        }
         ///Interrupt flag for match channel 3.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> mr3int{}; 
-        namespace Mr3intValC{
-        }
         ///Interrupt flag for capture channel 0 event.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> cr0int{}; 
-        namespace Cr0intValC{
-        }
         ///Interrupt flag for capture channel 1 event.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> cr1int{}; 
-        namespace Cr1intValC{
-        }
         ///Interrupt flag for capture channel 2 event.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> cr2int{}; 
-        namespace Cr2intValC{
-        }
         ///Interrupt flag for capture channel 3 event.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> cr3int{}; 
-        namespace Cr3intValC{
-        }
     }
     namespace Nonetcr{    ///<Timer Control Register. The TCR is used to control the Timer
 						Counter functions. The Timer Counter can be disabled or reset through the
@@ -51,8 +35,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CenVal> cen{}; 
         namespace CenValC{
-            constexpr Register::FieldValue<decltype(cen),CenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(cen),CenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(cen)::Type,CenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(cen)::Type,CenVal::enabled> enabled{};
         }
         ///Counter reset.
         enum class CrstVal {
@@ -64,8 +48,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,CrstVal> crst{}; 
         namespace CrstValC{
-            constexpr Register::FieldValue<decltype(crst),CrstVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(crst),CrstVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(crst)::Type,CrstVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(crst)::Type,CrstVal::enabled> enabled{};
         }
     }
     namespace Nonetc{    ///<Timer Counter. The 32 bit TC is incremented every PR+1 cycles of
@@ -73,16 +57,12 @@ namespace Kvasir {
         using Addr = Register::Address<0x40004008,0x00000000,0,unsigned>;
         ///Timer counter value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tcval{}; 
-        namespace TcvalValC{
-        }
     }
     namespace Nonepr{    ///<Prescale Register. When the Prescale Counter (PC) is equal to this
 						value, the next clock increments the TC and clears the PC.
         using Addr = Register::Address<0x4000400c,0x00000000,0,unsigned>;
         ///Prescale counter value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> prval{}; 
-        namespace PrvalValC{
-        }
     }
     namespace Nonepc{    ///<Prescale Counter. The 32 bit PC is a counter which is incremented
 						to the value stored in PR. When the value in PR is reached, the TC is
@@ -91,8 +71,6 @@ namespace Kvasir {
         using Addr = Register::Address<0x40004010,0x00000000,0,unsigned>;
         ///Prescale counter value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pcval{}; 
-        namespace PcvalValC{
-        }
     }
     namespace Nonemcr{    ///<Match Control Register. The MCR is used to control if an interrupt
 						is generated and if the TC is reset when a Match occurs.
@@ -101,70 +79,46 @@ namespace Kvasir {
 								matches the value in the TC. 0 = disabled. 1 =
 								enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mr0i{}; 
-        namespace Mr0iValC{
-        }
         ///Reset on MR0: the TC will be reset if MR0 matches it. 0 =
 								disabled. 1 = enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> mr0r{}; 
-        namespace Mr0rValC{
-        }
         ///Stop on MR0: the TC and PC will be stopped and TCR[0] will
 								be set to 0 if MR0 matches the TC. 0 = disabled. 1 =
 								enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> mr0s{}; 
-        namespace Mr0sValC{
-        }
         ///Interrupt on MR1: an interrupt is generated when MR1
 								matches the value in the TC. 0 = disabled. 1 = enabled. 0 =
 								disabled. 1 = enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> mr1i{}; 
-        namespace Mr1iValC{
-        }
         ///Reset on MR1: the TC will be reset if MR1 matches it. 0 =
 								disabled. 1 = enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> mr1r{}; 
-        namespace Mr1rValC{
-        }
         ///Stop on MR1: the TC and PC will be stopped and TCR[0] will
 								be set to 0 if MR1 matches the TC. 0 = disabled. 1 =
 								enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> mr1s{}; 
-        namespace Mr1sValC{
-        }
         ///Interrupt on MR2: an interrupt is generated when MR2
 								matches the value in the TC. 0 = disabled. 1 =
 								enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> mr2i{}; 
-        namespace Mr2iValC{
-        }
         ///Reset on MR2: the TC will be reset if MR2 matches it. 0 =
 								disabled. 1 = enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> mr2r{}; 
-        namespace Mr2rValC{
-        }
         ///Stop on MR2: the TC and PC will be stopped and TCR[0] will
 								be set to 0 if MR2 matches the TC. 0 = disabled. 1 =
 								enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> mr2s{}; 
-        namespace Mr2sValC{
-        }
         ///Interrupt on MR3: an interrupt is generated when MR3
 								matches the value in the TC. 0 = disabled. 1 =
 								enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> mr3i{}; 
-        namespace Mr3iValC{
-        }
         ///Reset on MR3: the TC will be reset if MR3 matches it. 0 =
 								disabled. 1 = enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> mr3r{}; 
-        namespace Mr3rValC{
-        }
         ///Stop on MR3: the TC and PC will be stopped and TCR[0] will
 								be set to 0 if MR3 matches the TC. 0 = disabled. 1 =
 								enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> mr3s{}; 
-        namespace Mr3sValC{
-        }
     }
     namespace Nonemr0{    ///<Match Register 0. MR0 can be enabled through the MCR to reset the
 						TC, stop both the TC and PC, and/or generate an interrupt every time MR0
@@ -172,8 +126,6 @@ namespace Kvasir {
         using Addr = Register::Address<0x40004018,0x00000000,0,unsigned>;
         ///Timer counter match value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
-        namespace MatchValC{
-        }
     }
     namespace Nonemr1{    ///<Match Register 0. MR0 can be enabled through the MCR to reset the
 						TC, stop both the TC and PC, and/or generate an interrupt every time MR0
@@ -181,8 +133,6 @@ namespace Kvasir {
         using Addr = Register::Address<0x4000401c,0x00000000,0,unsigned>;
         ///Timer counter match value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
-        namespace MatchValC{
-        }
     }
     namespace Nonemr2{    ///<Match Register 0. MR0 can be enabled through the MCR to reset the
 						TC, stop both the TC and PC, and/or generate an interrupt every time MR0
@@ -190,8 +140,6 @@ namespace Kvasir {
         using Addr = Register::Address<0x40004020,0x00000000,0,unsigned>;
         ///Timer counter match value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
-        namespace MatchValC{
-        }
     }
     namespace Nonemr3{    ///<Match Register 0. MR0 can be enabled through the MCR to reset the
 						TC, stop both the TC and PC, and/or generate an interrupt every time MR0
@@ -199,8 +147,6 @@ namespace Kvasir {
         using Addr = Register::Address<0x40004024,0x00000000,0,unsigned>;
         ///Timer counter match value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> match{}; 
-        namespace MatchValC{
-        }
     }
     namespace Noneccr{    ///<Capture Control Register. The CCR controls which edges of the
 						capture inputs are used to load the Capture Registers and whether or not an
@@ -210,102 +156,70 @@ namespace Kvasir {
 								causes CR0 to be loaded with the contents of TC. 0 = disabled. 1 =
 								enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cap0re{}; 
-        namespace Cap0reValC{
-        }
         ///Falling edge of capture channel 0: a sequence of 1 then 0
 								causes CR0 to be loaded with the contents of TC. 0 = disabled. 1 =
 								enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> cap0fe{}; 
-        namespace Cap0feValC{
-        }
         ///Generate interrupt on channel 0 capture event: a CR0 load
 								generates an interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> cap0i{}; 
-        namespace Cap0iValC{
-        }
         ///Rising edge of capture channel 1: a sequence of 0 then 1
 								causes CR1 to be loaded with the contents of TC. 0 = disabled. 1 =
 								enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> cap1re{}; 
-        namespace Cap1reValC{
-        }
         ///Falling edge of capture channel 1: a sequence of 1 then 0
 								causes CR1 to be loaded with the contents of TC. 0 = disabled. 1 =
 								enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> cap1fe{}; 
-        namespace Cap1feValC{
-        }
         ///Generate interrupt on channel 1 capture event: a CR1 load
 								generates an interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> cap1i{}; 
-        namespace Cap1iValC{
-        }
         ///Rising edge of capture channel 2: a sequence of 0 then 1
 								causes CR2 to be loaded with the contents of TC. 0 = disabled. 1 =
 								enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> cap2re{}; 
-        namespace Cap2reValC{
-        }
         ///Falling edge of capture channel 2: a sequence of 1 then 0
 								causes CR2 to be loaded with the contents of TC. 0 = disabled. 1 =
 								enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> cap2fe{}; 
-        namespace Cap2feValC{
-        }
         ///Generate interrupt on channel 2 capture event: a CR2 load
 								generates an interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> cap2i{}; 
-        namespace Cap2iValC{
-        }
         ///Rising edge of capture channel 3: a sequence of 0 then 1
 								causes CR3 to be loaded with the contents of TC. 0 = disabled. 1 =
 								enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> cap3re{}; 
-        namespace Cap3reValC{
-        }
         ///Falling edge of capture channel 3: a sequence of 1 then 0
 								causes CR3 to be loaded with the contents of TC. 0 = disabled. 1 =
 								enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> cap3fe{}; 
-        namespace Cap3feValC{
-        }
         ///Generate interrupt on channel 3 capture event: a CR3 load
 								generates an interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> cap3i{}; 
-        namespace Cap3iValC{
-        }
     }
     namespace Nonecr0{    ///<Capture Register 0. CR0 is loaded with the value of TC when there
 						is an event on the CAPn.0 input.
         using Addr = Register::Address<0x4000402c,0x00000000,0,unsigned>;
         ///Timer counter capture value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cap{}; 
-        namespace CapValC{
-        }
     }
     namespace Nonecr1{    ///<Capture Register 0. CR0 is loaded with the value of TC when there
 						is an event on the CAPn.0 input.
         using Addr = Register::Address<0x40004030,0x00000000,0,unsigned>;
         ///Timer counter capture value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cap{}; 
-        namespace CapValC{
-        }
     }
     namespace Nonecr2{    ///<Capture Register 0. CR0 is loaded with the value of TC when there
 						is an event on the CAPn.0 input.
         using Addr = Register::Address<0x40004034,0x00000000,0,unsigned>;
         ///Timer counter capture value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cap{}; 
-        namespace CapValC{
-        }
     }
     namespace Nonecr3{    ///<Capture Register 0. CR0 is loaded with the value of TC when there
 						is an event on the CAPn.0 input.
         using Addr = Register::Address<0x40004038,0x00000000,0,unsigned>;
         ///Timer counter capture value.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> cap{}; 
-        namespace CapValC{
-        }
     }
     namespace Noneemr{    ///<External Match Register. The EMR controls the match function and
 						the external match pins.
@@ -317,8 +231,6 @@ namespace Kvasir {
 								to the MAT pins if the match function is selected via IOCON. 0 =
 								LOW. 1 = HIGH.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> em0{}; 
-        namespace Em0ValC{
-        }
         ///External Match 1. This bit reflects the state of output
 								MAT1, whether or not this output is connected to a pin. When a match
 								occurs between the TC and MR1, this bit can either toggle, go LOW,
@@ -326,8 +238,6 @@ namespace Kvasir {
 								to the MAT pins if the match function is selected via IOCON. 0 =
 								LOW. 1 = HIGH.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> em1{}; 
-        namespace Em1ValC{
-        }
         ///External Match 2. This bit reflects the state of output
 								MAT2, whether or not this output is connected to a pin. When a match
 								occurs between the TC and MR2, this bit can either toggle, go LOW,
@@ -335,8 +245,6 @@ namespace Kvasir {
 								to the MAT pins if the match function is selected via IOCON. 0 =
 								LOW. 1 = HIGH.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> em2{}; 
-        namespace Em2ValC{
-        }
         ///External Match 3. This bit reflects the state of output
 								MAT3, whether or not this output is connected to a pin. When a match
 								occurs between the TC and MR3, this bit can either toggle, go LOW,
@@ -344,8 +252,6 @@ namespace Kvasir {
 								to the MAT pins if the match function is selected via IOCON. 0 =
 								LOW. 1 = HIGH.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> em3{}; 
-        namespace Em3ValC{
-        }
         ///External Match Control 0. Determines the functionality of
 								External Match 0.
         enum class Emc0Val {
@@ -361,10 +267,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,Emc0Val> emc0{}; 
         namespace Emc0ValC{
-            constexpr Register::FieldValue<decltype(emc0),Emc0Val::doNothing> doNothing{};
-            constexpr Register::FieldValue<decltype(emc0),Emc0Val::clear> clear{};
-            constexpr Register::FieldValue<decltype(emc0),Emc0Val::set> set{};
-            constexpr Register::FieldValue<decltype(emc0),Emc0Val::toggle> toggle{};
+            constexpr Register::FieldValue<decltype(emc0)::Type,Emc0Val::doNothing> doNothing{};
+            constexpr Register::FieldValue<decltype(emc0)::Type,Emc0Val::clear> clear{};
+            constexpr Register::FieldValue<decltype(emc0)::Type,Emc0Val::set> set{};
+            constexpr Register::FieldValue<decltype(emc0)::Type,Emc0Val::toggle> toggle{};
         }
         ///External Match Control 1. Determines the functionality of
 								External Match 1.
@@ -381,10 +287,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,Emc1Val> emc1{}; 
         namespace Emc1ValC{
-            constexpr Register::FieldValue<decltype(emc1),Emc1Val::doNothing> doNothing{};
-            constexpr Register::FieldValue<decltype(emc1),Emc1Val::clear> clear{};
-            constexpr Register::FieldValue<decltype(emc1),Emc1Val::set> set{};
-            constexpr Register::FieldValue<decltype(emc1),Emc1Val::toggle> toggle{};
+            constexpr Register::FieldValue<decltype(emc1)::Type,Emc1Val::doNothing> doNothing{};
+            constexpr Register::FieldValue<decltype(emc1)::Type,Emc1Val::clear> clear{};
+            constexpr Register::FieldValue<decltype(emc1)::Type,Emc1Val::set> set{};
+            constexpr Register::FieldValue<decltype(emc1)::Type,Emc1Val::toggle> toggle{};
         }
         ///External Match Control 2. Determines the functionality of
 								External Match 2.
@@ -401,10 +307,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,Emc2Val> emc2{}; 
         namespace Emc2ValC{
-            constexpr Register::FieldValue<decltype(emc2),Emc2Val::doNothing> doNothing{};
-            constexpr Register::FieldValue<decltype(emc2),Emc2Val::clear> clear{};
-            constexpr Register::FieldValue<decltype(emc2),Emc2Val::set> set{};
-            constexpr Register::FieldValue<decltype(emc2),Emc2Val::toggle> toggle{};
+            constexpr Register::FieldValue<decltype(emc2)::Type,Emc2Val::doNothing> doNothing{};
+            constexpr Register::FieldValue<decltype(emc2)::Type,Emc2Val::clear> clear{};
+            constexpr Register::FieldValue<decltype(emc2)::Type,Emc2Val::set> set{};
+            constexpr Register::FieldValue<decltype(emc2)::Type,Emc2Val::toggle> toggle{};
         }
         ///External Match Control 3. Determines the functionality of
 								External Match 3.
@@ -421,10 +327,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,Emc3Val> emc3{}; 
         namespace Emc3ValC{
-            constexpr Register::FieldValue<decltype(emc3),Emc3Val::doNothing> doNothing{};
-            constexpr Register::FieldValue<decltype(emc3),Emc3Val::clear> clear{};
-            constexpr Register::FieldValue<decltype(emc3),Emc3Val::set> set{};
-            constexpr Register::FieldValue<decltype(emc3),Emc3Val::toggle> toggle{};
+            constexpr Register::FieldValue<decltype(emc3)::Type,Emc3Val::doNothing> doNothing{};
+            constexpr Register::FieldValue<decltype(emc3)::Type,Emc3Val::clear> clear{};
+            constexpr Register::FieldValue<decltype(emc3)::Type,Emc3Val::set> set{};
+            constexpr Register::FieldValue<decltype(emc3)::Type,Emc3Val::toggle> toggle{};
         }
     }
     namespace Nonectcr{    ///<Count Control Register. The CTCR selects between Timer and Counter
@@ -449,10 +355,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,CtmodeVal> ctmode{}; 
         namespace CtmodeValC{
-            constexpr Register::FieldValue<decltype(ctmode),CtmodeVal::timerMode> timerMode{};
-            constexpr Register::FieldValue<decltype(ctmode),CtmodeVal::counterModeRising> counterModeRising{};
-            constexpr Register::FieldValue<decltype(ctmode),CtmodeVal::counterModeFalling> counterModeFalling{};
-            constexpr Register::FieldValue<decltype(ctmode),CtmodeVal::counterModeDualEd> counterModeDualEd{};
+            constexpr Register::FieldValue<decltype(ctmode)::Type,CtmodeVal::timerMode> timerMode{};
+            constexpr Register::FieldValue<decltype(ctmode)::Type,CtmodeVal::counterModeRising> counterModeRising{};
+            constexpr Register::FieldValue<decltype(ctmode)::Type,CtmodeVal::counterModeFalling> counterModeFalling{};
+            constexpr Register::FieldValue<decltype(ctmode)::Type,CtmodeVal::counterModeDualEd> counterModeDualEd{};
         }
         ///Count Input Select When bits 1:0 in this register are not
 								00, these bits select which CAP pin is sampled for clocking. Note:
@@ -469,17 +375,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,CinselVal> cinsel{}; 
         namespace CinselValC{
-            constexpr Register::FieldValue<decltype(cinsel),CinselVal::channel0> channel0{};
-            constexpr Register::FieldValue<decltype(cinsel),CinselVal::channel1> channel1{};
-            constexpr Register::FieldValue<decltype(cinsel),CinselVal::channel2> channel2{};
-            constexpr Register::FieldValue<decltype(cinsel),CinselVal::channel3> channel3{};
+            constexpr Register::FieldValue<decltype(cinsel)::Type,CinselVal::channel0> channel0{};
+            constexpr Register::FieldValue<decltype(cinsel)::Type,CinselVal::channel1> channel1{};
+            constexpr Register::FieldValue<decltype(cinsel)::Type,CinselVal::channel2> channel2{};
+            constexpr Register::FieldValue<decltype(cinsel)::Type,CinselVal::channel3> channel3{};
         }
         ///Setting this bit to 1 enables clearing of the timer and the
 								prescaler when the capture-edge event specified in bits 7:5
 								occurs.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> encc{}; 
-        namespace EnccValC{
-        }
         ///Edge select. When bit 4 is 1, these bits select which
 								capture input edge will cause the timer and prescaler to be cleared.
 								These bits have no effect when bit 4 is low. Values 0x2 to 0x3 and
@@ -506,12 +410,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,SelccVal> selcc{}; 
         namespace SelccValC{
-            constexpr Register::FieldValue<decltype(selcc),SelccVal::channel0RisingEdg> channel0RisingEdg{};
-            constexpr Register::FieldValue<decltype(selcc),SelccVal::channel0FallingEd> channel0FallingEd{};
-            constexpr Register::FieldValue<decltype(selcc),SelccVal::channel1RisingEdg> channel1RisingEdg{};
-            constexpr Register::FieldValue<decltype(selcc),SelccVal::channel1FallingEd> channel1FallingEd{};
-            constexpr Register::FieldValue<decltype(selcc),SelccVal::channel2RisingEdg> channel2RisingEdg{};
-            constexpr Register::FieldValue<decltype(selcc),SelccVal::channel2FallingEd> channel2FallingEd{};
+            constexpr Register::FieldValue<decltype(selcc)::Type,SelccVal::channel0RisingEdg> channel0RisingEdg{};
+            constexpr Register::FieldValue<decltype(selcc)::Type,SelccVal::channel0FallingEd> channel0FallingEd{};
+            constexpr Register::FieldValue<decltype(selcc)::Type,SelccVal::channel1RisingEdg> channel1RisingEdg{};
+            constexpr Register::FieldValue<decltype(selcc)::Type,SelccVal::channel1FallingEd> channel1FallingEd{};
+            constexpr Register::FieldValue<decltype(selcc)::Type,SelccVal::channel2RisingEdg> channel2RisingEdg{};
+            constexpr Register::FieldValue<decltype(selcc)::Type,SelccVal::channel2FallingEd> channel2FallingEd{};
         }
     }
     namespace Nonepwmc{    ///<PWM Control Register. The PWMCON enables PWM mode for the external
@@ -526,8 +430,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Pwmen0Val> pwmen0{}; 
         namespace Pwmen0ValC{
-            constexpr Register::FieldValue<decltype(pwmen0),Pwmen0Val::match> match{};
-            constexpr Register::FieldValue<decltype(pwmen0),Pwmen0Val::pwm> pwm{};
+            constexpr Register::FieldValue<decltype(pwmen0)::Type,Pwmen0Val::match> match{};
+            constexpr Register::FieldValue<decltype(pwmen0)::Type,Pwmen0Val::pwm> pwm{};
         }
         ///PWM mode enable for channel1.
         enum class Pwmen1Val {
@@ -538,8 +442,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Pwmen1Val> pwmen1{}; 
         namespace Pwmen1ValC{
-            constexpr Register::FieldValue<decltype(pwmen1),Pwmen1Val::match> match{};
-            constexpr Register::FieldValue<decltype(pwmen1),Pwmen1Val::pwm> pwm{};
+            constexpr Register::FieldValue<decltype(pwmen1)::Type,Pwmen1Val::match> match{};
+            constexpr Register::FieldValue<decltype(pwmen1)::Type,Pwmen1Val::pwm> pwm{};
         }
         ///PWM mode enable for channel2.
         enum class Pwmen2Val {
@@ -550,8 +454,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Pwmen2Val> pwmen2{}; 
         namespace Pwmen2ValC{
-            constexpr Register::FieldValue<decltype(pwmen2),Pwmen2Val::match> match{};
-            constexpr Register::FieldValue<decltype(pwmen2),Pwmen2Val::pwm> pwm{};
+            constexpr Register::FieldValue<decltype(pwmen2)::Type,Pwmen2Val::match> match{};
+            constexpr Register::FieldValue<decltype(pwmen2)::Type,Pwmen2Val::pwm> pwm{};
         }
         ///PWM mode enable for channel3. Note: It is recommended to
 								use match channel 3 to set the PWM cycle.
@@ -563,8 +467,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Pwmen3Val> pwmen3{}; 
         namespace Pwmen3ValC{
-            constexpr Register::FieldValue<decltype(pwmen3),Pwmen3Val::match> match{};
-            constexpr Register::FieldValue<decltype(pwmen3),Pwmen3Val::pwm> pwm{};
+            constexpr Register::FieldValue<decltype(pwmen3)::Type,Pwmen3Val::match> match{};
+            constexpr Register::FieldValue<decltype(pwmen3)::Type,Pwmen3Val::pwm> pwm{};
         }
     }
 }

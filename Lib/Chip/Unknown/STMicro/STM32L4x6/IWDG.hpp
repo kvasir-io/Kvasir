@@ -7,48 +7,34 @@ namespace Kvasir {
         ///Key value (write only, read
               0x0000)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> key{}; 
-        namespace KeyValC{
-        }
     }
     namespace Nonepr{    ///<Prescaler register
         using Addr = Register::Address<0x40003004,0xfffffff8,0,unsigned>;
         ///Prescaler divider
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> pr{}; 
-        namespace PrValC{
-        }
     }
     namespace Nonerlr{    ///<Reload register
         using Addr = Register::Address<0x40003008,0xfffff000,0,unsigned>;
         ///Watchdog counter reload
               value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> rl{}; 
-        namespace RlValC{
-        }
     }
     namespace Nonesr{    ///<Status register
         using Addr = Register::Address<0x4000300c,0xfffffff8,0,unsigned>;
         ///Watchdog counter window value
               update
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> wvu{}; 
-        namespace WvuValC{
-        }
         ///Watchdog counter reload value
               update
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rvu{}; 
-        namespace RvuValC{
-        }
         ///Watchdog prescaler value
               update
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> pvu{}; 
-        namespace PvuValC{
-        }
     }
     namespace Nonewinr{    ///<Window register
         using Addr = Register::Address<0x40003010,0xfffff000,0,unsigned>;
         ///Watchdog counter window
               value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> win{}; 
-        namespace WinValC{
-        }
     }
 }

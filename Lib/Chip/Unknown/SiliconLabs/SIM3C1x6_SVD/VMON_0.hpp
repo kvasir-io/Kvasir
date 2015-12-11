@@ -11,8 +11,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,VreginsenVal> vreginsen{}; 
         namespace VreginsenValC{
-            constexpr Register::FieldValue<decltype(vreginsen),VreginsenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(vreginsen),VreginsenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(vreginsen)::Type,VreginsenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(vreginsen)::Type,VreginsenVal::enabled> enabled{};
         }
         ///VREGIN Low Interrupt Flag. 
         enum class VreginliVal {
@@ -21,8 +21,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,VreginliVal> vreginli{}; 
         namespace VreginliValC{
-            constexpr Register::FieldValue<decltype(vreginli),VreginliVal::vreginIsLow> vreginIsLow{};
-            constexpr Register::FieldValue<decltype(vreginli),VreginliVal::vreginIsOk> vreginIsOk{};
+            constexpr Register::FieldValue<decltype(vreginli)::Type,VreginliVal::vreginIsLow> vreginIsLow{};
+            constexpr Register::FieldValue<decltype(vreginli)::Type,VreginliVal::vreginIsOk> vreginIsOk{};
         }
         ///VDD Reset Threshold Status Flag. 
         enum class VddrstfVal {
@@ -31,8 +31,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,VddrstfVal> vddrstf{}; 
         namespace VddrstfValC{
-            constexpr Register::FieldValue<decltype(vddrstf),VddrstfVal::vddIsBelowReset> vddIsBelowReset{};
-            constexpr Register::FieldValue<decltype(vddrstf),VddrstfVal::vddIsAboveReset> vddIsAboveReset{};
+            constexpr Register::FieldValue<decltype(vddrstf)::Type,VddrstfVal::vddIsBelowReset> vddIsBelowReset{};
+            constexpr Register::FieldValue<decltype(vddrstf)::Type,VddrstfVal::vddIsAboveReset> vddIsAboveReset{};
         }
         ///VDD Low Interrupt Flag. 
         enum class VddliVal {
@@ -41,8 +41,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,VddliVal> vddli{}; 
         namespace VddliValC{
-            constexpr Register::FieldValue<decltype(vddli),VddliVal::vddIsLow> vddIsLow{};
-            constexpr Register::FieldValue<decltype(vddli),VddliVal::vddIsOk> vddIsOk{};
+            constexpr Register::FieldValue<decltype(vddli)::Type,VddliVal::vddIsLow> vddIsLow{};
+            constexpr Register::FieldValue<decltype(vddli)::Type,VddliVal::vddIsOk> vddIsOk{};
         }
         ///VDD High Threshold Enable. 
         enum class VddhithenVal {
@@ -51,8 +51,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,VddhithenVal> vddhithen{}; 
         namespace VddhithenValC{
-            constexpr Register::FieldValue<decltype(vddhithen),VddhithenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(vddhithen),VddhithenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(vddhithen)::Type,VddhithenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(vddhithen)::Type,VddhithenVal::enabled> enabled{};
         }
         ///VDD Low Interrupt Enable. 
         enum class VddlienVal {
@@ -61,8 +61,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,VddlienVal> vddlien{}; 
         namespace VddlienValC{
-            constexpr Register::FieldValue<decltype(vddlien),VddlienVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(vddlien),VddlienVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(vddlien)::Type,VddlienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(vddlien)::Type,VddlienVal::enabled> enabled{};
         }
         ///VREGIN Low Interrupt Enable. 
         enum class VreginlienVal {
@@ -71,8 +71,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,VreginlienVal> vreginlien{}; 
         namespace VreginlienValC{
-            constexpr Register::FieldValue<decltype(vreginlien),VreginlienVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(vreginlien),VreginlienVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(vreginlien)::Type,VreginlienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(vreginlien)::Type,VreginlienVal::enabled> enabled{};
         }
         ///VDD Supply Monitor Enable. 
         enum class VmonenVal {
@@ -81,8 +81,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,VmonenVal> vmonen{}; 
         namespace VmonenValC{
-            constexpr Register::FieldValue<decltype(vmonen),VmonenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(vmonen),VmonenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(vmonen)::Type,VmonenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(vmonen)::Type,VmonenVal::enabled> enabled{};
         }
     }
 }

@@ -11,8 +11,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,SleepflagVal> sleepflag{}; 
         namespace SleepflagValC{
-            constexpr Register::FieldValue<decltype(sleepflag),SleepflagVal::nopowerdown> nopowerdown{};
-            constexpr Register::FieldValue<decltype(sleepflag),SleepflagVal::powerdownentered> powerdownentered{};
+            constexpr Register::FieldValue<decltype(sleepflag)::Type,SleepflagVal::nopowerdown> nopowerdown{};
+            constexpr Register::FieldValue<decltype(sleepflag)::Type,SleepflagVal::powerdownentered> powerdownentered{};
         }
     }
 }

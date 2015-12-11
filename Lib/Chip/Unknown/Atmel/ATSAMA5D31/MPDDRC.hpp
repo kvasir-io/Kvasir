@@ -17,38 +17,28 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,ModeVal> mode{}; 
         namespace ModeValC{
-            constexpr Register::FieldValue<decltype(mode),ModeVal::normalCmd> normalCmd{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::nopCmd> nopCmd{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::prcgallCmd> prcgallCmd{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::lmrCmd> lmrCmd{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::rfshCmd> rfshCmd{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::extLmrCmd> extLmrCmd{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::deepCmd> deepCmd{};
-            constexpr Register::FieldValue<decltype(mode),ModeVal::lpddr2Cmd> lpddr2Cmd{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::normalCmd> normalCmd{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::nopCmd> nopCmd{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::prcgallCmd> prcgallCmd{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::lmrCmd> lmrCmd{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::rfshCmd> rfshCmd{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::extLmrCmd> extLmrCmd{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::deepCmd> deepCmd{};
+            constexpr Register::FieldValue<decltype(mode)::Type,ModeVal::lpddr2Cmd> lpddr2Cmd{};
         }
         ///Mode Register Select LPDDR2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> mrs{}; 
-        namespace MrsValC{
-        }
     }
     namespace MpddrcRtr{    ///<MPDDRC Refresh Timer Register
         using Addr = Register::Address<0xffffea04,0xff8cf000,0,unsigned>;
         ///MPDDRC Refresh Timer Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> count{}; 
-        namespace CountValC{
-        }
         ///Adjust Refresh Rate
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> adjRef{}; 
-        namespace AdjrefValC{
-        }
         ///Refresh Per Bank
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> refPb{}; 
-        namespace RefpbValC{
-        }
         ///Content of MR4 Register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,unsigned> mr4Value{}; 
-        namespace Mr4valueValC{
-        }
     }
     namespace MpddrcCr{    ///<MPDDRC Configuration Register
         using Addr = Register::Address<0xffffea08,0xff0c8000,0,unsigned>;
@@ -61,10 +51,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,NcVal> nc{}; 
         namespace NcValC{
-            constexpr Register::FieldValue<decltype(nc),NcVal::col9> col9{};
-            constexpr Register::FieldValue<decltype(nc),NcVal::col10> col10{};
-            constexpr Register::FieldValue<decltype(nc),NcVal::col11> col11{};
-            constexpr Register::FieldValue<decltype(nc),NcVal::col12> col12{};
+            constexpr Register::FieldValue<decltype(nc)::Type,NcVal::col9> col9{};
+            constexpr Register::FieldValue<decltype(nc)::Type,NcVal::col10> col10{};
+            constexpr Register::FieldValue<decltype(nc)::Type,NcVal::col11> col11{};
+            constexpr Register::FieldValue<decltype(nc)::Type,NcVal::col12> col12{};
         }
         ///Number of Row Bits
         enum class NrVal {
@@ -75,10 +65,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,NrVal> nr{}; 
         namespace NrValC{
-            constexpr Register::FieldValue<decltype(nr),NrVal::row11> row11{};
-            constexpr Register::FieldValue<decltype(nr),NrVal::row12> row12{};
-            constexpr Register::FieldValue<decltype(nr),NrVal::row13> row13{};
-            constexpr Register::FieldValue<decltype(nr),NrVal::row14> row14{};
+            constexpr Register::FieldValue<decltype(nr)::Type,NrVal::row11> row11{};
+            constexpr Register::FieldValue<decltype(nr)::Type,NrVal::row12> row12{};
+            constexpr Register::FieldValue<decltype(nr)::Type,NrVal::row13> row13{};
+            constexpr Register::FieldValue<decltype(nr)::Type,NrVal::row14> row14{};
         }
         ///CAS Latency
         enum class CasVal {
@@ -90,11 +80,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,CasVal> cas{}; 
         namespace CasValC{
-            constexpr Register::FieldValue<decltype(cas),CasVal::ddrCas2> ddrCas2{};
-            constexpr Register::FieldValue<decltype(cas),CasVal::ddrCas3> ddrCas3{};
-            constexpr Register::FieldValue<decltype(cas),CasVal::ddrCas4> ddrCas4{};
-            constexpr Register::FieldValue<decltype(cas),CasVal::ddrCas5> ddrCas5{};
-            constexpr Register::FieldValue<decltype(cas),CasVal::ddrCas6> ddrCas6{};
+            constexpr Register::FieldValue<decltype(cas)::Type,CasVal::ddrCas2> ddrCas2{};
+            constexpr Register::FieldValue<decltype(cas)::Type,CasVal::ddrCas3> ddrCas3{};
+            constexpr Register::FieldValue<decltype(cas)::Type,CasVal::ddrCas4> ddrCas4{};
+            constexpr Register::FieldValue<decltype(cas)::Type,CasVal::ddrCas5> ddrCas5{};
+            constexpr Register::FieldValue<decltype(cas)::Type,CasVal::ddrCas6> ddrCas6{};
         }
         ///Reset DLL
         enum class DllVal {
@@ -103,17 +93,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,DllVal> dll{}; 
         namespace DllValC{
-            constexpr Register::FieldValue<decltype(dll),DllVal::resetDisabled> resetDisabled{};
-            constexpr Register::FieldValue<decltype(dll),DllVal::resetEnabled> resetEnabled{};
+            constexpr Register::FieldValue<decltype(dll)::Type,DllVal::resetDisabled> resetDisabled{};
+            constexpr Register::FieldValue<decltype(dll)::Type,DllVal::resetEnabled> resetEnabled{};
         }
         ///Output Driver Impedance Control (Drive Strength)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> dicDs{}; 
-        namespace DicdsValC{
-        }
         ///DISABLE DLL
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> disDll{}; 
-        namespace DisdllValC{
-        }
         ///ZQ Calibration
         enum class ZqVal {
             init=0x00000000,     ///<Calibration command after initialization
@@ -123,15 +109,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,ZqVal> zq{}; 
         namespace ZqValC{
-            constexpr Register::FieldValue<decltype(zq),ZqVal::init> init{};
-            constexpr Register::FieldValue<decltype(zq),ZqVal::long_> long_{};
-            constexpr Register::FieldValue<decltype(zq),ZqVal::short> short{};
-            constexpr Register::FieldValue<decltype(zq),ZqVal::reset> reset{};
+            constexpr Register::FieldValue<decltype(zq)::Type,ZqVal::init> init{};
+            constexpr Register::FieldValue<decltype(zq)::Type,ZqVal::long_> long_{};
+            constexpr Register::FieldValue<decltype(zq)::Type,ZqVal::short> short{};
+            constexpr Register::FieldValue<decltype(zq)::Type,ZqVal::reset> reset{};
         }
         ///Off-chip Driver
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> ocd{}; 
-        namespace OcdValC{
-        }
         ///Mask Data is Shared
         enum class DqmsVal {
             notShared=0x00000000,     ///<DQM is not shared with another controller.
@@ -139,8 +123,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,DqmsVal> dqms{}; 
         namespace DqmsValC{
-            constexpr Register::FieldValue<decltype(dqms),DqmsVal::notShared> notShared{};
-            constexpr Register::FieldValue<decltype(dqms),DqmsVal::shared> shared{};
+            constexpr Register::FieldValue<decltype(dqms)::Type,DqmsVal::notShared> notShared{};
+            constexpr Register::FieldValue<decltype(dqms)::Type,DqmsVal::shared> shared{};
         }
         ///Enable Read Measure
         enum class EnrdmVal {
@@ -149,8 +133,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,EnrdmVal> enrdm{}; 
         namespace EnrdmValC{
-            constexpr Register::FieldValue<decltype(enrdm),EnrdmVal::off> off{};
-            constexpr Register::FieldValue<decltype(enrdm),EnrdmVal::on> on{};
+            constexpr Register::FieldValue<decltype(enrdm)::Type,EnrdmVal::off> off{};
+            constexpr Register::FieldValue<decltype(enrdm)::Type,EnrdmVal::on> on{};
         }
         ///Number of Banks.
         enum class NbVal {
@@ -159,8 +143,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,NbVal> nb{}; 
         namespace NbValC{
-            constexpr Register::FieldValue<decltype(nb),NbVal::v4> v4{};
-            constexpr Register::FieldValue<decltype(nb),NbVal::v8> v8{};
+            constexpr Register::FieldValue<decltype(nb)::Type,NbVal::v4> v4{};
+            constexpr Register::FieldValue<decltype(nb)::Type,NbVal::v8> v8{};
         }
         ///Not DQS:
         enum class NdqsVal {
@@ -169,13 +153,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,NdqsVal> ndqs{}; 
         namespace NdqsValC{
-            constexpr Register::FieldValue<decltype(ndqs),NdqsVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(ndqs),NdqsVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ndqs)::Type,NdqsVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ndqs)::Type,NdqsVal::disabled> disabled{};
         }
         ///Type of Decoding
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> decod{}; 
-        namespace DecodValC{
-        }
         ///Support Unaligned Access
         enum class UnalVal {
             unsupported=0x00000000,     ///<Unaligned access is not supported.
@@ -183,90 +165,54 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,UnalVal> unal{}; 
         namespace UnalValC{
-            constexpr Register::FieldValue<decltype(unal),UnalVal::unsupported> unsupported{};
-            constexpr Register::FieldValue<decltype(unal),UnalVal::supported> supported{};
+            constexpr Register::FieldValue<decltype(unal)::Type,UnalVal::unsupported> unsupported{};
+            constexpr Register::FieldValue<decltype(unal)::Type,UnalVal::supported> supported{};
         }
     }
     namespace MpddrcTpr0{    ///<MPDDRC Timing Parameter 0 Register
         using Addr = Register::Address<0xffffea0c,0x00000000,0,unsigned>;
         ///Active to Precharge Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> tras{}; 
-        namespace TrasValC{
-        }
         ///Row to Column Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> trcd{}; 
-        namespace TrcdValC{
-        }
         ///Write Recovery Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> twr{}; 
-        namespace TwrValC{
-        }
         ///Row Cycle Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> trc{}; 
-        namespace TrcValC{
-        }
         ///Row Precharge Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> trp{}; 
-        namespace TrpValC{
-        }
         ///Active BankA to Active BankB
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> trrd{}; 
-        namespace TrrdValC{
-        }
         ///Internal Write to Read Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,24),Register::ReadWriteAccess,unsigned> twtr{}; 
-        namespace TwtrValC{
-        }
         ///Reduce Write to Read Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,unsigned> rdcWrrd{}; 
-        namespace RdcwrrdValC{
-        }
         ///Load Mode Register Command to Activate or Refresh Command
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> tmrd{}; 
-        namespace TmrdValC{
-        }
     }
     namespace MpddrcTpr1{    ///<MPDDRC Timing Parameter 1 Register
         using Addr = Register::Address<0xffffea10,0xf0000080,0,unsigned>;
         ///Row Cycle Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> trfc{}; 
-        namespace TrfcValC{
-        }
         ///Exit Self Refresh Delay to Non Read Command
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> txsnr{}; 
-        namespace TxsnrValC{
-        }
         ///Exit Self Refresh Delay to Read Command
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> txsrd{}; 
-        namespace TxsrdValC{
-        }
         ///Exit Power-down Delay to First Command
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> txp{}; 
-        namespace TxpValC{
-        }
     }
     namespace MpddrcTpr2{    ///<MPDDRC Timing Parameter 2 Register
         using Addr = Register::Address<0xffffea14,0xfff08000,0,unsigned>;
         ///Exit Active Power Down Delay to Read Command in Mode "Fast Exit".
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> txard{}; 
-        namespace TxardValC{
-        }
         ///Exit Active Power Down Delay to Read Command in Mode "Slow Exit".
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> txards{}; 
-        namespace TxardsValC{
-        }
         ///Row Precharge All Delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> trpa{}; 
-        namespace TrpaValC{
-        }
         ///Read to Precharge
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> trtp{}; 
-        namespace TrtpValC{
-        }
         ///Four Active Windows
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> tfaw{}; 
-        namespace TfawValC{
-        }
     }
     namespace MpddrcLpr{    ///<MPDDRC Low-power Register
         using Addr = Register::Address<0xffffea1c,0xffcec880,0,unsigned>;
@@ -279,10 +225,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,LpcbVal> lpcb{}; 
         namespace LpcbValC{
-            constexpr Register::FieldValue<decltype(lpcb),LpcbVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(lpcb),LpcbVal::selfrefresh> selfrefresh{};
-            constexpr Register::FieldValue<decltype(lpcb),LpcbVal::powerdown> powerdown{};
-            constexpr Register::FieldValue<decltype(lpcb),LpcbVal::deepPwd> deepPwd{};
+            constexpr Register::FieldValue<decltype(lpcb)::Type,LpcbVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(lpcb)::Type,LpcbVal::selfrefresh> selfrefresh{};
+            constexpr Register::FieldValue<decltype(lpcb)::Type,LpcbVal::powerdown> powerdown{};
+            constexpr Register::FieldValue<decltype(lpcb)::Type,LpcbVal::deepPwd> deepPwd{};
         }
         ///Clock Frozen Command Bit
         enum class ClkfrVal {
@@ -291,8 +237,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,ClkfrVal> clkFr{}; 
         namespace ClkfrValC{
-            constexpr Register::FieldValue<decltype(clkFr),ClkfrVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(clkFr),ClkfrVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(clkFr)::Type,ClkfrVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(clkFr)::Type,ClkfrVal::enabled> enabled{};
         }
         ///LPDDR2 Power Off Bit
         enum class Lpddr2pwoffVal {
@@ -301,17 +247,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Lpddr2pwoffVal> lpddr2Pwoff{}; 
         namespace Lpddr2pwoffValC{
-            constexpr Register::FieldValue<decltype(lpddr2Pwoff),Lpddr2pwoffVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(lpddr2Pwoff),Lpddr2pwoffVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(lpddr2Pwoff)::Type,Lpddr2pwoffVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(lpddr2Pwoff)::Type,Lpddr2pwoffVal::enabled> enabled{};
         }
         ///Partial Array Self Refresh
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> pasr{}; 
-        namespace PasrValC{
-        }
         ///Drive Strength
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> ds{}; 
-        namespace DsValC{
-        }
         ///Enter Low-power Mode
         enum class TimeoutVal {
             v0=0x00000000,     ///<The SDRAM controller activates the SDRAM low-power mode immediately after the end of the last transfer.
@@ -320,9 +262,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,12),Register::ReadWriteAccess,TimeoutVal> timeout{}; 
         namespace TimeoutValC{
-            constexpr Register::FieldValue<decltype(timeout),TimeoutVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(timeout),TimeoutVal::v64> v64{};
-            constexpr Register::FieldValue<decltype(timeout),TimeoutVal::v128> v128{};
+            constexpr Register::FieldValue<decltype(timeout)::Type,TimeoutVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(timeout)::Type,TimeoutVal::v64> v64{};
+            constexpr Register::FieldValue<decltype(timeout)::Type,TimeoutVal::v128> v128{};
         }
         ///Active Power Down Exit Time
         enum class ApdeVal {
@@ -331,8 +273,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,ApdeVal> apde{}; 
         namespace ApdeValC{
-            constexpr Register::FieldValue<decltype(apde),ApdeVal::fast> fast{};
-            constexpr Register::FieldValue<decltype(apde),ApdeVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(apde)::Type,ApdeVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(apde)::Type,ApdeVal::slow> slow{};
         }
         ///Update Load Mode Register and Extended Mode Register
         enum class UpdmrVal {
@@ -340,15 +282,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,UpdmrVal> updMr{}; 
         namespace UpdmrValC{
-            constexpr Register::FieldValue<decltype(updMr),UpdmrVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(updMr)::Type,UpdmrVal::disabled> disabled{};
         }
     }
     namespace MpddrcMd{    ///<MPDDRC Memory Device Register
         using Addr = Register::Address<0xffffea20,0xffffffe8,0,unsigned>;
         ///Memory Device
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> md{}; 
-        namespace MdValC{
-        }
         ///Data Bus Width
         enum class DbwVal {
             dbw32Bits=0x00000000,     ///<Data bus width is 32 bits.
@@ -356,49 +296,35 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,DbwVal> dbw{}; 
         namespace DbwValC{
-            constexpr Register::FieldValue<decltype(dbw),DbwVal::dbw32Bits> dbw32Bits{};
-            constexpr Register::FieldValue<decltype(dbw),DbwVal::dbw16Bits> dbw16Bits{};
+            constexpr Register::FieldValue<decltype(dbw)::Type,DbwVal::dbw32Bits> dbw32Bits{};
+            constexpr Register::FieldValue<decltype(dbw)::Type,DbwVal::dbw16Bits> dbw16Bits{};
         }
     }
     namespace MpddrcHs{    ///<MPDDRC High Speed Register
         using Addr = Register::Address<0xffffea24,0xfffffffb,0,unsigned>;
         ///Disable Anticip Read Access
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> disAnticipRead{}; 
-        namespace DisanticipreadValC{
-        }
     }
     namespace MpddrcLpddr2Lpr{    ///<MPDDRC LPDDR2 Low-power Register
         using Addr = Register::Address<0xffffea28,0xf0000000,0,unsigned>;
         ///Bank Mask Bit/PASR
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> bkMaskPasr{}; 
-        namespace BkmaskpasrValC{
-        }
         ///Segment Mask Bit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,8),Register::ReadWriteAccess,unsigned> segMask{}; 
-        namespace SegmaskValC{
-        }
         ///Drive strength
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> ds{}; 
-        namespace DsValC{
-        }
     }
     namespace MpddrcLpddr2CalMr4{    ///<MPDDRC LPDDR2 Calibration and MR4 Register
         using Addr = Register::Address<0xffffea2c,0x00000000,0,unsigned>;
         ///LPDDR2 Calibration Timer Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> countCal{}; 
-        namespace CountcalValC{
-        }
         ///Mode Register 4 Read Interval
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> mr4Read{}; 
-        namespace Mr4readValC{
-        }
     }
     namespace MpddrcLpddr2TimCal{    ///<MPDDRC LPDDR2 Timing Calibration Register
         using Addr = Register::Address<0xffffea30,0xffffff00,0,unsigned>;
         ///ZQ Calibration Short
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> zqcs{}; 
-        namespace ZqcsValC{
-        }
     }
     namespace MpddrcIoCalibr{    ///<MPDDRC IO Calibration
         using Addr = Register::Address<0xffffea34,0xff00f8f8,0,unsigned>;
@@ -413,32 +339,24 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,RdivVal> rdiv{}; 
         namespace RdivValC{
-            constexpr Register::FieldValue<decltype(rdiv),RdivVal::rzq34> rzq34{};
-            constexpr Register::FieldValue<decltype(rdiv),RdivVal::rzq40Rzq333> rzq40Rzq333{};
-            constexpr Register::FieldValue<decltype(rdiv),RdivVal::rzq48Rzq40> rzq48Rzq40{};
-            constexpr Register::FieldValue<decltype(rdiv),RdivVal::rzq60Rzq50> rzq60Rzq50{};
-            constexpr Register::FieldValue<decltype(rdiv),RdivVal::rzq80Rzq667> rzq80Rzq667{};
-            constexpr Register::FieldValue<decltype(rdiv),RdivVal::rzq120Rzq100> rzq120Rzq100{};
+            constexpr Register::FieldValue<decltype(rdiv)::Type,RdivVal::rzq34> rzq34{};
+            constexpr Register::FieldValue<decltype(rdiv)::Type,RdivVal::rzq40Rzq333> rzq40Rzq333{};
+            constexpr Register::FieldValue<decltype(rdiv)::Type,RdivVal::rzq48Rzq40> rzq48Rzq40{};
+            constexpr Register::FieldValue<decltype(rdiv)::Type,RdivVal::rzq60Rzq50> rzq60Rzq50{};
+            constexpr Register::FieldValue<decltype(rdiv)::Type,RdivVal::rzq80Rzq667> rzq80Rzq667{};
+            constexpr Register::FieldValue<decltype(rdiv)::Type,RdivVal::rzq120Rzq100> rzq120Rzq100{};
         }
         ///IO Calibration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> tzqio{}; 
-        namespace TzqioValC{
-        }
         ///Number of Transistor P
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> calcodep{}; 
-        namespace CalcodepValC{
-        }
         ///Number of Transistor N
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> calcoden{}; 
-        namespace CalcodenValC{
-        }
     }
     namespace MpddrcSaw0{    ///<MPDDRC Smart Adaptation Wrapper 0 Register
         using Addr = Register::Address<0xffffea44,0xffc0c000,0,unsigned>;
         ///Clears FIFO Content
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> flushMax{}; 
-        namespace FlushmaxValC{
-        }
         ///Incremental Threshold
         enum class IncrthreshVal {
             v1=0x00000001,     ///<1 word/dword max
@@ -450,24 +368,20 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,8),Register::ReadWriteAccess,IncrthreshVal> incrThresh{}; 
         namespace IncrthreshValC{
-            constexpr Register::FieldValue<decltype(incrThresh),IncrthreshVal::v1> v1{};
-            constexpr Register::FieldValue<decltype(incrThresh),IncrthreshVal::v2> v2{};
-            constexpr Register::FieldValue<decltype(incrThresh),IncrthreshVal::v4> v4{};
-            constexpr Register::FieldValue<decltype(incrThresh),IncrthreshVal::v8> v8{};
-            constexpr Register::FieldValue<decltype(incrThresh),IncrthreshVal::v16> v16{};
-            constexpr Register::FieldValue<decltype(incrThresh),IncrthreshVal::v32> v32{};
+            constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v2> v2{};
+            constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v4> v4{};
+            constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v8> v8{};
+            constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v16> v16{};
+            constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v32> v32{};
         }
         ///Prefetch Threshold
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> pfchThresh{}; 
-        namespace PfchthreshValC{
-        }
     }
     namespace MpddrcSaw1{    ///<MPDDRC Smart Adaptation Wrapper 0 Register
         using Addr = Register::Address<0xffffea48,0xffc0c000,0,unsigned>;
         ///Clears FIFO Content
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> flushMax{}; 
-        namespace FlushmaxValC{
-        }
         ///Incremental Threshold
         enum class IncrthreshVal {
             v1=0x00000001,     ///<1 word/dword max
@@ -479,24 +393,20 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,8),Register::ReadWriteAccess,IncrthreshVal> incrThresh{}; 
         namespace IncrthreshValC{
-            constexpr Register::FieldValue<decltype(incrThresh),IncrthreshVal::v1> v1{};
-            constexpr Register::FieldValue<decltype(incrThresh),IncrthreshVal::v2> v2{};
-            constexpr Register::FieldValue<decltype(incrThresh),IncrthreshVal::v4> v4{};
-            constexpr Register::FieldValue<decltype(incrThresh),IncrthreshVal::v8> v8{};
-            constexpr Register::FieldValue<decltype(incrThresh),IncrthreshVal::v16> v16{};
-            constexpr Register::FieldValue<decltype(incrThresh),IncrthreshVal::v32> v32{};
+            constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v2> v2{};
+            constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v4> v4{};
+            constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v8> v8{};
+            constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v16> v16{};
+            constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v32> v32{};
         }
         ///Prefetch Threshold
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> pfchThresh{}; 
-        namespace PfchthreshValC{
-        }
     }
     namespace MpddrcSaw2{    ///<MPDDRC Smart Adaptation Wrapper 0 Register
         using Addr = Register::Address<0xffffea4c,0xffc0c000,0,unsigned>;
         ///Clears FIFO Content
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> flushMax{}; 
-        namespace FlushmaxValC{
-        }
         ///Incremental Threshold
         enum class IncrthreshVal {
             v1=0x00000001,     ///<1 word/dword max
@@ -508,24 +418,20 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,8),Register::ReadWriteAccess,IncrthreshVal> incrThresh{}; 
         namespace IncrthreshValC{
-            constexpr Register::FieldValue<decltype(incrThresh),IncrthreshVal::v1> v1{};
-            constexpr Register::FieldValue<decltype(incrThresh),IncrthreshVal::v2> v2{};
-            constexpr Register::FieldValue<decltype(incrThresh),IncrthreshVal::v4> v4{};
-            constexpr Register::FieldValue<decltype(incrThresh),IncrthreshVal::v8> v8{};
-            constexpr Register::FieldValue<decltype(incrThresh),IncrthreshVal::v16> v16{};
-            constexpr Register::FieldValue<decltype(incrThresh),IncrthreshVal::v32> v32{};
+            constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v2> v2{};
+            constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v4> v4{};
+            constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v8> v8{};
+            constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v16> v16{};
+            constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v32> v32{};
         }
         ///Prefetch Threshold
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> pfchThresh{}; 
-        namespace PfchthreshValC{
-        }
     }
     namespace MpddrcSaw3{    ///<MPDDRC Smart Adaptation Wrapper 0 Register
         using Addr = Register::Address<0xffffea50,0xffc0c000,0,unsigned>;
         ///Clears FIFO Content
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> flushMax{}; 
-        namespace FlushmaxValC{
-        }
         ///Incremental Threshold
         enum class IncrthreshVal {
             v1=0x00000001,     ///<1 word/dword max
@@ -537,183 +443,111 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,8),Register::ReadWriteAccess,IncrthreshVal> incrThresh{}; 
         namespace IncrthreshValC{
-            constexpr Register::FieldValue<decltype(incrThresh),IncrthreshVal::v1> v1{};
-            constexpr Register::FieldValue<decltype(incrThresh),IncrthreshVal::v2> v2{};
-            constexpr Register::FieldValue<decltype(incrThresh),IncrthreshVal::v4> v4{};
-            constexpr Register::FieldValue<decltype(incrThresh),IncrthreshVal::v8> v8{};
-            constexpr Register::FieldValue<decltype(incrThresh),IncrthreshVal::v16> v16{};
-            constexpr Register::FieldValue<decltype(incrThresh),IncrthreshVal::v32> v32{};
+            constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v2> v2{};
+            constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v4> v4{};
+            constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v8> v8{};
+            constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v16> v16{};
+            constexpr Register::FieldValue<decltype(incrThresh)::Type,IncrthreshVal::v32> v32{};
         }
         ///Prefetch Threshold
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> pfchThresh{}; 
-        namespace PfchthreshValC{
-        }
     }
     namespace MpddrcDllMo{    ///<MPDDRC DLL Master Offset Register
         using Addr = Register::Address<0xffffea74,0xfffee0f0,0,unsigned>;
         ///DLL Master Delay Line Offset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> moff{}; 
-        namespace MoffValC{
-        }
         ///DLL CLK90 Delay Line Offset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> clk90off{}; 
-        namespace Clk90offValC{
-        }
         ///DLL Offset Selection
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> seloff{}; 
-        namespace SeloffValC{
-        }
     }
     namespace MpddrcDllSof{    ///<MPDDRC DLL Slave Offset Register
         using Addr = Register::Address<0xffffea78,0xe0e0e0e0,0,unsigned>;
         ///DLL Slave 0 Delay Line Offset ([x=0..3])
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> s0off{}; 
-        namespace S0offValC{
-        }
         ///DLL Slave 1 Delay Line Offset ([x=0..3])
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> s1off{}; 
-        namespace S1offValC{
-        }
         ///DLL Slave 2 Delay Line Offset ([x=0..3])
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> s2off{}; 
-        namespace S2offValC{
-        }
         ///DLL Slave 3 Delay Line Offset ([x=0..3])
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> s3off{}; 
-        namespace S3offValC{
-        }
     }
     namespace MpddrcDllMs{    ///<MPDDRC DLL Status Master  Register
         using Addr = Register::Address<0xffffea7c,0xffff00f8,0,unsigned>;
         ///DLL Master Delay Increment
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> mdinc{}; 
-        namespace MdincValC{
-        }
         ///DLL Master Delay Decrement
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> mddec{}; 
-        namespace MddecValC{
-        }
         ///DLL Master Delay Overflow Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> mdovf{}; 
-        namespace MdovfValC{
-        }
         ///DLL Master Delay Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> mdval{}; 
-        namespace MdvalValC{
-        }
     }
     namespace MpddrcDllSs0{    ///<MPDDRC DLL Status Slave 0  Register
         using Addr = Register::Address<0xffffea80,0xff0000f8,0,unsigned>;
         ///DLL Slave x Delay Correction Overflow Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sdcovf{}; 
-        namespace SdcovfValC{
-        }
         ///DLL Slave x Delay Correction Underflow Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> sdcudf{}; 
-        namespace SdcudfValC{
-        }
         ///DLL Slave x Delay Correction Error Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> sderf{}; 
-        namespace SderfValC{
-        }
         ///DLL Slave x Delay Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> sdval{}; 
-        namespace SdvalValC{
-        }
         ///DLL Slave x Delay Correction Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> sdcval{}; 
-        namespace SdcvalValC{
-        }
     }
     namespace MpddrcDllSs1{    ///<MPDDRC DLL Status Slave 0  Register
         using Addr = Register::Address<0xffffea84,0xff0000f8,0,unsigned>;
         ///DLL Slave x Delay Correction Overflow Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sdcovf{}; 
-        namespace SdcovfValC{
-        }
         ///DLL Slave x Delay Correction Underflow Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> sdcudf{}; 
-        namespace SdcudfValC{
-        }
         ///DLL Slave x Delay Correction Error Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> sderf{}; 
-        namespace SderfValC{
-        }
         ///DLL Slave x Delay Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> sdval{}; 
-        namespace SdvalValC{
-        }
         ///DLL Slave x Delay Correction Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> sdcval{}; 
-        namespace SdcvalValC{
-        }
     }
     namespace MpddrcDllSs2{    ///<MPDDRC DLL Status Slave 0  Register
         using Addr = Register::Address<0xffffea88,0xff0000f8,0,unsigned>;
         ///DLL Slave x Delay Correction Overflow Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sdcovf{}; 
-        namespace SdcovfValC{
-        }
         ///DLL Slave x Delay Correction Underflow Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> sdcudf{}; 
-        namespace SdcudfValC{
-        }
         ///DLL Slave x Delay Correction Error Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> sderf{}; 
-        namespace SderfValC{
-        }
         ///DLL Slave x Delay Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> sdval{}; 
-        namespace SdvalValC{
-        }
         ///DLL Slave x Delay Correction Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> sdcval{}; 
-        namespace SdcvalValC{
-        }
     }
     namespace MpddrcDllSs3{    ///<MPDDRC DLL Status Slave 0  Register
         using Addr = Register::Address<0xffffea8c,0xff0000f8,0,unsigned>;
         ///DLL Slave x Delay Correction Overflow Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sdcovf{}; 
-        namespace SdcovfValC{
-        }
         ///DLL Slave x Delay Correction Underflow Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> sdcudf{}; 
-        namespace SdcudfValC{
-        }
         ///DLL Slave x Delay Correction Error Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> sderf{}; 
-        namespace SderfValC{
-        }
         ///DLL Slave x Delay Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> sdval{}; 
-        namespace SdvalValC{
-        }
         ///DLL Slave x Delay Correction Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> sdcval{}; 
-        namespace SdcvalValC{
-        }
     }
     namespace MpddrcWpcr{    ///<MPDDRC Write Protect Control Register
         using Addr = Register::Address<0xffffeae4,0x000000fe,0,unsigned>;
         ///Write Protection Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wpen{}; 
-        namespace WpenValC{
-        }
         ///Write Protection KEY
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> wpkey{}; 
-        namespace WpkeyValC{
-        }
     }
     namespace MpddrcWpsr{    ///<MPDDRC Write Protect Status Register
         using Addr = Register::Address<0xffffeae8,0xff0000fe,0,unsigned>;
         ///Write Protection Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wpvs{}; 
-        namespace WpvsValC{
-        }
         ///Write Protection Violation Source
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,8),Register::ReadWriteAccess,unsigned> wpvsrc{}; 
-        namespace WpvsrcValC{
-        }
     }
 }

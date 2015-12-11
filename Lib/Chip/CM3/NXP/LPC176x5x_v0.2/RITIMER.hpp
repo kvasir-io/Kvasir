@@ -6,15 +6,11 @@ namespace Kvasir {
         using Addr = Register::Address<0x400b0000,0x00000000,0,unsigned>;
         ///Compare register. Holds the compare value which is compared to the counter.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ricomp{}; 
-        namespace RicompValC{
-        }
     }
     namespace Nonemask{    ///<Mask register. This register holds the 32-bit mask value. A 1 written to any bit will force a compare on the corresponding bit of the counter and compare register.
         using Addr = Register::Address<0x400b0004,0x00000000,0,unsigned>;
         ///Mask register. This register holds the 32-bit mask value. A one written to any bit overrides the result of the comparison for the corresponding bit of the counter and compare register (causes the comparison of the register bits to be always true).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rimask{}; 
-        namespace RimaskValC{
-        }
     }
     namespace Nonectrl{    ///<Control register.
         using Addr = Register::Address<0x400b0008,0xfffffff0,0,unsigned>;
@@ -25,8 +21,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RitintVal> ritint{}; 
         namespace RitintValC{
-            constexpr Register::FieldValue<decltype(ritint),RitintVal::thisBitIsSetTo1> thisBitIsSetTo1{};
-            constexpr Register::FieldValue<decltype(ritint),RitintVal::theCounterValueDo> theCounterValueDo{};
+            constexpr Register::FieldValue<decltype(ritint)::Type,RitintVal::thisBitIsSetTo1> thisBitIsSetTo1{};
+            constexpr Register::FieldValue<decltype(ritint)::Type,RitintVal::theCounterValueDo> theCounterValueDo{};
         }
         ///Timer enable clear
         enum class RitenclrVal {
@@ -35,8 +31,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,RitenclrVal> ritenclr{}; 
         namespace RitenclrValC{
-            constexpr Register::FieldValue<decltype(ritenclr),RitenclrVal::theTimerWillBeCl> theTimerWillBeCl{};
-            constexpr Register::FieldValue<decltype(ritenclr),RitenclrVal::theTimerWillNotB> theTimerWillNotB{};
+            constexpr Register::FieldValue<decltype(ritenclr)::Type,RitenclrVal::theTimerWillBeCl> theTimerWillBeCl{};
+            constexpr Register::FieldValue<decltype(ritenclr)::Type,RitenclrVal::theTimerWillNotB> theTimerWillNotB{};
         }
         ///Timer enable for debug
         enum class RitenbrVal {
@@ -45,8 +41,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,RitenbrVal> ritenbr{}; 
         namespace RitenbrValC{
-            constexpr Register::FieldValue<decltype(ritenbr),RitenbrVal::theTimerIsHalted> theTimerIsHalted{};
-            constexpr Register::FieldValue<decltype(ritenbr),RitenbrVal::debugHasNoEffect> debugHasNoEffect{};
+            constexpr Register::FieldValue<decltype(ritenbr)::Type,RitenbrVal::theTimerIsHalted> theTimerIsHalted{};
+            constexpr Register::FieldValue<decltype(ritenbr)::Type,RitenbrVal::debugHasNoEffect> debugHasNoEffect{};
         }
         ///Timer enable.
         enum class RitenVal {
@@ -55,15 +51,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,RitenVal> riten{}; 
         namespace RitenValC{
-            constexpr Register::FieldValue<decltype(riten),RitenVal::timerEnabledThis> timerEnabledThis{};
-            constexpr Register::FieldValue<decltype(riten),RitenVal::timerDisabled> timerDisabled{};
+            constexpr Register::FieldValue<decltype(riten)::Type,RitenVal::timerEnabledThis> timerEnabledThis{};
+            constexpr Register::FieldValue<decltype(riten)::Type,RitenVal::timerDisabled> timerDisabled{};
         }
     }
     namespace Nonecounter{    ///<32-bit counter
         using Addr = Register::Address<0x400b000c,0x00000000,0,unsigned>;
         ///32-bit up counter. Counts continuously unless RITEN bit in RICTRL register is cleared or debug mode is entered (if enabled by the RITNEBR bit in RICTRL). Can be loaded to any value in software.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ricounter{}; 
-        namespace RicounterValC{
-        }
     }
 }

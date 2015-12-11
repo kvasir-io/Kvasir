@@ -11,8 +11,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RmVal> rm{}; 
         namespace RmValC{
-            constexpr Register::FieldValue<decltype(rm),RmVal::normalTheCanContr> normalTheCanContr{};
-            constexpr Register::FieldValue<decltype(rm),RmVal::resetCanOperation> resetCanOperation{};
+            constexpr Register::FieldValue<decltype(rm)::Type,RmVal::normalTheCanContr> normalTheCanContr{};
+            constexpr Register::FieldValue<decltype(rm)::Type,RmVal::resetCanOperation> resetCanOperation{};
         }
         ///Listen Only Mode.
         enum class LomVal {
@@ -21,8 +21,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,LomVal> lom{}; 
         namespace LomValC{
-            constexpr Register::FieldValue<decltype(lom),LomVal::normalTheCanCont> normalTheCanCont{};
-            constexpr Register::FieldValue<decltype(lom),LomVal::listenOnlyTheCon> listenOnlyTheCon{};
+            constexpr Register::FieldValue<decltype(lom)::Type,LomVal::normalTheCanCont> normalTheCanCont{};
+            constexpr Register::FieldValue<decltype(lom)::Type,LomVal::listenOnlyTheCon> listenOnlyTheCon{};
         }
         ///Self Test Mode.
         enum class StmVal {
@@ -31,8 +31,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,StmVal> stm{}; 
         namespace StmValC{
-            constexpr Register::FieldValue<decltype(stm),StmVal::normalATransmitte> normalATransmitte{};
-            constexpr Register::FieldValue<decltype(stm),StmVal::selfTestTheContr> selfTestTheContr{};
+            constexpr Register::FieldValue<decltype(stm)::Type,StmVal::normalATransmitte> normalATransmitte{};
+            constexpr Register::FieldValue<decltype(stm)::Type,StmVal::selfTestTheContr> selfTestTheContr{};
         }
         ///Transmit Priority Mode.
         enum class TpmVal {
@@ -41,8 +41,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,TpmVal> tpm{}; 
         namespace TpmValC{
-            constexpr Register::FieldValue<decltype(tpm),TpmVal::canIdTheTransmit> canIdTheTransmit{};
-            constexpr Register::FieldValue<decltype(tpm),TpmVal::localPriorityThe> localPriorityThe{};
+            constexpr Register::FieldValue<decltype(tpm)::Type,TpmVal::canIdTheTransmit> canIdTheTransmit{};
+            constexpr Register::FieldValue<decltype(tpm)::Type,TpmVal::localPriorityThe> localPriorityThe{};
         }
         ///Sleep Mode.
         enum class SmVal {
@@ -51,8 +51,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SmVal> sm{}; 
         namespace SmValC{
-            constexpr Register::FieldValue<decltype(sm),SmVal::wakeUpNormalOper> wakeUpNormalOper{};
-            constexpr Register::FieldValue<decltype(sm),SmVal::sleepTheCanContr> sleepTheCanContr{};
+            constexpr Register::FieldValue<decltype(sm)::Type,SmVal::wakeUpNormalOper> wakeUpNormalOper{};
+            constexpr Register::FieldValue<decltype(sm)::Type,SmVal::sleepTheCanContr> sleepTheCanContr{};
         }
         ///Receive Polarity Mode.
         enum class RpmVal {
@@ -61,8 +61,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,RpmVal> rpm{}; 
         namespace RpmValC{
-            constexpr Register::FieldValue<decltype(rpm),RpmVal::lowActiveRdInput> lowActiveRdInput{};
-            constexpr Register::FieldValue<decltype(rpm),RpmVal::highActiveRdInpu> highActiveRdInpu{};
+            constexpr Register::FieldValue<decltype(rpm)::Type,RpmVal::lowActiveRdInput> lowActiveRdInput{};
+            constexpr Register::FieldValue<decltype(rpm)::Type,RpmVal::highActiveRdInpu> highActiveRdInpu{};
         }
         ///Test Mode.
         enum class TmVal {
@@ -71,8 +71,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,TmVal> tm{}; 
         namespace TmValC{
-            constexpr Register::FieldValue<decltype(tm),TmVal::disabledNormalOpe> disabledNormalOpe{};
-            constexpr Register::FieldValue<decltype(tm),TmVal::enabledTheTdPin> enabledTheTdPin{};
+            constexpr Register::FieldValue<decltype(tm)::Type,TmVal::disabledNormalOpe> disabledNormalOpe{};
+            constexpr Register::FieldValue<decltype(tm)::Type,TmVal::enabledTheTdPin> enabledTheTdPin{};
         }
     }
     namespace Nonecmr{    ///<Command bits that affect the state of the CAN Controller
@@ -84,8 +84,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TrVal> tr{}; 
         namespace TrValC{
-            constexpr Register::FieldValue<decltype(tr),TrVal::absentNoTransmissi> absentNoTransmissi{};
-            constexpr Register::FieldValue<decltype(tr),TrVal::presentTheMessage> presentTheMessage{};
+            constexpr Register::FieldValue<decltype(tr)::Type,TrVal::absentNoTransmissi> absentNoTransmissi{};
+            constexpr Register::FieldValue<decltype(tr)::Type,TrVal::presentTheMessage> presentTheMessage{};
         }
         ///Abort Transmission.
         enum class AtVal {
@@ -94,8 +94,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,AtVal> at{}; 
         namespace AtValC{
-            constexpr Register::FieldValue<decltype(at),AtVal::noActionDoNotAb> noActionDoNotAb{};
-            constexpr Register::FieldValue<decltype(at),AtVal::presentIfNotAlre> presentIfNotAlre{};
+            constexpr Register::FieldValue<decltype(at)::Type,AtVal::noActionDoNotAb> noActionDoNotAb{};
+            constexpr Register::FieldValue<decltype(at)::Type,AtVal::presentIfNotAlre> presentIfNotAlre{};
         }
         ///Release Receive Buffer.
         enum class RrbVal {
@@ -104,8 +104,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,RrbVal> rrb{}; 
         namespace RrbValC{
-            constexpr Register::FieldValue<decltype(rrb),RrbVal::noActionDoNotRe> noActionDoNotRe{};
-            constexpr Register::FieldValue<decltype(rrb),RrbVal::releasedTheInform> releasedTheInform{};
+            constexpr Register::FieldValue<decltype(rrb)::Type,RrbVal::noActionDoNotRe> noActionDoNotRe{};
+            constexpr Register::FieldValue<decltype(rrb)::Type,RrbVal::releasedTheInform> releasedTheInform{};
         }
         ///Clear Data Overrun.
         enum class CdoVal {
@@ -114,8 +114,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,CdoVal> cdo{}; 
         namespace CdoValC{
-            constexpr Register::FieldValue<decltype(cdo),CdoVal::noActionDoNotCl> noActionDoNotCl{};
-            constexpr Register::FieldValue<decltype(cdo),CdoVal::clearTheDataOver> clearTheDataOver{};
+            constexpr Register::FieldValue<decltype(cdo)::Type,CdoVal::noActionDoNotCl> noActionDoNotCl{};
+            constexpr Register::FieldValue<decltype(cdo)::Type,CdoVal::clearTheDataOver> clearTheDataOver{};
         }
         ///Self Reception Request.
         enum class SrrVal {
@@ -124,8 +124,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SrrVal> srr{}; 
         namespace SrrValC{
-            constexpr Register::FieldValue<decltype(srr),SrrVal::absentNoSelfRece> absentNoSelfRece{};
-            constexpr Register::FieldValue<decltype(srr),SrrVal::presentTheMessage> presentTheMessage{};
+            constexpr Register::FieldValue<decltype(srr)::Type,SrrVal::absentNoSelfRece> absentNoSelfRece{};
+            constexpr Register::FieldValue<decltype(srr)::Type,SrrVal::presentTheMessage> presentTheMessage{};
         }
         ///Select Tx Buffer 1.
         enum class Stb1Val {
@@ -134,8 +134,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Stb1Val> stb1{}; 
         namespace Stb1ValC{
-            constexpr Register::FieldValue<decltype(stb1),Stb1Val::notSelectedTxBuf> notSelectedTxBuf{};
-            constexpr Register::FieldValue<decltype(stb1),Stb1Val::selectedTxBuffer> selectedTxBuffer{};
+            constexpr Register::FieldValue<decltype(stb1)::Type,Stb1Val::notSelectedTxBuf> notSelectedTxBuf{};
+            constexpr Register::FieldValue<decltype(stb1)::Type,Stb1Val::selectedTxBuffer> selectedTxBuffer{};
         }
         ///Select Tx Buffer 2.
         enum class Stb2Val {
@@ -144,8 +144,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Stb2Val> stb2{}; 
         namespace Stb2ValC{
-            constexpr Register::FieldValue<decltype(stb2),Stb2Val::notSelectedTxBuf> notSelectedTxBuf{};
-            constexpr Register::FieldValue<decltype(stb2),Stb2Val::selectedTxBuffer> selectedTxBuffer{};
+            constexpr Register::FieldValue<decltype(stb2)::Type,Stb2Val::notSelectedTxBuf> notSelectedTxBuf{};
+            constexpr Register::FieldValue<decltype(stb2)::Type,Stb2Val::selectedTxBuffer> selectedTxBuffer{};
         }
         ///Select Tx Buffer 3.
         enum class Stb3Val {
@@ -154,8 +154,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Stb3Val> stb3{}; 
         namespace Stb3ValC{
-            constexpr Register::FieldValue<decltype(stb3),Stb3Val::notSelectedTxBuf> notSelectedTxBuf{};
-            constexpr Register::FieldValue<decltype(stb3),Stb3Val::selectedTxBuffer> selectedTxBuffer{};
+            constexpr Register::FieldValue<decltype(stb3)::Type,Stb3Val::notSelectedTxBuf> notSelectedTxBuf{};
+            constexpr Register::FieldValue<decltype(stb3)::Type,Stb3Val::selectedTxBuffer> selectedTxBuffer{};
         }
     }
     namespace Nonegsr{    ///<Global Controller Status and Error Counters. The error counters can only be written when RM in CANMOD is 1.
@@ -167,8 +167,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RbsVal> rbs{}; 
         namespace RbsValC{
-            constexpr Register::FieldValue<decltype(rbs),RbsVal::emptyNoMessageIs> emptyNoMessageIs{};
-            constexpr Register::FieldValue<decltype(rbs),RbsVal::fullAtLeastOneC> fullAtLeastOneC{};
+            constexpr Register::FieldValue<decltype(rbs)::Type,RbsVal::emptyNoMessageIs> emptyNoMessageIs{};
+            constexpr Register::FieldValue<decltype(rbs)::Type,RbsVal::fullAtLeastOneC> fullAtLeastOneC{};
         }
         ///Data Overrun Status. If there is not enough space to store the message within the Receive Buffer, that message is dropped and the Data Overrun condition is signalled to the CPU in the moment this message becomes valid. If this message is not completed successfully (e.g. because of an error), no overrun condition is signalled.
         enum class DosVal {
@@ -177,8 +177,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DosVal> dos{}; 
         namespace DosValC{
-            constexpr Register::FieldValue<decltype(dos),DosVal::absentNoDataOver> absentNoDataOver{};
-            constexpr Register::FieldValue<decltype(dos),DosVal::overrunAMessageW> overrunAMessageW{};
+            constexpr Register::FieldValue<decltype(dos)::Type,DosVal::absentNoDataOver> absentNoDataOver{};
+            constexpr Register::FieldValue<decltype(dos)::Type,DosVal::overrunAMessageW> overrunAMessageW{};
         }
         ///Transmit Buffer Status.
         enum class TbsVal {
@@ -187,8 +187,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TbsVal> tbs{}; 
         namespace TbsValC{
-            constexpr Register::FieldValue<decltype(tbs),TbsVal::lockedAtLeastOne> lockedAtLeastOne{};
-            constexpr Register::FieldValue<decltype(tbs),TbsVal::releasedAllThree> releasedAllThree{};
+            constexpr Register::FieldValue<decltype(tbs)::Type,TbsVal::lockedAtLeastOne> lockedAtLeastOne{};
+            constexpr Register::FieldValue<decltype(tbs)::Type,TbsVal::releasedAllThree> releasedAllThree{};
         }
         ///Transmit Complete Status. The Transmission Complete Status bit is set '0' (incomplete) whenever the Transmission Request bit or the Self Reception Request bit is set '1' at least for one of the three Transmit Buffers. The Transmission Complete Status bit will remain '0' until all messages are transmitted successfully.
         enum class TcsVal {
@@ -197,8 +197,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,TcsVal> tcs{}; 
         namespace TcsValC{
-            constexpr Register::FieldValue<decltype(tcs),TcsVal::incompleteAtLeast> incompleteAtLeast{};
-            constexpr Register::FieldValue<decltype(tcs),TcsVal::completeAllReques> completeAllReques{};
+            constexpr Register::FieldValue<decltype(tcs)::Type,TcsVal::incompleteAtLeast> incompleteAtLeast{};
+            constexpr Register::FieldValue<decltype(tcs)::Type,TcsVal::completeAllReques> completeAllReques{};
         }
         ///Receive Status. If both the Receive Status and the Transmit Status bits are '0' (idle), the CAN-Bus is idle. If both bits are set, the controller is waiting to become idle again. After hardware reset 11 consecutive recessive bits have to be detected until idle status is reached. After Bus-off this will take 128 times of 11 consecutive recessive bits.
         enum class RsVal {
@@ -207,8 +207,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,RsVal> rs{}; 
         namespace RsValC{
-            constexpr Register::FieldValue<decltype(rs),RsVal::idleTheCanContro> idleTheCanContro{};
-            constexpr Register::FieldValue<decltype(rs),RsVal::receiveTheCanCon> receiveTheCanCon{};
+            constexpr Register::FieldValue<decltype(rs)::Type,RsVal::idleTheCanContro> idleTheCanContro{};
+            constexpr Register::FieldValue<decltype(rs)::Type,RsVal::receiveTheCanCon> receiveTheCanCon{};
         }
         ///Transmit Status. If both the Receive Status and the Transmit Status bits are '0' (idle), the CAN-Bus is idle. If both bits are set, the controller is waiting to become idle again. After hardware reset 11 consecutive recessive bits have to be detected until idle status is reached. After Bus-off this will take 128 times of 11 consecutive recessive bits.
         enum class TsVal {
@@ -217,8 +217,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TsVal> ts{}; 
         namespace TsValC{
-            constexpr Register::FieldValue<decltype(ts),TsVal::idleTheCanContro> idleTheCanContro{};
-            constexpr Register::FieldValue<decltype(ts),TsVal::transmitTheCanCo> transmitTheCanCo{};
+            constexpr Register::FieldValue<decltype(ts)::Type,TsVal::idleTheCanContro> idleTheCanContro{};
+            constexpr Register::FieldValue<decltype(ts)::Type,TsVal::transmitTheCanCo> transmitTheCanCo{};
         }
         ///Error Status. Errors detected during reception or transmission will effect the error counters according to the CAN specification. The Error Status bit is set when at least one of the error counters has reached or exceeded the Error Warning Limit. An Error Warning Interrupt is generated, if enabled. The default value of the Error Warning Limit after hardware reset is 96 decimal, see also Section 21.7.7 CAN Error Warning Limit register (CAN1EWL - 0x4004 4018, CAN2EWL - 0x4004 8018).
         enum class EsVal {
@@ -227,8 +227,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,EsVal> es{}; 
         namespace EsValC{
-            constexpr Register::FieldValue<decltype(es),EsVal::okBothErrorCount> okBothErrorCount{};
-            constexpr Register::FieldValue<decltype(es),EsVal::errorOneOrBothO> errorOneOrBothO{};
+            constexpr Register::FieldValue<decltype(es)::Type,EsVal::okBothErrorCount> okBothErrorCount{};
+            constexpr Register::FieldValue<decltype(es)::Type,EsVal::errorOneOrBothO> errorOneOrBothO{};
         }
         ///Bus Status. Mode bit '1' (present) and an Error Warning Interrupt is generated, if enabled. Afterwards the Transmit Error Counter is set to '127', and the Receive Error Counter is cleared. It will stay in this mode until the CPU clears the Reset Mode bit. Once this is completed the CAN Controller will wait the minimum protocol-defined time (128 occurrences of the Bus-Free signal) counting down the Transmit Error Counter. After that, the Bus Status bit is cleared (Bus-On), the Error Status bit is set '0' (ok), the Error Counters are reset, and an Error Warning Interrupt is generated, if enabled. Reading the TX Error Counter during this time gives information about the status of the Bus-Off recovery.
         enum class BsVal {
@@ -237,17 +237,13 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,BsVal> bs{}; 
         namespace BsValC{
-            constexpr Register::FieldValue<decltype(bs),BsVal::busOnTheCanCont> busOnTheCanCont{};
-            constexpr Register::FieldValue<decltype(bs),BsVal::busOffTheCanCon> busOffTheCanCon{};
+            constexpr Register::FieldValue<decltype(bs)::Type,BsVal::busOnTheCanCont> busOnTheCanCont{};
+            constexpr Register::FieldValue<decltype(bs)::Type,BsVal::busOffTheCanCon> busOffTheCanCon{};
         }
         ///The current value of the Rx Error Counter (an 8-bit value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> rxerr{}; 
-        namespace RxerrValC{
-        }
         ///The current value of the Tx Error Counter (an 8-bit value).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> txerr{}; 
-        namespace TxerrValC{
-        }
     }
     namespace Noneicr{    ///<Interrupt status, Arbitration Lost Capture, Error Code Capture
         using Addr = Register::Address<0x4004400c,0x0000f800,0,unsigned>;
@@ -258,8 +254,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RiVal> ri{}; 
         namespace RiValC{
-            constexpr Register::FieldValue<decltype(ri),RiVal::reset> reset{};
-            constexpr Register::FieldValue<decltype(ri),RiVal::set> set{};
+            constexpr Register::FieldValue<decltype(ri)::Type,RiVal::reset> reset{};
+            constexpr Register::FieldValue<decltype(ri)::Type,RiVal::set> set{};
         }
         ///Transmit Interrupt 1. This bit is set when the TBS1 bit in CANxSR goes from 0 to 1 (whenever a message out of TXB1 was successfully transmitted or aborted), indicating that Transmit buffer 1 is available, and the TIE1 bit in CANxIER is 1.
         enum class Ti1Val {
@@ -268,8 +264,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Ti1Val> ti1{}; 
         namespace Ti1ValC{
-            constexpr Register::FieldValue<decltype(ti1),Ti1Val::reset> reset{};
-            constexpr Register::FieldValue<decltype(ti1),Ti1Val::set> set{};
+            constexpr Register::FieldValue<decltype(ti1)::Type,Ti1Val::reset> reset{};
+            constexpr Register::FieldValue<decltype(ti1)::Type,Ti1Val::set> set{};
         }
         ///Error Warning Interrupt. This bit is set on every change (set or clear) of either the Error Status or Bus Status bit in CANxSR and the EIE bit bit is set within the Interrupt Enable Register at the time of the change.
         enum class EiVal {
@@ -278,8 +274,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,EiVal> ei{}; 
         namespace EiValC{
-            constexpr Register::FieldValue<decltype(ei),EiVal::reset> reset{};
-            constexpr Register::FieldValue<decltype(ei),EiVal::set> set{};
+            constexpr Register::FieldValue<decltype(ei)::Type,EiVal::reset> reset{};
+            constexpr Register::FieldValue<decltype(ei)::Type,EiVal::set> set{};
         }
         ///Data Overrun Interrupt. This bit is set when the DOS bit in CANxSR goes from 0 to 1 and the DOIE bit in CANxIER is 1.
         enum class DoiVal {
@@ -288,8 +284,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,DoiVal> doi{}; 
         namespace DoiValC{
-            constexpr Register::FieldValue<decltype(doi),DoiVal::reset> reset{};
-            constexpr Register::FieldValue<decltype(doi),DoiVal::set> set{};
+            constexpr Register::FieldValue<decltype(doi)::Type,DoiVal::reset> reset{};
+            constexpr Register::FieldValue<decltype(doi)::Type,DoiVal::set> set{};
         }
         ///Wake-Up Interrupt. This bit is set if the CAN controller is sleeping and bus activity is detected and the WUIE bit in CANxIER is 1. A Wake-Up Interrupt is also generated if the CPU tries to set the Sleep bit while the CAN controller is involved in bus activities or a CAN Interrupt is pending. The WUI flag can also get asserted when the according enable bit WUIE is not set. In this case a Wake-Up Interrupt does not get asserted.
         enum class WuiVal {
@@ -298,8 +294,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,WuiVal> wui{}; 
         namespace WuiValC{
-            constexpr Register::FieldValue<decltype(wui),WuiVal::reset> reset{};
-            constexpr Register::FieldValue<decltype(wui),WuiVal::set> set{};
+            constexpr Register::FieldValue<decltype(wui)::Type,WuiVal::reset> reset{};
+            constexpr Register::FieldValue<decltype(wui)::Type,WuiVal::set> set{};
         }
         ///Error Passive Interrupt. This bit is set if the EPIE bit in CANxIER is 1, and the CAN controller switches between Error Passive and Error Active mode in either direction. This is the case when the CAN Controller has reached the Error Passive Status (at least one error counter exceeds the CAN protocol defined level of 127) or if the CAN Controller is in Error Passive Status and enters the Error Active Status again.
         enum class EpiVal {
@@ -308,8 +304,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,EpiVal> epi{}; 
         namespace EpiValC{
-            constexpr Register::FieldValue<decltype(epi),EpiVal::reset> reset{};
-            constexpr Register::FieldValue<decltype(epi),EpiVal::set> set{};
+            constexpr Register::FieldValue<decltype(epi)::Type,EpiVal::reset> reset{};
+            constexpr Register::FieldValue<decltype(epi)::Type,EpiVal::set> set{};
         }
         ///Arbitration Lost Interrupt. This bit is set if the ALIE bit in CANxIER is 1, and the CAN controller loses arbitration while attempting to transmit. In this case the CAN node becomes a receiver.
         enum class AliVal {
@@ -318,8 +314,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,AliVal> ali{}; 
         namespace AliValC{
-            constexpr Register::FieldValue<decltype(ali),AliVal::reset> reset{};
-            constexpr Register::FieldValue<decltype(ali),AliVal::set> set{};
+            constexpr Register::FieldValue<decltype(ali)::Type,AliVal::reset> reset{};
+            constexpr Register::FieldValue<decltype(ali)::Type,AliVal::set> set{};
         }
         ///Bus Error Interrupt -- this bit is set if the BEIE bit in CANxIER is 1, and the CAN controller detects an error on the bus.
         enum class BeiVal {
@@ -328,8 +324,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,BeiVal> bei{}; 
         namespace BeiValC{
-            constexpr Register::FieldValue<decltype(bei),BeiVal::reset> reset{};
-            constexpr Register::FieldValue<decltype(bei),BeiVal::set> set{};
+            constexpr Register::FieldValue<decltype(bei)::Type,BeiVal::reset> reset{};
+            constexpr Register::FieldValue<decltype(bei)::Type,BeiVal::set> set{};
         }
         ///ID Ready Interrupt -- this bit is set if the IDIE bit in CANxIER is 1, and a CAN Identifier has been received (a message was successfully transmitted or aborted). This bit is set whenever a message was successfully transmitted or aborted and the IDIE bit is set in the IER register.
         enum class IdiVal {
@@ -338,8 +334,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,IdiVal> idi{}; 
         namespace IdiValC{
-            constexpr Register::FieldValue<decltype(idi),IdiVal::reset> reset{};
-            constexpr Register::FieldValue<decltype(idi),IdiVal::set> set{};
+            constexpr Register::FieldValue<decltype(idi)::Type,IdiVal::reset> reset{};
+            constexpr Register::FieldValue<decltype(idi)::Type,IdiVal::set> set{};
         }
         ///Transmit Interrupt 2. This bit is set when the TBS2 bit in CANxSR goes from 0 to 1 (whenever a message out of TXB2 was successfully transmitted or aborted), indicating that Transmit buffer 2 is available, and the TIE2 bit in CANxIER is 1.
         enum class Ti2Val {
@@ -348,8 +344,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Ti2Val> ti2{}; 
         namespace Ti2ValC{
-            constexpr Register::FieldValue<decltype(ti2),Ti2Val::reset> reset{};
-            constexpr Register::FieldValue<decltype(ti2),Ti2Val::set> set{};
+            constexpr Register::FieldValue<decltype(ti2)::Type,Ti2Val::reset> reset{};
+            constexpr Register::FieldValue<decltype(ti2)::Type,Ti2Val::set> set{};
         }
         ///Transmit Interrupt 3. This bit is set when the TBS3 bit in CANxSR goes from 0 to 1 (whenever a message out of TXB3 was successfully transmitted or aborted), indicating that Transmit buffer 3 is available, and the TIE3 bit in CANxIER is 1.
         enum class Ti3Val {
@@ -358,13 +354,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ti3Val> ti3{}; 
         namespace Ti3ValC{
-            constexpr Register::FieldValue<decltype(ti3),Ti3Val::reset> reset{};
-            constexpr Register::FieldValue<decltype(ti3),Ti3Val::set> set{};
+            constexpr Register::FieldValue<decltype(ti3)::Type,Ti3Val::reset> reset{};
+            constexpr Register::FieldValue<decltype(ti3)::Type,Ti3Val::set> set{};
         }
         ///Error Code Capture: when the CAN controller detects a bus error, the location of the error within the frame is captured in this field. The value reflects an internal state variable, and as a result is not very linear: 00011 = Start of Frame 00010 = ID28 ... ID21 00110 = ID20 ... ID18 00100 = SRTR Bit 00101 = IDE bit 00111 = ID17 ... 13 01111 = ID12 ... ID5 01110 = ID4 ... ID0 01100 = RTR Bit 01101 = Reserved Bit 1 01001 = Reserved Bit 0 01011 = Data Length Code 01010 = Data Field 01000 = CRC Sequence 11000 = CRC Delimiter 11001 = Acknowledge Slot 11011 = Acknowledge Delimiter 11010 = End of Frame 10010 = Intermission Whenever a bus error occurs, the corresponding bus error interrupt is forced, if enabled. At the same time, the current position of the Bit Stream Processor is captured into the Error Code Capture Register. The content within this register is fixed until the user software has read out its content once. From now on, the capture mechanism is activated again, i.e. reading the CANxICR enables another Bus Error Interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> errbit40{}; 
-        namespace Errbit40ValC{
-        }
         ///When the CAN controller detects a bus error, the direction of the current bit is captured in this bit.
         enum class ErrdirVal {
             errorOccurredDurin=0x00000000,     ///<Error occurred during transmitting.
@@ -372,8 +366,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,ErrdirVal> errdir{}; 
         namespace ErrdirValC{
-            constexpr Register::FieldValue<decltype(errdir),ErrdirVal::errorOccurredDurin> errorOccurredDurin{};
-            constexpr Register::FieldValue<decltype(errdir),ErrdirVal::errorOccurredDurin> errorOccurredDurin{};
+            constexpr Register::FieldValue<decltype(errdir)::Type,ErrdirVal::errorOccurredDurin> errorOccurredDurin{};
+            constexpr Register::FieldValue<decltype(errdir)::Type,ErrdirVal::errorOccurredDurin> errorOccurredDurin{};
         }
         ///When the CAN controller detects a bus error, the type of error is captured in this field:
         enum class Errc10Val {
@@ -384,81 +378,49 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,22),Register::ReadWriteAccess,Errc10Val> errc10{}; 
         namespace Errc10ValC{
-            constexpr Register::FieldValue<decltype(errc10),Errc10Val::bitError> bitError{};
-            constexpr Register::FieldValue<decltype(errc10),Errc10Val::formError> formError{};
-            constexpr Register::FieldValue<decltype(errc10),Errc10Val::stuffError> stuffError{};
-            constexpr Register::FieldValue<decltype(errc10),Errc10Val::otherError> otherError{};
+            constexpr Register::FieldValue<decltype(errc10)::Type,Errc10Val::bitError> bitError{};
+            constexpr Register::FieldValue<decltype(errc10)::Type,Errc10Val::formError> formError{};
+            constexpr Register::FieldValue<decltype(errc10)::Type,Errc10Val::stuffError> stuffError{};
+            constexpr Register::FieldValue<decltype(errc10)::Type,Errc10Val::otherError> otherError{};
         }
         ///Each time arbitration is lost while trying to send on the CAN, the bit number within the frame is captured into this field. After the content of ALCBIT is read, the ALI bit is cleared and a new Arbitration Lost interrupt can occur. 00 = arbitration lost in the first bit (MS) of identifier ... 11 = arbitration lost in SRTS bit (RTR bit for standard frame messages) 12 = arbitration lost in IDE bit 13 = arbitration lost in 12th bit of identifier (extended frame only) ... 30 = arbitration lost in last bit of identifier (extended frame only) 31 = arbitration lost in RTR bit (extended frame only) On arbitration lost, the corresponding arbitration lost interrupt is forced, if enabled. At that time, the current bit position of the Bit Stream Processor is captured into the Arbitration Lost Capture Register. The content within this register is fixed until the user application has read out its contents once. From now on, the capture mechanism is activated again.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> alcbit{}; 
-        namespace AlcbitValC{
-        }
     }
     namespace Noneier{    ///<Interrupt Enable
         using Addr = Register::Address<0x40044010,0xfffff800,0,unsigned>;
         ///Receiver Interrupt Enable. When the Receive Buffer Status is 'full', the CAN Controller requests the respective interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rie{}; 
-        namespace RieValC{
-        }
         ///Transmit Interrupt Enable for Buffer1. When a message has been successfully transmitted out of TXB1 or Transmit Buffer 1 is accessible again (e.g. after an Abort Transmission command), the CAN Controller requests the respective interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tie1{}; 
-        namespace Tie1ValC{
-        }
         ///Error Warning Interrupt Enable. If the Error or Bus Status change (see Status Register), the CAN Controller requests the respective interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> eie{}; 
-        namespace EieValC{
-        }
         ///Data Overrun Interrupt Enable. If the Data Overrun Status bit is set (see Status Register), the CAN Controller requests the respective interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> doie{}; 
-        namespace DoieValC{
-        }
         ///Wake-Up Interrupt Enable. If the sleeping CAN controller wakes up, the respective interrupt is requested.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> wuie{}; 
-        namespace WuieValC{
-        }
         ///Error Passive Interrupt Enable. If the error status of the CAN Controller changes from error active to error passive or vice versa, the respective interrupt is requested.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> epie{}; 
-        namespace EpieValC{
-        }
         ///Arbitration Lost Interrupt Enable. If the CAN Controller has lost arbitration, the respective interrupt is requested.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> alie{}; 
-        namespace AlieValC{
-        }
         ///Bus Error Interrupt Enable. If a bus error has been detected, the CAN Controller requests the respective interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> beie{}; 
-        namespace BeieValC{
-        }
         ///ID Ready Interrupt Enable. When a CAN identifier has been received, the CAN Controller requests the respective interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> idie{}; 
-        namespace IdieValC{
-        }
         ///Transmit Interrupt Enable for Buffer2. When a message has been successfully transmitted out of TXB2 or Transmit Buffer 2 is accessible again (e.g. after an Abort Transmission command), the CAN Controller requests the respective interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> tie2{}; 
-        namespace Tie2ValC{
-        }
         ///Transmit Interrupt Enable for Buffer3. When a message has been successfully transmitted out of TXB3 or Transmit Buffer 3 is accessible again (e.g. after an Abort Transmission command), the CAN Controller requests the respective interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> tie3{}; 
-        namespace Tie3ValC{
-        }
     }
     namespace Nonebtr{    ///<Bus Timing. Can only be written when RM in CANMOD is 1.
         using Addr = Register::Address<0x40044014,0xff003c00,0,unsigned>;
         ///Baud Rate Prescaler. The APB clock is divided by (this value plus one) to produce the CAN clock.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> brp{}; 
-        namespace BrpValC{
-        }
         ///The Synchronization Jump Width is (this value plus one) CAN clocks.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,14),Register::ReadWriteAccess,unsigned> sjw{}; 
-        namespace SjwValC{
-        }
         ///The delay from the nominal Sync point to the sample point is (this value plus one) CAN clocks.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> tesg1{}; 
-        namespace Tesg1ValC{
-        }
         ///The delay from the sample point to the next nominal sync point is (this value plus one) CAN clocks. The nominal CAN bit time is (this value plus the value in TSEG1 plus 3) CAN clocks.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,20),Register::ReadWriteAccess,unsigned> tesg2{}; 
-        namespace Tesg2ValC{
-        }
         ///Sampling
         enum class SamVal {
             theBusIsSampledO=0x00000000,     ///<The bus is sampled once (recommended for high speed buses)
@@ -466,27 +428,21 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,SamVal> sam{}; 
         namespace SamValC{
-            constexpr Register::FieldValue<decltype(sam),SamVal::theBusIsSampledO> theBusIsSampledO{};
-            constexpr Register::FieldValue<decltype(sam),SamVal::theBusIsSampled3> theBusIsSampled3{};
+            constexpr Register::FieldValue<decltype(sam)::Type,SamVal::theBusIsSampledO> theBusIsSampledO{};
+            constexpr Register::FieldValue<decltype(sam)::Type,SamVal::theBusIsSampled3> theBusIsSampled3{};
         }
     }
     namespace Noneewl{    ///<Error Warning Limit. Can only be written when RM in CANMOD is 1.
         using Addr = Register::Address<0x40044018,0xffffff00,0,unsigned>;
         ///During CAN operation, this value is compared to both the Tx and Rx Error Counters. If either of these counter matches this value, the Error Status (ES) bit in CANSR is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> ewl{}; 
-        namespace EwlValC{
-        }
     }
     namespace Nonesr{    ///<Status Register
         using Addr = Register::Address<0x4004401c,0xff000000,0,unsigned>;
         ///Receive Buffer Status. This bit is identical to the RBS bit in the CANxGSR.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rbs1{}; 
-        namespace Rbs1ValC{
-        }
         ///Data Overrun Status. This bit is identical to the DOS bit in the CANxGSR.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> dos1{}; 
-        namespace Dos1ValC{
-        }
         ///Transmit Buffer Status 1.
         enum class Tbs11Val {
             lockedSoftwareCan=0x00000000,     ///<Locked. Software cannot access the Tx Buffer 1 nor write to the corresponding CANxTFI, CANxTID, CANxTDA, and CANxTDB registers because a message is either waiting for transmission or is in transmitting process.
@@ -494,8 +450,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Tbs11Val> tbs11{}; 
         namespace Tbs11ValC{
-            constexpr Register::FieldValue<decltype(tbs11),Tbs11Val::lockedSoftwareCan> lockedSoftwareCan{};
-            constexpr Register::FieldValue<decltype(tbs11),Tbs11Val::releasedSoftwareM> releasedSoftwareM{};
+            constexpr Register::FieldValue<decltype(tbs11)::Type,Tbs11Val::lockedSoftwareCan> lockedSoftwareCan{};
+            constexpr Register::FieldValue<decltype(tbs11)::Type,Tbs11Val::releasedSoftwareM> releasedSoftwareM{};
         }
         ///Transmission Complete Status.
         enum class Tcs11Val {
@@ -504,13 +460,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Tcs11Val> tcs11{}; 
         namespace Tcs11ValC{
-            constexpr Register::FieldValue<decltype(tcs11),Tcs11Val::incompleteThePrev> incompleteThePrev{};
-            constexpr Register::FieldValue<decltype(tcs11),Tcs11Val::completeThePrevio> completeThePrevio{};
+            constexpr Register::FieldValue<decltype(tcs11)::Type,Tcs11Val::incompleteThePrev> incompleteThePrev{};
+            constexpr Register::FieldValue<decltype(tcs11)::Type,Tcs11Val::completeThePrevio> completeThePrevio{};
         }
         ///Receive Status. This bit is identical to the RS bit in the GSR.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> rs1{}; 
-        namespace Rs1ValC{
-        }
         ///Transmit Status 1.
         enum class Ts11Val {
             idleThereIsNoTr=0x00000000,     ///<Idle. There is no transmission from Tx Buffer 1.
@@ -518,25 +472,17 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Ts11Val> ts11{}; 
         namespace Ts11ValC{
-            constexpr Register::FieldValue<decltype(ts11),Ts11Val::idleThereIsNoTr> idleThereIsNoTr{};
-            constexpr Register::FieldValue<decltype(ts11),Ts11Val::transmitTheCanCo> transmitTheCanCo{};
+            constexpr Register::FieldValue<decltype(ts11)::Type,Ts11Val::idleThereIsNoTr> idleThereIsNoTr{};
+            constexpr Register::FieldValue<decltype(ts11)::Type,Ts11Val::transmitTheCanCo> transmitTheCanCo{};
         }
         ///Error Status. This bit is identical to the ES bit in the CANxGSR.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> es1{}; 
-        namespace Es1ValC{
-        }
         ///Bus Status. This bit is identical to the BS bit in the CANxGSR.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> bs1{}; 
-        namespace Bs1ValC{
-        }
         ///Receive Buffer Status. This bit is identical to the RBS bit in the CANxGSR.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> rbs2{}; 
-        namespace Rbs2ValC{
-        }
         ///Data Overrun Status. This bit is identical to the DOS bit in the CANxGSR.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> dos2{}; 
-        namespace Dos2ValC{
-        }
         ///Transmit Buffer Status 2.
         enum class Tbs22Val {
             lockedSoftwareCan=0x00000000,     ///<Locked. Software cannot access the Tx Buffer 2 nor write to the corresponding CANxTFI, CANxTID, CANxTDA, and CANxTDB registers because a message is either waiting for transmission or is in transmitting process.
@@ -544,8 +490,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Tbs22Val> tbs22{}; 
         namespace Tbs22ValC{
-            constexpr Register::FieldValue<decltype(tbs22),Tbs22Val::lockedSoftwareCan> lockedSoftwareCan{};
-            constexpr Register::FieldValue<decltype(tbs22),Tbs22Val::releasedSoftwareM> releasedSoftwareM{};
+            constexpr Register::FieldValue<decltype(tbs22)::Type,Tbs22Val::lockedSoftwareCan> lockedSoftwareCan{};
+            constexpr Register::FieldValue<decltype(tbs22)::Type,Tbs22Val::releasedSoftwareM> releasedSoftwareM{};
         }
         ///Transmission Complete Status.
         enum class Tcs22Val {
@@ -554,13 +500,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Tcs22Val> tcs22{}; 
         namespace Tcs22ValC{
-            constexpr Register::FieldValue<decltype(tcs22),Tcs22Val::incompleteThePrev> incompleteThePrev{};
-            constexpr Register::FieldValue<decltype(tcs22),Tcs22Val::completeThePrevio> completeThePrevio{};
+            constexpr Register::FieldValue<decltype(tcs22)::Type,Tcs22Val::incompleteThePrev> incompleteThePrev{};
+            constexpr Register::FieldValue<decltype(tcs22)::Type,Tcs22Val::completeThePrevio> completeThePrevio{};
         }
         ///Receive Status. This bit is identical to the RS bit in the GSR.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rs2{}; 
-        namespace Rs2ValC{
-        }
         ///Transmit Status 2.
         enum class Ts22Val {
             idleThereIsNoTr=0x00000000,     ///<Idle. There is no transmission from Tx Buffer 2.
@@ -568,25 +512,17 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Ts22Val> ts22{}; 
         namespace Ts22ValC{
-            constexpr Register::FieldValue<decltype(ts22),Ts22Val::idleThereIsNoTr> idleThereIsNoTr{};
-            constexpr Register::FieldValue<decltype(ts22),Ts22Val::transmitTheCanCo> transmitTheCanCo{};
+            constexpr Register::FieldValue<decltype(ts22)::Type,Ts22Val::idleThereIsNoTr> idleThereIsNoTr{};
+            constexpr Register::FieldValue<decltype(ts22)::Type,Ts22Val::transmitTheCanCo> transmitTheCanCo{};
         }
         ///Error Status. This bit is identical to the ES bit in the CANxGSR.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,unsigned> es2{}; 
-        namespace Es2ValC{
-        }
         ///Bus Status. This bit is identical to the BS bit in the CANxGSR.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> bs2{}; 
-        namespace Bs2ValC{
-        }
         ///Receive Buffer Status. This bit is identical to the RBS bit in the CANxGSR.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> rbs3{}; 
-        namespace Rbs3ValC{
-        }
         ///Data Overrun Status. This bit is identical to the DOS bit in the CANxGSR.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> dos3{}; 
-        namespace Dos3ValC{
-        }
         ///Transmit Buffer Status 3.
         enum class Tbs33Val {
             lockedSoftwareCan=0x00000000,     ///<Locked. Software cannot access the Tx Buffer 3 nor write to the corresponding CANxTFI, CANxTID, CANxTDA, and CANxTDB registers because a message is either waiting for transmission or is in transmitting process.
@@ -594,8 +530,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Tbs33Val> tbs33{}; 
         namespace Tbs33ValC{
-            constexpr Register::FieldValue<decltype(tbs33),Tbs33Val::lockedSoftwareCan> lockedSoftwareCan{};
-            constexpr Register::FieldValue<decltype(tbs33),Tbs33Val::releasedSoftwareM> releasedSoftwareM{};
+            constexpr Register::FieldValue<decltype(tbs33)::Type,Tbs33Val::lockedSoftwareCan> lockedSoftwareCan{};
+            constexpr Register::FieldValue<decltype(tbs33)::Type,Tbs33Val::releasedSoftwareM> releasedSoftwareM{};
         }
         ///Transmission Complete Status.
         enum class Tcs33Val {
@@ -604,13 +540,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,19),Register::ReadWriteAccess,Tcs33Val> tcs33{}; 
         namespace Tcs33ValC{
-            constexpr Register::FieldValue<decltype(tcs33),Tcs33Val::incompleteThePrev> incompleteThePrev{};
-            constexpr Register::FieldValue<decltype(tcs33),Tcs33Val::completeThePrevio> completeThePrevio{};
+            constexpr Register::FieldValue<decltype(tcs33)::Type,Tcs33Val::incompleteThePrev> incompleteThePrev{};
+            constexpr Register::FieldValue<decltype(tcs33)::Type,Tcs33Val::completeThePrevio> completeThePrevio{};
         }
         ///Receive Status. This bit is identical to the RS bit in the GSR.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,20),Register::ReadWriteAccess,unsigned> rs3{}; 
-        namespace Rs3ValC{
-        }
         ///Transmit Status 3.
         enum class Ts33Val {
             idleThereIsNoTr=0x00000000,     ///<Idle. There is no transmission from Tx Buffer 3.
@@ -618,285 +552,175 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,Ts33Val> ts33{}; 
         namespace Ts33ValC{
-            constexpr Register::FieldValue<decltype(ts33),Ts33Val::idleThereIsNoTr> idleThereIsNoTr{};
-            constexpr Register::FieldValue<decltype(ts33),Ts33Val::transmitTheCanCo> transmitTheCanCo{};
+            constexpr Register::FieldValue<decltype(ts33)::Type,Ts33Val::idleThereIsNoTr> idleThereIsNoTr{};
+            constexpr Register::FieldValue<decltype(ts33)::Type,Ts33Val::transmitTheCanCo> transmitTheCanCo{};
         }
         ///Error Status. This bit is identical to the ES bit in the CANxGSR.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,unsigned> es3{}; 
-        namespace Es3ValC{
-        }
         ///Bus Status. This bit is identical to the BS bit in the CANxGSR.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,unsigned> bs3{}; 
-        namespace Bs3ValC{
-        }
     }
     namespace Nonerfs{    ///<Receive frame status. Can only be written when RM in CANMOD is 1.
         using Addr = Register::Address<0x40044020,0x3ff0f800,0,unsigned>;
         ///ID Index. If the BP bit (below) is 0, this value is the zero-based number of the Lookup Table RAM entry at which the Acceptance Filter matched the received Identifier. Disabled entries in the Standard tables are included in this numbering, but will not be matched. See Section 21.17 Examples of acceptance filter tables and ID index values on page 587 for examples of ID Index values.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> idindex{}; 
-        namespace IdindexValC{
-        }
         ///If this bit is 1, the current message was received in AF Bypass mode, and the ID Index field (above) is meaningless.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> bp{}; 
-        namespace BpValC{
-        }
         ///The field contains the Data Length Code (DLC) field of the current received message. When RTR = 0, this is related to the number of data bytes available in the CANRDA and CANRDB registers as follows: 0000-0111 = 0 to 7 bytes1000-1111 = 8 bytes With RTR = 1, this value indicates the number of data bytes requested to be sent back, with the same encoding.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> dlc{}; 
-        namespace DlcValC{
-        }
         ///This bit contains the Remote Transmission Request bit of the current received message. 0 indicates a Data Frame, in which (if DLC is non-zero) data can be read from the CANRDA and possibly the CANRDB registers. 1 indicates a Remote frame, in which case the DLC value identifies the number of data bytes requested to be sent using the same Identifier.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> rtr{}; 
-        namespace RtrValC{
-        }
         ///A 0 in this bit indicates that the current received message included an 11-bit Identifier, while a 1 indicates a 29-bit Identifier. This affects the contents of the CANid register described below.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ff{}; 
-        namespace FfValC{
-        }
     }
     namespace Nonerid{    ///<Received Identifier. Can only be written when RM in CANMOD is 1.
         using Addr = Register::Address<0x40044024,0xfffff800,0,unsigned>;
         ///The 11-bit Identifier field of the current received message. In CAN 2.0A, these bits are called ID10-0, while in CAN 2.0B they're called ID29-18.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> id{}; 
-        namespace IdValC{
-        }
     }
     namespace Nonerda{    ///<Received data bytes 1-4. Can only be written when RM in CANMOD is 1.
         using Addr = Register::Address<0x40044028,0x00000000,0,unsigned>;
         ///Data 1. If the DLC field in CANRFS >= 0001, this contains the first Data byte of the current received message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data1{}; 
-        namespace Data1ValC{
-        }
         ///Data 2. If the DLC field in CANRFS >= 0010, this contains the first Data byte of the current received message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data2{}; 
-        namespace Data2ValC{
-        }
         ///Data 3. If the DLC field in CANRFS >= 0011, this contains the first Data byte of the current received message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> data3{}; 
-        namespace Data3ValC{
-        }
         ///Data 4. If the DLC field in CANRFS >= 0100, this contains the first Data byte of the current received message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> data4{}; 
-        namespace Data4ValC{
-        }
     }
     namespace Nonerdb{    ///<Received data bytes 5-8. Can only be written when RM in CANMOD is 1.
         using Addr = Register::Address<0x4004402c,0x00000000,0,unsigned>;
         ///Data 5. If the DLC field in CANRFS >= 0101, this contains the first Data byte of the current received message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data5{}; 
-        namespace Data5ValC{
-        }
         ///Data 6. If the DLC field in CANRFS >= 0110, this contains the first Data byte of the current received message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data6{}; 
-        namespace Data6ValC{
-        }
         ///Data 7. If the DLC field in CANRFS >= 0111, this contains the first Data byte of the current received message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> data7{}; 
-        namespace Data7ValC{
-        }
         ///Data 8. If the DLC field in CANRFS >= 1000, this contains the first Data byte of the current received message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> data8{}; 
-        namespace Data8ValC{
-        }
     }
     namespace Nonetfi1{    ///<Transmit frame info (Tx Buffer )
         using Addr = Register::Address<0x40044030,0x3ff0ff00,0,unsigned>;
         ///If the TPM (Transmit Priority Mode) bit in the CANxMOD register is set to 1, enabled Tx Buffers contend for the right to send their messages based on this field. The buffer with the lowest TX Priority value wins the prioritization and is sent first.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> prio{}; 
-        namespace PrioValC{
-        }
         ///Data Length Code. This value is sent in the DLC field of the next transmit message. In addition, if RTR = 0, this value controls the number of Data bytes sent in the next transmit message, from the CANxTDA and CANxTDB registers: 0000-0111 = 0-7 bytes 1xxx = 8 bytes
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> dlc{}; 
-        namespace DlcValC{
-        }
         ///This value is sent in the RTR bit of the next transmit message. If this bit is 0, the number of data bytes called out by the DLC field are sent from the CANxTDA and CANxTDB registers. If this bit is 1, a Remote Frame is sent, containing a request for that number of bytes.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> rtr{}; 
-        namespace RtrValC{
-        }
         ///If this bit is 0, the next transmit message will be sent with an 11-bit Identifier (standard frame format), while if it's 1, the message will be sent with a 29-bit Identifier (extended frame format).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ff{}; 
-        namespace FfValC{
-        }
     }
     namespace Nonetfi2{    ///<Transmit frame info (Tx Buffer )
         using Addr = Register::Address<0x40044040,0x3ff0ff00,0,unsigned>;
         ///If the TPM (Transmit Priority Mode) bit in the CANxMOD register is set to 1, enabled Tx Buffers contend for the right to send their messages based on this field. The buffer with the lowest TX Priority value wins the prioritization and is sent first.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> prio{}; 
-        namespace PrioValC{
-        }
         ///Data Length Code. This value is sent in the DLC field of the next transmit message. In addition, if RTR = 0, this value controls the number of Data bytes sent in the next transmit message, from the CANxTDA and CANxTDB registers: 0000-0111 = 0-7 bytes 1xxx = 8 bytes
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> dlc{}; 
-        namespace DlcValC{
-        }
         ///This value is sent in the RTR bit of the next transmit message. If this bit is 0, the number of data bytes called out by the DLC field are sent from the CANxTDA and CANxTDB registers. If this bit is 1, a Remote Frame is sent, containing a request for that number of bytes.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> rtr{}; 
-        namespace RtrValC{
-        }
         ///If this bit is 0, the next transmit message will be sent with an 11-bit Identifier (standard frame format), while if it's 1, the message will be sent with a 29-bit Identifier (extended frame format).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ff{}; 
-        namespace FfValC{
-        }
     }
     namespace Nonetfi3{    ///<Transmit frame info (Tx Buffer )
         using Addr = Register::Address<0x40044050,0x3ff0ff00,0,unsigned>;
         ///If the TPM (Transmit Priority Mode) bit in the CANxMOD register is set to 1, enabled Tx Buffers contend for the right to send their messages based on this field. The buffer with the lowest TX Priority value wins the prioritization and is sent first.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> prio{}; 
-        namespace PrioValC{
-        }
         ///Data Length Code. This value is sent in the DLC field of the next transmit message. In addition, if RTR = 0, this value controls the number of Data bytes sent in the next transmit message, from the CANxTDA and CANxTDB registers: 0000-0111 = 0-7 bytes 1xxx = 8 bytes
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> dlc{}; 
-        namespace DlcValC{
-        }
         ///This value is sent in the RTR bit of the next transmit message. If this bit is 0, the number of data bytes called out by the DLC field are sent from the CANxTDA and CANxTDB registers. If this bit is 1, a Remote Frame is sent, containing a request for that number of bytes.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,unsigned> rtr{}; 
-        namespace RtrValC{
-        }
         ///If this bit is 0, the next transmit message will be sent with an 11-bit Identifier (standard frame format), while if it's 1, the message will be sent with a 29-bit Identifier (extended frame format).
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> ff{}; 
-        namespace FfValC{
-        }
     }
     namespace Nonetid1{    ///<Transmit
 Identifier (Tx Buffer)
         using Addr = Register::Address<0x40044034,0xfffff800,0,unsigned>;
         ///The 11-bit Identifier to be sent in the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> id{}; 
-        namespace IdValC{
-        }
     }
     namespace Nonetid2{    ///<Transmit
 Identifier (Tx Buffer)
         using Addr = Register::Address<0x40044044,0xfffff800,0,unsigned>;
         ///The 11-bit Identifier to be sent in the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> id{}; 
-        namespace IdValC{
-        }
     }
     namespace Nonetid3{    ///<Transmit
 Identifier (Tx Buffer)
         using Addr = Register::Address<0x40044054,0xfffff800,0,unsigned>;
         ///The 11-bit Identifier to be sent in the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> id{}; 
-        namespace IdValC{
-        }
     }
     namespace Nonetda1{    ///<Transmit
 data bytes 1-4 (Tx Buffer)
         using Addr = Register::Address<0x40044038,0x00000000,0,unsigned>;
         ///Data 1. If RTR = 0 and DLC >= 0001 in the corresponding CANxTFI, this byte is sent as the first Data byte of the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data1{}; 
-        namespace Data1ValC{
-        }
         ///Data 2. If RTR = 0 and DLC >= 0010 in the corresponding CANxTFI, this byte is sent as the 2nd Data byte of the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data2{}; 
-        namespace Data2ValC{
-        }
         ///Data 3. If RTR = 0 and DLC >= 0011 in the corresponding CANxTFI, this byte is sent as the 3rd Data byte of the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> data3{}; 
-        namespace Data3ValC{
-        }
         ///Data 4. If RTR = 0 and DLC >= 0100 in the corresponding CANxTFI, this byte is sent as the 4th Data byte of the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> data4{}; 
-        namespace Data4ValC{
-        }
     }
     namespace Nonetda2{    ///<Transmit
 data bytes 1-4 (Tx Buffer)
         using Addr = Register::Address<0x40044048,0x00000000,0,unsigned>;
         ///Data 1. If RTR = 0 and DLC >= 0001 in the corresponding CANxTFI, this byte is sent as the first Data byte of the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data1{}; 
-        namespace Data1ValC{
-        }
         ///Data 2. If RTR = 0 and DLC >= 0010 in the corresponding CANxTFI, this byte is sent as the 2nd Data byte of the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data2{}; 
-        namespace Data2ValC{
-        }
         ///Data 3. If RTR = 0 and DLC >= 0011 in the corresponding CANxTFI, this byte is sent as the 3rd Data byte of the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> data3{}; 
-        namespace Data3ValC{
-        }
         ///Data 4. If RTR = 0 and DLC >= 0100 in the corresponding CANxTFI, this byte is sent as the 4th Data byte of the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> data4{}; 
-        namespace Data4ValC{
-        }
     }
     namespace Nonetda3{    ///<Transmit
 data bytes 1-4 (Tx Buffer)
         using Addr = Register::Address<0x40044058,0x00000000,0,unsigned>;
         ///Data 1. If RTR = 0 and DLC >= 0001 in the corresponding CANxTFI, this byte is sent as the first Data byte of the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data1{}; 
-        namespace Data1ValC{
-        }
         ///Data 2. If RTR = 0 and DLC >= 0010 in the corresponding CANxTFI, this byte is sent as the 2nd Data byte of the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data2{}; 
-        namespace Data2ValC{
-        }
         ///Data 3. If RTR = 0 and DLC >= 0011 in the corresponding CANxTFI, this byte is sent as the 3rd Data byte of the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> data3{}; 
-        namespace Data3ValC{
-        }
         ///Data 4. If RTR = 0 and DLC >= 0100 in the corresponding CANxTFI, this byte is sent as the 4th Data byte of the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> data4{}; 
-        namespace Data4ValC{
-        }
     }
     namespace Nonetdb1{    ///<Transmit
 data bytes 5-8 (Tx Buffer )
         using Addr = Register::Address<0x4004403c,0x00000000,0,unsigned>;
         ///Data 5. If RTR = 0 and DLC >= 0101 in the corresponding CANTFI, this byte is sent as the 5th Data byte of the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data5{}; 
-        namespace Data5ValC{
-        }
         ///Data 6. If RTR = 0 and DLC >= 0110 in the corresponding CANTFI, this byte is sent as the 6th Data byte of the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data6{}; 
-        namespace Data6ValC{
-        }
         ///Data 7. If RTR = 0 and DLC >= 0111 in the corresponding CANTFI, this byte is sent as the 7th Data byte of the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> data7{}; 
-        namespace Data7ValC{
-        }
         ///Data 8. If RTR = 0 and DLC >= 1000 in the corresponding CANTFI, this byte is sent as the 8th Data byte of the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> data8{}; 
-        namespace Data8ValC{
-        }
     }
     namespace Nonetdb2{    ///<Transmit
 data bytes 5-8 (Tx Buffer )
         using Addr = Register::Address<0x4004404c,0x00000000,0,unsigned>;
         ///Data 5. If RTR = 0 and DLC >= 0101 in the corresponding CANTFI, this byte is sent as the 5th Data byte of the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data5{}; 
-        namespace Data5ValC{
-        }
         ///Data 6. If RTR = 0 and DLC >= 0110 in the corresponding CANTFI, this byte is sent as the 6th Data byte of the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data6{}; 
-        namespace Data6ValC{
-        }
         ///Data 7. If RTR = 0 and DLC >= 0111 in the corresponding CANTFI, this byte is sent as the 7th Data byte of the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> data7{}; 
-        namespace Data7ValC{
-        }
         ///Data 8. If RTR = 0 and DLC >= 1000 in the corresponding CANTFI, this byte is sent as the 8th Data byte of the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> data8{}; 
-        namespace Data8ValC{
-        }
     }
     namespace Nonetdb3{    ///<Transmit
 data bytes 5-8 (Tx Buffer )
         using Addr = Register::Address<0x4004405c,0x00000000,0,unsigned>;
         ///Data 5. If RTR = 0 and DLC >= 0101 in the corresponding CANTFI, this byte is sent as the 5th Data byte of the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data5{}; 
-        namespace Data5ValC{
-        }
         ///Data 6. If RTR = 0 and DLC >= 0110 in the corresponding CANTFI, this byte is sent as the 6th Data byte of the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data6{}; 
-        namespace Data6ValC{
-        }
         ///Data 7. If RTR = 0 and DLC >= 0111 in the corresponding CANTFI, this byte is sent as the 7th Data byte of the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> data7{}; 
-        namespace Data7ValC{
-        }
         ///Data 8. If RTR = 0 and DLC >= 1000 in the corresponding CANTFI, this byte is sent as the 8th Data byte of the next transmit message.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> data8{}; 
-        namespace Data8ValC{
-        }
     }
 }

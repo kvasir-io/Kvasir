@@ -11,8 +11,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DigoscenVal> digoscen{}; 
         namespace DigoscenValC{
-            constexpr Register::FieldValue<decltype(digoscen),DigoscenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(digoscen),DigoscenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(digoscen)::Type,DigoscenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(digoscen)::Type,DigoscenVal::enabled> enabled{};
         }
         ///Memory LDO Oscillator Enable. 
         enum class MemoscenVal {
@@ -21,8 +21,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,MemoscenVal> memoscen{}; 
         namespace MemoscenValC{
-            constexpr Register::FieldValue<decltype(memoscen),MemoscenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(memoscen),MemoscenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(memoscen)::Type,MemoscenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(memoscen)::Type,MemoscenVal::enabled> enabled{};
         }
         ///Digital LDO Oscillator Mode. 
         enum class DigoscmdVal {
@@ -31,8 +31,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,DigoscmdVal> digoscmd{}; 
         namespace DigoscmdValC{
-            constexpr Register::FieldValue<decltype(digoscmd),DigoscmdVal::fast> fast{};
-            constexpr Register::FieldValue<decltype(digoscmd),DigoscmdVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(digoscmd)::Type,DigoscmdVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(digoscmd)::Type,DigoscmdVal::slow> slow{};
         }
         ///High Voltage Oscillator Mode. 
         enum class MemoscmdVal {
@@ -41,8 +41,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,MemoscmdVal> memoscmd{}; 
         namespace MemoscmdValC{
-            constexpr Register::FieldValue<decltype(memoscmd),MemoscmdVal::fast> fast{};
-            constexpr Register::FieldValue<decltype(memoscmd),MemoscmdVal::slow> slow{};
+            constexpr Register::FieldValue<decltype(memoscmd)::Type,MemoscmdVal::fast> fast{};
+            constexpr Register::FieldValue<decltype(memoscmd)::Type,MemoscmdVal::slow> slow{};
         }
         ///Clock Select. 
         enum class ClkselVal {
@@ -51,8 +51,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ClkselVal> clksel{}; 
         namespace ClkselValC{
-            constexpr Register::FieldValue<decltype(clksel),ClkselVal::oscillators> oscillators{};
-            constexpr Register::FieldValue<decltype(clksel),ClkselVal::ahb> ahb{};
+            constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::oscillators> oscillators{};
+            constexpr Register::FieldValue<decltype(clksel)::Type,ClkselVal::ahb> ahb{};
         }
     }
 }

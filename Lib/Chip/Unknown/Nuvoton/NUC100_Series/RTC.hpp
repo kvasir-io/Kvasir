@@ -8,13 +8,9 @@ namespace Kvasir {
 0: RTC is at reset state
 1: RTC is at normal active state.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> active{}; 
-        namespace ActiveValC{
-        }
         ///RTC Initiation 
 When chip is power on, RTC timer counter is at unknown state because RTC timer counter reset is individual with chip reset; user has to write a number (0x a5eb1357) to INIR to reset RTC controller to initialize RTC controller.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> inir{}; 
-        namespace InirValC{
-        }
     }
     namespace Noneaer{    ///<RTC Access Enable Register
         using Addr = Register::Address<0x40008004,0xfffe0000,0,unsigned>;
@@ -22,8 +18,6 @@ When chip is power on, RTC timer counter is at unknown state because RTC timer c
 0xA965 = Enable RTC access 
 Others = Disable RTC access 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> aer{}; 
-        namespace AerValC{
-        }
         ///RTC Register Access Enable Flag (Read only)
 1 = RTC register read/write enable
 0 = RTC register read/write disable
@@ -42,8 +36,6 @@ RIER	R/W	R/W
 RIIR	R/C	R/C	
 TTR	R/W	-	
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> enf{}; 
-        namespace EnfValC{
-        }
     }
     namespace Nonefcr{    ///<RTC Frequency Compensation Register
         using Addr = Register::Address<0x40008008,0xfffff0c0,0,unsigned>;
@@ -51,8 +43,6 @@ TTR	R/W	-
 Formula = (fraction part of detected value) x 60
 Note: Digit in FCR must be expressed as hexadecimal number. Refer to 5.8.4.4 for the examples.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> fraction{}; 
-        namespace FractionValC{
-        }
         ///Integer Part
 Integer part of detected value	FCR[11:8]	Integer part of detected value	FCR[11:8]	
 32776	1111	32768	0111	
@@ -64,62 +54,36 @@ Integer part of detected value	FCR[11:8]	Integer part of detected value	FCR[11:8
 32770	1001	32762	0001	
 32769	1000	32761	0000	
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> integer{}; 
-        namespace IntegerValC{
-        }
     }
     namespace Nonetlr{    ///<Time Loading Register
         using Addr = Register::Address<0x4000800c,0xffc08080,0,unsigned>;
         ///1 Sec Time Digit (0~9)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> 1sec{}; 
-        namespace 1secValC{
-        }
         ///10 Sec Time Digit (0~5)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> 10sec{}; 
-        namespace 10secValC{
-        }
         ///1 Min Time Digit (0~9)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> 1min{}; 
-        namespace 1minValC{
-        }
         ///10 Min Time Digit (0~5)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> 10min{}; 
-        namespace 10minValC{
-        }
         ///1 Hour Time Digit (0~9)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> 1hr{}; 
-        namespace 1hrValC{
-        }
         ///10 Hour Time Digit (0~2)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,unsigned> 10hr{}; 
-        namespace 10hrValC{
-        }
     }
     namespace Noneclr{    ///<Calendar Loading Register
         using Addr = Register::Address<0x40008010,0xff00e0c0,0,unsigned>;
         ///1-Day Calendar Digit (0~9)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> 1day{}; 
-        namespace 1dayValC{
-        }
         ///10-Day Calendar Digit (0~3)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> 10day{}; 
-        namespace 10dayValC{
-        }
         ///1-Month Calendar Digit (0~9)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> 1mon{}; 
-        namespace 1monValC{
-        }
         ///10-Month Calendar Digit (0~1)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> 10mon{}; 
-        namespace 10monValC{
-        }
         ///1-Year Calendar Digit (0~9)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> 1year{}; 
-        namespace 1yearValC{
-        }
         ///10-Year Calendar Digit (0~9)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> 10year{}; 
-        namespace 10yearValC{
-        }
     }
     namespace Nonetssr{    ///<Time Scale Selection Register
         using Addr = Register::Address<0x40008014,0xfffffffe,0,unsigned>;
@@ -142,8 +106,6 @@ It indicate that TLR and TAR are in 24-hour time mode or 12-hour time mode
 10	10(AM10)	22	30(PM10)	
 11	11(AM11)	23	31(PM11)	
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> 24h12h{}; 
-        namespace 24h12hValC{
-        }
     }
     namespace Nonedwr{    ///<Day of the Week Register
         using Addr = Register::Address<0x40008018,0xfffffff8,0,unsigned>;
@@ -157,62 +119,36 @@ Value	Day of the Week
 5	Friday	
 6	Saturday	
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> dwr{}; 
-        namespace DwrValC{
-        }
     }
     namespace Nonetar{    ///<Time Alarm Register
         using Addr = Register::Address<0x4000801c,0xffc08080,0,unsigned>;
         ///1 Sec Time Digit of Alarm Setting (0~9)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> 1sec{}; 
-        namespace 1secValC{
-        }
         ///10 Sec Time Digit of Alarm Setting (0~5)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,unsigned> 10sec{}; 
-        namespace 10secValC{
-        }
         ///1 Min Time Digit of Alarm Setting (0~9)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> 1min{}; 
-        namespace 1minValC{
-        }
         ///10 Min Time Digit of Alarm Setting (0~5)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> 10min{}; 
-        namespace 10minValC{
-        }
         ///1 Hour Time Digit of Alarm Setting (0~9)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> 1hr{}; 
-        namespace 1hrValC{
-        }
         ///10 Hour Time Digit of Alarm Setting (0~2)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,20),Register::ReadWriteAccess,unsigned> 10hr{}; 
-        namespace 10hrValC{
-        }
     }
     namespace Nonecar{    ///<Calendar Alarm Register
         using Addr = Register::Address<0x40008020,0xff00e0c0,0,unsigned>;
         ///1-Day Calendar Digit of Alarm Setting (0~9)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> 1day{}; 
-        namespace 1dayValC{
-        }
         ///10-Day Calendar Digit of Alarm Setting (0~3)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> 10day{}; 
-        namespace 10dayValC{
-        }
         ///1-Month Calendar Digit of Alarm Setting (0~9)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> 1mon{}; 
-        namespace 1monValC{
-        }
         ///10-Month Calendar Digit of Alarm Setting (0~1)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> 10mon{}; 
-        namespace 10monValC{
-        }
         ///1-Year Calendar Digit of Alarm Setting (0~9)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,16),Register::ReadWriteAccess,unsigned> 1year{}; 
-        namespace 1yearValC{
-        }
         ///10-Year Calendar Digit of Alarm Setting (0~9)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> 10year{}; 
-        namespace 10yearValC{
-        }
     }
     namespace Nonelir{    ///<RTC Leap year Indicator Register
         using Addr = Register::Address<0x40008024,0xfffffffe,0,unsigned>;
@@ -220,8 +156,6 @@ Value	Day of the Week
 1 = It indicate that this year is leap year
 0 = It indicate that this year is not a leap year
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lir{}; 
-        namespace LirValC{
-        }
     }
     namespace Nonerier{    ///<RTC Interrupt Enable Register
         using Addr = Register::Address<0x40008028,0xfffffffc,0,unsigned>;
@@ -229,14 +163,10 @@ Value	Day of the Week
 1 = RTC Alarm Interrupt is enabled
 0 = RTC Alarm Interrupt is disabled
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> aier{}; 
-        namespace AierValC{
-        }
         ///Time Tick Interrupt Enable
 1 = RTC Time Tick Interrupt is enabled
 0 = RTC Time Tick Interrupt is disabled
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tier{}; 
-        namespace TierValC{
-        }
     }
     namespace Noneriir{    ///<RTC Interrupt Indicator Register
         using Addr = Register::Address<0x4000802c,0xfffffffc,0,unsigned>;
@@ -245,15 +175,11 @@ When RTC Alarm Interrupt is enabled (RIER.AIER=1), RTC controller will set AIF t
 1 = Indicates RTC Alarm Interrupt is requested if RIER.AIER=1.
 0 = Indicates RTC Alarm Interrupt condition never occurred.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> aif{}; 
-        namespace AifValC{
-        }
         ///RTC Time Tick Interrupt Flag
 When RTC Time Tick Interrupt is enabled (RIER.TIER=1), RTC controller will set TIF to high periodically in the period selected by TTR[2:0]. This bit is software clear by writing 1 to it.
 1 = Indicates RTC Time Tick Interrupt is requested if RIER.TIER=1.
 0 = Indicates RTC Time Tick Interrupt condition never occurred.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> tif{}; 
-        namespace TifValC{
-        }
     }
     namespace Nonettr{    ///<RTC Time Tick Register
         using Addr = Register::Address<0x40008030,0xfffffff0,0,unsigned>;
@@ -271,8 +197,6 @@ TTR[2:0]	Time tick (second)
 
 Note: This register can be read back after the RTC register access enable bit ENF(AER[16]) is active.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> ttr{}; 
-        namespace TtrValC{
-        }
         ///RTC Timer Wakeup CPU Function Enable Bit
 If TWKE is set before CPU is in power-down mode, when a RTC Time Tick occurs, CPU will be wakened up by RTC controller.
 1 = Enable the Wakeup function that CPU can be waken up from power-down mode by Time Tick.
@@ -281,7 +205,5 @@ Note:
 1. Tick timer setting follows TTR[2:0] description. 
 2. The CPU can also be wakeup by alarm match occur.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> twke{}; 
-        namespace TwkeValC{
-        }
     }
 }

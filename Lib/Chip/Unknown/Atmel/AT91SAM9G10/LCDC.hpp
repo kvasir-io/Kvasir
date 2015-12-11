@@ -6,284 +6,180 @@ namespace Kvasir {
         using Addr = Register::Address<0x00600000,0x00000003,0,unsigned>;
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,2),Register::ReadWriteAccess,unsigned> baddrU{}; 
-        namespace BaddruValC{
-        }
     }
     namespace Nonedmabaddr2{    ///<DMA Base Address Register 2
         using Addr = Register::Address<0x00600004,0x00000000,0,unsigned>;
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> baddrL{}; 
-        namespace BaddrlValC{
-        }
     }
     namespace Nonedmafrmpt1{    ///<DMA Frame Pointer Register 1
         using Addr = Register::Address<0x00600008,0xff800000,0,unsigned>;
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,0),Register::ReadWriteAccess,unsigned> frmptU{}; 
-        namespace FrmptuValC{
-        }
     }
     namespace Nonedmafrmpt2{    ///<DMA Frame Pointer Register 2
         using Addr = Register::Address<0x0060000c,0xff800000,0,unsigned>;
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,0),Register::ReadWriteAccess,unsigned> frmptL{}; 
-        namespace FrmptlValC{
-        }
     }
     namespace Nonedmafrmadd1{    ///<DMA Frame Address Register 1
         using Addr = Register::Address<0x00600010,0x00000000,0,unsigned>;
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> frmaddU{}; 
-        namespace FrmadduValC{
-        }
     }
     namespace Nonedmafrmadd2{    ///<DMA Frame Address Register 2
         using Addr = Register::Address<0x00600014,0x00000000,0,unsigned>;
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> frmaddL{}; 
-        namespace FrmaddlValC{
-        }
     }
     namespace Nonedmafrmcfg{    ///<DMA Frame Configuration Register
         using Addr = Register::Address<0x00600018,0x80800000,0,unsigned>;
         ///Frame Size
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,0),Register::ReadWriteAccess,unsigned> frmsize{}; 
-        namespace FrmsizeValC{
-        }
         ///Burst Length in Words
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,24),Register::ReadWriteAccess,unsigned> brstln{}; 
-        namespace BrstlnValC{
-        }
     }
     namespace Nonedmacon{    ///<DMA Control Register
         using Addr = Register::Address<0x0060001c,0xfffffff8,0,unsigned>;
         ///DMA Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dmaen{}; 
-        namespace DmaenValC{
-        }
         ///DMA Reset (Write-only)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> dmarst{}; 
-        namespace DmarstValC{
-        }
         ///DMA Busy
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> dmabusy{}; 
-        namespace DmabusyValC{
-        }
     }
     namespace Nonelcdcon1{    ///<LCD Control Register 1
         using Addr = Register::Address<0x00600800,0x00000ffe,0,unsigned>;
         ///Bypass LCDDOTCK Divider
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> bypass{}; 
-        namespace BypassValC{
-        }
         ///Clock Divider
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,12),Register::ReadWriteAccess,unsigned> clkval{}; 
-        namespace ClkvalValC{
-        }
         ///Line Counter (Read-only)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,21),Register::ReadWriteAccess,unsigned> linecnt{}; 
-        namespace LinecntValC{
-        }
     }
     namespace Nonelcdcon2{    ///<LCD Control Register 2
         using Addr = Register::Address<0x00600804,0x3fff6000,0,unsigned>;
         ///Display Type
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> distype{}; 
-        namespace DistypeValC{
-        }
         ///Scan Mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> scanmod{}; 
-        namespace ScanmodValC{
-        }
         ///Interface width (STN)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,3),Register::ReadWriteAccess,unsigned> ifwidth{}; 
-        namespace IfwidthValC{
-        }
         ///Bits per pixel
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,5),Register::ReadWriteAccess,unsigned> pixelsize{}; 
-        namespace PixelsizeValC{
-        }
         ///LCDD polarity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> invvd{}; 
-        namespace InvvdValC{
-        }
         ///LCDVSYNC polarity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> invframe{}; 
-        namespace InvframeValC{
-        }
         ///LCDHSYNC polarity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,unsigned> invline{}; 
-        namespace InvlineValC{
-        }
         ///LCDDOTCK polarity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,unsigned> invclk{}; 
-        namespace InvclkValC{
-        }
         ///LCDDEN polarity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> invdval{}; 
-        namespace InvdvalValC{
-        }
         ///LCDDOTCK mode
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,unsigned> clkmod{}; 
-        namespace ClkmodValC{
-        }
         ///Memory Ordering Format
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> memor{}; 
-        namespace MemorValC{
-        }
     }
     namespace Nonelcdtim1{    ///<LCD Timing Register 1
         using Addr = Register::Address<0x00600808,0x70c00000,0,unsigned>;
         ///Vertical Front Porch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> vfp{}; 
-        namespace VfpValC{
-        }
         ///Vertical Back Porch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> vbp{}; 
-        namespace VbpValC{
-        }
         ///Vertical Synchronization pulse width
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,16),Register::ReadWriteAccess,unsigned> vpw{}; 
-        namespace VpwValC{
-        }
         ///Vertical to horizontal delay
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> vhdly{}; 
-        namespace VhdlyValC{
-        }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> stuckto1{}; 
-        namespace Stuckto1ValC{
-        }
     }
     namespace Nonelcdtim2{    ///<LCD Timing Register 2
         using Addr = Register::Address<0x0060080c,0x001fc000,0,unsigned>;
         ///Horizontal Back Porch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> hbp{}; 
-        namespace HbpValC{
-        }
         ///Horizontal synchronization pulse width
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,8),Register::ReadWriteAccess,unsigned> hpw{}; 
-        namespace HpwValC{
-        }
         ///Horizontal Front Porch
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,21),Register::ReadWriteAccess,unsigned> hfp{}; 
-        namespace HfpValC{
-        }
     }
     namespace Nonelcdfrmcfg{    ///<LCD Frame Configuration Register
         using Addr = Register::Address<0x00600810,0x001ff800,0,unsigned>;
         ///Vertical size of LCD module
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,0),Register::ReadWriteAccess,unsigned> lineval{}; 
-        namespace LinevalValC{
-        }
         ///Horizontal size of LCD module
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,21),Register::ReadWriteAccess,unsigned> hozval{}; 
-        namespace HozvalValC{
-        }
     }
     namespace Nonelcdfifo{    ///<LCD FIFO Register
         using Addr = Register::Address<0x00600814,0xffff0000,0,unsigned>;
         ///FIFO Threshold
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> fifoth{}; 
-        namespace FifothValC{
-        }
     }
     namespace Nonelcdmval{    ///<LCDMOD Toggle Rate Value Register
         using Addr = Register::Address<0x00600818,0x7fffff00,0,unsigned>;
         ///LCDMOD toggle rate value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> mval{}; 
-        namespace MvalValC{
-        }
         ///LCDMOD toggle rate select
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> mmode{}; 
-        namespace MmodeValC{
-        }
     }
     namespace Nonedp12{    ///<Dithering Pattern DP1_2
         using Addr = Register::Address<0x0060081c,0xffffff00,0,unsigned>;
         ///Pattern value for half duty cycle
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> dp12{}; 
-        namespace Dp12ValC{
-        }
     }
     namespace Nonedp47{    ///<Dithering Pattern DP4_7
         using Addr = Register::Address<0x00600820,0xf0000000,0,unsigned>;
         ///Pattern value for 4/7 duty cycle
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,0),Register::ReadWriteAccess,unsigned> dp47{}; 
-        namespace Dp47ValC{
-        }
     }
     namespace Nonedp35{    ///<Dithering Pattern DP3_5
         using Addr = Register::Address<0x00600824,0xfff00000,0,unsigned>;
         ///Pattern value for 3/5 duty cycle
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,0),Register::ReadWriteAccess,unsigned> dp35{}; 
-        namespace Dp35ValC{
-        }
     }
     namespace Nonedp23{    ///<Dithering Pattern DP2_3
         using Addr = Register::Address<0x00600828,0xfffff000,0,unsigned>;
         ///Pattern value for 2/3 duty cycle
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> dp23{}; 
-        namespace Dp23ValC{
-        }
     }
     namespace Nonedp57{    ///<Dithering Pattern DP5_7
         using Addr = Register::Address<0x0060082c,0xf0000000,0,unsigned>;
         ///Pattern value for 5/7 duty cycle
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,0),Register::ReadWriteAccess,unsigned> dp57{}; 
-        namespace Dp57ValC{
-        }
     }
     namespace Nonedp34{    ///<Dithering Pattern DP3_4
         using Addr = Register::Address<0x00600830,0xffff0000,0,unsigned>;
         ///Pattern value for 3/4 duty cycle
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> dp34{}; 
-        namespace Dp34ValC{
-        }
     }
     namespace Nonedp45{    ///<Dithering Pattern DP4_5
         using Addr = Register::Address<0x00600834,0xfff00000,0,unsigned>;
         ///Pattern value for 4/5 duty cycle
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(19,0),Register::ReadWriteAccess,unsigned> dp45{}; 
-        namespace Dp45ValC{
-        }
     }
     namespace Nonedp67{    ///<Dithering Pattern DP6_7
         using Addr = Register::Address<0x00600838,0xf0000000,0,unsigned>;
         ///Pattern value for 6/7 duty cycle
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,0),Register::ReadWriteAccess,unsigned> dp67{}; 
-        namespace Dp67ValC{
-        }
     }
     namespace Nonepwrcon{    ///<Power Control Register
         using Addr = Register::Address<0x0060083c,0x7fffff00,0,unsigned>;
         ///LCD module power control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lcdPwr{}; 
-        namespace LcdpwrValC{
-        }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,1),Register::ReadWriteAccess,unsigned> guardTime{}; 
-        namespace GuardtimeValC{
-        }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> lcdBusy{}; 
-        namespace LcdbusyValC{
-        }
     }
     namespace NonecontrastCtr{    ///<Contrast Control Register
         using Addr = Register::Address<0x00600840,0xfffffff0,0,unsigned>;
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> ps{}; 
-        namespace PsValC{
-        }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> pol{}; 
-        namespace PolValC{
-        }
         ///None
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> ena{}; 
-        namespace EnaValC{
-        }
     }
     namespace NonecontrastVal{    ///<Contrast Value Register
         using Addr = Register::Address<0x00600844,0xffffffff,0,unsigned>;
@@ -292,136 +188,76 @@ namespace Kvasir {
         using Addr = Register::Address<0x00600848,0xffffff88,0,unsigned>;
         ///Line interrupt enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lnie{}; 
-        namespace LnieValC{
-        }
         ///Last line interrupt enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> lstlnie{}; 
-        namespace LstlnieValC{
-        }
         ///DMA End of frame interrupt enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> eofie{}; 
-        namespace EofieValC{
-        }
         ///FIFO underflow interrupt enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> uflwie{}; 
-        namespace UflwieValC{
-        }
         ///FIFO overwrite interrupt enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> owrie{}; 
-        namespace OwrieValC{
-        }
         ///DMA memory error interrupt enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> merie{}; 
-        namespace MerieValC{
-        }
     }
     namespace NonelcdIdr{    ///<LCD Interrupt Disable Register
         using Addr = Register::Address<0x0060084c,0xffffff88,0,unsigned>;
         ///Line interrupt disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lnid{}; 
-        namespace LnidValC{
-        }
         ///Last line interrupt disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> lstlnid{}; 
-        namespace LstlnidValC{
-        }
         ///DMA End of frame interrupt disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> eofid{}; 
-        namespace EofidValC{
-        }
         ///FIFO underflow interrupt disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> uflwid{}; 
-        namespace UflwidValC{
-        }
         ///FIFO overwrite interrupt disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> owrid{}; 
-        namespace OwridValC{
-        }
         ///DMA Memory error interrupt disable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> merid{}; 
-        namespace MeridValC{
-        }
     }
     namespace NonelcdImr{    ///<LCD Interrupt Mask Register
         using Addr = Register::Address<0x00600850,0xffffff88,0,unsigned>;
         ///Line interrupt mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lnim{}; 
-        namespace LnimValC{
-        }
         ///Last line interrupt mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> lstlnim{}; 
-        namespace LstlnimValC{
-        }
         ///DMA End of frame interrupt mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> eofim{}; 
-        namespace EofimValC{
-        }
         ///FIFO underflow interrupt mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> uflwim{}; 
-        namespace UflwimValC{
-        }
         ///FIFO overwrite interrupt mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> owrim{}; 
-        namespace OwrimValC{
-        }
         ///DMA Memory error interrupt mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> merim{}; 
-        namespace MerimValC{
-        }
     }
     namespace NonelcdIsr{    ///<LCD Interrupt Status Register
         using Addr = Register::Address<0x00600854,0xffffff88,0,unsigned>;
         ///Line interrupt status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lnis{}; 
-        namespace LnisValC{
-        }
         ///Last line interrupt status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> lstlnis{}; 
-        namespace LstlnisValC{
-        }
         ///DMA End of frame interrupt status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> eofis{}; 
-        namespace EofisValC{
-        }
         ///FIFO underflow interrupt status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> uflwis{}; 
-        namespace UflwisValC{
-        }
         ///FIFO overwrite interrupt status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> owris{}; 
-        namespace OwrisValC{
-        }
         ///DMA Memory error interrupt status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> meris{}; 
-        namespace MerisValC{
-        }
     }
     namespace NonelcdIcr{    ///<LCD Interrupt Clear Register
         using Addr = Register::Address<0x00600858,0xffffff88,0,unsigned>;
         ///Line interrupt clear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> lnic{}; 
-        namespace LnicValC{
-        }
         ///Last line interrupt clear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> lstlnic{}; 
-        namespace LstlnicValC{
-        }
         ///DMA End of frame interrupt clear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> eofic{}; 
-        namespace EoficValC{
-        }
         ///FIFO underflow interrupt clear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> uflwic{}; 
-        namespace UflwicValC{
-        }
         ///FIFO overwrite interrupt clear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,unsigned> owric{}; 
-        namespace OwricValC{
-        }
         ///DMA Memory error interrupt clear
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> meric{}; 
-        namespace MericValC{
-        }
     }
     namespace NonelcdWpcr{    ///<Write Protection Control Register
         using Addr = Register::Address<0x006008e4,0xffffffff,0,unsigned>;
@@ -430,12 +266,8 @@ namespace Kvasir {
         using Addr = Register::Address<0x006008e8,0xff0000fe,0,unsigned>;
         ///Write Protect Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wpvs{}; 
-        namespace WpvsValC{
-        }
         ///Write Protect Violation Source
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,8),Register::ReadWriteAccess,unsigned> wpvsrc{}; 
-        namespace WpvsrcValC{
-        }
     }
     namespace Nonelutentry0{    ///<Palette entry
         using Addr = Register::Address<0x00600c00,0xffffffff,0,unsigned>;

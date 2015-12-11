@@ -11,8 +11,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,OscinitVal> oscinit{}; 
         namespace OscinitValC{
-            constexpr Register::FieldValue<decltype(oscinit),OscinitVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(oscinit),OscinitVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(oscinit)::Type,OscinitVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(oscinit)::Type,OscinitVal::v1> v1{};
         }
         ///High Gain Oscillator Select
         enum class HgoVal {
@@ -21,8 +21,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,HgoVal> hgo{}; 
         namespace HgoValC{
-            constexpr Register::FieldValue<decltype(hgo),HgoVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(hgo),HgoVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(hgo)::Type,HgoVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(hgo)::Type,HgoVal::v1> v1{};
         }
         ///Frequency Range Select
         enum class RangeVal {
@@ -31,8 +31,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,RangeVal> range{}; 
         namespace RangeValC{
-            constexpr Register::FieldValue<decltype(range),RangeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(range),RangeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(range)::Type,RangeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(range)::Type,RangeVal::v1> v1{};
         }
         ///OSC Output Select
         enum class OscosVal {
@@ -41,8 +41,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,OscosVal> oscos{}; 
         namespace OscosValC{
-            constexpr Register::FieldValue<decltype(oscos),OscosVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(oscos),OscosVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(oscos)::Type,OscosVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(oscos)::Type,OscosVal::v1> v1{};
         }
         ///OSC Enable in Stop mode
         enum class OscstenVal {
@@ -51,8 +51,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,OscstenVal> oscsten{}; 
         namespace OscstenValC{
-            constexpr Register::FieldValue<decltype(oscsten),OscstenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(oscsten),OscstenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(oscsten)::Type,OscstenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(oscsten)::Type,OscstenVal::v1> v1{};
         }
         ///OSC Enable
         enum class OscenVal {
@@ -61,8 +61,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,OscenVal> oscen{}; 
         namespace OscenValC{
-            constexpr Register::FieldValue<decltype(oscen),OscenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(oscen),OscenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(oscen)::Type,OscenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(oscen)::Type,OscenVal::v1> v1{};
         }
     }
 }

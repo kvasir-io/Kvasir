@@ -11,8 +11,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaenstsVal> dmaensts{}; 
         namespace DmaenstsValC{
-            constexpr Register::FieldValue<decltype(dmaensts),DmaenstsVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(dmaensts),DmaenstsVal::set> set{};
+            constexpr Register::FieldValue<decltype(dmaensts)::Type,DmaenstsVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(dmaensts)::Type,DmaenstsVal::set> set{};
         }
         ///State Machine State. 
         enum class StateVal {
@@ -30,22 +30,20 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,StateVal> state{}; 
         namespace StateValC{
-            constexpr Register::FieldValue<decltype(state),StateVal::idle> idle{};
-            constexpr Register::FieldValue<decltype(state),StateVal::readingChannelConfig> readingChannelConfig{};
-            constexpr Register::FieldValue<decltype(state),StateVal::readingSourcePointer> readingSourcePointer{};
-            constexpr Register::FieldValue<decltype(state),StateVal::readingDestPointer> readingDestPointer{};
-            constexpr Register::FieldValue<decltype(state),StateVal::readingSourceData> readingSourceData{};
-            constexpr Register::FieldValue<decltype(state),StateVal::writingDestData> writingDestData{};
-            constexpr Register::FieldValue<decltype(state),StateVal::waitingDmaReqClear> waitingDmaReqClear{};
-            constexpr Register::FieldValue<decltype(state),StateVal::writingChannelConfig> writingChannelConfig{};
-            constexpr Register::FieldValue<decltype(state),StateVal::stalled> stalled{};
-            constexpr Register::FieldValue<decltype(state),StateVal::done> done{};
-            constexpr Register::FieldValue<decltype(state),StateVal::scatterGatherTransition> scatterGatherTransition{};
+            constexpr Register::FieldValue<decltype(state)::Type,StateVal::idle> idle{};
+            constexpr Register::FieldValue<decltype(state)::Type,StateVal::readingChannelConfig> readingChannelConfig{};
+            constexpr Register::FieldValue<decltype(state)::Type,StateVal::readingSourcePointer> readingSourcePointer{};
+            constexpr Register::FieldValue<decltype(state)::Type,StateVal::readingDestPointer> readingDestPointer{};
+            constexpr Register::FieldValue<decltype(state)::Type,StateVal::readingSourceData> readingSourceData{};
+            constexpr Register::FieldValue<decltype(state)::Type,StateVal::writingDestData> writingDestData{};
+            constexpr Register::FieldValue<decltype(state)::Type,StateVal::waitingDmaReqClear> waitingDmaReqClear{};
+            constexpr Register::FieldValue<decltype(state)::Type,StateVal::writingChannelConfig> writingChannelConfig{};
+            constexpr Register::FieldValue<decltype(state)::Type,StateVal::stalled> stalled{};
+            constexpr Register::FieldValue<decltype(state)::Type,StateVal::done> done{};
+            constexpr Register::FieldValue<decltype(state)::Type,StateVal::scatterGatherTransition> scatterGatherTransition{};
         }
         ///Number of Supported DMA Channels. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(20,16),Register::ReadWriteAccess,unsigned> numchan{}; 
-        namespace NumchanValC{
-        }
     }
     namespace Noneconfig{    ///<Controller Configuration
         using Addr = Register::Address<0x40036004,0xfffffffe,0,unsigned>;
@@ -56,23 +54,19 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaenVal> dmaen{}; 
         namespace DmaenValC{
-            constexpr Register::FieldValue<decltype(dmaen),DmaenVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(dmaen),DmaenVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::enabled> enabled{};
         }
     }
     namespace Nonebaseptr{    ///<Base Pointer
         using Addr = Register::Address<0x40036008,0x0000001f,0,unsigned>;
         ///Control Base Pointer. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,5),Register::ReadWriteAccess,unsigned> baseptr{}; 
-        namespace BaseptrValC{
-        }
     }
     namespace Noneabaseptr{    ///<Alternate Base Pointer
         using Addr = Register::Address<0x4003600c,0x00000000,0,unsigned>;
         ///Alternate Control Base Pointer. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> abaseptr{}; 
-        namespace AbaseptrValC{
-        }
     }
     namespace Nonechstatus{    ///<Channel Status
         using Addr = Register::Address<0x40036010,0xffff0000,0,unsigned>;
@@ -83,8 +77,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ch0Val> ch0{}; 
         namespace Ch0ValC{
-            constexpr Register::FieldValue<decltype(ch0),Ch0Val::notWaiting> notWaiting{};
-            constexpr Register::FieldValue<decltype(ch0),Ch0Val::waiting> waiting{};
+            constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::notWaiting> notWaiting{};
+            constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::waiting> waiting{};
         }
         ///Channel 1 Status. 
         enum class Ch1Val {
@@ -93,8 +87,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Ch1Val> ch1{}; 
         namespace Ch1ValC{
-            constexpr Register::FieldValue<decltype(ch1),Ch1Val::notWaiting> notWaiting{};
-            constexpr Register::FieldValue<decltype(ch1),Ch1Val::waiting> waiting{};
+            constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::notWaiting> notWaiting{};
+            constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::waiting> waiting{};
         }
         ///Channel 2 Status. 
         enum class Ch2Val {
@@ -103,8 +97,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Ch2Val> ch2{}; 
         namespace Ch2ValC{
-            constexpr Register::FieldValue<decltype(ch2),Ch2Val::notWaiting> notWaiting{};
-            constexpr Register::FieldValue<decltype(ch2),Ch2Val::waiting> waiting{};
+            constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::notWaiting> notWaiting{};
+            constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::waiting> waiting{};
         }
         ///Channel 3 Status. 
         enum class Ch3Val {
@@ -113,8 +107,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ch3Val> ch3{}; 
         namespace Ch3ValC{
-            constexpr Register::FieldValue<decltype(ch3),Ch3Val::notWaiting> notWaiting{};
-            constexpr Register::FieldValue<decltype(ch3),Ch3Val::waiting> waiting{};
+            constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::notWaiting> notWaiting{};
+            constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::waiting> waiting{};
         }
         ///Channel 4 Status. 
         enum class Ch4Val {
@@ -123,8 +117,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Ch4Val> ch4{}; 
         namespace Ch4ValC{
-            constexpr Register::FieldValue<decltype(ch4),Ch4Val::notWaiting> notWaiting{};
-            constexpr Register::FieldValue<decltype(ch4),Ch4Val::waiting> waiting{};
+            constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::notWaiting> notWaiting{};
+            constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::waiting> waiting{};
         }
         ///Channel 5 Status. 
         enum class Ch5Val {
@@ -133,8 +127,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Ch5Val> ch5{}; 
         namespace Ch5ValC{
-            constexpr Register::FieldValue<decltype(ch5),Ch5Val::notWaiting> notWaiting{};
-            constexpr Register::FieldValue<decltype(ch5),Ch5Val::waiting> waiting{};
+            constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::notWaiting> notWaiting{};
+            constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::waiting> waiting{};
         }
         ///Channel 6 Status. 
         enum class Ch6Val {
@@ -143,8 +137,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Ch6Val> ch6{}; 
         namespace Ch6ValC{
-            constexpr Register::FieldValue<decltype(ch6),Ch6Val::notWaiting> notWaiting{};
-            constexpr Register::FieldValue<decltype(ch6),Ch6Val::waiting> waiting{};
+            constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::notWaiting> notWaiting{};
+            constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::waiting> waiting{};
         }
         ///Channel 7 Status. 
         enum class Ch7Val {
@@ -153,8 +147,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ch7Val> ch7{}; 
         namespace Ch7ValC{
-            constexpr Register::FieldValue<decltype(ch7),Ch7Val::notWaiting> notWaiting{};
-            constexpr Register::FieldValue<decltype(ch7),Ch7Val::waiting> waiting{};
+            constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::notWaiting> notWaiting{};
+            constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::waiting> waiting{};
         }
         ///Channel 8 Status. 
         enum class Ch8Val {
@@ -163,8 +157,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ch8Val> ch8{}; 
         namespace Ch8ValC{
-            constexpr Register::FieldValue<decltype(ch8),Ch8Val::notWaiting> notWaiting{};
-            constexpr Register::FieldValue<decltype(ch8),Ch8Val::waiting> waiting{};
+            constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::notWaiting> notWaiting{};
+            constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::waiting> waiting{};
         }
         ///Channel 9 Status. 
         enum class Ch9Val {
@@ -173,8 +167,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Ch9Val> ch9{}; 
         namespace Ch9ValC{
-            constexpr Register::FieldValue<decltype(ch9),Ch9Val::notWaiting> notWaiting{};
-            constexpr Register::FieldValue<decltype(ch9),Ch9Val::waiting> waiting{};
+            constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::notWaiting> notWaiting{};
+            constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::waiting> waiting{};
         }
         ///Channel 10 Status. 
         enum class Ch10Val {
@@ -183,8 +177,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ch10Val> ch10{}; 
         namespace Ch10ValC{
-            constexpr Register::FieldValue<decltype(ch10),Ch10Val::notWaiting> notWaiting{};
-            constexpr Register::FieldValue<decltype(ch10),Ch10Val::waiting> waiting{};
+            constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::notWaiting> notWaiting{};
+            constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::waiting> waiting{};
         }
         ///Channel 11 Status. 
         enum class Ch11Val {
@@ -193,8 +187,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ch11Val> ch11{}; 
         namespace Ch11ValC{
-            constexpr Register::FieldValue<decltype(ch11),Ch11Val::notWaiting> notWaiting{};
-            constexpr Register::FieldValue<decltype(ch11),Ch11Val::waiting> waiting{};
+            constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::notWaiting> notWaiting{};
+            constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::waiting> waiting{};
         }
         ///Channel 12 Status. 
         enum class Ch12Val {
@@ -203,8 +197,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Ch12Val> ch12{}; 
         namespace Ch12ValC{
-            constexpr Register::FieldValue<decltype(ch12),Ch12Val::notWaiting> notWaiting{};
-            constexpr Register::FieldValue<decltype(ch12),Ch12Val::waiting> waiting{};
+            constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::notWaiting> notWaiting{};
+            constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::waiting> waiting{};
         }
         ///Channel 13 Status. 
         enum class Ch13Val {
@@ -213,8 +207,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Ch13Val> ch13{}; 
         namespace Ch13ValC{
-            constexpr Register::FieldValue<decltype(ch13),Ch13Val::notWaiting> notWaiting{};
-            constexpr Register::FieldValue<decltype(ch13),Ch13Val::waiting> waiting{};
+            constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::notWaiting> notWaiting{};
+            constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::waiting> waiting{};
         }
         ///Channel 14 Status. 
         enum class Ch14Val {
@@ -223,8 +217,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Ch14Val> ch14{}; 
         namespace Ch14ValC{
-            constexpr Register::FieldValue<decltype(ch14),Ch14Val::notWaiting> notWaiting{};
-            constexpr Register::FieldValue<decltype(ch14),Ch14Val::waiting> waiting{};
+            constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::notWaiting> notWaiting{};
+            constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::waiting> waiting{};
         }
         ///Channel 15 Status. 
         enum class Ch15Val {
@@ -233,8 +227,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Ch15Val> ch15{}; 
         namespace Ch15ValC{
-            constexpr Register::FieldValue<decltype(ch15),Ch15Val::notWaiting> notWaiting{};
-            constexpr Register::FieldValue<decltype(ch15),Ch15Val::waiting> waiting{};
+            constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::notWaiting> notWaiting{};
+            constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::waiting> waiting{};
         }
     }
     namespace Nonechswrcn{    ///<Channel Software Request Control
@@ -246,8 +240,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ch0Val> ch0{}; 
         namespace Ch0ValC{
-            constexpr Register::FieldValue<decltype(ch0),Ch0Val::doNotGenerateSwReq> doNotGenerateSwReq{};
-            constexpr Register::FieldValue<decltype(ch0),Ch0Val::generateSwReq> generateSwReq{};
+            constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::doNotGenerateSwReq> doNotGenerateSwReq{};
+            constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::generateSwReq> generateSwReq{};
         }
         ///Channel 1 Software Request. 
         enum class Ch1Val {
@@ -256,8 +250,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Ch1Val> ch1{}; 
         namespace Ch1ValC{
-            constexpr Register::FieldValue<decltype(ch1),Ch1Val::doNotGenerateSwReq> doNotGenerateSwReq{};
-            constexpr Register::FieldValue<decltype(ch1),Ch1Val::generateSwReq> generateSwReq{};
+            constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::doNotGenerateSwReq> doNotGenerateSwReq{};
+            constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::generateSwReq> generateSwReq{};
         }
         ///Channel 2 Software Request. 
         enum class Ch2Val {
@@ -266,8 +260,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Ch2Val> ch2{}; 
         namespace Ch2ValC{
-            constexpr Register::FieldValue<decltype(ch2),Ch2Val::doNotGenerateSwReq> doNotGenerateSwReq{};
-            constexpr Register::FieldValue<decltype(ch2),Ch2Val::generateSwReq> generateSwReq{};
+            constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::doNotGenerateSwReq> doNotGenerateSwReq{};
+            constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::generateSwReq> generateSwReq{};
         }
         ///Channel 3 Software Request. 
         enum class Ch3Val {
@@ -276,8 +270,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ch3Val> ch3{}; 
         namespace Ch3ValC{
-            constexpr Register::FieldValue<decltype(ch3),Ch3Val::doNotGenerateSwReq> doNotGenerateSwReq{};
-            constexpr Register::FieldValue<decltype(ch3),Ch3Val::generateSwReq> generateSwReq{};
+            constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::doNotGenerateSwReq> doNotGenerateSwReq{};
+            constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::generateSwReq> generateSwReq{};
         }
         ///Channel 4 Software Request. 
         enum class Ch4Val {
@@ -286,8 +280,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Ch4Val> ch4{}; 
         namespace Ch4ValC{
-            constexpr Register::FieldValue<decltype(ch4),Ch4Val::doNotGenerateSwReq> doNotGenerateSwReq{};
-            constexpr Register::FieldValue<decltype(ch4),Ch4Val::generateSwReq> generateSwReq{};
+            constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::doNotGenerateSwReq> doNotGenerateSwReq{};
+            constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::generateSwReq> generateSwReq{};
         }
         ///Channel 5 Software Request. 
         enum class Ch5Val {
@@ -296,8 +290,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Ch5Val> ch5{}; 
         namespace Ch5ValC{
-            constexpr Register::FieldValue<decltype(ch5),Ch5Val::doNotGenerateSwReq> doNotGenerateSwReq{};
-            constexpr Register::FieldValue<decltype(ch5),Ch5Val::generateSwReq> generateSwReq{};
+            constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::doNotGenerateSwReq> doNotGenerateSwReq{};
+            constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::generateSwReq> generateSwReq{};
         }
         ///Channel 6 Software Request. 
         enum class Ch6Val {
@@ -306,8 +300,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Ch6Val> ch6{}; 
         namespace Ch6ValC{
-            constexpr Register::FieldValue<decltype(ch6),Ch6Val::doNotGenerateSwReq> doNotGenerateSwReq{};
-            constexpr Register::FieldValue<decltype(ch6),Ch6Val::generateSwReq> generateSwReq{};
+            constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::doNotGenerateSwReq> doNotGenerateSwReq{};
+            constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::generateSwReq> generateSwReq{};
         }
         ///Channel 7 Software Request. 
         enum class Ch7Val {
@@ -316,8 +310,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ch7Val> ch7{}; 
         namespace Ch7ValC{
-            constexpr Register::FieldValue<decltype(ch7),Ch7Val::doNotGenerateSwReq> doNotGenerateSwReq{};
-            constexpr Register::FieldValue<decltype(ch7),Ch7Val::generateSwReq> generateSwReq{};
+            constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::doNotGenerateSwReq> doNotGenerateSwReq{};
+            constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::generateSwReq> generateSwReq{};
         }
         ///Channel 8 Software Request. 
         enum class Ch8Val {
@@ -326,8 +320,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ch8Val> ch8{}; 
         namespace Ch8ValC{
-            constexpr Register::FieldValue<decltype(ch8),Ch8Val::doNotGenerateSwReq> doNotGenerateSwReq{};
-            constexpr Register::FieldValue<decltype(ch8),Ch8Val::generateSwReq> generateSwReq{};
+            constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::doNotGenerateSwReq> doNotGenerateSwReq{};
+            constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::generateSwReq> generateSwReq{};
         }
         ///Channel 9 Software Request. 
         enum class Ch9Val {
@@ -336,8 +330,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Ch9Val> ch9{}; 
         namespace Ch9ValC{
-            constexpr Register::FieldValue<decltype(ch9),Ch9Val::doNotGenerateSwReq> doNotGenerateSwReq{};
-            constexpr Register::FieldValue<decltype(ch9),Ch9Val::generateSwReq> generateSwReq{};
+            constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::doNotGenerateSwReq> doNotGenerateSwReq{};
+            constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::generateSwReq> generateSwReq{};
         }
         ///Channel 10 Software Request. 
         enum class Ch10Val {
@@ -346,8 +340,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ch10Val> ch10{}; 
         namespace Ch10ValC{
-            constexpr Register::FieldValue<decltype(ch10),Ch10Val::doNotGenerateSwReq> doNotGenerateSwReq{};
-            constexpr Register::FieldValue<decltype(ch10),Ch10Val::generateSwReq> generateSwReq{};
+            constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::doNotGenerateSwReq> doNotGenerateSwReq{};
+            constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::generateSwReq> generateSwReq{};
         }
         ///Channel 11 Software Request. 
         enum class Ch11Val {
@@ -356,8 +350,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ch11Val> ch11{}; 
         namespace Ch11ValC{
-            constexpr Register::FieldValue<decltype(ch11),Ch11Val::doNotGenerateSwReq> doNotGenerateSwReq{};
-            constexpr Register::FieldValue<decltype(ch11),Ch11Val::generateSwReq> generateSwReq{};
+            constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::doNotGenerateSwReq> doNotGenerateSwReq{};
+            constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::generateSwReq> generateSwReq{};
         }
         ///Channel 12 Software Request. 
         enum class Ch12Val {
@@ -366,8 +360,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Ch12Val> ch12{}; 
         namespace Ch12ValC{
-            constexpr Register::FieldValue<decltype(ch12),Ch12Val::doNotGenerateSwReq> doNotGenerateSwReq{};
-            constexpr Register::FieldValue<decltype(ch12),Ch12Val::generateSwReq> generateSwReq{};
+            constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::doNotGenerateSwReq> doNotGenerateSwReq{};
+            constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::generateSwReq> generateSwReq{};
         }
         ///Channel 13 Software Request. 
         enum class Ch13Val {
@@ -376,8 +370,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Ch13Val> ch13{}; 
         namespace Ch13ValC{
-            constexpr Register::FieldValue<decltype(ch13),Ch13Val::doNotGenerateSwReq> doNotGenerateSwReq{};
-            constexpr Register::FieldValue<decltype(ch13),Ch13Val::generateSwReq> generateSwReq{};
+            constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::doNotGenerateSwReq> doNotGenerateSwReq{};
+            constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::generateSwReq> generateSwReq{};
         }
         ///Channel 14 Software Request. 
         enum class Ch14Val {
@@ -386,8 +380,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Ch14Val> ch14{}; 
         namespace Ch14ValC{
-            constexpr Register::FieldValue<decltype(ch14),Ch14Val::doNotGenerateSwReq> doNotGenerateSwReq{};
-            constexpr Register::FieldValue<decltype(ch14),Ch14Val::generateSwReq> generateSwReq{};
+            constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::doNotGenerateSwReq> doNotGenerateSwReq{};
+            constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::generateSwReq> generateSwReq{};
         }
         ///Channel 15 Software Request. 
         enum class Ch15Val {
@@ -396,8 +390,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Ch15Val> ch15{}; 
         namespace Ch15ValC{
-            constexpr Register::FieldValue<decltype(ch15),Ch15Val::doNotGenerateSwReq> doNotGenerateSwReq{};
-            constexpr Register::FieldValue<decltype(ch15),Ch15Val::generateSwReq> generateSwReq{};
+            constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::doNotGenerateSwReq> doNotGenerateSwReq{};
+            constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::generateSwReq> generateSwReq{};
         }
     }
     namespace Nonechreqmset{    ///<Channel Request Mask Set
@@ -408,7 +402,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ch0Val> ch0{}; 
         namespace Ch0ValC{
-            constexpr Register::FieldValue<decltype(ch0),Ch0Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::enabled> enabled{};
         }
         ///Channel 1 Request Mask Enable. 
         enum class Ch1Val {
@@ -416,7 +410,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Ch1Val> ch1{}; 
         namespace Ch1ValC{
-            constexpr Register::FieldValue<decltype(ch1),Ch1Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::enabled> enabled{};
         }
         ///Channel 2 Request Mask Enable. 
         enum class Ch2Val {
@@ -424,7 +418,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Ch2Val> ch2{}; 
         namespace Ch2ValC{
-            constexpr Register::FieldValue<decltype(ch2),Ch2Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::enabled> enabled{};
         }
         ///Channel 3 Request Mask Enable. 
         enum class Ch3Val {
@@ -432,7 +426,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ch3Val> ch3{}; 
         namespace Ch3ValC{
-            constexpr Register::FieldValue<decltype(ch3),Ch3Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::enabled> enabled{};
         }
         ///Channel 4 Request Mask Enable. 
         enum class Ch4Val {
@@ -440,7 +434,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Ch4Val> ch4{}; 
         namespace Ch4ValC{
-            constexpr Register::FieldValue<decltype(ch4),Ch4Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::enabled> enabled{};
         }
         ///Channel 5 Request Mask Enable. 
         enum class Ch5Val {
@@ -448,7 +442,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Ch5Val> ch5{}; 
         namespace Ch5ValC{
-            constexpr Register::FieldValue<decltype(ch5),Ch5Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::enabled> enabled{};
         }
         ///Channel 6 Request Mask Enable. 
         enum class Ch6Val {
@@ -456,7 +450,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Ch6Val> ch6{}; 
         namespace Ch6ValC{
-            constexpr Register::FieldValue<decltype(ch6),Ch6Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::enabled> enabled{};
         }
         ///Channel 7 Request Mask Enable. 
         enum class Ch7Val {
@@ -464,7 +458,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ch7Val> ch7{}; 
         namespace Ch7ValC{
-            constexpr Register::FieldValue<decltype(ch7),Ch7Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::enabled> enabled{};
         }
         ///Channel 8 Request Mask Enable. 
         enum class Ch8Val {
@@ -472,7 +466,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ch8Val> ch8{}; 
         namespace Ch8ValC{
-            constexpr Register::FieldValue<decltype(ch8),Ch8Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::enabled> enabled{};
         }
         ///Channel 9 Request Mask Enable. 
         enum class Ch9Val {
@@ -480,7 +474,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Ch9Val> ch9{}; 
         namespace Ch9ValC{
-            constexpr Register::FieldValue<decltype(ch9),Ch9Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::enabled> enabled{};
         }
         ///Channel 10 Request Mask Enable. 
         enum class Ch10Val {
@@ -488,7 +482,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ch10Val> ch10{}; 
         namespace Ch10ValC{
-            constexpr Register::FieldValue<decltype(ch10),Ch10Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::enabled> enabled{};
         }
         ///Channel 11 Request Mask Enable. 
         enum class Ch11Val {
@@ -496,7 +490,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ch11Val> ch11{}; 
         namespace Ch11ValC{
-            constexpr Register::FieldValue<decltype(ch11),Ch11Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::enabled> enabled{};
         }
         ///Channel 12 Request Mask Enable. 
         enum class Ch12Val {
@@ -504,7 +498,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Ch12Val> ch12{}; 
         namespace Ch12ValC{
-            constexpr Register::FieldValue<decltype(ch12),Ch12Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::enabled> enabled{};
         }
         ///Channel 13 Request Mask Enable. 
         enum class Ch13Val {
@@ -512,7 +506,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Ch13Val> ch13{}; 
         namespace Ch13ValC{
-            constexpr Register::FieldValue<decltype(ch13),Ch13Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::enabled> enabled{};
         }
         ///Channel 14 Request Mask Enable. 
         enum class Ch14Val {
@@ -520,7 +514,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Ch14Val> ch14{}; 
         namespace Ch14ValC{
-            constexpr Register::FieldValue<decltype(ch14),Ch14Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::enabled> enabled{};
         }
         ///Channel 15 Request Mask Enable. 
         enum class Ch15Val {
@@ -528,7 +522,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Ch15Val> ch15{}; 
         namespace Ch15ValC{
-            constexpr Register::FieldValue<decltype(ch15),Ch15Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::enabled> enabled{};
         }
     }
     namespace Nonechreqmclr{    ///<Channel Request Mask Clear
@@ -539,7 +533,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ch0Val> ch0{}; 
         namespace Ch0ValC{
-            constexpr Register::FieldValue<decltype(ch0),Ch0Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::disabled> disabled{};
         }
         ///Channel 1 Request Mask Disable. 
         enum class Ch1Val {
@@ -547,7 +541,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Ch1Val> ch1{}; 
         namespace Ch1ValC{
-            constexpr Register::FieldValue<decltype(ch1),Ch1Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::disabled> disabled{};
         }
         ///Channel 2 Request Mask Disable. 
         enum class Ch2Val {
@@ -555,7 +549,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Ch2Val> ch2{}; 
         namespace Ch2ValC{
-            constexpr Register::FieldValue<decltype(ch2),Ch2Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::disabled> disabled{};
         }
         ///Channel 3 Request Mask Disable. 
         enum class Ch3Val {
@@ -563,7 +557,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ch3Val> ch3{}; 
         namespace Ch3ValC{
-            constexpr Register::FieldValue<decltype(ch3),Ch3Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::disabled> disabled{};
         }
         ///Channel 4 Request Mask Disable. 
         enum class Ch4Val {
@@ -571,7 +565,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Ch4Val> ch4{}; 
         namespace Ch4ValC{
-            constexpr Register::FieldValue<decltype(ch4),Ch4Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::disabled> disabled{};
         }
         ///Channel 5 Request Mask Disable. 
         enum class Ch5Val {
@@ -579,7 +573,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Ch5Val> ch5{}; 
         namespace Ch5ValC{
-            constexpr Register::FieldValue<decltype(ch5),Ch5Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::disabled> disabled{};
         }
         ///Channel 6 Request Mask Disable. 
         enum class Ch6Val {
@@ -587,7 +581,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Ch6Val> ch6{}; 
         namespace Ch6ValC{
-            constexpr Register::FieldValue<decltype(ch6),Ch6Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::disabled> disabled{};
         }
         ///Channel 7 Request Mask Disable. 
         enum class Ch7Val {
@@ -595,7 +589,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ch7Val> ch7{}; 
         namespace Ch7ValC{
-            constexpr Register::FieldValue<decltype(ch7),Ch7Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::disabled> disabled{};
         }
         ///Channel 8 Request Mask Disable. 
         enum class Ch8Val {
@@ -603,7 +597,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ch8Val> ch8{}; 
         namespace Ch8ValC{
-            constexpr Register::FieldValue<decltype(ch8),Ch8Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::disabled> disabled{};
         }
         ///Channel 9 Request Mask Disable. 
         enum class Ch9Val {
@@ -611,7 +605,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Ch9Val> ch9{}; 
         namespace Ch9ValC{
-            constexpr Register::FieldValue<decltype(ch9),Ch9Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::disabled> disabled{};
         }
         ///Channel 10 Request Mask Disable. 
         enum class Ch10Val {
@@ -619,7 +613,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ch10Val> ch10{}; 
         namespace Ch10ValC{
-            constexpr Register::FieldValue<decltype(ch10),Ch10Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::disabled> disabled{};
         }
         ///Channel 11 Request Mask Disable. 
         enum class Ch11Val {
@@ -627,7 +621,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ch11Val> ch11{}; 
         namespace Ch11ValC{
-            constexpr Register::FieldValue<decltype(ch11),Ch11Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::disabled> disabled{};
         }
         ///Channel 12 Request Mask Disable. 
         enum class Ch12Val {
@@ -635,7 +629,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Ch12Val> ch12{}; 
         namespace Ch12ValC{
-            constexpr Register::FieldValue<decltype(ch12),Ch12Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::disabled> disabled{};
         }
         ///Channel 13 Request Mask Disable. 
         enum class Ch13Val {
@@ -643,7 +637,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Ch13Val> ch13{}; 
         namespace Ch13ValC{
-            constexpr Register::FieldValue<decltype(ch13),Ch13Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::disabled> disabled{};
         }
         ///Channel 14 Request Mask Disable. 
         enum class Ch14Val {
@@ -651,7 +645,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Ch14Val> ch14{}; 
         namespace Ch14ValC{
-            constexpr Register::FieldValue<decltype(ch14),Ch14Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::disabled> disabled{};
         }
         ///Channel 15 Request Mask Disable. 
         enum class Ch15Val {
@@ -659,7 +653,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Ch15Val> ch15{}; 
         namespace Ch15ValC{
-            constexpr Register::FieldValue<decltype(ch15),Ch15Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::disabled> disabled{};
         }
     }
     namespace Nonechenset{    ///<Channel Enable Set
@@ -670,7 +664,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ch0Val> ch0{}; 
         namespace Ch0ValC{
-            constexpr Register::FieldValue<decltype(ch0),Ch0Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::enabled> enabled{};
         }
         ///Channel 1 Enable. 
         enum class Ch1Val {
@@ -678,7 +672,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Ch1Val> ch1{}; 
         namespace Ch1ValC{
-            constexpr Register::FieldValue<decltype(ch1),Ch1Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::enabled> enabled{};
         }
         ///Channel 2 Enable. 
         enum class Ch2Val {
@@ -686,7 +680,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Ch2Val> ch2{}; 
         namespace Ch2ValC{
-            constexpr Register::FieldValue<decltype(ch2),Ch2Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::enabled> enabled{};
         }
         ///Channel 3 Enable. 
         enum class Ch3Val {
@@ -694,7 +688,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ch3Val> ch3{}; 
         namespace Ch3ValC{
-            constexpr Register::FieldValue<decltype(ch3),Ch3Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::enabled> enabled{};
         }
         ///Channel 4 Enable. 
         enum class Ch4Val {
@@ -702,7 +696,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Ch4Val> ch4{}; 
         namespace Ch4ValC{
-            constexpr Register::FieldValue<decltype(ch4),Ch4Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::enabled> enabled{};
         }
         ///Channel 5 Enable. 
         enum class Ch5Val {
@@ -710,7 +704,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Ch5Val> ch5{}; 
         namespace Ch5ValC{
-            constexpr Register::FieldValue<decltype(ch5),Ch5Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::enabled> enabled{};
         }
         ///Channel 6 Enable. 
         enum class Ch6Val {
@@ -718,7 +712,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Ch6Val> ch6{}; 
         namespace Ch6ValC{
-            constexpr Register::FieldValue<decltype(ch6),Ch6Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::enabled> enabled{};
         }
         ///Channel 7 Enable. 
         enum class Ch7Val {
@@ -726,7 +720,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ch7Val> ch7{}; 
         namespace Ch7ValC{
-            constexpr Register::FieldValue<decltype(ch7),Ch7Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::enabled> enabled{};
         }
         ///Channel 8 Enable. 
         enum class Ch8Val {
@@ -734,7 +728,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ch8Val> ch8{}; 
         namespace Ch8ValC{
-            constexpr Register::FieldValue<decltype(ch8),Ch8Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::enabled> enabled{};
         }
         ///Channel 9 Enable. 
         enum class Ch9Val {
@@ -742,7 +736,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Ch9Val> ch9{}; 
         namespace Ch9ValC{
-            constexpr Register::FieldValue<decltype(ch9),Ch9Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::enabled> enabled{};
         }
         ///Channel 10 Enable. 
         enum class Ch10Val {
@@ -750,7 +744,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ch10Val> ch10{}; 
         namespace Ch10ValC{
-            constexpr Register::FieldValue<decltype(ch10),Ch10Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::enabled> enabled{};
         }
         ///Channel 11 Enable. 
         enum class Ch11Val {
@@ -758,7 +752,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ch11Val> ch11{}; 
         namespace Ch11ValC{
-            constexpr Register::FieldValue<decltype(ch11),Ch11Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::enabled> enabled{};
         }
         ///Channel 12 Enable. 
         enum class Ch12Val {
@@ -766,7 +760,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Ch12Val> ch12{}; 
         namespace Ch12ValC{
-            constexpr Register::FieldValue<decltype(ch12),Ch12Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::enabled> enabled{};
         }
         ///Channel 13 Enable. 
         enum class Ch13Val {
@@ -774,7 +768,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Ch13Val> ch13{}; 
         namespace Ch13ValC{
-            constexpr Register::FieldValue<decltype(ch13),Ch13Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::enabled> enabled{};
         }
         ///Channel 14 Enable. 
         enum class Ch14Val {
@@ -782,7 +776,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Ch14Val> ch14{}; 
         namespace Ch14ValC{
-            constexpr Register::FieldValue<decltype(ch14),Ch14Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::enabled> enabled{};
         }
         ///Channel 15 Enable. 
         enum class Ch15Val {
@@ -790,7 +784,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Ch15Val> ch15{}; 
         namespace Ch15ValC{
-            constexpr Register::FieldValue<decltype(ch15),Ch15Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::enabled> enabled{};
         }
     }
     namespace Nonechenclr{    ///<Channel Enable Clear
@@ -801,7 +795,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ch0Val> ch0{}; 
         namespace Ch0ValC{
-            constexpr Register::FieldValue<decltype(ch0),Ch0Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::disabled> disabled{};
         }
         ///Channel 1 Disable. 
         enum class Ch1Val {
@@ -809,7 +803,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Ch1Val> ch1{}; 
         namespace Ch1ValC{
-            constexpr Register::FieldValue<decltype(ch1),Ch1Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::disabled> disabled{};
         }
         ///Channel 2 Disable. 
         enum class Ch2Val {
@@ -817,7 +811,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Ch2Val> ch2{}; 
         namespace Ch2ValC{
-            constexpr Register::FieldValue<decltype(ch2),Ch2Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::disabled> disabled{};
         }
         ///Channel 3 Disable. 
         enum class Ch3Val {
@@ -825,7 +819,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ch3Val> ch3{}; 
         namespace Ch3ValC{
-            constexpr Register::FieldValue<decltype(ch3),Ch3Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::disabled> disabled{};
         }
         ///Channel 4 Disable. 
         enum class Ch4Val {
@@ -833,7 +827,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Ch4Val> ch4{}; 
         namespace Ch4ValC{
-            constexpr Register::FieldValue<decltype(ch4),Ch4Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::disabled> disabled{};
         }
         ///Channel 5 Disable. 
         enum class Ch5Val {
@@ -841,7 +835,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Ch5Val> ch5{}; 
         namespace Ch5ValC{
-            constexpr Register::FieldValue<decltype(ch5),Ch5Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::disabled> disabled{};
         }
         ///Channel 6 Disable. 
         enum class Ch6Val {
@@ -849,7 +843,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Ch6Val> ch6{}; 
         namespace Ch6ValC{
-            constexpr Register::FieldValue<decltype(ch6),Ch6Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::disabled> disabled{};
         }
         ///Channel 7 Disable. 
         enum class Ch7Val {
@@ -857,7 +851,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ch7Val> ch7{}; 
         namespace Ch7ValC{
-            constexpr Register::FieldValue<decltype(ch7),Ch7Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::disabled> disabled{};
         }
         ///Channel 8 Disable. 
         enum class Ch8Val {
@@ -865,7 +859,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ch8Val> ch8{}; 
         namespace Ch8ValC{
-            constexpr Register::FieldValue<decltype(ch8),Ch8Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::disabled> disabled{};
         }
         ///Channel 9 Disable. 
         enum class Ch9Val {
@@ -873,7 +867,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Ch9Val> ch9{}; 
         namespace Ch9ValC{
-            constexpr Register::FieldValue<decltype(ch9),Ch9Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::disabled> disabled{};
         }
         ///Channel 10 Disable. 
         enum class Ch10Val {
@@ -881,7 +875,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ch10Val> ch10{}; 
         namespace Ch10ValC{
-            constexpr Register::FieldValue<decltype(ch10),Ch10Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::disabled> disabled{};
         }
         ///Channel 11 Disable. 
         enum class Ch11Val {
@@ -889,7 +883,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ch11Val> ch11{}; 
         namespace Ch11ValC{
-            constexpr Register::FieldValue<decltype(ch11),Ch11Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::disabled> disabled{};
         }
         ///Channel 12 Disable. 
         enum class Ch12Val {
@@ -897,7 +891,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Ch12Val> ch12{}; 
         namespace Ch12ValC{
-            constexpr Register::FieldValue<decltype(ch12),Ch12Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::disabled> disabled{};
         }
         ///Channel 13 Disable. 
         enum class Ch13Val {
@@ -905,7 +899,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Ch13Val> ch13{}; 
         namespace Ch13ValC{
-            constexpr Register::FieldValue<decltype(ch13),Ch13Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::disabled> disabled{};
         }
         ///Channel 14 Disable. 
         enum class Ch14Val {
@@ -913,7 +907,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Ch14Val> ch14{}; 
         namespace Ch14ValC{
-            constexpr Register::FieldValue<decltype(ch14),Ch14Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::disabled> disabled{};
         }
         ///Channel 15 Disable. 
         enum class Ch15Val {
@@ -921,7 +915,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Ch15Val> ch15{}; 
         namespace Ch15ValC{
-            constexpr Register::FieldValue<decltype(ch15),Ch15Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::disabled> disabled{};
         }
     }
     namespace Nonechaltset{    ///<Channel Alternate Select Set
@@ -932,7 +926,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ch0Val> ch0{}; 
         namespace Ch0ValC{
-            constexpr Register::FieldValue<decltype(ch0),Ch0Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::enabled> enabled{};
         }
         ///Channel 1 Alternate Enable. 
         enum class Ch1Val {
@@ -940,7 +934,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Ch1Val> ch1{}; 
         namespace Ch1ValC{
-            constexpr Register::FieldValue<decltype(ch1),Ch1Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::enabled> enabled{};
         }
         ///Channel 2 Alternate Enable. 
         enum class Ch2Val {
@@ -948,7 +942,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Ch2Val> ch2{}; 
         namespace Ch2ValC{
-            constexpr Register::FieldValue<decltype(ch2),Ch2Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::enabled> enabled{};
         }
         ///Channel 3 Alternate Enable. 
         enum class Ch3Val {
@@ -956,7 +950,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ch3Val> ch3{}; 
         namespace Ch3ValC{
-            constexpr Register::FieldValue<decltype(ch3),Ch3Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::enabled> enabled{};
         }
         ///Channel 4 Alternate Enable. 
         enum class Ch4Val {
@@ -964,7 +958,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Ch4Val> ch4{}; 
         namespace Ch4ValC{
-            constexpr Register::FieldValue<decltype(ch4),Ch4Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::enabled> enabled{};
         }
         ///Channel 5 Alternate Enable. 
         enum class Ch5Val {
@@ -972,7 +966,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Ch5Val> ch5{}; 
         namespace Ch5ValC{
-            constexpr Register::FieldValue<decltype(ch5),Ch5Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::enabled> enabled{};
         }
         ///Channel 6 Alternate Enable. 
         enum class Ch6Val {
@@ -980,7 +974,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Ch6Val> ch6{}; 
         namespace Ch6ValC{
-            constexpr Register::FieldValue<decltype(ch6),Ch6Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::enabled> enabled{};
         }
         ///Channel 7 Alternate Enable. 
         enum class Ch7Val {
@@ -988,7 +982,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ch7Val> ch7{}; 
         namespace Ch7ValC{
-            constexpr Register::FieldValue<decltype(ch7),Ch7Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::enabled> enabled{};
         }
         ///Channel 8 Alternate Enable. 
         enum class Ch8Val {
@@ -996,7 +990,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ch8Val> ch8{}; 
         namespace Ch8ValC{
-            constexpr Register::FieldValue<decltype(ch8),Ch8Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::enabled> enabled{};
         }
         ///Channel 9 Alternate Enable. 
         enum class Ch9Val {
@@ -1004,7 +998,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Ch9Val> ch9{}; 
         namespace Ch9ValC{
-            constexpr Register::FieldValue<decltype(ch9),Ch9Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::enabled> enabled{};
         }
         ///Channel 10 Alternate Enable. 
         enum class Ch10Val {
@@ -1012,7 +1006,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ch10Val> ch10{}; 
         namespace Ch10ValC{
-            constexpr Register::FieldValue<decltype(ch10),Ch10Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::enabled> enabled{};
         }
         ///Channel 11 Alternate Enable. 
         enum class Ch11Val {
@@ -1020,7 +1014,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ch11Val> ch11{}; 
         namespace Ch11ValC{
-            constexpr Register::FieldValue<decltype(ch11),Ch11Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::enabled> enabled{};
         }
         ///Channel 12 Alternate Enable. 
         enum class Ch12Val {
@@ -1028,7 +1022,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Ch12Val> ch12{}; 
         namespace Ch12ValC{
-            constexpr Register::FieldValue<decltype(ch12),Ch12Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::enabled> enabled{};
         }
         ///Channel 13 Alternate Enable. 
         enum class Ch13Val {
@@ -1036,7 +1030,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Ch13Val> ch13{}; 
         namespace Ch13ValC{
-            constexpr Register::FieldValue<decltype(ch13),Ch13Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::enabled> enabled{};
         }
         ///Channel 14 Alternate Enable. 
         enum class Ch14Val {
@@ -1044,7 +1038,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Ch14Val> ch14{}; 
         namespace Ch14ValC{
-            constexpr Register::FieldValue<decltype(ch14),Ch14Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::enabled> enabled{};
         }
         ///Channel 15 Alternate Enable. 
         enum class Ch15Val {
@@ -1052,7 +1046,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Ch15Val> ch15{}; 
         namespace Ch15ValC{
-            constexpr Register::FieldValue<decltype(ch15),Ch15Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::enabled> enabled{};
         }
     }
     namespace Nonechaltclr{    ///<Channel Alternate Select Clear
@@ -1063,7 +1057,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ch0Val> ch0{}; 
         namespace Ch0ValC{
-            constexpr Register::FieldValue<decltype(ch0),Ch0Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::disabled> disabled{};
         }
         ///Channel 1 Alternate Disable. 
         enum class Ch1Val {
@@ -1071,7 +1065,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Ch1Val> ch1{}; 
         namespace Ch1ValC{
-            constexpr Register::FieldValue<decltype(ch1),Ch1Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::disabled> disabled{};
         }
         ///Channel 2 Alternate Disable. 
         enum class Ch2Val {
@@ -1079,7 +1073,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Ch2Val> ch2{}; 
         namespace Ch2ValC{
-            constexpr Register::FieldValue<decltype(ch2),Ch2Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::disabled> disabled{};
         }
         ///Channel 3 Alternate Disable. 
         enum class Ch3Val {
@@ -1087,7 +1081,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ch3Val> ch3{}; 
         namespace Ch3ValC{
-            constexpr Register::FieldValue<decltype(ch3),Ch3Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::disabled> disabled{};
         }
         ///Channel 4 Alternate Disable. 
         enum class Ch4Val {
@@ -1095,7 +1089,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Ch4Val> ch4{}; 
         namespace Ch4ValC{
-            constexpr Register::FieldValue<decltype(ch4),Ch4Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::disabled> disabled{};
         }
         ///Channel 5 Alternate Disable. 
         enum class Ch5Val {
@@ -1103,7 +1097,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Ch5Val> ch5{}; 
         namespace Ch5ValC{
-            constexpr Register::FieldValue<decltype(ch5),Ch5Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::disabled> disabled{};
         }
         ///Channel 6 Alternate Disable. 
         enum class Ch6Val {
@@ -1111,7 +1105,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Ch6Val> ch6{}; 
         namespace Ch6ValC{
-            constexpr Register::FieldValue<decltype(ch6),Ch6Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::disabled> disabled{};
         }
         ///Channel 7 Alternate Disable. 
         enum class Ch7Val {
@@ -1119,7 +1113,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ch7Val> ch7{}; 
         namespace Ch7ValC{
-            constexpr Register::FieldValue<decltype(ch7),Ch7Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::disabled> disabled{};
         }
         ///Channel 8 Alternate Disable. 
         enum class Ch8Val {
@@ -1127,7 +1121,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ch8Val> ch8{}; 
         namespace Ch8ValC{
-            constexpr Register::FieldValue<decltype(ch8),Ch8Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::disabled> disabled{};
         }
         ///Channel 9 Alternate Disable. 
         enum class Ch9Val {
@@ -1135,7 +1129,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Ch9Val> ch9{}; 
         namespace Ch9ValC{
-            constexpr Register::FieldValue<decltype(ch9),Ch9Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::disabled> disabled{};
         }
         ///Channel 10 Alternate Disable. 
         enum class Ch10Val {
@@ -1143,7 +1137,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ch10Val> ch10{}; 
         namespace Ch10ValC{
-            constexpr Register::FieldValue<decltype(ch10),Ch10Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::disabled> disabled{};
         }
         ///Channel 11 Alternate Disable. 
         enum class Ch11Val {
@@ -1151,7 +1145,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ch11Val> ch11{}; 
         namespace Ch11ValC{
-            constexpr Register::FieldValue<decltype(ch11),Ch11Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::disabled> disabled{};
         }
         ///Channel 12 Alternate Disable. 
         enum class Ch12Val {
@@ -1159,7 +1153,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Ch12Val> ch12{}; 
         namespace Ch12ValC{
-            constexpr Register::FieldValue<decltype(ch12),Ch12Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::disabled> disabled{};
         }
         ///Channel 13 Alternate Disable. 
         enum class Ch13Val {
@@ -1167,7 +1161,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Ch13Val> ch13{}; 
         namespace Ch13ValC{
-            constexpr Register::FieldValue<decltype(ch13),Ch13Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::disabled> disabled{};
         }
         ///Channel 14 Alternate Disable. 
         enum class Ch14Val {
@@ -1175,7 +1169,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Ch14Val> ch14{}; 
         namespace Ch14ValC{
-            constexpr Register::FieldValue<decltype(ch14),Ch14Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::disabled> disabled{};
         }
         ///Channel 15 Alternate Disable. 
         enum class Ch15Val {
@@ -1183,7 +1177,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Ch15Val> ch15{}; 
         namespace Ch15ValC{
-            constexpr Register::FieldValue<decltype(ch15),Ch15Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::disabled> disabled{};
         }
     }
     namespace Nonechhpset{    ///<Channel High Priority Set
@@ -1194,7 +1188,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ch0Val> ch0{}; 
         namespace Ch0ValC{
-            constexpr Register::FieldValue<decltype(ch0),Ch0Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::enabled> enabled{};
         }
         ///Channel 1 High Priority Enable. 
         enum class Ch1Val {
@@ -1202,7 +1196,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Ch1Val> ch1{}; 
         namespace Ch1ValC{
-            constexpr Register::FieldValue<decltype(ch1),Ch1Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::enabled> enabled{};
         }
         ///Channel 2 High Priority Enable. 
         enum class Ch2Val {
@@ -1210,7 +1204,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Ch2Val> ch2{}; 
         namespace Ch2ValC{
-            constexpr Register::FieldValue<decltype(ch2),Ch2Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::enabled> enabled{};
         }
         ///Channel 3 High Priority Enable. 
         enum class Ch3Val {
@@ -1218,7 +1212,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ch3Val> ch3{}; 
         namespace Ch3ValC{
-            constexpr Register::FieldValue<decltype(ch3),Ch3Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::enabled> enabled{};
         }
         ///Channel 4 High Priority Enable. 
         enum class Ch4Val {
@@ -1226,7 +1220,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Ch4Val> ch4{}; 
         namespace Ch4ValC{
-            constexpr Register::FieldValue<decltype(ch4),Ch4Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::enabled> enabled{};
         }
         ///Channel 5 High Priority Enable. 
         enum class Ch5Val {
@@ -1234,7 +1228,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Ch5Val> ch5{}; 
         namespace Ch5ValC{
-            constexpr Register::FieldValue<decltype(ch5),Ch5Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::enabled> enabled{};
         }
         ///Channel 6 High Priority Enable. 
         enum class Ch6Val {
@@ -1242,7 +1236,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Ch6Val> ch6{}; 
         namespace Ch6ValC{
-            constexpr Register::FieldValue<decltype(ch6),Ch6Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::enabled> enabled{};
         }
         ///Channel 7 High Priority Enable. 
         enum class Ch7Val {
@@ -1250,7 +1244,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ch7Val> ch7{}; 
         namespace Ch7ValC{
-            constexpr Register::FieldValue<decltype(ch7),Ch7Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::enabled> enabled{};
         }
         ///Channel 8 High Priority Enable. 
         enum class Ch8Val {
@@ -1258,7 +1252,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ch8Val> ch8{}; 
         namespace Ch8ValC{
-            constexpr Register::FieldValue<decltype(ch8),Ch8Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::enabled> enabled{};
         }
         ///Channel 9 High Priority Enable. 
         enum class Ch9Val {
@@ -1266,7 +1260,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Ch9Val> ch9{}; 
         namespace Ch9ValC{
-            constexpr Register::FieldValue<decltype(ch9),Ch9Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::enabled> enabled{};
         }
         ///Channel 10 High Priority Enable. 
         enum class Ch10Val {
@@ -1274,7 +1268,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ch10Val> ch10{}; 
         namespace Ch10ValC{
-            constexpr Register::FieldValue<decltype(ch10),Ch10Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::enabled> enabled{};
         }
         ///Channel 11 High Priority Enable. 
         enum class Ch11Val {
@@ -1282,7 +1276,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ch11Val> ch11{}; 
         namespace Ch11ValC{
-            constexpr Register::FieldValue<decltype(ch11),Ch11Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::enabled> enabled{};
         }
         ///Channel 12 High Priority Enable. 
         enum class Ch12Val {
@@ -1290,7 +1284,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Ch12Val> ch12{}; 
         namespace Ch12ValC{
-            constexpr Register::FieldValue<decltype(ch12),Ch12Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::enabled> enabled{};
         }
         ///Channel 13 High Priority Enable. 
         enum class Ch13Val {
@@ -1298,7 +1292,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Ch13Val> ch13{}; 
         namespace Ch13ValC{
-            constexpr Register::FieldValue<decltype(ch13),Ch13Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::enabled> enabled{};
         }
         ///Channel 14 High Priority Enable. 
         enum class Ch14Val {
@@ -1306,7 +1300,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Ch14Val> ch14{}; 
         namespace Ch14ValC{
-            constexpr Register::FieldValue<decltype(ch14),Ch14Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::enabled> enabled{};
         }
         ///Channel 15 High Priority Enable. 
         enum class Ch15Val {
@@ -1314,7 +1308,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Ch15Val> ch15{}; 
         namespace Ch15ValC{
-            constexpr Register::FieldValue<decltype(ch15),Ch15Val::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::enabled> enabled{};
         }
     }
     namespace Nonechhpclr{    ///<Channel High Priority Clear
@@ -1325,7 +1319,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ch0Val> ch0{}; 
         namespace Ch0ValC{
-            constexpr Register::FieldValue<decltype(ch0),Ch0Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch0)::Type,Ch0Val::disabled> disabled{};
         }
         ///Channel 1 High Priority Disable. 
         enum class Ch1Val {
@@ -1333,7 +1327,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Ch1Val> ch1{}; 
         namespace Ch1ValC{
-            constexpr Register::FieldValue<decltype(ch1),Ch1Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch1)::Type,Ch1Val::disabled> disabled{};
         }
         ///Channel 2 High Priority Disable. 
         enum class Ch2Val {
@@ -1341,7 +1335,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Ch2Val> ch2{}; 
         namespace Ch2ValC{
-            constexpr Register::FieldValue<decltype(ch2),Ch2Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch2)::Type,Ch2Val::disabled> disabled{};
         }
         ///Channel 3 High Priority Disable. 
         enum class Ch3Val {
@@ -1349,7 +1343,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Ch3Val> ch3{}; 
         namespace Ch3ValC{
-            constexpr Register::FieldValue<decltype(ch3),Ch3Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch3)::Type,Ch3Val::disabled> disabled{};
         }
         ///Channel 4 High Priority Disable. 
         enum class Ch4Val {
@@ -1357,7 +1351,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Ch4Val> ch4{}; 
         namespace Ch4ValC{
-            constexpr Register::FieldValue<decltype(ch4),Ch4Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch4)::Type,Ch4Val::disabled> disabled{};
         }
         ///Channel 5 High Priority Disable. 
         enum class Ch5Val {
@@ -1365,7 +1359,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Ch5Val> ch5{}; 
         namespace Ch5ValC{
-            constexpr Register::FieldValue<decltype(ch5),Ch5Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch5)::Type,Ch5Val::disabled> disabled{};
         }
         ///Channel 6 High Priority Disable. 
         enum class Ch6Val {
@@ -1373,7 +1367,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Ch6Val> ch6{}; 
         namespace Ch6ValC{
-            constexpr Register::FieldValue<decltype(ch6),Ch6Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch6)::Type,Ch6Val::disabled> disabled{};
         }
         ///Channel 7 High Priority Disable. 
         enum class Ch7Val {
@@ -1381,7 +1375,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ch7Val> ch7{}; 
         namespace Ch7ValC{
-            constexpr Register::FieldValue<decltype(ch7),Ch7Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch7)::Type,Ch7Val::disabled> disabled{};
         }
         ///Channel 8 High Priority Disable. 
         enum class Ch8Val {
@@ -1389,7 +1383,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ch8Val> ch8{}; 
         namespace Ch8ValC{
-            constexpr Register::FieldValue<decltype(ch8),Ch8Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch8)::Type,Ch8Val::disabled> disabled{};
         }
         ///Channel 9 High Priority Disable. 
         enum class Ch9Val {
@@ -1397,7 +1391,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Ch9Val> ch9{}; 
         namespace Ch9ValC{
-            constexpr Register::FieldValue<decltype(ch9),Ch9Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch9)::Type,Ch9Val::disabled> disabled{};
         }
         ///Channel 10 High Priority Disable. 
         enum class Ch10Val {
@@ -1405,7 +1399,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ch10Val> ch10{}; 
         namespace Ch10ValC{
-            constexpr Register::FieldValue<decltype(ch10),Ch10Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch10)::Type,Ch10Val::disabled> disabled{};
         }
         ///Channel 11 High Priority Disable. 
         enum class Ch11Val {
@@ -1413,7 +1407,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ch11Val> ch11{}; 
         namespace Ch11ValC{
-            constexpr Register::FieldValue<decltype(ch11),Ch11Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch11)::Type,Ch11Val::disabled> disabled{};
         }
         ///Channel 12 High Priority Disable. 
         enum class Ch12Val {
@@ -1421,7 +1415,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,Ch12Val> ch12{}; 
         namespace Ch12ValC{
-            constexpr Register::FieldValue<decltype(ch12),Ch12Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch12)::Type,Ch12Val::disabled> disabled{};
         }
         ///Channel 13 High Priority Disable. 
         enum class Ch13Val {
@@ -1429,7 +1423,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,Ch13Val> ch13{}; 
         namespace Ch13ValC{
-            constexpr Register::FieldValue<decltype(ch13),Ch13Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch13)::Type,Ch13Val::disabled> disabled{};
         }
         ///Channel 14 High Priority Disable. 
         enum class Ch14Val {
@@ -1437,7 +1431,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,Ch14Val> ch14{}; 
         namespace Ch14ValC{
-            constexpr Register::FieldValue<decltype(ch14),Ch14Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch14)::Type,Ch14Val::disabled> disabled{};
         }
         ///Channel 15 High Priority Disable. 
         enum class Ch15Val {
@@ -1445,7 +1439,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,Ch15Val> ch15{}; 
         namespace Ch15ValC{
-            constexpr Register::FieldValue<decltype(ch15),Ch15Val::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ch15)::Type,Ch15Val::disabled> disabled{};
         }
     }
     namespace Noneberrclr{    ///<Bus Error Clear
@@ -1456,7 +1450,7 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,ErrorVal> error{}; 
         namespace ErrorValC{
-            constexpr Register::FieldValue<decltype(error),ErrorVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::clear> clear{};
         }
     }
 }

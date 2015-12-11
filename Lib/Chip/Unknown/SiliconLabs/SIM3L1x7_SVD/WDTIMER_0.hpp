@@ -11,8 +11,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EwienVal> ewien{}; 
         namespace EwienValC{
-            constexpr Register::FieldValue<decltype(ewien),EwienVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(ewien),EwienVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ewien)::Type,EwienVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ewien)::Type,EwienVal::enabled> enabled{};
         }
         ///Watchdog Timer Debug Mode. 
         enum class DbgmdVal {
@@ -21,8 +21,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DbgmdVal> dbgmd{}; 
         namespace DbgmdValC{
-            constexpr Register::FieldValue<decltype(dbgmd),DbgmdVal::run> run{};
-            constexpr Register::FieldValue<decltype(dbgmd),DbgmdVal::halt> halt{};
+            constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::run> run{};
+            constexpr Register::FieldValue<decltype(dbgmd)::Type,DbgmdVal::halt> halt{};
         }
     }
     namespace Nonestatus{    ///<Module Status
@@ -34,8 +34,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,KeystsVal> keysts{}; 
         namespace KeystsValC{
-            constexpr Register::FieldValue<decltype(keysts),KeystsVal::idle> idle{};
-            constexpr Register::FieldValue<decltype(keysts),KeystsVal::ready> ready{};
+            constexpr Register::FieldValue<decltype(keysts)::Type,KeystsVal::idle> idle{};
+            constexpr Register::FieldValue<decltype(keysts)::Type,KeystsVal::ready> ready{};
         }
         ///Register Access Status. 
         enum class PrivstsVal {
@@ -44,8 +44,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,PrivstsVal> privsts{}; 
         namespace PrivstsValC{
-            constexpr Register::FieldValue<decltype(privsts),PrivstsVal::readOnly> readOnly{};
-            constexpr Register::FieldValue<decltype(privsts),PrivstsVal::readWrite> readWrite{};
+            constexpr Register::FieldValue<decltype(privsts)::Type,PrivstsVal::readOnly> readOnly{};
+            constexpr Register::FieldValue<decltype(privsts)::Type,PrivstsVal::readWrite> readWrite{};
         }
         ///Early Warning Interrupt Flag. 
         enum class EwiVal {
@@ -54,8 +54,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,EwiVal> ewi{}; 
         namespace EwiValC{
-            constexpr Register::FieldValue<decltype(ewi),EwiVal::notSet> notSet{};
-            constexpr Register::FieldValue<decltype(ewi),EwiVal::set> set{};
+            constexpr Register::FieldValue<decltype(ewi)::Type,EwiVal::notSet> notSet{};
+            constexpr Register::FieldValue<decltype(ewi)::Type,EwiVal::set> set{};
         }
         ///Reset Threshold Flag. 
         enum class RthfVal {
@@ -64,8 +64,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,RthfVal> rthf{}; 
         namespace RthfValC{
-            constexpr Register::FieldValue<decltype(rthf),RthfVal::lt> lt{};
-            constexpr Register::FieldValue<decltype(rthf),RthfVal::gte> gte{};
+            constexpr Register::FieldValue<decltype(rthf)::Type,RthfVal::lt> lt{};
+            constexpr Register::FieldValue<decltype(rthf)::Type,RthfVal::gte> gte{};
         }
         ///Watchdog Timer Threshold Update Status. 
         enum class UpdstsVal {
@@ -74,20 +74,16 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,UpdstsVal> updsts{}; 
         namespace UpdstsValC{
-            constexpr Register::FieldValue<decltype(updsts),UpdstsVal::idle> idle{};
-            constexpr Register::FieldValue<decltype(updsts),UpdstsVal::updating> updating{};
+            constexpr Register::FieldValue<decltype(updsts)::Type,UpdstsVal::idle> idle{};
+            constexpr Register::FieldValue<decltype(updsts)::Type,UpdstsVal::updating> updating{};
         }
     }
     namespace Nonethreshold{    ///<Threshold Values
         using Addr = Register::Address<0x40030020,0x00000000,0,unsigned>;
         ///Early Warning Threshold. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> ewth{}; 
-        namespace EwthValC{
-        }
         ///Reset Threshold. 
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> rth{}; 
-        namespace RthValC{
-        }
     }
     namespace Nonewdtkey{    ///<Module Key
         using Addr = Register::Address<0x40030030,0xffffff00,0,unsigned>;
@@ -102,12 +98,12 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,KeyVal> key{}; 
         namespace KeyValC{
-            constexpr Register::FieldValue<decltype(key),KeyVal::attn> attn{};
-            constexpr Register::FieldValue<decltype(key),KeyVal::reset> reset{};
-            constexpr Register::FieldValue<decltype(key),KeyVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(key),KeyVal::start> start{};
-            constexpr Register::FieldValue<decltype(key),KeyVal::write> write{};
-            constexpr Register::FieldValue<decltype(key),KeyVal::lock> lock{};
+            constexpr Register::FieldValue<decltype(key)::Type,KeyVal::attn> attn{};
+            constexpr Register::FieldValue<decltype(key)::Type,KeyVal::reset> reset{};
+            constexpr Register::FieldValue<decltype(key)::Type,KeyVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(key)::Type,KeyVal::start> start{};
+            constexpr Register::FieldValue<decltype(key)::Type,KeyVal::write> write{};
+            constexpr Register::FieldValue<decltype(key)::Type,KeyVal::lock> lock{};
         }
     }
 }

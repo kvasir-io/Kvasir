@@ -19,8 +19,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,SwresetVal> swreset{}; 
         namespace SwresetValC{
-            constexpr Register::FieldValue<decltype(swreset),SwresetVal::notInReset> notInReset{};
-            constexpr Register::FieldValue<decltype(swreset),SwresetVal::inReset> inReset{};
+            constexpr Register::FieldValue<decltype(swreset)::Type,SwresetVal::notInReset> notInReset{};
+            constexpr Register::FieldValue<decltype(swreset)::Type,SwresetVal::inReset> inReset{};
         }
         ///Oscillator fail detect status.
         enum class OfdVal {
@@ -32,8 +32,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,OfdVal> ofd{}; 
         namespace OfdValC{
-            constexpr Register::FieldValue<decltype(ofd),OfdVal::run> run{};
-            constexpr Register::FieldValue<decltype(ofd),OfdVal::fail> fail{};
+            constexpr Register::FieldValue<decltype(ofd)::Type,OfdVal::run> run{};
+            constexpr Register::FieldValue<decltype(ofd)::Type,OfdVal::fail> fail{};
         }
         ///RTC 1 Hz timer alarm flag status.
         enum class Alarm1hzVal {
@@ -46,8 +46,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Alarm1hzVal> alarm1hz{}; 
         namespace Alarm1hzValC{
-            constexpr Register::FieldValue<decltype(alarm1hz),Alarm1hzVal::noMatch> noMatch{};
-            constexpr Register::FieldValue<decltype(alarm1hz),Alarm1hzVal::match> match{};
+            constexpr Register::FieldValue<decltype(alarm1hz)::Type,Alarm1hzVal::noMatch> noMatch{};
+            constexpr Register::FieldValue<decltype(alarm1hz)::Type,Alarm1hzVal::match> match{};
         }
         ///RTC 1 kHz timer wake-up flag status.
         enum class Wake1khzVal {
@@ -60,8 +60,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Wake1khzVal> wake1khz{}; 
         namespace Wake1khzValC{
-            constexpr Register::FieldValue<decltype(wake1khz),Wake1khzVal::run> run{};
-            constexpr Register::FieldValue<decltype(wake1khz),Wake1khzVal::timeOut> timeOut{};
+            constexpr Register::FieldValue<decltype(wake1khz)::Type,Wake1khzVal::run> run{};
+            constexpr Register::FieldValue<decltype(wake1khz)::Type,Wake1khzVal::timeOut> timeOut{};
         }
         ///RTC 1 Hz timer alarm enable for Deep
 								power-down.
@@ -73,8 +73,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,AlarmdpdenVal> alarmdpdEn{}; 
         namespace AlarmdpdenValC{
-            constexpr Register::FieldValue<decltype(alarmdpdEn),AlarmdpdenVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(alarmdpdEn),AlarmdpdenVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(alarmdpdEn)::Type,AlarmdpdenVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(alarmdpdEn)::Type,AlarmdpdenVal::enable> enable{};
         }
         ///RTC 1 kHz timer wake-up enable for Deep
 								power-down.
@@ -86,8 +86,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,WakedpdenVal> wakedpdEn{}; 
         namespace WakedpdenValC{
-            constexpr Register::FieldValue<decltype(wakedpdEn),WakedpdenVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(wakedpdEn),WakedpdenVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(wakedpdEn)::Type,WakedpdenVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(wakedpdEn)::Type,WakedpdenVal::enable> enable{};
         }
         ///RTC 1 kHz clock enable. This bit can be set to 0 to
 								conserve power if the 1 kHz timer is not used. This bit has no
@@ -101,8 +101,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Rtc1khzenVal> rtc1khzEn{}; 
         namespace Rtc1khzenValC{
-            constexpr Register::FieldValue<decltype(rtc1khzEn),Rtc1khzenVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(rtc1khzEn),Rtc1khzenVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(rtc1khzEn)::Type,Rtc1khzenVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(rtc1khzEn)::Type,Rtc1khzenVal::enable> enable{};
         }
         ///RTC enable.
         enum class RtcenVal {
@@ -119,8 +119,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,RtcenVal> rtcEn{}; 
         namespace RtcenValC{
-            constexpr Register::FieldValue<decltype(rtcEn),RtcenVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(rtcEn),RtcenVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(rtcEn)::Type,RtcenVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(rtcEn)::Type,RtcenVal::enable> enable{};
         }
     }
     namespace Nonematch{    ///<RTC match register
@@ -129,8 +129,6 @@ namespace Kvasir {
 								will be compared to generate set the alarm flag RTC_ALARM and
 								generate an alarm interrupt/wake-up if enabled.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> matval{}; 
-        namespace MatvalValC{
-        }
     }
     namespace Nonecount{    ///<RTC counter register
         using Addr = Register::Address<0x4003c008,0x00000000,0,unsigned>;
@@ -142,8 +140,6 @@ namespace Kvasir {
 								Register is 0. The counter increments one second after the RTC_EN
 								bit is set.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> val{}; 
-        namespace ValValC{
-        }
     }
     namespace Nonewake{    ///<RTC high-resolution/wake-up timer control register
         using Addr = Register::Address<0x4003c00c,0xffff0000,0,unsigned>;
@@ -152,7 +148,5 @@ namespace Kvasir {
 								into the wake-up timer and initializes a count-down sequence. Do not
 								write to this register while counting is in progress.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
-        namespace ValValC{
-        }
     }
 }

@@ -44,8 +44,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,CtsstartrxVal> ctsStartrx{}; 
         namespace CtsstartrxValC{
-            constexpr Register::FieldValue<decltype(ctsStartrx),CtsstartrxVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(ctsStartrx),CtsstartrxVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ctsStartrx)::Type,CtsstartrxVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ctsStartrx)::Type,CtsstartrxVal::enabled> enabled{};
         }
         ///Shortcut between EVENTS_NCTS event and TASKS_STOPRX task
         enum class NctsstoprxVal {
@@ -54,8 +54,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,NctsstoprxVal> nctsStoprx{}; 
         namespace NctsstoprxValC{
-            constexpr Register::FieldValue<decltype(nctsStoprx),NctsstoprxVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(nctsStoprx),NctsstoprxVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(nctsStoprx)::Type,NctsstoprxVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(nctsStoprx)::Type,NctsstoprxVal::enabled> enabled{};
         }
     }
     namespace Noneintenset{    ///<Enable interrupt
@@ -68,9 +68,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CtsVal> cts{}; 
         namespace CtsValC{
-            constexpr Register::FieldValue<decltype(cts),CtsVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(cts),CtsVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(cts),CtsVal::set> set{};
+            constexpr Register::FieldValue<decltype(cts)::Type,CtsVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(cts)::Type,CtsVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(cts)::Type,CtsVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_NCTS event
         enum class NctsVal {
@@ -80,9 +80,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,NctsVal> ncts{}; 
         namespace NctsValC{
-            constexpr Register::FieldValue<decltype(ncts),NctsVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(ncts),NctsVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(ncts),NctsVal::set> set{};
+            constexpr Register::FieldValue<decltype(ncts)::Type,NctsVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ncts)::Type,NctsVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ncts)::Type,NctsVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_RXDRDY event
         enum class RxdrdyVal {
@@ -92,9 +92,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,RxdrdyVal> rxdrdy{}; 
         namespace RxdrdyValC{
-            constexpr Register::FieldValue<decltype(rxdrdy),RxdrdyVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(rxdrdy),RxdrdyVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(rxdrdy),RxdrdyVal::set> set{};
+            constexpr Register::FieldValue<decltype(rxdrdy)::Type,RxdrdyVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(rxdrdy)::Type,RxdrdyVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(rxdrdy)::Type,RxdrdyVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_TXDRDY event
         enum class TxdrdyVal {
@@ -104,9 +104,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,TxdrdyVal> txdrdy{}; 
         namespace TxdrdyValC{
-            constexpr Register::FieldValue<decltype(txdrdy),TxdrdyVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(txdrdy),TxdrdyVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(txdrdy),TxdrdyVal::set> set{};
+            constexpr Register::FieldValue<decltype(txdrdy)::Type,TxdrdyVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(txdrdy)::Type,TxdrdyVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(txdrdy)::Type,TxdrdyVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_ERROR event
         enum class ErrorVal {
@@ -116,9 +116,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,ErrorVal> error{}; 
         namespace ErrorValC{
-            constexpr Register::FieldValue<decltype(error),ErrorVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(error),ErrorVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(error),ErrorVal::set> set{};
+            constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::set> set{};
         }
         ///Write '1' to Enable interrupt on EVENTS_RXTO event
         enum class RxtoVal {
@@ -128,9 +128,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,RxtoVal> rxto{}; 
         namespace RxtoValC{
-            constexpr Register::FieldValue<decltype(rxto),RxtoVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(rxto),RxtoVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(rxto),RxtoVal::set> set{};
+            constexpr Register::FieldValue<decltype(rxto)::Type,RxtoVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(rxto)::Type,RxtoVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(rxto)::Type,RxtoVal::set> set{};
         }
     }
     namespace Noneintenclr{    ///<Disable interrupt
@@ -143,9 +143,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,CtsVal> cts{}; 
         namespace CtsValC{
-            constexpr Register::FieldValue<decltype(cts),CtsVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(cts),CtsVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(cts),CtsVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(cts)::Type,CtsVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(cts)::Type,CtsVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(cts)::Type,CtsVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_NCTS event
         enum class NctsVal {
@@ -155,9 +155,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,NctsVal> ncts{}; 
         namespace NctsValC{
-            constexpr Register::FieldValue<decltype(ncts),NctsVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(ncts),NctsVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(ncts),NctsVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(ncts)::Type,NctsVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(ncts)::Type,NctsVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(ncts)::Type,NctsVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_RXDRDY event
         enum class RxdrdyVal {
@@ -167,9 +167,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,RxdrdyVal> rxdrdy{}; 
         namespace RxdrdyValC{
-            constexpr Register::FieldValue<decltype(rxdrdy),RxdrdyVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(rxdrdy),RxdrdyVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(rxdrdy),RxdrdyVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(rxdrdy)::Type,RxdrdyVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(rxdrdy)::Type,RxdrdyVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(rxdrdy)::Type,RxdrdyVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_TXDRDY event
         enum class TxdrdyVal {
@@ -179,9 +179,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,TxdrdyVal> txdrdy{}; 
         namespace TxdrdyValC{
-            constexpr Register::FieldValue<decltype(txdrdy),TxdrdyVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(txdrdy),TxdrdyVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(txdrdy),TxdrdyVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(txdrdy)::Type,TxdrdyVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(txdrdy)::Type,TxdrdyVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(txdrdy)::Type,TxdrdyVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_ERROR event
         enum class ErrorVal {
@@ -191,9 +191,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,ErrorVal> error{}; 
         namespace ErrorValC{
-            constexpr Register::FieldValue<decltype(error),ErrorVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(error),ErrorVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(error),ErrorVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::clear> clear{};
         }
         ///Write '1' to Clear interrupt on EVENTS_RXTO event
         enum class RxtoVal {
@@ -203,9 +203,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,RxtoVal> rxto{}; 
         namespace RxtoValC{
-            constexpr Register::FieldValue<decltype(rxto),RxtoVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(rxto),RxtoVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(rxto),RxtoVal::clear> clear{};
+            constexpr Register::FieldValue<decltype(rxto)::Type,RxtoVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(rxto)::Type,RxtoVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(rxto)::Type,RxtoVal::clear> clear{};
         }
     }
     namespace Noneerrorsrc{    ///<Error source
@@ -217,8 +217,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,OverrunVal> overrun{}; 
         namespace OverrunValC{
-            constexpr Register::FieldValue<decltype(overrun),OverrunVal::notpresent> notpresent{};
-            constexpr Register::FieldValue<decltype(overrun),OverrunVal::present> present{};
+            constexpr Register::FieldValue<decltype(overrun)::Type,OverrunVal::notpresent> notpresent{};
+            constexpr Register::FieldValue<decltype(overrun)::Type,OverrunVal::present> present{};
         }
         ///Parity error
         enum class ParityVal {
@@ -227,8 +227,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ParityVal> parity{}; 
         namespace ParityValC{
-            constexpr Register::FieldValue<decltype(parity),ParityVal::notpresent> notpresent{};
-            constexpr Register::FieldValue<decltype(parity),ParityVal::present> present{};
+            constexpr Register::FieldValue<decltype(parity)::Type,ParityVal::notpresent> notpresent{};
+            constexpr Register::FieldValue<decltype(parity)::Type,ParityVal::present> present{};
         }
         ///Framing error occurred
         enum class FramingVal {
@@ -237,8 +237,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,FramingVal> framing{}; 
         namespace FramingValC{
-            constexpr Register::FieldValue<decltype(framing),FramingVal::notpresent> notpresent{};
-            constexpr Register::FieldValue<decltype(framing),FramingVal::present> present{};
+            constexpr Register::FieldValue<decltype(framing)::Type,FramingVal::notpresent> notpresent{};
+            constexpr Register::FieldValue<decltype(framing)::Type,FramingVal::present> present{};
         }
         ///Break condition
         enum class Break_Val {
@@ -247,58 +247,44 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Break_Val> break_{}; 
         namespace Break_ValC{
-            constexpr Register::FieldValue<decltype(break_),Break_Val::notpresent> notpresent{};
-            constexpr Register::FieldValue<decltype(break_),Break_Val::present> present{};
+            constexpr Register::FieldValue<decltype(break_)::Type,Break_Val::notpresent> notpresent{};
+            constexpr Register::FieldValue<decltype(break_)::Type,Break_Val::present> present{};
         }
     }
     namespace Noneenable{    ///<Enable UART
         using Addr = Register::Address<0x40002500,0xfffffff0,0,unsigned>;
         ///Enable or disable UART
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> enable{}; 
-        namespace EnableValC{
-        }
     }
     namespace Nonepselrts{    ///<Pin select for RTS
         using Addr = Register::Address<0x40002508,0x00000000,0,unsigned>;
         ///Pin number configuration for UART RTS signal
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pselrts{}; 
-        namespace PselrtsValC{
-        }
     }
     namespace Nonepseltxd{    ///<Pin select for TXD
         using Addr = Register::Address<0x4000250c,0x00000000,0,unsigned>;
         ///Pin number configuration for UART TXD signal
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pseltxd{}; 
-        namespace PseltxdValC{
-        }
     }
     namespace Nonepselcts{    ///<Pin select for CTS
         using Addr = Register::Address<0x40002510,0x00000000,0,unsigned>;
         ///Pin number configuration for UART CTS signal
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pselcts{}; 
-        namespace PselctsValC{
-        }
     }
     namespace Nonepselrxd{    ///<Pin select for RXD
         using Addr = Register::Address<0x40002514,0x00000000,0,unsigned>;
         ///Pin number configuration for UART RXD signal
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> pselrxd{}; 
-        namespace PselrxdValC{
-        }
     }
     namespace Nonerxd{    ///<RXD register
         using Addr = Register::Address<0x40002518,0xffffff00,0,unsigned>;
         ///RX data received in previous transfers, double buffered
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> rxd{}; 
-        namespace RxdValC{
-        }
     }
     namespace Nonetxd{    ///<TXD register
         using Addr = Register::Address<0x4000251c,0xffffff00,0,unsigned>;
         ///TX data to be transferred
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> txd{}; 
-        namespace TxdValC{
-        }
     }
     namespace Nonebaudrate{    ///<Baud rate
         using Addr = Register::Address<0x40002524,0x00000000,0,unsigned>;
@@ -323,22 +309,22 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,BaudrateVal> baudrate{}; 
         namespace BaudrateValC{
-            constexpr Register::FieldValue<decltype(baudrate),BaudrateVal::baud1200> baud1200{};
-            constexpr Register::FieldValue<decltype(baudrate),BaudrateVal::baud2400> baud2400{};
-            constexpr Register::FieldValue<decltype(baudrate),BaudrateVal::baud4800> baud4800{};
-            constexpr Register::FieldValue<decltype(baudrate),BaudrateVal::baud9600> baud9600{};
-            constexpr Register::FieldValue<decltype(baudrate),BaudrateVal::baud14400> baud14400{};
-            constexpr Register::FieldValue<decltype(baudrate),BaudrateVal::baud19200> baud19200{};
-            constexpr Register::FieldValue<decltype(baudrate),BaudrateVal::baud28800> baud28800{};
-            constexpr Register::FieldValue<decltype(baudrate),BaudrateVal::baud38400> baud38400{};
-            constexpr Register::FieldValue<decltype(baudrate),BaudrateVal::baud57600> baud57600{};
-            constexpr Register::FieldValue<decltype(baudrate),BaudrateVal::baud76800> baud76800{};
-            constexpr Register::FieldValue<decltype(baudrate),BaudrateVal::baud115200> baud115200{};
-            constexpr Register::FieldValue<decltype(baudrate),BaudrateVal::baud230400> baud230400{};
-            constexpr Register::FieldValue<decltype(baudrate),BaudrateVal::baud250000> baud250000{};
-            constexpr Register::FieldValue<decltype(baudrate),BaudrateVal::baud460800> baud460800{};
-            constexpr Register::FieldValue<decltype(baudrate),BaudrateVal::baud921600> baud921600{};
-            constexpr Register::FieldValue<decltype(baudrate),BaudrateVal::baud1m> baud1m{};
+            constexpr Register::FieldValue<decltype(baudrate)::Type,BaudrateVal::baud1200> baud1200{};
+            constexpr Register::FieldValue<decltype(baudrate)::Type,BaudrateVal::baud2400> baud2400{};
+            constexpr Register::FieldValue<decltype(baudrate)::Type,BaudrateVal::baud4800> baud4800{};
+            constexpr Register::FieldValue<decltype(baudrate)::Type,BaudrateVal::baud9600> baud9600{};
+            constexpr Register::FieldValue<decltype(baudrate)::Type,BaudrateVal::baud14400> baud14400{};
+            constexpr Register::FieldValue<decltype(baudrate)::Type,BaudrateVal::baud19200> baud19200{};
+            constexpr Register::FieldValue<decltype(baudrate)::Type,BaudrateVal::baud28800> baud28800{};
+            constexpr Register::FieldValue<decltype(baudrate)::Type,BaudrateVal::baud38400> baud38400{};
+            constexpr Register::FieldValue<decltype(baudrate)::Type,BaudrateVal::baud57600> baud57600{};
+            constexpr Register::FieldValue<decltype(baudrate)::Type,BaudrateVal::baud76800> baud76800{};
+            constexpr Register::FieldValue<decltype(baudrate)::Type,BaudrateVal::baud115200> baud115200{};
+            constexpr Register::FieldValue<decltype(baudrate)::Type,BaudrateVal::baud230400> baud230400{};
+            constexpr Register::FieldValue<decltype(baudrate)::Type,BaudrateVal::baud250000> baud250000{};
+            constexpr Register::FieldValue<decltype(baudrate)::Type,BaudrateVal::baud460800> baud460800{};
+            constexpr Register::FieldValue<decltype(baudrate)::Type,BaudrateVal::baud921600> baud921600{};
+            constexpr Register::FieldValue<decltype(baudrate)::Type,BaudrateVal::baud1m> baud1m{};
         }
     }
     namespace Noneconfig{    ///<Configuration of parity and hardware flow control
@@ -350,12 +336,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,HwfcVal> hwfc{}; 
         namespace HwfcValC{
-            constexpr Register::FieldValue<decltype(hwfc),HwfcVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(hwfc),HwfcVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(hwfc)::Type,HwfcVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(hwfc)::Type,HwfcVal::enabled> enabled{};
         }
         ///Parity
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,1),Register::ReadWriteAccess,unsigned> parity{}; 
-        namespace ParityValC{
-        }
     }
 }
