@@ -15,7 +15,7 @@ limitations under the License.
 ****************************************************************************/
 #include "Register/Register.hpp"
 #include "Interrupt.hpp"
-#include "MPL/Utility.hpp"
+#include "Mpl/Utility.hpp"
 
 namespace Kvasir{
 	namespace Startup{

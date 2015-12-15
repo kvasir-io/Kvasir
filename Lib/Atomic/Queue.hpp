@@ -1,6 +1,6 @@
 #pragma once
 
-#include "MPL/Utility.hpp"
+#include "Mpl/Utility.hpp"
 #include "Integral.hpp"
 
 namespace Kvasir{

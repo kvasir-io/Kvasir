@@ -16,9 +16,9 @@
  * limitations under the License.
 ****************************************************************************/
 #pragma once
-#include "MPL/Types.hpp"
-#include "MPL/Utility.hpp"
-#include "MPL/Algorithm.hpp"
+#include "Mpl/Types.hpp"
+#include "Mpl/Utility.hpp"
+#include "Mpl/Algorithm.hpp"
 #include "Types.hpp"
 #include "Utility.hpp"
 
