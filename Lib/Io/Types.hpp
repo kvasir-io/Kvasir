@@ -33,7 +33,7 @@ namespace Io{
 		constexpr PinFunction<2> pinFunction2{};
 		constexpr PinFunction<3> pinFunction3{};
 		constexpr PinFunction<4> pinFunction4{};
-	};
+	}
 
 	template<int I>
 	struct HwPort{

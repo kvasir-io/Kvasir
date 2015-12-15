@@ -26,6 +26,19 @@ namespace Kvasir {
 		template<typename TAction, typename TPinLocation>
 		using MakeActionT = typename MakeAction<TAction, TPinLocation>::Type;
 
+<<<<<<< HEAD
+	template<typename TAction, typename T>
+	constexpr Detail::MakeActionIfPinLocationT<TAction,T>
+	action(TAction,T){
+		return {};
+	}
+
+	template<typename T>
+	constexpr Detail::MakeActionIfPinLocationT<Action::Input,T>
+	makeInput(T){
+		return{};
+	}
+=======
 		namespace Detail {
 			//make sure we actually got a PinLocation as a parameter
 			template<typename TAction, typename TPortPin>
@@ -57,6 +70,7 @@ namespace Kvasir {
 		makeInput(T){
 			return{};
 		};
+>>>>>>> 431b3c3376dc6ecf2605bba01215dad62bad1837
 
 		template<typename T, typename U, typename... Ts>
 		constexpr decltype(MPL::list(makeInput(T{}),makeInput(U{}),makeInput(Ts{})...))
@@ -64,11 +78,19 @@ namespace Kvasir {
 			return {};
 		}
 
+<<<<<<< HEAD
+	template<typename T>
+	constexpr Detail::MakeActionIfPinLocationT<Action::Output,T>
+	makeOutput(T){
+		return{};
+	}
+=======
 		template<typename T>
 		constexpr Io::Detail::MakeActionIfPinLocationT<Io::Action::Output,T>
 		makeOutput(T){
 			return{};
 		};
+>>>>>>> 431b3c3376dc6ecf2605bba01215dad62bad1837
 
 		template<typename T, typename U, typename... Ts>
 		constexpr decltype(MPL::list(makeOutput(T{}),makeOutput(U{}),makeOutput(Ts{})...))
@@ -76,13 +98,72 @@ namespace Kvasir {
 			return {};
 		}
 
+<<<<<<< HEAD
+	template<typename TPortPin>
+	constexpr Detail::MakeActionIfPinLocationT<Action::Set, TPortPin>
+	set(TPortPin) {
+		return  { };
+	}
+=======
 		template<typename TPortPin>
 		constexpr Io::Detail::MakeActionIfPinLocationT<Io::Action::Set, TPortPin>
 		set(TPortPin) {
 			return  { };
 		};
+>>>>>>> 431b3c3376dc6ecf2605bba01215dad62bad1837
 	
 
+<<<<<<< HEAD
+	template<typename TPortPin>
+	constexpr Detail::MakeActionIfPinLocationT<Action::Clear,TPortPin>
+	clear(TPortPin){
+		return{};
+	}
+	
+	template<typename TPP1, typename TPP2, typename... TPortPins>
+	constexpr MPL::List<Detail::MakeActionIfPinLocationT<Action::Clear, TPP1>,
+		Detail::MakeActionIfPinLocationT<Action::Clear, TPP2>,
+		Detail::MakeActionIfPinLocationT<Action::Clear, TPortPins>...>
+	clear(TPP1, TPP2, TPortPins...)
+	{
+		return { };
+	}
+
+	template<typename TPortPin>
+	constexpr Detail::MakeActionIfPinLocationT<Action::Toggle, TPortPin>
+	toggle(TPortPin) {
+		return  { };
+	}
+
+	template<typename TPP1, typename TPP2, typename... TPortPins>
+	constexpr MPL::List<Detail::MakeActionIfPinLocationT<Action::Toggle, TPP1>,
+		Detail::MakeActionIfPinLocationT<Action::Toggle, TPP2>,
+		Detail::MakeActionIfPinLocationT<Action::Toggle, TPortPins>...>
+	toggle(TPP1, TPP2, TPortPins...) {
+		return  { };
+	}
+
+	template<typename TPortPin>
+	constexpr Detail::MakeActionIfPinLocationT<Action::Read, TPortPin>
+	read(TPortPin) {
+		return  { };
+	}
+	
+	template<typename TPP1, typename TPP2, typename... TPortPins>
+	constexpr MPL::List<Detail::MakeActionIfPinLocationT<Action::Read, TPP1>,
+		Detail::MakeActionIfPinLocationT<Action::Read, TPP2>,
+		Detail::MakeActionIfPinLocationT<Action::Read, TPortPins>...>
+	read(TPP1, TPP2, TPortPins...) {
+		return  { };
+	}
+
+	template<typename TPort, typename TPin>
+	constexpr PinLocation<TPort::value,TPin::value>
+	makePinLocation(TPort,TPin){
+		return{};
+	}
+}
+=======
 
 		template<typename TPortPin>
 		constexpr Io::Detail::MakeActionIfPinLocationT<Io::Action::Clear,TPortPin>
@@ -112,4 +193,5 @@ namespace Kvasir {
 		};
 
 	}
+>>>>>>> 431b3c3376dc6ecf2605bba01215dad62bad1837
 }

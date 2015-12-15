@@ -16,7 +16,7 @@
  * limitations under the License.
 ****************************************************************************/
 #pragma once
-#include "Mpl\Algorithm.hpp"
+#include "Mpl/Algorithm.hpp"
 
 namespace Kvasir{
 namespace Register{
@@ -79,7 +79,7 @@ namespace Register{
 	template<typename TLocation, typename TAction>
 	struct Action : TAction {
 		template<typename... Ts>
-		constexpr Action(Ts...args):TAction{args...}{};
+		constexpr Action(Ts...args):TAction{args...}{}
 		using Type = Action<TLocation,TAction>;
 	};
 

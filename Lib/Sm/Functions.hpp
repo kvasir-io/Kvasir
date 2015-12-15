@@ -1,6 +1,6 @@
 #pragma once
 
-#include "/MPL/Algorithm.hpp"
+#include "/Mpl/Algorithm.hpp"
 
 namespace Kvasir{
 namespace SM{
