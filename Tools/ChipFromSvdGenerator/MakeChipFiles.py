@@ -1,5 +1,6 @@
-﻿import os
-from os.path import join, basename
+﻿import posixpath
+import os
+from posixpath import basename
 from cmsis_svd.parser import SVDParser
 import site
 import json
@@ -21,7 +22,7 @@ def formatIoPorts(input):
         return [input]
 
 def parseIo(extention,device,path):
-    outFile = open(os.path.join(path,"Io.hpp"),'w',encoding='utf-8')
+    outFile = open(posixpath.join(path,"Io.hpp"),'w',encoding='utf-8')
     outFile.write('#pragma once\n#include "Io/Io.hpp"\n#include "Register/Register.hpp"\n')
     outFile.write("namespace Kvasir{\n    namespace Io{\n")
     io = Ft.getKey(extention,['kvasir','io'])
@@ -101,41 +102,41 @@ def parseFile(company,file):
     print("Parsing %s,%s " % (company,file))
     parser = SVDParser.for_packaged_svd(company, file + ".svd",1,1)
     extention = []
-    jsonPath = os.path.join(os.path.dirname(os.path.abspath(__file__)),"Extention",company,file+".json")
+    jsonPath = posixpath.join(posixpath.dirname(posixpath.abspath(__file__)),"Extention",company,file+".json")
     #print(jsonPath)
     device = parser.get_device()
-    if os.path.isfile(jsonPath):
+    if posixpath.isfile(jsonPath):
         extFile = open(jsonPath,"r",encoding='utf-8')
         extention = json.load(extFile)
     subdir = Ft.formatCpuName(Ft.getKey(extention,["device","cpu","name"]),device)
-    chipDir = os.path.join('..','..','Lib','Chip')
-    subdir = os.path.join(chipDir, subdir)
-    if not os.path.exists(subdir):
+    chipDir = posixpath.join('..','..','Lib','Chip')
+    subdir = posixpath.join(chipDir, subdir)
+    if not posixpath.exists(subdir):
         os.makedirs(subdir)
-    subdir = os.path.join(subdir,company)
-    if not os.path.exists(subdir):
+    subdir = posixpath.join(subdir,company)
+    if not posixpath.exists(subdir):
         os.makedirs(subdir)
-    subdir = os.path.join(subdir,file)
-    if not os.path.exists(subdir):
+    subdir = posixpath.join(subdir,file)
+    if not posixpath.exists(subdir):
         os.makedirs(subdir)
     chipText = "#pragma once \n"
     incDir = subdir[10:]
     if Ft.getKey(extention,["kvasir","io"]):
         parseIo(extention,device,subdir)
-        chipText += "#include \"%s\"\n" % (os.path.join(incDir,"Io.hpp"))
+        chipText += "#include \"%s\"\n" % (posixpath.join(incDir,"Io.hpp"))
     for peripheral in device.peripherals:
         if peripheral.name is not None:
-            chipText += "#include \"%s\"\n" % (os.path.join(incDir,peripheral.name+".hpp"))
+            chipText += "#include \"%s\"\n" % (posixpath.join(incDir,peripheral.name+".hpp"))
             out = "#pragma once \n#include \"Register/Utility.hpp\"\n"
             out += "namespace Kvasir {\n"
             out += parsePeripheral(peripheral,Ft.getKey(extention,['.'+peripheral.name]))
             out += "}\n"
 
-            outFile = open(os.path.join(subdir,peripheral.name+".hpp"), 'w',encoding='utf-8')
+            outFile = open(posixpath.join(subdir,peripheral.name+".hpp"), 'w',encoding='utf-8')
             outFile.write(out)
         else:
             print("error no name in %s" % (file))
-    outFile = open(os.path.join(chipDir,file + ".hpp"), 'w',encoding='utf-8')
+    outFile = open(posixpath.join(chipDir,file + ".hpp"), 'w',encoding='utf-8')
     outFile.write(chipText)
     
 def parseAll(path):
@@ -143,13 +144,13 @@ def parseAll(path):
         print("processing: " + basename(root))
         if len(files) and basename(root) != "ARM_SAMPLE":
             for file in files:
-                filename, file_extension = os.path.splitext(file)
+                filename, file_extension = posixpath.splitext(file)
                 if file_extension == ".svd":
                     parseFile(basename(root),filename)
 def parseCompany(path,company):
     for root, dirs, files in os.walk(os.join(path,company)):
         for file in files:
-            filename, file_extension = os.path.splitext(file)
+            filename, file_extension = posixpath.splitext(file)
             if file_extension == ".svd":
                 parseFile(company,filename)
                 
