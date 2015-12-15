@@ -11,7 +11,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ****************************************************************************/
 #pragma once
-#include "MPL/Algorithm.hpp"
+#include "Mpl/Algorithm.hpp"
 #include "Types.hpp"
 
 namespace Kvasir {
