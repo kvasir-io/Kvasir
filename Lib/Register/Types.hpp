@@ -79,7 +79,7 @@ namespace Register{
 	template<typename TLocation, typename TAction>
 	struct Action : TAction {
 		template<typename... Ts>
-		constexpr Action(Ts...args):TAction{args...}{};
+		constexpr Action(Ts...args):TAction{args...}{}
 		using Type = Action<TLocation,TAction>;
 	};
 

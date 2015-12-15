@@ -66,7 +66,7 @@ namespace Kvasir {
 		};
 
 		template<typename... Ts>
-		constexpr List<Ts...> list(Ts...){ return List<Ts...>{}; };
+		constexpr List<Ts...> list(Ts...){ return List<Ts...>{}; }
 
 		//wrapper for template template parameters
 		template<template<typename...> class T>

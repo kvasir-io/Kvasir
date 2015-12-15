@@ -1,0 +1,43 @@
+sudo: false
+language: cpp
+
+# More complete test matrix
+matrix:
+  include:
+    - os: linux
+      compiler: gcc
+      addons:
+        apt:
+          sources: ['ubuntu-toolchain-r-test']
+          packages: ['g++-4.8']
+      env: TOOLSET=g++-4.8
+
+    - os: linux
+      compiler: gcc
+      addons:
+        apt:
+          sources: ['ubuntu-toolchain-r-test']
+          packages: ['g++-4.9']
+      env: TOOLSET=g++-4.9
+
+    - os: linux
+      compiler: gcc
+      addons:
+        apt:
+          sources: ['ubuntu-toolchain-r-test']
+          packages: ['g++-5']
+      env: TOOLSET=g++-5
+
+# Install boost
+before_install:
+ - cd $TRAVIS_BUILD_DIR
+
+# Prepare build
+before_script:
+  - mkdir build
+  - cd build
+  - cmake .. -DCMAKE_CXX_COMPILER=$TOOLSET
+
+script:
+  - make VERBOSE=1
+  - ./KvasirTest
