@@ -19,11 +19,11 @@ set ( REGISTER_GROUP
     Lib/Register/Apply.hpp
     )
 
-#add_library(Kvasir
-#    ${MPL_GROUP}
-#    ${REGISTER_GROUP}
-#    )
-#SET_TARGET_PROPERTIES(Kvasir PROPERTIES LINKER_LANGUAGE CXX)
+add_library(Kvasir
+    ${MPL_GROUP}
+    ${REGISTER_GROUP}
+    )
+SET_TARGET_PROPERTIES(Kvasir PROPERTIES LINKER_LANGUAGE CXX)
 
 
 
