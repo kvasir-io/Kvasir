@@ -12,11 +12,11 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DBRIGAND_NO_BOOST_SUPPORT -I ${CMAKE_CU
 set(CMAKE_DEBUG_POSTFIX "d")
 
 set ( MPL_GROUP
-    Lib/Mpl/Types.hpp
+    Lib/Mpl/*
     )
     
 set ( REGISTER_GROUP
-    Lib/Register/Apply.hpp
+    Lib/Register/*
     )
 
 add_library(Kvasir
