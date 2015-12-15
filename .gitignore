@@ -7,3 +7,4 @@ doc/html
 *.launch
 Demos/Blinky/.settings/*
 Demos/KvasirUnitTest/.settings/*
+build/*
