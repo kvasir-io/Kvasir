@@ -14,7 +14,7 @@ limitations under the License.
 #include "Mpl/Utility.hpp"
 #include "Types.hpp"
 #include "PinFactories.hpp"
-#include "PortFactories.hpp"
+//#include "PortFactories.hpp"
 
 namespace Kvasir {
 namespace Io{
