@@ -12,11 +12,23 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DBRIGAND_NO_BOOST_SUPPORT -I ${CMAKE_CU
 set(CMAKE_DEBUG_POSTFIX "d")
 
 set ( MPL_GROUP
-    Lib/Mpl/*
+    Lib/Mpl/Types.hpp
+    Lib/Mpl/Algorithm.hpp
+    Lib/Mpl/IntegralConstants.hpp
+    Lib/Mpl/Utility.hpp
+    
     )
     
 set ( REGISTER_GROUP
-    Lib/Register/*
+    Lib/Register/Apply.hpp
+    Lib/Register/AtomicFactories.hpp
+    Lib/Register/Exec.hpp
+    Lib/Register/Factories.hpp
+    Lib/Register/IsolatedFactories.hpp
+    Lib/Register/Register.hpp
+    Lib/Register/Seam.hpp
+    Lib/Register/Types.hpp
+    Lib/Register/Utility.hpp
     )
 
 add_library(Kvasir
