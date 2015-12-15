@@ -1,4 +1,3 @@
-#pragma once
 #include "Register/Apply.hpp"
 #include <iostream>
 
