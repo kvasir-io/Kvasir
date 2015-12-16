@@ -1853,4 +1853,18 @@ namespace brigand
   template<std::uint64_t Value>
   struct double_ : real_<double, std::uint64_t,Value> {};
 }
+
+namespace brigand {
+	//if a type is a list of types it will successively be unpacked into the enclosing list
+	template<typename L, typename... Ts>
+	struct flatten_impl { using type = L; }; //default only reached with empty Ts
+	template<typename T>
+	using flatten = typename flatten_impl<list<>, T>::type;
+	//first of Ts is not a list
+	template<typename ... Ts, typename T, typename ... Us>
+	struct flatten_impl<list<Ts...>, T, Us...> : flatten_impl<list<Ts..., T>, Us...> {};
+	//frist of Ts is a list
+	template<typename ... Ts, typename ... Us, typename ... Vs>
+	struct flatten_impl<list<Ts...>, list<Us...>, Vs...> : flatten_impl<list<Ts...>, Us..., Vs...> {};
+}
 #endif
