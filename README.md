@@ -1,6 +1,8 @@
 # What is Kvasir?
 Kvasir is a C++ meta programming library enabling full static checking and register abstraction in embedded software. Despite the fact that we use modern C++ tools under the hood the public interface is quite "C like" and familiar to most embedded developers.
 
+[![Build Status](https://travis-ci.org/kvasir-io/Kvasir.svg?branch=master)](https://travis-ci.org/kvasir-io/kvasir)
+
 # Why Kvasir?
 ## Efficiency
 By fully abstracting the hardware Kvasir is able to use optimizations under the hood which are either too obscure or too ugly to appear in user code. The header only nature of Kvasir and very sophisticated use of the volatile keyword give the optimizer more room to do its thing without breaking anything. We often reach severalfold improvements over hand written C code!
