@@ -38,11 +38,11 @@ namespace Kvasir {
 		template<unsigned I>
 		constexpr MPL::Value<unsigned, I> value(){
 			return MPL::Value<unsigned, I>{};
-		};
+		}
 		template<typename T, T I>
 		constexpr MPL::Value<T,I> value(){
 			return MPL::Value<T,I>{};
-		};
+		}
 
 		//bit helpers
 		template<typename Address, int Position, typename TFieldType = bool>

@@ -105,7 +105,9 @@ namespace Kvasir {
 					  List<TNext, TLast, Us...>>{};
 
 			template<typename... Ts> //done
-			struct MergeRegisterActions<List<>,List<Ts...>> : List<Ts...>{};
+			struct MergeRegisterActions<List<>,List<Ts...>> {
+				using Type = List<Ts...>;
+			};
 
 			template<typename T>
 			using MergeRegisterActionsT = typename MergeRegisterActions<T>::Type;
@@ -113,12 +115,13 @@ namespace Kvasir {
 			template<typename TList>
 			struct MergeActionSteps;
 			template<typename... Ts>
-			struct MergeActionSteps<MPL::List<Ts...>>
-				: MPL::List<
+			struct MergeActionSteps<brigand::list<Ts...>> {
+				using Type = brigand::list<
 					MergeRegisterActionsT<
-						MPL::SortT<MPL::FlattenT<Ts>,Detail::IndexedActionLessP>
+					MPL::SortT<MPL::FlattenT<Ts>, Detail::IndexedActionLessP>
 					>...
-					>{};
+				>;
+			};
 
 			template<typename T>
 			using MergeActionStepsT = typename MergeActionSteps<T>::Type;
@@ -150,8 +153,9 @@ namespace Kvasir {
 
 			//special case where a list of actions is passed
 			template<typename... Ts, typename Index>
-			struct MakeIndexedAction<List<Ts...>,Index>
-				: List<typename MakeIndexedAction<Ts,Index>::Type...>{};
+			struct MakeIndexedAction<List<Ts...>,Index>{
+				using Type = List<typename MakeIndexedAction<Ts, Index>::Type...>;
+			};
 			//special case where a list of actions is passed
 			template<typename Index>
 			struct MakeIndexedAction<SequencePoint,Index> : SequencePoint{};
@@ -171,7 +175,7 @@ namespace Kvasir {
 
 			//takes an args list or tree, flattens it and removes all actions which are not reads
 			template<typename... TArgList>
-				using GetReadsT = TransformT<RemoveT<MPL::FlattenT<MPL::List<TArgList...>>, Template<IsNotReadPred>>, Template<GetFieldLocation>>;
+				using GetReadsT = TransformT<RemoveT<MPL::FlattenT<brigand::list<TArgList...>>, Template<IsNotReadPred>>, Template<GetFieldLocation>>;
 
 			template<typename T>
 			struct GetReadMask : Int<0>{};
@@ -261,7 +265,7 @@ namespace Kvasir {
 
 		//if apply contains reads return a FieldTuple
 		template<typename...Args>
-			inline MPL::DisableIfT<(MPL::SizeT<Detail::GetReadsT<Args...>>::value == 0),
+			inline MPL::DisableIfT<(brigand::size<Detail::GetReadsT<Args...>>::value == 0),
 			Detail::GetReturnTypeT<Args...>>
 		apply(Args...args){
 			static_assert(Detail::ArgsToApplyArePlausible<Args...>::value,"one of the supplied arguments is not supported");
@@ -278,12 +282,12 @@ namespace Kvasir {
 
 		//if apply does not contain reads return is void
 		template<typename...Args>
-		inline MPL::EnableIfT<(MPL::SizeT<Detail::GetReadsT<MPL::List<Args...>>>::value == 0)>
+		inline MPL::EnableIfT<(brigand::size<Detail::GetReadsT<brigand::list<Args...>>>::value == 0)>
 		apply(Args...args){
 			static_assert(Detail::ArgsToApplyArePlausible<Args...>::value,"one of the supplied arguments is not supported");
 			using namespace MPL;
 			unsigned a[] = {Detail::argToInt(args)...};
-			using IndexedActions = TransformT<List<Args...>,BuildIndicesT<sizeof...(Args)>,Template<Detail::MakeIndexedAction>>;
+			using IndexedActions = TransformT<brigand::list<Args...>,BuildIndicesT<sizeof...(Args)>,Template<Detail::MakeIndexedAction>>;
 			using FlattenedActions = FlattenT<IndexedActions>;
 			using Steps = SplitT<FlattenedActions,SequencePoint>;
 			using Merged = Detail::MergeActionStepsT<Steps>;
@@ -293,8 +297,8 @@ namespace Kvasir {
 
 		//no parameters is allowed because it could be used in maschine generated code
 		//it does nothing
-		void apply(){};
-		void apply(MPL::List<>){};
+		void apply(){}
+		void apply(brigand::list<>){}
 
 		template<typename TField, typename TField::DataType Value>
 		inline bool fieldEquals(FieldValue<TField, Value> ) {

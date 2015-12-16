@@ -12,6 +12,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ****************************************************************************/
 #pragma once
+#define BRIGAND_NO_BOOST_SUPPORT 1
+#include "brigand.hpp"
 
 namespace Kvasir {
 	namespace MPL {
@@ -61,9 +63,7 @@ namespace Kvasir {
 
 		//Type list
 		template<typename... Ts>
-		struct List{
-			using Type = List<Ts...>;
-		};
+		using List = brigand::list<Ts...>;
 
 		template<typename... Ts>
 		constexpr List<Ts...> list(Ts...){ return List<Ts...>{}; }

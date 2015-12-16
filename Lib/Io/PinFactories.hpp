@@ -43,20 +43,20 @@ namespace Kvasir {
 		constexpr Register::PinLocation<TPort::value, TPin::value>
 			makePinLocation(TPort, TPin) {
 			return{};
-		};
+		}
 	}
 	namespace Register {
 		template<typename TAction, typename T>
 		constexpr Io::Detail::MakeActionIfPinLocationT<TAction, T>
 			action(TAction, T) {
 			return{};
-		};
+		}
 
 		template<typename T>
 		constexpr Io::Detail::MakeActionIfPinLocationT<Io::Action::Input, T>
 			makeInput(T) {
 			return{};
-		};
+		}
 
 		template<typename T, typename U, typename... Ts>
 		constexpr decltype(MPL::list(makeInput(T{}), makeInput(U{}), makeInput(Ts{})...))
@@ -68,7 +68,7 @@ namespace Kvasir {
 		constexpr Io::Detail::MakeActionIfPinLocationT<Io::Action::Output, T>
 			makeOutput(T) {
 			return{};
-		};
+		}
 
 		template<typename T, typename U, typename... Ts>
 		constexpr decltype(MPL::list(makeOutput(T{}), makeOutput(U{}), makeOutput(Ts{})...))
@@ -80,7 +80,7 @@ namespace Kvasir {
 		constexpr Io::Detail::MakeActionIfPinLocationT<Io::Action::Set, TPortPin>
 			set(TPortPin) {
 			return{};
-		};
+		}
 
 
 
@@ -88,14 +88,14 @@ namespace Kvasir {
 		constexpr Io::Detail::MakeActionIfPinLocationT<Io::Action::Clear, TPortPin>
 			clear(TPortPin) {
 			return{};
-		};
+		}
 
 
 		template<typename TPortPin>
 		constexpr Io::Detail::MakeActionIfPinLocationT<Io::Action::Toggle, TPortPin>
 			toggle(TPortPin) {
 			return{};
-		};
+		}
 
 		template<typename TPP1, typename TPP2, typename... TPortPins>
 		constexpr MPL::List<Io::Detail::MakeActionIfPinLocationT<Io::Action::Toggle, TPP1>,
@@ -103,13 +103,13 @@ namespace Kvasir {
 			Io::Detail::MakeActionIfPinLocationT<Io::Action::Toggle, TPortPins>...>
 			toggle(TPP1, TPP2, TPortPins...) {
 			return{};
-		};
+		}
 
 		template<typename TPortPin>
 		constexpr Io::Detail::MakeActionIfPinLocationT<Io::Action::Read, TPortPin>
 			read(TPortPin) {
 			return{};
-		};
+		}
 
 	}
 }

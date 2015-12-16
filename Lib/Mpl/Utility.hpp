@@ -164,14 +164,16 @@ namespace Kvasir {
 		using DisableIfT = typename DisableIf<B,U>::Type;
 
 		//build a sequence of indices from 0 to N-1
-		template<int N, typename... Is>
-		struct BuildIndices: BuildIndices<N - 1, Int<N - 1>, Is...> {};
+		//template<int N, typename... Is>
+		//struct BuildIndices: BuildIndices<N - 1, Int<N - 1>, Is...> {};
 
-		template<typename ... Is>
-		struct BuildIndices<0, Is...> : List<Is...> {};
+		//template<typename ... Is>
+		//struct BuildIndices<0, Is...> {
+		//	using Type = List<Is...>;
+		//};
 
 		template<int N>
-		using BuildIndicesT = typename BuildIndices<N>::Type;
+		using BuildIndicesT = brigand::make_sequence<Int<0>, N>;
 
 		template<typename TList>
 		struct Size;
@@ -181,9 +183,13 @@ namespace Kvasir {
 		using SizeT = typename Size<TList>::Type;
 
 		template<bool B, typename T, typename U>
-		struct Conditional : Return<U> {};
+		struct Conditional {
+			using Type = U;
+		};
 		template<typename T, typename U>
-		struct Conditional<true,T,U> : Return<T> {};
+		struct Conditional<true,T,U> {
+			using Type = T;
+		};
 
 		template<bool B, typename T, typename U>
 		using ConditionalT = typename Conditional<B,T,U>::Type;

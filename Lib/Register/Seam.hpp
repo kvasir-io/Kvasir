@@ -68,6 +68,7 @@ namespace Kvasir {
 			int operator()(int in) {
 				actions_.emplace_back(
 					RecordedAction{ RecordedAction::Type::read, Address::value, Mask, in });
+				return 0;
 			}
 		};
 
@@ -76,6 +77,7 @@ namespace Kvasir {
 			int operator()(int in) {
 				actions_.emplace_back(
 					RecordedAction{ RecordedAction::Type::writeLiteral, Address::value, Mask, I });
+				return 0;
 			}
 		};
 	}

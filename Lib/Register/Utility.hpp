@@ -131,11 +131,11 @@ namespace Register{
 		struct GetAddress<Address<A,WIIZ,SOTC,TRegType,TMode>> {
 			static constexpr unsigned value = A;
 			static unsigned read(){
-				volatile unsigned& reg = *((volatile unsigned*)value);
+				volatile unsigned& reg = *static_cast<volatile unsigned*>(value);
 				return reg;
 			}
 			static void write(unsigned i){
-				volatile unsigned& reg = *((volatile unsigned*)value);
+				volatile unsigned& reg = *static_cast<volatile unsigned*>(value);
 				reg = i;
 			}
 			using Type = Unsigned<A>;
@@ -144,11 +144,11 @@ namespace Register{
 		struct GetAddress<FieldLocation<TAddress,Mask,TAccess,TFiledType>> {
 			static constexpr unsigned value = TAddress::value;
 			static unsigned read(){
-				volatile unsigned& reg = *((volatile unsigned*)value);
+				volatile unsigned& reg = *static_cast<volatile unsigned*>(value);
 				return reg;
 			}
 			static void write(unsigned i){
-				volatile unsigned& reg = *((volatile unsigned*)value);
+				volatile unsigned& reg = *static_cast<volatile unsigned*>(value);
 				reg = i;
 			}
 			using Type = Unsigned<TAddress::value>;
@@ -157,11 +157,11 @@ namespace Register{
 		struct GetAddress<FieldLocationPair<TReadLoc,TWriteLoc>> {
 			static constexpr unsigned value = TReadLoc::value;
 			static unsigned read(){
-				volatile unsigned& reg = *((volatile unsigned*)value);
+				volatile unsigned& reg = *static_cast<volatile unsigned*>(value);
 				return reg;
 			}
 			static void write(unsigned i){
-				volatile unsigned& reg = *((volatile unsigned*)value);
+				volatile unsigned& reg = *static_cast<volatile unsigned*>(value);
 				reg = i;
 			}
 			using Type = Unsigned<value>;
