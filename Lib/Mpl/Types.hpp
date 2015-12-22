@@ -47,7 +47,7 @@ namespace Kvasir {
 		template<typename T, T I>
 		struct Value {
 			static constexpr T value{I};
-			using Type = Value<T,I>;
+			using type = Value<T,I>;
 		};
 
 		template<bool B>
@@ -72,11 +72,11 @@ namespace Kvasir {
 		template<template<typename...> class T>
 		struct Template{
 			template<typename... Ts>
-			using Apply = T<Ts...>;
+			using apply = T<Ts...>;
 		};
 
 		template<typename T, typename... Ts>
-		using ApplyTemplateT = typename T::template Apply<Ts...>::Type;
+		using ApplyTemplateT = typename T::template apply<Ts...>::type;
 
 		template<typename T, typename U>
 		struct Pair{

@@ -9,9 +9,7 @@
 namespace brigand
 {
 
-  template <class... T> struct list {
-	  using Type = list<T...>;
-  };
+  template <class... T> struct list {};
 
   template<typename T, T... Values>
   using integral_list = brigand::list< std::integral_constant<T,Values>...>;
@@ -1853,4 +1851,100 @@ namespace brigand
   template<std::uint64_t Value>
   struct double_ : real_<double, std::uint64_t,Value> {};
 }
+
+namespace brigand
+{
+	namespace detail
+	{
+
+		template <class L>
+		struct flatten_impl
+		{
+			using type = L;
+		};
+
+		template <template<class...> class L, class Head, class... Tail>
+		struct flatten_impl<L<Head, Tail...>>
+		{
+			using tail_type = L<Tail...>;
+			using flattened_tail_type = typename flatten_impl<tail_type>::type;
+			using type = typename brigand::append<L<Head>, flattened_tail_type>;
+		};
+
+		template <template<class...> class L, class... HeadElements, class... Tail>
+		struct flatten_impl<L<L<HeadElements...>, Tail...>>
+		{
+			using head_type = L<HeadElements...>;
+			using flattened_head_type = typename flatten_impl<head_type>::type;
+			using tail_type = L<Tail...>;
+			using flattened_tail_type = typename flatten_impl<tail_type>::type;
+			using type = typename brigand::append<flattened_head_type, flattened_tail_type>;
+		};
+
+	}
+
+	namespace lazy
+	{
+		template <typename Sequence>
+		using flatten = typename detail::flatten_impl<Sequence>;
+	}
+
+	template <typename Sequence>
+	using flatten = typename lazy::flatten<Sequence>::type;
+
+}
+
+namespace brigand
+{
+	namespace detail
+	{
+		template<typename TOut, typename TCurrent, typename TDelim, typename... Ts>
+		struct split_impl;
+		template<template<typename...> class L, typename... Os, typename... Cs, typename TDelim, typename T, typename... Ts>
+		struct split_impl<L<Os...>, L<Cs...>, TDelim, T, Ts...> : //next is not delim, we still have more
+			split_impl<L<Os...>, L<Cs..., T>, TDelim, Ts...> {};
+		template<template<typename...> class L, typename... Os, typename... Cs, typename TDelim, typename T>
+		struct split_impl<L<Os...>, L<Cs...>, TDelim, T> {  //next is not delim, we do not have more
+			using type = L<Os..., L<Cs..., T>>;
+		};
+		template<template<typename...> class L, typename... Os, typename... Cs, typename TDelim, typename... Ts>
+		struct split_impl<L<Os...>, L<Cs...>, TDelim, TDelim, Ts...> : //next is delim, we still have more
+			split_impl<L<Os..., L<Cs...>>, L<>, TDelim, Ts...> {};
+		template<template<typename...> class L, typename... Os, typename... Cs, typename TDelim>
+		struct split_impl<L<Os...>, L<Cs...>, TDelim, TDelim> { //next is delim, we have no more
+			using type = L<Os..., L<Cs...>>;
+		};
+		//same cases but with empty TCurrent list
+		template<template<typename...> class L, typename... Os, typename TDelim, typename... Ts>
+		struct split_impl<L<Os...>, L<>, TDelim, TDelim, Ts...> : //next is delim, we still have more
+			split_impl<L<Os...>, L<>, TDelim, Ts...> {};
+		template<template<typename...> class L, typename... Os, typename TDelim>
+		struct split_impl<L<Os...>, L<>, TDelim, TDelim> { //next is delim, we have no more
+			using type = L<Os...>;
+		};
+		template<template<typename...> class L, typename... Os, typename TDelim>
+		struct split_impl<L<Os...>, L<>, TDelim> { //done
+			using type = L<Os...>;
+		};
+
+
+
+		template<typename TList, typename TDelim>
+		struct split_helper;
+		template<template<typename...> class L, typename... Ts, typename TDelim>
+		struct split_helper<L<Ts...>, TDelim> : split_impl<L<>, L<>, TDelim, Ts...> {};
+
+	}
+
+	namespace lazy
+	{
+		template<typename TList, typename TDelim>
+		using split = detail::split_helper<TList, TDelim>;
+	}
+
+	template<typename TList, typename TDelim>
+	using split = typename lazy::split<TList, TDelim>::type;
+
+}
+
 #endif
