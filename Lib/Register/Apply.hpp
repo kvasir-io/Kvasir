@@ -30,6 +30,7 @@ namespace Kvasir {
 	namespace Register{
 
 		namespace Detail{
+			namespace br = brigand;
 			//indexed inputs keep track of the mask and location of an input
 			template<int Index, unsigned Mask>
 			struct IndexedInput{
@@ -179,7 +180,11 @@ namespace Kvasir {
 
 			//takes an args list or tree, flattens it and removes all actions which are not reads
 			template<typename... TArgList>
+<<<<<<< HEAD
 				using GetReadsT = brigand::transform<brigand::remove<brigand::flatten<brigand::list<TArgList...>>, MPL::Template<IsNotReadPred>>, MPL::Template<GetFieldLocation>>;
+=======
+				using GetReadsT = TransformT<RemoveT<brigand::flatten<br::list<TArgList...>>, Template<IsNotReadPred>>, Template<GetFieldLocation>>;
+>>>>>>> origin/master
 
 			template<typename T>
 			struct GetReadMask : Int<0>{};
@@ -240,7 +245,7 @@ namespace Kvasir {
 				}
 			};
 			template<typename... TAction, unsigned... Mask>
-			struct NoReadApply<List<IndexedAction<TAction,Mask>...>>{
+			struct NoReadApply<brigand::list<IndexedAction<TAction,Mask>...>>{
 				template<typename T>
 				void operator()(T){
 					unsigned a[] = {IndexedAction<TAction,Mask>{}()...};
@@ -263,7 +268,11 @@ namespace Kvasir {
 			template<>
 			struct ArgToApplyIsPlausible<SequencePoint> : TrueType{};
 			template<typename T, typename... Ts>
+<<<<<<< HEAD
 			struct ArgsToApplyArePlausible : AllOf<brigand::transform<brigand::flatten<brigand::list<T,Ts...>>, Template<ArgToApplyIsPlausible>>>{};
+=======
+			struct ArgsToApplyArePlausible : AllOf<TransformT<br::flatten<br::list<T,Ts...>>, Template<ArgToApplyIsPlausible>>>{};
+>>>>>>> origin/master
 
 		}
 
@@ -276,7 +285,11 @@ namespace Kvasir {
 			using namespace MPL;
 			//associate all actions with their value index
 			unsigned a[] = {Detail::argToInt(args)...};
+<<<<<<< HEAD
 			using IndexedActions = brigand::transform<List<Args...>,BuildIndicesT<sizeof...(Args)>,Template<Detail::MakeIndexedAction>>;
+=======
+			using IndexedActions = TransformT<List<Args...>,BuildIndicesT<sizeof...(Args)>,Template<Detail::MakeIndexedAction>>;
+>>>>>>> origin/master
 			using FlattenedActions = brigand::flatten<IndexedActions>;
 			using Steps = SplitT<FlattenedActions,SequencePoint>;
 			using Merged = Detail::MergeActionStepsT<Steps>;
@@ -291,7 +304,11 @@ namespace Kvasir {
 			static_assert(Detail::ArgsToApplyArePlausible<Args...>::value,"one of the supplied arguments is not supported");
 			using namespace MPL;
 			unsigned a[] = {Detail::argToInt(args)...};
+<<<<<<< HEAD
 			using IndexedActions = brigand::transform<brigand::list<Args...>,BuildIndicesT<sizeof...(Args)>,Template<Detail::MakeIndexedAction>>;
+=======
+			using IndexedActions = TransformT<brigand::list<Args...>,BuildIndicesT<sizeof...(Args)>,Template<Detail::MakeIndexedAction>>;
+>>>>>>> origin/master
 			using FlattenedActions = brigand::flatten<IndexedActions>;
 			using Steps = SplitT<FlattenedActions,SequencePoint>;
 			using Merged = Detail::MergeActionStepsT<Steps>;

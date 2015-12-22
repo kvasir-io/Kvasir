@@ -56,32 +56,35 @@ namespace MPL {
 		struct Split<List<Os...>,List<Cs...>,TDelim,T,Ts...> : //next is not delim, we still have more
 			Split<List<Os...>,List<Cs...,T>,TDelim,Ts...>{};
 		template<typename... Os, typename... Cs, typename TDelim, typename T>
-		struct Split<List<Os...>,List<Cs...>,TDelim,T> : //next is not delim, we do not have more
-			Return<List<Os...,List<Cs...,T>>>{};
+		struct Split<List<Os...>,List<Cs...>,TDelim,T> { //next is not delim, we do not have more
+			using Type = List<Os..., List<Cs..., T>>;
+		};
 		template<typename... Os, typename... Cs, typename TDelim, typename... Ts>
 		struct Split<List<Os...>,List<Cs...>,TDelim,TDelim,Ts...> : //next is delim, we still have more
 			Split<List<Os...,List<Cs...>>,List<>,TDelim,Ts...>{};
 		template<typename... Os, typename... Cs, typename TDelim>
-		struct Split<List<Os...>,List<Cs...>,TDelim,TDelim> : //next is delim, we have no more
-			Return<List<Os...,List<Cs...>>>{};
+		struct Split<List<Os...>,List<Cs...>,TDelim,TDelim> { //next is delim, we have no more
+			using Type = List<Os..., List<Cs...>>;
+		};
 		//same cases but with empty TCurrent list
 		template<typename... Os, typename TDelim, typename... Ts>
 		struct Split<List<Os...>,List<>,TDelim,TDelim,Ts...> : //next is delim, we still have more
 			Split<List<Os...>,List<>,TDelim,Ts...>{};
 		template<typename... Os, typename TDelim>
-		struct Split<List<Os...>,List<>,TDelim,TDelim> : //next is delim, we have no more
-			Return<List<Os...>>{};
+		struct Split<List<Os...>,List<>,TDelim,TDelim> { //next is delim, we have no more
+			using Type = List<Os...>;
+		};
 
-		//default only reached when Ts is empty
-		template<typename T_List, typename ... Ts>
-		struct Flatten : T_List {};
-		//first of Ts is not a list
-		template<typename ... Ts, typename T, typename ... Us>
-		struct Flatten<List<Ts...>, T, Us...> : Flatten<List<Ts..., T>, Us...> {};
-		//frist of Ts is a list
-		template<typename ... Ts, typename ... Us, typename ... Vs>
-		struct Flatten<List<Ts...>, List<Us...>, Vs...> :
-			Flatten<List<Ts...>, Us..., Vs...> {};
+		////default only reached when Ts is empty
+		//template<typename T_List, typename ... Ts>
+		//struct Flatten : T_List {};
+		////first of Ts is not a list
+		//template<typename ... Ts, typename T, typename ... Us>
+		//struct Flatten<List<Ts...>, T, Us...> : Flatten<List<Ts..., T>, Us...> {};
+		////frist of Ts is a list
+		//template<typename ... Ts, typename ... Us, typename ... Vs>
+		//struct Flatten<List<Ts...>, List<Us...>, Vs...> :
+		//	Flatten<List<Ts...>, Us..., Vs...> {};
 
 		template<typename T_Out, template<typename, typename > class T_Pred,
 				typename T_Insert, bool B_Tag, typename ... Ts>
@@ -245,7 +248,11 @@ namespace MPL {
 	//if a type is a list of types it will successively be unpacked into the enclosing list
 	//template<typename TList>
 	//struct Flatten{
+<<<<<<< HEAD
 		//static_assert(AlwaysFalse<TList>::value,"implausible type");
+=======
+	//	static_assert(AlwaysFalse<TList>::value,"implausible type");
+>>>>>>> origin/master
 	//};
 	//template<>
 	//struct Flatten<List<>> : Return<List<>>{};
@@ -253,6 +260,7 @@ namespace MPL {
 	//struct Flatten<List<Ts...>> : Detail::Flatten<List<>, Ts...> {
 	//};
 	//template<typename TList>
+<<<<<<< HEAD
 	//using FlattenT = typename Flatten<TList>::type;
 
 	//template<typename T, typename U, typename... Ts>
@@ -269,6 +277,24 @@ namespace MPL {
 	//};
 	//template<typename...Ts>
 	//using TransformT = typename Transform<Ts...>::type;
+=======
+	//using FlattenT = typename Flatten<TList>::Type;
+
+	template<typename T, typename U, typename... Ts>
+	struct Transform{
+		static_assert(AlwaysFalse<T>::value,"implausible type");
+	};
+	template<typename... Ts, template<typename> class T>
+	struct Transform<List<Ts...>,Template<T>>{
+		using Type = List<ApplyTemplateT<Template<T>, Ts>...>;
+	};
+	template<typename... Ts, typename... Us, template<typename,typename> class T>
+	struct Transform<List<Ts...>, List<Us...>, Template<T>>{
+		using Type = List<ApplyTemplateT<Template<T>, Ts, Us>...>;
+	};
+	template<typename...Ts>
+	using TransformT = typename Transform<Ts...>::Type;
+>>>>>>> origin/master
 
 	//Sort
 	template<typename TList, typename TPred = LessP>
@@ -302,7 +328,11 @@ namespace MPL {
 	struct Remove<List<T, Ts...>,Int<From>,Int<To>> : Detail::Remove<List<>,From,To,T,Ts...>{};
 
 	template<typename ... Ts, template<typename> class TPred>
+<<<<<<< HEAD
 	struct Remove<brigand::list<Ts...>, Template<TPred>, void> : brigand::flatten<List<typename std::conditional<TPred<Ts>::value,List<>,Ts>::type...>>{};
+=======
+	struct Remove<MPL::List<Ts...>, Template<TPred>, void> : brigand::flatten<List<ConditionalT<TPred<Ts>::value,List<>,Ts>...>>{};
+>>>>>>> origin/master
 
 	template<typename TList,typename TFrom, typename TTo = void>
 	using RemoveT = typename Remove<TList,TFrom,TTo>::type;
