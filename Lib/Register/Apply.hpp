@@ -61,13 +61,12 @@ namespace Kvasir {
 			struct IndexedActionLess;
 			template<typename T1, typename U1, typename T2, typename U2, unsigned Mask1, unsigned Mask2, typename... TInputs1, typename... TInputs2>
 			struct IndexedActionLess< IndexedAction<Action<T1,U1>, Mask1, TInputs1...>, IndexedAction<Action<T2,U2>, Mask2, TInputs2... >> : Bool<(GetAddress<T1>::value < GetAddress<T2>::value)>{};
-			using IndexedActionLessP = Template<IndexedActionLess>;
 
-			template<typename TRegisters, typename TRet = List<>> //default
+			template<typename TRegisters, typename TRet = brigand::list<>> //default
 			struct MergeRegisterActions;
 
 			template<typename TNext, typename... Ts> //none processed yet
-			struct MergeRegisterActions<List<TNext, Ts...>, List<>> : MergeRegisterActions<List<Ts...>,List<TNext>>{};
+			struct MergeRegisterActions<brigand::list<TNext, Ts...>, brigand::list<>> : MergeRegisterActions<brigand::list<Ts...>, brigand::list<TNext>>{};
 
 			template<
 				typename TAddress,
@@ -81,11 +80,11 @@ namespace Kvasir {
 				typename... TInputs1, typename... TInputs2,
 				typename... Ts, typename... Us> //next input and last merged are mergable
 			struct MergeRegisterActions<
-					List<IndexedAction<Action<FieldLocation<TAddress,Mask1,TAccess1,TFieldType1>,TActionTemplate<Value1>>, ReadMask1, TInputs1...>, Ts...>,
-					List<IndexedAction<Action<FieldLocation<TAddress,Mask2,TAccess2,TFieldType2>,TActionTemplate<Value2>>, ReadMask2, TInputs2...>, Us...>
+				brigand::list<IndexedAction<Action<FieldLocation<TAddress,Mask1,TAccess1,TFieldType1>,TActionTemplate<Value1>>, ReadMask1, TInputs1...>, Ts...>,
+				brigand::list<IndexedAction<Action<FieldLocation<TAddress,Mask2,TAccess2,TFieldType2>,TActionTemplate<Value2>>, ReadMask2, TInputs2...>, Us...>
 				> :	MergeRegisterActions<
-					List<Ts...>,
-					List<IndexedAction<Action<
+				brigand::list<Ts...>,
+				brigand::list<IndexedAction<Action<
 						FieldLocation<
 							TAddress,
 							(Mask1 | Mask2), 						//merge
@@ -100,14 +99,14 @@ namespace Kvasir {
 
 			template<typename TNext, typename TLast, typename... Ts, typename... Us> //next and last not mergable
 			struct MergeRegisterActions<
-				List<TNext, Ts...>,List<TLast, Us...>>
+				brigand::list<TNext, Ts...>, brigand::list<TLast, Us...>>
 				: MergeRegisterActions<
-				  	  List<Ts...>,
-					  List<TNext, TLast, Us...>>{};
+				brigand::list<Ts...>,
+				brigand::list<TNext, TLast, Us...>>{};
 
 			template<typename... Ts> //done
-			struct MergeRegisterActions<List<>,List<Ts...>> {
-				using type = List<Ts...>;
+			struct MergeRegisterActions<brigand::list<>, brigand::list<Ts...>> {
+				using type = brigand::list<Ts...>;
 			};
 
 			template<typename T>
@@ -119,7 +118,7 @@ namespace Kvasir {
 			struct MergeActionSteps<brigand::list<Ts...>> {
 				using type = brigand::list<
 					MergeRegisterActionsT<
-					MPL::SortT<brigand::flatten<Ts>, Detail::IndexedActionLessP>
+					brigand::sort<brigand::flatten<Ts>, Detail::IndexedActionLess<brigand::_1,brigand::_2>>
 					>...
 				>;
 			};
@@ -180,11 +179,7 @@ namespace Kvasir {
 
 			//takes an args list or tree, flattens it and removes all actions which are not reads
 			template<typename... TArgList>
-<<<<<<< HEAD
-				using GetReadsT = brigand::transform<brigand::remove<brigand::flatten<brigand::list<TArgList...>>, MPL::Template<IsNotReadPred>>, MPL::Template<GetFieldLocation>>;
-=======
-				using GetReadsT = TransformT<RemoveT<brigand::flatten<br::list<TArgList...>>, Template<IsNotReadPred>>, Template<GetFieldLocation>>;
->>>>>>> origin/master
+			using GetReadsT = brigand::transform<brigand::remove_if<brigand::flatten<brigand::list<TArgList...>>, IsNotReadPred<brigand::_1>>, GetFieldLocation<brigand::_1>>;
 
 			template<typename T>
 			struct GetReadMask : Int<0>{};
@@ -268,11 +263,7 @@ namespace Kvasir {
 			template<>
 			struct ArgToApplyIsPlausible<SequencePoint> : TrueType{};
 			template<typename T, typename... Ts>
-<<<<<<< HEAD
 			struct ArgsToApplyArePlausible : AllOf<brigand::transform<brigand::flatten<brigand::list<T,Ts...>>, Template<ArgToApplyIsPlausible>>>{};
-=======
-			struct ArgsToApplyArePlausible : AllOf<TransformT<br::flatten<br::list<T,Ts...>>, Template<ArgToApplyIsPlausible>>>{};
->>>>>>> origin/master
 
 		}
 
@@ -285,13 +276,9 @@ namespace Kvasir {
 			using namespace MPL;
 			//associate all actions with their value index
 			unsigned a[] = {Detail::argToInt(args)...};
-<<<<<<< HEAD
 			using IndexedActions = brigand::transform<List<Args...>,BuildIndicesT<sizeof...(Args)>,Template<Detail::MakeIndexedAction>>;
-=======
-			using IndexedActions = TransformT<List<Args...>,BuildIndicesT<sizeof...(Args)>,Template<Detail::MakeIndexedAction>>;
->>>>>>> origin/master
 			using FlattenedActions = brigand::flatten<IndexedActions>;
-			using Steps = SplitT<FlattenedActions,SequencePoint>;
+			using Steps = brigand::split<FlattenedActions,SequencePoint>;
 			using Merged = Detail::MergeActionStepsT<Steps>;
 			using Actions = brigand::flatten<Merged>;
 			return Detail::Apply<Actions,Detail::GetReturnTypeT<Args...>>{}(a);
@@ -304,13 +291,9 @@ namespace Kvasir {
 			static_assert(Detail::ArgsToApplyArePlausible<Args...>::value,"one of the supplied arguments is not supported");
 			using namespace MPL;
 			unsigned a[] = {Detail::argToInt(args)...};
-<<<<<<< HEAD
 			using IndexedActions = brigand::transform<brigand::list<Args...>,BuildIndicesT<sizeof...(Args)>,Template<Detail::MakeIndexedAction>>;
-=======
-			using IndexedActions = TransformT<brigand::list<Args...>,BuildIndicesT<sizeof...(Args)>,Template<Detail::MakeIndexedAction>>;
->>>>>>> origin/master
 			using FlattenedActions = brigand::flatten<IndexedActions>;
-			using Steps = SplitT<FlattenedActions,SequencePoint>;
+			using Steps = brigand::split<FlattenedActions,SequencePoint>;
 			using Merged = Detail::MergeActionStepsT<Steps>;
 			using Actions = brigand::flatten<Merged>;
 			Detail::NoReadApply<Actions>{}(a);

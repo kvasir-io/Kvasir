@@ -94,8 +94,7 @@ namespace MPL {
 				typename T_Insert, typename T1, typename T2, typename ... Ts>
 		struct SortInsert<List<Os...>, T_Pred, T_Insert, true, T1, T2, Ts...> : SortInsert<
 				List<Os..., T1>, T_Pred, T_Insert, T_Pred<T2, T_Insert>::value, T2,
-				Ts...> {
-		};
+				Ts...> {};
 		//next is less than insert, next is end, terminate
 		template<typename ... Os, template<typename, typename > class T_Pred,
 				typename T_Insert, typename ... Ts>
@@ -117,19 +116,17 @@ namespace MPL {
 		template<typename O, typename ... Os,
 				template<typename, typename > class TPred, typename TInsert,
 				typename ... Ts>
-		struct Sort<List<O, Os...>, TPred, TInsert, Ts...> {
-			using type = Sort<
+		struct Sort<List<O, Os...>, TPred, TInsert, Ts...> : Sort<
 				typename Detail::SortInsert<List<>, TPred, TInsert,
-						TPred<O, TInsert>::value, O, Os...>::type, TPred, Ts...>;
-		};
+						TPred<O, TInsert>::value, O, Os...>::type, TPred, Ts...>
+		{};
 		//out is empty, in is not empty
 		template<typename ... Os, template<typename, typename > class TPred,
 				typename TInsert, typename ... Ts>
-		struct Sort<List<Os...>, TPred, TInsert, Ts...> {
-			using type = typename Sort<
+		struct Sort<List<Os...>, TPred, TInsert, Ts...> : Sort<
 				typename Detail::SortInsert<List<>, TPred, TInsert, false, Os...>::type,
-				TPred, Ts...>::type;
-		};
+				TPred, Ts...>
+		{};
 		//in is empty
 		template<typename ... Os, template<typename, typename > class P, typename ... Ts>
 		struct Sort<List<Os...>, P, Ts...> {
@@ -222,79 +219,29 @@ namespace MPL {
 	using SumT = typename Sum<TList>::type;
 
 	//works like PHP explode, splits a list into a list of lists devided by a user provided delimiter
-	template<typename TList, typename TDelim>
-	struct Split {
-		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
-	};
-	template<typename... Ts, typename TDelim>
-	struct Split<List<Ts...>,TDelim> : Detail::Split<List<>, List<>,TDelim,Ts...>{};
-	template<typename TDelim>
-	struct Split<List<>,TDelim> : Return<List<>>{};
+	//template<typename TList, typename TDelim>
+	//struct Split {
+	//	static_assert(AlwaysFalse<TList>::value,"implausible parameters");
+	//};
+	//template<typename... Ts, typename TDelim>
+	//struct Split<List<Ts...>,TDelim> : Detail::Split<List<>, List<>,TDelim,Ts...>{};
+	//template<typename TDelim>
+	//struct Split<List<>,TDelim> : Return<List<>>{};
 
-	template<typename TList, typename TDelim>
-	using SplitT = typename Split<TList,TDelim>::type;
+	//template<typename TList, typename TDelim>
+	//using SplitT = typename Split<TList,TDelim>::type;
 
 	//works like PHP implode, merges a list of lists into a list divided by a user provided delimiter
-	template<typename TList, typename TDelim>
-	struct Join {
-		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
-	};
-	template<typename... Ts, typename TDelim>
-	struct Join<List<Ts...>,TDelim> : Detail::Join<List<>,TDelim,Ts...>{};
+	//template<typename TList, typename TDelim>
+	//struct Join {
+	//	static_assert(AlwaysFalse<TList>::value,"implausible parameters");
+	//};
+	//template<typename... Ts, typename TDelim>
+	//struct Join<List<Ts...>,TDelim> : Detail::Join<List<>,TDelim,Ts...>{};
 
-	template<typename TList, typename TDelim>
-	using JoinT = typename Join<TList,TDelim>::type;
+	//template<typename TList, typename TDelim>
+	//using JoinT = typename Join<TList,TDelim>::type;
 
-	//if a type is a list of types it will successively be unpacked into the enclosing list
-	//template<typename TList>
-	//struct Flatten{
-<<<<<<< HEAD
-		//static_assert(AlwaysFalse<TList>::value,"implausible type");
-=======
-	//	static_assert(AlwaysFalse<TList>::value,"implausible type");
->>>>>>> origin/master
-	//};
-	//template<>
-	//struct Flatten<List<>> : Return<List<>>{};
-	//template<typename ... Ts>
-	//struct Flatten<List<Ts...>> : Detail::Flatten<List<>, Ts...> {
-	//};
-	//template<typename TList>
-<<<<<<< HEAD
-	//using FlattenT = typename Flatten<TList>::type;
-
-	//template<typename T, typename U, typename... Ts>
-	//struct Transform{
-		//static_assert(AlwaysFalse<T>::value,"implausible type");
-	//};
-	//template<typename... Ts, template<typename> class T>
-	//struct Transform<List<Ts...>,Template<T>>{
-		//using type = List<ApplyTemplateT<Template<T>, Ts>...>;
-	//};
-	//template<typename... Ts, typename... Us, template<typename,typename> class T>
-	//struct Transform<List<Ts...>, List<Us...>, Template<T>>{
-		//using type = List<ApplyTemplateT<Template<T>, Ts, Us>...>;
-	//};
-	//template<typename...Ts>
-	//using TransformT = typename Transform<Ts...>::type;
-=======
-	//using FlattenT = typename Flatten<TList>::Type;
-
-	template<typename T, typename U, typename... Ts>
-	struct Transform{
-		static_assert(AlwaysFalse<T>::value,"implausible type");
-	};
-	template<typename... Ts, template<typename> class T>
-	struct Transform<List<Ts...>,Template<T>>{
-		using Type = List<ApplyTemplateT<Template<T>, Ts>...>;
-	};
-	template<typename... Ts, typename... Us, template<typename,typename> class T>
-	struct Transform<List<Ts...>, List<Us...>, Template<T>>{
-		using Type = List<ApplyTemplateT<Template<T>, Ts, Us>...>;
-	};
-	template<typename...Ts>
-	using TransformT = typename Transform<Ts...>::Type;
->>>>>>> origin/master
 
 	//Sort
 	template<typename TList, typename TPred = LessP>
@@ -304,11 +251,15 @@ namespace MPL {
 
 	//empty input case
 	template<template<typename, typename > class TPred>
-	struct Sort<MPL::List<>, Template<TPred>> : Return<List<>> {};
+	struct Sort<MPL::List<>, Template<TPred>> {
+		using type = List<>;
+	};
 
 	//one element case
 	template<typename T, template<typename, typename > class TPred>
-	struct Sort<MPL::List<T>, Template<TPred>> : Return<List<T>> {};
+	struct Sort<MPL::List<T>, Template<TPred>> {
+		using type = List<T>;
+	};
 
 	//two or more elements case
 	template<typename ... Ts, template<typename, typename > class TPred>
@@ -328,11 +279,7 @@ namespace MPL {
 	struct Remove<List<T, Ts...>,Int<From>,Int<To>> : Detail::Remove<List<>,From,To,T,Ts...>{};
 
 	template<typename ... Ts, template<typename> class TPred>
-<<<<<<< HEAD
 	struct Remove<brigand::list<Ts...>, Template<TPred>, void> : brigand::flatten<List<typename std::conditional<TPred<Ts>::value,List<>,Ts>::type...>>{};
-=======
-	struct Remove<MPL::List<Ts...>, Template<TPred>, void> : brigand::flatten<List<ConditionalT<TPred<Ts>::value,List<>,Ts>...>>{};
->>>>>>> origin/master
 
 	template<typename TList,typename TFrom, typename TTo = void>
 	using RemoveT = typename Remove<TList,TFrom,TTo>::type;

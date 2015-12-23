@@ -169,7 +169,7 @@ namespace Kvasir {
 
 		template<typename ... Is>
 		struct BuildIndices<0, Is...> {
-			using type = List<Is...>;
+			using type = brigand::list<Is...>;
 		};
 
 		template<int N>
