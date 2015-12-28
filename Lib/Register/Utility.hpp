@@ -30,6 +30,10 @@ namespace Register{
 	namespace Detail{
 		using namespace MPL;
 
+		constexpr int maskStartsAt(unsigned mask, int bitNum = 0) {
+			return mask & 1 ? bitNum : maskStartsAt(mask >> 1, bitNum + 1);
+		}
+
 		constexpr bool onlyOneBitSet(unsigned i){
 			return 	(i==(1u<<0)) ||
 					(i==(1u<<1)) ||

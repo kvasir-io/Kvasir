@@ -15,6 +15,17 @@ limitations under the License.
 #define BRIGAND_NO_BOOST_SUPPORT 1
 #include "brigand.hpp"
 
+#ifndef NDEBUG
+//in debug mode inlining is forced
+#ifdef _MSC_VER
+#define DEBUG_INLINE __forceinline
+#else
+#define DEBUG_INLINE __attribute__((always_inline))
+#endif
+#else
+//in release mode its just a hint
+#define DEBUG_INLINE inline
+#endif
 namespace Kvasir {
 	namespace MPL {
 

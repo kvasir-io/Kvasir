@@ -65,9 +65,9 @@ namespace Kvasir {
 
 		template<typename Address, unsigned Mask, typename Access, typename FieldType>
 		struct RecordActions<Action<FieldLocation<Address, Mask, Access, FieldType>, WriteAction>> {
-			int operator()(int in) {
+			int operator()(unsigned in) {
 				actions_.emplace_back(
-					RecordedAction{ RecordedAction::Type::read, Address::value, Mask, in });
+					RecordedAction{ RecordedAction::Type::write, Address::value, Mask, in });
 				return 0;
 			}
 		};

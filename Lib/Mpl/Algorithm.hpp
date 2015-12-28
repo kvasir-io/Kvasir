@@ -310,28 +310,29 @@ namespace MPL {
 	template<typename TList, typename TPred>
 	using CountIfT = typename CountIf<TList,TPred>::type;
 
-	template<typename TList, typename TPred = void>
-	struct AllOf{
-		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
+	template<std::size_t N, class... T> 
+	struct RepeatCImpl
+	{
+		using l1 = typename RepeatCImpl<N / 2, T...>::type;
+		using l2 = typename RepeatCImpl<N % 2, T...>::type;
+
+		using type = brigand::append<l1, l1, l2>;
 	};
-	template<bool B>
-	struct AllOf<List<Bool<B>>,void> : Bool<B>{};
-	template<bool B1, bool B2, typename... Bs>
-	struct AllOf<List<Bool<B1>,Bool<B2>,Bs...>,void> : AllOf<List<Bool<B1 && B2>,Bs...>,void>{};
 
-	template<typename TList, typename TPred>
-	using AllOfT = typename AllOf<TList, TPred>::type;
-
-	template<typename TList, typename TPred = void>
-	struct AnyOf{
-		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
+	template<class... T> 
+	struct RepeatCImpl<0, T...>
+	{
+		using type = brigand::list<>;
 	};
-	template<bool B>
-	struct AnyOf<List<Bool<B>>,void> : Bool<B>{};
-	template<bool B1, bool B2, typename... Bs>
-	struct AnyOf<List<Bool<B1>,Bool<B2>,Bs...>,void> : AnyOf<List<Bool<B1 || B2>,Bs...>,void>{};
 
-	template<typename TList, typename TPred>
-	using AnyOfT = typename AnyOf<TList, TPred>::type;
+	template<class... T> 
+	struct RepeatCImpl<1, T...>
+	{
+		using type = brigand::list<T...>;
+	};
+
+	template<std::size_t N, class... T> 
+	using RepeatC = typename RepeatCImpl<N, T...>::type;
+
 }
 }

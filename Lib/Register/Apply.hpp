@@ -31,36 +31,51 @@ namespace Kvasir {
 
 		namespace Detail{
 			namespace br = brigand;
-			//indexed inputs keep track of the mask and location of an input
-			template<int Index, unsigned Mask>
-			struct IndexedInput{
-				static constexpr int index = Index;
-				static constexpr unsigned mask = Mask;
-				using type = IndexedInput<Index,Mask>;
-				template<int I>
-				unsigned operator()(const unsigned (&arg)[I]){
-					return arg[Index] & Mask;
-				}
+
+			template<std::size_t I, typename O, typename A, typename L>
+			struct MakeSeperatorsImpl {
+				using type = O;
 			};
+			template<std::size_t I, typename...O, typename...A, typename...T>
+			struct MakeSeperatorsImpl<I, br::list<O...>, br::list<A...>, br::list<br::size_t<I>, T...>> :
+				MakeSeperatorsImpl<(I + 1), br::list<O..., br::list<A...>>, br::list<>, br::list<T...>> {};
+
+			template<std::size_t I, typename...O, typename...A, typename U, typename...T>
+			struct MakeSeperatorsImpl<I, br::list<O...>, brigand::list<A...>, brigand::list<U, T...>> :
+				MakeSeperatorsImpl<I + 1, brigand::list<O...>, brigand::list<A..., unsigned>, brigand::list<U, T...>> {};
+			template<typename T>
+			using MakeSeperators = MakeSeperatorsImpl<0, brigand::list<>, brigand::list<>, brigand::sort<T>>;
+
 			//an index action consists of an action (possably merged) and
 			//the inputs including masks which it needs
-			template<typename TAction, unsigned ReadMask, typename... TInputs>
+			template<typename TAction, typename... TInputs>
 			struct IndexedAction{
-				using type = IndexedAction<TAction,ReadMask,TInputs...>;
-				template<int I>
-				unsigned operator()(const unsigned (&arg)[I]){
-					return ExecuteSeam<TAction, ::Kvasir::Tag::User>{}(orAllOf(TInputs{}(arg)...)) & ReadMask;
-				}
-				unsigned operator()(){
-					return ExecuteSeam<TAction, ::Kvasir::Tag::User>{}(0) & ReadMask;
-				}
+				using type = IndexedAction<TAction,TInputs...>;
 			};
+
+
+			template<typename T>
+			struct GetAction;
+			template<typename A, typename...T>
+			struct GetAction<IndexedAction<A, T...>> {
+				using type = A;
+			};
+
+			template<typename T>
+			struct GetInputsImpl;
+			template<typename A, typename...T>
+			struct GetInputsImpl<IndexedAction<A, T...>> {
+				using type = MakeSeperators<brigand::list<T...>>;
+			};
+			template<typename T>
+			using GetInputs = typename GetInputsImpl<T>::type;
+
 
 			//predecate retuning result of left < right for RegisterOptions
 			template<typename TLeft, typename TRight>
 			struct IndexedActionLess;
-			template<typename T1, typename U1, typename T2, typename U2, unsigned Mask1, unsigned Mask2, typename... TInputs1, typename... TInputs2>
-			struct IndexedActionLess< IndexedAction<Action<T1,U1>, Mask1, TInputs1...>, IndexedAction<Action<T2,U2>, Mask2, TInputs2... >> : Bool<(GetAddress<T1>::value < GetAddress<T2>::value)>{};
+			template<typename T1, typename U1, typename T2, typename U2, typename... TInputs1, typename... TInputs2>
+			struct IndexedActionLess< IndexedAction<Action<T1,U1>, TInputs1...>, IndexedAction<Action<T2,U2>, TInputs2... >> : Bool<(GetAddress<T1>::value < GetAddress<T2>::value)>{};
 
 			template<typename TRegisters, typename TRet = brigand::list<>> //default
 			struct MergeRegisterActions;
@@ -76,12 +91,11 @@ namespace Kvasir {
 				typename TFieldType1, typename TFieldType2,
 				template<unsigned> class TActionTemplate,
 				unsigned Value1, unsigned Value2,
-				unsigned ReadMask1, unsigned ReadMask2,
 				typename... TInputs1, typename... TInputs2,
 				typename... Ts, typename... Us> //next input and last merged are mergable
 			struct MergeRegisterActions<
-				brigand::list<IndexedAction<Action<FieldLocation<TAddress,Mask1,TAccess1,TFieldType1>,TActionTemplate<Value1>>, ReadMask1, TInputs1...>, Ts...>,
-				brigand::list<IndexedAction<Action<FieldLocation<TAddress,Mask2,TAccess2,TFieldType2>,TActionTemplate<Value2>>, ReadMask2, TInputs2...>, Us...>
+				brigand::list<IndexedAction<Action<FieldLocation<TAddress,Mask1,TAccess1,TFieldType1>,TActionTemplate<Value1>>, TInputs1...>, Ts...>,
+				brigand::list<IndexedAction<Action<FieldLocation<TAddress,Mask2,TAccess2,TFieldType2>,TActionTemplate<Value2>>, TInputs2...>, Us...>
 				> :	MergeRegisterActions<
 				brigand::list<Ts...>,
 				brigand::list<IndexedAction<Action<
@@ -92,7 +106,6 @@ namespace Kvasir {
 							TActionTemplate<(Value1 | Value2)>	//merge
 							//TODO implement register type here
 						>,
-						(ReadMask1 | ReadMask2), 					//merge
 						TInputs1..., TInputs2...>,				//concatinate
 						Us...>									//pass through rest
 			>{};
@@ -127,45 +140,49 @@ namespace Kvasir {
 			using MergeActionStepsT = typename MergeActionSteps<T>::type;
 
 
-			template<typename TAction, unsigned ReadMask, typename... TInputs>
-			struct GetAddress<IndexedAction<TAction,ReadMask,TInputs...>>
+			template<typename TAction, typename... TInputs>
+			struct GetAddress<IndexedAction<TAction,TInputs...>>
 				: GetAddress<TAction> {};
 
-			template<unsigned Mask, typename TAction>
-			struct MakeReadMask : Unsigned<0>{};
-			template<unsigned Mask>
-			struct MakeReadMask<Mask, ReadAction> : Unsigned<Mask>{};
-
-			template<typename TAction, typename Index>
-			struct MakeIndexedAction;
+			template<bool TopLevel, typename TAction, typename Index>
+			struct MakeIndexedActionImpl;
 			//in default case there is no actual expected input
-			template<typename TAddress, unsigned Mask, typename TAccess, typename TR, typename TAction, int Index>
-			struct MakeIndexedAction<Action<FieldLocation<TAddress,Mask,TAccess,TR>,TAction>,Int<Index>>{
-				using type = IndexedAction<Action<FieldLocation<TAddress, Mask, TAccess, TR>, TAction>, MakeReadMask<Mask, TAction>::value>;
+			template<bool TopLevel, typename TAddress, unsigned Mask, typename TAccess, typename TR, typename TAction, int Index>
+			struct MakeIndexedActionImpl<TopLevel, Action<FieldLocation<TAddress,Mask,TAccess,TR>,TAction>,Int<Index>>{
+				using type = IndexedAction<Action<FieldLocation<TAddress, Mask, TAccess, TR>, TAction>>;
 			};
 
 			//special case where there actually is expected input
-			template<typename TAddress, unsigned Mask, typename TAccess, typename TR, int Index>
-			struct MakeIndexedAction<Action<FieldLocation<TAddress,Mask,TAccess,TR>,WriteAction>,Int<Index>>{	
+			template<bool TopLevel, typename TAddress, unsigned Mask, typename TAccess, typename TR, int Index>
+			struct MakeIndexedActionImpl<TopLevel, Action<FieldLocation<TAddress, Mask, TAccess, TR>, WriteAction>, Int<Index>> {
+				static_assert(TopLevel, "runtime values can only be executed in an apply, they cannot be stored in a list");
 				using type = IndexedAction<
 					Action<FieldLocation<TAddress, Mask, TAccess, TR>, WriteAction>,
-					MakeReadMask<Mask, WriteAction>::value,
-					IndexedInput<Index, Mask>>;
+					brigand::size_t<Index >> ;
+			};
+
+			//special case where there actually is expected input
+			template<bool TopLevel, typename TAddress, unsigned Mask, typename TAccess, typename TR, int Index>
+			struct MakeIndexedActionImpl<TopLevel, Action<FieldLocation<TAddress, Mask, TAccess, TR>, XorAction>, Int<Index>> {
+				static_assert(TopLevel, "runtime values can only be executed in an apply, they cannot be stored in a list");
+				using type = IndexedAction<
+					Action<FieldLocation<TAddress, Mask, TAccess, TR>, WriteAction>,
+					brigand::size_t<Index >> ;
 			};
 
 			//special case where a list of actions is passed
-			template<typename... Ts, typename Index>
-			struct MakeIndexedAction<List<Ts...>,Index>{
-				using type = brigand::list<typename MakeIndexedAction<Ts, Index>::type...>;
+			template<bool TopLevel, typename... Ts, typename Index>
+			struct MakeIndexedActionImpl<TopLevel, List<Ts...>,Index>{
+				using type = brigand::list<typename MakeIndexedActionImpl<false, Ts, Index>::type...>;
 			};
-			//special case where a list of actions is passed
-			template<typename Index>
-			struct MakeIndexedAction<SequencePoint,Index> {
+			//special case where a sequence point is passed
+			template<bool TopLevel, typename Index>
+			struct MakeIndexedActionImpl<TopLevel, SequencePoint,Index> {
 				using type = SequencePoint;
 			};
 
 			template<typename TAction, typename Index>
-			using MakeIndexedActionT = typename MakeIndexedAction<TAction,Index>::type;
+			using MakeIndexedAction = typename MakeIndexedActionImpl<true,TAction,Index>::type;
 
 
 			template<unsigned I>
@@ -191,12 +208,43 @@ namespace Kvasir {
 
 
 			template<typename T, typename = decltype(T::value_)>
-			unsigned argToInt(T arg){
+			DEBUG_INLINE unsigned argToUnsigned(T arg){
 				return arg.value_;
 			}
-			unsigned argToInt(...){
+			DEBUG_INLINE unsigned argToUnsigned(...){
 				return 0;
 			}
+
+			template<typename T>
+			struct Finder;
+			template<>
+			struct Finder<brigand::list<>> {
+				DEBUG_INLINE unsigned operator()(...) {
+					return 0;
+				}
+			};
+			template<typename...A>
+			struct Finder<brigand::list<brigand::list<A...>>> {
+				template<typename...T>
+				DEBUG_INLINE unsigned operator()(A..., unsigned a, T...) {
+					return a;
+				}
+			};
+			template<typename...A, typename...B>
+			struct Finder<brigand::list<brigand::list<A...>, brigand::list<B...>>> {
+				template<typename...T>
+				DEBUG_INLINE unsigned operator()(A..., unsigned a, B..., unsigned b, T...) {
+					return a | b;
+				}
+			};
+			template<typename...A, typename...B, typename...Rest>
+			struct Finder<brigand::list<brigand::list<A...>, brigand::list<B...>, Rest...>> {
+				template<typename...T>
+				DEBUG_INLINE unsigned operator()(A..., unsigned a, B..., unsigned b, T...t) {
+					auto r = Finder < brigand::list<Rest...>>{};
+					return a | b | r(t...);
+				}
+			};
 
 			template<typename TActionList, typename TRetType>
 			struct Apply;
@@ -229,21 +277,13 @@ namespace Kvasir {
 			};
 
 			//no read apply
-			template<typename TActionList>
+			template<typename TActionList, typename TInputIndexList>
 			struct NoReadApply;
-			template<typename... TActions>
-			struct NoReadApply<List<TActions...>>{
-				template<int I>
-				void operator()(unsigned (&args)[I]){
-					unsigned a[] = {TActions{}(args)...};
-					ignore(a);
-				}
-			};
-			template<typename... TAction, unsigned... Mask>
-			struct NoReadApply<brigand::list<IndexedAction<TAction,Mask>...>>{
-				template<typename T>
-				void operator()(T){
-					unsigned a[] = {IndexedAction<TAction,Mask>{}()...};
+			template<typename... TActions, typename...TInputIndexes>
+			struct NoReadApply<brigand::list<TActions...>, brigand::list<TInputIndexes...>> {
+				template<typename...T>
+				void operator()(T...args) {
+					unsigned a[] = { ExecuteSeam<TActions, ::Kvasir::Tag::User>{}(Finder<TInputIndexes>{}(args...))... };
 					ignore(a);
 				}
 			};
@@ -263,7 +303,14 @@ namespace Kvasir {
 			template<>
 			struct ArgToApplyIsPlausible<SequencePoint> : TrueType{};
 			template<typename T, typename... Ts>
-			struct ArgsToApplyArePlausible : AllOf<brigand::transform<brigand::flatten<brigand::list<T,Ts...>>, Template<ArgToApplyIsPlausible>>>{};
+			struct ArgsToApplyArePlausible{
+				using l = brigand::flatten < brigand::list<T, Ts...>>;
+				using type = MPL::Bool <
+					std::is_same<
+						MPL::RepeatC<brigand::size<l>::value,MPL::TrueType>,
+						brigand::transform<l, brigand::quote<ArgToApplyIsPlausible>>>::value>;
+				static constexpr int value = type::value;
+			};
 
 		}
 
@@ -275,7 +322,7 @@ namespace Kvasir {
 			static_assert(Detail::ArgsToApplyArePlausible<Args...>::value,"one of the supplied arguments is not supported");
 			using namespace MPL;
 			//associate all actions with their value index
-			unsigned a[] = {Detail::argToInt(args)...};
+			unsigned a[] = {Detail::argToUnsigned(args)...};
 			using IndexedActions = brigand::transform<List<Args...>,BuildIndicesT<sizeof...(Args)>,Template<Detail::MakeIndexedAction>>;
 			using FlattenedActions = brigand::flatten<IndexedActions>;
 			using Steps = brigand::split<FlattenedActions,SequencePoint>;
@@ -287,16 +334,17 @@ namespace Kvasir {
 		//if apply does not contain reads return is void
 		template<typename...Args>
 		inline typename std::enable_if<(brigand::size<Detail::GetReadsT<brigand::list<Args...>>>::value == 0)>::type
-		apply(Args...args){
-			static_assert(Detail::ArgsToApplyArePlausible<Args...>::value,"one of the supplied arguments is not supported");
-			using namespace MPL;
-			unsigned a[] = {Detail::argToInt(args)...};
-			using IndexedActions = brigand::transform<brigand::list<Args...>,BuildIndicesT<sizeof...(Args)>,Template<Detail::MakeIndexedAction>>;
+			apply(Args...args) {
+			static_assert(Detail::ArgsToApplyArePlausible<Args...>::value, "one of the supplied arguments is not supported");
+			using IndexedActions = brigand::transform<brigand::list<Args...>, MPL::BuildIndicesT<sizeof...(Args)>, brigand::quote<Detail::MakeIndexedAction>>;
 			using FlattenedActions = brigand::flatten<IndexedActions>;
-			using Steps = brigand::split<FlattenedActions,SequencePoint>;
+			using Steps = brigand::split<FlattenedActions, SequencePoint>;
 			using Merged = Detail::MergeActionStepsT<Steps>;
 			using Actions = brigand::flatten<Merged>;
-			Detail::NoReadApply<Actions>{}(a);
+			using Functors = brigand::transform<Actions, brigand::quote<Detail::GetAction>>;
+			using Inputs = brigand::transform<Actions, brigand::quote<Detail::GetInputs>>;
+			Detail::NoReadApply<Functors, Inputs> a{};
+			a(Detail::argToUnsigned(args)...);
 		}
 
 		//no parameters is allowed because it could be used in maschine generated code
