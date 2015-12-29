@@ -1,7 +1,6 @@
 sudo: false
 language: cpp
 
-# More complete test matrix
 matrix:
   include:
     - os: linux
@@ -27,10 +26,6 @@ matrix:
           sources: ['ubuntu-toolchain-r-test']
           packages: ['g++-5']
       env: TOOLSET=g++-5
-
-# Install boost
-before_install:
- - cd $TRAVIS_BUILD_DIR
 
 # Prepare build
 before_script:
