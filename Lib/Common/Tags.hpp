@@ -54,7 +54,7 @@ namespace Tag {
 		static constexpr Channel<13> c13{};
 		static constexpr Channel<14> c14{};
 		static constexpr Channel<15> c15{};
-	};
+	}
 	namespace Match{
 		template<int I>
 		struct Channel{ static constexpr int value{I}; };
@@ -74,7 +74,7 @@ namespace Tag {
 		static constexpr Channel<13> m13{};
 		static constexpr Channel<14> m14{};
 		static constexpr Channel<15> m15{};
-	};
+	}
 	namespace Detail{
 		template<typename T>
 		struct IsChannel{

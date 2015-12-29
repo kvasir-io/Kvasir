@@ -48,7 +48,7 @@ namespace MPL {
 		template<typename... Os, typename TDelim, typename... Ls, typename... Ts>
 		struct Join<List<Os...>,TDelim,List<Ls...>,Ts...> : Join<List<Os...,TDelim,Ls...>,TDelim,Ts...>{};
 		template<typename... Os, typename TDelim>
-		struct Join<List<Os...>,TDelim> : List<Os...>{};   //no more input, done
+		struct Join<List<Os...>,TDelim> : Return<List<Os...>>{};   //no more input, done
 
 		template<typename TOut, typename TCurrent, typename TDelim, typename... Ts>
 		struct Split;
@@ -56,32 +56,35 @@ namespace MPL {
 		struct Split<List<Os...>,List<Cs...>,TDelim,T,Ts...> : //next is not delim, we still have more
 			Split<List<Os...>,List<Cs...,T>,TDelim,Ts...>{};
 		template<typename... Os, typename... Cs, typename TDelim, typename T>
-		struct Split<List<Os...>,List<Cs...>,TDelim,T> : //next is not delim, we do not have more
-			List<Os...,List<Cs...,T>>{};
+		struct Split<List<Os...>,List<Cs...>,TDelim,T> { //next is not delim, we do not have more
+			using Type = List<Os..., List<Cs..., T>>;
+		};
 		template<typename... Os, typename... Cs, typename TDelim, typename... Ts>
 		struct Split<List<Os...>,List<Cs...>,TDelim,TDelim,Ts...> : //next is delim, we still have more
 			Split<List<Os...,List<Cs...>>,List<>,TDelim,Ts...>{};
 		template<typename... Os, typename... Cs, typename TDelim>
-		struct Split<List<Os...>,List<Cs...>,TDelim,TDelim> : //next is delim, we have no more
-			List<Os...,List<Cs...>>{};
+		struct Split<List<Os...>,List<Cs...>,TDelim,TDelim> { //next is delim, we have no more
+			using Type = List<Os..., List<Cs...>>;
+		};
 		//same cases but with empty TCurrent list
 		template<typename... Os, typename TDelim, typename... Ts>
 		struct Split<List<Os...>,List<>,TDelim,TDelim,Ts...> : //next is delim, we still have more
 			Split<List<Os...>,List<>,TDelim,Ts...>{};
 		template<typename... Os, typename TDelim>
-		struct Split<List<Os...>,List<>,TDelim,TDelim> : //next is delim, we have no more
-			List<Os...>{};
+		struct Split<List<Os...>,List<>,TDelim,TDelim> { //next is delim, we have no more
+			using Type = List<Os...>;
+		};
 
-		//default only reached when Ts is empty
-		template<typename T_List, typename ... Ts>
-		struct Flatten: T_List {};
-		//first of Ts is not a list
-		template<typename ... Ts, typename T, typename ... Us>
-		struct Flatten<List<Ts...>, T, Us...> : Flatten<List<Ts..., T>, Us...> {};
-		//frist of Ts is a list
-		template<typename ... Ts, typename ... Us, typename ... Vs>
-		struct Flatten<List<Ts...>, List<Us...>, Vs...> :
-			Flatten<List<Ts...>, Us..., Vs...> {};
+		////default only reached when Ts is empty
+		//template<typename T_List, typename ... Ts>
+		//struct Flatten : T_List {};
+		////first of Ts is not a list
+		//template<typename ... Ts, typename T, typename ... Us>
+		//struct Flatten<List<Ts...>, T, Us...> : Flatten<List<Ts..., T>, Us...> {};
+		////frist of Ts is a list
+		//template<typename ... Ts, typename ... Us, typename ... Vs>
+		//struct Flatten<List<Ts...>, List<Us...>, Vs...> :
+		//	Flatten<List<Ts...>, Us..., Vs...> {};
 
 		template<typename T_Out, template<typename, typename > class T_Pred,
 				typename T_Insert, bool B_Tag, typename ... Ts>
@@ -91,19 +94,18 @@ namespace MPL {
 				typename T_Insert, typename T1, typename T2, typename ... Ts>
 		struct SortInsert<List<Os...>, T_Pred, T_Insert, true, T1, T2, Ts...> : SortInsert<
 				List<Os..., T1>, T_Pred, T_Insert, T_Pred<T2, T_Insert>::value, T2,
-				Ts...> {
-		};
+				Ts...> {};
 		//next is less than insert, next is end, terminate
 		template<typename ... Os, template<typename, typename > class T_Pred,
 				typename T_Insert, typename ... Ts>
-		struct SortInsert<List<Os...>, T_Pred, T_Insert, true, Ts...> : List<Os...,
-				Ts..., T_Insert> {
+		struct SortInsert<List<Os...>, T_Pred, T_Insert, true, Ts...> {
+			using type = List<Os..., Ts..., T_Insert>;
 		};
 		//next is not less than insert, terminate
 		template<typename ... Os, template<typename, typename > class T_Pred,
 				typename T_Insert, typename ... Ts>
-		struct SortInsert<List<Os...>, T_Pred, T_Insert, false, Ts...> : List<Os...,
-				T_Insert, Ts...> {
+		struct SortInsert<List<Os...>, T_Pred, T_Insert, false, Ts...> {
+			using type = List<Os..., T_Insert, Ts...>;
 		};
 
 		template<typename TOut, template<typename, typename > class P, typename ... Ts>
@@ -116,18 +118,19 @@ namespace MPL {
 				typename ... Ts>
 		struct Sort<List<O, Os...>, TPred, TInsert, Ts...> : Sort<
 				typename Detail::SortInsert<List<>, TPred, TInsert,
-						TPred<O, TInsert>::value, O, Os...>::Type, TPred, Ts...> {
-		};
+						TPred<O, TInsert>::value, O, Os...>::type, TPred, Ts...>
+		{};
 		//out is empty, in is not empty
 		template<typename ... Os, template<typename, typename > class TPred,
 				typename TInsert, typename ... Ts>
 		struct Sort<List<Os...>, TPred, TInsert, Ts...> : Sort<
-				typename Detail::SortInsert<List<>, TPred, TInsert, false, Os...>::Type,
-				TPred, Ts...> {
-		};
+				typename Detail::SortInsert<List<>, TPred, TInsert, false, Os...>::type,
+				TPred, Ts...>
+		{};
 		//in is empty
 		template<typename ... Os, template<typename, typename > class P, typename ... Ts>
-		struct Sort<List<Os...>, P, Ts...> : List<Os...> {
+		struct Sort<List<Os...>, P, Ts...> {
+			using type = List<Os...>;
 		};
 
 		template<typename TOut, int From, int To, typename... Ts>
@@ -137,16 +140,20 @@ namespace MPL {
 		template<typename... Os, int To, typename T, typename... Ts>
 		struct Remove<List<Os...>,0,To,T,Ts...> : Remove<List<Os...>,0,To-1,Ts...>{};
 		template<typename... Os, typename T, typename... Ts>
-		struct Remove<List<Os...>,0,0,T,Ts...> : List<Os...,T,Ts...>{};
+		struct Remove<List<Os...>,0,0,T,Ts...>{
+			using type = List<Os..., T, Ts...>;
+		};
 		template<typename... Os>
-		struct Remove<List<Os...>,0,0> : List<Os...>{};
+		struct Remove<List<Os...>,0,0>{
+			using type = List<Os...>;
+		};
 
 		template<bool FirstTwoSame, typename T, template<typename, typename > class Pred, typename... Ts>
 		struct Unique;
 		template<typename... Rs, template<typename, typename > class Pred, typename T, typename U>	//only two left
-		struct Unique<true, List<Rs...>, Pred, T, U> : List<Rs...,T>{};
+		struct Unique<true, List<Rs...>, Pred, T, U> : Return<List<Rs...,T>>{};
 		template<typename... Rs, template<typename, typename > class Pred, typename T, typename U>	//only two left
-		struct Unique<false, List<Rs...>, Pred, T, U> : List<Rs...,T,U>{};
+		struct Unique<false, List<Rs...>, Pred, T, U> : Return<List<Rs...,T,U>>{};
 		template<typename... Rs, template<typename, typename > class Pred, typename T, typename U, typename V, typename... Ts>  //not same
 		struct Unique<false,List<Rs...>, Pred, T, U, V, Ts...> : Unique<Pred<U,V>::value,List<Rs...,T>,Pred,U,V,Ts...>{};
 		template<typename... Rs, template<typename, typename > class Pred, typename T, typename U, typename V, typename... Ts>  //same
@@ -163,7 +170,7 @@ namespace MPL {
 	template<typename T, typename... Ts>
 	struct At<List<T, Ts...>,Int<0>> : Return<T>{};
 	template<typename TList, typename TIndex>
-	using AtT = typename At<TList,TIndex>::Type;
+	using AtT = typename At<TList,TIndex>::type;
 
 
 	//Find returns Int<-1> if type is not found, otherwise returns index
@@ -177,7 +184,7 @@ namespace MPL {
 	template<template<typename...> class Pred, typename T, typename... Ts>
 	struct Find<List<T,Ts...>, Template<Pred>> : Detail::PredFind<0,Pred<T>::value,Pred,Ts...>{};
 	template<typename TList, typename TToFind>
-	using FindT = typename Find<TList,TToFind>::Type;
+	using FindT = typename Find<TList,TToFind>::type;
 
 	//Get returns first item matching Pred or default if none are matching
 	template<typename TList, typename TPred, typename TDefault = void>
@@ -188,7 +195,7 @@ namespace MPL {
 	struct Get<List<Ts...>, Template<Pred>,D> :
 		ConditionalT<(FindT<List<Ts...>,Template<Pred>>::value == -1),D,At<List<Ts...>,FindT<List<Ts...>,Template<Pred>>>>{};
 	template<typename TList, typename TPred, typename TDefault = void>
-	using GetT = typename Get<TList, TPred, TDefault>::Type;
+	using GetT = typename Get<TList, TPred, TDefault>::type;
 
 	//returns true if T_ToFind is in T_Container, otherwise false
 	template<typename TContainer, typename TToFind>
@@ -197,9 +204,9 @@ namespace MPL {
 	};
 	template<typename TToFind, typename ... Ts>
 	struct Contains<List<Ts...>,TToFind> : NotT<
-			IsSameT<typename Detail::Find<0, TToFind, Ts...>::Type, Int<-1>>> {};
+			IsSameT<typename Detail::Find<0, TToFind, Ts...>::type, Int<-1>>> {};
 	template<typename TContainer, typename TToFind>
-	using ContainsT = typename Contains<TContainer,TToFind>::Type;
+	using ContainsT = typename Contains<TContainer,TToFind>::type;
 
 	template<typename TList>
 	struct Sum{
@@ -209,55 +216,32 @@ namespace MPL {
 	struct Sum<List<Ts...>> : Detail::Sum<0,Ts::value...>{};
 
 	template<typename TList>
-	using SumT = typename Sum<TList>::Type;
+	using SumT = typename Sum<TList>::type;
 
 	//works like PHP explode, splits a list into a list of lists devided by a user provided delimiter
-	template<typename TList, typename TDelim>
-	struct Split {
-		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
-	};
-	template<typename... Ts, typename TDelim>
-	struct Split<List<Ts...>,TDelim> : Detail::Split<List<>, List<>,TDelim,Ts...>{};
-	template<typename TDelim>
-	struct Split<List<>,TDelim> : List<>{};
+	//template<typename TList, typename TDelim>
+	//struct Split {
+	//	static_assert(AlwaysFalse<TList>::value,"implausible parameters");
+	//};
+	//template<typename... Ts, typename TDelim>
+	//struct Split<List<Ts...>,TDelim> : Detail::Split<List<>, List<>,TDelim,Ts...>{};
+	//template<typename TDelim>
+	//struct Split<List<>,TDelim> : Return<List<>>{};
 
-	template<typename TList, typename TDelim>
-	using SplitT = typename Split<TList,TDelim>::Type;
+	//template<typename TList, typename TDelim>
+	//using SplitT = typename Split<TList,TDelim>::type;
 
 	//works like PHP implode, merges a list of lists into a list divided by a user provided delimiter
-	template<typename TList, typename TDelim>
-	struct Join {
-		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
-	};
-	template<typename... Ts, typename TDelim>
-	struct Join<List<Ts...>,TDelim> : Detail::Join<List<>,TDelim,Ts...>{};
+	//template<typename TList, typename TDelim>
+	//struct Join {
+	//	static_assert(AlwaysFalse<TList>::value,"implausible parameters");
+	//};
+	//template<typename... Ts, typename TDelim>
+	//struct Join<List<Ts...>,TDelim> : Detail::Join<List<>,TDelim,Ts...>{};
 
-	template<typename TList, typename TDelim>
-	using JoinT = typename Join<TList,TDelim>::Type;
+	//template<typename TList, typename TDelim>
+	//using JoinT = typename Join<TList,TDelim>::type;
 
-	//if a type is a list of types it will successively be unpacked into the enclosing list
-	template<typename TList>
-	struct Flatten{
-		static_assert(AlwaysFalse<TList>::value,"implausible type");
-	};
-	template<>
-	struct Flatten<List<>> : List<>{};
-	template<typename ... Ts>
-	struct Flatten<List<Ts...>> : Detail::Flatten<List<>, Ts...> {
-	};
-	template<typename TList>
-	using FlattenT = typename Flatten<TList>::Type;
-
-	template<typename T, typename U, typename... Ts>
-	struct Transform{
-		static_assert(AlwaysFalse<T>::value,"implausible type");
-	};
-	template<typename... Ts, template<typename> class T>
-	struct Transform<List<Ts...>,Template<T>> : List<ApplyTemplateT<Template<T>,Ts>...>{};
-	template<typename... Ts, typename... Us, template<typename,typename> class T>
-	struct Transform<List<Ts...>, List<Us...>, Template<T>> : List<ApplyTemplateT<Template<T>,Ts,Us>...>{};
-	template<typename...Ts>
-	using TransformT = typename Transform<Ts...>::Type;
 
 	//Sort
 	template<typename TList, typename TPred = LessP>
@@ -267,11 +251,15 @@ namespace MPL {
 
 	//empty input case
 	template<template<typename, typename > class TPred>
-	struct Sort<MPL::List<>, Template<TPred>> : List<> {};
+	struct Sort<MPL::List<>, Template<TPred>> {
+		using type = List<>;
+	};
 
 	//one element case
 	template<typename T, template<typename, typename > class TPred>
-	struct Sort<MPL::List<T>, Template<TPred>> : List<T> {};
+	struct Sort<MPL::List<T>, Template<TPred>> {
+		using type = List<T>;
+	};
 
 	//two or more elements case
 	template<typename ... Ts, template<typename, typename > class TPred>
@@ -280,7 +268,7 @@ namespace MPL {
 
 	//alias
 	template<typename TList, typename TPred = LessP>
-	using SortT = typename Sort<TList,TPred>::Type;
+	using SortT = typename Sort<TList,TPred>::type;
 
 	//removed elements int From-To range (inclusive exclusive)
 	template<typename TList, typename TFrom, typename TTo = void>
@@ -291,10 +279,10 @@ namespace MPL {
 	struct Remove<List<T, Ts...>,Int<From>,Int<To>> : Detail::Remove<List<>,From,To,T,Ts...>{};
 
 	template<typename ... Ts, template<typename> class TPred>
-	struct Remove<MPL::List<Ts...>, Template<TPred>, void> : FlattenT<List<ConditionalT<TPred<Ts>::value,List<>,Ts>...>>{};
+	struct Remove<brigand::list<Ts...>, Template<TPred>, void> : brigand::flatten<List<typename std::conditional<TPred<Ts>::value,List<>,Ts>::type...>>{};
 
 	template<typename TList,typename TFrom, typename TTo = void>
-	using RemoveT = typename Remove<TList,TFrom,TTo>::Type;
+	using RemoveT = typename Remove<TList,TFrom,TTo>::type;
 
 	//expercts a sorted list, removes all consecutive duplicates fullfilling pred
 	template<typename TList, typename TPred = IsSameP>
@@ -303,47 +291,48 @@ namespace MPL {
 	};
 
 	template< template<typename, typename > class TPred>
-	struct Unique<List<>, Template<TPred>> : List<>{};
+	struct Unique<List<>, Template<TPred>> : Return<List<>>{};
 	template<typename T, template<typename, typename > class TPred>
-	struct Unique<List<T>, Template<TPred>> : List<T>{};
+	struct Unique<List<T>, Template<TPred>> : Return<List<T>>{};
 	template<typename T, typename U, typename...Ts, template<typename, typename > class TPred>
 	struct Unique<MPL::List<T,U,Ts...>, Template<TPred>> : Detail::Unique<TPred<T,U>::value, List<>, TPred, T,U,Ts...>{};
 
 	template<typename TList, typename TPred = IsSameP>
-	using UniqueT = typename Unique<TList, TPred>::Type;
+	using UniqueT = typename Unique<TList, TPred>::type;
 
 	template<typename TList, typename TPred>
 	struct CountIf{
 		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
 	};
 	template<typename ... Ts, template<typename> class TPred>
-	struct CountIf<MPL::List<Ts...>, Template<TPred>> : SumT<List<typename TPred<Ts>::Type...>>{};
+	struct CountIf<MPL::List<Ts...>, Template<TPred>> : SumT<List<typename TPred<Ts>::type...>>{};
 
 	template<typename TList, typename TPred>
-	using CountIfT = typename CountIf<TList,TPred>::Type;
+	using CountIfT = typename CountIf<TList,TPred>::type;
 
-	template<typename TList, typename TPred = void>
-	struct AllOf{
-		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
+	template<std::size_t N, class... T> 
+	struct RepeatCImpl
+	{
+		using l1 = typename RepeatCImpl<N / 2, T...>::type;
+		using l2 = typename RepeatCImpl<N % 2, T...>::type;
+
+		using type = brigand::append<l1, l1, l2>;
 	};
-	template<bool B>
-	struct AllOf<List<Bool<B>>,void> : Bool<B>{};
-	template<bool B1, bool B2, typename... Bs>
-	struct AllOf<List<Bool<B1>,Bool<B2>,Bs...>,void> : AllOf<List<Bool<B1 && B2>,Bs...>,void>{};
 
-	template<typename TList, typename TPred>
-	using AllOfT = typename AllOf<TList, TPred>::Type;
-
-	template<typename TList, typename TPred = void>
-	struct AnyOf{
-		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
+	template<class... T> 
+	struct RepeatCImpl<0, T...>
+	{
+		using type = brigand::list<>;
 	};
-	template<bool B>
-	struct AnyOf<List<Bool<B>>,void> : Bool<B>{};
-	template<bool B1, bool B2, typename... Bs>
-	struct AnyOf<List<Bool<B1>,Bool<B2>,Bs...>,void> : AnyOf<List<Bool<B1 || B2>,Bs...>,void>{};
 
-	template<typename TList, typename TPred>
-	using AnyOfT = typename AnyOf<TList, TPred>::Type;
+	template<class... T> 
+	struct RepeatCImpl<1, T...>
+	{
+		using type = brigand::list<T...>;
+	};
+
+	template<std::size_t N, class... T> 
+	using RepeatC = typename RepeatCImpl<N, T...>::type;
+
 }
 }

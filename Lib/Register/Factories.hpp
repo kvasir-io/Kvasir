@@ -165,7 +165,7 @@ namespace Register{
 	constexpr inline MPL::EnableIfT<Detail::IsFieldLocation<T>::value,Action<T,WriteAction>>
 	write(T,Detail::GetFieldTypeT<T> in){
 		static_assert(Detail::IsWritable<T>::value,"Access violation: The FieldLocation provided is not marked as writable");
-		return Action<T,WriteAction>{unsigned(in)};
+		return Action<T, WriteAction>{Detail::GetMask<T>::value & (unsigned(in) << Detail::maskStartsAt(Detail::GetMask<T>::value))};
 	}
 
 	//compile time value
@@ -190,7 +190,7 @@ namespace Register{
 	
 	//variadic compile time field values
 	template<typename T, typename U, typename... Ts>
-		constexpr decltype(MPL::list(write(T { }), write(U { }), write(Ts { })...)) write(T, U, Ts...) {
+		constexpr brigand::list<decltype(write(std::declval<T>())), decltype(write(std::declval<U>())), decltype(write(std::declval<Ts>()))...> write(T, U, Ts...) {
 			return { };
 		}
 }

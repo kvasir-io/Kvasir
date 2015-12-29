@@ -12,7 +12,20 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ****************************************************************************/
 #pragma once
+#define BRIGAND_NO_BOOST_SUPPORT 1
+#include "brigand.hpp"
 
+#ifndef NDEBUG
+//in debug mode inlining is forced
+#ifdef _MSC_VER
+#define DEBUG_INLINE __forceinline
+#else
+#define DEBUG_INLINE __attribute__((always_inline))
+#endif
+#else
+//in release mode its just a hint
+#define DEBUG_INLINE inline
+#endif
 namespace Kvasir {
 	namespace MPL {
 
@@ -45,7 +58,7 @@ namespace Kvasir {
 		template<typename T, T I>
 		struct Value {
 			static constexpr T value{I};
-			using Type = Value<T,I>;
+			using type = Value<T,I>;
 		};
 
 		template<bool B>
@@ -61,9 +74,7 @@ namespace Kvasir {
 
 		//Type list
 		template<typename... Ts>
-		struct List{
-			using Type = List<Ts...>;
-		};
+		using List = brigand::list<Ts...>;
 
 		template<typename... Ts>
 		constexpr List<Ts...> list(Ts...){ return List<Ts...>{}; }
@@ -72,11 +83,11 @@ namespace Kvasir {
 		template<template<typename...> class T>
 		struct Template{
 			template<typename... Ts>
-			using Apply = T<Ts...>;
+			using apply = T<Ts...>;
 		};
 
 		template<typename T, typename... Ts>
-		using ApplyTemplateT = typename T::template Apply<Ts...>::Type;
+		using ApplyTemplateT = typename T::template apply<Ts...>::type;
 
 		template<typename T, typename U>
 		struct Pair{

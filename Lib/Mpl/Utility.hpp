@@ -36,19 +36,19 @@ namespace Kvasir {
 		//equivalent to std::void_t
 		template<typename T>
 		struct TypeSink{
-			using Type = void;
+			using type = void;
 		};
 		template<typename T>
-		using VoidT = typename TypeSink<T>::Type;
+		using VoidT = typename TypeSink<T>::type;
 
 		template<class _Ty>
 		struct AddRvalueReference
 		{	// add rvalue reference
-			typedef _Ty&& Type;
+			typedef _Ty&& type;
 		};
 
 		template<typename T>
-		typename AddRvalueReference<T>::Type Declval();
+		typename AddRvalueReference<T>::type Declval();
 //#endif
 		//invert bool types
 		template<typename T>
@@ -63,7 +63,7 @@ namespace Kvasir {
 		};
 
 		template<typename T>
-		using NotT = typename Not<T>::Type;
+		using NotT = typename Not<T>::type;
 
 		//predecate returning result of left < right
 		template<typename TLeft, typename TRight>
@@ -92,7 +92,7 @@ namespace Kvasir {
 		struct IsSame<T, T> : TrueType {};
 
 		template<typename T, typename U>
-		using IsSameT = typename IsSame<T,U>::Type;
+		using IsSameT = typename IsSame<T,U>::type;
 		using IsSameP = Template<IsSame>;
 
 		template<typename T>
@@ -123,70 +123,76 @@ namespace Kvasir {
 		struct IsIntegral<bool> : TrueType{};
 
 		template<typename T>
-		using IsIntegralT = typename IsIntegral<T>::Type;
+		using IsIntegralT = typename IsIntegral<T>::type;
 
 		template<class T> struct RemoveConst {
-			typedef T Type;
+			typedef T type;
 		};
 		template<class T> struct RemoveConst<const T> {
-			typedef T Type;
+			typedef T type;
 		};
 
 		template<class T> struct RemoveVolatile {
-			typedef T Type;
+			typedef T type;
 		};
 		template<class T> struct RemoveVolatile<volatile T> {
-			typedef T Type;
+			typedef T type;
 		};
 
 		template<class T>
 		struct RemoveCV {
-			typedef typename RemoveVolatile<typename RemoveConst<T>::Type>::Type Type;
+			typedef typename RemoveVolatile<typename RemoveConst<T>::type>::type type;
 		};
 
 		template<typename T>
-		using RemoveCVT = typename RemoveCV<T>::Type;
+		using RemoveCVT = typename RemoveCV<T>::type;
 
 		//equivalent to std::enable_if
 		template<bool, typename U = void>
 		struct EnableIf {};
 		template<typename U>
 		struct EnableIf<true, U> {
-			using Type = U;
+			using type = U;
 		};
 
 		template<bool B, typename U = void>
 		struct DisableIf: EnableIf<!B, U> {};
 
 		template<bool B, typename U = void>
-		using EnableIfT = typename EnableIf<B,U>::Type;
+		using EnableIfT = typename EnableIf<B,U>::type;
 		template<bool B, typename U = void>
-		using DisableIfT = typename DisableIf<B,U>::Type;
+		using DisableIfT = typename DisableIf<B,U>::type;
 
 		//build a sequence of indices from 0 to N-1
 		template<int N, typename... Is>
 		struct BuildIndices: BuildIndices<N - 1, Int<N - 1>, Is...> {};
 
 		template<typename ... Is>
-		struct BuildIndices<0, Is...> : List<Is...> {};
+		struct BuildIndices<0, Is...> {
+			using type = brigand::list<Is...>;
+		};
 
 		template<int N>
-		using BuildIndicesT = typename BuildIndices<N>::Type;
+		using BuildIndicesT = typename BuildIndices<N>::type;
 
 		template<typename TList>
 		struct Size;
 		template<typename... Ts>
 		struct Size<List<Ts...>> : Int<sizeof...(Ts)>{};
 		template<typename TList>
-		using SizeT = typename Size<TList>::Type;
+		using SizeT = typename Size<TList>::type;
 
 		template<bool B, typename T, typename U>
-		struct Conditional : Return<U> {};
+		struct Conditional {
+			using type = U;
+		};
 		template<typename T, typename U>
-		struct Conditional<true,T,U> : Return<T> {};
+		struct Conditional<true,T,U> {
+			using type = T;
+		};
 
 		template<bool B, typename T, typename U>
-		using ConditionalT = typename Conditional<B,T,U>::Type;
+		using ConditionalT = typename Conditional<B,T,U>::type;
 
 		//helper recursively derives from a list of base classes
 		template<typename TTemplateList, typename ... Ts>

@@ -30,6 +30,10 @@ namespace Register{
 	namespace Detail{
 		using namespace MPL;
 
+		constexpr int maskStartsAt(unsigned mask, int bitNum = 0) {
+			return mask & 1 ? bitNum : maskStartsAt(mask >> 1, bitNum + 1);
+		}
+
 		constexpr bool onlyOneBitSet(unsigned i){
 			return 	(i==(1u<<0)) ||
 					(i==(1u<<1)) ||
@@ -131,40 +135,40 @@ namespace Register{
 		struct GetAddress<Address<A,WIIZ,SOTC,TRegType,TMode>> {
 			static constexpr unsigned value = A;
 			static unsigned read(){
-				volatile unsigned& reg = *((volatile unsigned*)value);
+				volatile unsigned& reg = *reinterpret_cast<volatile unsigned*>(value);
 				return reg;
 			}
 			static void write(unsigned i){
-				volatile unsigned& reg = *((volatile unsigned*)value);
+				volatile unsigned& reg = *reinterpret_cast<volatile unsigned*>(value);
 				reg = i;
 			}
-			using Type = Unsigned<A>;
+			using type = Unsigned<A>;
 		};
 		template<typename TAddress, unsigned Mask, typename TAccess, typename TFiledType>
 		struct GetAddress<FieldLocation<TAddress,Mask,TAccess,TFiledType>> {
 			static constexpr unsigned value = TAddress::value;
 			static unsigned read(){
-				volatile unsigned& reg = *((volatile unsigned*)value);
+				volatile unsigned& reg = *reinterpret_cast<volatile unsigned*>(value);
 				return reg;
 			}
 			static void write(unsigned i){
-				volatile unsigned& reg = *((volatile unsigned*)value);
+				volatile unsigned& reg = *reinterpret_cast<volatile unsigned*>(value);
 				reg = i;
 			}
-			using Type = Unsigned<TAddress::value>;
+			using type = Unsigned<TAddress::value>;
 		};
 		template<typename TReadLoc, typename TWriteLoc>
 		struct GetAddress<FieldLocationPair<TReadLoc,TWriteLoc>> {
 			static constexpr unsigned value = TReadLoc::value;
 			static unsigned read(){
-				volatile unsigned& reg = *((volatile unsigned*)value);
+				volatile unsigned& reg = *reinterpret_cast<volatile unsigned*>(value);
 				return reg;
 			}
 			static void write(unsigned i){
-				volatile unsigned& reg = *((volatile unsigned*)value);
+				volatile unsigned& reg = *reinterpret_cast<volatile unsigned*>(value);
 				reg = i;
 			}
-			using Type = Unsigned<value>;
+			using type = Unsigned<value>;
 		};
 		template<typename TFieldLocation, typename TAction>
 		struct GetAddress<Action<TFieldLocation,TAction>> : GetAddress<TFieldLocation> {};
@@ -172,7 +176,9 @@ namespace Register{
 		template<typename T>
 		struct GetFieldLocation;
 		template<typename TLocation, typename TAction>
-		struct GetFieldLocation<Action<TLocation,TAction>> : TLocation {};
+		struct GetFieldLocation<Action<TLocation,TAction>>{
+			using type = TLocation;
+		};
 
 		//predecate retuning result of left < right for RegisterOptions
 		template<typename TLeft, typename TRight>
@@ -188,7 +194,7 @@ namespace Register{
 		struct IsReadPred< Register::Action<A,ReadAction> > : MPL::TrueType{};
 
 		template<typename T>
-		struct IsNotReadPred : NotT<typename IsReadPred<T>::Type>{};
+		struct IsNotReadPred : NotT<typename IsReadPred<T>::type>{};
 
 		template<typename T>
 		struct GetMask;

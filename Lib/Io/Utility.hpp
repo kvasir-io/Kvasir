@@ -50,7 +50,7 @@ namespace Io{
 		using PortEqualP = Template<OnSamePort>;
 
 		template<typename TList>
-		using GetPortNumbersT = TransformT<UniqueT<SortT<TList,PinLocationLessP>, PortEqualP>, GetHwPortP>;
+		using GetPortNumbersT = brigand::transform<UniqueT<SortT<TList,PinLocationLessP>, PortEqualP>, GetHwPortP>;
 
 		template<typename T>
 		struct IsSinglePort : FalseType {};
