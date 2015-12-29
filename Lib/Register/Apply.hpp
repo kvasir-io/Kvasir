@@ -211,7 +211,7 @@ namespace Kvasir {
 			DEBUG_INLINE unsigned argToUnsigned(T arg){
 				return arg.value_;
 			}
-			DEBUG_INLINE unsigned argToUnsigned(...){
+			unsigned argToUnsigned(...){
 				return 0;
 			}
 
