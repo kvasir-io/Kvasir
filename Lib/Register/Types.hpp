@@ -121,33 +121,38 @@ namespace Register{
 
 	template<typename TAddresses, typename TFieldLocation>
 	struct FieldTuple;		//see below for implementation in specialization
-	template<unsigned I, unsigned... Is, typename... TAs, unsigned... Masks, typename... TAccesss, typename... TRs>
-	struct FieldTuple<brigand::list<brigand::uint32_t<I>, brigand::uint32_t<Is>...>,brigand::list<FieldLocation<TAs,Masks,TAccesss,TRs>...>>{
-		unsigned value_[sizeof...(Is)+1];
+	template<uint32_t... Is, typename... TAs, unsigned... Masks, typename... TAccesss, typename... TRs>
+	struct FieldTuple<brigand::list<brigand::uint32_t<Is>...>,brigand::list<FieldLocation<TAs,Masks,TAccesss,TRs>...>>{
+		unsigned value_[sizeof...(Is)];
 		template<std::size_t Index>
 		brigand::at_c<brigand::list<TRs...>,Index> get() const{
 			using namespace MPL;
-			using Address = brigand::size_t<brigand::at_c<brigand::list<TAs...>,Index>::value>;
-			using ValueIndex = brigand::find<brigand::list<brigand::size_t<I>, brigand::size_t<Is>...>,Address>;
+			using Address = brigand::uint32_t<brigand::at_c<brigand::list<TAs...>,Index>::value>;
+			using ValueIndex = brigand::front<brigand::find<brigand::list<brigand::uint32_t<Is>...>, std::is_same<Address,brigand::_1>>>;
 			using ResultType = brigand::at_c<brigand::list<TRs...>,Index>;
-			using Mask = brigand::at_c<brigand::list<brigand::size_t<Masks>...>,Index>;
-			unsigned r = (value_[ValueIndex::value] & Mask::value) >> Detail::positionOfFirstSetBit(Mask::value);
+			constexpr unsigned mask = brigand::at_c<brigand::list<brigand::uint32_t<Masks>...>, Index>::value;
+			unsigned r = (value_[ValueIndex::value] & mask) >> Detail::positionOfFirstSetBit(mask);
 			return ResultType(r);
 		}
-	};
-	template<unsigned I, typename TA, unsigned Mask, typename TAccess, typename TR>
-	struct FieldTuple<brigand::list<brigand::uint32_t<I>>,brigand::list<FieldLocation<TA, Mask, TAccess, TR>>>{
-		unsigned value_[1];
-		operator TR(){
-			using namespace MPL;
-			using ResultType = TR;
-			return ResultType((value_[0] & Mask) >> Detail::positionOfFirstSetBit(Mask));
+		template<typename... T>
+		static constexpr unsigned getFirst(unsigned i, T...) {
+			return i;
+		}
+		struct DoNotUse{
+			template<typename T>
+			DoNotUse(T){}
+		};
+		//implicitly convertible to the field type only if there is just one field
+		using ConvertableTo = typename std::conditional < (sizeof...(TRs) == 1), brigand::at_c<brigand::list<TRs...>, 0>, DoNotUse>::type;
+		operator ConvertableTo() {
+			constexpr unsigned mask = getFirst(Masks...);
+			return ConvertableTo((value_[0] & mask) >> Detail::positionOfFirstSetBit(mask));
 		};
 	};
 	template<>
 	struct FieldTuple<brigand::list<>,brigand::list<>>{};
 
-	template<int I, typename TFieldTuple>
+	template<std::size_t I, typename TFieldTuple>
 	auto get(TFieldTuple o)->decltype(o.template get<I>()) {
 		return o.template get<I>();
 	}
