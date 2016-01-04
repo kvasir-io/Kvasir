@@ -215,6 +215,11 @@ namespace Kvasir {
 				return 0;
 			}
 
+
+			//finder takes a list of lists of unsigned, each list represets a 
+			//pack of arguements to be ignored. All non ignored arguements will 
+			//be ored together
+
 			template<typename T>
 			struct Finder;
 			template<>
@@ -246,33 +251,25 @@ namespace Kvasir {
 				}
 			};
 
-			template<typename TActionList, typename TRetType>
+			template<typename TActionList, typename TInputIndexList, typename TRetType>
 			struct Apply;
-			template<typename... TActions, typename... TRetAddresses, typename TRetLocations>
-			struct Apply<List<TActions...>,FieldTuple<List<TRetAddresses...>,TRetLocations>>{
-				template<typename T>
-				struct ReturnFilter;
-				template<int... Is>
-				struct ReturnFilter<List<Int<Is>...>>{
-					unsigned operator()(const unsigned(&rets)[sizeof...(TActions)]){
-						return orAllOf(rets[Is]...);
-					}
-				};
+			template<typename... TActions, typename...TInputIndexes, typename... TRetAddresses, typename TRetLocations>
+			struct Apply<brigand::list<TActions...>,brigand::list<TInputIndexes...>, FieldTuple<brigand::list<TRetAddresses...>,TRetLocations>>{
+				using ReturnType = FieldTuple<List<TRetAddresses...>, TRetLocations>;
+				template<unsigned A>
+				typename std::enable_if<brigand::contains<brigand::set<TRetAddresses...>,brigand::uint32_t<A>>::value>::type filterReturns(ReturnType& ret, unsigned in) {
+					ret.value_[sizeof...(TRetAddresses)-brigand::size<brigand::find<brigand::list<TRetAddresses...>, std::is_same<brigand::uint32_t<A>,brigand::_1>>>::value] |= in;
+				}
+				template<unsigned A>
+				void filterReturns(...) {}
+				
+				template<typename...T>
+				ReturnType operator()(T...args){
+					ReturnType ret{ {} }; //default constructed return
+					const unsigned a[]{ (filterReturns<Detail::GetAddress<TActions>::value>(ret,ExecuteSeam<TActions, ::Kvasir::Tag::User>{}(Finder<TInputIndexes>{}(args...))),0)... };
+					ignore(a);
 
-				template<typename T>
-				struct IndexNotAddressPred{
-					template<typename Index>
-					struct Apply : Bool<(GetAddress<AtT<List<TActions...>,Index>>::value != T::value)>{};
-				};
-				template<int I>
-				FieldTuple<List<TRetAddresses...>,TRetLocations> operator()(const unsigned(&args)[I]){
-					using namespace MPL;
-					const unsigned returns[]{TActions{}(args)...};
-					return FieldTuple<List<TRetAddresses...>,TRetLocations>{
-							ReturnFilter<
-								RemoveT<BuildIndicesT<sizeof...(TActions)>,Template<IndexNotAddressPred<TRetAddresses>::template apply>>
-							>{}(returns)...
-					};
+					return ret;
 				}
 			};
 
@@ -283,16 +280,16 @@ namespace Kvasir {
 			struct NoReadApply<brigand::list<TActions...>, brigand::list<TInputIndexes...>> {
 				template<typename...T>
 				void operator()(T...args) {
-					unsigned a[] = { ExecuteSeam<TActions, ::Kvasir::Tag::User>{}(Finder<TInputIndexes>{}(args...))... };
+					unsigned a[]{ ExecuteSeam<TActions, ::Kvasir::Tag::User>{}(Finder<TInputIndexes>{}(args...))... };
 					ignore(a);
 				}
 			};
 
 			template<typename... Ts>
-			using GetReturnTypeT = FieldTuple<
-					UniqueT<SortT<brigand::transform<
+			using GetReturnType = FieldTuple<
+					UniqueT<brigand::sort<brigand::transform<
 						GetReadsT<Ts...>,
-						Template<GetAddress>
+						brigand::quote<GetAddress>
 					>>>,
 					GetReadsT<Ts...>
 				>;
@@ -316,19 +313,19 @@ namespace Kvasir {
 
 		//if apply contains reads return a FieldTuple
 		template<typename...Args>
-			inline MPL::DisableIfT<(brigand::size<Detail::GetReadsT<Args...>>::value == 0),
-			Detail::GetReturnTypeT<Args...>>
+			inline typename std::enable_if<(brigand::size<Detail::GetReadsT<brigand::list<Args...>>>::value != 0),
+			Detail::GetReturnType<Args...>>::type
 		apply(Args...args){
 			static_assert(Detail::ArgsToApplyArePlausible<Args...>::value,"one of the supplied arguments is not supported");
-			using namespace MPL;
-			//associate all actions with their value index
-			unsigned a[] = {Detail::argToUnsigned(args)...};
-			using IndexedActions = brigand::transform<List<Args...>,BuildIndicesT<sizeof...(Args)>,Template<Detail::MakeIndexedAction>>;
+			using IndexedActions = brigand::transform<brigand::list<Args...>,MPL::BuildIndicesT<sizeof...(Args)>,brigand::quote<Detail::MakeIndexedAction>>;
 			using FlattenedActions = brigand::flatten<IndexedActions>;
 			using Steps = brigand::split<FlattenedActions,SequencePoint>;
 			using Merged = Detail::MergeActionStepsT<Steps>;
 			using Actions = brigand::flatten<Merged>;
-			return Detail::Apply<Actions,Detail::GetReturnTypeT<Args...>>{}(a);
+			using Functors = brigand::transform<Actions, brigand::quote<Detail::GetAction>>;
+			using Inputs = brigand::transform<Actions, brigand::quote<Detail::GetInputs>>; //list of lists of lits of unsigned seperators
+			Detail::Apply<Functors, Inputs, Detail::GetReturnType<Args...>> a{};
+			return a(Detail::argToUnsigned(args)...);
 		}
 
 		//if apply does not contain reads return is void

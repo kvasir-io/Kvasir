@@ -142,7 +142,7 @@ namespace Register{
 				volatile unsigned& reg = *reinterpret_cast<volatile unsigned*>(value);
 				reg = i;
 			}
-			using type = Unsigned<A>;
+			using type = brigand::uint32_t<A>;
 		};
 		template<typename TAddress, unsigned Mask, typename TAccess, typename TFiledType>
 		struct GetAddress<FieldLocation<TAddress,Mask,TAccess,TFiledType>> {
@@ -155,7 +155,7 @@ namespace Register{
 				volatile unsigned& reg = *reinterpret_cast<volatile unsigned*>(value);
 				reg = i;
 			}
-			using type = Unsigned<TAddress::value>;
+			using type = brigand::uint32_t<TAddress::value>;
 		};
 		template<typename TReadLoc, typename TWriteLoc>
 		struct GetAddress<FieldLocationPair<TReadLoc,TWriteLoc>> {
@@ -168,7 +168,7 @@ namespace Register{
 				volatile unsigned& reg = *reinterpret_cast<volatile unsigned*>(value);
 				reg = i;
 			}
-			using type = Unsigned<value>;
+			using type = brigand::uint32_t<value>;
 		};
 		template<typename TFieldLocation, typename TAction>
 		struct GetAddress<Action<TFieldLocation,TAction>> : GetAddress<TFieldLocation> {};

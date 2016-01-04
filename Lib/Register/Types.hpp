@@ -121,35 +121,31 @@ namespace Register{
 
 	template<typename TAddresses, typename TFieldLocation>
 	struct FieldTuple;		//see below for implementation in specialization
-	template<unsigned... Is, typename... TAs, unsigned... Masks, typename... TAccesss, typename... TRs>
-	struct FieldTuple<MPL::List<MPL::Unsigned<Is>...>,MPL::List<FieldLocation<TAs,Masks,TAccesss,TRs>...>>{
-		const unsigned value_[sizeof...(Is)];
-		template<int Index>
-		MPL::AtT<MPL::List<TRs...>,MPL::Int<Index>> get() const{
+	template<unsigned I, unsigned... Is, typename... TAs, unsigned... Masks, typename... TAccesss, typename... TRs>
+	struct FieldTuple<brigand::list<brigand::uint32_t<I>, brigand::uint32_t<Is>...>,brigand::list<FieldLocation<TAs,Masks,TAccesss,TRs>...>>{
+		unsigned value_[sizeof...(Is)+1];
+		template<std::size_t Index>
+		brigand::at_c<brigand::list<TRs...>,Index> get() const{
 			using namespace MPL;
-			using Address = Int<AtT<List<TAs...>,Int<Index>>::value>;
-			using ValueIndex = FindT<List<Int<Is>...>,Address>;
-			using ResultType = AtT<List<TRs...>,Int<Index>>;
-			using Mask = AtT<List<Int<Masks>...>,Int<Index>>;
+			using Address = brigand::size_t<brigand::at_c<brigand::list<TAs...>,Index>::value>;
+			using ValueIndex = brigand::find<brigand::list<brigand::size_t<I>, brigand::size_t<Is>...>,Address>;
+			using ResultType = brigand::at_c<brigand::list<TRs...>,Index>;
+			using Mask = brigand::at_c<brigand::list<brigand::size_t<Masks>...>,Index>;
 			unsigned r = (value_[ValueIndex::value] & Mask::value) >> Detail::positionOfFirstSetBit(Mask::value);
 			return ResultType(r);
 		}
-		using Type = FieldTuple<MPL::List<MPL::Unsigned<Is>...>,MPL::List<Action<FieldLocation<TAs,Masks,TAccesss,TRs>,ReadAction>...>>;
 	};
 	template<unsigned I, typename TA, unsigned Mask, typename TAccess, typename TR>
-	struct FieldTuple<MPL::List<MPL::Unsigned<I>>,MPL::List<FieldLocation<TA, Mask, TAccess, TR>>>{
-		const unsigned value_;
+	struct FieldTuple<brigand::list<brigand::uint32_t<I>>,brigand::list<FieldLocation<TA, Mask, TAccess, TR>>>{
+		unsigned value_[1];
 		operator TR(){
 			using namespace MPL;
 			using ResultType = TR;
-			return ResultType((value_ & Mask) >> Detail::positionOfFirstSetBit(Mask));
+			return ResultType((value_[0] & Mask) >> Detail::positionOfFirstSetBit(Mask));
 		};
-		using Type = FieldTuple<MPL::List<MPL::Unsigned<I>>,MPL::List<Action<FieldLocation<TA, Mask, TAccess, TR>,ReadAction>>>;
 	};
 	template<>
-	struct FieldTuple<MPL::List<>,MPL::List<>>{
-		using Type = FieldTuple<MPL::List<>,MPL::List<>>;
-	};
+	struct FieldTuple<brigand::list<>,brigand::list<>>{};
 
 	template<int I, typename TFieldTuple>
 	auto get(TFieldTuple o)->decltype(o.template get<I>()) {
