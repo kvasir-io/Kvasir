@@ -128,10 +128,10 @@ namespace Register{
 		brigand::at_c<brigand::list<TRs...>,Index> get() const{
 			using namespace MPL;
 			using Address = brigand::uint32_t<brigand::at_c<brigand::list<TAs...>,Index>::value>;
-			using ValueIndex = brigand::front<brigand::find<brigand::list<brigand::uint32_t<Is>...>, std::is_same<Address,brigand::_1>>>;
+			constexpr unsigned index = sizeof...(Is) - brigand::size<brigand::find<brigand::list<brigand::uint32_t<Is>...>, std::is_same<Address,brigand::_1>>>::value;
 			using ResultType = brigand::at_c<brigand::list<TRs...>,Index>;
 			constexpr unsigned mask = brigand::at_c<brigand::list<brigand::uint32_t<Masks>...>, Index>::value;
-			unsigned r = (value_[ValueIndex::value] & mask) >> Detail::positionOfFirstSetBit(mask);
+			unsigned r = (value_[index] & mask) >> Detail::positionOfFirstSetBit(mask);
 			return ResultType(r);
 		}
 		template<typename... T>
