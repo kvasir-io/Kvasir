@@ -528,6 +528,35 @@
 			}
 		}
 	},
+	".USB0":{
+		"register":{
+			"ISTAT":{
+				"field":{
+					"USBRST":{
+						"modifiedWriteValues":"oneToClear"
+					},
+					"ERROR":{
+						"modifiedWriteValues":"oneToClear"
+					},
+					"SOFTOK":{
+						"modifiedWriteValues":"oneToClear"
+					},
+					"TOKDNE":{
+						"modifiedWriteValues":"oneToClear"
+					},
+					"SLEEP":{
+						"modifiedWriteValues":"oneToClear"
+					},
+					"RESUME":{
+						"modifiedWriteValues":"oneToClear"
+					},
+					"STALL":{
+						"modifiedWriteValues":"oneToClear"
+					}
+				}
+			}
+		}
+	},
 	"kvasir":{
 		"io":{
 			"default":{

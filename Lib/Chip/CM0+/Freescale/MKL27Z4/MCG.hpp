@@ -1,5 +1,5 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Multipurpose Clock Generator Lite
     namespace McgC1{    ///<MCG Control Register 1
@@ -93,7 +93,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<OSC is not ready.
             v1=0x00000001,     ///<OSC clock is ready.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Oscinit0Val> oscinit0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Oscinit0Val> oscinit0{}; 
         namespace Oscinit0ValC{
             constexpr Register::FieldValue<decltype(oscinit0)::Type,Oscinit0Val::v0> v0{};
             constexpr Register::FieldValue<decltype(oscinit0)::Type,Oscinit0Val::v1> v1{};
@@ -104,7 +104,7 @@ namespace Kvasir {
             v01=0x00000001,     ///<LIRC clock is selected as the main clock source, and MCG_Lite works at LIRC2M or LIRC8M mode.
             v10=0x00000002,     ///<External clock is selected as the main clock source, and MCG_Lite works at EXT mode.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,ClkstVal> clkst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ClkstVal> clkst{}; 
         namespace ClkstValC{
             constexpr Register::FieldValue<decltype(clkst)::Type,ClkstVal::v00> v00{};
             constexpr Register::FieldValue<decltype(clkst)::Type,ClkstVal::v01> v01{};
@@ -139,17 +139,17 @@ namespace Kvasir {
     namespace McgHctrim{    ///<MCG High-frequency IRC Coarse Trim Register
         using Addr = Register::Address<0x40064014,0xffffffc0,0,unsigned char>;
         ///High-frequency IRC Coarse Trim
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> coarseTrim{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> coarseTrim{}; 
     }
     namespace McgHttrim{    ///<MCG High-frequency IRC Tempco (Temperature Coefficient) Trim Register
         using Addr = Register::Address<0x40064015,0xffffffe0,0,unsigned char>;
         ///High-frequency IRC Tempco Trim
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> tempcoTrim{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tempcoTrim{}; 
     }
     namespace McgHftrim{    ///<MCG High-frequency IRC Fine Trim Register
         using Addr = Register::Address<0x40064016,0xffffff80,0,unsigned char>;
         ///High-frequency IRC Fine Trim
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> fineTrim{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> fineTrim{}; 
     }
     namespace McgMc{    ///<MCG Miscellaneous Control Register
         using Addr = Register::Address<0x40064018,0xffffff78,0,unsigned char>;
@@ -195,7 +195,7 @@ namespace Kvasir {
             v10=0x00000002,     ///<No frequency shift.
             v11=0x00000003,     ///<Frequency shift by -10%.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,StrimrngVal> strimrng{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,StrimrngVal> strimrng{}; 
         namespace StrimrngValC{
             constexpr Register::FieldValue<decltype(strimrng)::Type,StrimrngVal::v00> v00{};
             constexpr Register::FieldValue<decltype(strimrng)::Type,StrimrngVal::v01> v01{};
@@ -209,7 +209,7 @@ namespace Kvasir {
             v10=0x00000002,     ///<No frequency shift.
             v11=0x00000003,     ///<Frequency shift by -10%.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,FtrimrngVal> ftrimrng{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FtrimrngVal> ftrimrng{}; 
         namespace FtrimrngValC{
             constexpr Register::FieldValue<decltype(ftrimrng)::Type,FtrimrngVal::v00> v00{};
             constexpr Register::FieldValue<decltype(ftrimrng)::Type,FtrimrngVal::v01> v01{};
@@ -220,11 +220,11 @@ namespace Kvasir {
     namespace McgLftrim{    ///<MCG Low-frequency IRC8M Trim Register
         using Addr = Register::Address<0x4006401a,0xffffff80,0,unsigned char>;
         ///LIRC8M TRIM
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> lircFtrim{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> lircFtrim{}; 
     }
     namespace McgLstrim{    ///<MCG Low-frequency IRC2M Trim Register
         using Addr = Register::Address<0x4006401b,0xffffff80,0,unsigned char>;
         ///LIRC2M TRIM
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::ReadWriteAccess,unsigned> lircStrim{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> lircStrim{}; 
     }
 }

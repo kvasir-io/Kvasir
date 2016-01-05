@@ -33,5 +33,17 @@ int main()
 	++it;
 	if (it->address_ != 0x4003b00c || it->value_ != 0x06 || it->mask_ != 0x00000007)
 		return 1;
+
+	Kvasir::Register::reads_.push({ 0x4003b010,0x55 });
+	auto i = apply(read(Kvasir::Adc0Ra::d));
+	if (i != 0x55) {
+		return 1;
+	}
+	Kvasir::Register::reads_.push({ 0x4003b010,0x555555 });
+	i = apply(read(Kvasir::Adc0Ra::d));
+	if (i != 0x5555) {
+		return 1;
+	}
 	return 0;
 }
+

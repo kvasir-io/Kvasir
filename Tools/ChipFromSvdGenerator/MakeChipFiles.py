@@ -23,7 +23,7 @@ def formatIoPorts(input):
 
 def parseIo(extention,device,path):
     outFile = open(posixpath.join(path,"Io.hpp"),'w',encoding='utf-8')
-    outFile.write('#pragma once\n#include "Io/Io.hpp"\n#include "Register/Register.hpp"\n')
+    outFile.write('#pragma once\n#include <Io/Io.hpp>\n#include "Register/Register.hpp"\n')
     outFile.write("namespace Kvasir{\n    namespace Io{\n")
     io = Ft.getKey(extention,['kvasir','io'])
     for key in sorted(io):
@@ -59,7 +59,7 @@ def parseRegister(register, baseAddress, prefix, ext):
         lsb = field.bit_offset
         fieldType = "unsigned"
         fieldName = Ft.formatVariable(field.name)
-        fieldOut += "        ///%s\n" % field.description
+        fieldOut += "        ///%s\n" % Ft.formatComment(field.description)
         cValuesOut = ""
         if Ft.useEnumeratedValues(field.enumerated_values,field.bit_width):
             fieldType = "%sVal" % (fieldName.capitalize())
@@ -69,17 +69,19 @@ def parseRegister(register, baseAddress, prefix, ext):
                 if v.value is not None and v.is_default is None:     #some value are defaults, we ignore them
                     valName = Ft.getKey(ext,['field',field.name,'enum',v.name,'.rename']) or Ft.formatEnumValue(v.name)
                     if valName != 'reserved':
-                        fieldOut+="            %s=0x%08x,     ///<%s\n" % (valName,v.value,v.description)
+                        fieldOut+="            %s=0x%08x,     ///<%s\n" % (valName,v.value,Ft.formatComment(v.description))
                         cValuesOut+="            constexpr Register::FieldValue<decltype(%s)::Type,%sVal::%s> %s{};\n" % (fieldName,fieldName.capitalize(),valName,valName)
             fieldOut += "        };\n"
             cValuesOut += "        }\n"
-        fieldOut += "        constexpr Register::FieldLocation<Addr,Register::maskFromRange(%d,%d),Register::%s,%s> %s{}; \n%s" % (msb,lsb,Ft.getAccess(register,field),fieldType,fieldName,cValuesOut)
+        access = Ft.getAccess(field,Ft.getKey(ext,['field',field.name]))
+        fieldOut += "        constexpr Register::FieldLocation<Addr,Register::maskFromRange(%d,%d),Register::%s,%s> %s{}; \n%s" % (msb,lsb,access,fieldType,fieldName,cValuesOut)
+        #if 
         reservedBits = Ft.clearBitsFromRange(msb,lsb,reservedBits)
             
     regType = "unsigned"
     if register.size is not None and register.size is 8:
         regType = "unsigned char"
-    out = "    namespace %s{    ///<%s\n" % (Ft.formatNamespace("%s%s" % (prefix, register.name)),register.description)
+    out = "    namespace %s{    ///<%s\n" % (Ft.formatNamespace("%s_%s" % (prefix, register.name)),Ft.formatComment(register.description))
     out += "        using Addr = Register::Address<0x%08x,0x%08x,0,%s>;\n" % (baseAddress + register.address_offset,reservedBits,regType)
     out += fieldOut 
     out +=	"    }\n"
@@ -94,8 +96,10 @@ def parseRegisters(registers,baseAddress,prefix, ext):
     return out
 
 def parsePeripheral(peripheral, ext):
-    out = "//%s\n" % (peripheral.description)
-    out += parseRegisters(peripheral.registers, peripheral.base_address, peripheral.prepend_to_name, Ft.getKey(ext,['register']))
+    out = ""
+    if peripheral.description is not None:
+        out += "//%s\n" % (Ft.formatComment(peripheral.description))
+    out += parseRegisters(peripheral.registers, peripheral.base_address, peripheral.name, Ft.getKey(ext,['register']))
     return out
     
 def parseFile(company,file):
@@ -126,8 +130,8 @@ def parseFile(company,file):
         chipText += "#include \"%s\"\n" % (posixpath.join(incDir,"Io.hpp"))
     for peripheral in device.peripherals:
         if peripheral.name is not None:
-            chipText += "#include \"%s\"\n" % (posixpath.join(incDir,peripheral.name+".hpp"))
-            out = "#pragma once \n#include \"Register/Utility.hpp\"\n"
+            chipText += "#include <%s>\n" % (posixpath.join(incDir,peripheral.name+".hpp"))
+            out = "#pragma once \n#include <Register/Utility.hpp>\n"
             out += "namespace Kvasir {\n"
             out += parsePeripheral(peripheral,Ft.getKey(extention,['.'+peripheral.name]))
             out += "}\n"

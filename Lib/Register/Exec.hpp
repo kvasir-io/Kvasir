@@ -55,45 +55,45 @@ namespace Kvasir {
 			};
 
 			//write literal with read modify write
-			template<typename TAddress, unsigned Mask, bool Readable, bool SetToClear, typename FieldType, unsigned Data>
+			template<typename TAddress, unsigned Mask, typename Access, typename FieldType, unsigned Data>
 			struct RegisterExec<
 				Register::Action<
-					FieldLocation<TAddress,Mask,Access<Readable,true,false,false,SetToClear>,FieldType>,
+					FieldLocation<TAddress,Mask,Access,FieldType>,
 					WriteLiteralAction<Data>>>
 				: GenericReadMaskOrWrite<
-				  	  FieldLocation<TAddress,Mask,Access<Readable,true,false,false,SetToClear>,FieldType>,
+				  	  FieldLocation<TAddress,Mask,Access,FieldType>,
 					  Mask,
 					  Data>
 			{
 				static_assert((Data & (~Mask))==0,"bad mask");
 			};
 
-			template<typename TAddress, unsigned Mask, bool Readable, bool SetToClear, typename FieldType>
+			template<typename TAddress, unsigned Mask, typename Access, typename FieldType>
 			struct RegisterExec<
 				Register::Action<
-					FieldLocation<TAddress,Mask,Access<Readable,true,false,false,SetToClear>,FieldType>,
+					FieldLocation<TAddress,Mask,Access,FieldType>,
 					WriteAction>>
 				: GenericReadMaskOrWrite<
-			  	  FieldLocation<TAddress,Mask,Access<Readable,true,false,false,SetToClear>,FieldType>,
+			  	  FieldLocation<TAddress,Mask,Access,FieldType>,
 				  Mask,
 				  0>	{};
 
 
-			template<typename TAddress, unsigned Mask, bool Writable, bool SetToClear, typename FieldType>
+			template<typename TAddress, unsigned Mask, typename Access, typename FieldType>
 			struct RegisterExec<Register::Action<
-				FieldLocation<TAddress,Mask,Access<true,Writable,false,false,SetToClear>,FieldType>,ReadAction>>
+				FieldLocation<TAddress,Mask,Access,FieldType>,ReadAction>>
 			{
 				unsigned operator()(unsigned in = 0){
 					return GetAddress<TAddress>::read();
 				}
 			};
-			template<typename TAddress, unsigned Mask, typename FieldType, unsigned Data>
+			template<typename TAddress, unsigned Mask, typename Access, typename FieldType, unsigned Data>
 			struct RegisterExec<
 				Register::Action<
-					FieldLocation<TAddress,Mask,Access<true,true,false,false,false>,FieldType>,
+					FieldLocation<TAddress,Mask,Access,FieldType>,
 					XorLiteralAction<Data>>>
 				: GenericReadMaskOrWrite<
-				  FieldLocation<TAddress,Mask,Access<true,true,false,false,false>,FieldType>,
+				  FieldLocation<TAddress,Mask,Access,FieldType>,
 				  Mask,
 				  Data>
 			{

@@ -1,5 +1,5 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Periodic Interrupt Timer
     namespace PitMcr{    ///<PIT Module Control Register
@@ -28,12 +28,12 @@ namespace Kvasir {
     namespace PitLtmr64h{    ///<PIT Upper Lifetime Timer Register
         using Addr = Register::Address<0x400370e0,0x00000000,0,unsigned>;
         ///Life Timer value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> lth{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> lth{}; 
     }
     namespace PitLtmr64l{    ///<PIT Lower Lifetime Timer Register
         using Addr = Register::Address<0x400370e4,0x00000000,0,unsigned>;
         ///Life Timer value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> ltl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ltl{}; 
     }
     namespace PitLdval0{    ///<Timer Load Value Register
         using Addr = Register::Address<0x40037100,0x00000000,0,unsigned>;
@@ -48,12 +48,12 @@ namespace Kvasir {
     namespace PitCval0{    ///<Current Timer Value Register
         using Addr = Register::Address<0x40037104,0x00000000,0,unsigned>;
         ///Current Timer Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tvl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tvl{}; 
     }
     namespace PitCval1{    ///<Current Timer Value Register
         using Addr = Register::Address<0x40037114,0x00000000,0,unsigned>;
         ///Current Timer Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> tvl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tvl{}; 
     }
     namespace PitTctrl0{    ///<Timer Control Register
         using Addr = Register::Address<0x40037108,0xfffffff8,0,unsigned>;

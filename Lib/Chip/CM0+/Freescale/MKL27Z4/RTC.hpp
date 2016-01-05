@@ -1,5 +1,5 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Secure Real Time Clock
     namespace RtcTsr{    ///<RTC Time Seconds Register
@@ -38,9 +38,9 @@ namespace Kvasir {
         ///Compensation Interval Register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> cir{}; 
         ///Time Compensation Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::ReadWriteAccess,unsigned> tcv{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tcv{}; 
         ///Compensation Interval Counter
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> cic{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> cic{}; 
     }
     namespace RtcCr{    ///<RTC Control Register
         using Addr = Register::Address<0x4003d010,0xffffc0e0,0,unsigned>;
@@ -162,7 +162,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Time is valid.
             v1=0x00000001,     ///<Time is invalid and time counter is read as zero.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TifVal> tif{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TifVal> tif{}; 
         namespace TifValC{
             constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v1> v1{};
@@ -172,7 +172,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Time overflow has not occurred.
             v1=0x00000001,     ///<Time overflow has occurred and time counter is read as zero.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TofVal> tof{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TofVal> tof{}; 
         namespace TofValC{
             constexpr Register::FieldValue<decltype(tof)::Type,TofVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tof)::Type,TofVal::v1> v1{};
@@ -182,7 +182,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Time alarm has not occurred.
             v1=0x00000001,     ///<Time alarm has occurred.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TafVal> taf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TafVal> taf{}; 
         namespace TafValC{
             constexpr Register::FieldValue<decltype(taf)::Type,TafVal::v0> v0{};
             constexpr Register::FieldValue<decltype(taf)::Type,TafVal::v1> v1{};

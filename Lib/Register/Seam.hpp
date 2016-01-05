@@ -37,9 +37,36 @@ namespace Kvasir {
 			unsigned value_;
 		};
 
-		std::vector<ReadValue> reads_;
-		std::vector<RecordedAction> actions_;
+		class Reads {
+			std::vector<ReadValue> data_;
+		public:
+			using iterator = typename std::vector<ReadValue>::iterator;
+			ReadValue& operator[](size_t i) { return data_[i]; }
+
+			iterator begin() { return data_.begin(); }
+			iterator end() { return data_.end(); }
+
+			void push(const ReadValue& val) {
+				data_.insert(
+					std::lower_bound(data_.begin(), data_.end(), val, 
+						[](const ReadValue& lhs, const ReadValue& rhs) { return lhs.address_ < rhs.address_; }),
+					val);
+			}
+			ReadValue pop(unsigned address) {
+				ReadValue ret{ 0,0 };
+				auto it = std::lower_bound(data_.begin(), data_.end(), address,
+					[](const ReadValue& lhs, const unsigned rhs) { return lhs.address_ < rhs; });
+				if (it != data_.end() && it->address_ == address) {
+					ret = *it;
+					data_.erase(it);
+				}
+				return ret;
+			}
+		};
 		
+		std::vector<RecordedAction> actions_;
+		Reads reads_;
+
 		template<typename T>
 		struct RecordActions {
 			int operator()(int in) {
@@ -57,7 +84,7 @@ namespace Kvasir {
 				auto it = std::find_if(reads_.begin(), reads_.end(), [](ReadValue &v) {
 					return v.address_ == Address::value; });
 				if (it != reads_.end()) {
-					return it->value_;
+					return reads_.pop(Address::value).value_;
 				}
 				return 0;
 			}

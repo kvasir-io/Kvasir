@@ -1,5 +1,5 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Pin Control and Interrupts
     namespace PortcPcr0{    ///<Pin Control Register n
@@ -3487,16 +3487,16 @@ namespace Kvasir {
     namespace PortcGpclr{    ///<Global Pin Control Low Register
         using Addr = Register::Address<0x4004b080,0x00000000,0,unsigned>;
         ///Global Pin Write Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> gpwd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwd{}; 
         ///Global Pin Write Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> gpwe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwe{}; 
     }
     namespace PortcGpchr{    ///<Global Pin Control High Register
         using Addr = Register::Address<0x4004b084,0x00000000,0,unsigned>;
         ///Global Pin Write Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> gpwd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwd{}; 
         ///Global Pin Write Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> gpwe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> gpwe{}; 
     }
     namespace PortcIsfr{    ///<Interrupt Status Flag Register
         using Addr = Register::Address<0x4004b0a0,0x00000000,0,unsigned>;

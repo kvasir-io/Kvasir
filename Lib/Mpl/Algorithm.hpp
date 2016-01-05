@@ -151,13 +151,17 @@ namespace MPL {
 		template<bool FirstTwoSame, typename T, template<typename, typename > class Pred, typename... Ts>
 		struct Unique;
 		template<typename... Rs, template<typename, typename > class Pred, typename T, typename U>	//only two left
-		struct Unique<true, List<Rs...>, Pred, T, U> : Return<List<Rs...,T>>{};
+		struct Unique<true, brigand::list<Rs...>, Pred, T, U> {
+			using type = brigand::list<Rs..., T>;
+		};
 		template<typename... Rs, template<typename, typename > class Pred, typename T, typename U>	//only two left
-		struct Unique<false, List<Rs...>, Pred, T, U> : Return<List<Rs...,T,U>>{};
+		struct Unique<false, brigand::list<Rs...>, Pred, T, U> { 
+			using type = brigand::list<Rs..., T, U>;
+		};
 		template<typename... Rs, template<typename, typename > class Pred, typename T, typename U, typename V, typename... Ts>  //not same
-		struct Unique<false,List<Rs...>, Pred, T, U, V, Ts...> : Unique<Pred<U,V>::value,List<Rs...,T>,Pred,U,V,Ts...>{};
+		struct Unique<false, brigand::list<Rs...>, Pred, T, U, V, Ts...> : Unique<Pred<U,V>::value, brigand::list<Rs...,T>,Pred,U,V,Ts...>{};
 		template<typename... Rs, template<typename, typename > class Pred, typename T, typename U, typename V, typename... Ts>  //same
-		struct Unique<true,List<Rs...>, Pred, T, U, V, Ts...> : Unique<Pred<U,V>::value,List<Rs...>,Pred,U,V,Ts...>{};
+		struct Unique<true, brigand::list<Rs...>, Pred, T, U, V, Ts...> : Unique<Pred<U,V>::value, brigand::list<Rs...>,Pred,U,V,Ts...>{};
 
 	}
 
@@ -291,9 +295,13 @@ namespace MPL {
 	};
 
 	template< template<typename, typename > class TPred>
-	struct Unique<List<>, Template<TPred>> : Return<List<>>{};
+	struct Unique<brigand::list<>, Template<TPred>> {
+		using type = brigand::list<>;
+	};
 	template<typename T, template<typename, typename > class TPred>
-	struct Unique<List<T>, Template<TPred>> : Return<List<T>>{};
+	struct Unique<brigand::list<T>, Template<TPred>> {
+		using type = brigand::list<T>;
+	};
 	template<typename T, typename U, typename...Ts, template<typename, typename > class TPred>
 	struct Unique<MPL::List<T,U,Ts...>, Template<TPred>> : Detail::Unique<TPred<T,U>::value, List<>, TPred, T,U,Ts...>{};
 

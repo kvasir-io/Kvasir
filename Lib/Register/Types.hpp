@@ -83,15 +83,42 @@ namespace Register{
 		using Type = Action<TLocation,TAction>;
 	};
 
-	template<bool Readable, bool Writable, bool ClearOnRead = false, bool Popable = false, bool SetToClear = false>
-	struct Access {
-		using Type = Access<Readable,Writable,ClearOnRead,Popable,SetToClear>;
+	enum class ModifiedWriteValueType {
+		normal,
+		oneToClear,
+		oneToSet,
+		oneToToggle,
+		zeroToClear,
+		zeroToSet,
+		zeroToToggle,
+		clear,
+		set,
+		modify
 	};
 
-	using ReadWriteAccess = Access<true,true>;
-	using ReadOnlyAccess = Access<true,false>;
-	using WriteOnlyAccess = Access<false,true>;
-	using RSetToClearAccess = Access<true,true,false,false,true>;
+	enum class ReadActionType {
+		normal,
+		clear,
+		set,
+		modify,
+		modifyExternal
+	};
+
+	enum class AccessType {
+		readOnly,
+		writeOnly,
+		readWrite,
+		writeOnce,
+		readWriteOnce
+	};
+
+	template<AccessType, ReadActionType = ReadActionType::normal, ModifiedWriteValueType = ModifiedWriteValueType::normal>
+	struct Access {};
+
+	using ReadWriteAccess = Access<AccessType::readWrite>;
+	using ReadOnlyAccess = Access<AccessType::readOnly>;
+	using WriteOnlyAccess = Access<AccessType::writeOnly>;
+	using ROneToClearAccess = Access<AccessType::readWrite, ReadActionType::normal, ModifiedWriteValueType::oneToClear>;
 
 	template<typename TAddress, unsigned Mask, typename Access = ReadWriteAccess, typename TFieldType = unsigned>
 	struct FieldLocation{
@@ -121,37 +148,38 @@ namespace Register{
 
 	template<typename TAddresses, typename TFieldLocation>
 	struct FieldTuple;		//see below for implementation in specialization
-	template<unsigned... Is, typename... TAs, unsigned... Masks, typename... TAccesss, typename... TRs>
-	struct FieldTuple<MPL::List<MPL::Unsigned<Is>...>,MPL::List<FieldLocation<TAs,Masks,TAccesss,TRs>...>>{
-		const unsigned value_[sizeof...(Is)];
-		template<int Index>
-		MPL::AtT<MPL::List<TRs...>,MPL::Int<Index>> get() const{
+	template<uint32_t... Is, typename... TAs, unsigned... Masks, typename... TAccesss, typename... TRs>
+	struct FieldTuple<brigand::list<brigand::uint32_t<Is>...>,brigand::list<FieldLocation<TAs,Masks,TAccesss,TRs>...>>{
+		unsigned value_[sizeof...(Is)];
+		template<std::size_t Index>
+		brigand::at_c<brigand::list<TRs...>,Index> get() const{
 			using namespace MPL;
-			using Address = Int<AtT<List<TAs...>,Int<Index>>::value>;
-			using ValueIndex = FindT<List<Int<Is>...>,Address>;
-			using ResultType = AtT<List<TRs...>,Int<Index>>;
-			using Mask = AtT<List<Int<Masks>...>,Int<Index>>;
-			unsigned r = (value_[ValueIndex::value] & Mask::value) >> Detail::positionOfFirstSetBit(Mask::value);
+			using Address = brigand::uint32_t<brigand::at_c<brigand::list<TAs...>,Index>::value>;
+			constexpr unsigned index = sizeof...(Is) - brigand::size<brigand::find<brigand::list<brigand::uint32_t<Is>...>, std::is_same<Address,brigand::_1>>>::value;
+			using ResultType = brigand::at_c<brigand::list<TRs...>,Index>;
+			constexpr unsigned mask = brigand::at_c<brigand::list<brigand::uint32_t<Masks>...>, Index>::value;
+			unsigned r = (value_[index] & mask) >> Detail::positionOfFirstSetBit(mask);
 			return ResultType(r);
 		}
-		using Type = FieldTuple<MPL::List<MPL::Unsigned<Is>...>,MPL::List<Action<FieldLocation<TAs,Masks,TAccesss,TRs>,ReadAction>...>>;
-	};
-	template<unsigned I, typename TA, unsigned Mask, typename TAccess, typename TR>
-	struct FieldTuple<MPL::List<MPL::Unsigned<I>>,MPL::List<FieldLocation<TA, Mask, TAccess, TR>>>{
-		const unsigned value_;
-		operator TR(){
-			using namespace MPL;
-			using ResultType = TR;
-			return ResultType((value_ & Mask) >> Detail::positionOfFirstSetBit(Mask));
+		template<typename... T>
+		static constexpr unsigned getFirst(unsigned i, T...) {
+			return i;
+		}
+		struct DoNotUse{
+			template<typename T>
+			DoNotUse(T){}
 		};
-		using Type = FieldTuple<MPL::List<MPL::Unsigned<I>>,MPL::List<Action<FieldLocation<TA, Mask, TAccess, TR>,ReadAction>>>;
+		//implicitly convertible to the field type only if there is just one field
+		using ConvertableTo = typename std::conditional < (sizeof...(TRs) == 1), brigand::at_c<brigand::list<TRs...>, 0>, DoNotUse>::type;
+		operator ConvertableTo() {
+			constexpr unsigned mask = getFirst(Masks...);
+			return ConvertableTo((value_[0] & mask) >> Detail::positionOfFirstSetBit(mask));
+		};
 	};
 	template<>
-	struct FieldTuple<MPL::List<>,MPL::List<>>{
-		using Type = FieldTuple<MPL::List<>,MPL::List<>>;
-	};
+	struct FieldTuple<brigand::list<>,brigand::list<>>{};
 
-	template<int I, typename TFieldTuple>
+	template<std::size_t I, typename TFieldTuple>
 	auto get(TFieldTuple o)->decltype(o.template get<I>()) {
 		return o.template get<I>();
 	}

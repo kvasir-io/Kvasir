@@ -1,5 +1,5 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //High-Speed Comparator (CMP), Voltage Reference (VREF) Digital-to-Analog Converter (DAC), and Analog Mux (ANMUX)
     namespace Cmp0Cr0{    ///<CMP Control Register 0
@@ -132,7 +132,7 @@ namespace Kvasir {
     namespace Cmp0Scr{    ///<CMP Status and Control Register
         using Addr = Register::Address<0x40073003,0xffffffa0,0,unsigned char>;
         ///Analog Comparator Output
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cout{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> cout{}; 
         ///Analog Comparator Flag Falling
         enum class CffVal {
             v0=0x00000000,     ///<Falling-edge on COUT has not been detected.

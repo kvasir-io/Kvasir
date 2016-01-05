@@ -1,5 +1,5 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Universal Asynchronous Receiver/Transmitter
     namespace Lpuart0Baud{    ///<LPUART Baud Rate Register
@@ -200,7 +200,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Receive data buffer empty.
             v1=0x00000001,     ///<Receive data buffer full.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::ReadWriteAccess,RdrfVal> rdrf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(21,21),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RdrfVal> rdrf{}; 
         namespace RdrfValC{
             constexpr Register::FieldValue<decltype(rdrf)::Type,RdrfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rdrf)::Type,RdrfVal::v1> v1{};
@@ -210,7 +210,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Transmitter active (sending data, a preamble, or a break).
             v1=0x00000001,     ///<Transmitter idle (transmission activity complete).
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::ReadWriteAccess,TcVal> tc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(22,22),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TcVal> tc{}; 
         namespace TcValC{
             constexpr Register::FieldValue<decltype(tc)::Type,TcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tc)::Type,TcVal::v1> v1{};
@@ -220,7 +220,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Transmit data buffer full.
             v1=0x00000001,     ///<Transmit data buffer empty.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::ReadWriteAccess,TdreVal> tdre{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,23),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TdreVal> tdre{}; 
         namespace TdreValC{
             constexpr Register::FieldValue<decltype(tdre)::Type,TdreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tdre)::Type,TdreVal::v1> v1{};
@@ -230,7 +230,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<LPUART receiver idle waiting for a start bit.
             v1=0x00000001,     ///<LPUART receiver active (LPUART_RX input not idle).
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::ReadWriteAccess,RafVal> raf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RafVal> raf{}; 
         namespace RafValC{
             constexpr Register::FieldValue<decltype(raf)::Type,RafVal::v0> v0{};
             constexpr Register::FieldValue<decltype(raf)::Type,RafVal::v1> v1{};
@@ -602,7 +602,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Receiver was not idle before receiving this character.
             v1=0x00000001,     ///<Receiver was idle before receiving this character.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,IdlineVal> idline{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,IdlineVal> idline{}; 
         namespace IdlineValC{
             constexpr Register::FieldValue<decltype(idline)::Type,IdlineVal::v0> v0{};
             constexpr Register::FieldValue<decltype(idline)::Type,IdlineVal::v1> v1{};
@@ -612,7 +612,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Receive buffer contains valid data.
             v1=0x00000001,     ///<Receive buffer is empty, data returned on read is not valid.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,RxemptVal> rxempt{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RxemptVal> rxempt{}; 
         namespace RxemptValC{
             constexpr Register::FieldValue<decltype(rxempt)::Type,RxemptVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxempt)::Type,RxemptVal::v1> v1{};
@@ -632,7 +632,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The dataword was received without a parity error.
             v1=0x00000001,     ///<The dataword was received with a parity error.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,ParityeVal> paritye{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ParityeVal> paritye{}; 
         namespace ParityeValC{
             constexpr Register::FieldValue<decltype(paritye)::Type,ParityeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(paritye)::Type,ParityeVal::v1> v1{};
@@ -642,7 +642,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The dataword was received without noise.
             v1=0x00000001,     ///<The data was received with noise.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,NoisyVal> noisy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,NoisyVal> noisy{}; 
         namespace NoisyValC{
             constexpr Register::FieldValue<decltype(noisy)::Type,NoisyVal::v0> v0{};
             constexpr Register::FieldValue<decltype(noisy)::Type,NoisyVal::v1> v1{};

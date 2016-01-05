@@ -1,8 +1,8 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //System timer
-    namespace SystCsr{    ///<SysTick Control and Status Register
+    namespace SystickCsr{    ///<SysTick Control and Status Register
         using Addr = Register::Address<0xe000e010,0xfffefff8,0,unsigned>;
         ///no description available
         enum class EnableVal {
@@ -37,26 +37,26 @@ namespace Kvasir {
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> countflag{}; 
     }
-    namespace SystRvr{    ///<SysTick Reload Value Register
+    namespace SystickRvr{    ///<SysTick Reload Value Register
         using Addr = Register::Address<0xe000e014,0xff000000,0,unsigned>;
         ///Value to load into the SysTick Current Value Register when the counter reaches 0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> reload{}; 
     }
-    namespace SystCvr{    ///<SysTick Current Value Register
+    namespace SystickCvr{    ///<SysTick Current Value Register
         using Addr = Register::Address<0xe000e018,0xff000000,0,unsigned>;
         ///Current value at the time the register is accessed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> current{}; 
     }
-    namespace SystCalib{    ///<SysTick Calibration Value Register
+    namespace SystickCalib{    ///<SysTick Calibration Value Register
         using Addr = Register::Address<0xe000e01c,0x3f000000,0,unsigned>;
         ///Reload value to use for 10ms timing
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> tenms{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tenms{}; 
         ///no description available
         enum class SkewVal {
             v0=0x00000000,     ///<10ms calibration value is exact
             v1=0x00000001,     ///<10ms calibration value is inexact, because of the clock frequency
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,SkewVal> skew{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SkewVal> skew{}; 
         namespace SkewValC{
             constexpr Register::FieldValue<decltype(skew)::Type,SkewVal::v0> v0{};
             constexpr Register::FieldValue<decltype(skew)::Type,SkewVal::v1> v1{};
@@ -66,7 +66,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The reference clock is provided
             v1=0x00000001,     ///<The reference clock is not provided
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,NorefVal> noref{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,NorefVal> noref{}; 
         namespace NorefValC{
             constexpr Register::FieldValue<decltype(noref)::Type,NorefVal::v0> v0{};
             constexpr Register::FieldValue<decltype(noref)::Type,NorefVal::v1> v1{};
