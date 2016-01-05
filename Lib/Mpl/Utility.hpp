@@ -178,7 +178,7 @@ namespace Kvasir {
 		template<typename TList>
 		struct Size;
 		template<typename... Ts>
-		struct Size<List<Ts...>> : Int<sizeof...(Ts)>{};
+		struct Size<brigand::list<Ts...>> : Int<sizeof...(Ts)>{};
 		template<typename TList>
 		using SizeT = typename Size<TList>::type;
 
@@ -200,7 +200,7 @@ namespace Kvasir {
 			static_assert(AlwaysFalse<TTemplateList>::value,"implausible type, first parameter must be a MPL::List");
 		};
 		template<typename ... Ts, typename ... Us>
-		struct DeriveFromTemplates<List<Ts...>, Us...> : ApplyTemplateT<Ts, Us...> ... {
+		struct DeriveFromTemplates<brigand::list<Ts...>, Us...> : ApplyTemplateT<Ts, Us...> ... {
 		};
 
 	}
