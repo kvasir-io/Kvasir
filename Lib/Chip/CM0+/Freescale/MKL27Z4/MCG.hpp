@@ -3,7 +3,7 @@
 namespace Kvasir {
 //Multipurpose Clock Generator Lite
     namespace McgC1{    ///<MCG Control Register 1
-        using Addr = Register::Address<0x40064000,0xffffff3c,0,unsigned char>;
+        using Addr = Register::Address<0x40064000,0xffffff3c,0x00000000,unsigned char>;
         ///Internal Reference Stop Enable
         enum class IrefstenVal {
             v0=0x00000000,     ///<LIRC is disabled in Stop mode.
@@ -40,7 +40,7 @@ namespace Kvasir {
         }
     }
     namespace McgC2{    ///<MCG Control Register 2
-        using Addr = Register::Address<0x40064001,0xffffffc2,0,unsigned char>;
+        using Addr = Register::Address<0x40064001,0xffffffc2,0x00000000,unsigned char>;
         ///Low-frequency Internal Reference Clock Select
         enum class IrcsVal {
             v0=0x00000000,     ///<LIRC is in 2 MHz mode.
@@ -87,7 +87,7 @@ namespace Kvasir {
         }
     }
     namespace McgS{    ///<MCG Status Register
-        using Addr = Register::Address<0x40064006,0xfffffff1,0,unsigned char>;
+        using Addr = Register::Address<0x40064006,0xfffffff1,0x00000000,unsigned char>;
         ///OSC Initialization Status
         enum class Oscinit0Val {
             v0=0x00000000,     ///<OSC is not ready.
@@ -112,7 +112,7 @@ namespace Kvasir {
         }
     }
     namespace McgSc{    ///<MCG Status and Control Register
-        using Addr = Register::Address<0x40064008,0xfffffff1,0,unsigned char>;
+        using Addr = Register::Address<0x40064008,0xfffffff1,0x00000000,unsigned char>;
         ///Low-frequency Internal Reference Clock Divider
         enum class FcrdivVal {
             v000=0x00000000,     ///<Division factor is 1.
@@ -137,22 +137,22 @@ namespace Kvasir {
         }
     }
     namespace McgHctrim{    ///<MCG High-frequency IRC Coarse Trim Register
-        using Addr = Register::Address<0x40064014,0xffffffc0,0,unsigned char>;
+        using Addr = Register::Address<0x40064014,0xffffffc0,0x00000000,unsigned char>;
         ///High-frequency IRC Coarse Trim
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> coarseTrim{}; 
     }
     namespace McgHttrim{    ///<MCG High-frequency IRC Tempco (Temperature Coefficient) Trim Register
-        using Addr = Register::Address<0x40064015,0xffffffe0,0,unsigned char>;
+        using Addr = Register::Address<0x40064015,0xffffffe0,0x00000000,unsigned char>;
         ///High-frequency IRC Tempco Trim
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tempcoTrim{}; 
     }
     namespace McgHftrim{    ///<MCG High-frequency IRC Fine Trim Register
-        using Addr = Register::Address<0x40064016,0xffffff80,0,unsigned char>;
+        using Addr = Register::Address<0x40064016,0xffffff80,0x00000000,unsigned char>;
         ///High-frequency IRC Fine Trim
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> fineTrim{}; 
     }
     namespace McgMc{    ///<MCG Miscellaneous Control Register
-        using Addr = Register::Address<0x40064018,0xffffff78,0,unsigned char>;
+        using Addr = Register::Address<0x40064018,0xffffff78,0x00000000,unsigned char>;
         ///Second Low-frequency Internal Reference Clock Divider
         enum class Lircdiv2Val {
             v000=0x00000000,     ///<Division factor is 1.
@@ -187,7 +187,7 @@ namespace Kvasir {
         }
     }
     namespace McgLtrimrng{    ///<MCG Low-frequency IRC Trim Range Register
-        using Addr = Register::Address<0x40064019,0xfffffff0,0,unsigned char>;
+        using Addr = Register::Address<0x40064019,0xfffffff0,0x00000000,unsigned char>;
         ///LIRC Slow TRIM (2 MHz) Range
         enum class StrimrngVal {
             v00=0x00000000,     ///<Frequency shift by 10%.
@@ -218,12 +218,12 @@ namespace Kvasir {
         }
     }
     namespace McgLftrim{    ///<MCG Low-frequency IRC8M Trim Register
-        using Addr = Register::Address<0x4006401a,0xffffff80,0,unsigned char>;
+        using Addr = Register::Address<0x4006401a,0xffffff80,0x00000000,unsigned char>;
         ///LIRC8M TRIM
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> lircFtrim{}; 
     }
     namespace McgLstrim{    ///<MCG Low-frequency IRC2M Trim Register
-        using Addr = Register::Address<0x4006401b,0xffffff80,0,unsigned char>;
+        using Addr = Register::Address<0x4006401b,0xffffff80,0x00000000,unsigned char>;
         ///LIRC2M TRIM
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> lircStrim{}; 
     }

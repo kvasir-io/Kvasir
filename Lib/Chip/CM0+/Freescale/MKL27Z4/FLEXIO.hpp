@@ -3,7 +3,7 @@
 namespace Kvasir {
 //The FLEXIO Memory Map/Register Definition can be found here.
     namespace FlexioVerid{    ///<Version ID Register
-        using Addr = Register::Address<0x4005f000,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4005f000,0x00000000,0x00000000,unsigned>;
         ///Feature Specification Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> feature{}; 
         ///Minor Version Number
@@ -12,7 +12,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> major{}; 
     }
     namespace FlexioParam{    ///<Parameter Register
-        using Addr = Register::Address<0x4005f004,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4005f004,0x00000000,0x00000000,unsigned>;
         ///Shifter Number
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> shifter{}; 
         ///Timer Number
@@ -23,7 +23,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> trigger{}; 
     }
     namespace FlexioCtrl{    ///<FlexIO Control Register
-        using Addr = Register::Address<0x4005f008,0x3ffffff8,0,unsigned>;
+        using Addr = Register::Address<0x4005f008,0x3ffffff8,0x00000000,unsigned>;
         ///FlexIO Enable
         enum class FlexenVal {
             v0=0x00000000,     ///<FlexIO module is disabled.
@@ -76,42 +76,42 @@ namespace Kvasir {
         }
     }
     namespace FlexioShiftstat{    ///<Shifter Status Register
-        using Addr = Register::Address<0x4005f010,0xfffffff0,0,unsigned>;
+        using Addr = Register::Address<0x4005f010,0xfffffff0,0x00000000,unsigned>;
         ///Shifter Status Flag
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ssf{}; 
     }
     namespace FlexioShifterr{    ///<Shifter Error Register
-        using Addr = Register::Address<0x4005f014,0xfffffff0,0,unsigned>;
+        using Addr = Register::Address<0x4005f014,0xfffffff0,0x00000000,unsigned>;
         ///Shifter Error Flags
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> sef{}; 
     }
     namespace FlexioTimstat{    ///<Timer Status Register
-        using Addr = Register::Address<0x4005f018,0xfffffff0,0,unsigned>;
+        using Addr = Register::Address<0x4005f018,0xfffffff0,0x00000000,unsigned>;
         ///Timer Status Flags
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> tsf{}; 
     }
     namespace FlexioShiftsien{    ///<Shifter Status Interrupt Enable
-        using Addr = Register::Address<0x4005f020,0xfffffff0,0,unsigned>;
+        using Addr = Register::Address<0x4005f020,0xfffffff0,0x00000000,unsigned>;
         ///Shifter Status Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ssie{}; 
     }
     namespace FlexioShifteien{    ///<Shifter Error Interrupt Enable
-        using Addr = Register::Address<0x4005f024,0xfffffff0,0,unsigned>;
+        using Addr = Register::Address<0x4005f024,0xfffffff0,0x00000000,unsigned>;
         ///Shifter Error Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> seie{}; 
     }
     namespace FlexioTimien{    ///<Timer Interrupt Enable Register
-        using Addr = Register::Address<0x4005f028,0xfffffff0,0,unsigned>;
+        using Addr = Register::Address<0x4005f028,0xfffffff0,0x00000000,unsigned>;
         ///Timer Status Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> teie{}; 
     }
     namespace FlexioShiftsden{    ///<Shifter Status DMA Enable
-        using Addr = Register::Address<0x4005f030,0xfffffff0,0,unsigned>;
+        using Addr = Register::Address<0x4005f030,0xfffffff0,0x00000000,unsigned>;
         ///Shifter Status DMA Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> ssde{}; 
     }
     namespace FlexioShiftctl0{    ///<Shifter Control N Register
-        using Addr = Register::Address<0x4005f080,0xfc7cf878,0,unsigned>;
+        using Addr = Register::Address<0x4005f080,0xfc7cf878,0x00000000,unsigned>;
         ///Shifter Mode
         enum class SmodVal {
             v000=0x00000000,     ///<Disabled.
@@ -168,7 +168,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,unsigned> timsel{}; 
     }
     namespace FlexioShiftctl1{    ///<Shifter Control N Register
-        using Addr = Register::Address<0x4005f084,0xfc7cf878,0,unsigned>;
+        using Addr = Register::Address<0x4005f084,0xfc7cf878,0x00000000,unsigned>;
         ///Shifter Mode
         enum class SmodVal {
             v000=0x00000000,     ///<Disabled.
@@ -225,7 +225,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,unsigned> timsel{}; 
     }
     namespace FlexioShiftctl2{    ///<Shifter Control N Register
-        using Addr = Register::Address<0x4005f088,0xfc7cf878,0,unsigned>;
+        using Addr = Register::Address<0x4005f088,0xfc7cf878,0x00000000,unsigned>;
         ///Shifter Mode
         enum class SmodVal {
             v000=0x00000000,     ///<Disabled.
@@ -282,7 +282,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,unsigned> timsel{}; 
     }
     namespace FlexioShiftctl3{    ///<Shifter Control N Register
-        using Addr = Register::Address<0x4005f08c,0xfc7cf878,0,unsigned>;
+        using Addr = Register::Address<0x4005f08c,0xfc7cf878,0x00000000,unsigned>;
         ///Shifter Mode
         enum class SmodVal {
             v000=0x00000000,     ///<Disabled.
@@ -339,7 +339,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,24),Register::ReadWriteAccess,unsigned> timsel{}; 
     }
     namespace FlexioShiftcfg0{    ///<Shifter Configuration N Register
-        using Addr = Register::Address<0x4005f100,0xfffffecc,0,unsigned>;
+        using Addr = Register::Address<0x4005f100,0xfffffecc,0x00000000,unsigned>;
         ///Shifter Start bit
         enum class SstartVal {
             v00=0x00000000,     ///<Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
@@ -380,7 +380,7 @@ namespace Kvasir {
         }
     }
     namespace FlexioShiftcfg1{    ///<Shifter Configuration N Register
-        using Addr = Register::Address<0x4005f104,0xfffffecc,0,unsigned>;
+        using Addr = Register::Address<0x4005f104,0xfffffecc,0x00000000,unsigned>;
         ///Shifter Start bit
         enum class SstartVal {
             v00=0x00000000,     ///<Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
@@ -421,7 +421,7 @@ namespace Kvasir {
         }
     }
     namespace FlexioShiftcfg2{    ///<Shifter Configuration N Register
-        using Addr = Register::Address<0x4005f108,0xfffffecc,0,unsigned>;
+        using Addr = Register::Address<0x4005f108,0xfffffecc,0x00000000,unsigned>;
         ///Shifter Start bit
         enum class SstartVal {
             v00=0x00000000,     ///<Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
@@ -462,7 +462,7 @@ namespace Kvasir {
         }
     }
     namespace FlexioShiftcfg3{    ///<Shifter Configuration N Register
-        using Addr = Register::Address<0x4005f10c,0xfffffecc,0,unsigned>;
+        using Addr = Register::Address<0x4005f10c,0xfffffecc,0x00000000,unsigned>;
         ///Shifter Start bit
         enum class SstartVal {
             v00=0x00000000,     ///<Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
@@ -503,87 +503,87 @@ namespace Kvasir {
         }
     }
     namespace FlexioShiftbuf0{    ///<Shifter Buffer N Register
-        using Addr = Register::Address<0x4005f200,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4005f200,0x00000000,0x00000000,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbuf{}; 
     }
     namespace FlexioShiftbuf1{    ///<Shifter Buffer N Register
-        using Addr = Register::Address<0x4005f204,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4005f204,0x00000000,0x00000000,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbuf{}; 
     }
     namespace FlexioShiftbuf2{    ///<Shifter Buffer N Register
-        using Addr = Register::Address<0x4005f208,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4005f208,0x00000000,0x00000000,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbuf{}; 
     }
     namespace FlexioShiftbuf3{    ///<Shifter Buffer N Register
-        using Addr = Register::Address<0x4005f20c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4005f20c,0x00000000,0x00000000,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbuf{}; 
     }
     namespace FlexioShiftbufbbs0{    ///<Shifter Buffer N Bit Byte Swapped Register
-        using Addr = Register::Address<0x4005f280,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4005f280,0x00000000,0x00000000,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbufbbs{}; 
     }
     namespace FlexioShiftbufbbs1{    ///<Shifter Buffer N Bit Byte Swapped Register
-        using Addr = Register::Address<0x4005f284,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4005f284,0x00000000,0x00000000,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbufbbs{}; 
     }
     namespace FlexioShiftbufbbs2{    ///<Shifter Buffer N Bit Byte Swapped Register
-        using Addr = Register::Address<0x4005f288,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4005f288,0x00000000,0x00000000,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbufbbs{}; 
     }
     namespace FlexioShiftbufbbs3{    ///<Shifter Buffer N Bit Byte Swapped Register
-        using Addr = Register::Address<0x4005f28c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4005f28c,0x00000000,0x00000000,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbufbbs{}; 
     }
     namespace FlexioShiftbufbys0{    ///<Shifter Buffer N Byte Swapped Register
-        using Addr = Register::Address<0x4005f300,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4005f300,0x00000000,0x00000000,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbufbys{}; 
     }
     namespace FlexioShiftbufbys1{    ///<Shifter Buffer N Byte Swapped Register
-        using Addr = Register::Address<0x4005f304,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4005f304,0x00000000,0x00000000,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbufbys{}; 
     }
     namespace FlexioShiftbufbys2{    ///<Shifter Buffer N Byte Swapped Register
-        using Addr = Register::Address<0x4005f308,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4005f308,0x00000000,0x00000000,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbufbys{}; 
     }
     namespace FlexioShiftbufbys3{    ///<Shifter Buffer N Byte Swapped Register
-        using Addr = Register::Address<0x4005f30c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4005f30c,0x00000000,0x00000000,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbufbys{}; 
     }
     namespace FlexioShiftbufbis0{    ///<Shifter Buffer N Bit Swapped Register
-        using Addr = Register::Address<0x4005f380,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4005f380,0x00000000,0x00000000,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbufbis{}; 
     }
     namespace FlexioShiftbufbis1{    ///<Shifter Buffer N Bit Swapped Register
-        using Addr = Register::Address<0x4005f384,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4005f384,0x00000000,0x00000000,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbufbis{}; 
     }
     namespace FlexioShiftbufbis2{    ///<Shifter Buffer N Bit Swapped Register
-        using Addr = Register::Address<0x4005f388,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4005f388,0x00000000,0x00000000,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbufbis{}; 
     }
     namespace FlexioShiftbufbis3{    ///<Shifter Buffer N Bit Swapped Register
-        using Addr = Register::Address<0x4005f38c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4005f38c,0x00000000,0x00000000,unsigned>;
         ///Shift Buffer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> shiftbufbis{}; 
     }
     namespace FlexioTimctl0{    ///<Timer Control N Register
-        using Addr = Register::Address<0x4005f400,0xf03cf87c,0,unsigned>;
+        using Addr = Register::Address<0x4005f400,0xf03cf87c,0x00000000,unsigned>;
         ///Timer Mode
         enum class TimodVal {
             v00=0x00000000,     ///<Timer Disabled.
@@ -648,7 +648,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> trgsel{}; 
     }
     namespace FlexioTimctl1{    ///<Timer Control N Register
-        using Addr = Register::Address<0x4005f404,0xf03cf87c,0,unsigned>;
+        using Addr = Register::Address<0x4005f404,0xf03cf87c,0x00000000,unsigned>;
         ///Timer Mode
         enum class TimodVal {
             v00=0x00000000,     ///<Timer Disabled.
@@ -713,7 +713,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> trgsel{}; 
     }
     namespace FlexioTimctl2{    ///<Timer Control N Register
-        using Addr = Register::Address<0x4005f408,0xf03cf87c,0,unsigned>;
+        using Addr = Register::Address<0x4005f408,0xf03cf87c,0x00000000,unsigned>;
         ///Timer Mode
         enum class TimodVal {
             v00=0x00000000,     ///<Timer Disabled.
@@ -778,7 +778,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> trgsel{}; 
     }
     namespace FlexioTimctl3{    ///<Timer Control N Register
-        using Addr = Register::Address<0x4005f40c,0xf03cf87c,0,unsigned>;
+        using Addr = Register::Address<0x4005f40c,0xf03cf87c,0x00000000,unsigned>;
         ///Timer Mode
         enum class TimodVal {
             v00=0x00000000,     ///<Timer Disabled.
@@ -843,7 +843,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,24),Register::ReadWriteAccess,unsigned> trgsel{}; 
     }
     namespace FlexioTimcfg0{    ///<Timer Configuration N Register
-        using Addr = Register::Address<0x4005f480,0xfcc888cd,0,unsigned>;
+        using Addr = Register::Address<0x4005f480,0xfcc888cd,0x00000000,unsigned>;
         ///Timer Start Bit
         enum class TstartVal {
             v0=0x00000000,     ///<Start bit disabled
@@ -958,7 +958,7 @@ namespace Kvasir {
         }
     }
     namespace FlexioTimcfg1{    ///<Timer Configuration N Register
-        using Addr = Register::Address<0x4005f484,0xfcc888cd,0,unsigned>;
+        using Addr = Register::Address<0x4005f484,0xfcc888cd,0x00000000,unsigned>;
         ///Timer Start Bit
         enum class TstartVal {
             v0=0x00000000,     ///<Start bit disabled
@@ -1073,7 +1073,7 @@ namespace Kvasir {
         }
     }
     namespace FlexioTimcfg2{    ///<Timer Configuration N Register
-        using Addr = Register::Address<0x4005f488,0xfcc888cd,0,unsigned>;
+        using Addr = Register::Address<0x4005f488,0xfcc888cd,0x00000000,unsigned>;
         ///Timer Start Bit
         enum class TstartVal {
             v0=0x00000000,     ///<Start bit disabled
@@ -1188,7 +1188,7 @@ namespace Kvasir {
         }
     }
     namespace FlexioTimcfg3{    ///<Timer Configuration N Register
-        using Addr = Register::Address<0x4005f48c,0xfcc888cd,0,unsigned>;
+        using Addr = Register::Address<0x4005f48c,0xfcc888cd,0x00000000,unsigned>;
         ///Timer Start Bit
         enum class TstartVal {
             v0=0x00000000,     ///<Start bit disabled
@@ -1303,22 +1303,22 @@ namespace Kvasir {
         }
     }
     namespace FlexioTimcmp0{    ///<Timer Compare N Register
-        using Addr = Register::Address<0x4005f500,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005f500,0xffff0000,0x00000000,unsigned>;
         ///Timer Compare Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmp{}; 
     }
     namespace FlexioTimcmp1{    ///<Timer Compare N Register
-        using Addr = Register::Address<0x4005f504,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005f504,0xffff0000,0x00000000,unsigned>;
         ///Timer Compare Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmp{}; 
     }
     namespace FlexioTimcmp2{    ///<Timer Compare N Register
-        using Addr = Register::Address<0x4005f508,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005f508,0xffff0000,0x00000000,unsigned>;
         ///Timer Compare Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmp{}; 
     }
     namespace FlexioTimcmp3{    ///<Timer Compare N Register
-        using Addr = Register::Address<0x4005f50c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4005f50c,0xffff0000,0x00000000,unsigned>;
         ///Timer Compare Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> cmp{}; 
     }

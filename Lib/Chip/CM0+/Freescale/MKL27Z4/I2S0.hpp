@@ -3,7 +3,7 @@
 namespace Kvasir {
 //Inter-IC Sound / Synchronous Audio Interface
     namespace I2s0Tcsr{    ///<SAI Transmit Control Register
-        using Addr = Register::Address<0x4002f000,0x0ce1e1fd,0,unsigned>;
+        using Addr = Register::Address<0x4002f000,0x0ce1e1fd,0x00000000,unsigned>;
         ///FIFO Warning DMA Enable
         enum class FwdeVal {
             v0=0x00000000,     ///<Disables the DMA request.
@@ -156,7 +156,7 @@ namespace Kvasir {
         }
     }
     namespace I2s0Tcr2{    ///<SAI Transmit Configuration 2 Register
-        using Addr = Register::Address<0x4002f008,0x00ffff00,0,unsigned>;
+        using Addr = Register::Address<0x4002f008,0x00ffff00,0x00000000,unsigned>;
         ///Bit Clock Divide
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
         ///Bit Clock Direction
@@ -229,7 +229,7 @@ namespace Kvasir {
         }
     }
     namespace I2s0Tcr3{    ///<SAI Transmit Configuration 3 Register
-        using Addr = Register::Address<0x4002f00c,0xfffefffe,0,unsigned>;
+        using Addr = Register::Address<0x4002f00c,0xfffefffe,0x00000000,unsigned>;
         ///Word Flag Configuration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wdfl{}; 
         ///Transmit Channel Enable
@@ -244,7 +244,7 @@ namespace Kvasir {
         }
     }
     namespace I2s0Tcr4{    ///<SAI Transmit Configuration 4 Register
-        using Addr = Register::Address<0x4002f010,0xecfee0e0,0,unsigned>;
+        using Addr = Register::Address<0x4002f010,0xecfee0e0,0x00000000,unsigned>;
         ///Frame Sync Direction
         enum class FsdVal {
             v0=0x00000000,     ///<Frame sync is generated externally in Slave mode.
@@ -323,7 +323,7 @@ namespace Kvasir {
         }
     }
     namespace I2s0Tcr5{    ///<SAI Transmit Configuration 5 Register
-        using Addr = Register::Address<0x4002f014,0xe0e0e0ff,0,unsigned>;
+        using Addr = Register::Address<0x4002f014,0xe0e0e0ff,0x00000000,unsigned>;
         ///First Bit Shifted
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> fbt{}; 
         ///Word 0 Width
@@ -332,12 +332,12 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> wnw{}; 
     }
     namespace I2s0Tdr{    ///<SAI Transmit Data Register
-        using Addr = Register::Address<0x4002f020,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4002f020,0x00000000,0x00000000,unsigned>;
         ///Transmit Data Register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tdr{}; 
     }
     namespace I2s0Tmr{    ///<SAI Transmit Mask Register
-        using Addr = Register::Address<0x4002f060,0xfffffffc,0,unsigned>;
+        using Addr = Register::Address<0x4002f060,0xfffffffc,0x00000000,unsigned>;
         ///Transmit Word Mask
         enum class TwmVal {
             v0=0x00000000,     ///<Word N is enabled.
@@ -350,7 +350,7 @@ namespace Kvasir {
         }
     }
     namespace I2s0Rcsr{    ///<SAI Receive Control Register
-        using Addr = Register::Address<0x4002f080,0x0ce1e1fd,0,unsigned>;
+        using Addr = Register::Address<0x4002f080,0x0ce1e1fd,0x00000000,unsigned>;
         ///FIFO Warning DMA Enable
         enum class FwdeVal {
             v0=0x00000000,     ///<Disables the DMA request.
@@ -503,7 +503,7 @@ namespace Kvasir {
         }
     }
     namespace I2s0Rcr2{    ///<SAI Receive Configuration 2 Register
-        using Addr = Register::Address<0x4002f088,0x00ffff00,0,unsigned>;
+        using Addr = Register::Address<0x4002f088,0x00ffff00,0x00000000,unsigned>;
         ///Bit Clock Divide
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
         ///Bit Clock Direction
@@ -576,7 +576,7 @@ namespace Kvasir {
         }
     }
     namespace I2s0Rcr3{    ///<SAI Receive Configuration 3 Register
-        using Addr = Register::Address<0x4002f08c,0xfffefffe,0,unsigned>;
+        using Addr = Register::Address<0x4002f08c,0xfffefffe,0x00000000,unsigned>;
         ///Word Flag Configuration
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wdfl{}; 
         ///Receive Channel Enable
@@ -591,7 +591,7 @@ namespace Kvasir {
         }
     }
     namespace I2s0Rcr4{    ///<SAI Receive Configuration 4 Register
-        using Addr = Register::Address<0x4002f090,0xecfee0e0,0,unsigned>;
+        using Addr = Register::Address<0x4002f090,0xecfee0e0,0x00000000,unsigned>;
         ///Frame Sync Direction
         enum class FsdVal {
             v0=0x00000000,     ///<Frame Sync is generated externally in Slave mode.
@@ -670,7 +670,7 @@ namespace Kvasir {
         }
     }
     namespace I2s0Rcr5{    ///<SAI Receive Configuration 5 Register
-        using Addr = Register::Address<0x4002f094,0xe0e0e0ff,0,unsigned>;
+        using Addr = Register::Address<0x4002f094,0xe0e0e0ff,0x00000000,unsigned>;
         ///First Bit Shifted
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,8),Register::ReadWriteAccess,unsigned> fbt{}; 
         ///Word 0 Width
@@ -679,12 +679,12 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,24),Register::ReadWriteAccess,unsigned> wnw{}; 
     }
     namespace I2s0Rdr{    ///<SAI Receive Data Register
-        using Addr = Register::Address<0x4002f0a0,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x4002f0a0,0x00000000,0x00000000,unsigned>;
         ///Receive Data Register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rdr{}; 
     }
     namespace I2s0Rmr{    ///<SAI Receive Mask Register
-        using Addr = Register::Address<0x4002f0e0,0xfffffffc,0,unsigned>;
+        using Addr = Register::Address<0x4002f0e0,0xfffffffc,0x00000000,unsigned>;
         ///Receive Word Mask
         enum class RwmVal {
             v0=0x00000000,     ///<Word N is enabled.
@@ -697,7 +697,7 @@ namespace Kvasir {
         }
     }
     namespace I2s0Mcr{    ///<SAI MCLK Control Register
-        using Addr = Register::Address<0x4002f100,0x3cffffff,0,unsigned>;
+        using Addr = Register::Address<0x4002f100,0x3cffffff,0x00000000,unsigned>;
         ///MCLK Input Clock Select
         enum class MicsVal {
             v00=0x00000000,     ///<MCLK divider input clock 0 selected.

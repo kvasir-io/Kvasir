@@ -3,7 +3,7 @@
 namespace Kvasir {
 //Universal Asynchronous Receiver/Transmitter
     namespace Lpuart1Baud{    ///<LPUART Baud Rate Register
-        using Addr = Register::Address<0x40055000,0x00500000,0,unsigned>;
+        using Addr = Register::Address<0x40055000,0x00500000,0x00000000,unsigned>;
         ///Baud Rate Modulo Divisor.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,0),Register::ReadWriteAccess,unsigned> sbr{}; 
         ///Stop Bit Number Select
@@ -124,7 +124,7 @@ namespace Kvasir {
         }
     }
     namespace Lpuart1Stat{    ///<LPUART Status Register
-        using Addr = Register::Address<0x40055004,0x00003fff,0,unsigned>;
+        using Addr = Register::Address<0x40055004,0x00003fff,0x00000000,unsigned>;
         ///Match 2 Flag
         enum class Ma2fVal {
             v0=0x00000000,     ///<Received data is not equal to MA2
@@ -307,7 +307,7 @@ namespace Kvasir {
         }
     }
     namespace Lpuart1Ctrl{    ///<LPUART Control Register
-        using Addr = Register::Address<0x40055008,0x00003800,0,unsigned>;
+        using Addr = Register::Address<0x40055008,0x00003800,0x00000000,unsigned>;
         ///Parity Type
         enum class PtVal {
             v0=0x00000000,     ///<Even parity.
@@ -576,7 +576,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> r8t9{}; 
     }
     namespace Lpuart1Data{    ///<LPUART Data Register
-        using Addr = Register::Address<0x4005500c,0xffff0400,0,unsigned>;
+        using Addr = Register::Address<0x4005500c,0xffff0400,0x00000000,unsigned>;
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> r0t0{}; 
         ///no description available
@@ -649,7 +649,7 @@ namespace Kvasir {
         }
     }
     namespace Lpuart1Match{    ///<LPUART Match Address Register
-        using Addr = Register::Address<0x40055010,0xfc00fc00,0,unsigned>;
+        using Addr = Register::Address<0x40055010,0xfc00fc00,0x00000000,unsigned>;
         ///Match Address 1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,0),Register::ReadWriteAccess,unsigned> ma1{}; 
         ///Match Address 2

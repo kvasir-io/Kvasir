@@ -3,7 +3,7 @@
 namespace Kvasir {
 //System timer
     namespace SystickCsr{    ///<SysTick Control and Status Register
-        using Addr = Register::Address<0xe000e010,0xfffefff8,0,unsigned>;
+        using Addr = Register::Address<0xe000e010,0xfffefff8,0x00000000,unsigned>;
         ///no description available
         enum class EnableVal {
             v0=0x00000000,     ///<counter disabled
@@ -38,17 +38,17 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> countflag{}; 
     }
     namespace SystickRvr{    ///<SysTick Reload Value Register
-        using Addr = Register::Address<0xe000e014,0xff000000,0,unsigned>;
+        using Addr = Register::Address<0xe000e014,0xff000000,0x00000000,unsigned>;
         ///Value to load into the SysTick Current Value Register when the counter reaches 0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> reload{}; 
     }
     namespace SystickCvr{    ///<SysTick Current Value Register
-        using Addr = Register::Address<0xe000e018,0xff000000,0,unsigned>;
+        using Addr = Register::Address<0xe000e018,0xff000000,0x00000000,unsigned>;
         ///Current value at the time the register is accessed
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::ReadWriteAccess,unsigned> current{}; 
     }
     namespace SystickCalib{    ///<SysTick Calibration Value Register
-        using Addr = Register::Address<0xe000e01c,0x3f000000,0,unsigned>;
+        using Addr = Register::Address<0xe000e01c,0x3f000000,0x00000000,unsigned>;
         ///Reload value to use for 10ms timing
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tenms{}; 
         ///no description available
