@@ -1,5 +1,5 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Serial Communication Interface
     namespace Uart2Bdh{    ///<UART Baud Rate Registers: High
@@ -185,7 +185,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No parity error detected since the last time this flag was cleared. If the receive buffer has a depth greater than 1, then there may be data in the receive buffer what was received with a parity error.
             v1=0x00000001,     ///<At least one dataword was received with a parity error since the last time this flag was cleared.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PfVal> pf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,PfVal> pf{}; 
         namespace PfValC{
             constexpr Register::FieldValue<decltype(pf)::Type,PfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pf)::Type,PfVal::v1> v1{};
@@ -195,7 +195,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No framing error detected.
             v1=0x00000001,     ///<Framing error.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,FeVal> fe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FeVal> fe{}; 
         namespace FeValC{
             constexpr Register::FieldValue<decltype(fe)::Type,FeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(fe)::Type,FeVal::v1> v1{};
@@ -205,7 +205,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No noise detected since the last time this flag was cleared. If the receive buffer has a depth greater than 1 then there may be data in the receiver buffer that was received with noise.
             v1=0x00000001,     ///<At least one dataword was received with noise detected since the last time the flag was cleared.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,NfVal> nf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,NfVal> nf{}; 
         namespace NfValC{
             constexpr Register::FieldValue<decltype(nf)::Type,NfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(nf)::Type,NfVal::v1> v1{};
@@ -215,7 +215,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No overrun has occurred since the last time the flag was cleared.
             v1=0x00000001,     ///<Overrun has occurred or the overrun flag has not been cleared since the last overrun occured.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Or_Val> or_{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Or_Val> or_{}; 
         namespace Or_ValC{
             constexpr Register::FieldValue<decltype(or_)::Type,Or_Val::v0> v0{};
             constexpr Register::FieldValue<decltype(or_)::Type,Or_Val::v1> v1{};
@@ -225,7 +225,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Receiver input is either active now or has never become active since the IDLE flag was last cleared.
             v1=0x00000001,     ///<Receiver input has become idle or the flag has not been cleared since it last asserted.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,IdleVal> idle{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,IdleVal> idle{}; 
         namespace IdleValC{
             constexpr Register::FieldValue<decltype(idle)::Type,IdleVal::v0> v0{};
             constexpr Register::FieldValue<decltype(idle)::Type,IdleVal::v1> v1{};
@@ -235,7 +235,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The number of datawords in the receive buffer is less than the number indicated by RXWATER.
             v1=0x00000001,     ///<The number of datawords in the receive buffer is equal to or greater than the number indicated by RXWATER at some point in time since this flag was last cleared.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,RdrfVal> rdrf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RdrfVal> rdrf{}; 
         namespace RdrfValC{
             constexpr Register::FieldValue<decltype(rdrf)::Type,RdrfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rdrf)::Type,RdrfVal::v1> v1{};
@@ -245,7 +245,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Transmitter active (sending data, a preamble, or a break).
             v1=0x00000001,     ///<Transmitter idle (transmission activity complete).
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TcVal> tc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TcVal> tc{}; 
         namespace TcValC{
             constexpr Register::FieldValue<decltype(tc)::Type,TcVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tc)::Type,TcVal::v1> v1{};
@@ -255,7 +255,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The amount of data in the transmit buffer is greater than the value indicated by TWFIFO[TXWATER].
             v1=0x00000001,     ///<The amount of data in the transmit buffer is less than or equal to the value indicated by TWFIFO[TXWATER] at some point in time since the flag has been cleared.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,TdreVal> tdre{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TdreVal> tdre{}; 
         namespace TdreValC{
             constexpr Register::FieldValue<decltype(tdre)::Type,TdreVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tdre)::Type,TdreVal::v1> v1{};
@@ -268,7 +268,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<UART receiver idle/inactive waiting for a start bit.
             v1=0x00000001,     ///<UART receiver active, RxD input not idle.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RafVal> raf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RafVal> raf{}; 
         namespace RafValC{
             constexpr Register::FieldValue<decltype(raf)::Type,RafVal::v0> v0{};
             constexpr Register::FieldValue<decltype(raf)::Type,RafVal::v1> v1{};
@@ -389,7 +389,7 @@ namespace Kvasir {
         ///Transmit Bit 8
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,unsigned> t8{}; 
         ///Received Bit 8
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> r8{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> r8{}; 
     }
     namespace Uart2D{    ///<UART Data Register
         using Addr = Register::Address<0x4006c007,0xffffff00,0,unsigned char>;

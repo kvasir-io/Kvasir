@@ -1,5 +1,5 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Serial Peripheral Interface
     namespace Spi0S{    ///<SPI Status Register
@@ -9,7 +9,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No mode fault error
             v1=0x00000001,     ///<Mode fault error detected
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,ModfVal> modf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ModfVal> modf{}; 
         namespace ModfValC{
             constexpr Register::FieldValue<decltype(modf)::Type,ModfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(modf)::Type,ModfVal::v1> v1{};
@@ -19,7 +19,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<SPI transmit buffer not empty (when FIFOMODE is not present or is 0) or SPI FIFO not empty (when FIFOMODE is 1)
             v1=0x00000001,     ///<SPI transmit buffer empty (when FIFOMODE is not present or is 0) or SPI FIFO empty (when FIFOMODE is 1)
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SptefVal> sptef{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SptefVal> sptef{}; 
         namespace SptefValC{
             constexpr Register::FieldValue<decltype(sptef)::Type,SptefVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sptef)::Type,SptefVal::v1> v1{};
@@ -39,7 +39,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No data available in the receive data buffer (when FIFOMODE is not present or is 0) or Read FIFO is not full (when FIFOMODE is 1)
             v1=0x00000001,     ///<Data available in the receive data buffer (when FIFOMODE is not present or is 0) or Read FIFO is full (when FIFOMODE is 1)
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SprfVal> sprf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SprfVal> sprf{}; 
         namespace SprfValC{
             constexpr Register::FieldValue<decltype(sprf)::Type,SprfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sprf)::Type,SprfVal::v1> v1{};

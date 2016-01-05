@@ -1,5 +1,5 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Voltage Reference
     namespace VrefTrm{    ///<VREF Trim Register
@@ -36,7 +36,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The module is disabled or not stable.
             v1=0x00000001,     ///<The module is stable.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,VrefstVal> vrefst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,VrefstVal> vrefst{}; 
         namespace VrefstValC{
             constexpr Register::FieldValue<decltype(vrefst)::Type,VrefstVal::v0> v0{};
             constexpr Register::FieldValue<decltype(vrefst)::Type,VrefstVal::v1> v1{};

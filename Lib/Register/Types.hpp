@@ -83,15 +83,42 @@ namespace Register{
 		using Type = Action<TLocation,TAction>;
 	};
 
-	template<bool Readable, bool Writable, bool ClearOnRead = false, bool Popable = false, bool SetToClear = false>
-	struct Access {
-		using Type = Access<Readable,Writable,ClearOnRead,Popable,SetToClear>;
+	enum class ModifiedWriteValueType {
+		normal,
+		oneToClear,
+		oneToSet,
+		oneToToggle,
+		zeroToClear,
+		zeroToSet,
+		zeroToToggle,
+		clear,
+		set,
+		modify
 	};
 
-	using ReadWriteAccess = Access<true,true>;
-	using ReadOnlyAccess = Access<true,false>;
-	using WriteOnlyAccess = Access<false,true>;
-	using RSetToClearAccess = Access<true,true,false,false,true>;
+	enum class ReadActionType {
+		normal,
+		clear,
+		set,
+		modify,
+		modifyExternal
+	};
+
+	enum class AccessType {
+		readOnly,
+		writeOnly,
+		readWrite,
+		writeOnce,
+		readWriteOnce
+	};
+
+	template<AccessType, ReadActionType = ReadActionType::normal, ModifiedWriteValueType = ModifiedWriteValueType::normal>
+	struct Access {};
+
+	using ReadWriteAccess = Access<AccessType::readWrite>;
+	using ReadOnlyAccess = Access<AccessType::readOnly>;
+	using WriteOnlyAccess = Access<AccessType::writeOnly>;
+	using ROneToClearAccess = Access<AccessType::readWrite, ReadActionType::normal, ModifiedWriteValueType::oneToClear>;
 
 	template<typename TAddress, unsigned Mask, typename Access = ReadWriteAccess, typename TFieldType = unsigned>
 	struct FieldLocation{

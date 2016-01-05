@@ -103,30 +103,32 @@ namespace Register{
 
 
 		template<typename T>
-		struct IsWriteLiteral : FalseType{};
+		struct IsWriteLiteral : std::false_type{};
 
 		template<typename T>
-		struct IsWriteRuntime : FalseType{};
+		struct IsWriteRuntime : std::false_type{};
 
 		template<typename T>
-		struct IsFieldLocation : FalseType{};
+		struct IsFieldLocation : std::false_type{};
 		template<typename TAddress, unsigned Mask, typename Access, typename TFieldType>
-		struct IsFieldLocation<FieldLocation<TAddress, Mask, Access, TFieldType>> : TrueType {};
+		struct IsFieldLocation<FieldLocation<TAddress, Mask, Access, TFieldType>> : std::true_type {};
 
 		template<typename T>
-		struct IsWritable : FalseType{};
-		template<typename TAddress, unsigned Mask, bool Readable, bool ClearOnRead, bool Popable, typename TFieldType>
-		struct IsWritable<FieldLocation<TAddress, Mask, Access<Readable,true,ClearOnRead,Popable,false>, TFieldType>> : TrueType {};
+		struct IsWritable : std::false_type{};
+		template<typename TAddress, unsigned Mask, ReadActionType RAction, ModifiedWriteValueType WAction, typename TFieldType>
+		struct IsWritable<FieldLocation<TAddress, Mask, Access<AccessType::readWrite, RAction, WAction>, TFieldType>> : std::true_type {};
+		template<typename TAddress, unsigned Mask, ReadActionType RAction, ModifiedWriteValueType WAction, typename TFieldType>
+		struct IsWritable<FieldLocation<TAddress, Mask, Access<AccessType::writeOnly, RAction, WAction>, TFieldType>> : std::true_type {};
 
 		template<typename T>
-		struct IsSetToClear : FalseType{};
-		template<typename TAddress, unsigned Mask, bool Readable, bool Writable, bool ClearOnRead, bool Popable, typename TFieldType>
-		struct IsSetToClear<FieldLocation<TAddress, Mask, Access<Readable,Writable,ClearOnRead,Popable,true>, TFieldType>> : TrueType {};
+		struct IsSetToClear : std::false_type{};
+		template<typename TAddress, unsigned Mask, AccessType AT, ReadActionType RAction, typename TFieldType>
+		struct IsSetToClear<FieldLocation<TAddress, Mask, Access<AT, RAction, ModifiedWriteValueType::oneToClear>, TFieldType>> : std::true_type {};
 
 		template<typename T, typename U>
-		struct WriteLocationAndCompileTimeValueTypeAreSame : FalseType {};
-		template<typename AT, unsigned M, bool Readable, bool ClearOnRead, typename FT, FT V>
-		struct WriteLocationAndCompileTimeValueTypeAreSame<FieldLocation<AT, M, Access<Readable,true,ClearOnRead,false,false>, FT>,MPL::Value<FT,V>> : TrueType{};
+		struct WriteLocationAndCompileTimeValueTypeAreSame : std::false_type {};
+		template<typename AT, unsigned M, typename A, typename FT, FT V>
+		struct WriteLocationAndCompileTimeValueTypeAreSame<FieldLocation<AT, M, A, FT>,MPL::Value<FT,V>> : std::true_type{};
 
 		//getters for specific parameters of an Action
 		template<typename T>
@@ -189,12 +191,12 @@ namespace Register{
 
 		//predicate returns true if action is a read
 		template<typename T>
-		struct IsReadPred : MPL::FalseType {};
+		struct IsReadPred : std::false_type {};
 		template<typename A>
-		struct IsReadPred< Register::Action<A,ReadAction> > : MPL::TrueType{};
+		struct IsReadPred< Register::Action<A,ReadAction> > : std::true_type{};
 
 		template<typename T>
-		struct IsNotReadPred : NotT<typename IsReadPred<T>::type>{};
+		struct IsNotReadPred : std::integral_constant<bool,(!IsReadPred<T>::type::value)>{};
 
 		template<typename T>
 		struct GetMask;

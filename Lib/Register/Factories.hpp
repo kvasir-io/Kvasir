@@ -29,13 +29,13 @@ namespace Register{
 		//factory for write literal
 		template<typename TLocation, unsigned Value>
 		struct Write;
-		template<typename TAddress, unsigned Mask, bool Readable, bool ClearOnRead, typename TFieldType, unsigned Value>
-		struct Write<FieldLocation<TAddress, Mask, Access<Readable,true,ClearOnRead,false,false>, TFieldType>, Value>
+		template<typename TAddress, unsigned Mask, typename Access, typename TFieldType, unsigned Value>
+		struct Write<FieldLocation<TAddress, Mask, Access, TFieldType>, Value>
 			: Action<
 				FieldLocation<
 					TAddress,
 					Mask,
-					Access<Readable,true,ClearOnRead,false,false>,
+					Access,
 					TFieldType>,
 				WriteLiteralAction<(Value<<positionOfFirstSetBit(Mask))>>{};
 
@@ -44,13 +44,13 @@ namespace Register{
 
 		template<typename TLocation>
 		struct Set;
-		template<typename TAddress, unsigned Mask, bool Readable, bool ClearOnRead, typename TFieldType>
-		struct Set<FieldLocation<TAddress, Mask, Access<Readable,true,ClearOnRead,false,false>, TFieldType>>
+		template<typename TAddress, unsigned Mask, typename Access, typename TFieldType>
+		struct Set<FieldLocation<TAddress, Mask, Access, TFieldType>>
 			: Action<
 				FieldLocation<
 					TAddress,
 					Mask,
-					Access<Readable,true,ClearOnRead,false,false>,
+					Access,
 					TFieldType>,
 				WriteLiteralAction<Mask>>
 		{
@@ -63,18 +63,18 @@ namespace Register{
 
 		template<typename TLocation>
 		struct Clear;
-		template<typename TAddress, unsigned Mask, bool Readable, bool ClearOnRead, typename TFieldType>
+		template<typename TAddress, unsigned Mask, typename Access, typename TFieldType>
 		struct Clear<
 			FieldLocation<
 				TAddress,
 				Mask,
-				Access<Readable,true,ClearOnRead,false,false>,
+				Access,
 				TFieldType>> :
 			Action<
 				FieldLocation<
 					TAddress,
 					Mask,
-					Access<Readable,true,ClearOnRead,false,false>,
+					Access,
 					TFieldType>,
 				WriteLiteralAction<0>>
 		{
@@ -86,29 +86,22 @@ namespace Register{
 
 
 		template<typename TLocation>
-		struct Reset{
-			static_assert(Detail::IsSetToClear<TLocation>::value,"Access violation: Register::reset only works on set to clear bits");
-		};
-		template<typename TAddress, unsigned Mask, bool Readable, bool ClearOnRead, typename TFieldType>
-		struct Reset<
-			FieldLocation<
+		struct ResetImpl;
+		template<typename TAddress, unsigned Mask, typename Access, typename TFieldType>
+		struct ResetImpl<FieldLocation<	TAddress, Mask, Access, TFieldType>> {
+			using type = Action <
+				FieldLocation<
 				TAddress,
 				Mask,
-				Access<Readable,true,ClearOnRead,false,true>,
-				TFieldType>> :
-			Action<
-				FieldLocation<
-					TAddress,
-					Mask,
-					Access<Readable,true,ClearOnRead,false,true>,
-					TFieldType>,
-				WriteLiteralAction<(1<<positionOfFirstSetBit(Mask))>>
-		{
+				Access,
+				TFieldType>,
+				WriteLiteralAction < (1 << positionOfFirstSetBit(Mask)) >> ;
 			static_assert(onlyOneBitSet(Mask),"Register::reset only works on single bits that are marked as set to clear");
+			static_assert(Detail::IsSetToClear<FieldLocation<TAddress, Mask, Access, TFieldType >>::value, "Access violation: Register::reset only works on set to clear bits");
 		};
 
 		template<typename TLocation>
-		using ResetT = typename Reset<TLocation>::Type;
+		using Reset = typename ResetImpl<TLocation>::type;
 
 	}
 
@@ -147,7 +140,7 @@ namespace Register{
 	}
 
 	template<typename T>
-	constexpr MPL::EnableIfT<Detail::IsFieldLocation<T>::value,Detail::ResetT<T>>
+	constexpr MPL::EnableIfT<Detail::IsFieldLocation<T>::value,Detail::Reset<T>>
 	reset(T){
 		static_assert(Detail::IsSetToClear<T>::value,"Access violation: Register::reset only works on set to clear bits");
 		return {};

@@ -1,5 +1,5 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Serial Peripheral Interface
     namespace Spi1S{    ///<SPI Status Register
@@ -9,7 +9,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Read FIFO has data. Reads of the DH:DL registers in 16-bit mode or the DL register in 8-bit mode will empty the read FIFO.
             v1=0x00000001,     ///<Read FIFO is empty.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,RfifoefVal> rfifoef{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RfifoefVal> rfifoef{}; 
         namespace RfifoefValC{
             constexpr Register::FieldValue<decltype(rfifoef)::Type,RfifoefVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rfifoef)::Type,RfifoefVal::v1> v1{};
@@ -19,7 +19,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Transmit FIFO has less than 8 bytes
             v1=0x00000001,     ///<Transmit FIFO has 8 bytes of data
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TxfullfVal> txfullf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TxfullfVal> txfullf{}; 
         namespace TxfullfValC{
             constexpr Register::FieldValue<decltype(txfullf)::Type,TxfullfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txfullf)::Type,TxfullfVal::v1> v1{};
@@ -29,7 +29,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Transmit FIFO has more than 16 bits (when C3[TNEAREF_MARK] is 0) or more than 32 bits (when C3[TNEAREF_MARK] is 1) remaining to transmit
             v1=0x00000001,     ///<Transmit FIFO has an amount of data equal to or less than 16 bits (when C3[TNEAREF_MARK] is 0) or 32 bits (when C3[TNEAREF_MARK] is 1) remaining to transmit
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TnearefVal> tnearef{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TnearefVal> tnearef{}; 
         namespace TnearefValC{
             constexpr Register::FieldValue<decltype(tnearef)::Type,TnearefVal::v0> v0{};
             constexpr Register::FieldValue<decltype(tnearef)::Type,TnearefVal::v1> v1{};
@@ -39,7 +39,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Receive FIFO has received less than 48 bits (when C3[RNFULLF_MARK] is 0) or less than 32 bits (when C3[RNFULLF_MARK] is 1)
             v1=0x00000001,     ///<Receive FIFO has received data of an amount equal to or greater than 48 bits (when C3[RNFULLF_MARK] is 0) or 32 bits (when C3[RNFULLF_MARK] is 1)
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,RnfullfVal> rnfullf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RnfullfVal> rnfullf{}; 
         namespace RnfullfValC{
             constexpr Register::FieldValue<decltype(rnfullf)::Type,RnfullfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rnfullf)::Type,RnfullfVal::v1> v1{};
@@ -49,7 +49,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No mode fault error
             v1=0x00000001,     ///<Mode fault error detected
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,ModfVal> modf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ModfVal> modf{}; 
         namespace ModfValC{
             constexpr Register::FieldValue<decltype(modf)::Type,ModfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(modf)::Type,ModfVal::v1> v1{};
@@ -59,7 +59,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<SPI transmit buffer not empty (when FIFOMODE is not present or is 0) or SPI FIFO not empty (when FIFOMODE is 1)
             v1=0x00000001,     ///<SPI transmit buffer empty (when FIFOMODE is not present or is 0) or SPI FIFO empty (when FIFOMODE is 1)
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SptefVal> sptef{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SptefVal> sptef{}; 
         namespace SptefValC{
             constexpr Register::FieldValue<decltype(sptef)::Type,SptefVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sptef)::Type,SptefVal::v1> v1{};
@@ -79,7 +79,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No data available in the receive data buffer (when FIFOMODE is not present or is 0) or Read FIFO is not full (when FIFOMODE is 1)
             v1=0x00000001,     ///<Data available in the receive data buffer (when FIFOMODE is not present or is 0) or Read FIFO is full (when FIFOMODE is 1)
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SprfVal> sprf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SprfVal> sprf{}; 
         namespace SprfValC{
             constexpr Register::FieldValue<decltype(sprf)::Type,SprfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sprf)::Type,SprfVal::v1> v1{};
@@ -323,19 +323,19 @@ namespace Kvasir {
     namespace Spi1Ci{    ///<SPI clear interrupt register
         using Addr = Register::Address<0x4007700a,0xffffff00,0,unsigned char>;
         ///Receive FIFO full flag clear interrupt
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> sprfci{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sprfci{}; 
         ///Transmit FIFO empty flag clear interrupt
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> sptefci{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sptefci{}; 
         ///Receive FIFO nearly full flag clear interrupt
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> rnfullfci{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rnfullfci{}; 
         ///Transmit FIFO nearly empty flag clear interrupt
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> tnearefci{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> tnearefci{}; 
         ///Receive FIFO overflow flag
         enum class RxfofVal {
             v0=0x00000000,     ///<Receive FIFO overflow condition has not occurred
             v1=0x00000001,     ///<Receive FIFO overflow condition occurred
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,RxfofVal> rxfof{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RxfofVal> rxfof{}; 
         namespace RxfofValC{
             constexpr Register::FieldValue<decltype(rxfof)::Type,RxfofVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxfof)::Type,RxfofVal::v1> v1{};
@@ -345,7 +345,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Transmit FIFO overflow condition has not occurred
             v1=0x00000001,     ///<Transmit FIFO overflow condition occurred
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TxfofVal> txfof{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TxfofVal> txfof{}; 
         namespace TxfofValC{
             constexpr Register::FieldValue<decltype(txfof)::Type,TxfofVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txfof)::Type,TxfofVal::v1> v1{};
@@ -355,7 +355,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No receive FIFO error occurred
             v1=0x00000001,     ///<A receive FIFO error occurred
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,RxferrVal> rxferr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RxferrVal> rxferr{}; 
         namespace RxferrValC{
             constexpr Register::FieldValue<decltype(rxferr)::Type,RxferrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(rxferr)::Type,RxferrVal::v1> v1{};
@@ -365,7 +365,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No transmit FIFO error occurred
             v1=0x00000001,     ///<A transmit FIFO error occurred
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,TxferrVal> txferr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TxferrVal> txferr{}; 
         namespace TxferrValC{
             constexpr Register::FieldValue<decltype(txferr)::Type,TxferrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(txferr)::Type,TxferrVal::v1> v1{};

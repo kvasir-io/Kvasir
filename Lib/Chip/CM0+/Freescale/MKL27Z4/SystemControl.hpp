@@ -1,31 +1,31 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //System Control Registers
-    namespace ScbActlr{    ///<Auxiliary Control Register,
+    namespace SystemcontrolActlr{    ///<Auxiliary Control Register,
         using Addr = Register::Address<0xe000e008,0xffffffff,0,unsigned>;
     }
-    namespace ScbCpuid{    ///<CPUID Base Register
+    namespace SystemcontrolCpuid{    ///<CPUID Base Register
         using Addr = Register::Address<0xe000ed00,0x000f0000,0,unsigned>;
         ///Indicates patch release: 0x0 = Patch 0
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> revision{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> revision{}; 
         ///Indicates part number
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::ReadWriteAccess,unsigned> partno{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> partno{}; 
         ///Indicates processor revision: 0x2 = Revision 2
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::ReadWriteAccess,unsigned> variant{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,20),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> variant{}; 
         ///Implementer code
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> implementer{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> implementer{}; 
     }
-    namespace ScbIcsr{    ///<Interrupt Control and State Register
+    namespace SystemcontrolIcsr{    ///<Interrupt Control and State Register
         using Addr = Register::Address<0xe000ed04,0x61fc0fff,0,unsigned>;
         ///Exception number of the highest priority pending enabled exception
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,12),Register::ReadWriteAccess,unsigned> vectpending{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> vectpending{}; 
         ///no description available
         enum class PendstclrVal {
             v0=0x00000000,     ///<no effect
             v1=0x00000001,     ///<removes the pending state from the SysTick exception
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,PendstclrVal> pendstclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,PendstclrVal> pendstclr{}; 
         namespace PendstclrValC{
             constexpr Register::FieldValue<decltype(pendstclr)::Type,PendstclrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pendstclr)::Type,PendstclrVal::v1> v1{};
@@ -45,7 +45,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<no effect
             v1=0x00000001,     ///<removes the pending state from the PendSV exception
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::ReadWriteAccess,PendsvclrVal> pendsvclr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(27,27),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,PendsvclrVal> pendsvclr{}; 
         namespace PendsvclrValC{
             constexpr Register::FieldValue<decltype(pendsvclr)::Type,PendsvclrVal::v0> v0{};
             constexpr Register::FieldValue<decltype(pendsvclr)::Type,PendsvclrVal::v1> v1{};
@@ -71,21 +71,21 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(nmipendset)::Type,NmipendsetVal::v1> v1{};
         }
     }
-    namespace ScbVtor{    ///<Vector Table Offset Register
+    namespace SystemcontrolVtor{    ///<Vector Table Offset Register
         using Addr = Register::Address<0xe000ed08,0x0000007f,0,unsigned>;
         ///Vector table base offset
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,7),Register::ReadWriteAccess,unsigned> tbloff{}; 
     }
-    namespace ScbAircr{    ///<Application Interrupt and Reset Control Register
+    namespace SystemcontrolAircr{    ///<Application Interrupt and Reset Control Register
         using Addr = Register::Address<0xe000ed0c,0x00007ff9,0,unsigned>;
         ///no description available
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> vectclractive{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> vectclractive{}; 
         ///no description available
         enum class SysresetreqVal {
             v0=0x00000000,     ///<no system reset request
             v1=0x00000001,     ///<asserts a signal to the outer system that requests a reset
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SysresetreqVal> sysresetreq{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SysresetreqVal> sysresetreq{}; 
         namespace SysresetreqValC{
             constexpr Register::FieldValue<decltype(sysresetreq)::Type,SysresetreqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(sysresetreq)::Type,SysresetreqVal::v1> v1{};
@@ -95,7 +95,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Little-endian
             v1=0x00000001,     ///<Big-endian
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,EndiannessVal> endianness{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,EndiannessVal> endianness{}; 
         namespace EndiannessValC{
             constexpr Register::FieldValue<decltype(endianness)::Type,EndiannessVal::v0> v0{};
             constexpr Register::FieldValue<decltype(endianness)::Type,EndiannessVal::v1> v1{};
@@ -103,7 +103,7 @@ namespace Kvasir {
         ///Register key
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> vectkey{}; 
     }
-    namespace ScbScr{    ///<System Control Register
+    namespace SystemcontrolScr{    ///<System Control Register
         using Addr = Register::Address<0xe000ed10,0xffffffe9,0,unsigned>;
         ///no description available
         enum class SleeponexitVal {
@@ -136,26 +136,26 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(sevonpend)::Type,SevonpendVal::v1> v1{};
         }
     }
-    namespace ScbCcr{    ///<Configuration and Control Register
+    namespace SystemcontrolCcr{    ///<Configuration and Control Register
         using Addr = Register::Address<0xe000ed14,0xfffffdf7,0,unsigned>;
         ///Always reads as one, indicates that all unaligned accesses generate a HardFault
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> unalignTrp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> unalignTrp{}; 
         ///Indicates stack alignment on exception entry
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> stkalign{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> stkalign{}; 
     }
-    namespace ScbShpr2{    ///<System Handler Priority Register 2
+    namespace SystemcontrolShpr2{    ///<System Handler Priority Register 2
         using Addr = Register::Address<0xe000ed1c,0x3fffffff,0,unsigned>;
         ///Priority of system handler 11, SVCall
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> pri11{}; 
     }
-    namespace ScbShpr3{    ///<System Handler Priority Register 3
+    namespace SystemcontrolShpr3{    ///<System Handler Priority Register 3
         using Addr = Register::Address<0xe000ed20,0x3f3fffff,0,unsigned>;
         ///Priority of system handler 14, PendSV
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,22),Register::ReadWriteAccess,unsigned> pri14{}; 
         ///Priority of system handler 15, SysTick exception
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,30),Register::ReadWriteAccess,unsigned> pri15{}; 
     }
-    namespace ScbShcsr{    ///<System Handler Control and State Register
+    namespace SystemcontrolShcsr{    ///<System Handler Control and State Register
         using Addr = Register::Address<0xe000ed24,0xffff7fff,0,unsigned>;
         ///no description available
         enum class SvcallpendedVal {
@@ -168,7 +168,7 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(svcallpended)::Type,SvcallpendedVal::v1> v1{};
         }
     }
-    namespace ScbDfsr{    ///<Debug Fault Status Register
+    namespace SystemcontrolDfsr{    ///<Debug Fault Status Register
         using Addr = Register::Address<0xe000ed30,0xffffffe0,0,unsigned>;
         ///no description available
         enum class HaltedVal {

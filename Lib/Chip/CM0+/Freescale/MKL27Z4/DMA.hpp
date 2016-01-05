@@ -1,5 +1,5 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //DMA Controller
     namespace DmaSar0{    ///<Source Address Register
@@ -31,7 +31,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<DMA channel is inactive. Cleared when the DMA has finished the last transaction.
             v1=0x00000001,     ///<BSY is set the first time the channel is enabled after a transfer is initiated.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,BsyVal> bsy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BsyVal> bsy{}; 
         namespace BsyValC{
             constexpr Register::FieldValue<decltype(bsy)::Type,BsyVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bsy)::Type,BsyVal::v1> v1{};
@@ -41,7 +41,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No request is pending or the channel is currently active. Cleared when the channel is selected.
             v1=0x00000001,     ///<The DMA channel has a transfer remaining and the channel is not selected.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,ReqVal> req{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ReqVal> req{}; 
         namespace ReqValC{
             constexpr Register::FieldValue<decltype(req)::Type,ReqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(req)::Type,ReqVal::v1> v1{};
@@ -51,7 +51,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No bus error occurred.
             v1=0x00000001,     ///<The DMA channel terminated with a bus error during the write portion of a transfer.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,BedVal> bed{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BedVal> bed{}; 
         namespace BedValC{
             constexpr Register::FieldValue<decltype(bed)::Type,BedVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bed)::Type,BedVal::v1> v1{};
@@ -61,7 +61,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No bus error occurred.
             v1=0x00000001,     ///<The DMA channel terminated with a bus error during the read portion of a transfer.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,BesVal> bes{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BesVal> bes{}; 
         namespace BesValC{
             constexpr Register::FieldValue<decltype(bes)::Type,BesVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bes)::Type,BesVal::v1> v1{};
@@ -71,7 +71,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No configuration error exists.
             v1=0x00000001,     ///<A configuration error has occurred.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,CeVal> ce{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CeVal> ce{}; 
         namespace CeValC{
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::v1> v1{};
@@ -215,7 +215,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<DMA inactive
             v1=0x00000001,     ///<The DMA begins the transfer in accordance to the values in the TCDn. START is cleared automatically after one module clock and always reads as logic 0.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,StartVal> start{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,StartVal> start{}; 
         namespace StartValC{
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
@@ -348,7 +348,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<DMA channel is inactive. Cleared when the DMA has finished the last transaction.
             v1=0x00000001,     ///<BSY is set the first time the channel is enabled after a transfer is initiated.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,BsyVal> bsy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BsyVal> bsy{}; 
         namespace BsyValC{
             constexpr Register::FieldValue<decltype(bsy)::Type,BsyVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bsy)::Type,BsyVal::v1> v1{};
@@ -358,7 +358,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No request is pending or the channel is currently active. Cleared when the channel is selected.
             v1=0x00000001,     ///<The DMA channel has a transfer remaining and the channel is not selected.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,ReqVal> req{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ReqVal> req{}; 
         namespace ReqValC{
             constexpr Register::FieldValue<decltype(req)::Type,ReqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(req)::Type,ReqVal::v1> v1{};
@@ -368,7 +368,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No bus error occurred.
             v1=0x00000001,     ///<The DMA channel terminated with a bus error during the write portion of a transfer.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,BedVal> bed{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BedVal> bed{}; 
         namespace BedValC{
             constexpr Register::FieldValue<decltype(bed)::Type,BedVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bed)::Type,BedVal::v1> v1{};
@@ -378,7 +378,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No bus error occurred.
             v1=0x00000001,     ///<The DMA channel terminated with a bus error during the read portion of a transfer.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,BesVal> bes{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BesVal> bes{}; 
         namespace BesValC{
             constexpr Register::FieldValue<decltype(bes)::Type,BesVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bes)::Type,BesVal::v1> v1{};
@@ -388,7 +388,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No configuration error exists.
             v1=0x00000001,     ///<A configuration error has occurred.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,CeVal> ce{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CeVal> ce{}; 
         namespace CeValC{
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::v1> v1{};
@@ -532,7 +532,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<DMA inactive
             v1=0x00000001,     ///<The DMA begins the transfer in accordance to the values in the TCDn. START is cleared automatically after one module clock and always reads as logic 0.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,StartVal> start{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,StartVal> start{}; 
         namespace StartValC{
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
@@ -665,7 +665,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<DMA channel is inactive. Cleared when the DMA has finished the last transaction.
             v1=0x00000001,     ///<BSY is set the first time the channel is enabled after a transfer is initiated.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,BsyVal> bsy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BsyVal> bsy{}; 
         namespace BsyValC{
             constexpr Register::FieldValue<decltype(bsy)::Type,BsyVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bsy)::Type,BsyVal::v1> v1{};
@@ -675,7 +675,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No request is pending or the channel is currently active. Cleared when the channel is selected.
             v1=0x00000001,     ///<The DMA channel has a transfer remaining and the channel is not selected.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,ReqVal> req{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ReqVal> req{}; 
         namespace ReqValC{
             constexpr Register::FieldValue<decltype(req)::Type,ReqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(req)::Type,ReqVal::v1> v1{};
@@ -685,7 +685,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No bus error occurred.
             v1=0x00000001,     ///<The DMA channel terminated with a bus error during the write portion of a transfer.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,BedVal> bed{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BedVal> bed{}; 
         namespace BedValC{
             constexpr Register::FieldValue<decltype(bed)::Type,BedVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bed)::Type,BedVal::v1> v1{};
@@ -695,7 +695,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No bus error occurred.
             v1=0x00000001,     ///<The DMA channel terminated with a bus error during the read portion of a transfer.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,BesVal> bes{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BesVal> bes{}; 
         namespace BesValC{
             constexpr Register::FieldValue<decltype(bes)::Type,BesVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bes)::Type,BesVal::v1> v1{};
@@ -705,7 +705,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No configuration error exists.
             v1=0x00000001,     ///<A configuration error has occurred.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,CeVal> ce{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CeVal> ce{}; 
         namespace CeValC{
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::v1> v1{};
@@ -849,7 +849,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<DMA inactive
             v1=0x00000001,     ///<The DMA begins the transfer in accordance to the values in the TCDn. START is cleared automatically after one module clock and always reads as logic 0.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,StartVal> start{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,StartVal> start{}; 
         namespace StartValC{
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};
@@ -982,7 +982,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<DMA channel is inactive. Cleared when the DMA has finished the last transaction.
             v1=0x00000001,     ///<BSY is set the first time the channel is enabled after a transfer is initiated.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::ReadWriteAccess,BsyVal> bsy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,25),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BsyVal> bsy{}; 
         namespace BsyValC{
             constexpr Register::FieldValue<decltype(bsy)::Type,BsyVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bsy)::Type,BsyVal::v1> v1{};
@@ -992,7 +992,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No request is pending or the channel is currently active. Cleared when the channel is selected.
             v1=0x00000001,     ///<The DMA channel has a transfer remaining and the channel is not selected.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,ReqVal> req{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ReqVal> req{}; 
         namespace ReqValC{
             constexpr Register::FieldValue<decltype(req)::Type,ReqVal::v0> v0{};
             constexpr Register::FieldValue<decltype(req)::Type,ReqVal::v1> v1{};
@@ -1002,7 +1002,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No bus error occurred.
             v1=0x00000001,     ///<The DMA channel terminated with a bus error during the write portion of a transfer.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::ReadWriteAccess,BedVal> bed{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(28,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BedVal> bed{}; 
         namespace BedValC{
             constexpr Register::FieldValue<decltype(bed)::Type,BedVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bed)::Type,BedVal::v1> v1{};
@@ -1012,7 +1012,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No bus error occurred.
             v1=0x00000001,     ///<The DMA channel terminated with a bus error during the read portion of a transfer.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::ReadWriteAccess,BesVal> bes{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,29),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BesVal> bes{}; 
         namespace BesValC{
             constexpr Register::FieldValue<decltype(bes)::Type,BesVal::v0> v0{};
             constexpr Register::FieldValue<decltype(bes)::Type,BesVal::v1> v1{};
@@ -1022,7 +1022,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<No configuration error exists.
             v1=0x00000001,     ///<A configuration error has occurred.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::ReadWriteAccess,CeVal> ce{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CeVal> ce{}; 
         namespace CeValC{
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::v0> v0{};
             constexpr Register::FieldValue<decltype(ce)::Type,CeVal::v1> v1{};
@@ -1166,7 +1166,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<DMA inactive
             v1=0x00000001,     ///<The DMA begins the transfer in accordance to the values in the TCDn. START is cleared automatically after one module clock and always reads as logic 0.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,StartVal> start{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,StartVal> start{}; 
         namespace StartValC{
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v0> v0{};
             constexpr Register::FieldValue<decltype(start)::Type,StartVal::v1> v1{};

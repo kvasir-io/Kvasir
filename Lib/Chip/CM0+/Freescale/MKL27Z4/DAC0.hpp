@@ -1,5 +1,5 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //12-Bit Digital-to-Analog Converter
     namespace Dac0Dat0l{    ///<DAC Data Low Register
@@ -82,7 +82,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The DAC soft trigger is not valid.
             v1=0x00000001,     ///<The DAC soft trigger is valid.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,DacswtrgVal> dacswtrg{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DacswtrgVal> dacswtrg{}; 
         namespace DacswtrgValC{
             constexpr Register::FieldValue<decltype(dacswtrg)::Type,DacswtrgVal::v0> v0{};
             constexpr Register::FieldValue<decltype(dacswtrg)::Type,DacswtrgVal::v1> v1{};

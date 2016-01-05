@@ -1,5 +1,5 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Analog-to-Digital Converter
     namespace Adc0Sc1a{    ///<ADC Status and Control Registers 1
@@ -93,7 +93,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Conversion is not completed.
             v1=0x00000001,     ///<Conversion is completed.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,CocoVal> coco{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CocoVal> coco{}; 
         namespace CocoValC{
             constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v0> v0{};
             constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v1> v1{};
@@ -190,7 +190,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Conversion is not completed.
             v1=0x00000001,     ///<Conversion is completed.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,CocoVal> coco{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,CocoVal> coco{}; 
         namespace CocoValC{
             constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v0> v0{};
             constexpr Register::FieldValue<decltype(coco)::Type,CocoVal::v1> v1{};
@@ -311,12 +311,12 @@ namespace Kvasir {
     namespace Adc0Ra{    ///<ADC Data Result Register
         using Addr = Register::Address<0x4003b010,0xffff0000,0,unsigned>;
         ///Data result
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> d{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> d{}; 
     }
     namespace Adc0Rb{    ///<ADC Data Result Register
         using Addr = Register::Address<0x4003b014,0xffff0000,0,unsigned>;
         ///Data result
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> d{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> d{}; 
     }
     namespace Adc0Cv1{    ///<Compare Value Registers
         using Addr = Register::Address<0x4003b018,0xffff0000,0,unsigned>;
@@ -395,7 +395,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Conversion not in progress.
             v1=0x00000001,     ///<Conversion in progress.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,AdactVal> adact{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,AdactVal> adact{}; 
         namespace AdactValC{
             constexpr Register::FieldValue<decltype(adact)::Type,AdactVal::v0> v0{};
             constexpr Register::FieldValue<decltype(adact)::Type,AdactVal::v1> v1{};

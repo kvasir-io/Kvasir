@@ -1,5 +1,5 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //System Mode Controller
     namespace SmcPmprot{    ///<Power Mode Protection register
@@ -58,7 +58,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<The previous stop mode entry was successsful.
             v1=0x00000001,     ///<The previous stop mode entry was aborted.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,StopaVal> stopa{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,StopaVal> stopa{}; 
         namespace StopaValC{
             constexpr Register::FieldValue<decltype(stopa)::Type,StopaVal::v0> v0{};
             constexpr Register::FieldValue<decltype(stopa)::Type,StopaVal::v1> v1{};
@@ -104,6 +104,6 @@ namespace Kvasir {
     namespace SmcPmstat{    ///<Power Mode Status register
         using Addr = Register::Address<0x4007e003,0xffffff00,0,unsigned char>;
         ///Power Mode Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> pmstat{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> pmstat{}; 
     }
 }
