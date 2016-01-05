@@ -33,21 +33,49 @@ def formatEnumValue(input):
     if input[:1].isdigit():
         input = 'v' + input
     return formatVariable(input)
+
+def formatComment(input):
+    return input.replace('\r','').replace('\n','')
     
 def useEnumeratedValues(values,fieldWidth):
     if values is not None:
-        if len(values) > 4 or fieldWidth <=2:  # hack to ge around  https://github.com/posborne/cmsis-svd/issues/14
+        if len(values) > 4 or fieldWidth <=2:  # hack to get around  https://github.com/posborne/cmsis-svd/issues/14
             return 1
     return 0
     
-def getAccess(reg,field):
-    access = "ReadWriteAccess"
+def getAccess(field,ext):
+    access = "read-write"
+    modifiedWriteValues = None
+    readAction = None
     if field.access is not None:
-        if field.access is "read-only":
-            access = "ReadOnlyAccess"
-        elif field.access is "write-only":
-            access = "WriteOnlyAccess"
-    return access
+        access = field.access
+    if getKey(ext,['access']) is not None:
+        access = getKey(ext,['access'])
+    if field.modified_write_values is not None:
+        modifiedWriteValues = field.modified_write_values
+    if getKey(ext,['modifiedWriteValues']) is not None:
+        modifiedWriteValues = getKey(ext,['modifiedWriteValues'])
+    if field.read_action is not None:
+        readAction = field.read_action
+    if getKey(ext,['readAction']) is not None:
+        readAction = getKey(ext,['readAction'])
+
+    if modifiedWriteValues is None:
+        modifiedWriteValues = "normal"
+    if readAction is None:
+        readAction = "normal"
+
+    if access == "read-write":
+        access = "readWrite"
+    if access == "read-only":
+        access = "readOnly"
+    if access == "write-only":
+        access = "writeOnly"
+
+    if access == "readWrite" and modifiedWriteValues == "normal" and readAction == "normal":
+        return "ReadWriteAccess"
+
+    return "Access<Register::AccessType::%s,Register::ReadActionType::%s,Register::ModifiedWriteValueType::%s>" % (access,readAction,modifiedWriteValues)
 
 def _getSwdKey(device,args):
     for p in device.peripherals:
