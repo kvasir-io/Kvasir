@@ -23,7 +23,7 @@ def formatIoPorts(input):
 
 def parseIo(extention,device,path):
     outFile = open(posixpath.join(path,"Io.hpp"),'w',encoding='utf-8')
-    outFile.write('#pragma once\n#include "Io/Io.hpp"\n#include "Register/Register.hpp"\n')
+    outFile.write('#pragma once\n#include <Io/Io.hpp>\n#include <Register/Register.hpp>\n')
     outFile.write("namespace Kvasir{\n    namespace Io{\n")
     io = Ft.getKey(extention,['kvasir','io'])
     for key in sorted(io):
@@ -130,7 +130,7 @@ def parseFile(company,file):
     incDir = subdir[10:]
     if Ft.getKey(extention,["kvasir","io"]):
         parseIo(extention,device,subdir)
-        chipText += "#include \"%s\"\n" % (posixpath.join(incDir,"Io.hpp"))
+        chipText += "#include <%s>\n" % (posixpath.join(incDir,"Io.hpp"))
     for peripheral in device.peripherals:
         if peripheral.name is not None:
             chipText += "#include <%s>\n" % (posixpath.join(incDir,peripheral.name+".hpp"))
