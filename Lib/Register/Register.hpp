@@ -32,7 +32,7 @@ namespace Kvasir {
 		//whole namespace. Making the list take at least one parameter should
 		//prevent ambiguity in a case where MPL::list is also an overload candidate
 		template<typename T, typename... Ts>
-		constexpr MPL::List<T,Ts...> list(T,Ts...){ return MPL::List<T,Ts...>{}; }
+		constexpr brigand::list<T,Ts...> list(T,Ts...){ return brigand::list<T,Ts...>{}; }
 
 		//factory for compile time values
 		template<unsigned I>

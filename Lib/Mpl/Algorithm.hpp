@@ -219,19 +219,19 @@ namespace MPL {
 
 	//empty input case
 	template<template<typename, typename > class TPred>
-	struct Sort<MPL::brigand::list<>, Template<TPred>> {
+	struct Sort<brigand::list<>, Template<TPred>> {
 		using type = brigand::list<>;
 	};
 
 	//one element case
 	template<typename T, template<typename, typename > class TPred>
-	struct Sort<MPL::brigand::list<T>, Template<TPred>> {
+	struct Sort<brigand::list<T>, Template<TPred>> {
 		using type = brigand::list<T>;
 	};
 
 	//two or more elements case
 	template<typename ... Ts, template<typename, typename > class TPred>
-	struct Sort<MPL::brigand::list<Ts...>, Template<TPred>> :
+	struct Sort<brigand::list<Ts...>, Template<TPred>> :
 		Detail::Sort<brigand::list<>, TPred,	Ts...> {};
 
 	//alias
@@ -267,7 +267,7 @@ namespace MPL {
 		using type = brigand::list<T>;
 	};
 	template<typename T, typename U, typename...Ts, template<typename, typename > class TPred>
-	struct Unique<MPL::brigand::list<T,U,Ts...>, Template<TPred>> : Detail::Unique<TPred<T,U>::value, brigand::list<>, TPred, T,U,Ts...>{};
+	struct Unique<brigand::list<T,U,Ts...>, Template<TPred>> : Detail::Unique<TPred<T,U>::value, brigand::list<>, TPred, T,U,Ts...>{};
 
 	template<typename TList, typename TPred = IsSameP>
 	using UniqueT = typename Unique<TList, TPred>::type;
@@ -277,7 +277,7 @@ namespace MPL {
 		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
 	};
 	template<typename ... Ts, template<typename> class TPred>
-	struct CountIf<MPL::brigand::list<Ts...>, Template<TPred>> : SumT<brigand::list<typename TPred<Ts>::type...>>{};
+	struct CountIf<brigand::list<Ts...>, Template<TPred>> : SumT<brigand::list<typename TPred<Ts>::type...>>{};
 
 	template<typename TList, typename TPred>
 	using CountIfT = typename CountIf<TList,TPred>::type;

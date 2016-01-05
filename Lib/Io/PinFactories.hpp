@@ -98,7 +98,7 @@ namespace Kvasir {
 		}
 
 		template<typename TPP1, typename TPP2, typename... TPortPins>
-		constexpr MPL::List<Io::Detail::MakeActionIfPinLocationT<Io::Action::Toggle, TPP1>,
+		constexpr brigand::list<Io::Detail::MakeActionIfPinLocationT<Io::Action::Toggle, TPP1>,
 			Io::Detail::MakeActionIfPinLocationT<Io::Action::Toggle, TPP2>,
 			Io::Detail::MakeActionIfPinLocationT<Io::Action::Toggle, TPortPins>...>
 			toggle(TPP1, TPP2, TPortPins...) {
