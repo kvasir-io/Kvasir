@@ -55,12 +55,12 @@ namespace Io{
 		template<typename T>
 		struct IsSinglePort : FalseType {};
 		template<PortAccess A, typename... Ts>
-		struct IsSinglePort<Port<A,Ts...>> : Bool<(Size<GetPortNumbersT<List<Ts...>>>::value == 1)>{};
+		struct IsSinglePort<Port<A,Ts...>> : Bool<(Size<GetPortNumbersT<brigand::list<Ts...>>>::value == 1)>{};
 
 		template<typename T>
 		struct IsDistributedPort : FalseType {};
 		template<PortAccess A, typename... Ts>
-		struct IsDistributedPort<Port<A,Ts...>> : Bool<(Size<GetPortNumbersT<List<Ts...>>>::value > 1)>{};
+		struct IsDistributedPort<Port<A,Ts...>> : Bool<(Size<GetPortNumbersT<brigand::list<Ts...>>>::value > 1)>{};
 
 		template<typename T>
 		struct GetAccess;

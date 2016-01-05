@@ -23,7 +23,7 @@ def formatIoPorts(input):
 
 def parseIo(extention,device,path):
     outFile = open(posixpath.join(path,"Io.hpp"),'w',encoding='utf-8')
-    outFile.write('#pragma once\n#include <Io/Io.hpp>\n#include "Register/Register.hpp"\n')
+    outFile.write('#pragma once\n#include <Io/Io.hpp>\n#include <Register/Register.hpp>\n')
     outFile.write("namespace Kvasir{\n    namespace Io{\n")
     io = Ft.getKey(extention,['kvasir','io'])
     for key in sorted(io):
@@ -52,7 +52,8 @@ def parseIo(extention,device,path):
     outFile.write("    }\n}\n")
 
 def parseRegister(register, baseAddress, prefix, ext):
-    reservedBits = 0xFFFFFFFF
+    noActionIfZeroBits = 0xFFFFFFFF
+    noActionIfOneBits = 0x00000000
     fieldOut = ""
     for field in register.fields:
         msb = field.bit_offset+field.bit_width-1
@@ -75,14 +76,16 @@ def parseRegister(register, baseAddress, prefix, ext):
             cValuesOut += "        }\n"
         access = Ft.getAccess(field,Ft.getKey(ext,['field',field.name]))
         fieldOut += "        constexpr Register::FieldLocation<Addr,Register::maskFromRange(%d,%d),Register::%s,%s> %s{}; \n%s" % (msb,lsb,access,fieldType,fieldName,cValuesOut)
-        #if 
-        reservedBits = Ft.clearBitsFromRange(msb,lsb,reservedBits)
+        if "oneTo" not in access: #only remove bits from reserved field if a write of zero actually changes something
+            noActionIfZeroBits = Ft.clearBitsFromRange(msb,lsb,noActionIfZeroBits)
+        if "zeroTo" in access: #if zeroToSet or zeroToClear then writing a 1 is a no action
+            noActionIfOneBits = Ft.setBitsFromRange(msb,lsb,noActionIfOneBits)
             
     regType = "unsigned"
     if register.size is not None and register.size is 8:
         regType = "unsigned char"
     out = "    namespace %s{    ///<%s\n" % (Ft.formatNamespace("%s_%s" % (prefix, register.name)),Ft.formatComment(register.description))
-    out += "        using Addr = Register::Address<0x%08x,0x%08x,0,%s>;\n" % (baseAddress + register.address_offset,reservedBits,regType)
+    out += "        using Addr = Register::Address<0x%08x,0x%08x,0x%08x,%s>;\n" % (baseAddress + register.address_offset,noActionIfZeroBits,noActionIfOneBits,regType)
     out += fieldOut 
     out +=	"    }\n"
     return out 
@@ -127,7 +130,7 @@ def parseFile(company,file):
     incDir = subdir[10:]
     if Ft.getKey(extention,["kvasir","io"]):
         parseIo(extention,device,subdir)
-        chipText += "#include \"%s\"\n" % (posixpath.join(incDir,"Io.hpp"))
+        chipText += "#include <%s>\n" % (posixpath.join(incDir,"Io.hpp"))
     for peripheral in device.peripherals:
         if peripheral.name is not None:
             chipText += "#include <%s>\n" % (posixpath.join(incDir,peripheral.name+".hpp"))

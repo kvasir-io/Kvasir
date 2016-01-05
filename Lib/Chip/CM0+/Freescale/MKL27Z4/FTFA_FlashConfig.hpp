@@ -3,67 +3,67 @@
 namespace Kvasir {
 //Flash configuration field
     namespace FtfaFlashconfigBackkey3{    ///<Backdoor Comparison Key 3.
-        using Addr = Register::Address<0x00000400,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x00000400,0xffffff00,0x00000000,unsigned char>;
         ///Backdoor Comparison Key.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> key{}; 
     }
     namespace FtfaFlashconfigBackkey2{    ///<Backdoor Comparison Key 2.
-        using Addr = Register::Address<0x00000401,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x00000401,0xffffff00,0x00000000,unsigned char>;
         ///Backdoor Comparison Key.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> key{}; 
     }
     namespace FtfaFlashconfigBackkey1{    ///<Backdoor Comparison Key 1.
-        using Addr = Register::Address<0x00000402,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x00000402,0xffffff00,0x00000000,unsigned char>;
         ///Backdoor Comparison Key.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> key{}; 
     }
     namespace FtfaFlashconfigBackkey0{    ///<Backdoor Comparison Key 0.
-        using Addr = Register::Address<0x00000403,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x00000403,0xffffff00,0x00000000,unsigned char>;
         ///Backdoor Comparison Key.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> key{}; 
     }
     namespace FtfaFlashconfigBackkey7{    ///<Backdoor Comparison Key 7.
-        using Addr = Register::Address<0x00000404,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x00000404,0xffffff00,0x00000000,unsigned char>;
         ///Backdoor Comparison Key.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> key{}; 
     }
     namespace FtfaFlashconfigBackkey6{    ///<Backdoor Comparison Key 6.
-        using Addr = Register::Address<0x00000405,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x00000405,0xffffff00,0x00000000,unsigned char>;
         ///Backdoor Comparison Key.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> key{}; 
     }
     namespace FtfaFlashconfigBackkey5{    ///<Backdoor Comparison Key 5.
-        using Addr = Register::Address<0x00000406,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x00000406,0xffffff00,0x00000000,unsigned char>;
         ///Backdoor Comparison Key.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> key{}; 
     }
     namespace FtfaFlashconfigBackkey4{    ///<Backdoor Comparison Key 4.
-        using Addr = Register::Address<0x00000407,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x00000407,0xffffff00,0x00000000,unsigned char>;
         ///Backdoor Comparison Key.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> key{}; 
     }
     namespace FtfaFlashconfigFprot3{    ///<Non-volatile P-Flash Protection 1 - Low Register
-        using Addr = Register::Address<0x00000408,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x00000408,0xffffff00,0x00000000,unsigned char>;
         ///P-Flash Region Protect
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> prot{}; 
     }
     namespace FtfaFlashconfigFprot2{    ///<Non-volatile P-Flash Protection 1 - High Register
-        using Addr = Register::Address<0x00000409,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x00000409,0xffffff00,0x00000000,unsigned char>;
         ///P-Flash Region Protect
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> prot{}; 
     }
     namespace FtfaFlashconfigFprot1{    ///<Non-volatile P-Flash Protection 0 - Low Register
-        using Addr = Register::Address<0x0000040a,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x0000040a,0xffffff00,0x00000000,unsigned char>;
         ///P-Flash Region Protect
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> prot{}; 
     }
     namespace FtfaFlashconfigFprot0{    ///<Non-volatile P-Flash Protection 0 - High Register
-        using Addr = Register::Address<0x0000040b,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x0000040b,0xffffff00,0x00000000,unsigned char>;
         ///P-Flash Region Protect
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> prot{}; 
     }
     namespace FtfaFlashconfigFsec{    ///<Non-volatile Flash Security Register
-        using Addr = Register::Address<0x0000040c,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x0000040c,0xffffff00,0x00000000,unsigned char>;
         ///Flash Security
         enum class SecVal {
             v10=0x00000002,     ///<MCU security status is unsecure
@@ -106,7 +106,7 @@ namespace Kvasir {
         }
     }
     namespace FtfaFlashconfigFopt{    ///<Non-volatile Flash Option Register
-        using Addr = Register::Address<0x0000040d,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x0000040d,0xffffff00,0x00000000,unsigned char>;
         ///no description available
         enum class Lpboot0Val {
             v00=0x00000000,     ///<Core and system clock divider (OUTDIV1) is 0x7 (divide by 8) when LPBOOT1=0 or 0x1 (divide by 2) when LPBOOT1=1.

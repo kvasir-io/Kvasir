@@ -3,17 +3,17 @@
 namespace Kvasir {
 //Core Platform Miscellaneous Control Module
     namespace McmPlasc{    ///<Crossbar Switch (AXBS) Slave Configuration
-        using Addr = Register::Address<0xf0003008,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0xf0003008,0xffffff00,0x00000000,unsigned>;
         ///Each bit in the ASC field indicates whether there is a corresponding connection to the crossbar switch's slave input port.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> asc{}; 
     }
     namespace McmPlamc{    ///<Crossbar Switch (AXBS) Master Configuration
-        using Addr = Register::Address<0xf000300a,0xffffff00,0,unsigned>;
+        using Addr = Register::Address<0xf000300a,0xffffff00,0x00000000,unsigned>;
         ///Each bit in the AMC field indicates whether there is a corresponding connection to the AXBS master input port.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> amc{}; 
     }
     namespace McmPlacr{    ///<Platform Control Register
-        using Addr = Register::Address<0xf000300c,0xfffe01ff,0,unsigned>;
+        using Addr = Register::Address<0xf000300c,0xfffe01ff,0x00000000,unsigned>;
         ///Arbitration select
         enum class ArbVal {
             v0=0x00000000,     ///<Fixed-priority arbitration for the crossbar masters
@@ -88,7 +88,7 @@ namespace Kvasir {
         }
     }
     namespace McmCpo{    ///<Compute Operation Control Register
-        using Addr = Register::Address<0xf0003040,0xfffffff8,0,unsigned>;
+        using Addr = Register::Address<0xf0003040,0xfffffff8,0x00000000,unsigned>;
         ///Compute Operation Request
         enum class CporeqVal {
             v0=0x00000000,     ///<Request is cleared.

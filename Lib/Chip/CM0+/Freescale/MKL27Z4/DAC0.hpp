@@ -3,27 +3,27 @@
 namespace Kvasir {
 //12-Bit Digital-to-Analog Converter
     namespace Dac0Dat0l{    ///<DAC Data Low Register
-        using Addr = Register::Address<0x4003f000,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4003f000,0xffffff00,0x00000000,unsigned char>;
         ///DATA0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data0{}; 
     }
     namespace Dac0Dat1l{    ///<DAC Data Low Register
-        using Addr = Register::Address<0x4003f002,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4003f002,0xffffff00,0x00000000,unsigned char>;
         ///DATA0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data0{}; 
     }
     namespace Dac0Dat0h{    ///<DAC Data High Register
-        using Addr = Register::Address<0x4003f001,0xfffffff0,0,unsigned char>;
+        using Addr = Register::Address<0x4003f001,0xfffffff0,0x00000000,unsigned char>;
         ///DATA1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> data1{}; 
     }
     namespace Dac0Dat1h{    ///<DAC Data High Register
-        using Addr = Register::Address<0x4003f003,0xfffffff0,0,unsigned char>;
+        using Addr = Register::Address<0x4003f003,0xfffffff0,0x00000000,unsigned char>;
         ///DATA1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> data1{}; 
     }
     namespace Dac0Sr{    ///<DAC Status Register
-        using Addr = Register::Address<0x4003f020,0xfffffffc,0,unsigned char>;
+        using Addr = Register::Address<0x4003f020,0xfffffffc,0x00000000,unsigned char>;
         ///DAC Buffer Read Pointer Bottom Position Flag
         enum class DacbfrpbfVal {
             v0=0x00000000,     ///<The DAC buffer read pointer is not equal to C2[DACBFUP].
@@ -46,7 +46,7 @@ namespace Kvasir {
         }
     }
     namespace Dac0C0{    ///<DAC Control Register
-        using Addr = Register::Address<0x4003f021,0xffffff04,0,unsigned char>;
+        using Addr = Register::Address<0x4003f021,0xffffff04,0x00000000,unsigned char>;
         ///DAC Buffer Read Pointer Bottom Flag Interrupt Enable
         enum class DacbbienVal {
             v0=0x00000000,     ///<The DAC buffer read pointer bottom flag interrupt is disabled.
@@ -119,7 +119,7 @@ namespace Kvasir {
         }
     }
     namespace Dac0C1{    ///<DAC Control Register 1
-        using Addr = Register::Address<0x4003f022,0xffffff78,0,unsigned char>;
+        using Addr = Register::Address<0x4003f022,0xffffff78,0x00000000,unsigned char>;
         ///DAC Buffer Enable
         enum class DacbfenVal {
             v0=0x00000000,     ///<Buffer read pointer is disabled. The converted data is always the first word of the buffer.
@@ -154,7 +154,7 @@ namespace Kvasir {
         }
     }
     namespace Dac0C2{    ///<DAC Control Register 2
-        using Addr = Register::Address<0x4003f023,0xffffffee,0,unsigned char>;
+        using Addr = Register::Address<0x4003f023,0xffffffee,0x00000000,unsigned char>;
         ///DAC Buffer Upper Limit
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dacbfup{}; 
         ///DAC Buffer Read Pointer

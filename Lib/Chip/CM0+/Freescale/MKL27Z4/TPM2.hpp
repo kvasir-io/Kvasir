@@ -3,7 +3,7 @@
 namespace Kvasir {
 //Timer/PWM Module
     namespace Tpm2Sc{    ///<Status and Control
-        using Addr = Register::Address<0x4003a000,0xfffffe00,0,unsigned>;
+        using Addr = Register::Address<0x4003a000,0xfffffe00,0x00000000,unsigned>;
         ///Prescale Factor Selection
         enum class PsVal {
             v000=0x00000000,     ///<Divide by 1
@@ -80,17 +80,17 @@ namespace Kvasir {
         }
     }
     namespace Tpm2Cnt{    ///<Counter
-        using Addr = Register::Address<0x4003a004,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4003a004,0xffff0000,0x00000000,unsigned>;
         ///Counter value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> count{}; 
     }
     namespace Tpm2Mod{    ///<Modulo
-        using Addr = Register::Address<0x4003a008,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4003a008,0xffff0000,0x00000000,unsigned>;
         ///Modulo value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> mod{}; 
     }
     namespace Tpm2C0sc{    ///<Channel (n) Status and Control
-        using Addr = Register::Address<0x4003a00c,0xffffff02,0,unsigned>;
+        using Addr = Register::Address<0x4003a00c,0xffffff02,0x00000000,unsigned>;
         ///DMA Enable
         enum class DmaVal {
             v0=0x00000000,     ///<Disable DMA transfers.
@@ -131,7 +131,7 @@ namespace Kvasir {
         }
     }
     namespace Tpm2C1sc{    ///<Channel (n) Status and Control
-        using Addr = Register::Address<0x4003a014,0xffffff02,0,unsigned>;
+        using Addr = Register::Address<0x4003a014,0xffffff02,0x00000000,unsigned>;
         ///DMA Enable
         enum class DmaVal {
             v0=0x00000000,     ///<Disable DMA transfers.
@@ -172,17 +172,17 @@ namespace Kvasir {
         }
     }
     namespace Tpm2C0v{    ///<Channel (n) Value
-        using Addr = Register::Address<0x4003a010,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4003a010,0xffff0000,0x00000000,unsigned>;
         ///Channel Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
     }
     namespace Tpm2C1v{    ///<Channel (n) Value
-        using Addr = Register::Address<0x4003a018,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x4003a018,0xffff0000,0x00000000,unsigned>;
         ///Channel Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> val{}; 
     }
     namespace Tpm2Status{    ///<Capture and Compare Status
-        using Addr = Register::Address<0x4003a050,0xfffffec0,0,unsigned>;
+        using Addr = Register::Address<0x4003a050,0xfffffec0,0x00000000,unsigned>;
         ///Channel 0 Flag
         enum class Ch0fVal {
             v0=0x00000000,     ///<No channel event has occurred.
@@ -255,7 +255,7 @@ namespace Kvasir {
         }
     }
     namespace Tpm2Pol{    ///<Channel Polarity
-        using Addr = Register::Address<0x4003a070,0xffffffc0,0,unsigned>;
+        using Addr = Register::Address<0x4003a070,0xffffffc0,0x00000000,unsigned>;
         ///Channel 0 Polarity
         enum class Pol0Val {
             v0=0x00000000,     ///<The channel polarity is active high.
@@ -318,7 +318,7 @@ namespace Kvasir {
         }
     }
     namespace Tpm2Conf{    ///<Configuration
-        using Addr = Register::Address<0x4003a084,0xf030fc1f,0,unsigned>;
+        using Addr = Register::Address<0x4003a084,0xf030fc1f,0x00000000,unsigned>;
         ///Doze Enable
         enum class DozeenVal {
             v0=0x00000000,     ///<Internal TPM counter continues in Doze mode.

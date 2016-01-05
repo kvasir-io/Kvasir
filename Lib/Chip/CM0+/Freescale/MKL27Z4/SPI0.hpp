@@ -3,7 +3,7 @@
 namespace Kvasir {
 //Serial Peripheral Interface
     namespace Spi0S{    ///<SPI Status Register
-        using Addr = Register::Address<0x40076000,0xffffff0f,0,unsigned char>;
+        using Addr = Register::Address<0x40076000,0xffffff0f,0x00000000,unsigned char>;
         ///Master Mode Fault Flag
         enum class ModfVal {
             v0=0x00000000,     ///<No mode fault error
@@ -46,7 +46,7 @@ namespace Kvasir {
         }
     }
     namespace Spi0Br{    ///<SPI Baud Rate Register
-        using Addr = Register::Address<0x40076001,0xffffff80,0,unsigned char>;
+        using Addr = Register::Address<0x40076001,0xffffff80,0x00000000,unsigned char>;
         ///SPI Baud Rate Divisor
         enum class SprVal {
             v0000=0x00000000,     ///<Baud rate divisor is 2.
@@ -95,7 +95,7 @@ namespace Kvasir {
         }
     }
     namespace Spi0C2{    ///<SPI Control Register 2
-        using Addr = Register::Address<0x40076002,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40076002,0xffffff00,0x00000000,unsigned char>;
         ///SPI Pin Control 0
         enum class Spc0Val {
             v0=0x00000000,     ///<SPI uses separate pins for data input and data output (pin mode is normal). In master mode of operation: MISO is master in and MOSI is master out. In slave mode of operation: MISO is slave out and MOSI is slave in.
@@ -178,7 +178,7 @@ namespace Kvasir {
         }
     }
     namespace Spi0C1{    ///<SPI Control Register 1
-        using Addr = Register::Address<0x40076003,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40076003,0xffffff00,0x00000000,unsigned char>;
         ///LSB First (shifter direction)
         enum class LsbfeVal {
             v0=0x00000000,     ///<SPI serial data transfers start with the most significant bit.
@@ -261,22 +261,22 @@ namespace Kvasir {
         }
     }
     namespace Spi0Ml{    ///<SPI Match Register low
-        using Addr = Register::Address<0x40076004,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40076004,0xffffff00,0x00000000,unsigned char>;
         ///Hardware compare value (low byte)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> bits{}; 
     }
     namespace Spi0Mh{    ///<SPI match register high
-        using Addr = Register::Address<0x40076005,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40076005,0xffffff00,0x00000000,unsigned char>;
         ///Hardware compare value (high byte)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> bits{}; 
     }
     namespace Spi0Dl{    ///<SPI Data Register low
-        using Addr = Register::Address<0x40076006,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40076006,0xffffff00,0x00000000,unsigned char>;
         ///Data (low byte)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> bits{}; 
     }
     namespace Spi0Dh{    ///<SPI data register high
-        using Addr = Register::Address<0x40076007,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40076007,0xffffff00,0x00000000,unsigned char>;
         ///Data (high byte)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> bits{}; 
     }

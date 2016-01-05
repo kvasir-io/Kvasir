@@ -172,7 +172,7 @@ namespace Kvasir {
 
 			//special case where a list of actions is passed
 			template<bool TopLevel, typename... Ts, typename Index>
-			struct MakeIndexedActionImpl<TopLevel, List<Ts...>,Index>{
+			struct MakeIndexedActionImpl<TopLevel, brigand::list<Ts...>,Index>{
 				using type = brigand::list<typename MakeIndexedActionImpl<false, Ts, Index>::type...>;
 			};
 			//special case where a sequence point is passed
@@ -255,7 +255,7 @@ namespace Kvasir {
 			struct Apply;
 			template<typename... TActions, typename...TInputIndexes, typename... TRetAddresses, typename TRetLocations>
 			struct Apply<brigand::list<TActions...>,brigand::list<TInputIndexes...>, FieldTuple<brigand::list<TRetAddresses...>,TRetLocations>>{
-				using ReturnType = FieldTuple<List<TRetAddresses...>, TRetLocations>;
+				using ReturnType = FieldTuple<brigand::list<TRetAddresses...>, TRetLocations>;
 				template<unsigned A>
 				typename std::enable_if<brigand::contains<brigand::set<TRetAddresses...>,brigand::uint32_t<A>>::value>::type filterReturns(ReturnType& ret, unsigned in) {
 					ret.value_[sizeof...(TRetAddresses)-brigand::size<brigand::find<brigand::list<TRetAddresses...>, std::is_same<brigand::uint32_t<A>,brigand::_1>>>::value] |= in;

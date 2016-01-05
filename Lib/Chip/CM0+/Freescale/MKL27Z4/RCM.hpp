@@ -3,7 +3,7 @@
 namespace Kvasir {
 //Reset Control Module
     namespace RcmSrs0{    ///<System Reset Status Register 0
-        using Addr = Register::Address<0x4007f000,0xffffff1c,0,unsigned char>;
+        using Addr = Register::Address<0x4007f000,0xffffff1c,0x00000000,unsigned char>;
         ///Low Leakage Wakeup Reset
         enum class WakeupVal {
             v0=0x00000000,     ///<Reset not caused by LLWU module wakeup source
@@ -56,7 +56,7 @@ namespace Kvasir {
         }
     }
     namespace RcmSrs1{    ///<System Reset Status Register 1
-        using Addr = Register::Address<0x4007f001,0xffffffd1,0,unsigned char>;
+        using Addr = Register::Address<0x4007f001,0xffffffd1,0x00000000,unsigned char>;
         ///Core Lockup
         enum class LockupVal {
             v0=0x00000000,     ///<Reset not caused by core LOCKUP event
@@ -99,7 +99,7 @@ namespace Kvasir {
         }
     }
     namespace RcmRpfc{    ///<Reset Pin Filter Control register
-        using Addr = Register::Address<0x4007f004,0xfffffff8,0,unsigned char>;
+        using Addr = Register::Address<0x4007f004,0xfffffff8,0x00000000,unsigned char>;
         ///Reset Pin Filter Select in Run and Wait Modes
         enum class RstfltsrwVal {
             v00=0x00000000,     ///<All filtering disabled
@@ -124,7 +124,7 @@ namespace Kvasir {
         }
     }
     namespace RcmRpfw{    ///<Reset Pin Filter Width register
-        using Addr = Register::Address<0x4007f005,0xffffffe0,0,unsigned char>;
+        using Addr = Register::Address<0x4007f005,0xffffffe0,0x00000000,unsigned char>;
         ///Reset Pin Filter Bus Clock Select
         enum class RstfltselVal {
             v00000=0x00000000,     ///<Bus clock filter count is 1
@@ -197,7 +197,7 @@ namespace Kvasir {
         }
     }
     namespace RcmFm{    ///<Force Mode Register
-        using Addr = Register::Address<0x4007f006,0xfffffff9,0,unsigned char>;
+        using Addr = Register::Address<0x4007f006,0xfffffff9,0x00000000,unsigned char>;
         ///Force ROM Boot
         enum class ForceromVal {
             v00=0x00000000,     ///<No effect
@@ -214,7 +214,7 @@ namespace Kvasir {
         }
     }
     namespace RcmMr{    ///<Mode Register
-        using Addr = Register::Address<0x4007f007,0xfffffff9,0,unsigned char>;
+        using Addr = Register::Address<0x4007f007,0xfffffff9,0x00000000,unsigned char>;
         ///Boot ROM Configuration
         enum class BootromVal {
             v00=0x00000000,     ///<Boot from Flash
@@ -231,7 +231,7 @@ namespace Kvasir {
         }
     }
     namespace RcmSsrs0{    ///<Sticky System Reset Status Register 0
-        using Addr = Register::Address<0x4007f008,0xffffff1c,0,unsigned char>;
+        using Addr = Register::Address<0x4007f008,0xffffff1c,0x00000000,unsigned char>;
         ///Sticky Low Leakage Wakeup Reset
         enum class SwakeupVal {
             v0=0x00000000,     ///<Reset not caused by LLWU module wakeup source
@@ -284,7 +284,7 @@ namespace Kvasir {
         }
     }
     namespace RcmSsrs1{    ///<Sticky System Reset Status Register 1
-        using Addr = Register::Address<0x4007f009,0xffffffd1,0,unsigned char>;
+        using Addr = Register::Address<0x4007f009,0xffffffd1,0x00000000,unsigned char>;
         ///Sticky Core Lockup
         enum class SlockupVal {
             v0=0x00000000,     ///<Reset not caused by core LOCKUP event

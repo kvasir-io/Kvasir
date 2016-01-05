@@ -123,6 +123,11 @@ def clearBitsFromRange(msb, lsb, privious = 0):
         privious &= ~(1<<ii)
     return privious
 
+def setBitsFromRange(msb, lsb, privious = 0):
+    for ii in range(lsb,msb+1):
+        privious |= (1<<ii)
+    return privious
+
 def formatCpuName(ext,device):
     if ext is None:
         if device.cpu is not None and device.cpu.name is not None:

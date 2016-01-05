@@ -72,12 +72,9 @@ namespace Kvasir {
 		template<unsigned I>
 		using Unsigned = Value<unsigned,I>;
 
-		//Type list
-		template<typename... Ts>
-		using List = brigand::list<Ts...>;
 
 		template<typename... Ts>
-		constexpr List<Ts...> list(Ts...){ return List<Ts...>{}; }
+		constexpr brigand::list<Ts...> list(Ts...){ return brigand::list<Ts...>{}; }
 
 		//wrapper for template template parameters
 		template<template<typename...> class T>

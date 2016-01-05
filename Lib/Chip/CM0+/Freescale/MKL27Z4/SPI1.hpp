@@ -3,7 +3,7 @@
 namespace Kvasir {
 //Serial Peripheral Interface
     namespace Spi1S{    ///<SPI Status Register
-        using Addr = Register::Address<0x40077000,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40077000,0xffffff00,0x00000000,unsigned char>;
         ///SPI read FIFO empty flag
         enum class RfifoefVal {
             v0=0x00000000,     ///<Read FIFO has data. Reads of the DH:DL registers in 16-bit mode or the DL register in 8-bit mode will empty the read FIFO.
@@ -86,7 +86,7 @@ namespace Kvasir {
         }
     }
     namespace Spi1Br{    ///<SPI Baud Rate Register
-        using Addr = Register::Address<0x40077001,0xffffff80,0,unsigned char>;
+        using Addr = Register::Address<0x40077001,0xffffff80,0x00000000,unsigned char>;
         ///SPI Baud Rate Divisor
         enum class SprVal {
             v0000=0x00000000,     ///<Baud rate divisor is 2.
@@ -135,7 +135,7 @@ namespace Kvasir {
         }
     }
     namespace Spi1C2{    ///<SPI Control Register 2
-        using Addr = Register::Address<0x40077002,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40077002,0xffffff00,0x00000000,unsigned char>;
         ///SPI Pin Control 0
         enum class Spc0Val {
             v0=0x00000000,     ///<SPI uses separate pins for data input and data output (pin mode is normal). In master mode of operation: MISO is master in and MOSI is master out. In slave mode of operation: MISO is slave out and MOSI is slave in.
@@ -218,7 +218,7 @@ namespace Kvasir {
         }
     }
     namespace Spi1C1{    ///<SPI Control Register 1
-        using Addr = Register::Address<0x40077003,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40077003,0xffffff00,0x00000000,unsigned char>;
         ///LSB First (shifter direction)
         enum class LsbfeVal {
             v0=0x00000000,     ///<SPI serial data transfers start with the most significant bit.
@@ -301,27 +301,27 @@ namespace Kvasir {
         }
     }
     namespace Spi1Ml{    ///<SPI Match Register low
-        using Addr = Register::Address<0x40077004,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40077004,0xffffff00,0x00000000,unsigned char>;
         ///Hardware compare value (low byte)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> bits{}; 
     }
     namespace Spi1Mh{    ///<SPI match register high
-        using Addr = Register::Address<0x40077005,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40077005,0xffffff00,0x00000000,unsigned char>;
         ///Hardware compare value (high byte)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> bits{}; 
     }
     namespace Spi1Dl{    ///<SPI Data Register low
-        using Addr = Register::Address<0x40077006,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40077006,0xffffff00,0x00000000,unsigned char>;
         ///Data (low byte)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> bits{}; 
     }
     namespace Spi1Dh{    ///<SPI data register high
-        using Addr = Register::Address<0x40077007,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x40077007,0xffffff00,0x00000000,unsigned char>;
         ///Data (high byte)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> bits{}; 
     }
     namespace Spi1Ci{    ///<SPI clear interrupt register
-        using Addr = Register::Address<0x4007700a,0xffffff00,0,unsigned char>;
+        using Addr = Register::Address<0x4007700a,0xffffff00,0x00000000,unsigned char>;
         ///Receive FIFO full flag clear interrupt
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> sprfci{}; 
         ///Transmit FIFO empty flag clear interrupt
@@ -372,7 +372,7 @@ namespace Kvasir {
         }
     }
     namespace Spi1C3{    ///<SPI control register 3
-        using Addr = Register::Address<0x4007700b,0xffffffc0,0,unsigned char>;
+        using Addr = Register::Address<0x4007700b,0xffffffc0,0x00000000,unsigned char>;
         ///FIFO mode enable
         enum class FifomodeVal {
             v0=0x00000000,     ///<Buffer mode disabled

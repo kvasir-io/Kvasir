@@ -46,45 +46,34 @@ namespace MPL {
 			static_assert(AlwaysFalse<TOut>::value,"Incorrect parameter format, expected list of lists");
 		};
 		template<typename... Os, typename TDelim, typename... Ls, typename... Ts>
-		struct Join<List<Os...>,TDelim,List<Ls...>,Ts...> : Join<List<Os...,TDelim,Ls...>,TDelim,Ts...>{};
+		struct Join<brigand::list<Os...>,TDelim, brigand::list<Ls...>,Ts...> : Join<brigand::list<Os...,TDelim,Ls...>,TDelim,Ts...>{};
 		template<typename... Os, typename TDelim>
-		struct Join<List<Os...>,TDelim> : Return<List<Os...>>{};   //no more input, done
+		struct Join<brigand::list<Os...>,TDelim> : Return<brigand::list<Os...>>{};   //no more input, done
 
 		template<typename TOut, typename TCurrent, typename TDelim, typename... Ts>
 		struct Split;
 		template<typename... Os, typename... Cs, typename TDelim, typename T, typename... Ts>
-		struct Split<List<Os...>,List<Cs...>,TDelim,T,Ts...> : //next is not delim, we still have more
-			Split<List<Os...>,List<Cs...,T>,TDelim,Ts...>{};
+		struct Split<brigand::list<Os...>, brigand::list<Cs...>,TDelim,T,Ts...> : //next is not delim, we still have more
+			Split<brigand::list<Os...>, brigand::list<Cs...,T>,TDelim,Ts...>{};
 		template<typename... Os, typename... Cs, typename TDelim, typename T>
-		struct Split<List<Os...>,List<Cs...>,TDelim,T> { //next is not delim, we do not have more
-			using Type = List<Os..., List<Cs..., T>>;
+		struct Split<brigand::list<Os...>, brigand::list<Cs...>,TDelim,T> { //next is not delim, we do not have more
+			using Type = brigand::list<Os..., brigand::list<Cs..., T>>;
 		};
 		template<typename... Os, typename... Cs, typename TDelim, typename... Ts>
-		struct Split<List<Os...>,List<Cs...>,TDelim,TDelim,Ts...> : //next is delim, we still have more
-			Split<List<Os...,List<Cs...>>,List<>,TDelim,Ts...>{};
+		struct Split<brigand::list<Os...>, brigand::list<Cs...>,TDelim,TDelim,Ts...> : //next is delim, we still have more
+			Split<brigand::list<Os..., brigand::list<Cs...>>, brigand::list<>,TDelim,Ts...>{};
 		template<typename... Os, typename... Cs, typename TDelim>
-		struct Split<List<Os...>,List<Cs...>,TDelim,TDelim> { //next is delim, we have no more
-			using Type = List<Os..., List<Cs...>>;
+		struct Split<brigand::list<Os...>, brigand::list<Cs...>,TDelim,TDelim> { //next is delim, we have no more
+			using Type = brigand::list<Os..., brigand::list<Cs...>>;
 		};
 		//same cases but with empty TCurrent list
 		template<typename... Os, typename TDelim, typename... Ts>
-		struct Split<List<Os...>,List<>,TDelim,TDelim,Ts...> : //next is delim, we still have more
-			Split<List<Os...>,List<>,TDelim,Ts...>{};
+		struct Split<brigand::list<Os...>, brigand::list<>,TDelim,TDelim,Ts...> : //next is delim, we still have more
+			Split<brigand::list<Os...>, brigand::list<>,TDelim,Ts...>{};
 		template<typename... Os, typename TDelim>
-		struct Split<List<Os...>,List<>,TDelim,TDelim> { //next is delim, we have no more
-			using Type = List<Os...>;
+		struct Split<brigand::list<Os...>, brigand::list<>,TDelim,TDelim> { //next is delim, we have no more
+			using Type = brigand::list<Os...>;
 		};
-
-		////default only reached when Ts is empty
-		//template<typename T_List, typename ... Ts>
-		//struct Flatten : T_List {};
-		////first of Ts is not a list
-		//template<typename ... Ts, typename T, typename ... Us>
-		//struct Flatten<List<Ts...>, T, Us...> : Flatten<List<Ts..., T>, Us...> {};
-		////frist of Ts is a list
-		//template<typename ... Ts, typename ... Us, typename ... Vs>
-		//struct Flatten<List<Ts...>, List<Us...>, Vs...> :
-		//	Flatten<List<Ts...>, Us..., Vs...> {};
 
 		template<typename T_Out, template<typename, typename > class T_Pred,
 				typename T_Insert, bool B_Tag, typename ... Ts>
@@ -92,20 +81,20 @@ namespace MPL {
 		//next is less than insert, next is not end
 		template<typename ... Os, template<typename, typename > class T_Pred,
 				typename T_Insert, typename T1, typename T2, typename ... Ts>
-		struct SortInsert<List<Os...>, T_Pred, T_Insert, true, T1, T2, Ts...> : SortInsert<
-				List<Os..., T1>, T_Pred, T_Insert, T_Pred<T2, T_Insert>::value, T2,
+		struct SortInsert<brigand::list<Os...>, T_Pred, T_Insert, true, T1, T2, Ts...> : SortInsert<
+			brigand::list<Os..., T1>, T_Pred, T_Insert, T_Pred<T2, T_Insert>::value, T2,
 				Ts...> {};
 		//next is less than insert, next is end, terminate
 		template<typename ... Os, template<typename, typename > class T_Pred,
 				typename T_Insert, typename ... Ts>
-		struct SortInsert<List<Os...>, T_Pred, T_Insert, true, Ts...> {
-			using type = List<Os..., Ts..., T_Insert>;
+		struct SortInsert<brigand::list<Os...>, T_Pred, T_Insert, true, Ts...> {
+			using type = brigand::list<Os..., Ts..., T_Insert>;
 		};
 		//next is not less than insert, terminate
 		template<typename ... Os, template<typename, typename > class T_Pred,
 				typename T_Insert, typename ... Ts>
-		struct SortInsert<List<Os...>, T_Pred, T_Insert, false, Ts...> {
-			using type = List<Os..., T_Insert, Ts...>;
+		struct SortInsert<brigand::list<Os...>, T_Pred, T_Insert, false, Ts...> {
+			using type = brigand::list<Os..., T_Insert, Ts...>;
 		};
 
 		template<typename TOut, template<typename, typename > class P, typename ... Ts>
@@ -116,36 +105,36 @@ namespace MPL {
 		template<typename O, typename ... Os,
 				template<typename, typename > class TPred, typename TInsert,
 				typename ... Ts>
-		struct Sort<List<O, Os...>, TPred, TInsert, Ts...> : Sort<
-				typename Detail::SortInsert<List<>, TPred, TInsert,
+		struct Sort<brigand::list<O, Os...>, TPred, TInsert, Ts...> : Sort<
+				typename Detail::SortInsert<brigand::list<>, TPred, TInsert,
 						TPred<O, TInsert>::value, O, Os...>::type, TPred, Ts...>
 		{};
 		//out is empty, in is not empty
 		template<typename ... Os, template<typename, typename > class TPred,
 				typename TInsert, typename ... Ts>
-		struct Sort<List<Os...>, TPred, TInsert, Ts...> : Sort<
-				typename Detail::SortInsert<List<>, TPred, TInsert, false, Os...>::type,
+		struct Sort<brigand::list<Os...>, TPred, TInsert, Ts...> : Sort<
+				typename Detail::SortInsert<brigand::list<>, TPred, TInsert, false, Os...>::type,
 				TPred, Ts...>
 		{};
 		//in is empty
 		template<typename ... Os, template<typename, typename > class P, typename ... Ts>
-		struct Sort<List<Os...>, P, Ts...> {
-			using type = List<Os...>;
+		struct Sort<brigand::list<Os...>, P, Ts...> {
+			using type = brigand::list<Os...>;
 		};
 
 		template<typename TOut, int From, int To, typename... Ts>
 		struct Remove;
 		template<typename... Os, int From, int To, typename T, typename... Ts>
-		struct Remove<List<Os...>,From,To,T,Ts...> : Remove<List<Os...,T>,From-1,To-1,Ts...>{};
+		struct Remove<brigand::list<Os...>,From,To,T,Ts...> : Remove<brigand::list<Os...,T>,From-1,To-1,Ts...>{};
 		template<typename... Os, int To, typename T, typename... Ts>
-		struct Remove<List<Os...>,0,To,T,Ts...> : Remove<List<Os...>,0,To-1,Ts...>{};
+		struct Remove<brigand::list<Os...>,0,To,T,Ts...> : Remove<brigand::list<Os...>,0,To-1,Ts...>{};
 		template<typename... Os, typename T, typename... Ts>
-		struct Remove<List<Os...>,0,0,T,Ts...>{
-			using type = List<Os..., T, Ts...>;
+		struct Remove<brigand::list<Os...>,0,0,T,Ts...>{
+			using type = brigand::list<Os..., T, Ts...>;
 		};
 		template<typename... Os>
-		struct Remove<List<Os...>,0,0>{
-			using type = List<Os...>;
+		struct Remove<brigand::list<Os...>,0,0>{
+			using type = brigand::list<Os...>;
 		};
 
 		template<bool FirstTwoSame, typename T, template<typename, typename > class Pred, typename... Ts>
@@ -170,9 +159,9 @@ namespace MPL {
 		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
 	};
 	template<typename T, typename...Ts, int I>
-	struct At<List<T, Ts...>,Int<I>> : At<List<Ts...>,Int<I-1>>{};
+	struct At<brigand::list<T, Ts...>,Int<I>> : At<brigand::list<Ts...>,Int<I-1>>{};
 	template<typename T, typename... Ts>
-	struct At<List<T, Ts...>,Int<0>> : Return<T>{};
+	struct At<brigand::list<T, Ts...>,Int<0>> : Return<T>{};
 	template<typename TList, typename TIndex>
 	using AtT = typename At<TList,TIndex>::type;
 
@@ -183,10 +172,10 @@ namespace MPL {
 		static_assert(AlwaysFalse<TToFind>::value,"implausible parameters");
 	};
 	template<typename T, typename ... Ts>
-	struct Find<List<Ts...>,T> : Detail::Find<0, T, Ts...> {
+	struct Find<brigand::list<Ts...>,T> : Detail::Find<0, T, Ts...> {
 	};
 	template<template<typename...> class Pred, typename T, typename... Ts>
-	struct Find<List<T,Ts...>, Template<Pred>> : Detail::PredFind<0,Pred<T>::value,Pred,Ts...>{};
+	struct Find<brigand::list<T,Ts...>, Template<Pred>> : Detail::PredFind<0,Pred<T>::value,Pred,Ts...>{};
 	template<typename TList, typename TToFind>
 	using FindT = typename Find<TList,TToFind>::type;
 
@@ -196,8 +185,8 @@ namespace MPL {
 		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
 	};
 	template<template<typename...> class Pred, typename D, typename... Ts>
-	struct Get<List<Ts...>, Template<Pred>,D> :
-		ConditionalT<(FindT<List<Ts...>,Template<Pred>>::value == -1),D,At<List<Ts...>,FindT<List<Ts...>,Template<Pred>>>>{};
+	struct Get<brigand::list<Ts...>, Template<Pred>,D> :
+		ConditionalT<(FindT<brigand::list<Ts...>,Template<Pred>>::value == -1),D,At<brigand::list<Ts...>,FindT<brigand::list<Ts...>,Template<Pred>>>>{};
 	template<typename TList, typename TPred, typename TDefault = void>
 	using GetT = typename Get<TList, TPred, TDefault>::type;
 
@@ -207,7 +196,7 @@ namespace MPL {
 		static_assert(AlwaysFalse<TToFind>::value,"implausible type");
 	};
 	template<typename TToFind, typename ... Ts>
-	struct Contains<List<Ts...>,TToFind> : NotT<
+	struct Contains<brigand::list<Ts...>,TToFind> : NotT<
 			IsSameT<typename Detail::Find<0, TToFind, Ts...>::type, Int<-1>>> {};
 	template<typename TContainer, typename TToFind>
 	using ContainsT = typename Contains<TContainer,TToFind>::type;
@@ -217,35 +206,10 @@ namespace MPL {
 		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
 	};
 	template<typename... Ts>
-	struct Sum<List<Ts...>> : Detail::Sum<0,Ts::value...>{};
+	struct Sum<brigand::list<Ts...>> : Detail::Sum<0,Ts::value...>{};
 
 	template<typename TList>
 	using SumT = typename Sum<TList>::type;
-
-	//works like PHP explode, splits a list into a list of lists devided by a user provided delimiter
-	//template<typename TList, typename TDelim>
-	//struct Split {
-	//	static_assert(AlwaysFalse<TList>::value,"implausible parameters");
-	//};
-	//template<typename... Ts, typename TDelim>
-	//struct Split<List<Ts...>,TDelim> : Detail::Split<List<>, List<>,TDelim,Ts...>{};
-	//template<typename TDelim>
-	//struct Split<List<>,TDelim> : Return<List<>>{};
-
-	//template<typename TList, typename TDelim>
-	//using SplitT = typename Split<TList,TDelim>::type;
-
-	//works like PHP implode, merges a list of lists into a list divided by a user provided delimiter
-	//template<typename TList, typename TDelim>
-	//struct Join {
-	//	static_assert(AlwaysFalse<TList>::value,"implausible parameters");
-	//};
-	//template<typename... Ts, typename TDelim>
-	//struct Join<List<Ts...>,TDelim> : Detail::Join<List<>,TDelim,Ts...>{};
-
-	//template<typename TList, typename TDelim>
-	//using JoinT = typename Join<TList,TDelim>::type;
-
 
 	//Sort
 	template<typename TList, typename TPred = LessP>
@@ -255,20 +219,20 @@ namespace MPL {
 
 	//empty input case
 	template<template<typename, typename > class TPred>
-	struct Sort<MPL::List<>, Template<TPred>> {
-		using type = List<>;
+	struct Sort<brigand::list<>, Template<TPred>> {
+		using type = brigand::list<>;
 	};
 
 	//one element case
 	template<typename T, template<typename, typename > class TPred>
-	struct Sort<MPL::List<T>, Template<TPred>> {
-		using type = List<T>;
+	struct Sort<brigand::list<T>, Template<TPred>> {
+		using type = brigand::list<T>;
 	};
 
 	//two or more elements case
 	template<typename ... Ts, template<typename, typename > class TPred>
-	struct Sort<MPL::List<Ts...>, Template<TPred>> :
-		Detail::Sort<List<>, TPred,	Ts...> {};
+	struct Sort<brigand::list<Ts...>, Template<TPred>> :
+		Detail::Sort<brigand::list<>, TPred,	Ts...> {};
 
 	//alias
 	template<typename TList, typename TPred = LessP>
@@ -280,10 +244,10 @@ namespace MPL {
 		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
 	};
 	template<typename T, typename... Ts, int From, int To>
-	struct Remove<List<T, Ts...>,Int<From>,Int<To>> : Detail::Remove<List<>,From,To,T,Ts...>{};
+	struct Remove<brigand::list<T, Ts...>,Int<From>,Int<To>> : Detail::Remove<brigand::list<>,From,To,T,Ts...>{};
 
 	template<typename ... Ts, template<typename> class TPred>
-	struct Remove<brigand::list<Ts...>, Template<TPred>, void> : brigand::flatten<List<typename std::conditional<TPred<Ts>::value,List<>,Ts>::type...>>{};
+	struct Remove<brigand::list<Ts...>, Template<TPred>, void> : brigand::flatten<brigand::list<typename std::conditional<TPred<Ts>::value, brigand::list<>,Ts>::type...>>{};
 
 	template<typename TList,typename TFrom, typename TTo = void>
 	using RemoveT = typename Remove<TList,TFrom,TTo>::type;
@@ -303,7 +267,7 @@ namespace MPL {
 		using type = brigand::list<T>;
 	};
 	template<typename T, typename U, typename...Ts, template<typename, typename > class TPred>
-	struct Unique<MPL::List<T,U,Ts...>, Template<TPred>> : Detail::Unique<TPred<T,U>::value, List<>, TPred, T,U,Ts...>{};
+	struct Unique<brigand::list<T,U,Ts...>, Template<TPred>> : Detail::Unique<TPred<T,U>::value, brigand::list<>, TPred, T,U,Ts...>{};
 
 	template<typename TList, typename TPred = IsSameP>
 	using UniqueT = typename Unique<TList, TPred>::type;
@@ -313,7 +277,7 @@ namespace MPL {
 		static_assert(AlwaysFalse<TList>::value,"implausible parameters");
 	};
 	template<typename ... Ts, template<typename> class TPred>
-	struct CountIf<MPL::List<Ts...>, Template<TPred>> : SumT<List<typename TPred<Ts>::type...>>{};
+	struct CountIf<brigand::list<Ts...>, Template<TPred>> : SumT<brigand::list<typename TPred<Ts>::type...>>{};
 
 	template<typename TList, typename TPred>
 	using CountIfT = typename CountIf<TList,TPred>::type;
