@@ -8,3 +8,7 @@ doc/html
 Demos/Blinky/.settings/*
 Demos/KvasirUnitTest/.settings/*
 build/*
+*.suo
+*.pyproj
+*.sln
+*__pycache__
