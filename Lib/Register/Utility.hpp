@@ -137,41 +137,30 @@ namespace Register{
 		struct GetAddress<Address<A,WIIZ,SOTC,TRegType,TMode>> {
 			static constexpr unsigned value = A;
 			static unsigned read(){
-				volatile unsigned& reg = *reinterpret_cast<volatile unsigned*>(value);
+				volatile TRegType& reg = *reinterpret_cast<volatile TRegType*>(value);
 				return reg;
 			}
 			static void write(unsigned i){
-				volatile unsigned& reg = *reinterpret_cast<volatile unsigned*>(value);
+				volatile TRegType& reg = *reinterpret_cast<volatile TRegType*>(value);
 				reg = i;
 			}
 			using type = brigand::uint32_t<A>;
 		};
 		template<typename TAddress, unsigned Mask, typename TAccess, typename TFiledType>
-		struct GetAddress<FieldLocation<TAddress,Mask,TAccess,TFiledType>> {
-			static constexpr unsigned value = TAddress::value;
-			static unsigned read(){
-				volatile unsigned& reg = *reinterpret_cast<volatile unsigned*>(value);
-				return reg;
-			}
-			static void write(unsigned i){
-				volatile unsigned& reg = *reinterpret_cast<volatile unsigned*>(value);
-				reg = i;
-			}
-			using type = brigand::uint32_t<TAddress::value>;
-		};
-		template<typename TReadLoc, typename TWriteLoc>
-		struct GetAddress<FieldLocationPair<TReadLoc,TWriteLoc>> {
-			static constexpr unsigned value = TReadLoc::value;
-			static unsigned read(){
-				volatile unsigned& reg = *reinterpret_cast<volatile unsigned*>(value);
-				return reg;
-			}
-			static void write(unsigned i){
-				volatile unsigned& reg = *reinterpret_cast<volatile unsigned*>(value);
-				reg = i;
-			}
-			using type = brigand::uint32_t<value>;
-		};
+		struct GetAddress<FieldLocation<TAddress, Mask, TAccess, TFiledType>> : GetAddress<TAddress> {};
+		//template<typename TReadLoc, typename TWriteLoc>
+		//struct GetAddress<FieldLocationPair<TReadLoc,TWriteLoc>> {
+			//static constexpr unsigned value = TReadLoc::value;
+			//static unsigned read(){
+				//volatile unsigned& reg = *reinterpret_cast<volatile unsigned*>(value);
+				//return reg;
+			//}
+			//static void write(unsigned i){
+				//volatile unsigned& reg = *reinterpret_cast<volatile unsigned*>(value);
+				//reg = i;
+			//}
+			//using type = brigand::uint32_t<value>;
+		//};
 		template<typename TFieldLocation, typename TAction>
 		struct GetAddress<Action<TFieldLocation,TAction>> : GetAddress<TFieldLocation> {};
 
