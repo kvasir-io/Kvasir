@@ -71,8 +71,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SecVal> sec{}; 
         namespace SecValC{
-            constexpr Register::FieldValue<decltype(sec)::Type,SecVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(sec)::Type,SecVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(FtfaFlashconfigFsec::sec)::Type,SecVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(FtfaFlashconfigFsec::sec)::Type,SecVal::v11> v11{};
         }
         ///Freescale Failure Analysis Access Code
         enum class FslaccVal {
@@ -81,8 +81,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FslaccVal> fslacc{}; 
         namespace FslaccValC{
-            constexpr Register::FieldValue<decltype(fslacc)::Type,FslaccVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(fslacc)::Type,FslaccVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(FtfaFlashconfigFsec::fslacc)::Type,FslaccVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(FtfaFlashconfigFsec::fslacc)::Type,FslaccVal::v11> v11{};
         }
         ///no description available
         enum class MeenVal {
@@ -91,8 +91,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,MeenVal> meen{}; 
         namespace MeenValC{
-            constexpr Register::FieldValue<decltype(meen)::Type,MeenVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(meen)::Type,MeenVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(FtfaFlashconfigFsec::meen)::Type,MeenVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(FtfaFlashconfigFsec::meen)::Type,MeenVal::v11> v11{};
         }
         ///Backdoor Key Security Enable
         enum class KeyenVal {
@@ -101,8 +101,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,KeyenVal> keyen{}; 
         namespace KeyenValC{
-            constexpr Register::FieldValue<decltype(keyen)::Type,KeyenVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(keyen)::Type,KeyenVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(FtfaFlashconfigFsec::keyen)::Type,KeyenVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(FtfaFlashconfigFsec::keyen)::Type,KeyenVal::v11> v11{};
         }
     }
     namespace FtfaFlashconfigFopt{    ///<Non-volatile Flash Option Register
@@ -114,8 +114,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Lpboot0Val> lpboot0{}; 
         namespace Lpboot0ValC{
-            constexpr Register::FieldValue<decltype(lpboot0)::Type,Lpboot0Val::v00> v00{};
-            constexpr Register::FieldValue<decltype(lpboot0)::Type,Lpboot0Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(FtfaFlashconfigFopt::lpboot0)::Type,Lpboot0Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(FtfaFlashconfigFopt::lpboot0)::Type,Lpboot0Val::v01> v01{};
         }
         ///no description available
         enum class BootpinoptVal {
@@ -124,8 +124,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BootpinoptVal> bootpinOpt{}; 
         namespace BootpinoptValC{
-            constexpr Register::FieldValue<decltype(bootpinOpt)::Type,BootpinoptVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(bootpinOpt)::Type,BootpinoptVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(FtfaFlashconfigFopt::bootpinOpt)::Type,BootpinoptVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(FtfaFlashconfigFopt::bootpinOpt)::Type,BootpinoptVal::v01> v01{};
         }
         ///no description available
         enum class NmidisVal {
@@ -134,8 +134,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,NmidisVal> nmiDis{}; 
         namespace NmidisValC{
-            constexpr Register::FieldValue<decltype(nmiDis)::Type,NmidisVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(nmiDis)::Type,NmidisVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(FtfaFlashconfigFopt::nmiDis)::Type,NmidisVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(FtfaFlashconfigFopt::nmiDis)::Type,NmidisVal::v01> v01{};
         }
         ///no description available
         enum class ResetpincfgVal {
@@ -144,8 +144,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ResetpincfgVal> resetPinCfg{}; 
         namespace ResetpincfgValC{
-            constexpr Register::FieldValue<decltype(resetPinCfg)::Type,ResetpincfgVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(resetPinCfg)::Type,ResetpincfgVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(FtfaFlashconfigFopt::resetPinCfg)::Type,ResetpincfgVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(FtfaFlashconfigFopt::resetPinCfg)::Type,ResetpincfgVal::v01> v01{};
         }
         ///no description available
         enum class Lpboot1Val {
@@ -154,8 +154,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Lpboot1Val> lpboot1{}; 
         namespace Lpboot1ValC{
-            constexpr Register::FieldValue<decltype(lpboot1)::Type,Lpboot1Val::v00> v00{};
-            constexpr Register::FieldValue<decltype(lpboot1)::Type,Lpboot1Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(FtfaFlashconfigFopt::lpboot1)::Type,Lpboot1Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(FtfaFlashconfigFopt::lpboot1)::Type,Lpboot1Val::v01> v01{};
         }
         ///no description available
         enum class FastinitVal {
@@ -164,8 +164,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FastinitVal> fastInit{}; 
         namespace FastinitValC{
-            constexpr Register::FieldValue<decltype(fastInit)::Type,FastinitVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(fastInit)::Type,FastinitVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(FtfaFlashconfigFopt::fastInit)::Type,FastinitVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(FtfaFlashconfigFopt::fastInit)::Type,FastinitVal::v01> v01{};
         }
         ///Boot source selection
         enum class BootsrcselVal {
@@ -175,9 +175,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BootsrcselVal> bootsrcSel{}; 
         namespace BootsrcselValC{
-            constexpr Register::FieldValue<decltype(bootsrcSel)::Type,BootsrcselVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(bootsrcSel)::Type,BootsrcselVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(bootsrcSel)::Type,BootsrcselVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(FtfaFlashconfigFopt::bootsrcSel)::Type,BootsrcselVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(FtfaFlashconfigFopt::bootsrcSel)::Type,BootsrcselVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(FtfaFlashconfigFopt::bootsrcSel)::Type,BootsrcselVal::v11> v11{};
         }
     }
 }

@@ -36,7 +36,7 @@ def parseIo(extention,device,path):
                         portNumber = port
                     else:
                         portName = port
-                        portNumber = ord(portNumber)-ord('A')
+                        portNumber = ord(port)-ord('A')
 
                     peripheral = Ft.getKey(io,[key,'peripheral']).replace('%s',portName)
                     register = Ft.getKey(io,[key,'register']).replace('%s',portName)

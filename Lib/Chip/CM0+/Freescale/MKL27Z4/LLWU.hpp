@@ -13,10 +13,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,Wupe0Val> wupe0{}; 
         namespace Wupe0ValC{
-            constexpr Register::FieldValue<decltype(wupe0)::Type,Wupe0Val::v00> v00{};
-            constexpr Register::FieldValue<decltype(wupe0)::Type,Wupe0Val::v01> v01{};
-            constexpr Register::FieldValue<decltype(wupe0)::Type,Wupe0Val::v10> v10{};
-            constexpr Register::FieldValue<decltype(wupe0)::Type,Wupe0Val::v11> v11{};
+            constexpr Register::FieldValue<decltype(LlwuPe1::wupe0)::Type,Wupe0Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(LlwuPe1::wupe0)::Type,Wupe0Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(LlwuPe1::wupe0)::Type,Wupe0Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(LlwuPe1::wupe0)::Type,Wupe0Val::v11> v11{};
         }
         ///Wakeup Pin Enable For LLWU_P1
         enum class Wupe1Val {
@@ -27,10 +27,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,Wupe1Val> wupe1{}; 
         namespace Wupe1ValC{
-            constexpr Register::FieldValue<decltype(wupe1)::Type,Wupe1Val::v00> v00{};
-            constexpr Register::FieldValue<decltype(wupe1)::Type,Wupe1Val::v01> v01{};
-            constexpr Register::FieldValue<decltype(wupe1)::Type,Wupe1Val::v10> v10{};
-            constexpr Register::FieldValue<decltype(wupe1)::Type,Wupe1Val::v11> v11{};
+            constexpr Register::FieldValue<decltype(LlwuPe1::wupe1)::Type,Wupe1Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(LlwuPe1::wupe1)::Type,Wupe1Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(LlwuPe1::wupe1)::Type,Wupe1Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(LlwuPe1::wupe1)::Type,Wupe1Val::v11> v11{};
         }
         ///Wakeup Pin Enable For LLWU_P2
         enum class Wupe2Val {
@@ -41,10 +41,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,Wupe2Val> wupe2{}; 
         namespace Wupe2ValC{
-            constexpr Register::FieldValue<decltype(wupe2)::Type,Wupe2Val::v00> v00{};
-            constexpr Register::FieldValue<decltype(wupe2)::Type,Wupe2Val::v01> v01{};
-            constexpr Register::FieldValue<decltype(wupe2)::Type,Wupe2Val::v10> v10{};
-            constexpr Register::FieldValue<decltype(wupe2)::Type,Wupe2Val::v11> v11{};
+            constexpr Register::FieldValue<decltype(LlwuPe1::wupe2)::Type,Wupe2Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(LlwuPe1::wupe2)::Type,Wupe2Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(LlwuPe1::wupe2)::Type,Wupe2Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(LlwuPe1::wupe2)::Type,Wupe2Val::v11> v11{};
         }
         ///Wakeup Pin Enable For LLWU_P3
         enum class Wupe3Val {
@@ -55,10 +55,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,Wupe3Val> wupe3{}; 
         namespace Wupe3ValC{
-            constexpr Register::FieldValue<decltype(wupe3)::Type,Wupe3Val::v00> v00{};
-            constexpr Register::FieldValue<decltype(wupe3)::Type,Wupe3Val::v01> v01{};
-            constexpr Register::FieldValue<decltype(wupe3)::Type,Wupe3Val::v10> v10{};
-            constexpr Register::FieldValue<decltype(wupe3)::Type,Wupe3Val::v11> v11{};
+            constexpr Register::FieldValue<decltype(LlwuPe1::wupe3)::Type,Wupe3Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(LlwuPe1::wupe3)::Type,Wupe3Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(LlwuPe1::wupe3)::Type,Wupe3Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(LlwuPe1::wupe3)::Type,Wupe3Val::v11> v11{};
         }
     }
     namespace LlwuPe2{    ///<LLWU Pin Enable 2 register
@@ -72,10 +72,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,Wupe4Val> wupe4{}; 
         namespace Wupe4ValC{
-            constexpr Register::FieldValue<decltype(wupe4)::Type,Wupe4Val::v00> v00{};
-            constexpr Register::FieldValue<decltype(wupe4)::Type,Wupe4Val::v01> v01{};
-            constexpr Register::FieldValue<decltype(wupe4)::Type,Wupe4Val::v10> v10{};
-            constexpr Register::FieldValue<decltype(wupe4)::Type,Wupe4Val::v11> v11{};
+            constexpr Register::FieldValue<decltype(LlwuPe2::wupe4)::Type,Wupe4Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(LlwuPe2::wupe4)::Type,Wupe4Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(LlwuPe2::wupe4)::Type,Wupe4Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(LlwuPe2::wupe4)::Type,Wupe4Val::v11> v11{};
         }
         ///Wakeup Pin Enable For LLWU_P5
         enum class Wupe5Val {
@@ -86,10 +86,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,Wupe5Val> wupe5{}; 
         namespace Wupe5ValC{
-            constexpr Register::FieldValue<decltype(wupe5)::Type,Wupe5Val::v00> v00{};
-            constexpr Register::FieldValue<decltype(wupe5)::Type,Wupe5Val::v01> v01{};
-            constexpr Register::FieldValue<decltype(wupe5)::Type,Wupe5Val::v10> v10{};
-            constexpr Register::FieldValue<decltype(wupe5)::Type,Wupe5Val::v11> v11{};
+            constexpr Register::FieldValue<decltype(LlwuPe2::wupe5)::Type,Wupe5Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(LlwuPe2::wupe5)::Type,Wupe5Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(LlwuPe2::wupe5)::Type,Wupe5Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(LlwuPe2::wupe5)::Type,Wupe5Val::v11> v11{};
         }
         ///Wakeup Pin Enable For LLWU_P6
         enum class Wupe6Val {
@@ -100,10 +100,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,Wupe6Val> wupe6{}; 
         namespace Wupe6ValC{
-            constexpr Register::FieldValue<decltype(wupe6)::Type,Wupe6Val::v00> v00{};
-            constexpr Register::FieldValue<decltype(wupe6)::Type,Wupe6Val::v01> v01{};
-            constexpr Register::FieldValue<decltype(wupe6)::Type,Wupe6Val::v10> v10{};
-            constexpr Register::FieldValue<decltype(wupe6)::Type,Wupe6Val::v11> v11{};
+            constexpr Register::FieldValue<decltype(LlwuPe2::wupe6)::Type,Wupe6Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(LlwuPe2::wupe6)::Type,Wupe6Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(LlwuPe2::wupe6)::Type,Wupe6Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(LlwuPe2::wupe6)::Type,Wupe6Val::v11> v11{};
         }
         ///Wakeup Pin Enable For LLWU_P7
         enum class Wupe7Val {
@@ -114,10 +114,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,Wupe7Val> wupe7{}; 
         namespace Wupe7ValC{
-            constexpr Register::FieldValue<decltype(wupe7)::Type,Wupe7Val::v00> v00{};
-            constexpr Register::FieldValue<decltype(wupe7)::Type,Wupe7Val::v01> v01{};
-            constexpr Register::FieldValue<decltype(wupe7)::Type,Wupe7Val::v10> v10{};
-            constexpr Register::FieldValue<decltype(wupe7)::Type,Wupe7Val::v11> v11{};
+            constexpr Register::FieldValue<decltype(LlwuPe2::wupe7)::Type,Wupe7Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(LlwuPe2::wupe7)::Type,Wupe7Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(LlwuPe2::wupe7)::Type,Wupe7Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(LlwuPe2::wupe7)::Type,Wupe7Val::v11> v11{};
         }
     }
     namespace LlwuPe3{    ///<LLWU Pin Enable 3 register
@@ -131,10 +131,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,Wupe8Val> wupe8{}; 
         namespace Wupe8ValC{
-            constexpr Register::FieldValue<decltype(wupe8)::Type,Wupe8Val::v00> v00{};
-            constexpr Register::FieldValue<decltype(wupe8)::Type,Wupe8Val::v01> v01{};
-            constexpr Register::FieldValue<decltype(wupe8)::Type,Wupe8Val::v10> v10{};
-            constexpr Register::FieldValue<decltype(wupe8)::Type,Wupe8Val::v11> v11{};
+            constexpr Register::FieldValue<decltype(LlwuPe3::wupe8)::Type,Wupe8Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(LlwuPe3::wupe8)::Type,Wupe8Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(LlwuPe3::wupe8)::Type,Wupe8Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(LlwuPe3::wupe8)::Type,Wupe8Val::v11> v11{};
         }
         ///Wakeup Pin Enable For LLWU_P9
         enum class Wupe9Val {
@@ -145,10 +145,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,Wupe9Val> wupe9{}; 
         namespace Wupe9ValC{
-            constexpr Register::FieldValue<decltype(wupe9)::Type,Wupe9Val::v00> v00{};
-            constexpr Register::FieldValue<decltype(wupe9)::Type,Wupe9Val::v01> v01{};
-            constexpr Register::FieldValue<decltype(wupe9)::Type,Wupe9Val::v10> v10{};
-            constexpr Register::FieldValue<decltype(wupe9)::Type,Wupe9Val::v11> v11{};
+            constexpr Register::FieldValue<decltype(LlwuPe3::wupe9)::Type,Wupe9Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(LlwuPe3::wupe9)::Type,Wupe9Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(LlwuPe3::wupe9)::Type,Wupe9Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(LlwuPe3::wupe9)::Type,Wupe9Val::v11> v11{};
         }
         ///Wakeup Pin Enable For LLWU_P10
         enum class Wupe10Val {
@@ -159,10 +159,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,Wupe10Val> wupe10{}; 
         namespace Wupe10ValC{
-            constexpr Register::FieldValue<decltype(wupe10)::Type,Wupe10Val::v00> v00{};
-            constexpr Register::FieldValue<decltype(wupe10)::Type,Wupe10Val::v01> v01{};
-            constexpr Register::FieldValue<decltype(wupe10)::Type,Wupe10Val::v10> v10{};
-            constexpr Register::FieldValue<decltype(wupe10)::Type,Wupe10Val::v11> v11{};
+            constexpr Register::FieldValue<decltype(LlwuPe3::wupe10)::Type,Wupe10Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(LlwuPe3::wupe10)::Type,Wupe10Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(LlwuPe3::wupe10)::Type,Wupe10Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(LlwuPe3::wupe10)::Type,Wupe10Val::v11> v11{};
         }
         ///Wakeup Pin Enable For LLWU_P11
         enum class Wupe11Val {
@@ -173,10 +173,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,Wupe11Val> wupe11{}; 
         namespace Wupe11ValC{
-            constexpr Register::FieldValue<decltype(wupe11)::Type,Wupe11Val::v00> v00{};
-            constexpr Register::FieldValue<decltype(wupe11)::Type,Wupe11Val::v01> v01{};
-            constexpr Register::FieldValue<decltype(wupe11)::Type,Wupe11Val::v10> v10{};
-            constexpr Register::FieldValue<decltype(wupe11)::Type,Wupe11Val::v11> v11{};
+            constexpr Register::FieldValue<decltype(LlwuPe3::wupe11)::Type,Wupe11Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(LlwuPe3::wupe11)::Type,Wupe11Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(LlwuPe3::wupe11)::Type,Wupe11Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(LlwuPe3::wupe11)::Type,Wupe11Val::v11> v11{};
         }
     }
     namespace LlwuPe4{    ///<LLWU Pin Enable 4 register
@@ -190,10 +190,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,Wupe12Val> wupe12{}; 
         namespace Wupe12ValC{
-            constexpr Register::FieldValue<decltype(wupe12)::Type,Wupe12Val::v00> v00{};
-            constexpr Register::FieldValue<decltype(wupe12)::Type,Wupe12Val::v01> v01{};
-            constexpr Register::FieldValue<decltype(wupe12)::Type,Wupe12Val::v10> v10{};
-            constexpr Register::FieldValue<decltype(wupe12)::Type,Wupe12Val::v11> v11{};
+            constexpr Register::FieldValue<decltype(LlwuPe4::wupe12)::Type,Wupe12Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(LlwuPe4::wupe12)::Type,Wupe12Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(LlwuPe4::wupe12)::Type,Wupe12Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(LlwuPe4::wupe12)::Type,Wupe12Val::v11> v11{};
         }
         ///Wakeup Pin Enable For LLWU_P13
         enum class Wupe13Val {
@@ -204,10 +204,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,Wupe13Val> wupe13{}; 
         namespace Wupe13ValC{
-            constexpr Register::FieldValue<decltype(wupe13)::Type,Wupe13Val::v00> v00{};
-            constexpr Register::FieldValue<decltype(wupe13)::Type,Wupe13Val::v01> v01{};
-            constexpr Register::FieldValue<decltype(wupe13)::Type,Wupe13Val::v10> v10{};
-            constexpr Register::FieldValue<decltype(wupe13)::Type,Wupe13Val::v11> v11{};
+            constexpr Register::FieldValue<decltype(LlwuPe4::wupe13)::Type,Wupe13Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(LlwuPe4::wupe13)::Type,Wupe13Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(LlwuPe4::wupe13)::Type,Wupe13Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(LlwuPe4::wupe13)::Type,Wupe13Val::v11> v11{};
         }
         ///Wakeup Pin Enable For LLWU_P14
         enum class Wupe14Val {
@@ -218,10 +218,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,Wupe14Val> wupe14{}; 
         namespace Wupe14ValC{
-            constexpr Register::FieldValue<decltype(wupe14)::Type,Wupe14Val::v00> v00{};
-            constexpr Register::FieldValue<decltype(wupe14)::Type,Wupe14Val::v01> v01{};
-            constexpr Register::FieldValue<decltype(wupe14)::Type,Wupe14Val::v10> v10{};
-            constexpr Register::FieldValue<decltype(wupe14)::Type,Wupe14Val::v11> v11{};
+            constexpr Register::FieldValue<decltype(LlwuPe4::wupe14)::Type,Wupe14Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(LlwuPe4::wupe14)::Type,Wupe14Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(LlwuPe4::wupe14)::Type,Wupe14Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(LlwuPe4::wupe14)::Type,Wupe14Val::v11> v11{};
         }
         ///Wakeup Pin Enable For LLWU_P15
         enum class Wupe15Val {
@@ -232,10 +232,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,Wupe15Val> wupe15{}; 
         namespace Wupe15ValC{
-            constexpr Register::FieldValue<decltype(wupe15)::Type,Wupe15Val::v00> v00{};
-            constexpr Register::FieldValue<decltype(wupe15)::Type,Wupe15Val::v01> v01{};
-            constexpr Register::FieldValue<decltype(wupe15)::Type,Wupe15Val::v10> v10{};
-            constexpr Register::FieldValue<decltype(wupe15)::Type,Wupe15Val::v11> v11{};
+            constexpr Register::FieldValue<decltype(LlwuPe4::wupe15)::Type,Wupe15Val::v00> v00{};
+            constexpr Register::FieldValue<decltype(LlwuPe4::wupe15)::Type,Wupe15Val::v01> v01{};
+            constexpr Register::FieldValue<decltype(LlwuPe4::wupe15)::Type,Wupe15Val::v10> v10{};
+            constexpr Register::FieldValue<decltype(LlwuPe4::wupe15)::Type,Wupe15Val::v11> v11{};
         }
     }
     namespace LlwuMe{    ///<LLWU Module Enable register
@@ -247,8 +247,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Wume0Val> wume0{}; 
         namespace Wume0ValC{
-            constexpr Register::FieldValue<decltype(wume0)::Type,Wume0Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(wume0)::Type,Wume0Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuMe::wume0)::Type,Wume0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuMe::wume0)::Type,Wume0Val::v1> v1{};
         }
         ///Wakeup Module Enable for Module 1
         enum class Wume1Val {
@@ -257,8 +257,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Wume1Val> wume1{}; 
         namespace Wume1ValC{
-            constexpr Register::FieldValue<decltype(wume1)::Type,Wume1Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(wume1)::Type,Wume1Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuMe::wume1)::Type,Wume1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuMe::wume1)::Type,Wume1Val::v1> v1{};
         }
         ///Wakeup Module Enable For Module 2
         enum class Wume2Val {
@@ -267,8 +267,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Wume2Val> wume2{}; 
         namespace Wume2ValC{
-            constexpr Register::FieldValue<decltype(wume2)::Type,Wume2Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(wume2)::Type,Wume2Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuMe::wume2)::Type,Wume2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuMe::wume2)::Type,Wume2Val::v1> v1{};
         }
         ///Wakeup Module Enable For Module 3
         enum class Wume3Val {
@@ -277,8 +277,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Wume3Val> wume3{}; 
         namespace Wume3ValC{
-            constexpr Register::FieldValue<decltype(wume3)::Type,Wume3Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(wume3)::Type,Wume3Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuMe::wume3)::Type,Wume3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuMe::wume3)::Type,Wume3Val::v1> v1{};
         }
         ///Wakeup Module Enable For Module 4
         enum class Wume4Val {
@@ -287,8 +287,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Wume4Val> wume4{}; 
         namespace Wume4ValC{
-            constexpr Register::FieldValue<decltype(wume4)::Type,Wume4Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(wume4)::Type,Wume4Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuMe::wume4)::Type,Wume4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuMe::wume4)::Type,Wume4Val::v1> v1{};
         }
         ///Wakeup Module Enable For Module 5
         enum class Wume5Val {
@@ -297,8 +297,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Wume5Val> wume5{}; 
         namespace Wume5ValC{
-            constexpr Register::FieldValue<decltype(wume5)::Type,Wume5Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(wume5)::Type,Wume5Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuMe::wume5)::Type,Wume5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuMe::wume5)::Type,Wume5Val::v1> v1{};
         }
         ///Wakeup Module Enable For Module 6
         enum class Wume6Val {
@@ -307,8 +307,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Wume6Val> wume6{}; 
         namespace Wume6ValC{
-            constexpr Register::FieldValue<decltype(wume6)::Type,Wume6Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(wume6)::Type,Wume6Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuMe::wume6)::Type,Wume6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuMe::wume6)::Type,Wume6Val::v1> v1{};
         }
         ///Wakeup Module Enable For Module 7
         enum class Wume7Val {
@@ -317,8 +317,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Wume7Val> wume7{}; 
         namespace Wume7ValC{
-            constexpr Register::FieldValue<decltype(wume7)::Type,Wume7Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(wume7)::Type,Wume7Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuMe::wume7)::Type,Wume7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuMe::wume7)::Type,Wume7Val::v1> v1{};
         }
     }
     namespace LlwuF1{    ///<LLWU Flag 1 register
@@ -330,8 +330,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Wuf0Val> wuf0{}; 
         namespace Wuf0ValC{
-            constexpr Register::FieldValue<decltype(wuf0)::Type,Wuf0Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(wuf0)::Type,Wuf0Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuF1::wuf0)::Type,Wuf0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuF1::wuf0)::Type,Wuf0Val::v1> v1{};
         }
         ///Wakeup Flag For LLWU_P1
         enum class Wuf1Val {
@@ -340,8 +340,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Wuf1Val> wuf1{}; 
         namespace Wuf1ValC{
-            constexpr Register::FieldValue<decltype(wuf1)::Type,Wuf1Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(wuf1)::Type,Wuf1Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuF1::wuf1)::Type,Wuf1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuF1::wuf1)::Type,Wuf1Val::v1> v1{};
         }
         ///Wakeup Flag For LLWU_P2
         enum class Wuf2Val {
@@ -350,8 +350,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Wuf2Val> wuf2{}; 
         namespace Wuf2ValC{
-            constexpr Register::FieldValue<decltype(wuf2)::Type,Wuf2Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(wuf2)::Type,Wuf2Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuF1::wuf2)::Type,Wuf2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuF1::wuf2)::Type,Wuf2Val::v1> v1{};
         }
         ///Wakeup Flag For LLWU_P3
         enum class Wuf3Val {
@@ -360,8 +360,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Wuf3Val> wuf3{}; 
         namespace Wuf3ValC{
-            constexpr Register::FieldValue<decltype(wuf3)::Type,Wuf3Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(wuf3)::Type,Wuf3Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuF1::wuf3)::Type,Wuf3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuF1::wuf3)::Type,Wuf3Val::v1> v1{};
         }
         ///Wakeup Flag For LLWU_P4
         enum class Wuf4Val {
@@ -370,8 +370,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Wuf4Val> wuf4{}; 
         namespace Wuf4ValC{
-            constexpr Register::FieldValue<decltype(wuf4)::Type,Wuf4Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(wuf4)::Type,Wuf4Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuF1::wuf4)::Type,Wuf4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuF1::wuf4)::Type,Wuf4Val::v1> v1{};
         }
         ///Wakeup Flag For LLWU_P5
         enum class Wuf5Val {
@@ -380,8 +380,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Wuf5Val> wuf5{}; 
         namespace Wuf5ValC{
-            constexpr Register::FieldValue<decltype(wuf5)::Type,Wuf5Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(wuf5)::Type,Wuf5Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuF1::wuf5)::Type,Wuf5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuF1::wuf5)::Type,Wuf5Val::v1> v1{};
         }
         ///Wakeup Flag For LLWU_P6
         enum class Wuf6Val {
@@ -390,8 +390,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Wuf6Val> wuf6{}; 
         namespace Wuf6ValC{
-            constexpr Register::FieldValue<decltype(wuf6)::Type,Wuf6Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(wuf6)::Type,Wuf6Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuF1::wuf6)::Type,Wuf6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuF1::wuf6)::Type,Wuf6Val::v1> v1{};
         }
         ///Wakeup Flag For LLWU_P7
         enum class Wuf7Val {
@@ -400,8 +400,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Wuf7Val> wuf7{}; 
         namespace Wuf7ValC{
-            constexpr Register::FieldValue<decltype(wuf7)::Type,Wuf7Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(wuf7)::Type,Wuf7Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuF1::wuf7)::Type,Wuf7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuF1::wuf7)::Type,Wuf7Val::v1> v1{};
         }
     }
     namespace LlwuF2{    ///<LLWU Flag 2 register
@@ -413,8 +413,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Wuf8Val> wuf8{}; 
         namespace Wuf8ValC{
-            constexpr Register::FieldValue<decltype(wuf8)::Type,Wuf8Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(wuf8)::Type,Wuf8Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuF2::wuf8)::Type,Wuf8Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuF2::wuf8)::Type,Wuf8Val::v1> v1{};
         }
         ///Wakeup Flag For LLWU_P9
         enum class Wuf9Val {
@@ -423,8 +423,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Wuf9Val> wuf9{}; 
         namespace Wuf9ValC{
-            constexpr Register::FieldValue<decltype(wuf9)::Type,Wuf9Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(wuf9)::Type,Wuf9Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuF2::wuf9)::Type,Wuf9Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuF2::wuf9)::Type,Wuf9Val::v1> v1{};
         }
         ///Wakeup Flag For LLWU_P10
         enum class Wuf10Val {
@@ -433,8 +433,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Wuf10Val> wuf10{}; 
         namespace Wuf10ValC{
-            constexpr Register::FieldValue<decltype(wuf10)::Type,Wuf10Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(wuf10)::Type,Wuf10Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuF2::wuf10)::Type,Wuf10Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuF2::wuf10)::Type,Wuf10Val::v1> v1{};
         }
         ///Wakeup Flag For LLWU_P11
         enum class Wuf11Val {
@@ -443,8 +443,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Wuf11Val> wuf11{}; 
         namespace Wuf11ValC{
-            constexpr Register::FieldValue<decltype(wuf11)::Type,Wuf11Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(wuf11)::Type,Wuf11Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuF2::wuf11)::Type,Wuf11Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuF2::wuf11)::Type,Wuf11Val::v1> v1{};
         }
         ///Wakeup Flag For LLWU_P12
         enum class Wuf12Val {
@@ -453,8 +453,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,Wuf12Val> wuf12{}; 
         namespace Wuf12ValC{
-            constexpr Register::FieldValue<decltype(wuf12)::Type,Wuf12Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(wuf12)::Type,Wuf12Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuF2::wuf12)::Type,Wuf12Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuF2::wuf12)::Type,Wuf12Val::v1> v1{};
         }
         ///Wakeup Flag For LLWU_P13
         enum class Wuf13Val {
@@ -463,8 +463,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,Wuf13Val> wuf13{}; 
         namespace Wuf13ValC{
-            constexpr Register::FieldValue<decltype(wuf13)::Type,Wuf13Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(wuf13)::Type,Wuf13Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuF2::wuf13)::Type,Wuf13Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuF2::wuf13)::Type,Wuf13Val::v1> v1{};
         }
         ///Wakeup Flag For LLWU_P14
         enum class Wuf14Val {
@@ -473,8 +473,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,Wuf14Val> wuf14{}; 
         namespace Wuf14ValC{
-            constexpr Register::FieldValue<decltype(wuf14)::Type,Wuf14Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(wuf14)::Type,Wuf14Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuF2::wuf14)::Type,Wuf14Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuF2::wuf14)::Type,Wuf14Val::v1> v1{};
         }
         ///Wakeup Flag For LLWU_P15
         enum class Wuf15Val {
@@ -483,8 +483,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Wuf15Val> wuf15{}; 
         namespace Wuf15ValC{
-            constexpr Register::FieldValue<decltype(wuf15)::Type,Wuf15Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(wuf15)::Type,Wuf15Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuF2::wuf15)::Type,Wuf15Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuF2::wuf15)::Type,Wuf15Val::v1> v1{};
         }
     }
     namespace LlwuF3{    ///<LLWU Flag 3 register
@@ -496,8 +496,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Mwuf0Val> mwuf0{}; 
         namespace Mwuf0ValC{
-            constexpr Register::FieldValue<decltype(mwuf0)::Type,Mwuf0Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(mwuf0)::Type,Mwuf0Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuF3::mwuf0)::Type,Mwuf0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuF3::mwuf0)::Type,Mwuf0Val::v1> v1{};
         }
         ///Wakeup flag For module 1
         enum class Mwuf1Val {
@@ -506,8 +506,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Mwuf1Val> mwuf1{}; 
         namespace Mwuf1ValC{
-            constexpr Register::FieldValue<decltype(mwuf1)::Type,Mwuf1Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(mwuf1)::Type,Mwuf1Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuF3::mwuf1)::Type,Mwuf1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuF3::mwuf1)::Type,Mwuf1Val::v1> v1{};
         }
         ///Wakeup flag For module 2
         enum class Mwuf2Val {
@@ -516,8 +516,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Mwuf2Val> mwuf2{}; 
         namespace Mwuf2ValC{
-            constexpr Register::FieldValue<decltype(mwuf2)::Type,Mwuf2Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(mwuf2)::Type,Mwuf2Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuF3::mwuf2)::Type,Mwuf2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuF3::mwuf2)::Type,Mwuf2Val::v1> v1{};
         }
         ///Wakeup flag For module 3
         enum class Mwuf3Val {
@@ -526,8 +526,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Mwuf3Val> mwuf3{}; 
         namespace Mwuf3ValC{
-            constexpr Register::FieldValue<decltype(mwuf3)::Type,Mwuf3Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(mwuf3)::Type,Mwuf3Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuF3::mwuf3)::Type,Mwuf3Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuF3::mwuf3)::Type,Mwuf3Val::v1> v1{};
         }
         ///Wakeup flag For module 4
         enum class Mwuf4Val {
@@ -536,8 +536,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Mwuf4Val> mwuf4{}; 
         namespace Mwuf4ValC{
-            constexpr Register::FieldValue<decltype(mwuf4)::Type,Mwuf4Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(mwuf4)::Type,Mwuf4Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuF3::mwuf4)::Type,Mwuf4Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuF3::mwuf4)::Type,Mwuf4Val::v1> v1{};
         }
         ///Wakeup flag For module 5
         enum class Mwuf5Val {
@@ -546,8 +546,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Mwuf5Val> mwuf5{}; 
         namespace Mwuf5ValC{
-            constexpr Register::FieldValue<decltype(mwuf5)::Type,Mwuf5Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(mwuf5)::Type,Mwuf5Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuF3::mwuf5)::Type,Mwuf5Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuF3::mwuf5)::Type,Mwuf5Val::v1> v1{};
         }
         ///Wakeup flag For module 6
         enum class Mwuf6Val {
@@ -556,8 +556,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Mwuf6Val> mwuf6{}; 
         namespace Mwuf6ValC{
-            constexpr Register::FieldValue<decltype(mwuf6)::Type,Mwuf6Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(mwuf6)::Type,Mwuf6Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuF3::mwuf6)::Type,Mwuf6Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuF3::mwuf6)::Type,Mwuf6Val::v1> v1{};
         }
         ///Wakeup flag For module 7
         enum class Mwuf7Val {
@@ -566,8 +566,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Mwuf7Val> mwuf7{}; 
         namespace Mwuf7ValC{
-            constexpr Register::FieldValue<decltype(mwuf7)::Type,Mwuf7Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(mwuf7)::Type,Mwuf7Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuF3::mwuf7)::Type,Mwuf7Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuF3::mwuf7)::Type,Mwuf7Val::v1> v1{};
         }
     }
     namespace LlwuFilt1{    ///<LLWU Pin Filter 1 register
@@ -583,10 +583,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,5),Register::ReadWriteAccess,FilteVal> filte{}; 
         namespace FilteValC{
-            constexpr Register::FieldValue<decltype(filte)::Type,FilteVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(filte)::Type,FilteVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(filte)::Type,FilteVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(filte)::Type,FilteVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(LlwuFilt1::filte)::Type,FilteVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(LlwuFilt1::filte)::Type,FilteVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(LlwuFilt1::filte)::Type,FilteVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(LlwuFilt1::filte)::Type,FilteVal::v11> v11{};
         }
         ///Filter Detect Flag
         enum class FiltfVal {
@@ -595,8 +595,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,FiltfVal> filtf{}; 
         namespace FiltfValC{
-            constexpr Register::FieldValue<decltype(filtf)::Type,FiltfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(filtf)::Type,FiltfVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuFilt1::filtf)::Type,FiltfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuFilt1::filtf)::Type,FiltfVal::v1> v1{};
         }
     }
     namespace LlwuFilt2{    ///<LLWU Pin Filter 2 register
@@ -612,10 +612,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,5),Register::ReadWriteAccess,FilteVal> filte{}; 
         namespace FilteValC{
-            constexpr Register::FieldValue<decltype(filte)::Type,FilteVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(filte)::Type,FilteVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(filte)::Type,FilteVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(filte)::Type,FilteVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(LlwuFilt2::filte)::Type,FilteVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(LlwuFilt2::filte)::Type,FilteVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(LlwuFilt2::filte)::Type,FilteVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(LlwuFilt2::filte)::Type,FilteVal::v11> v11{};
         }
         ///Filter Detect Flag
         enum class FiltfVal {
@@ -624,8 +624,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,FiltfVal> filtf{}; 
         namespace FiltfValC{
-            constexpr Register::FieldValue<decltype(filtf)::Type,FiltfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(filtf)::Type,FiltfVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(LlwuFilt2::filtf)::Type,FiltfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(LlwuFilt2::filtf)::Type,FiltfVal::v1> v1{};
         }
     }
 }
