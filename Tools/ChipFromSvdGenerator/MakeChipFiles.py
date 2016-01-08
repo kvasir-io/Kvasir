@@ -15,7 +15,7 @@ def formatIoPorts(input):
     elif '-' in input:
         m = input.split('-')
         if m[1].isdigit():
-            return range(int(m[1]),int(m[2]))
+            return range(int(m[0]),int(m[1]))
         elif len(m[1]) == 1:
             return [chr(i) for i in range(ord(m[0][0]),ord(m[1][0])+1)]
     else:
@@ -31,16 +31,20 @@ def parseIo(extention,device,path):
             type = Ft.getKey(io,[key,'type'])
             if type == 'group':
                 for port in formatIoPorts(Ft.getKey(io,[key,'ports'])):
-                    peripheral = Ft.getKey(io,[key,'peripheral']).replace('%s',port)
-                    register = Ft.getKey(io,[key,'register']).replace('%s',port)
+                    if isinstance(port,int):
+                        portName = "%i" % port
+                        portNumber = port
+                    else:
+                        portName = port
+                        portNumber = ord(portNumber)-ord('A')
+
+                    peripheral = Ft.getKey(io,[key,'peripheral']).replace('%s',portName)
+                    register = Ft.getKey(io,[key,'register']).replace('%s',portName)
                     address = Ft.getKey(device,[peripheral]).base_address + Ft.getKey(device,[peripheral,register]).address_offset
                     reserved = 0xFFFFFFFF
                     for field in Ft.getKey(device,[peripheral,register]).fields:
                         reserved = Ft.clearBitsFromRange(field.bit_offset + field.bit_width -1,field.bit_offset,reserved)
-                    portNumber = port
-                    if not portNumber.isdigit():
-                        portNumber = ord(portNumber)-ord('A')
-                    
+                   
                     if key == "read":
                         action = "ReadAction"
                     else:
@@ -55,6 +59,7 @@ def parseRegister(register, baseAddress, prefix, ext):
     noActionIfZeroBits = 0xFFFFFFFF
     noActionIfOneBits = 0x00000000
     fieldOut = ""
+    PRNamespace = Ft.formatNamespace("%s_%s" % (prefix, register.name))
     for field in register.fields:
         msb = field.bit_offset+field.bit_width-1
         lsb = field.bit_offset
@@ -71,7 +76,7 @@ def parseRegister(register, baseAddress, prefix, ext):
                     valName = Ft.getKey(ext,['field',field.name,'enum',v.name,'.rename']) or Ft.formatEnumValue(v.name)
                     if valName != 'reserved':
                         fieldOut+="            %s=0x%08x,     ///<%s\n" % (valName,v.value,Ft.formatComment(v.description))
-                        cValuesOut+="            constexpr Register::FieldValue<decltype(%s)::Type,%sVal::%s> %s{};\n" % (fieldName,fieldName.capitalize(),valName,valName)
+                        cValuesOut+="            constexpr Register::FieldValue<decltype(%s::%s)::Type,%sVal::%s> %s{};\n" % (PRNamespace,fieldName,fieldName.capitalize(),valName,valName)
             fieldOut += "        };\n"
             cValuesOut += "        }\n"
         access = Ft.getAccess(field,Ft.getKey(ext,['field',field.name]))
@@ -84,7 +89,7 @@ def parseRegister(register, baseAddress, prefix, ext):
     regType = "unsigned"
     if register.size is not None and register.size is 8:
         regType = "unsigned char"
-    out = "    namespace %s{    ///<%s\n" % (Ft.formatNamespace("%s_%s" % (prefix, register.name)),Ft.formatComment(register.description))
+    out = "    namespace %s{    ///<%s\n" % (PRNamespace,Ft.formatComment(register.description))
     out += "        using Addr = Register::Address<0x%08x,0x%08x,0x%08x,%s>;\n" % (baseAddress + register.address_offset,noActionIfZeroBits,noActionIfOneBits,regType)
     out += fieldOut 
     out +=	"    }\n"
@@ -112,6 +117,12 @@ def parseFile(company,file):
     jsonPath = posixpath.join(posixpath.dirname(posixpath.abspath(__file__)),"Extention",company,file+".json")
     #print(jsonPath)
     device = parser.get_device()
+    #propagate registers where derived
+    for p in device.peripherals:
+        if p.registers is None:
+            p.registers = []
+        if p.derived_from is not None:
+            p.registers += Ft.getKey(device,[p.derived_from]).registers
     if posixpath.isfile(jsonPath):
         extFile = open(jsonPath,"r",encoding='utf-8')
         extention = json.load(extFile)
