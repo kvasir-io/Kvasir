@@ -1,10 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
-//Product name title=UM10398 Chapter title=LPC111x/LPC11Cxx
-C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not available 
-    namespace Nonecancntl{    ///<CAN control
-        using Addr = Register::Address<0x40050000,0xffffff10,0,unsigned>;
+//Product name title=UM10398 Chapter title=LPC111x/LPC11CxxC_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not available 
+    namespace CCanCancntl{    ///<CAN control
+        using Addr = Register::Address<0x40050000,0xffffff10,0x00000000,unsigned>;
         ///Initialization
         enum class InitVal {
             normalOperation=0x00000000,     ///<Normal operation.
@@ -12,8 +11,8 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,InitVal> init{}; 
         namespace InitValC{
-            constexpr Register::FieldValue<decltype(init)::Type,InitVal::normalOperation> normalOperation{};
-            constexpr Register::FieldValue<decltype(init)::Type,InitVal::initialization> initialization{};
+            constexpr Register::FieldValue<decltype(CCanCancntl::init)::Type,InitVal::normalOperation> normalOperation{};
+            constexpr Register::FieldValue<decltype(CCanCancntl::init)::Type,InitVal::initialization> initialization{};
         }
         ///Module interrupt enable
         enum class IeVal {
@@ -22,8 +21,8 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,IeVal> ie{}; 
         namespace IeValC{
-            constexpr Register::FieldValue<decltype(ie)::Type,IeVal::disableCanInterrup> disableCanInterrup{};
-            constexpr Register::FieldValue<decltype(ie)::Type,IeVal::enableCanInterrupt> enableCanInterrupt{};
+            constexpr Register::FieldValue<decltype(CCanCancntl::ie)::Type,IeVal::disableCanInterrup> disableCanInterrup{};
+            constexpr Register::FieldValue<decltype(CCanCancntl::ie)::Type,IeVal::enableCanInterrupt> enableCanInterrupt{};
         }
         ///Status change interrupt enable
         enum class SieVal {
@@ -32,8 +31,8 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SieVal> sie{}; 
         namespace SieValC{
-            constexpr Register::FieldValue<decltype(sie)::Type,SieVal::disableStatusChang> disableStatusChang{};
-            constexpr Register::FieldValue<decltype(sie)::Type,SieVal::enableStatusChange> enableStatusChange{};
+            constexpr Register::FieldValue<decltype(CCanCancntl::sie)::Type,SieVal::disableStatusChang> disableStatusChang{};
+            constexpr Register::FieldValue<decltype(CCanCancntl::sie)::Type,SieVal::enableStatusChange> enableStatusChange{};
         }
         ///Error interrupt enable
         enum class EieVal {
@@ -42,8 +41,8 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,EieVal> eie{}; 
         namespace EieValC{
-            constexpr Register::FieldValue<decltype(eie)::Type,EieVal::disableErrorInterr> disableErrorInterr{};
-            constexpr Register::FieldValue<decltype(eie)::Type,EieVal::enableErrorInterru> enableErrorInterru{};
+            constexpr Register::FieldValue<decltype(CCanCancntl::eie)::Type,EieVal::disableErrorInterr> disableErrorInterr{};
+            constexpr Register::FieldValue<decltype(CCanCancntl::eie)::Type,EieVal::enableErrorInterru> enableErrorInterru{};
         }
         ///Disable automatic retransmission
         enum class DarVal {
@@ -52,8 +51,8 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,DarVal> dar{}; 
         namespace DarValC{
-            constexpr Register::FieldValue<decltype(dar)::Type,DarVal::enabled> enabled{};
-            constexpr Register::FieldValue<decltype(dar)::Type,DarVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(CCanCancntl::dar)::Type,DarVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(CCanCancntl::dar)::Type,DarVal::disabled> disabled{};
         }
         ///Configuration change enable
         enum class CceVal {
@@ -62,8 +61,8 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,CceVal> cce{}; 
         namespace CceValC{
-            constexpr Register::FieldValue<decltype(cce)::Type,CceVal::noaccess> noaccess{};
-            constexpr Register::FieldValue<decltype(cce)::Type,CceVal::access> access{};
+            constexpr Register::FieldValue<decltype(CCanCancntl::cce)::Type,CceVal::noaccess> noaccess{};
+            constexpr Register::FieldValue<decltype(CCanCancntl::cce)::Type,CceVal::access> access{};
         }
         ///Test mode enable
         enum class TestVal {
@@ -72,12 +71,12 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,TestVal> test{}; 
         namespace TestValC{
-            constexpr Register::FieldValue<decltype(test)::Type,TestVal::normalOperation> normalOperation{};
-            constexpr Register::FieldValue<decltype(test)::Type,TestVal::testMode> testMode{};
+            constexpr Register::FieldValue<decltype(CCanCancntl::test)::Type,TestVal::normalOperation> normalOperation{};
+            constexpr Register::FieldValue<decltype(CCanCancntl::test)::Type,TestVal::testMode> testMode{};
         }
     }
-    namespace Nonecanstat{    ///<Status register
-        using Addr = Register::Address<0x40050004,0xffffff00,0,unsigned>;
+    namespace CCanCanstat{    ///<Status register
+        using Addr = Register::Address<0x40050004,0xffffff00,0x00000000,unsigned>;
         ///Last error code Type of the last error to occur on the CAN bus.The LEC field holds a code which indicates the type of the last error to occur on the CAN bus. This field will be cleared to 0 when a message has been transferred (reception or transmission) without error. The unused code 111 may be written by the CPU to check for updates.
         enum class LecVal {
             noError=0x00000000,     ///<No error.
@@ -91,14 +90,14 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,LecVal> lec{}; 
         namespace LecValC{
-            constexpr Register::FieldValue<decltype(lec)::Type,LecVal::noError> noError{};
-            constexpr Register::FieldValue<decltype(lec)::Type,LecVal::stuffError> stuffError{};
-            constexpr Register::FieldValue<decltype(lec)::Type,LecVal::formError> formError{};
-            constexpr Register::FieldValue<decltype(lec)::Type,LecVal::ackerror> ackerror{};
-            constexpr Register::FieldValue<decltype(lec)::Type,LecVal::bit1error> bit1error{};
-            constexpr Register::FieldValue<decltype(lec)::Type,LecVal::bit0error> bit0error{};
-            constexpr Register::FieldValue<decltype(lec)::Type,LecVal::crcerror> crcerror{};
-            constexpr Register::FieldValue<decltype(lec)::Type,LecVal::unused> unused{};
+            constexpr Register::FieldValue<decltype(CCanCanstat::lec)::Type,LecVal::noError> noError{};
+            constexpr Register::FieldValue<decltype(CCanCanstat::lec)::Type,LecVal::stuffError> stuffError{};
+            constexpr Register::FieldValue<decltype(CCanCanstat::lec)::Type,LecVal::formError> formError{};
+            constexpr Register::FieldValue<decltype(CCanCanstat::lec)::Type,LecVal::ackerror> ackerror{};
+            constexpr Register::FieldValue<decltype(CCanCanstat::lec)::Type,LecVal::bit1error> bit1error{};
+            constexpr Register::FieldValue<decltype(CCanCanstat::lec)::Type,LecVal::bit0error> bit0error{};
+            constexpr Register::FieldValue<decltype(CCanCanstat::lec)::Type,LecVal::crcerror> crcerror{};
+            constexpr Register::FieldValue<decltype(CCanCanstat::lec)::Type,LecVal::unused> unused{};
         }
         ///Transmitted a message successfully This bit is reset by the CPU. It is never reset by the CAN controller.
         enum class TxokVal {
@@ -107,8 +106,8 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,TxokVal> txok{}; 
         namespace TxokValC{
-            constexpr Register::FieldValue<decltype(txok)::Type,TxokVal::notransmit> notransmit{};
-            constexpr Register::FieldValue<decltype(txok)::Type,TxokVal::transmit> transmit{};
+            constexpr Register::FieldValue<decltype(CCanCanstat::txok)::Type,TxokVal::notransmit> notransmit{};
+            constexpr Register::FieldValue<decltype(CCanCanstat::txok)::Type,TxokVal::transmit> transmit{};
         }
         ///Received a message successfully This bit is reset by the CPU. It is never reset by the CAN controller.
         enum class RxokVal {
@@ -117,8 +116,8 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,RxokVal> rxok{}; 
         namespace RxokValC{
-            constexpr Register::FieldValue<decltype(rxok)::Type,RxokVal::notransmit> notransmit{};
-            constexpr Register::FieldValue<decltype(rxok)::Type,RxokVal::transmit> transmit{};
+            constexpr Register::FieldValue<decltype(CCanCanstat::rxok)::Type,RxokVal::notransmit> notransmit{};
+            constexpr Register::FieldValue<decltype(CCanCanstat::rxok)::Type,RxokVal::transmit> transmit{};
         }
         ///Error passive
         enum class EpassVal {
@@ -127,8 +126,8 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,EpassVal> epass{}; 
         namespace EpassValC{
-            constexpr Register::FieldValue<decltype(epass)::Type,EpassVal::active> active{};
-            constexpr Register::FieldValue<decltype(epass)::Type,EpassVal::passive> passive{};
+            constexpr Register::FieldValue<decltype(CCanCanstat::epass)::Type,EpassVal::active> active{};
+            constexpr Register::FieldValue<decltype(CCanCanstat::epass)::Type,EpassVal::passive> passive{};
         }
         ///Warning status
         enum class EwarnVal {
@@ -137,8 +136,8 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,EwarnVal> ewarn{}; 
         namespace EwarnValC{
-            constexpr Register::FieldValue<decltype(ewarn)::Type,EwarnVal::belowwarninglim> belowwarninglim{};
-            constexpr Register::FieldValue<decltype(ewarn)::Type,EwarnVal::warninglim> warninglim{};
+            constexpr Register::FieldValue<decltype(CCanCanstat::ewarn)::Type,EwarnVal::belowwarninglim> belowwarninglim{};
+            constexpr Register::FieldValue<decltype(CCanCanstat::ewarn)::Type,EwarnVal::warninglim> warninglim{};
         }
         ///Busoff status
         enum class BoffVal {
@@ -147,12 +146,12 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,BoffVal> boff{}; 
         namespace BoffValC{
-            constexpr Register::FieldValue<decltype(boff)::Type,BoffVal::notbusoff> notbusoff{};
-            constexpr Register::FieldValue<decltype(boff)::Type,BoffVal::busoff> busoff{};
+            constexpr Register::FieldValue<decltype(CCanCanstat::boff)::Type,BoffVal::notbusoff> notbusoff{};
+            constexpr Register::FieldValue<decltype(CCanCanstat::boff)::Type,BoffVal::busoff> busoff{};
         }
     }
-    namespace Nonecanec{    ///<Error counter
-        using Addr = Register::Address<0x40050008,0xffff0000,0,unsigned>;
+    namespace CCanCanec{    ///<Error counter
+        using Addr = Register::Address<0x40050008,0xffff0000,0x00000000,unsigned>;
         ///Transmit error counter Current value of the transmit error counter (maximum value 255)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> tec70{}; 
         ///Receive error counter Current value of the receive error counter (maximum value 127).
@@ -164,12 +163,12 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,RpVal> rp{}; 
         namespace RpValC{
-            constexpr Register::FieldValue<decltype(rp)::Type,RpVal::belowerrorpassive> belowerrorpassive{};
-            constexpr Register::FieldValue<decltype(rp)::Type,RpVal::errorpassive> errorpassive{};
+            constexpr Register::FieldValue<decltype(CCanCanec::rp)::Type,RpVal::belowerrorpassive> belowerrorpassive{};
+            constexpr Register::FieldValue<decltype(CCanCanec::rp)::Type,RpVal::errorpassive> errorpassive{};
         }
     }
-    namespace Nonecanbt{    ///<Bit timing register
-        using Addr = Register::Address<0x4005000c,0xffff8000,0,unsigned>;
+    namespace CCanCanbt{    ///<Bit timing register
+        using Addr = Register::Address<0x4005000c,0xffff8000,0x00000000,unsigned>;
         ///Baud rate prescaler The value by which the oscillator frequency is divided for generating the bit time quanta. The bit time is built up from a multiple of this quanta. Valid values for the Baud Rate Prescaler are 0 to 63.[1]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> brp{}; 
         ///(Re)synchronization jump width Valid programmed values are 0 to 3.[1]
@@ -179,13 +178,13 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         ///Time segment after the sample point Valid values are 0 to 7.[1]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,12),Register::ReadWriteAccess,unsigned> tseg2{}; 
     }
-    namespace Nonecanint{    ///<Interrupt register
-        using Addr = Register::Address<0x40050010,0xffff0000,0,unsigned>;
+    namespace CCanCanint{    ///<Interrupt register
+        using Addr = Register::Address<0x40050010,0xffff0000,0x00000000,unsigned>;
         ///0x0000 = No interrupt is pending. 0x0001 - 0x0020 = Number of message object which caused the interrupt. 0x0021 - 0x7FFF = Unused 0x8000 = Status interrupt 0x8001 - 0xFFFF = Unused
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> intid{}; 
     }
-    namespace Nonecantest{    ///<Test register
-        using Addr = Register::Address<0x40050014,0xffffff03,0,unsigned>;
+    namespace CCanCantest{    ///<Test register
+        using Addr = Register::Address<0x40050014,0xffffff03,0x00000000,unsigned>;
         ///Basic mode
         enum class BasicVal {
             basicModeDisabled=0x00000000,     ///<Basic mode disabled.
@@ -193,8 +192,8 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,BasicVal> basic{}; 
         namespace BasicValC{
-            constexpr Register::FieldValue<decltype(basic)::Type,BasicVal::basicModeDisabled> basicModeDisabled{};
-            constexpr Register::FieldValue<decltype(basic)::Type,BasicVal::txrx> txrx{};
+            constexpr Register::FieldValue<decltype(CCanCantest::basic)::Type,BasicVal::basicModeDisabled> basicModeDisabled{};
+            constexpr Register::FieldValue<decltype(CCanCantest::basic)::Type,BasicVal::txrx> txrx{};
         }
         ///Silent mode
         enum class SilentVal {
@@ -203,8 +202,8 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,SilentVal> silent{}; 
         namespace SilentValC{
-            constexpr Register::FieldValue<decltype(silent)::Type,SilentVal::normalOperation> normalOperation{};
-            constexpr Register::FieldValue<decltype(silent)::Type,SilentVal::silent> silent{};
+            constexpr Register::FieldValue<decltype(CCanCantest::silent)::Type,SilentVal::normalOperation> normalOperation{};
+            constexpr Register::FieldValue<decltype(CCanCantest::silent)::Type,SilentVal::silent> silent{};
         }
         ///Loop back mode
         enum class LbackVal {
@@ -213,8 +212,8 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,LbackVal> lback{}; 
         namespace LbackValC{
-            constexpr Register::FieldValue<decltype(lback)::Type,LbackVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(lback)::Type,LbackVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(CCanCantest::lback)::Type,LbackVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(CCanCantest::lback)::Type,LbackVal::enabled> enabled{};
         }
         ///Control of CAN_TXD pins
         enum class TxVal {
@@ -225,10 +224,10 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,5),Register::ReadWriteAccess,TxVal> tx{}; 
         namespace TxValC{
-            constexpr Register::FieldValue<decltype(tx)::Type,TxVal::level> level{};
-            constexpr Register::FieldValue<decltype(tx)::Type,TxVal::txd> txd{};
-            constexpr Register::FieldValue<decltype(tx)::Type,TxVal::low> low{};
-            constexpr Register::FieldValue<decltype(tx)::Type,TxVal::high> high{};
+            constexpr Register::FieldValue<decltype(CCanCantest::tx)::Type,TxVal::level> level{};
+            constexpr Register::FieldValue<decltype(CCanCantest::tx)::Type,TxVal::txd> txd{};
+            constexpr Register::FieldValue<decltype(CCanCantest::tx)::Type,TxVal::low> low{};
+            constexpr Register::FieldValue<decltype(CCanCantest::tx)::Type,TxVal::high> high{};
         }
         ///Monitors the actual value of the CAN_RXD pin.
         enum class RxVal {
@@ -237,17 +236,17 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,RxVal> rx{}; 
         namespace RxValC{
-            constexpr Register::FieldValue<decltype(rx)::Type,RxVal::recessive> recessive{};
-            constexpr Register::FieldValue<decltype(rx)::Type,RxVal::dormant> dormant{};
+            constexpr Register::FieldValue<decltype(CCanCantest::rx)::Type,RxVal::recessive> recessive{};
+            constexpr Register::FieldValue<decltype(CCanCantest::rx)::Type,RxVal::dormant> dormant{};
         }
     }
-    namespace Nonecanbrpe{    ///<Baud rate prescaler extension register
-        using Addr = Register::Address<0x40050018,0xfffffff0,0,unsigned>;
+    namespace CCanCanbrpe{    ///<Baud rate prescaler extension register
+        using Addr = Register::Address<0x40050018,0xfffffff0,0x00000000,unsigned>;
         ///Baud rate prescaler extension By programming BRPE the Baud Rate Prescaler can be extended to values up to 1023. Hardware interprets the value as the value of BRPE (MSBs) and BRP (LSBs) plus one. Allowed values are 0 to 15.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> brpe{}; 
     }
-    namespace Nonecanif1Cmdreq{    ///<Message interface  command request
-        using Addr = Register::Address<0x40050020,0xffff7fc0,0,unsigned>;
+    namespace CCanCanif1Cmdreq{    ///<Message interface  command request
+        using Addr = Register::Address<0x40050020,0xffff7fc0,0x00000000,unsigned>;
         ///Message number 0x01 - 0x20 = Valid message numbers. The message object in the message RAM is selected for data transfer. 0x00 = Not a valid message number. This value is interpreted as 0x20.[1] 0x21 - 0x3F = Not a valid message number. This value is interpreted as 0x01 - 0x1F.[1]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> mn{}; 
         ///BUSY flag
@@ -257,12 +256,12 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,BusyVal> busy{}; 
         namespace BusyValC{
-            constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::zero> zero{};
-            constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::one> one{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Cmdreq::busy)::Type,BusyVal::zero> zero{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Cmdreq::busy)::Type,BusyVal::one> one{};
         }
     }
-    namespace Nonecanif2Cmdreq{    ///<Message interface  command request
-        using Addr = Register::Address<0x40050080,0xffff7fc0,0,unsigned>;
+    namespace CCanCanif2Cmdreq{    ///<Message interface  command request
+        using Addr = Register::Address<0x40050080,0xffff7fc0,0x00000000,unsigned>;
         ///Message number 0x01 - 0x20 = Valid message numbers. The message object in the message RAM is selected for data transfer. 0x00 = Not a valid message number. This value is interpreted as 0x20.[1] 0x21 - 0x3F = Not a valid message number. This value is interpreted as 0x01 - 0x1F.[1]
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,0),Register::ReadWriteAccess,unsigned> mn{}; 
         ///BUSY flag
@@ -272,13 +271,12 @@ C_CAN controller Modification date=9/19/2011 Major revision=7 Minor revision=not
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,BusyVal> busy{}; 
         namespace BusyValC{
-            constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::zero> zero{};
-            constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::one> one{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Cmdreq::busy)::Type,BusyVal::zero> zero{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Cmdreq::busy)::Type,BusyVal::one> one{};
         }
     }
-    namespace Nonecanif1CmdmskW{    ///<Message interface 
-command mask - write direction
-        using Addr = Register::Address<0x40050024,0xffffff00,0,unsigned>;
+    namespace CCanCanif1CmdmskW{    ///<Message interface command mask - write direction
+        using Addr = Register::Address<0x40050024,0xffffff00,0x00000000,unsigned>;
         ///Access data bytes 4-7
         enum class DatabVal {
             dataBytes47Uncha=0x00000000,     ///<Data bytes 4-7 unchanged.
@@ -286,8 +284,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DatabVal> dataB{}; 
         namespace DatabValC{
-            constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::dataBytes47Uncha> dataBytes47Uncha{};
-            constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::transferDataBytes> transferDataBytes{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskW::dataB)::Type,DatabVal::dataBytes47Uncha> dataBytes47Uncha{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskW::dataB)::Type,DatabVal::transferDataBytes> transferDataBytes{};
         }
         ///Access data bytes 0-3
         enum class DataaVal {
@@ -296,8 +294,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DataaVal> dataA{}; 
         namespace DataaValC{
-            constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::dataBytes03Uncha> dataBytes03Uncha{};
-            constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::transferDataBytes> transferDataBytes{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskW::dataA)::Type,DataaVal::dataBytes03Uncha> dataBytes03Uncha{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskW::dataA)::Type,DataaVal::transferDataBytes> transferDataBytes{};
         }
         ///Access transmission request bit
         enum class TxrqstVal {
@@ -306,8 +304,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TxrqstVal> txrqst{}; 
         namespace TxrqstValC{
-            constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::noTransmissionRequ> noTransmissionRequ{};
-            constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::requestATransmissi> requestATransmissi{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskW::txrqst)::Type,TxrqstVal::noTransmissionRequ> noTransmissionRequ{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskW::txrqst)::Type,TxrqstVal::requestATransmissi> requestATransmissi{};
         }
         ///This bit is ignored in the write direction.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> clrintpnd{}; 
@@ -318,8 +316,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CtrlVal> ctrl{}; 
         namespace CtrlValC{
-            constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::unchanged> unchanged{};
-            constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::transferControlBit> transferControlBit{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskW::ctrl)::Type,CtrlVal::unchanged> unchanged{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskW::ctrl)::Type,CtrlVal::transferControlBit> transferControlBit{};
         }
         ///Access arbitration bits
         enum class ArbVal {
@@ -328,8 +326,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,ArbVal> arb{}; 
         namespace ArbValC{
-            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::unchanged> unchanged{};
-            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::transferIdentifier> transferIdentifier{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskW::arb)::Type,ArbVal::unchanged> unchanged{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskW::arb)::Type,ArbVal::transferIdentifier> transferIdentifier{};
         }
         ///Access mask bits
         enum class MaskVal {
@@ -338,15 +336,14 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,MaskVal> mask{}; 
         namespace MaskValC{
-            constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::unchanged> unchanged{};
-            constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::transferIdentifier> transferIdentifier{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskW::mask)::Type,MaskVal::unchanged> unchanged{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskW::mask)::Type,MaskVal::transferIdentifier> transferIdentifier{};
         }
         ///Write transfer Transfer data from the selected message buffer registers to the message object addressed by the command request register CANIFn_CMDREQ.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wrRd{}; 
     }
-    namespace Nonecanif2CmdmskW{    ///<Message interface 
-command mask - write direction
-        using Addr = Register::Address<0x40050084,0xffffff00,0,unsigned>;
+    namespace CCanCanif2CmdmskW{    ///<Message interface command mask - write direction
+        using Addr = Register::Address<0x40050084,0xffffff00,0x00000000,unsigned>;
         ///Access data bytes 4-7
         enum class DatabVal {
             dataBytes47Uncha=0x00000000,     ///<Data bytes 4-7 unchanged.
@@ -354,8 +351,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DatabVal> dataB{}; 
         namespace DatabValC{
-            constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::dataBytes47Uncha> dataBytes47Uncha{};
-            constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::transferDataBytes> transferDataBytes{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskW::dataB)::Type,DatabVal::dataBytes47Uncha> dataBytes47Uncha{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskW::dataB)::Type,DatabVal::transferDataBytes> transferDataBytes{};
         }
         ///Access data bytes 0-3
         enum class DataaVal {
@@ -364,8 +361,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DataaVal> dataA{}; 
         namespace DataaValC{
-            constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::dataBytes03Uncha> dataBytes03Uncha{};
-            constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::transferDataBytes> transferDataBytes{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskW::dataA)::Type,DataaVal::dataBytes03Uncha> dataBytes03Uncha{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskW::dataA)::Type,DataaVal::transferDataBytes> transferDataBytes{};
         }
         ///Access transmission request bit
         enum class TxrqstVal {
@@ -374,8 +371,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,TxrqstVal> txrqst{}; 
         namespace TxrqstValC{
-            constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::noTransmissionRequ> noTransmissionRequ{};
-            constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::requestATransmissi> requestATransmissi{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskW::txrqst)::Type,TxrqstVal::noTransmissionRequ> noTransmissionRequ{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskW::txrqst)::Type,TxrqstVal::requestATransmissi> requestATransmissi{};
         }
         ///This bit is ignored in the write direction.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> clrintpnd{}; 
@@ -386,8 +383,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CtrlVal> ctrl{}; 
         namespace CtrlValC{
-            constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::unchanged> unchanged{};
-            constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::transferControlBit> transferControlBit{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskW::ctrl)::Type,CtrlVal::unchanged> unchanged{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskW::ctrl)::Type,CtrlVal::transferControlBit> transferControlBit{};
         }
         ///Access arbitration bits
         enum class ArbVal {
@@ -396,8 +393,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,ArbVal> arb{}; 
         namespace ArbValC{
-            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::unchanged> unchanged{};
-            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::transferIdentifier> transferIdentifier{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskW::arb)::Type,ArbVal::unchanged> unchanged{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskW::arb)::Type,ArbVal::transferIdentifier> transferIdentifier{};
         }
         ///Access mask bits
         enum class MaskVal {
@@ -406,14 +403,14 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,MaskVal> mask{}; 
         namespace MaskValC{
-            constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::unchanged> unchanged{};
-            constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::transferIdentifier> transferIdentifier{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskW::mask)::Type,MaskVal::unchanged> unchanged{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskW::mask)::Type,MaskVal::transferIdentifier> transferIdentifier{};
         }
         ///Write transfer Transfer data from the selected message buffer registers to the message object addressed by the command request register CANIFn_CMDREQ.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wrRd{}; 
     }
-    namespace Nonecanif1CmdmskR{    ///<Message interface  command mask - read direction
-        using Addr = Register::Address<0x40050024,0xffffff00,0,unsigned>;
+    namespace CCanCanif1CmdmskR{    ///<Message interface  command mask - read direction
+        using Addr = Register::Address<0x40050024,0xffffff00,0x00000000,unsigned>;
         ///Access data bytes 4-7
         enum class DatabVal {
             unchanged=0x00000000,     ///<Data bytes 4-7 unchanged.
@@ -421,8 +418,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DatabVal> dataB{}; 
         namespace DatabValC{
-            constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::unchanged> unchanged{};
-            constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::transferDataBytes> transferDataBytes{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskR::dataB)::Type,DatabVal::unchanged> unchanged{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskR::dataB)::Type,DatabVal::transferDataBytes> transferDataBytes{};
         }
         ///Access data bytes 0-3
         enum class DataaVal {
@@ -431,8 +428,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DataaVal> dataA{}; 
         namespace DataaValC{
-            constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::unchanged> unchanged{};
-            constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::transferDataBytes> transferDataBytes{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskR::dataA)::Type,DataaVal::unchanged> unchanged{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskR::dataA)::Type,DataaVal::transferDataBytes> transferDataBytes{};
         }
         ///Access new data bit
         enum class NewdatVal {
@@ -441,8 +438,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,NewdatVal> newdat{}; 
         namespace NewdatValC{
-            constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::unchanged> unchanged{};
-            constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::clearNewdatBitIn> clearNewdatBitIn{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskR::newdat)::Type,NewdatVal::unchanged> unchanged{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskR::newdat)::Type,NewdatVal::clearNewdatBitIn> clearNewdatBitIn{};
         }
         ///Clear interrupt pending bit.
         enum class ClrintpndVal {
@@ -451,8 +448,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrintpndVal> clrintpnd{}; 
         namespace ClrintpndValC{
-            constexpr Register::FieldValue<decltype(clrintpnd)::Type,ClrintpndVal::unchanged> unchanged{};
-            constexpr Register::FieldValue<decltype(clrintpnd)::Type,ClrintpndVal::clearIntpndBitIn> clearIntpndBitIn{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskR::clrintpnd)::Type,ClrintpndVal::unchanged> unchanged{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskR::clrintpnd)::Type,ClrintpndVal::clearIntpndBitIn> clearIntpndBitIn{};
         }
         ///Access control bits
         enum class CtrlVal {
@@ -461,8 +458,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CtrlVal> ctrl{}; 
         namespace CtrlValC{
-            constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::unchanged> unchanged{};
-            constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::transferControlBit> transferControlBit{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskR::ctrl)::Type,CtrlVal::unchanged> unchanged{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskR::ctrl)::Type,CtrlVal::transferControlBit> transferControlBit{};
         }
         ///Access arbitration bits
         enum class ArbVal {
@@ -471,8 +468,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,ArbVal> arb{}; 
         namespace ArbValC{
-            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::unchanged> unchanged{};
-            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::transferIdentifier> transferIdentifier{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskR::arb)::Type,ArbVal::unchanged> unchanged{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskR::arb)::Type,ArbVal::transferIdentifier> transferIdentifier{};
         }
         ///Access mask bits
         enum class MaskVal {
@@ -481,14 +478,14 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,MaskVal> mask{}; 
         namespace MaskValC{
-            constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::unchanged> unchanged{};
-            constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::transferIdentifier> transferIdentifier{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskR::mask)::Type,MaskVal::unchanged> unchanged{};
+            constexpr Register::FieldValue<decltype(CCanCanif1CmdmskR::mask)::Type,MaskVal::transferIdentifier> transferIdentifier{};
         }
         ///Read transfer Transfer data from the message object addressed by the command request register to the selected message buffer registers CANIFn_CMDREQ.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wrRd{}; 
     }
-    namespace Nonecanif2CmdmskR{    ///<Message interface  command mask - read direction
-        using Addr = Register::Address<0x40050084,0xffffff00,0,unsigned>;
+    namespace CCanCanif2CmdmskR{    ///<Message interface  command mask - read direction
+        using Addr = Register::Address<0x40050084,0xffffff00,0x00000000,unsigned>;
         ///Access data bytes 4-7
         enum class DatabVal {
             unchanged=0x00000000,     ///<Data bytes 4-7 unchanged.
@@ -496,8 +493,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DatabVal> dataB{}; 
         namespace DatabValC{
-            constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::unchanged> unchanged{};
-            constexpr Register::FieldValue<decltype(dataB)::Type,DatabVal::transferDataBytes> transferDataBytes{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskR::dataB)::Type,DatabVal::unchanged> unchanged{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskR::dataB)::Type,DatabVal::transferDataBytes> transferDataBytes{};
         }
         ///Access data bytes 0-3
         enum class DataaVal {
@@ -506,8 +503,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,DataaVal> dataA{}; 
         namespace DataaValC{
-            constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::unchanged> unchanged{};
-            constexpr Register::FieldValue<decltype(dataA)::Type,DataaVal::transferDataBytes> transferDataBytes{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskR::dataA)::Type,DataaVal::unchanged> unchanged{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskR::dataA)::Type,DataaVal::transferDataBytes> transferDataBytes{};
         }
         ///Access new data bit
         enum class NewdatVal {
@@ -516,8 +513,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,NewdatVal> newdat{}; 
         namespace NewdatValC{
-            constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::unchanged> unchanged{};
-            constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::clearNewdatBitIn> clearNewdatBitIn{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskR::newdat)::Type,NewdatVal::unchanged> unchanged{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskR::newdat)::Type,NewdatVal::clearNewdatBitIn> clearNewdatBitIn{};
         }
         ///Clear interrupt pending bit.
         enum class ClrintpndVal {
@@ -526,8 +523,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,ClrintpndVal> clrintpnd{}; 
         namespace ClrintpndValC{
-            constexpr Register::FieldValue<decltype(clrintpnd)::Type,ClrintpndVal::unchanged> unchanged{};
-            constexpr Register::FieldValue<decltype(clrintpnd)::Type,ClrintpndVal::clearIntpndBitIn> clearIntpndBitIn{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskR::clrintpnd)::Type,ClrintpndVal::unchanged> unchanged{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskR::clrintpnd)::Type,ClrintpndVal::clearIntpndBitIn> clearIntpndBitIn{};
         }
         ///Access control bits
         enum class CtrlVal {
@@ -536,8 +533,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,CtrlVal> ctrl{}; 
         namespace CtrlValC{
-            constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::unchanged> unchanged{};
-            constexpr Register::FieldValue<decltype(ctrl)::Type,CtrlVal::transferControlBit> transferControlBit{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskR::ctrl)::Type,CtrlVal::unchanged> unchanged{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskR::ctrl)::Type,CtrlVal::transferControlBit> transferControlBit{};
         }
         ///Access arbitration bits
         enum class ArbVal {
@@ -546,8 +543,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,ArbVal> arb{}; 
         namespace ArbValC{
-            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::unchanged> unchanged{};
-            constexpr Register::FieldValue<decltype(arb)::Type,ArbVal::transferIdentifier> transferIdentifier{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskR::arb)::Type,ArbVal::unchanged> unchanged{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskR::arb)::Type,ArbVal::transferIdentifier> transferIdentifier{};
         }
         ///Access mask bits
         enum class MaskVal {
@@ -556,24 +553,24 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,MaskVal> mask{}; 
         namespace MaskValC{
-            constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::unchanged> unchanged{};
-            constexpr Register::FieldValue<decltype(mask)::Type,MaskVal::transferIdentifier> transferIdentifier{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskR::mask)::Type,MaskVal::unchanged> unchanged{};
+            constexpr Register::FieldValue<decltype(CCanCanif2CmdmskR::mask)::Type,MaskVal::transferIdentifier> transferIdentifier{};
         }
         ///Read transfer Transfer data from the message object addressed by the command request register to the selected message buffer registers CANIFn_CMDREQ.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> wrRd{}; 
     }
-    namespace Nonecanif1Msk1{    ///<Message interface 1 mask 1
-        using Addr = Register::Address<0x40050028,0xffff0000,0,unsigned>;
+    namespace CCanCanif1Msk1{    ///<Message interface 1 mask 1
+        using Addr = Register::Address<0x40050028,0xffff0000,0x00000000,unsigned>;
         ///Identifier mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> msk150{}; 
     }
-    namespace Nonecanif2Msk1{    ///<Message interface 1 mask 1
-        using Addr = Register::Address<0x40050088,0xffff0000,0,unsigned>;
+    namespace CCanCanif2Msk1{    ///<Message interface 1 mask 1
+        using Addr = Register::Address<0x40050088,0xffff0000,0x00000000,unsigned>;
         ///Identifier mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> msk150{}; 
     }
-    namespace Nonecanif1Msk2{    ///<Message interface 1 mask 2
-        using Addr = Register::Address<0x4005002c,0xffff2000,0,unsigned>;
+    namespace CCanCanif1Msk2{    ///<Message interface 1 mask 2
+        using Addr = Register::Address<0x4005002c,0xffff2000,0x00000000,unsigned>;
         ///Identifier mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,0),Register::ReadWriteAccess,unsigned> msk2816{}; 
         ///Mask message direction
@@ -583,8 +580,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,MdirVal> mdir{}; 
         namespace MdirValC{
-            constexpr Register::FieldValue<decltype(mdir)::Type,MdirVal::noeffect> noeffect{};
-            constexpr Register::FieldValue<decltype(mdir)::Type,MdirVal::acceptancefiltering> acceptancefiltering{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Msk2::mdir)::Type,MdirVal::noeffect> noeffect{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Msk2::mdir)::Type,MdirVal::acceptancefiltering> acceptancefiltering{};
         }
         ///Mask extend identifier
         enum class MxtdVal {
@@ -593,12 +590,12 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,MxtdVal> mxtd{}; 
         namespace MxtdValC{
-            constexpr Register::FieldValue<decltype(mxtd)::Type,MxtdVal::noeffect> noeffect{};
-            constexpr Register::FieldValue<decltype(mxtd)::Type,MxtdVal::acceptancefiltering> acceptancefiltering{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Msk2::mxtd)::Type,MxtdVal::noeffect> noeffect{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Msk2::mxtd)::Type,MxtdVal::acceptancefiltering> acceptancefiltering{};
         }
     }
-    namespace Nonecanif2Msk2{    ///<Message interface 1 mask 2
-        using Addr = Register::Address<0x4005008c,0xffff2000,0,unsigned>;
+    namespace CCanCanif2Msk2{    ///<Message interface 1 mask 2
+        using Addr = Register::Address<0x4005008c,0xffff2000,0x00000000,unsigned>;
         ///Identifier mask
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,0),Register::ReadWriteAccess,unsigned> msk2816{}; 
         ///Mask message direction
@@ -608,8 +605,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,MdirVal> mdir{}; 
         namespace MdirValC{
-            constexpr Register::FieldValue<decltype(mdir)::Type,MdirVal::noeffect> noeffect{};
-            constexpr Register::FieldValue<decltype(mdir)::Type,MdirVal::acceptancefiltering> acceptancefiltering{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Msk2::mdir)::Type,MdirVal::noeffect> noeffect{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Msk2::mdir)::Type,MdirVal::acceptancefiltering> acceptancefiltering{};
         }
         ///Mask extend identifier
         enum class MxtdVal {
@@ -618,22 +615,22 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,MxtdVal> mxtd{}; 
         namespace MxtdValC{
-            constexpr Register::FieldValue<decltype(mxtd)::Type,MxtdVal::noeffect> noeffect{};
-            constexpr Register::FieldValue<decltype(mxtd)::Type,MxtdVal::acceptancefiltering> acceptancefiltering{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Msk2::mxtd)::Type,MxtdVal::noeffect> noeffect{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Msk2::mxtd)::Type,MxtdVal::acceptancefiltering> acceptancefiltering{};
         }
     }
-    namespace Nonecanif1Arb1{    ///<Message interface 1 arbitration 1
-        using Addr = Register::Address<0x40050030,0xffff0000,0,unsigned>;
+    namespace CCanCanif1Arb1{    ///<Message interface 1 arbitration 1
+        using Addr = Register::Address<0x40050030,0xffff0000,0x00000000,unsigned>;
         ///Message identifier  29-bit identifier (extended frame) 11-bit identifier (standard frame)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> id150{}; 
     }
-    namespace Nonecanif2Arb1{    ///<Message interface 1 arbitration 1
-        using Addr = Register::Address<0x40050090,0xffff0000,0,unsigned>;
+    namespace CCanCanif2Arb1{    ///<Message interface 1 arbitration 1
+        using Addr = Register::Address<0x40050090,0xffff0000,0x00000000,unsigned>;
         ///Message identifier  29-bit identifier (extended frame) 11-bit identifier (standard frame)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> id150{}; 
     }
-    namespace Nonecanif1Arb2{    ///<Message interface 1 arbitration 2
-        using Addr = Register::Address<0x40050034,0xffff0000,0,unsigned>;
+    namespace CCanCanif1Arb2{    ///<Message interface 1 arbitration 2
+        using Addr = Register::Address<0x40050034,0xffff0000,0x00000000,unsigned>;
         ///Message identifier  29-bit identifier (extended frame) 11-bit identifier (standard frame)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,0),Register::ReadWriteAccess,unsigned> id2816{}; 
         ///Message direction
@@ -643,8 +640,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,DirVal> dir{}; 
         namespace DirValC{
-            constexpr Register::FieldValue<decltype(dir)::Type,DirVal::receive> receive{};
-            constexpr Register::FieldValue<decltype(dir)::Type,DirVal::transmit> transmit{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Arb2::dir)::Type,DirVal::receive> receive{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Arb2::dir)::Type,DirVal::transmit> transmit{};
         }
         ///Extend identifier
         enum class XtdVal {
@@ -653,8 +650,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,XtdVal> xtd{}; 
         namespace XtdValC{
-            constexpr Register::FieldValue<decltype(xtd)::Type,XtdVal::v11BitStandard> v11BitStandard{};
-            constexpr Register::FieldValue<decltype(xtd)::Type,XtdVal::v29BitExtended> v29BitExtended{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Arb2::xtd)::Type,XtdVal::v11BitStandard> v11BitStandard{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Arb2::xtd)::Type,XtdVal::v29BitExtended> v29BitExtended{};
         }
         ///Message valid The CPU must reset the MSGVAL bit of all unused Messages Objects during the initialization before it resets bit INIT in the CAN Control Register. This bit must also be reset before the identifier ID28:0, the control bits XTD, DIR, or the Data Length Code DLC3:0 are modified, or if the Messages Object is no longer required.
         enum class MsgvalVal {
@@ -663,12 +660,12 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,MsgvalVal> msgval{}; 
         namespace MsgvalValC{
-            constexpr Register::FieldValue<decltype(msgval)::Type,MsgvalVal::ignore> ignore{};
-            constexpr Register::FieldValue<decltype(msgval)::Type,MsgvalVal::configured> configured{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Arb2::msgval)::Type,MsgvalVal::ignore> ignore{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Arb2::msgval)::Type,MsgvalVal::configured> configured{};
         }
     }
-    namespace Nonecanif2Arb2{    ///<Message interface 1 arbitration 2
-        using Addr = Register::Address<0x40050094,0xffff0000,0,unsigned>;
+    namespace CCanCanif2Arb2{    ///<Message interface 1 arbitration 2
+        using Addr = Register::Address<0x40050094,0xffff0000,0x00000000,unsigned>;
         ///Message identifier  29-bit identifier (extended frame) 11-bit identifier (standard frame)
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,0),Register::ReadWriteAccess,unsigned> id2816{}; 
         ///Message direction
@@ -678,8 +675,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,DirVal> dir{}; 
         namespace DirValC{
-            constexpr Register::FieldValue<decltype(dir)::Type,DirVal::receive> receive{};
-            constexpr Register::FieldValue<decltype(dir)::Type,DirVal::transmit> transmit{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Arb2::dir)::Type,DirVal::receive> receive{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Arb2::dir)::Type,DirVal::transmit> transmit{};
         }
         ///Extend identifier
         enum class XtdVal {
@@ -688,8 +685,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,XtdVal> xtd{}; 
         namespace XtdValC{
-            constexpr Register::FieldValue<decltype(xtd)::Type,XtdVal::v11BitStandard> v11BitStandard{};
-            constexpr Register::FieldValue<decltype(xtd)::Type,XtdVal::v29BitExtended> v29BitExtended{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Arb2::xtd)::Type,XtdVal::v11BitStandard> v11BitStandard{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Arb2::xtd)::Type,XtdVal::v29BitExtended> v29BitExtended{};
         }
         ///Message valid The CPU must reset the MSGVAL bit of all unused Messages Objects during the initialization before it resets bit INIT in the CAN Control Register. This bit must also be reset before the identifier ID28:0, the control bits XTD, DIR, or the Data Length Code DLC3:0 are modified, or if the Messages Object is no longer required.
         enum class MsgvalVal {
@@ -698,12 +695,12 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,MsgvalVal> msgval{}; 
         namespace MsgvalValC{
-            constexpr Register::FieldValue<decltype(msgval)::Type,MsgvalVal::ignore> ignore{};
-            constexpr Register::FieldValue<decltype(msgval)::Type,MsgvalVal::configured> configured{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Arb2::msgval)::Type,MsgvalVal::ignore> ignore{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Arb2::msgval)::Type,MsgvalVal::configured> configured{};
         }
     }
-    namespace Nonecanif1Mctrl{    ///<Message interface 1 message control
-        using Addr = Register::Address<0x40050038,0xffff0070,0,unsigned>;
+    namespace CCanCanif1Mctrl{    ///<Message interface 1 message control
+        using Addr = Register::Address<0x40050038,0xffff0070,0x00000000,unsigned>;
         ///Data length code The Data Length Code of a Message Object must be defined the same as in all the corresponding objects with the same identifier at other nodes. When the Message Handler stores a data frame, it will write the DLC to the value given by the received message. 0000 - 1000 = Data frame has 0 - 8 data bytes. 1001 - 1111 = Data frame has 8 data bytes.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> dlc30{}; 
         ///End of buffer
@@ -713,8 +710,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,EobVal> eob{}; 
         namespace EobValC{
-            constexpr Register::FieldValue<decltype(eob)::Type,EobVal::fifo> fifo{};
-            constexpr Register::FieldValue<decltype(eob)::Type,EobVal::singelast> singelast{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Mctrl::eob)::Type,EobVal::fifo> fifo{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Mctrl::eob)::Type,EobVal::singelast> singelast{};
         }
         ///Transmit request
         enum class TxrqstVal {
@@ -723,8 +720,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,TxrqstVal> txrqst{}; 
         namespace TxrqstValC{
-            constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::nowait> nowait{};
-            constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::wait> wait{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Mctrl::txrqst)::Type,TxrqstVal::nowait> nowait{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Mctrl::txrqst)::Type,TxrqstVal::wait> wait{};
         }
         ///Remote enable
         enum class RmtenVal {
@@ -733,8 +730,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,RmtenVal> rmten{}; 
         namespace RmtenValC{
-            constexpr Register::FieldValue<decltype(rmten)::Type,RmtenVal::nochange> nochange{};
-            constexpr Register::FieldValue<decltype(rmten)::Type,RmtenVal::set> set{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Mctrl::rmten)::Type,RmtenVal::nochange> nochange{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Mctrl::rmten)::Type,RmtenVal::set> set{};
         }
         ///Receive interrupt enable
         enum class RxieVal {
@@ -743,8 +740,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,RxieVal> rxie{}; 
         namespace RxieValC{
-            constexpr Register::FieldValue<decltype(rxie)::Type,RxieVal::nochange> nochange{};
-            constexpr Register::FieldValue<decltype(rxie)::Type,RxieVal::set> set{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Mctrl::rxie)::Type,RxieVal::nochange> nochange{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Mctrl::rxie)::Type,RxieVal::set> set{};
         }
         ///Transmit interrupt enable
         enum class TxieVal {
@@ -753,8 +750,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,TxieVal> txie{}; 
         namespace TxieValC{
-            constexpr Register::FieldValue<decltype(txie)::Type,TxieVal::nochange> nochange{};
-            constexpr Register::FieldValue<decltype(txie)::Type,TxieVal::set> set{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Mctrl::txie)::Type,TxieVal::nochange> nochange{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Mctrl::txie)::Type,TxieVal::set> set{};
         }
         ///Use acceptance mask If UMASK is set to 1, the message object's mask bits have to be programmed during initialization of the message object before MAGVAL is set to 1.
         enum class UmaskVal {
@@ -763,8 +760,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,UmaskVal> umask{}; 
         namespace UmaskValC{
-            constexpr Register::FieldValue<decltype(umask)::Type,UmaskVal::ignore> ignore{};
-            constexpr Register::FieldValue<decltype(umask)::Type,UmaskVal::usemask> usemask{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Mctrl::umask)::Type,UmaskVal::ignore> ignore{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Mctrl::umask)::Type,UmaskVal::usemask> usemask{};
         }
         ///Interrupt pending
         enum class IntpndVal {
@@ -773,8 +770,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,IntpndVal> intpnd{}; 
         namespace IntpndValC{
-            constexpr Register::FieldValue<decltype(intpnd)::Type,IntpndVal::nointsource> nointsource{};
-            constexpr Register::FieldValue<decltype(intpnd)::Type,IntpndVal::intsource> intsource{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Mctrl::intpnd)::Type,IntpndVal::nointsource> nointsource{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Mctrl::intpnd)::Type,IntpndVal::intsource> intsource{};
         }
         ///Message lost (only valid for message objects in the direction receive).
         enum class MsglstVal {
@@ -783,8 +780,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,MsglstVal> msglst{}; 
         namespace MsglstValC{
-            constexpr Register::FieldValue<decltype(msglst)::Type,MsglstVal::nolost> nolost{};
-            constexpr Register::FieldValue<decltype(msglst)::Type,MsglstVal::newmessage> newmessage{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Mctrl::msglst)::Type,MsglstVal::nolost> nolost{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Mctrl::msglst)::Type,MsglstVal::newmessage> newmessage{};
         }
         ///New data
         enum class NewdatVal {
@@ -793,12 +790,12 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,NewdatVal> newdat{}; 
         namespace NewdatValC{
-            constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::nonewdata> nonewdata{};
-            constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::newdata> newdata{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Mctrl::newdat)::Type,NewdatVal::nonewdata> nonewdata{};
+            constexpr Register::FieldValue<decltype(CCanCanif1Mctrl::newdat)::Type,NewdatVal::newdata> newdata{};
         }
     }
-    namespace Nonecanif2Mctrl{    ///<Message interface 1 message control
-        using Addr = Register::Address<0x40050098,0xffff0070,0,unsigned>;
+    namespace CCanCanif2Mctrl{    ///<Message interface 1 message control
+        using Addr = Register::Address<0x40050098,0xffff0070,0x00000000,unsigned>;
         ///Data length code The Data Length Code of a Message Object must be defined the same as in all the corresponding objects with the same identifier at other nodes. When the Message Handler stores a data frame, it will write the DLC to the value given by the received message. 0000 - 1000 = Data frame has 0 - 8 data bytes. 1001 - 1111 = Data frame has 8 data bytes.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> dlc30{}; 
         ///End of buffer
@@ -808,8 +805,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,EobVal> eob{}; 
         namespace EobValC{
-            constexpr Register::FieldValue<decltype(eob)::Type,EobVal::fifo> fifo{};
-            constexpr Register::FieldValue<decltype(eob)::Type,EobVal::singelast> singelast{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Mctrl::eob)::Type,EobVal::fifo> fifo{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Mctrl::eob)::Type,EobVal::singelast> singelast{};
         }
         ///Transmit request
         enum class TxrqstVal {
@@ -818,8 +815,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,TxrqstVal> txrqst{}; 
         namespace TxrqstValC{
-            constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::nowait> nowait{};
-            constexpr Register::FieldValue<decltype(txrqst)::Type,TxrqstVal::wait> wait{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Mctrl::txrqst)::Type,TxrqstVal::nowait> nowait{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Mctrl::txrqst)::Type,TxrqstVal::wait> wait{};
         }
         ///Remote enable
         enum class RmtenVal {
@@ -828,8 +825,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,RmtenVal> rmten{}; 
         namespace RmtenValC{
-            constexpr Register::FieldValue<decltype(rmten)::Type,RmtenVal::nochange> nochange{};
-            constexpr Register::FieldValue<decltype(rmten)::Type,RmtenVal::set> set{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Mctrl::rmten)::Type,RmtenVal::nochange> nochange{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Mctrl::rmten)::Type,RmtenVal::set> set{};
         }
         ///Receive interrupt enable
         enum class RxieVal {
@@ -838,8 +835,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,RxieVal> rxie{}; 
         namespace RxieValC{
-            constexpr Register::FieldValue<decltype(rxie)::Type,RxieVal::nochange> nochange{};
-            constexpr Register::FieldValue<decltype(rxie)::Type,RxieVal::set> set{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Mctrl::rxie)::Type,RxieVal::nochange> nochange{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Mctrl::rxie)::Type,RxieVal::set> set{};
         }
         ///Transmit interrupt enable
         enum class TxieVal {
@@ -848,8 +845,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,TxieVal> txie{}; 
         namespace TxieValC{
-            constexpr Register::FieldValue<decltype(txie)::Type,TxieVal::nochange> nochange{};
-            constexpr Register::FieldValue<decltype(txie)::Type,TxieVal::set> set{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Mctrl::txie)::Type,TxieVal::nochange> nochange{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Mctrl::txie)::Type,TxieVal::set> set{};
         }
         ///Use acceptance mask If UMASK is set to 1, the message object's mask bits have to be programmed during initialization of the message object before MAGVAL is set to 1.
         enum class UmaskVal {
@@ -858,8 +855,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,UmaskVal> umask{}; 
         namespace UmaskValC{
-            constexpr Register::FieldValue<decltype(umask)::Type,UmaskVal::ignore> ignore{};
-            constexpr Register::FieldValue<decltype(umask)::Type,UmaskVal::usemask> usemask{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Mctrl::umask)::Type,UmaskVal::ignore> ignore{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Mctrl::umask)::Type,UmaskVal::usemask> usemask{};
         }
         ///Interrupt pending
         enum class IntpndVal {
@@ -868,8 +865,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,IntpndVal> intpnd{}; 
         namespace IntpndValC{
-            constexpr Register::FieldValue<decltype(intpnd)::Type,IntpndVal::nointsource> nointsource{};
-            constexpr Register::FieldValue<decltype(intpnd)::Type,IntpndVal::intsource> intsource{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Mctrl::intpnd)::Type,IntpndVal::nointsource> nointsource{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Mctrl::intpnd)::Type,IntpndVal::intsource> intsource{};
         }
         ///Message lost (only valid for message objects in the direction receive).
         enum class MsglstVal {
@@ -878,8 +875,8 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(14,14),Register::ReadWriteAccess,MsglstVal> msglst{}; 
         namespace MsglstValC{
-            constexpr Register::FieldValue<decltype(msglst)::Type,MsglstVal::nolost> nolost{};
-            constexpr Register::FieldValue<decltype(msglst)::Type,MsglstVal::newmessage> newmessage{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Mctrl::msglst)::Type,MsglstVal::nolost> nolost{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Mctrl::msglst)::Type,MsglstVal::newmessage> newmessage{};
         }
         ///New data
         enum class NewdatVal {
@@ -888,108 +885,108 @@ command mask - write direction
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,NewdatVal> newdat{}; 
         namespace NewdatValC{
-            constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::nonewdata> nonewdata{};
-            constexpr Register::FieldValue<decltype(newdat)::Type,NewdatVal::newdata> newdata{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Mctrl::newdat)::Type,NewdatVal::nonewdata> nonewdata{};
+            constexpr Register::FieldValue<decltype(CCanCanif2Mctrl::newdat)::Type,NewdatVal::newdata> newdata{};
         }
     }
-    namespace Nonecanif1Da1{    ///<Message interface 1 data A1
-        using Addr = Register::Address<0x4005003c,0xffff0000,0,unsigned>;
+    namespace CCanCanif1Da1{    ///<Message interface 1 data A1
+        using Addr = Register::Address<0x4005003c,0xffff0000,0x00000000,unsigned>;
         ///Data byte 0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data0{}; 
         ///Data byte 1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data1{}; 
     }
-    namespace Nonecanif2Da1{    ///<Message interface 1 data A1
-        using Addr = Register::Address<0x4005009c,0xffff0000,0,unsigned>;
+    namespace CCanCanif2Da1{    ///<Message interface 1 data A1
+        using Addr = Register::Address<0x4005009c,0xffff0000,0x00000000,unsigned>;
         ///Data byte 0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data0{}; 
         ///Data byte 1
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data1{}; 
     }
-    namespace Nonecanif1Da2{    ///<Message interface 1 data A2
-        using Addr = Register::Address<0x40050040,0xffff0000,0,unsigned>;
+    namespace CCanCanif1Da2{    ///<Message interface 1 data A2
+        using Addr = Register::Address<0x40050040,0xffff0000,0x00000000,unsigned>;
         ///Data byte 2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data2{}; 
         ///Data byte 3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data3{}; 
     }
-    namespace Nonecanif2Da2{    ///<Message interface 1 data A2
-        using Addr = Register::Address<0x400500a0,0xffff0000,0,unsigned>;
+    namespace CCanCanif2Da2{    ///<Message interface 1 data A2
+        using Addr = Register::Address<0x400500a0,0xffff0000,0x00000000,unsigned>;
         ///Data byte 2
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data2{}; 
         ///Data byte 3
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data3{}; 
     }
-    namespace Nonecanif1Db1{    ///<Message interface 1 data B1
-        using Addr = Register::Address<0x40050044,0xffff0000,0,unsigned>;
+    namespace CCanCanif1Db1{    ///<Message interface 1 data B1
+        using Addr = Register::Address<0x40050044,0xffff0000,0x00000000,unsigned>;
         ///Data byte 4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data4{}; 
         ///Data byte 5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data5{}; 
     }
-    namespace Nonecanif2Db1{    ///<Message interface 1 data B1
-        using Addr = Register::Address<0x400500a4,0xffff0000,0,unsigned>;
+    namespace CCanCanif2Db1{    ///<Message interface 1 data B1
+        using Addr = Register::Address<0x400500a4,0xffff0000,0x00000000,unsigned>;
         ///Data byte 4
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data4{}; 
         ///Data byte 5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data5{}; 
     }
-    namespace Nonecanif1Db2{    ///<Message interface 1 data B2
-        using Addr = Register::Address<0x40050048,0xffff0000,0,unsigned>;
+    namespace CCanCanif1Db2{    ///<Message interface 1 data B2
+        using Addr = Register::Address<0x40050048,0xffff0000,0x00000000,unsigned>;
         ///Data byte 6
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data6{}; 
         ///Data byte 7
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data7{}; 
     }
-    namespace Nonecanif2Db2{    ///<Message interface 1 data B2
-        using Addr = Register::Address<0x400500a8,0xffff0000,0,unsigned>;
+    namespace CCanCanif2Db2{    ///<Message interface 1 data B2
+        using Addr = Register::Address<0x400500a8,0xffff0000,0x00000000,unsigned>;
         ///Data byte 6
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data6{}; 
         ///Data byte 7
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> data7{}; 
     }
-    namespace Nonecantxreq1{    ///<Transmission request 1
-        using Addr = Register::Address<0x40050100,0xffff0000,0,unsigned>;
+    namespace CCanCantxreq1{    ///<Transmission request 1
+        using Addr = Register::Address<0x40050100,0xffff0000,0x00000000,unsigned>;
         ///Transmission request bit of message objects 16 to 1. 0 = This message object is not waiting for transmission. 1 = The transmission of this message object is requested and not yet done.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txrqst161{}; 
     }
-    namespace Nonecantxreq2{    ///<Transmission request 2
-        using Addr = Register::Address<0x40050104,0xffff0000,0,unsigned>;
+    namespace CCanCantxreq2{    ///<Transmission request 2
+        using Addr = Register::Address<0x40050104,0xffff0000,0x00000000,unsigned>;
         ///Transmission request bit of message objects 32 to 17. 0 = This message object is not waiting for transmission. 1 = The transmission of this message object is requested and not yet done.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txrqst3217{}; 
     }
-    namespace Nonecannd1{    ///<New data 1
-        using Addr = Register::Address<0x40050120,0xffff0000,0,unsigned>;
+    namespace CCanCannd1{    ///<New data 1
+        using Addr = Register::Address<0x40050120,0xffff0000,0x00000000,unsigned>;
         ///New data bits of message objects 16 to 1. 0 = No new data has been written into the data portion of this Message Object by the Message Handler since last time this flag was cleared by the CPU. 1 = The Message Handler or the CPU has written new data into the data portion of this Message Object.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> newdat161{}; 
     }
-    namespace Nonecannd2{    ///<New data 2
-        using Addr = Register::Address<0x40050124,0xffff0000,0,unsigned>;
+    namespace CCanCannd2{    ///<New data 2
+        using Addr = Register::Address<0x40050124,0xffff0000,0x00000000,unsigned>;
         ///New data bits of message objects 32 to 17. 0 = No new data has been written into the data portion of this Message Object by the Message Handler since last time this flag was cleared by the CPU. 1 = The Message Handler or the CPU has written new data into the data portion of this Message Object.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> newdat3217{}; 
     }
-    namespace Nonecanir1{    ///<Interrupt pending 1
-        using Addr = Register::Address<0x40050140,0xffff0000,0,unsigned>;
+    namespace CCanCanir1{    ///<Interrupt pending 1
+        using Addr = Register::Address<0x40050140,0xffff0000,0x00000000,unsigned>;
         ///Interrupt pending bits of message objects 16 to 1. 0 = This message object is ignored by the message handler. 1 = This message object is the source of an interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> intpnd161{}; 
     }
-    namespace Nonecanir2{    ///<Interrupt pending 2
-        using Addr = Register::Address<0x40050144,0xffff0000,0,unsigned>;
+    namespace CCanCanir2{    ///<Interrupt pending 2
+        using Addr = Register::Address<0x40050144,0xffff0000,0x00000000,unsigned>;
         ///Interrupt pending bits of message objects 32 to 17. 0 = This message object is ignored by the message handler. 1 = This message object is the source of an interrupt.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> intpnd3217{}; 
     }
-    namespace Nonecanmsgv1{    ///<Message valid 1
-        using Addr = Register::Address<0x40050160,0xffff0000,0,unsigned>;
+    namespace CCanCanmsgv1{    ///<Message valid 1
+        using Addr = Register::Address<0x40050160,0xffff0000,0x00000000,unsigned>;
         ///Message valid bits of message objects 16 to 1. 0 = This message object is ignored by the message handler. 1 = This message object is configured and should be considered by the message handler.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> msgval161{}; 
     }
-    namespace Nonecanmsgv2{    ///<Message valid 2
-        using Addr = Register::Address<0x40050164,0xffff0000,0,unsigned>;
+    namespace CCanCanmsgv2{    ///<Message valid 2
+        using Addr = Register::Address<0x40050164,0xffff0000,0x00000000,unsigned>;
         ///Message valid bits of message objects 32 to 17. 0 = This message object is ignored by the message handler. 1 = This message object is configured and should be considered by the message handler.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> msgval3217{}; 
     }
-    namespace Nonecanclkdiv{    ///<Can clock divider register
-        using Addr = Register::Address<0x40050180,0xfffffff0,0,unsigned>;
+    namespace CCanCanclkdiv{    ///<Can clock divider register
+        using Addr = Register::Address<0x40050180,0xfffffff0,0x00000000,unsigned>;
         ///Clock divider value. CAN_CLK = PCLK/(CLKDIVVAL +1) 0000: CAN_CLK = PCLK divided by 1. 0001: CAN_CLK = PCLK divided by 2. 0010: CAN_CLK = PCLK divided by 3 0010: CAN_CLK = PCLK divided by 4. ... 1111: CAN_CLK = PCLK divided by 16.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> clkdivval{}; 
     }

@@ -1,10 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
-//Product name title=UM10398 Chapter title=LPC111x/LPC11Cxx
-System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor revision=not available 
-    namespace Nonesysmemremap{    ///<System memory remap
-        using Addr = Register::Address<0x40048000,0xfffffffc,0,unsigned>;
+//Product name title=UM10398 Chapter title=LPC111x/LPC11CxxSystem configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor revision=not available 
+    namespace SysconSysmemremap{    ///<System memory remap
+        using Addr = Register::Address<0x40048000,0xfffffffc,0x00000000,unsigned>;
         ///System memory remap
         enum class MapVal {
             bootLoaderModeIn=0x00000000,     ///<Boot Loader Mode. Interrupt vectors are re-mapped to Boot ROM.
@@ -13,13 +12,13 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,MapVal> map{}; 
         namespace MapValC{
-            constexpr Register::FieldValue<decltype(map)::Type,MapVal::bootLoaderModeIn> bootLoaderModeIn{};
-            constexpr Register::FieldValue<decltype(map)::Type,MapVal::userRamModeInter> userRamModeInter{};
-            constexpr Register::FieldValue<decltype(map)::Type,MapVal::userFlashModeInt> userFlashModeInt{};
+            constexpr Register::FieldValue<decltype(SysconSysmemremap::map)::Type,MapVal::bootLoaderModeIn> bootLoaderModeIn{};
+            constexpr Register::FieldValue<decltype(SysconSysmemremap::map)::Type,MapVal::userRamModeInter> userRamModeInter{};
+            constexpr Register::FieldValue<decltype(SysconSysmemremap::map)::Type,MapVal::userFlashModeInt> userFlashModeInt{};
         }
     }
-    namespace Nonepresetctrl{    ///<Peripheral reset control
-        using Addr = Register::Address<0x40048004,0xfffffff0,0,unsigned>;
+    namespace SysconPresetctrl{    ///<Peripheral reset control
+        using Addr = Register::Address<0x40048004,0xfffffff0,0x00000000,unsigned>;
         ///SPI0 reset control
         enum class Ssp0rstnVal {
             spio0reset=0x00000000,     ///<Resets the SPI0 peripheral.
@@ -27,8 +26,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Ssp0rstnVal> ssp0RstN{}; 
         namespace Ssp0rstnValC{
-            constexpr Register::FieldValue<decltype(ssp0RstN)::Type,Ssp0rstnVal::spio0reset> spio0reset{};
-            constexpr Register::FieldValue<decltype(ssp0RstN)::Type,Ssp0rstnVal::spio0noreset> spio0noreset{};
+            constexpr Register::FieldValue<decltype(SysconPresetctrl::ssp0RstN)::Type,Ssp0rstnVal::spio0reset> spio0reset{};
+            constexpr Register::FieldValue<decltype(SysconPresetctrl::ssp0RstN)::Type,Ssp0rstnVal::spio0noreset> spio0noreset{};
         }
         ///I2C reset control
         enum class I2crstnVal {
@@ -37,8 +36,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,I2crstnVal> i2cRstN{}; 
         namespace I2crstnValC{
-            constexpr Register::FieldValue<decltype(i2cRstN)::Type,I2crstnVal::i2creset> i2creset{};
-            constexpr Register::FieldValue<decltype(i2cRstN)::Type,I2crstnVal::i2cnoreset> i2cnoreset{};
+            constexpr Register::FieldValue<decltype(SysconPresetctrl::i2cRstN)::Type,I2crstnVal::i2creset> i2creset{};
+            constexpr Register::FieldValue<decltype(SysconPresetctrl::i2cRstN)::Type,I2crstnVal::i2cnoreset> i2cnoreset{};
         }
         ///SPI1 reset control
         enum class Ssp1rstnVal {
@@ -47,8 +46,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Ssp1rstnVal> ssp1RstN{}; 
         namespace Ssp1rstnValC{
-            constexpr Register::FieldValue<decltype(ssp1RstN)::Type,Ssp1rstnVal::spi1reset> spi1reset{};
-            constexpr Register::FieldValue<decltype(ssp1RstN)::Type,Ssp1rstnVal::spi2noreset> spi2noreset{};
+            constexpr Register::FieldValue<decltype(SysconPresetctrl::ssp1RstN)::Type,Ssp1rstnVal::spi1reset> spi1reset{};
+            constexpr Register::FieldValue<decltype(SysconPresetctrl::ssp1RstN)::Type,Ssp1rstnVal::spi2noreset> spi2noreset{};
         }
         ///C_CAN reset control. See Section 3.1 for part specific details.
         enum class CanrstnVal {
@@ -57,12 +56,12 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,CanrstnVal> canRstN{}; 
         namespace CanrstnValC{
-            constexpr Register::FieldValue<decltype(canRstN)::Type,CanrstnVal::canreset> canreset{};
-            constexpr Register::FieldValue<decltype(canRstN)::Type,CanrstnVal::cannoreset> cannoreset{};
+            constexpr Register::FieldValue<decltype(SysconPresetctrl::canRstN)::Type,CanrstnVal::canreset> canreset{};
+            constexpr Register::FieldValue<decltype(SysconPresetctrl::canRstN)::Type,CanrstnVal::cannoreset> cannoreset{};
         }
     }
-    namespace Nonesyspllctrl{    ///<System PLL control
-        using Addr = Register::Address<0x40048008,0xffffff80,0,unsigned>;
+    namespace SysconSyspllctrl{    ///<System PLL control
+        using Addr = Register::Address<0x40048008,0xffffff80,0x00000000,unsigned>;
         ///Feedback divider value. The division value M is the programmed MSEL value + 1. 00000: Division ratio M = 1 to 11111: Division ratio M = 32.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> msel{}; 
         ///Post divider ratio P. The division ratio is 2 x P.
@@ -74,14 +73,14 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,5),Register::ReadWriteAccess,PselVal> psel{}; 
         namespace PselValC{
-            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::pEq1> pEq1{};
-            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::pEq2> pEq2{};
-            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::pEq4> pEq4{};
-            constexpr Register::FieldValue<decltype(psel)::Type,PselVal::pEq8> pEq8{};
+            constexpr Register::FieldValue<decltype(SysconSyspllctrl::psel)::Type,PselVal::pEq1> pEq1{};
+            constexpr Register::FieldValue<decltype(SysconSyspllctrl::psel)::Type,PselVal::pEq2> pEq2{};
+            constexpr Register::FieldValue<decltype(SysconSyspllctrl::psel)::Type,PselVal::pEq4> pEq4{};
+            constexpr Register::FieldValue<decltype(SysconSyspllctrl::psel)::Type,PselVal::pEq8> pEq8{};
         }
     }
-    namespace Nonesyspllstat{    ///<System PLL status
-        using Addr = Register::Address<0x4004800c,0xfffffffe,0,unsigned>;
+    namespace SysconSyspllstat{    ///<System PLL status
+        using Addr = Register::Address<0x4004800c,0xfffffffe,0x00000000,unsigned>;
         ///PLL lock status
         enum class LockVal {
             pllNotLocked=0x00000000,     ///<PLL not locked
@@ -89,12 +88,12 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,LockVal> lock{}; 
         namespace LockValC{
-            constexpr Register::FieldValue<decltype(lock)::Type,LockVal::pllNotLocked> pllNotLocked{};
-            constexpr Register::FieldValue<decltype(lock)::Type,LockVal::pllLocked> pllLocked{};
+            constexpr Register::FieldValue<decltype(SysconSyspllstat::lock)::Type,LockVal::pllNotLocked> pllNotLocked{};
+            constexpr Register::FieldValue<decltype(SysconSyspllstat::lock)::Type,LockVal::pllLocked> pllLocked{};
         }
     }
-    namespace Nonesysoscctrl{    ///<System oscillator control
-        using Addr = Register::Address<0x40048020,0xfffffffc,0,unsigned>;
+    namespace SysconSysoscctrl{    ///<System oscillator control
+        using Addr = Register::Address<0x40048020,0xfffffffc,0x00000000,unsigned>;
         ///Bypass system oscillator
         enum class BypassVal {
             nobypass=0x00000000,     ///<Oscillator is not bypassed.
@@ -102,8 +101,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,BypassVal> bypass{}; 
         namespace BypassValC{
-            constexpr Register::FieldValue<decltype(bypass)::Type,BypassVal::nobypass> nobypass{};
-            constexpr Register::FieldValue<decltype(bypass)::Type,BypassVal::bypassEnabledPll> bypassEnabledPll{};
+            constexpr Register::FieldValue<decltype(SysconSysoscctrl::bypass)::Type,BypassVal::nobypass> nobypass{};
+            constexpr Register::FieldValue<decltype(SysconSysoscctrl::bypass)::Type,BypassVal::bypassEnabledPll> bypassEnabledPll{};
         }
         ///Determines frequency range for Low-power oscillator.
         enum class FreqrangeVal {
@@ -112,12 +111,12 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,FreqrangeVal> freqrange{}; 
         namespace FreqrangeValC{
-            constexpr Register::FieldValue<decltype(freqrange)::Type,FreqrangeVal::low> low{};
-            constexpr Register::FieldValue<decltype(freqrange)::Type,FreqrangeVal::high> high{};
+            constexpr Register::FieldValue<decltype(SysconSysoscctrl::freqrange)::Type,FreqrangeVal::low> low{};
+            constexpr Register::FieldValue<decltype(SysconSysoscctrl::freqrange)::Type,FreqrangeVal::high> high{};
         }
     }
-    namespace Nonewdtoscctrl{    ///<Watchdog oscillator control
-        using Addr = Register::Address<0x40048024,0xfffffe00,0,unsigned>;
+    namespace SysconWdtoscctrl{    ///<Watchdog oscillator control
+        using Addr = Register::Address<0x40048024,0xfffffe00,0x00000000,unsigned>;
         ///Select divider for Fclkana.  wdt_osc_clk = Fclkana/ (2 x (1 + DIVSEL)) 00000: 2 x (1 + DIVSEL) = 2 00001: 2 x (1 + DIVSEL) = 4 to 11111: 2 x (1 + DIVSEL) = 64
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> divsel{}; 
         ///Select watchdog oscillator analog output frequency (Fclkana).
@@ -140,30 +139,30 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,5),Register::ReadWriteAccess,FreqselVal> freqsel{}; 
         namespace FreqselValC{
-            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v05Mhz> v05Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v08Mhz> v08Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v11Mhz> v11Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v14Mhz> v14Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v16Mhz> v16Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v18Mhz> v18Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v20Mhz> v20Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v22Mhz> v22Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v24Mhz> v24Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v26Mhz> v26Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v27Mhz> v27Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v29Mhz> v29Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v31Mhz> v31Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v32Mhz> v32Mhz{};
-            constexpr Register::FieldValue<decltype(freqsel)::Type,FreqselVal::v34Mhz> v34Mhz{};
+            constexpr Register::FieldValue<decltype(SysconWdtoscctrl::freqsel)::Type,FreqselVal::v05Mhz> v05Mhz{};
+            constexpr Register::FieldValue<decltype(SysconWdtoscctrl::freqsel)::Type,FreqselVal::v08Mhz> v08Mhz{};
+            constexpr Register::FieldValue<decltype(SysconWdtoscctrl::freqsel)::Type,FreqselVal::v11Mhz> v11Mhz{};
+            constexpr Register::FieldValue<decltype(SysconWdtoscctrl::freqsel)::Type,FreqselVal::v14Mhz> v14Mhz{};
+            constexpr Register::FieldValue<decltype(SysconWdtoscctrl::freqsel)::Type,FreqselVal::v16Mhz> v16Mhz{};
+            constexpr Register::FieldValue<decltype(SysconWdtoscctrl::freqsel)::Type,FreqselVal::v18Mhz> v18Mhz{};
+            constexpr Register::FieldValue<decltype(SysconWdtoscctrl::freqsel)::Type,FreqselVal::v20Mhz> v20Mhz{};
+            constexpr Register::FieldValue<decltype(SysconWdtoscctrl::freqsel)::Type,FreqselVal::v22Mhz> v22Mhz{};
+            constexpr Register::FieldValue<decltype(SysconWdtoscctrl::freqsel)::Type,FreqselVal::v24Mhz> v24Mhz{};
+            constexpr Register::FieldValue<decltype(SysconWdtoscctrl::freqsel)::Type,FreqselVal::v26Mhz> v26Mhz{};
+            constexpr Register::FieldValue<decltype(SysconWdtoscctrl::freqsel)::Type,FreqselVal::v27Mhz> v27Mhz{};
+            constexpr Register::FieldValue<decltype(SysconWdtoscctrl::freqsel)::Type,FreqselVal::v29Mhz> v29Mhz{};
+            constexpr Register::FieldValue<decltype(SysconWdtoscctrl::freqsel)::Type,FreqselVal::v31Mhz> v31Mhz{};
+            constexpr Register::FieldValue<decltype(SysconWdtoscctrl::freqsel)::Type,FreqselVal::v32Mhz> v32Mhz{};
+            constexpr Register::FieldValue<decltype(SysconWdtoscctrl::freqsel)::Type,FreqselVal::v34Mhz> v34Mhz{};
         }
     }
-    namespace Noneircctrl{    ///<IRC control
-        using Addr = Register::Address<0x40048028,0xffffff00,0,unsigned>;
+    namespace SysconIrcctrl{    ///<IRC control
+        using Addr = Register::Address<0x40048028,0xffffff00,0x00000000,unsigned>;
         ///Trim value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> trim{}; 
     }
-    namespace Nonesysrststat{    ///<System reset status register
-        using Addr = Register::Address<0x40048030,0xffffffe0,0,unsigned>;
+    namespace SysconSysrststat{    ///<System reset status register
+        using Addr = Register::Address<0x40048030,0xffffffe0,0x00000000,unsigned>;
         ///POR reset status
         enum class PorVal {
             noPorDetected=0x00000000,     ///<No POR detected.
@@ -171,8 +170,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PorVal> por{}; 
         namespace PorValC{
-            constexpr Register::FieldValue<decltype(por)::Type,PorVal::noPorDetected> noPorDetected{};
-            constexpr Register::FieldValue<decltype(por)::Type,PorVal::porDetectedWritin> porDetectedWritin{};
+            constexpr Register::FieldValue<decltype(SysconSysrststat::por)::Type,PorVal::noPorDetected> noPorDetected{};
+            constexpr Register::FieldValue<decltype(SysconSysrststat::por)::Type,PorVal::porDetectedWritin> porDetectedWritin{};
         }
         ///Status of the external RESET pin.
         enum class ExtrstVal {
@@ -181,8 +180,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ExtrstVal> extrst{}; 
         namespace ExtrstValC{
-            constexpr Register::FieldValue<decltype(extrst)::Type,ExtrstVal::noResetEventDetec> noResetEventDetec{};
-            constexpr Register::FieldValue<decltype(extrst)::Type,ExtrstVal::resetDetectedWrit> resetDetectedWrit{};
+            constexpr Register::FieldValue<decltype(SysconSysrststat::extrst)::Type,ExtrstVal::noResetEventDetec> noResetEventDetec{};
+            constexpr Register::FieldValue<decltype(SysconSysrststat::extrst)::Type,ExtrstVal::resetDetectedWrit> resetDetectedWrit{};
         }
         ///Status of the Watchdog reset
         enum class WdtVal {
@@ -191,8 +190,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,WdtVal> wdt{}; 
         namespace WdtValC{
-            constexpr Register::FieldValue<decltype(wdt)::Type,WdtVal::noWdtResetDetecte> noWdtResetDetecte{};
-            constexpr Register::FieldValue<decltype(wdt)::Type,WdtVal::wdtResetDetected> wdtResetDetected{};
+            constexpr Register::FieldValue<decltype(SysconSysrststat::wdt)::Type,WdtVal::noWdtResetDetecte> noWdtResetDetecte{};
+            constexpr Register::FieldValue<decltype(SysconSysrststat::wdt)::Type,WdtVal::wdtResetDetected> wdtResetDetected{};
         }
         ///Status of the Brown-out detect reset
         enum class BodVal {
@@ -201,8 +200,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,BodVal> bod{}; 
         namespace BodValC{
-            constexpr Register::FieldValue<decltype(bod)::Type,BodVal::noBodResetDetecte> noBodResetDetecte{};
-            constexpr Register::FieldValue<decltype(bod)::Type,BodVal::bodResetDetected> bodResetDetected{};
+            constexpr Register::FieldValue<decltype(SysconSysrststat::bod)::Type,BodVal::noBodResetDetecte> noBodResetDetecte{};
+            constexpr Register::FieldValue<decltype(SysconSysrststat::bod)::Type,BodVal::bodResetDetected> bodResetDetected{};
         }
         ///Status of the software system reset
         enum class SysrstVal {
@@ -211,12 +210,12 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SysrstVal> sysrst{}; 
         namespace SysrstValC{
-            constexpr Register::FieldValue<decltype(sysrst)::Type,SysrstVal::noSystemResetDete> noSystemResetDete{};
-            constexpr Register::FieldValue<decltype(sysrst)::Type,SysrstVal::systemResetDetecte> systemResetDetecte{};
+            constexpr Register::FieldValue<decltype(SysconSysrststat::sysrst)::Type,SysrstVal::noSystemResetDete> noSystemResetDete{};
+            constexpr Register::FieldValue<decltype(SysconSysrststat::sysrst)::Type,SysrstVal::systemResetDetecte> systemResetDetecte{};
         }
     }
-    namespace Nonesyspllclksel{    ///<System PLL clock source select
-        using Addr = Register::Address<0x40048040,0xfffffffc,0,unsigned>;
+    namespace SysconSyspllclksel{    ///<System PLL clock source select
+        using Addr = Register::Address<0x40048040,0xfffffffc,0x00000000,unsigned>;
         ///System PLL clock source
         enum class SelVal {
             ircOscillator=0x00000000,     ///<IRC oscillator
@@ -224,12 +223,12 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,SelVal> sel{}; 
         namespace SelValC{
-            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::ircOscillator> ircOscillator{};
-            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::systemOscillator> systemOscillator{};
+            constexpr Register::FieldValue<decltype(SysconSyspllclksel::sel)::Type,SelVal::ircOscillator> ircOscillator{};
+            constexpr Register::FieldValue<decltype(SysconSyspllclksel::sel)::Type,SelVal::systemOscillator> systemOscillator{};
         }
     }
-    namespace Nonesyspllclkuen{    ///<System PLL clock source update enable
-        using Addr = Register::Address<0x40048044,0xfffffffe,0,unsigned>;
+    namespace SysconSyspllclkuen{    ///<System PLL clock source update enable
+        using Addr = Register::Address<0x40048044,0xfffffffe,0x00000000,unsigned>;
         ///Enable system PLL clock source update
         enum class EnaVal {
             noChange=0x00000000,     ///<No change
@@ -237,12 +236,12 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EnaVal> ena{}; 
         namespace EnaValC{
-            constexpr Register::FieldValue<decltype(ena)::Type,EnaVal::noChange> noChange{};
-            constexpr Register::FieldValue<decltype(ena)::Type,EnaVal::updateClockSource> updateClockSource{};
+            constexpr Register::FieldValue<decltype(SysconSyspllclkuen::ena)::Type,EnaVal::noChange> noChange{};
+            constexpr Register::FieldValue<decltype(SysconSyspllclkuen::ena)::Type,EnaVal::updateClockSource> updateClockSource{};
         }
     }
-    namespace Nonemainclksel{    ///<Main clock source select
-        using Addr = Register::Address<0x40048070,0xfffffffc,0,unsigned>;
+    namespace SysconMainclksel{    ///<Main clock source select
+        using Addr = Register::Address<0x40048070,0xfffffffc,0x00000000,unsigned>;
         ///Clock source for main clock
         enum class SelVal {
             ircOscillator=0x00000000,     ///<IRC oscillator
@@ -252,14 +251,14 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,SelVal> sel{}; 
         namespace SelValC{
-            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::ircOscillator> ircOscillator{};
-            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::inputClockToSyste> inputClockToSyste{};
-            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::wdtOscillator> wdtOscillator{};
-            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::systemPllClockOut> systemPllClockOut{};
+            constexpr Register::FieldValue<decltype(SysconMainclksel::sel)::Type,SelVal::ircOscillator> ircOscillator{};
+            constexpr Register::FieldValue<decltype(SysconMainclksel::sel)::Type,SelVal::inputClockToSyste> inputClockToSyste{};
+            constexpr Register::FieldValue<decltype(SysconMainclksel::sel)::Type,SelVal::wdtOscillator> wdtOscillator{};
+            constexpr Register::FieldValue<decltype(SysconMainclksel::sel)::Type,SelVal::systemPllClockOut> systemPllClockOut{};
         }
     }
-    namespace Nonemainclkuen{    ///<Main clock source update enable
-        using Addr = Register::Address<0x40048074,0xfffffffe,0,unsigned>;
+    namespace SysconMainclkuen{    ///<Main clock source update enable
+        using Addr = Register::Address<0x40048074,0xfffffffe,0x00000000,unsigned>;
         ///Enable main clock source update
         enum class EnaVal {
             noChange=0x00000000,     ///<No change
@@ -267,24 +266,24 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EnaVal> ena{}; 
         namespace EnaValC{
-            constexpr Register::FieldValue<decltype(ena)::Type,EnaVal::noChange> noChange{};
-            constexpr Register::FieldValue<decltype(ena)::Type,EnaVal::updateClockSource> updateClockSource{};
+            constexpr Register::FieldValue<decltype(SysconMainclkuen::ena)::Type,EnaVal::noChange> noChange{};
+            constexpr Register::FieldValue<decltype(SysconMainclkuen::ena)::Type,EnaVal::updateClockSource> updateClockSource{};
         }
     }
-    namespace Nonesysahbclkdiv{    ///<System AHB clock divider
-        using Addr = Register::Address<0x40048078,0xffffff00,0,unsigned>;
+    namespace SysconSysahbclkdiv{    ///<System AHB clock divider
+        using Addr = Register::Address<0x40048078,0xffffff00,0x00000000,unsigned>;
         ///System AHB clock divider values 0: System clock disabled.  1: Divide by 1. to 255: Divide by 255.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
     }
-    namespace Nonesysahbclkctrl{    ///<System AHB clock control
-        using Addr = Register::Address<0x40048080,0xfff84000,0,unsigned>;
+    namespace SysconSysahbclkctrl{    ///<System AHB clock control
+        using Addr = Register::Address<0x40048080,0xfff84000,0x00000000,unsigned>;
         ///Enables clock for AHB to APB bridge, to the AHB matrix, to the Cortex-M0 FCLK and HCLK, to the SysCon, and to the PMU. This bit is read only.
         enum class SysVal {
             enable=0x00000001,     ///<Enable
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,SysVal> sys{}; 
         namespace SysValC{
-            constexpr Register::FieldValue<decltype(sys)::Type,SysVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::sys)::Type,SysVal::enable> enable{};
         }
         ///Enables clock for ROM.
         enum class RomVal {
@@ -293,8 +292,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,RomVal> rom{}; 
         namespace RomValC{
-            constexpr Register::FieldValue<decltype(rom)::Type,RomVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(rom)::Type,RomVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::rom)::Type,RomVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::rom)::Type,RomVal::enable> enable{};
         }
         ///Enables clock for RAM.
         enum class RamVal {
@@ -303,8 +302,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,RamVal> ram{}; 
         namespace RamValC{
-            constexpr Register::FieldValue<decltype(ram)::Type,RamVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(ram)::Type,RamVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::ram)::Type,RamVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::ram)::Type,RamVal::enable> enable{};
         }
         ///Enables clock for flash register interface.
         enum class FlashregVal {
@@ -313,8 +312,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,FlashregVal> flashreg{}; 
         namespace FlashregValC{
-            constexpr Register::FieldValue<decltype(flashreg)::Type,FlashregVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(flashreg)::Type,FlashregVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::flashreg)::Type,FlashregVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::flashreg)::Type,FlashregVal::enabled> enabled{};
         }
         ///Enables clock for flash array access.
         enum class FlasharrayVal {
@@ -323,8 +322,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,FlasharrayVal> flasharray{}; 
         namespace FlasharrayValC{
-            constexpr Register::FieldValue<decltype(flasharray)::Type,FlasharrayVal::disabled> disabled{};
-            constexpr Register::FieldValue<decltype(flasharray)::Type,FlasharrayVal::enabled> enabled{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::flasharray)::Type,FlasharrayVal::disabled> disabled{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::flasharray)::Type,FlasharrayVal::enabled> enabled{};
         }
         ///Enables clock for I2C.
         enum class I2cVal {
@@ -333,8 +332,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,I2cVal> i2c{}; 
         namespace I2cValC{
-            constexpr Register::FieldValue<decltype(i2c)::Type,I2cVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(i2c)::Type,I2cVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::i2c)::Type,I2cVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::i2c)::Type,I2cVal::enable> enable{};
         }
         ///Enables clock for GPIO.
         enum class GpioVal {
@@ -343,8 +342,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,GpioVal> gpio{}; 
         namespace GpioValC{
-            constexpr Register::FieldValue<decltype(gpio)::Type,GpioVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(gpio)::Type,GpioVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::gpio)::Type,GpioVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::gpio)::Type,GpioVal::enable> enable{};
         }
         ///Enables clock for 16-bit counter/timer 0.
         enum class Ct16b0Val {
@@ -353,8 +352,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,Ct16b0Val> ct16b0{}; 
         namespace Ct16b0ValC{
-            constexpr Register::FieldValue<decltype(ct16b0)::Type,Ct16b0Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(ct16b0)::Type,Ct16b0Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::ct16b0)::Type,Ct16b0Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::ct16b0)::Type,Ct16b0Val::enable> enable{};
         }
         ///Enables clock for 16-bit counter/timer 1.
         enum class Ct16b1Val {
@@ -363,8 +362,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,Ct16b1Val> ct16b1{}; 
         namespace Ct16b1ValC{
-            constexpr Register::FieldValue<decltype(ct16b1)::Type,Ct16b1Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(ct16b1)::Type,Ct16b1Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::ct16b1)::Type,Ct16b1Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::ct16b1)::Type,Ct16b1Val::enable> enable{};
         }
         ///Enables clock for 32-bit counter/timer 0.
         enum class Ct32b0Val {
@@ -373,8 +372,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,Ct32b0Val> ct32b0{}; 
         namespace Ct32b0ValC{
-            constexpr Register::FieldValue<decltype(ct32b0)::Type,Ct32b0Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(ct32b0)::Type,Ct32b0Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::ct32b0)::Type,Ct32b0Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::ct32b0)::Type,Ct32b0Val::enable> enable{};
         }
         ///Enables clock for 32-bit counter/timer 1.
         enum class Ct32b1Val {
@@ -383,8 +382,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,Ct32b1Val> ct32b1{}; 
         namespace Ct32b1ValC{
-            constexpr Register::FieldValue<decltype(ct32b1)::Type,Ct32b1Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(ct32b1)::Type,Ct32b1Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::ct32b1)::Type,Ct32b1Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::ct32b1)::Type,Ct32b1Val::enable> enable{};
         }
         ///Enables clock for SPI0.
         enum class Ssp0Val {
@@ -393,8 +392,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,Ssp0Val> ssp0{}; 
         namespace Ssp0ValC{
-            constexpr Register::FieldValue<decltype(ssp0)::Type,Ssp0Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(ssp0)::Type,Ssp0Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::ssp0)::Type,Ssp0Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::ssp0)::Type,Ssp0Val::enable> enable{};
         }
         ///Enables clock for UART. See Section 3.1 for part specific details.
         enum class UartVal {
@@ -403,8 +402,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,UartVal> uart{}; 
         namespace UartValC{
-            constexpr Register::FieldValue<decltype(uart)::Type,UartVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(uart)::Type,UartVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::uart)::Type,UartVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::uart)::Type,UartVal::enable> enable{};
         }
         ///Enables clock for ADC.
         enum class AdcVal {
@@ -413,8 +412,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(13,13),Register::ReadWriteAccess,AdcVal> adc{}; 
         namespace AdcValC{
-            constexpr Register::FieldValue<decltype(adc)::Type,AdcVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(adc)::Type,AdcVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::adc)::Type,AdcVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::adc)::Type,AdcVal::enable> enable{};
         }
         ///Enables clock for WDT.
         enum class WdtVal {
@@ -423,8 +422,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,15),Register::ReadWriteAccess,WdtVal> wdt{}; 
         namespace WdtValC{
-            constexpr Register::FieldValue<decltype(wdt)::Type,WdtVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(wdt)::Type,WdtVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::wdt)::Type,WdtVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::wdt)::Type,WdtVal::enable> enable{};
         }
         ///Enables clock for I/O configuration block.
         enum class IoconVal {
@@ -433,8 +432,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,IoconVal> iocon{}; 
         namespace IoconValC{
-            constexpr Register::FieldValue<decltype(iocon)::Type,IoconVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(iocon)::Type,IoconVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::iocon)::Type,IoconVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::iocon)::Type,IoconVal::enable> enable{};
         }
         ///Enables clock for C_CAN. See Section 3.1 for part specific details.
         enum class CanVal {
@@ -443,8 +442,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,CanVal> can{}; 
         namespace CanValC{
-            constexpr Register::FieldValue<decltype(can)::Type,CanVal::disable> disable{};
-            constexpr Register::FieldValue<decltype(can)::Type,CanVal::enable> enable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::can)::Type,CanVal::disable> disable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::can)::Type,CanVal::enable> enable{};
         }
         ///Enables clock for SPI1.
         enum class Ssp1Val {
@@ -453,27 +452,27 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,Ssp1Val> ssp1{}; 
         namespace Ssp1ValC{
-            constexpr Register::FieldValue<decltype(ssp1)::Type,Ssp1Val::disable> disable{};
-            constexpr Register::FieldValue<decltype(ssp1)::Type,Ssp1Val::enable> enable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::ssp1)::Type,Ssp1Val::disable> disable{};
+            constexpr Register::FieldValue<decltype(SysconSysahbclkctrl::ssp1)::Type,Ssp1Val::enable> enable{};
         }
     }
-    namespace Nonessp0clkdiv{    ///<SPI0 clock divider
-        using Addr = Register::Address<0x40048094,0xffffff00,0,unsigned>;
+    namespace SysconSsp0clkdiv{    ///<SPI0 clock divider
+        using Addr = Register::Address<0x40048094,0xffffff00,0x00000000,unsigned>;
         ///SPI0_PCLK clock divider values 0: Disable SPI0_PCLK.  1: Divide by 1. to 255: Divide by 255.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
     }
-    namespace Noneuartclkdiv{    ///<UART clock divder
-        using Addr = Register::Address<0x40048098,0xffffff00,0,unsigned>;
+    namespace SysconUartclkdiv{    ///<UART clock divder
+        using Addr = Register::Address<0x40048098,0xffffff00,0x00000000,unsigned>;
         ///UART_PCLK clock divider values 0: Disable UART_PCLK.  1: Divide by 1. to 255: Divide by 255.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
     }
-    namespace Nonessp1clkdiv{    ///<SPI1 clock divder
-        using Addr = Register::Address<0x4004809c,0xffffff00,0,unsigned>;
+    namespace SysconSsp1clkdiv{    ///<SPI1 clock divder
+        using Addr = Register::Address<0x4004809c,0xffffff00,0x00000000,unsigned>;
         ///SPI1_PCLK clock divider values 0: Disable SPI1_PCLK.  1: Divide by 1. to 255: Divide by 255.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
     }
-    namespace Nonewdtclksel{    ///<WDT clock source select
-        using Addr = Register::Address<0x400480d0,0xfffffffc,0,unsigned>;
+    namespace SysconWdtclksel{    ///<WDT clock source select
+        using Addr = Register::Address<0x400480d0,0xfffffffc,0x00000000,unsigned>;
         ///WDT clock source
         enum class SelVal {
             ircOscillator=0x00000000,     ///<IRC oscillator
@@ -482,13 +481,13 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,SelVal> sel{}; 
         namespace SelValC{
-            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::ircOscillator> ircOscillator{};
-            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::mainClock> mainClock{};
-            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::watchdogOscillator> watchdogOscillator{};
+            constexpr Register::FieldValue<decltype(SysconWdtclksel::sel)::Type,SelVal::ircOscillator> ircOscillator{};
+            constexpr Register::FieldValue<decltype(SysconWdtclksel::sel)::Type,SelVal::mainClock> mainClock{};
+            constexpr Register::FieldValue<decltype(SysconWdtclksel::sel)::Type,SelVal::watchdogOscillator> watchdogOscillator{};
         }
     }
-    namespace Nonewdtclkuen{    ///<WDT clock source update enable
-        using Addr = Register::Address<0x400480d4,0xfffffffe,0,unsigned>;
+    namespace SysconWdtclkuen{    ///<WDT clock source update enable
+        using Addr = Register::Address<0x400480d4,0xfffffffe,0x00000000,unsigned>;
         ///Enable WDT clock source update
         enum class EnaVal {
             noChange=0x00000000,     ///<No change
@@ -496,17 +495,17 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EnaVal> ena{}; 
         namespace EnaValC{
-            constexpr Register::FieldValue<decltype(ena)::Type,EnaVal::noChange> noChange{};
-            constexpr Register::FieldValue<decltype(ena)::Type,EnaVal::updateClockSource> updateClockSource{};
+            constexpr Register::FieldValue<decltype(SysconWdtclkuen::ena)::Type,EnaVal::noChange> noChange{};
+            constexpr Register::FieldValue<decltype(SysconWdtclkuen::ena)::Type,EnaVal::updateClockSource> updateClockSource{};
         }
     }
-    namespace Nonewdtclkdiv{    ///<WDT clock divider
-        using Addr = Register::Address<0x400480d8,0xffffff00,0,unsigned>;
+    namespace SysconWdtclkdiv{    ///<WDT clock divider
+        using Addr = Register::Address<0x400480d8,0xffffff00,0x00000000,unsigned>;
         ///WDT clock divider values 0: Disable WDCLK.  1: Divide by 1. to 255: Divide by 255.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
     }
-    namespace Noneclkoutclksel{    ///<CLKOUT clock source select
-        using Addr = Register::Address<0x400480e0,0xfffffffc,0,unsigned>;
+    namespace SysconClkoutclksel{    ///<CLKOUT clock source select
+        using Addr = Register::Address<0x400480e0,0xfffffffc,0x00000000,unsigned>;
         ///CLKOUT clock source
         enum class SelVal {
             ircOscillator=0x00000000,     ///<IRC oscillator
@@ -516,14 +515,14 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,SelVal> sel{}; 
         namespace SelValC{
-            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::ircOscillator> ircOscillator{};
-            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::systemOscillator> systemOscillator{};
-            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::watchdogOscillator> watchdogOscillator{};
-            constexpr Register::FieldValue<decltype(sel)::Type,SelVal::mainClock> mainClock{};
+            constexpr Register::FieldValue<decltype(SysconClkoutclksel::sel)::Type,SelVal::ircOscillator> ircOscillator{};
+            constexpr Register::FieldValue<decltype(SysconClkoutclksel::sel)::Type,SelVal::systemOscillator> systemOscillator{};
+            constexpr Register::FieldValue<decltype(SysconClkoutclksel::sel)::Type,SelVal::watchdogOscillator> watchdogOscillator{};
+            constexpr Register::FieldValue<decltype(SysconClkoutclksel::sel)::Type,SelVal::mainClock> mainClock{};
         }
     }
-    namespace Noneclkoutuen{    ///<CLKOUT clock source update enable
-        using Addr = Register::Address<0x400480e4,0xfffffffe,0,unsigned>;
+    namespace SysconClkoutuen{    ///<CLKOUT clock source update enable
+        using Addr = Register::Address<0x400480e4,0xfffffffe,0x00000000,unsigned>;
         ///Enable CLKOUT clock source update
         enum class EnaVal {
             noChange=0x00000000,     ///<No change
@@ -531,17 +530,17 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EnaVal> ena{}; 
         namespace EnaValC{
-            constexpr Register::FieldValue<decltype(ena)::Type,EnaVal::noChange> noChange{};
-            constexpr Register::FieldValue<decltype(ena)::Type,EnaVal::updateClockSource> updateClockSource{};
+            constexpr Register::FieldValue<decltype(SysconClkoutuen::ena)::Type,EnaVal::noChange> noChange{};
+            constexpr Register::FieldValue<decltype(SysconClkoutuen::ena)::Type,EnaVal::updateClockSource> updateClockSource{};
         }
     }
-    namespace Noneclkoutclkdiv{    ///<CLKOUT clock divider
-        using Addr = Register::Address<0x400480e8,0xffffff00,0,unsigned>;
+    namespace SysconClkoutclkdiv{    ///<CLKOUT clock divider
+        using Addr = Register::Address<0x400480e8,0xffffff00,0x00000000,unsigned>;
         ///Clock output divider values 0: Disable CLKOUT.  1: Divide by 1. to 255: Divide by 255.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> div{}; 
     }
-    namespace Nonepioporcap0{    ///<POR captured PIO status 0
-        using Addr = Register::Address<0x40048100,0x00000000,0,unsigned>;
+    namespace SysconPioporcap0{    ///<POR captured PIO status 0
+        using Addr = Register::Address<0x40048100,0x00000000,0x00000000,unsigned>;
         ///Raw reset status input PIO0_n: PIO0_11 to PIO0_0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> cappio0N{}; 
         ///Raw reset status input PIO1_n: PIO1_11 to PIO1_0
@@ -549,8 +548,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         ///Raw reset status input PIO2_n: PIO2_7 to PIO2_0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> cappio2N{}; 
     }
-    namespace Nonepioporcap1{    ///<POR captured PIO status 1
-        using Addr = Register::Address<0x40048104,0xfffffc00,0,unsigned>;
+    namespace SysconPioporcap1{    ///<POR captured PIO status 1
+        using Addr = Register::Address<0x40048104,0xfffffc00,0x00000000,unsigned>;
         ///Raw reset status input PIO2_8
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> cappio28{}; 
         ///Raw reset status input PIO2_9
@@ -572,8 +571,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         ///Raw reset status input PIO3_5
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> cappio35{}; 
     }
-    namespace Nonebodctrl{    ///<BOD control
-        using Addr = Register::Address<0x40048150,0xffffffe0,0,unsigned>;
+    namespace SysconBodctrl{    ///<BOD control
+        using Addr = Register::Address<0x40048150,0xffffffe0,0x00000000,unsigned>;
         ///BOD reset level
         enum class BodrstlevVal {
             level0TheResetA=0x00000000,     ///<Level 0: The reset assertion threshold voltage is 1.46 V; the reset de-assertion threshold voltage is 1.63 V.
@@ -583,10 +582,10 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,BodrstlevVal> bodrstlev{}; 
         namespace BodrstlevValC{
-            constexpr Register::FieldValue<decltype(bodrstlev)::Type,BodrstlevVal::level0TheResetA> level0TheResetA{};
-            constexpr Register::FieldValue<decltype(bodrstlev)::Type,BodrstlevVal::level1TheResetA> level1TheResetA{};
-            constexpr Register::FieldValue<decltype(bodrstlev)::Type,BodrstlevVal::level2TheResetA> level2TheResetA{};
-            constexpr Register::FieldValue<decltype(bodrstlev)::Type,BodrstlevVal::level3TheResetA> level3TheResetA{};
+            constexpr Register::FieldValue<decltype(SysconBodctrl::bodrstlev)::Type,BodrstlevVal::level0TheResetA> level0TheResetA{};
+            constexpr Register::FieldValue<decltype(SysconBodctrl::bodrstlev)::Type,BodrstlevVal::level1TheResetA> level1TheResetA{};
+            constexpr Register::FieldValue<decltype(SysconBodctrl::bodrstlev)::Type,BodrstlevVal::level2TheResetA> level2TheResetA{};
+            constexpr Register::FieldValue<decltype(SysconBodctrl::bodrstlev)::Type,BodrstlevVal::level3TheResetA> level3TheResetA{};
         }
         ///BOD interrupt level
         enum class BodintvalVal {
@@ -597,10 +596,10 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,2),Register::ReadWriteAccess,BodintvalVal> bodintval{}; 
         namespace BodintvalValC{
-            constexpr Register::FieldValue<decltype(bodintval)::Type,BodintvalVal::level0TheInterru> level0TheInterru{};
-            constexpr Register::FieldValue<decltype(bodintval)::Type,BodintvalVal::level1theInterrup> level1theInterrup{};
-            constexpr Register::FieldValue<decltype(bodintval)::Type,BodintvalVal::level2TheInterru> level2TheInterru{};
-            constexpr Register::FieldValue<decltype(bodintval)::Type,BodintvalVal::level3TheInterru> level3TheInterru{};
+            constexpr Register::FieldValue<decltype(SysconBodctrl::bodintval)::Type,BodintvalVal::level0TheInterru> level0TheInterru{};
+            constexpr Register::FieldValue<decltype(SysconBodctrl::bodintval)::Type,BodintvalVal::level1theInterrup> level1theInterrup{};
+            constexpr Register::FieldValue<decltype(SysconBodctrl::bodintval)::Type,BodintvalVal::level2TheInterru> level2TheInterru{};
+            constexpr Register::FieldValue<decltype(SysconBodctrl::bodintval)::Type,BodintvalVal::level3TheInterru> level3TheInterru{};
         }
         ///BOD reset enable
         enum class BodrstenaVal {
@@ -609,24 +608,24 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,BodrstenaVal> bodrstena{}; 
         namespace BodrstenaValC{
-            constexpr Register::FieldValue<decltype(bodrstena)::Type,BodrstenaVal::disableResetFuncti> disableResetFuncti{};
-            constexpr Register::FieldValue<decltype(bodrstena)::Type,BodrstenaVal::enableResetFunctio> enableResetFunctio{};
+            constexpr Register::FieldValue<decltype(SysconBodctrl::bodrstena)::Type,BodrstenaVal::disableResetFuncti> disableResetFuncti{};
+            constexpr Register::FieldValue<decltype(SysconBodctrl::bodrstena)::Type,BodrstenaVal::enableResetFunctio> enableResetFunctio{};
         }
     }
-    namespace Nonesystckcal{    ///<System tick counter calibration
-        using Addr = Register::Address<0x40048154,0xfc000000,0,unsigned>;
+    namespace SysconSystckcal{    ///<System tick counter calibration
+        using Addr = Register::Address<0x40048154,0xfc000000,0x00000000,unsigned>;
         ///System tick timer calibration value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(25,0),Register::ReadWriteAccess,unsigned> cal{}; 
     }
-    namespace Nonenmisrc{    ///<NMI source selection
-        using Addr = Register::Address<0x40048174,0x7fffffe0,0,unsigned>;
+    namespace SysconNmisrc{    ///<NMI source selection
+        using Addr = Register::Address<0x40048174,0x7fffffe0,0x00000000,unsigned>;
         ///The IRQ number of the interrupt that acts as the Non-Maskable Interrupt (NMI) if bit 31 in this register is 1. See Table 54 for the list of interrupt sources and their IRQ numbers.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> irqno{}; 
         ///Write a 1 to this bit to enable the Non-Maskable Interrupt (NMI) source selected by bits 4:0.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::ReadWriteAccess,unsigned> nmien{}; 
     }
-    namespace Nonestartaprp0{    ///<Start logic edge control register 0
-        using Addr = Register::Address<0x40048200,0xffffe000,0,unsigned>;
+    namespace SysconStartaprp0{    ///<Start logic edge control register 0
+        using Addr = Register::Address<0x40048200,0xffffe000,0x00000000,unsigned>;
         ///Edge select for start logic input PIO0_n: PIO0_11 to PIO0_0 0 = Falling edge 1 = Rising edge
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> aprpio00{}; 
         ///Edge select for start logic input PIO0_n: PIO0_11 to PIO0_0 0 = Falling edge 1 = Rising edge
@@ -654,8 +653,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         ///Edge select for start logic input PIO1_0 0 = Falling edge 1 = Rising edge
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> aprpio10{}; 
     }
-    namespace Nonestarterp0{    ///<Start logic signal enable register 0
-        using Addr = Register::Address<0x40048204,0xffffe000,0,unsigned>;
+    namespace SysconStarterp0{    ///<Start logic signal enable register 0
+        using Addr = Register::Address<0x40048204,0xffffe000,0x00000000,unsigned>;
         ///Enable start signal for start logic input PIO0_n: PIO0_11 to PIO0_0 0 = Disabled 1 = Enabled
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> erpio00{}; 
         ///Enable start signal for start logic input PIO0_n: PIO0_11 to PIO0_0 0 = Disabled 1 = Enabled
@@ -683,8 +682,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         ///Enable start signal for start logic input PIO1_0 0 = Disabled 1 = Enabled
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> erpio10{}; 
     }
-    namespace Nonestartrsrp0clr{    ///<Start logic reset register 0
-        using Addr = Register::Address<0x40048208,0xffffe000,0,unsigned>;
+    namespace SysconStartrsrp0clr{    ///<Start logic reset register 0
+        using Addr = Register::Address<0x40048208,0xffffe000,0x00000000,unsigned>;
         ///Start signal reset for start logic input PIO0_n:PIO0_11 to PIO0_0 0 = Do nothing. 1 = Writing 1 resets the start signal.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rsrpio00{}; 
         ///Start signal reset for start logic input PIO0_n:PIO0_11 to PIO0_0 0 = Do nothing. 1 = Writing 1 resets the start signal.
@@ -712,8 +711,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         ///Start signal reset for start logic input PIO1_0 0 = Do nothing. 1 = Writing 1 resets the start signal.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> rsrpio10{}; 
     }
-    namespace Nonestartsrp0{    ///<Start logic status register 0
-        using Addr = Register::Address<0x4004820c,0xffffe000,0,unsigned>;
+    namespace SysconStartsrp0{    ///<Start logic status register 0
+        using Addr = Register::Address<0x4004820c,0xffffe000,0x00000000,unsigned>;
         ///Start signal status for start logic input PIO0_n: PIO0_11 to PIO0_0 0 = No start signal received. 1 = Start signal pending.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> srpio00{}; 
         ///Start signal status for start logic input PIO0_n: PIO0_11 to PIO0_0 0 = No start signal received. 1 = Start signal pending.
@@ -741,8 +740,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         ///Start signal status for start logic input PIO1_0 0 = No start signal received. 1 = Start signal pending.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,12),Register::ReadWriteAccess,unsigned> srpio10{}; 
     }
-    namespace Nonepdsleepcfg{    ///<Power-down states in Deep-sleep mode
-        using Addr = Register::Address<0x40048230,0xffffe000,0,unsigned>;
+    namespace SysconPdsleepcfg{    ///<Power-down states in Deep-sleep mode
+        using Addr = Register::Address<0x40048230,0xffffe000,0x00000000,unsigned>;
         ///Reserved. Always write these bits as 111.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,0),Register::ReadWriteAccess,unsigned> notused0{}; 
         ///BOD power-down control in Deep-sleep mode, see Table 40.
@@ -752,8 +751,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,BodpdVal> bodPd{}; 
         namespace BodpdValC{
-            constexpr Register::FieldValue<decltype(bodPd)::Type,BodpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(bodPd)::Type,BodpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(SysconPdsleepcfg::bodPd)::Type,BodpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(SysconPdsleepcfg::bodPd)::Type,BodpdVal::poweredDown> poweredDown{};
         }
         ///Reserved. Always write these bits as 11.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,4),Register::ReadWriteAccess,unsigned> notused1{}; 
@@ -764,8 +763,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,WdtoscpdVal> wdtoscPd{}; 
         namespace WdtoscpdValC{
-            constexpr Register::FieldValue<decltype(wdtoscPd)::Type,WdtoscpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(wdtoscPd)::Type,WdtoscpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(SysconPdsleepcfg::wdtoscPd)::Type,WdtoscpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(SysconPdsleepcfg::wdtoscPd)::Type,WdtoscpdVal::poweredDown> poweredDown{};
         }
         ///Reserved. Always write this bit as 1.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,unsigned> notused2{}; 
@@ -774,8 +773,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         ///Reserved. Always write these bits as 11.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(12,11),Register::ReadWriteAccess,unsigned> notused4{}; 
     }
-    namespace Nonepdawakecfg{    ///<Power-down states after wake-up from Deep-sleep mode
-        using Addr = Register::Address<0x40048234,0xffff0000,0,unsigned>;
+    namespace SysconPdawakecfg{    ///<Power-down states after wake-up from Deep-sleep mode
+        using Addr = Register::Address<0x40048234,0xffff0000,0x00000000,unsigned>;
         ///IRC oscillator output wake-up configuration
         enum class IrcoutpdVal {
             powered=0x00000000,     ///<Powered
@@ -783,8 +782,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IrcoutpdVal> ircoutPd{}; 
         namespace IrcoutpdValC{
-            constexpr Register::FieldValue<decltype(ircoutPd)::Type,IrcoutpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(ircoutPd)::Type,IrcoutpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(SysconPdawakecfg::ircoutPd)::Type,IrcoutpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(SysconPdawakecfg::ircoutPd)::Type,IrcoutpdVal::poweredDown> poweredDown{};
         }
         ///IRC oscillator power-down wake-up configuration
         enum class IrcpdVal {
@@ -793,8 +792,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,IrcpdVal> ircPd{}; 
         namespace IrcpdValC{
-            constexpr Register::FieldValue<decltype(ircPd)::Type,IrcpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(ircPd)::Type,IrcpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(SysconPdawakecfg::ircPd)::Type,IrcpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(SysconPdawakecfg::ircPd)::Type,IrcpdVal::poweredDown> poweredDown{};
         }
         ///Flash wake-up configuration
         enum class FlashpdVal {
@@ -803,8 +802,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,FlashpdVal> flashPd{}; 
         namespace FlashpdValC{
-            constexpr Register::FieldValue<decltype(flashPd)::Type,FlashpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(flashPd)::Type,FlashpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(SysconPdawakecfg::flashPd)::Type,FlashpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(SysconPdawakecfg::flashPd)::Type,FlashpdVal::poweredDown> poweredDown{};
         }
         ///BOD wake-up configuration
         enum class BodpdVal {
@@ -813,8 +812,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,BodpdVal> bodPd{}; 
         namespace BodpdValC{
-            constexpr Register::FieldValue<decltype(bodPd)::Type,BodpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(bodPd)::Type,BodpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(SysconPdawakecfg::bodPd)::Type,BodpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(SysconPdawakecfg::bodPd)::Type,BodpdVal::poweredDown> poweredDown{};
         }
         ///ADC wake-up configuration
         enum class AdcpdVal {
@@ -823,8 +822,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,AdcpdVal> adcPd{}; 
         namespace AdcpdValC{
-            constexpr Register::FieldValue<decltype(adcPd)::Type,AdcpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(adcPd)::Type,AdcpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(SysconPdawakecfg::adcPd)::Type,AdcpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(SysconPdawakecfg::adcPd)::Type,AdcpdVal::poweredDown> poweredDown{};
         }
         ///System oscillator wake-up configuration
         enum class SysoscpdVal {
@@ -833,8 +832,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SysoscpdVal> sysoscPd{}; 
         namespace SysoscpdValC{
-            constexpr Register::FieldValue<decltype(sysoscPd)::Type,SysoscpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(sysoscPd)::Type,SysoscpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(SysconPdawakecfg::sysoscPd)::Type,SysoscpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(SysconPdawakecfg::sysoscPd)::Type,SysoscpdVal::poweredDown> poweredDown{};
         }
         ///Watchdog oscillator wake-up configuration
         enum class WdtoscpdVal {
@@ -843,8 +842,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,WdtoscpdVal> wdtoscPd{}; 
         namespace WdtoscpdValC{
-            constexpr Register::FieldValue<decltype(wdtoscPd)::Type,WdtoscpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(wdtoscPd)::Type,WdtoscpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(SysconPdawakecfg::wdtoscPd)::Type,WdtoscpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(SysconPdawakecfg::wdtoscPd)::Type,WdtoscpdVal::poweredDown> poweredDown{};
         }
         ///System PLL wake-up configuration
         enum class SyspllpdVal {
@@ -853,8 +852,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SyspllpdVal> syspllPd{}; 
         namespace SyspllpdValC{
-            constexpr Register::FieldValue<decltype(syspllPd)::Type,SyspllpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(syspllPd)::Type,SyspllpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(SysconPdawakecfg::syspllPd)::Type,SyspllpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(SysconPdawakecfg::syspllPd)::Type,SyspllpdVal::poweredDown> poweredDown{};
         }
         ///Reserved. Always write this bit as 1.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> notused0{}; 
@@ -869,8 +868,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         ///Reserved. Always write these bits as 111.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,unsigned> notused5{}; 
     }
-    namespace Nonepdruncfg{    ///<Power-down configuration register
-        using Addr = Register::Address<0x40048238,0xffff0000,0,unsigned>;
+    namespace SysconPdruncfg{    ///<Power-down configuration register
+        using Addr = Register::Address<0x40048238,0xffff0000,0x00000000,unsigned>;
         ///IRC oscillator output power-down
         enum class IrcoutpdVal {
             powered=0x00000000,     ///<Powered
@@ -878,8 +877,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,IrcoutpdVal> ircoutPd{}; 
         namespace IrcoutpdValC{
-            constexpr Register::FieldValue<decltype(ircoutPd)::Type,IrcoutpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(ircoutPd)::Type,IrcoutpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(SysconPdruncfg::ircoutPd)::Type,IrcoutpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(SysconPdruncfg::ircoutPd)::Type,IrcoutpdVal::poweredDown> poweredDown{};
         }
         ///IRC oscillator power-down
         enum class IrcpdVal {
@@ -888,8 +887,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,IrcpdVal> ircPd{}; 
         namespace IrcpdValC{
-            constexpr Register::FieldValue<decltype(ircPd)::Type,IrcpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(ircPd)::Type,IrcpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(SysconPdruncfg::ircPd)::Type,IrcpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(SysconPdruncfg::ircPd)::Type,IrcpdVal::poweredDown> poweredDown{};
         }
         ///Flash power-down
         enum class FlashpdVal {
@@ -898,8 +897,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,FlashpdVal> flashPd{}; 
         namespace FlashpdValC{
-            constexpr Register::FieldValue<decltype(flashPd)::Type,FlashpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(flashPd)::Type,FlashpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(SysconPdruncfg::flashPd)::Type,FlashpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(SysconPdruncfg::flashPd)::Type,FlashpdVal::poweredDown> poweredDown{};
         }
         ///BOD power-down
         enum class BodpdVal {
@@ -908,8 +907,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,BodpdVal> bodPd{}; 
         namespace BodpdValC{
-            constexpr Register::FieldValue<decltype(bodPd)::Type,BodpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(bodPd)::Type,BodpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(SysconPdruncfg::bodPd)::Type,BodpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(SysconPdruncfg::bodPd)::Type,BodpdVal::poweredDown> poweredDown{};
         }
         ///ADC power-down
         enum class AdcpdVal {
@@ -918,8 +917,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,AdcpdVal> adcPd{}; 
         namespace AdcpdValC{
-            constexpr Register::FieldValue<decltype(adcPd)::Type,AdcpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(adcPd)::Type,AdcpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(SysconPdruncfg::adcPd)::Type,AdcpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(SysconPdruncfg::adcPd)::Type,AdcpdVal::poweredDown> poweredDown{};
         }
         ///System oscillator power-down
         enum class SysoscpdVal {
@@ -928,8 +927,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SysoscpdVal> sysoscPd{}; 
         namespace SysoscpdValC{
-            constexpr Register::FieldValue<decltype(sysoscPd)::Type,SysoscpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(sysoscPd)::Type,SysoscpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(SysconPdruncfg::sysoscPd)::Type,SysoscpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(SysconPdruncfg::sysoscPd)::Type,SysoscpdVal::poweredDown> poweredDown{};
         }
         ///Watchdog oscillator power-down
         enum class WdtoscpdVal {
@@ -938,8 +937,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,WdtoscpdVal> wdtoscPd{}; 
         namespace WdtoscpdValC{
-            constexpr Register::FieldValue<decltype(wdtoscPd)::Type,WdtoscpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(wdtoscPd)::Type,WdtoscpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(SysconPdruncfg::wdtoscPd)::Type,WdtoscpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(SysconPdruncfg::wdtoscPd)::Type,WdtoscpdVal::poweredDown> poweredDown{};
         }
         ///System PLL power-down
         enum class SyspllpdVal {
@@ -948,8 +947,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SyspllpdVal> syspllPd{}; 
         namespace SyspllpdValC{
-            constexpr Register::FieldValue<decltype(syspllPd)::Type,SyspllpdVal::powered> powered{};
-            constexpr Register::FieldValue<decltype(syspllPd)::Type,SyspllpdVal::poweredDown> poweredDown{};
+            constexpr Register::FieldValue<decltype(SysconPdruncfg::syspllPd)::Type,SyspllpdVal::powered> powered{};
+            constexpr Register::FieldValue<decltype(SysconPdruncfg::syspllPd)::Type,SyspllpdVal::poweredDown> poweredDown{};
         }
         ///Reserved. Always write this bit as 1.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> notused0{}; 
@@ -964,8 +963,8 @@ System configuration (SYSCON) Modification date=2/22/2012 Major revision=8 Minor
         ///Reserved. Always write these bits as 111.
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,13),Register::ReadWriteAccess,unsigned> notused5{}; 
     }
-    namespace NonedeviceId{    ///<Device ID register 0 for parts LPC1100, LPC1100C, LPC1100L.
-        using Addr = Register::Address<0x400483f4,0x00000000,0,unsigned>;
+    namespace SysconDeviceId{    ///<Device ID register 0 for parts LPC1100, LPC1100C, LPC1100L.
+        using Addr = Register::Address<0x400483f4,0x00000000,0x00000000,unsigned>;
         ///Part ID numbers for LPC111x/LPC11Cxx parts 0x041E 502B; 0x2516 D02B = LPC1111FHN33/101 0x2516 D02B = LPC1111FHN33/102 0x0416 502B; 0x2516 902B = LPC1111FHN33/201 0x2516 902B = LPC1111FHN33/202 0x042D 502B; 0x2524 D02B = LPC1112FHN33/101 0x2524 D02B = LPC1112FHN33/102 0x0425 502B; 0x2524 902B = LPC1112FHN33/201 0x2524 902B = LPC1112FHN33/202  0x2524 902B = LPC1112FHI33/202 0x0434 502B; 0x2532 902B = LPC1113FHN33/201 0x2532 902B = LPC1113FHN33/202 0x0434 102B; 0x2532 102B = LPC1113FHN33/301 0x2532 102B = LPC1113FHN33/302 0x0434 102B; 0x2532 102B = LPC1113FBD48/301 0x2532 102B = LPC1113FBD48/302 0x0444 502B; 0x2540 902B = LPC1114FHN33/201 0x2540 902B = LPC1114FHN33/202 0x0444 102B; 0x2540 102B = LPC1114FHN33/301 0x2540 102B = LPC1114FHN33/302  0x2540 102B = LPC1114FHI33/302 0x0444 102B; 0x2540 102B = LPC1114FBD48/301 0x2540 102B = LPC1114FBD48/302 0x2540 102B = LPC11D14FBD100/302 0x1421 102B = LPC11C12/FBD48/301 0x1440 102B = LPC11C14/FBD48/301 0x1431 102B = LPC11C22/FBD48/301 0X1430 102B = LPC11C24/FBD48/301
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> deviceid{}; 
     }
