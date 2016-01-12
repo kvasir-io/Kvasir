@@ -13,8 +13,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Dmamux0Chcfg0::trig)::Type,TrigVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Dmamux0Chcfg0::trig)::Type,TrigVal::v1> v1{};
         }
         ///DMA Channel Enable
         enum class EnblVal {
@@ -23,8 +23,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,EnblVal> enbl{}; 
         namespace EnblValC{
-            constexpr Register::FieldValue<decltype(enbl)::Type,EnblVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(enbl)::Type,EnblVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Dmamux0Chcfg0::enbl)::Type,EnblVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Dmamux0Chcfg0::enbl)::Type,EnblVal::v1> v1{};
         }
     }
     namespace Dmamux0Chcfg1{    ///<Channel Configuration register
@@ -38,8 +38,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Dmamux0Chcfg1::trig)::Type,TrigVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Dmamux0Chcfg1::trig)::Type,TrigVal::v1> v1{};
         }
         ///DMA Channel Enable
         enum class EnblVal {
@@ -48,8 +48,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,EnblVal> enbl{}; 
         namespace EnblValC{
-            constexpr Register::FieldValue<decltype(enbl)::Type,EnblVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(enbl)::Type,EnblVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Dmamux0Chcfg1::enbl)::Type,EnblVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Dmamux0Chcfg1::enbl)::Type,EnblVal::v1> v1{};
         }
     }
     namespace Dmamux0Chcfg2{    ///<Channel Configuration register
@@ -63,8 +63,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Dmamux0Chcfg2::trig)::Type,TrigVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Dmamux0Chcfg2::trig)::Type,TrigVal::v1> v1{};
         }
         ///DMA Channel Enable
         enum class EnblVal {
@@ -73,8 +73,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,EnblVal> enbl{}; 
         namespace EnblValC{
-            constexpr Register::FieldValue<decltype(enbl)::Type,EnblVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(enbl)::Type,EnblVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Dmamux0Chcfg2::enbl)::Type,EnblVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Dmamux0Chcfg2::enbl)::Type,EnblVal::v1> v1{};
         }
     }
     namespace Dmamux0Chcfg3{    ///<Channel Configuration register
@@ -88,8 +88,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,TrigVal> trig{}; 
         namespace TrigValC{
-            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(trig)::Type,TrigVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Dmamux0Chcfg3::trig)::Type,TrigVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Dmamux0Chcfg3::trig)::Type,TrigVal::v1> v1{};
         }
         ///DMA Channel Enable
         enum class EnblVal {
@@ -98,8 +98,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,EnblVal> enbl{}; 
         namespace EnblValC{
-            constexpr Register::FieldValue<decltype(enbl)::Type,EnblVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(enbl)::Type,EnblVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Dmamux0Chcfg3::enbl)::Type,EnblVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Dmamux0Chcfg3::enbl)::Type,EnblVal::v1> v1{};
         }
     }
 }

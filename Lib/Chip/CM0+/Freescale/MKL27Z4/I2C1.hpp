@@ -19,9 +19,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,6),Register::ReadWriteAccess,MultVal> mult{}; 
         namespace MultValC{
-            constexpr Register::FieldValue<decltype(mult)::Type,MultVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(mult)::Type,MultVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(mult)::Type,MultVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(I2c1F::mult)::Type,MultVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(I2c1F::mult)::Type,MultVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(I2c1F::mult)::Type,MultVal::v10> v10{};
         }
     }
     namespace I2c1C1{    ///<I2C Control Register 1
@@ -33,8 +33,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,DmaenVal> dmaen{}; 
         namespace DmaenValC{
-            constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dmaen)::Type,DmaenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1C1::dmaen)::Type,DmaenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1C1::dmaen)::Type,DmaenVal::v1> v1{};
         }
         ///Wakeup Enable
         enum class WuenVal {
@@ -43,8 +43,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,WuenVal> wuen{}; 
         namespace WuenValC{
-            constexpr Register::FieldValue<decltype(wuen)::Type,WuenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(wuen)::Type,WuenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1C1::wuen)::Type,WuenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1C1::wuen)::Type,WuenVal::v1> v1{};
         }
         ///Repeat START
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rsta{}; 
@@ -55,8 +55,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,TxakVal> txak{}; 
         namespace TxakValC{
-            constexpr Register::FieldValue<decltype(txak)::Type,TxakVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(txak)::Type,TxakVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1C1::txak)::Type,TxakVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1C1::txak)::Type,TxakVal::v1> v1{};
         }
         ///Transmit Mode Select
         enum class TxVal {
@@ -65,8 +65,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TxVal> tx{}; 
         namespace TxValC{
-            constexpr Register::FieldValue<decltype(tx)::Type,TxVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tx)::Type,TxVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1C1::tx)::Type,TxVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1C1::tx)::Type,TxVal::v1> v1{};
         }
         ///Master Mode Select
         enum class MstVal {
@@ -75,8 +75,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,MstVal> mst{}; 
         namespace MstValC{
-            constexpr Register::FieldValue<decltype(mst)::Type,MstVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(mst)::Type,MstVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1C1::mst)::Type,MstVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1C1::mst)::Type,MstVal::v1> v1{};
         }
         ///I2C Interrupt Enable
         enum class IicieVal {
@@ -85,8 +85,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,IicieVal> iicie{}; 
         namespace IicieValC{
-            constexpr Register::FieldValue<decltype(iicie)::Type,IicieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(iicie)::Type,IicieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1C1::iicie)::Type,IicieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1C1::iicie)::Type,IicieVal::v1> v1{};
         }
         ///I2C Enable
         enum class IicenVal {
@@ -95,8 +95,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,IicenVal> iicen{}; 
         namespace IicenValC{
-            constexpr Register::FieldValue<decltype(iicen)::Type,IicenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(iicen)::Type,IicenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1C1::iicen)::Type,IicenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1C1::iicen)::Type,IicenVal::v1> v1{};
         }
     }
     namespace I2c1S{    ///<I2C Status register
@@ -108,8 +108,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,RxakVal> rxak{}; 
         namespace RxakValC{
-            constexpr Register::FieldValue<decltype(rxak)::Type,RxakVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rxak)::Type,RxakVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1S::rxak)::Type,RxakVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1S::rxak)::Type,RxakVal::v1> v1{};
         }
         ///Interrupt Flag
         enum class IicifVal {
@@ -118,8 +118,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,IicifVal> iicif{}; 
         namespace IicifValC{
-            constexpr Register::FieldValue<decltype(iicif)::Type,IicifVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(iicif)::Type,IicifVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1S::iicif)::Type,IicifVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1S::iicif)::Type,IicifVal::v1> v1{};
         }
         ///Slave Read/Write
         enum class SrwVal {
@@ -128,8 +128,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SrwVal> srw{}; 
         namespace SrwValC{
-            constexpr Register::FieldValue<decltype(srw)::Type,SrwVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(srw)::Type,SrwVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1S::srw)::Type,SrwVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1S::srw)::Type,SrwVal::v1> v1{};
         }
         ///Range Address Match
         enum class RamVal {
@@ -138,8 +138,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,RamVal> ram{}; 
         namespace RamValC{
-            constexpr Register::FieldValue<decltype(ram)::Type,RamVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ram)::Type,RamVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1S::ram)::Type,RamVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1S::ram)::Type,RamVal::v1> v1{};
         }
         ///Arbitration Lost
         enum class ArblVal {
@@ -148,8 +148,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,ArblVal> arbl{}; 
         namespace ArblValC{
-            constexpr Register::FieldValue<decltype(arbl)::Type,ArblVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(arbl)::Type,ArblVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1S::arbl)::Type,ArblVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1S::arbl)::Type,ArblVal::v1> v1{};
         }
         ///Bus Busy
         enum class BusyVal {
@@ -158,8 +158,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,BusyVal> busy{}; 
         namespace BusyValC{
-            constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(busy)::Type,BusyVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1S::busy)::Type,BusyVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1S::busy)::Type,BusyVal::v1> v1{};
         }
         ///Addressed As A Slave
         enum class IaasVal {
@@ -168,8 +168,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,IaasVal> iaas{}; 
         namespace IaasValC{
-            constexpr Register::FieldValue<decltype(iaas)::Type,IaasVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(iaas)::Type,IaasVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1S::iaas)::Type,IaasVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1S::iaas)::Type,IaasVal::v1> v1{};
         }
         ///Transfer Complete Flag
         enum class TcfVal {
@@ -178,8 +178,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TcfVal> tcf{}; 
         namespace TcfValC{
-            constexpr Register::FieldValue<decltype(tcf)::Type,TcfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tcf)::Type,TcfVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1S::tcf)::Type,TcfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1S::tcf)::Type,TcfVal::v1> v1{};
         }
     }
     namespace I2c1D{    ///<I2C Data I/O register
@@ -198,8 +198,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,RmenVal> rmen{}; 
         namespace RmenValC{
-            constexpr Register::FieldValue<decltype(rmen)::Type,RmenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(rmen)::Type,RmenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1C2::rmen)::Type,RmenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1C2::rmen)::Type,RmenVal::v1> v1{};
         }
         ///Slave Baud Rate Control
         enum class SbrcVal {
@@ -208,8 +208,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SbrcVal> sbrc{}; 
         namespace SbrcValC{
-            constexpr Register::FieldValue<decltype(sbrc)::Type,SbrcVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(sbrc)::Type,SbrcVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1C2::sbrc)::Type,SbrcVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1C2::sbrc)::Type,SbrcVal::v1> v1{};
         }
         ///High Drive Select
         enum class HdrsVal {
@@ -218,8 +218,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,HdrsVal> hdrs{}; 
         namespace HdrsValC{
-            constexpr Register::FieldValue<decltype(hdrs)::Type,HdrsVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(hdrs)::Type,HdrsVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1C2::hdrs)::Type,HdrsVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1C2::hdrs)::Type,HdrsVal::v1> v1{};
         }
         ///Address Extension
         enum class AdextVal {
@@ -228,8 +228,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,AdextVal> adext{}; 
         namespace AdextValC{
-            constexpr Register::FieldValue<decltype(adext)::Type,AdextVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(adext)::Type,AdextVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1C2::adext)::Type,AdextVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1C2::adext)::Type,AdextVal::v1> v1{};
         }
         ///General Call Address Enable
         enum class GcaenVal {
@@ -238,8 +238,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,GcaenVal> gcaen{}; 
         namespace GcaenValC{
-            constexpr Register::FieldValue<decltype(gcaen)::Type,GcaenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(gcaen)::Type,GcaenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1C2::gcaen)::Type,GcaenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1C2::gcaen)::Type,GcaenVal::v1> v1{};
         }
     }
     namespace I2c1Flt{    ///<I2C Programmable Input Glitch Filter Register
@@ -253,8 +253,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,StartfVal> startf{}; 
         namespace StartfValC{
-            constexpr Register::FieldValue<decltype(startf)::Type,StartfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(startf)::Type,StartfVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1Flt::startf)::Type,StartfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1Flt::startf)::Type,StartfVal::v1> v1{};
         }
         ///I2C Bus Stop or Start Interrupt Enable
         enum class SsieVal {
@@ -263,8 +263,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SsieVal> ssie{}; 
         namespace SsieValC{
-            constexpr Register::FieldValue<decltype(ssie)::Type,SsieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ssie)::Type,SsieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1Flt::ssie)::Type,SsieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1Flt::ssie)::Type,SsieVal::v1> v1{};
         }
         ///I2C Bus Stop Detect Flag
         enum class StopfVal {
@@ -273,8 +273,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,StopfVal> stopf{}; 
         namespace StopfValC{
-            constexpr Register::FieldValue<decltype(stopf)::Type,StopfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(stopf)::Type,StopfVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1Flt::stopf)::Type,StopfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1Flt::stopf)::Type,StopfVal::v1> v1{};
         }
         ///Stop Hold Enable
         enum class ShenVal {
@@ -283,8 +283,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,ShenVal> shen{}; 
         namespace ShenValC{
-            constexpr Register::FieldValue<decltype(shen)::Type,ShenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(shen)::Type,ShenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1Flt::shen)::Type,ShenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1Flt::shen)::Type,ShenVal::v1> v1{};
         }
     }
     namespace I2c1Ra{    ///<I2C Range Address register
@@ -301,8 +301,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Shtf2ieVal> shtf2ie{}; 
         namespace Shtf2ieValC{
-            constexpr Register::FieldValue<decltype(shtf2ie)::Type,Shtf2ieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(shtf2ie)::Type,Shtf2ieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1Smb::shtf2ie)::Type,Shtf2ieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1Smb::shtf2ie)::Type,Shtf2ieVal::v1> v1{};
         }
         ///SCL High Timeout Flag 2
         enum class Shtf2Val {
@@ -311,8 +311,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Shtf2Val> shtf2{}; 
         namespace Shtf2ValC{
-            constexpr Register::FieldValue<decltype(shtf2)::Type,Shtf2Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(shtf2)::Type,Shtf2Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1Smb::shtf2)::Type,Shtf2Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1Smb::shtf2)::Type,Shtf2Val::v1> v1{};
         }
         ///SCL High Timeout Flag 1
         enum class Shtf1Val {
@@ -321,8 +321,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,Shtf1Val> shtf1{}; 
         namespace Shtf1ValC{
-            constexpr Register::FieldValue<decltype(shtf1)::Type,Shtf1Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(shtf1)::Type,Shtf1Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1Smb::shtf1)::Type,Shtf1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1Smb::shtf1)::Type,Shtf1Val::v1> v1{};
         }
         ///SCL Low Timeout Flag
         enum class SltfVal {
@@ -331,8 +331,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,SltfVal> sltf{}; 
         namespace SltfValC{
-            constexpr Register::FieldValue<decltype(sltf)::Type,SltfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(sltf)::Type,SltfVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1Smb::sltf)::Type,SltfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1Smb::sltf)::Type,SltfVal::v1> v1{};
         }
         ///Timeout Counter Clock Select
         enum class TckselVal {
@@ -341,8 +341,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,TckselVal> tcksel{}; 
         namespace TckselValC{
-            constexpr Register::FieldValue<decltype(tcksel)::Type,TckselVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tcksel)::Type,TckselVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1Smb::tcksel)::Type,TckselVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1Smb::tcksel)::Type,TckselVal::v1> v1{};
         }
         ///Second I2C Address Enable
         enum class SiicaenVal {
@@ -351,8 +351,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SiicaenVal> siicaen{}; 
         namespace SiicaenValC{
-            constexpr Register::FieldValue<decltype(siicaen)::Type,SiicaenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(siicaen)::Type,SiicaenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1Smb::siicaen)::Type,SiicaenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1Smb::siicaen)::Type,SiicaenVal::v1> v1{};
         }
         ///SMBus Alert Response Address Enable
         enum class AlertenVal {
@@ -361,8 +361,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,AlertenVal> alerten{}; 
         namespace AlertenValC{
-            constexpr Register::FieldValue<decltype(alerten)::Type,AlertenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(alerten)::Type,AlertenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1Smb::alerten)::Type,AlertenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1Smb::alerten)::Type,AlertenVal::v1> v1{};
         }
         ///Fast NACK/ACK Enable
         enum class FackVal {
@@ -371,8 +371,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,FackVal> fack{}; 
         namespace FackValC{
-            constexpr Register::FieldValue<decltype(fack)::Type,FackVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(fack)::Type,FackVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1Smb::fack)::Type,FackVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1Smb::fack)::Type,FackVal::v1> v1{};
         }
     }
     namespace I2c1A2{    ///<I2C Address Register 2
@@ -399,8 +399,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,EmptyVal> empty{}; 
         namespace EmptyValC{
-            constexpr Register::FieldValue<decltype(empty)::Type,EmptyVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(empty)::Type,EmptyVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1S2::empty)::Type,EmptyVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1S2::empty)::Type,EmptyVal::v1> v1{};
         }
         ///Error flag
         enum class ErrorVal {
@@ -409,8 +409,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ErrorVal> error{}; 
         namespace ErrorValC{
-            constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(error)::Type,ErrorVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(I2c1S2::error)::Type,ErrorVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(I2c1S2::error)::Type,ErrorVal::v1> v1{};
         }
     }
 }

@@ -11,8 +11,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,EnableVal> enable{}; 
         namespace EnableValC{
-            constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(enable)::Type,EnableVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(SystickCsr::enable)::Type,EnableVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(SystickCsr::enable)::Type,EnableVal::v1> v1{};
         }
         ///no description available
         enum class TickintVal {
@@ -21,8 +21,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TickintVal> tickint{}; 
         namespace TickintValC{
-            constexpr Register::FieldValue<decltype(tickint)::Type,TickintVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tickint)::Type,TickintVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(SystickCsr::tickint)::Type,TickintVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(SystickCsr::tickint)::Type,TickintVal::v1> v1{};
         }
         ///no description available
         enum class ClksourceVal {
@@ -31,8 +31,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,ClksourceVal> clksource{}; 
         namespace ClksourceValC{
-            constexpr Register::FieldValue<decltype(clksource)::Type,ClksourceVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(clksource)::Type,ClksourceVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(SystickCsr::clksource)::Type,ClksourceVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(SystickCsr::clksource)::Type,ClksourceVal::v1> v1{};
         }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> countflag{}; 
@@ -58,8 +58,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(30,30),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SkewVal> skew{}; 
         namespace SkewValC{
-            constexpr Register::FieldValue<decltype(skew)::Type,SkewVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(skew)::Type,SkewVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(SystickCalib::skew)::Type,SkewVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(SystickCalib::skew)::Type,SkewVal::v1> v1{};
         }
         ///no description available
         enum class NorefVal {
@@ -68,8 +68,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,31),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,NorefVal> noref{}; 
         namespace NorefValC{
-            constexpr Register::FieldValue<decltype(noref)::Type,NorefVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(noref)::Type,NorefVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(SystickCalib::noref)::Type,NorefVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(SystickCalib::noref)::Type,NorefVal::v1> v1{};
         }
     }
 }

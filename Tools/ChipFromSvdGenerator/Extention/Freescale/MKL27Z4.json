@@ -554,6 +554,31 @@
 						"modifiedWriteValues":"oneToClear"
 					}
 				}
+			},
+			"ERRSTAT":{
+				"field":{
+					"BTSERR":{
+						"modifiedWriteValues":"oneToClear"
+					},
+					"DMAERR":{
+						"modifiedWriteValues":"oneToClear"
+					},
+					"BTOERR":{
+						"modifiedWriteValues":"oneToClear"
+					},
+					"DFN8":{
+						"modifiedWriteValues":"oneToClear"
+					},
+					"CRC16":{
+						"modifiedWriteValues":"oneToClear"
+					},
+					"CRC5":{
+						"modifiedWriteValues":"oneToClear"
+					},
+					"PIDERR":{
+						"modifiedWriteValues":"oneToClear"
+					}
+				}
 			}
 		}
 	},

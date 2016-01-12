@@ -41,11 +41,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,FunctionVal> function{}; 
         namespace FunctionValC{
-            constexpr Register::FieldValue<decltype(function)::Type,FunctionVal::v0000> v0000{};
-            constexpr Register::FieldValue<decltype(function)::Type,FunctionVal::v0100> v0100{};
-            constexpr Register::FieldValue<decltype(function)::Type,FunctionVal::v0101> v0101{};
-            constexpr Register::FieldValue<decltype(function)::Type,FunctionVal::v0110> v0110{};
-            constexpr Register::FieldValue<decltype(function)::Type,FunctionVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(MtbdwtFct0::function)::Type,FunctionVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(MtbdwtFct0::function)::Type,FunctionVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(MtbdwtFct0::function)::Type,FunctionVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(MtbdwtFct0::function)::Type,FunctionVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(MtbdwtFct0::function)::Type,FunctionVal::v0111> v0111{};
         }
         ///Data Value Match
         enum class DatavmatchVal {
@@ -54,8 +54,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,DatavmatchVal> datavmatch{}; 
         namespace DatavmatchValC{
-            constexpr Register::FieldValue<decltype(datavmatch)::Type,DatavmatchVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(datavmatch)::Type,DatavmatchVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(MtbdwtFct0::datavmatch)::Type,DatavmatchVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(MtbdwtFct0::datavmatch)::Type,DatavmatchVal::v1> v1{};
         }
         ///Data Value Size
         enum class DatavsizeVal {
@@ -66,10 +66,10 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,10),Register::ReadWriteAccess,DatavsizeVal> datavsize{}; 
         namespace DatavsizeValC{
-            constexpr Register::FieldValue<decltype(datavsize)::Type,DatavsizeVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(datavsize)::Type,DatavsizeVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(datavsize)::Type,DatavsizeVal::v10> v10{};
-            constexpr Register::FieldValue<decltype(datavsize)::Type,DatavsizeVal::v11> v11{};
+            constexpr Register::FieldValue<decltype(MtbdwtFct0::datavsize)::Type,DatavsizeVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(MtbdwtFct0::datavsize)::Type,DatavsizeVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(MtbdwtFct0::datavsize)::Type,DatavsizeVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(MtbdwtFct0::datavsize)::Type,DatavsizeVal::v11> v11{};
         }
         ///Data Value Address 0
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> datavaddr0{}; 
@@ -80,8 +80,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,MatchedVal> matched{}; 
         namespace MatchedValC{
-            constexpr Register::FieldValue<decltype(matched)::Type,MatchedVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(matched)::Type,MatchedVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(MtbdwtFct0::matched)::Type,MatchedVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(MtbdwtFct0::matched)::Type,MatchedVal::v1> v1{};
         }
     }
     namespace MtbdwtFct1{    ///<MTB_DWT Comparator Function Register 1
@@ -96,11 +96,11 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,FunctionVal> function{}; 
         namespace FunctionValC{
-            constexpr Register::FieldValue<decltype(function)::Type,FunctionVal::v0000> v0000{};
-            constexpr Register::FieldValue<decltype(function)::Type,FunctionVal::v0100> v0100{};
-            constexpr Register::FieldValue<decltype(function)::Type,FunctionVal::v0101> v0101{};
-            constexpr Register::FieldValue<decltype(function)::Type,FunctionVal::v0110> v0110{};
-            constexpr Register::FieldValue<decltype(function)::Type,FunctionVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(MtbdwtFct1::function)::Type,FunctionVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(MtbdwtFct1::function)::Type,FunctionVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(MtbdwtFct1::function)::Type,FunctionVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(MtbdwtFct1::function)::Type,FunctionVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(MtbdwtFct1::function)::Type,FunctionVal::v0111> v0111{};
         }
         ///Comparator match
         enum class MatchedVal {
@@ -109,8 +109,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(24,24),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,MatchedVal> matched{}; 
         namespace MatchedValC{
-            constexpr Register::FieldValue<decltype(matched)::Type,MatchedVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(matched)::Type,MatchedVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(MtbdwtFct1::matched)::Type,MatchedVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(MtbdwtFct1::matched)::Type,MatchedVal::v1> v1{};
         }
     }
     namespace MtbdwtTbctrl{    ///<MTB_DWT Trace Buffer Control Register
@@ -122,8 +122,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Acomp0Val> acomp0{}; 
         namespace Acomp0ValC{
-            constexpr Register::FieldValue<decltype(acomp0)::Type,Acomp0Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(acomp0)::Type,Acomp0Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(MtbdwtTbctrl::acomp0)::Type,Acomp0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(MtbdwtTbctrl::acomp0)::Type,Acomp0Val::v1> v1{};
         }
         ///Action based on Comparator 1 match
         enum class Acomp1Val {
@@ -132,8 +132,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Acomp1Val> acomp1{}; 
         namespace Acomp1ValC{
-            constexpr Register::FieldValue<decltype(acomp1)::Type,Acomp1Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(acomp1)::Type,Acomp1Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(MtbdwtTbctrl::acomp1)::Type,Acomp1Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(MtbdwtTbctrl::acomp1)::Type,Acomp1Val::v1> v1{};
         }
         ///Number of Comparators
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> numcomp{}; 

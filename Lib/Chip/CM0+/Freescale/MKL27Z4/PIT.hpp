@@ -11,8 +11,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,FrzVal> frz{}; 
         namespace FrzValC{
-            constexpr Register::FieldValue<decltype(frz)::Type,FrzVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(frz)::Type,FrzVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(PitMcr::frz)::Type,FrzVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(PitMcr::frz)::Type,FrzVal::v1> v1{};
         }
         ///Module Disable - (PIT section)
         enum class MdisVal {
@@ -21,8 +21,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,MdisVal> mdis{}; 
         namespace MdisValC{
-            constexpr Register::FieldValue<decltype(mdis)::Type,MdisVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(mdis)::Type,MdisVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(PitMcr::mdis)::Type,MdisVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(PitMcr::mdis)::Type,MdisVal::v1> v1{};
         }
     }
     namespace PitLtmr64h{    ///<PIT Upper Lifetime Timer Register
@@ -64,8 +64,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TenVal> ten{}; 
         namespace TenValC{
-            constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(PitTctrl0::ten)::Type,TenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(PitTctrl0::ten)::Type,TenVal::v1> v1{};
         }
         ///Timer Interrupt Enable
         enum class TieVal {
@@ -74,8 +74,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TieVal> tie{}; 
         namespace TieValC{
-            constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(PitTctrl0::tie)::Type,TieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(PitTctrl0::tie)::Type,TieVal::v1> v1{};
         }
         ///Chain Mode
         enum class ChnVal {
@@ -84,8 +84,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,ChnVal> chn{}; 
         namespace ChnValC{
-            constexpr Register::FieldValue<decltype(chn)::Type,ChnVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(chn)::Type,ChnVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(PitTctrl0::chn)::Type,ChnVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(PitTctrl0::chn)::Type,ChnVal::v1> v1{};
         }
     }
     namespace PitTctrl1{    ///<Timer Control Register
@@ -97,8 +97,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TenVal> ten{}; 
         namespace TenValC{
-            constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ten)::Type,TenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(PitTctrl1::ten)::Type,TenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(PitTctrl1::ten)::Type,TenVal::v1> v1{};
         }
         ///Timer Interrupt Enable
         enum class TieVal {
@@ -107,8 +107,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,TieVal> tie{}; 
         namespace TieValC{
-            constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tie)::Type,TieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(PitTctrl1::tie)::Type,TieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(PitTctrl1::tie)::Type,TieVal::v1> v1{};
         }
         ///Chain Mode
         enum class ChnVal {
@@ -117,8 +117,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,ChnVal> chn{}; 
         namespace ChnValC{
-            constexpr Register::FieldValue<decltype(chn)::Type,ChnVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(chn)::Type,ChnVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(PitTctrl1::chn)::Type,ChnVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(PitTctrl1::chn)::Type,ChnVal::v1> v1{};
         }
     }
     namespace PitTflg0{    ///<Timer Flag Register
@@ -130,8 +130,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TifVal> tif{}; 
         namespace TifValC{
-            constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(PitTflg0::tif)::Type,TifVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(PitTflg0::tif)::Type,TifVal::v1> v1{};
         }
     }
     namespace PitTflg1{    ///<Timer Flag Register
@@ -143,8 +143,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,TifVal> tif{}; 
         namespace TifValC{
-            constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tif)::Type,TifVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(PitTflg1::tif)::Type,TifVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(PitTflg1::tif)::Type,TifVal::v1> v1{};
         }
     }
 }
