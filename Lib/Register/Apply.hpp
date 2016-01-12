@@ -211,7 +211,7 @@ namespace Kvasir {
 			DEBUG_INLINE unsigned argToUnsigned(T arg){
 				return arg.value_;
 			}
-			unsigned argToUnsigned(...){
+			inline unsigned argToUnsigned(...){
 				return 0;
 			}
 
@@ -266,7 +266,7 @@ namespace Kvasir {
 				template<typename...T>
 				ReturnType operator()(T...args){
 					ReturnType ret{ {} }; //default constructed return
-					const unsigned a[]{ (filterReturns<Detail::GetAddress<TActions>::value>(ret,ExecuteSeam<TActions, ::Kvasir::Tag::User>{}(Finder<TInputIndexes>{}(args...))),0)... };
+					const int a[]{ (filterReturns<Detail::GetAddress<TActions>::value>(ret,ExecuteSeam<TActions, ::Kvasir::Tag::User>{}(Finder<TInputIndexes>{}(args...))),0)... };
 					ignore(a);
 
 					return ret;
@@ -280,7 +280,7 @@ namespace Kvasir {
 			struct NoReadApply<brigand::list<TActions...>, brigand::list<TInputIndexes...>> {
 				template<typename...T>
 				void operator()(T...args) {
-					unsigned a[]{ ExecuteSeam<TActions, ::Kvasir::Tag::User>{}(Finder<TInputIndexes>{}(args...))... };
+					const int a[]{ (ExecuteSeam<TActions, ::Kvasir::Tag::User>{}(Finder<TInputIndexes>{}(args...)),0)... };
 					ignore(a);
 				}
 			};
@@ -330,7 +330,7 @@ namespace Kvasir {
 
 		//if apply does not contain reads return is void
 		template<typename...Args>
-		inline typename std::enable_if<(brigand::size<Detail::GetReadsT<brigand::list<Args...>>>::value == 0)>::type
+		typename std::enable_if<(brigand::size<Detail::GetReadsT<brigand::list<Args...>>>::value == 0)>::type
 			apply(Args...args) {
 			static_assert(Detail::ArgsToApplyArePlausible<Args...>::value, "one of the supplied arguments is not supported");
 			using IndexedActions = brigand::transform<brigand::list<Args...>, MPL::BuildIndicesT<sizeof...(Args)>, brigand::quote<Detail::MakeIndexedAction>>;
@@ -346,8 +346,8 @@ namespace Kvasir {
 
 		//no parameters is allowed because it could be used in maschine generated code
 		//it does nothing
-		void apply(){}
-		void apply(brigand::list<>){}
+		inline void apply(){}
+		inline void apply(brigand::list<>){}
 
 		template<typename TField, typename TField::DataType Value>
 		inline bool fieldEquals(FieldValue<TField, Value> ) {
