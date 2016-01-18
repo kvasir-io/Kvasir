@@ -13,8 +13,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ChopenVal> chopen{}; 
         namespace ChopenValC{
-            constexpr Register::FieldValue<decltype(VrefTrm::chopen)::Type,ChopenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(VrefTrm::chopen)::Type,ChopenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(chopen)::Type,ChopenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(chopen)::Type,ChopenVal::v1> v1{};
         }
     }
     namespace VrefSc{    ///<VREF Status and Control Register
@@ -27,9 +27,9 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,ModelvVal> modeLv{}; 
         namespace ModelvValC{
-            constexpr Register::FieldValue<decltype(VrefSc::modeLv)::Type,ModelvVal::v00> v00{};
-            constexpr Register::FieldValue<decltype(VrefSc::modeLv)::Type,ModelvVal::v01> v01{};
-            constexpr Register::FieldValue<decltype(VrefSc::modeLv)::Type,ModelvVal::v10> v10{};
+            constexpr Register::FieldValue<decltype(modeLv)::Type,ModelvVal::v00> v00{};
+            constexpr Register::FieldValue<decltype(modeLv)::Type,ModelvVal::v01> v01{};
+            constexpr Register::FieldValue<decltype(modeLv)::Type,ModelvVal::v10> v10{};
         }
         ///Internal Voltage Reference stable
         enum class VrefstVal {
@@ -38,8 +38,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,VrefstVal> vrefst{}; 
         namespace VrefstValC{
-            constexpr Register::FieldValue<decltype(VrefSc::vrefst)::Type,VrefstVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(VrefSc::vrefst)::Type,VrefstVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(vrefst)::Type,VrefstVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(vrefst)::Type,VrefstVal::v1> v1{};
         }
         ///Second order curvature compensation enable
         enum class IcompenVal {
@@ -48,8 +48,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,IcompenVal> icompen{}; 
         namespace IcompenValC{
-            constexpr Register::FieldValue<decltype(VrefSc::icompen)::Type,IcompenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(VrefSc::icompen)::Type,IcompenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(icompen)::Type,IcompenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(icompen)::Type,IcompenVal::v1> v1{};
         }
         ///Regulator enable
         enum class RegenVal {
@@ -58,8 +58,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,RegenVal> regen{}; 
         namespace RegenValC{
-            constexpr Register::FieldValue<decltype(VrefSc::regen)::Type,RegenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(VrefSc::regen)::Type,RegenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(regen)::Type,RegenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(regen)::Type,RegenVal::v1> v1{};
         }
         ///Internal Voltage Reference enable
         enum class VrefenVal {
@@ -68,8 +68,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,VrefenVal> vrefen{}; 
         namespace VrefenValC{
-            constexpr Register::FieldValue<decltype(VrefSc::vrefen)::Type,VrefenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(VrefSc::vrefen)::Type,VrefenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(vrefen)::Type,VrefenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(vrefen)::Type,VrefenVal::v1> v1{};
         }
     }
 }
