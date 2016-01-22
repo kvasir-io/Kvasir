@@ -12,3 +12,5 @@ build/*
 *.pyproj
 *.sln
 *__pycache__
+*.sdf
+*.opendb

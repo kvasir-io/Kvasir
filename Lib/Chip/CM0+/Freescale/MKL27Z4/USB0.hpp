@@ -31,8 +31,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,DphighVal> dphigh{}; 
         namespace DphighValC{
-            constexpr Register::FieldValue<decltype(dphigh)::Type,DphighVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dphigh)::Type,DphighVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Otgctl::dphigh)::Type,DphighVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Otgctl::dphigh)::Type,DphighVal::v1> v1{};
         }
     }
     namespace Usb0Istat{    ///<Interrupt Status register
@@ -61,8 +61,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,UsbrstenVal> usbrsten{}; 
         namespace UsbrstenValC{
-            constexpr Register::FieldValue<decltype(usbrsten)::Type,UsbrstenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(usbrsten)::Type,UsbrstenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Inten::usbrsten)::Type,UsbrstenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Inten::usbrsten)::Type,UsbrstenVal::v1> v1{};
         }
         ///ERROR Interrupt Enable
         enum class ErrorenVal {
@@ -71,8 +71,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,ErrorenVal> erroren{}; 
         namespace ErrorenValC{
-            constexpr Register::FieldValue<decltype(erroren)::Type,ErrorenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(erroren)::Type,ErrorenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Inten::erroren)::Type,ErrorenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Inten::erroren)::Type,ErrorenVal::v1> v1{};
         }
         ///SOFTOK Interrupt Enable
         enum class SoftokenVal {
@@ -81,8 +81,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,SoftokenVal> softoken{}; 
         namespace SoftokenValC{
-            constexpr Register::FieldValue<decltype(softoken)::Type,SoftokenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(softoken)::Type,SoftokenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Inten::softoken)::Type,SoftokenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Inten::softoken)::Type,SoftokenVal::v1> v1{};
         }
         ///TOKDNE Interrupt Enable
         enum class TokdneenVal {
@@ -91,8 +91,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,TokdneenVal> tokdneen{}; 
         namespace TokdneenValC{
-            constexpr Register::FieldValue<decltype(tokdneen)::Type,TokdneenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tokdneen)::Type,TokdneenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Inten::tokdneen)::Type,TokdneenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Inten::tokdneen)::Type,TokdneenVal::v1> v1{};
         }
         ///SLEEP Interrupt Enable
         enum class SleepenVal {
@@ -101,8 +101,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,SleepenVal> sleepen{}; 
         namespace SleepenValC{
-            constexpr Register::FieldValue<decltype(sleepen)::Type,SleepenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(sleepen)::Type,SleepenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Inten::sleepen)::Type,SleepenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Inten::sleepen)::Type,SleepenVal::v1> v1{};
         }
         ///RESUME Interrupt Enable
         enum class ResumeenVal {
@@ -111,8 +111,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,ResumeenVal> resumeen{}; 
         namespace ResumeenValC{
-            constexpr Register::FieldValue<decltype(resumeen)::Type,ResumeenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(resumeen)::Type,ResumeenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Inten::resumeen)::Type,ResumeenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Inten::resumeen)::Type,ResumeenVal::v1> v1{};
         }
         ///STALL Interrupt Enable
         enum class StallenVal {
@@ -121,8 +121,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,StallenVal> stallen{}; 
         namespace StallenValC{
-            constexpr Register::FieldValue<decltype(stallen)::Type,StallenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(stallen)::Type,StallenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Inten::stallen)::Type,StallenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Inten::stallen)::Type,StallenVal::v1> v1{};
         }
     }
     namespace Usb0Errstat{    ///<Error Interrupt Status register
@@ -151,8 +151,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,PiderrenVal> piderren{}; 
         namespace PiderrenValC{
-            constexpr Register::FieldValue<decltype(piderren)::Type,PiderrenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(piderren)::Type,PiderrenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Erren::piderren)::Type,PiderrenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Erren::piderren)::Type,PiderrenVal::v1> v1{};
         }
         ///CRC5/EOF Interrupt Enable
         enum class Crc5eofenVal {
@@ -161,8 +161,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,Crc5eofenVal> crc5eofen{}; 
         namespace Crc5eofenValC{
-            constexpr Register::FieldValue<decltype(crc5eofen)::Type,Crc5eofenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(crc5eofen)::Type,Crc5eofenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Erren::crc5eofen)::Type,Crc5eofenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Erren::crc5eofen)::Type,Crc5eofenVal::v1> v1{};
         }
         ///CRC16 Interrupt Enable
         enum class Crc16enVal {
@@ -171,8 +171,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,Crc16enVal> crc16en{}; 
         namespace Crc16enValC{
-            constexpr Register::FieldValue<decltype(crc16en)::Type,Crc16enVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(crc16en)::Type,Crc16enVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Erren::crc16en)::Type,Crc16enVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Erren::crc16en)::Type,Crc16enVal::v1> v1{};
         }
         ///DFN8 Interrupt Enable
         enum class Dfn8enVal {
@@ -181,8 +181,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,Dfn8enVal> dfn8en{}; 
         namespace Dfn8enValC{
-            constexpr Register::FieldValue<decltype(dfn8en)::Type,Dfn8enVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dfn8en)::Type,Dfn8enVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Erren::dfn8en)::Type,Dfn8enVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Erren::dfn8en)::Type,Dfn8enVal::v1> v1{};
         }
         ///BTOERR Interrupt Enable
         enum class BtoerrenVal {
@@ -191,8 +191,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,BtoerrenVal> btoerren{}; 
         namespace BtoerrenValC{
-            constexpr Register::FieldValue<decltype(btoerren)::Type,BtoerrenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(btoerren)::Type,BtoerrenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Erren::btoerren)::Type,BtoerrenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Erren::btoerren)::Type,BtoerrenVal::v1> v1{};
         }
         ///DMAERR Interrupt Enable
         enum class DmaerrenVal {
@@ -201,8 +201,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,DmaerrenVal> dmaerren{}; 
         namespace DmaerrenValC{
-            constexpr Register::FieldValue<decltype(dmaerren)::Type,DmaerrenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dmaerren)::Type,DmaerrenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Erren::dmaerren)::Type,DmaerrenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Erren::dmaerren)::Type,DmaerrenVal::v1> v1{};
         }
         ///BTSERR Interrupt Enable
         enum class BtserrenVal {
@@ -211,8 +211,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,BtserrenVal> btserren{}; 
         namespace BtserrenValC{
-            constexpr Register::FieldValue<decltype(btserren)::Type,BtserrenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(btserren)::Type,BtserrenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Erren::btserren)::Type,BtserrenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Erren::btserren)::Type,BtserrenVal::v1> v1{};
         }
     }
     namespace Usb0Stat{    ///<Status register
@@ -226,8 +226,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,TxVal> tx{}; 
         namespace TxValC{
-            constexpr Register::FieldValue<decltype(tx)::Type,TxVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(tx)::Type,TxVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Stat::tx)::Type,TxVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Stat::tx)::Type,TxVal::v1> v1{};
         }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> endp{}; 
@@ -241,8 +241,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,UsbensofenVal> usbensofen{}; 
         namespace UsbensofenValC{
-            constexpr Register::FieldValue<decltype(usbensofen)::Type,UsbensofenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(usbensofen)::Type,UsbensofenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Ctl::usbensofen)::Type,UsbensofenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Ctl::usbensofen)::Type,UsbensofenVal::v1> v1{};
         }
         ///no description available
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> oddrst{}; 
@@ -500,8 +500,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,PdeVal> pde{}; 
         namespace PdeValC{
-            constexpr Register::FieldValue<decltype(pde)::Type,PdeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(pde)::Type,PdeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Usbctrl::pde)::Type,PdeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Usbctrl::pde)::Type,PdeVal::v1> v1{};
         }
         ///no description available
         enum class SuspVal {
@@ -510,8 +510,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SuspVal> susp{}; 
         namespace SuspValC{
-            constexpr Register::FieldValue<decltype(susp)::Type,SuspVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(susp)::Type,SuspVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Usbctrl::susp)::Type,SuspVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Usbctrl::susp)::Type,SuspVal::v1> v1{};
         }
     }
     namespace Usb0Observe{    ///<USB OTG Observe register
@@ -523,8 +523,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DmpdVal> dmpd{}; 
         namespace DmpdValC{
-            constexpr Register::FieldValue<decltype(dmpd)::Type,DmpdVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dmpd)::Type,DmpdVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Observe::dmpd)::Type,DmpdVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Observe::dmpd)::Type,DmpdVal::v1> v1{};
         }
         ///no description available
         enum class DppdVal {
@@ -533,8 +533,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DppdVal> dppd{}; 
         namespace DppdValC{
-            constexpr Register::FieldValue<decltype(dppd)::Type,DppdVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dppd)::Type,DppdVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Observe::dppd)::Type,DppdVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Observe::dppd)::Type,DppdVal::v1> v1{};
         }
         ///no description available
         enum class DppuVal {
@@ -543,8 +543,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DppuVal> dppu{}; 
         namespace DppuValC{
-            constexpr Register::FieldValue<decltype(dppu)::Type,DppuVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dppu)::Type,DppuVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Observe::dppu)::Type,DppuVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Observe::dppu)::Type,DppuVal::v1> v1{};
         }
     }
     namespace Usb0Control{    ///<USB OTG Control register
@@ -556,8 +556,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,DppullupnonotgVal> dppullupnonotg{}; 
         namespace DppullupnonotgValC{
-            constexpr Register::FieldValue<decltype(dppullupnonotg)::Type,DppullupnonotgVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(dppullupnonotg)::Type,DppullupnonotgVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Control::dppullupnonotg)::Type,DppullupnonotgVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Control::dppullupnonotg)::Type,DppullupnonotgVal::v1> v1{};
         }
     }
     namespace Usb0Usbtrc0{    ///<USB Transceiver Control register 0
@@ -569,8 +569,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,UsbresumeintVal> usbResumeInt{}; 
         namespace UsbresumeintValC{
-            constexpr Register::FieldValue<decltype(usbResumeInt)::Type,UsbresumeintVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(usbResumeInt)::Type,UsbresumeintVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Usbtrc0::usbResumeInt)::Type,UsbresumeintVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Usbtrc0::usbResumeInt)::Type,UsbresumeintVal::v1> v1{};
         }
         ///Synchronous USB Interrupt Detect
         enum class SyncdetVal {
@@ -579,8 +579,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SyncdetVal> syncDet{}; 
         namespace SyncdetValC{
-            constexpr Register::FieldValue<decltype(syncDet)::Type,SyncdetVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(syncDet)::Type,SyncdetVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Usbtrc0::syncDet)::Type,SyncdetVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Usbtrc0::syncDet)::Type,SyncdetVal::v1> v1{};
         }
         ///Combined USB Clock Recovery interrupt status
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> usbClkRecoveryInt{}; 
@@ -591,8 +591,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,UsbresmenVal> usbresmen{}; 
         namespace UsbresmenValC{
-            constexpr Register::FieldValue<decltype(usbresmen)::Type,UsbresmenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(usbresmen)::Type,UsbresmenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Usbtrc0::usbresmen)::Type,UsbresmenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Usbtrc0::usbresmen)::Type,UsbresmenVal::v1> v1{};
         }
         ///USB Reset
         enum class UsbresetVal {
@@ -601,8 +601,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,UsbresetVal> usbreset{}; 
         namespace UsbresetValC{
-            constexpr Register::FieldValue<decltype(usbreset)::Type,UsbresetVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(usbreset)::Type,UsbresetVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0Usbtrc0::usbreset)::Type,UsbresetVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0Usbtrc0::usbreset)::Type,UsbresetVal::v1> v1{};
         }
     }
     namespace Usb0Usbfrmadjust{    ///<Frame Adjust Register
@@ -619,8 +619,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,RestartifrtrimenVal> restartIfrtrimEn{}; 
         namespace RestartifrtrimenValC{
-            constexpr Register::FieldValue<decltype(restartIfrtrimEn)::Type,RestartifrtrimenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(restartIfrtrimEn)::Type,RestartifrtrimenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0ClkRecoverCtrl::restartIfrtrimEn)::Type,RestartifrtrimenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0ClkRecoverCtrl::restartIfrtrimEn)::Type,RestartifrtrimenVal::v1> v1{};
         }
         ///Reset/resume to rough phase enable
         enum class ResetresumeroughenVal {
@@ -629,8 +629,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,ResetresumeroughenVal> resetResumeRoughEn{}; 
         namespace ResetresumeroughenValC{
-            constexpr Register::FieldValue<decltype(resetResumeRoughEn)::Type,ResetresumeroughenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(resetResumeRoughEn)::Type,ResetresumeroughenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0ClkRecoverCtrl::resetResumeRoughEn)::Type,ResetresumeroughenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0ClkRecoverCtrl::resetResumeRoughEn)::Type,ResetresumeroughenVal::v1> v1{};
         }
         ///Crystal-less USB enable
         enum class ClockrecoverenVal {
@@ -639,8 +639,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,ClockrecoverenVal> clockRecoverEn{}; 
         namespace ClockrecoverenValC{
-            constexpr Register::FieldValue<decltype(clockRecoverEn)::Type,ClockrecoverenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(clockRecoverEn)::Type,ClockrecoverenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0ClkRecoverCtrl::clockRecoverEn)::Type,ClockrecoverenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0ClkRecoverCtrl::clockRecoverEn)::Type,ClockrecoverenVal::v1> v1{};
         }
     }
     namespace Usb0ClkRecoverIrcEn{    ///<IRC48M oscillator enable register
@@ -652,8 +652,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,IrcenVal> ircEn{}; 
         namespace IrcenValC{
-            constexpr Register::FieldValue<decltype(ircEn)::Type,IrcenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ircEn)::Type,IrcenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0ClkRecoverIrcEn::ircEn)::Type,IrcenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0ClkRecoverIrcEn::ircEn)::Type,IrcenVal::v1> v1{};
         }
     }
     namespace Usb0ClkRecoverIntEn{    ///<Clock recovery combined interrupt enable
@@ -665,8 +665,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,OvferrorenVal> ovfErrorEn{}; 
         namespace OvferrorenValC{
-            constexpr Register::FieldValue<decltype(ovfErrorEn)::Type,OvferrorenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ovfErrorEn)::Type,OvferrorenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0ClkRecoverIntEn::ovfErrorEn)::Type,OvferrorenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0ClkRecoverIntEn::ovfErrorEn)::Type,OvferrorenVal::v1> v1{};
         }
     }
     namespace Usb0ClkRecoverIntStatus{    ///<Clock recovery separated interrupt status
@@ -678,8 +678,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,OvferrorVal> ovfError{}; 
         namespace OvferrorValC{
-            constexpr Register::FieldValue<decltype(ovfError)::Type,OvferrorVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(ovfError)::Type,OvferrorVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(Usb0ClkRecoverIntStatus::ovfError)::Type,OvferrorVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(Usb0ClkRecoverIntStatus::ovfError)::Type,OvferrorVal::v1> v1{};
         }
     }
 }
