@@ -1,9 +1,8 @@
 # What is Kvasir?
 
-[![Join the chat at https://gitter.im/kvasir-io/Kvasir](https://badges.gitter.im/kvasir-io/Kvasir.svg)](https://gitter.im/kvasir-io/Kvasir?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-Kvasir is a C++ meta programming library enabling full static checking and register abstraction in embedded software. Despite the fact that we use modern C++ tools under the hood the public interface is quite "C like" and familiar to most embedded developers.
+[![Build Status](https://travis-ci.org/kvasir-io/Kvasir.svg?branch=master)](https://travis-ci.org/kvasir-io/kvasir) [![Join the chat at https://gitter.im/kvasir-io/Kvasir](https://badges.gitter.im/kvasir-io/Kvasir.svg)](https://gitter.im/kvasir-io/Kvasir?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[![Build Status](https://travis-ci.org/kvasir-io/Kvasir.svg?branch=master)](https://travis-ci.org/kvasir-io/kvasir)
+Kvasir is a C++ meta programming library enabling full static checking and register abstraction in embedded software. Despite the fact that we use modern C++ tools under the hood the public interface is quite "C like" and familiar to most embedded developers.
 
 # Why Kvasir?
 ## Efficiency
