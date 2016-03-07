@@ -46,7 +46,7 @@ namespace Kvasir {
 			template<typename T>
 			using MakeSeperators = MakeSeperatorsImpl<0, brigand::list<>, brigand::list<>, brigand::sort<T>>;
 
-			//an index action consists of an action (possably merged) and
+			//an index action consists of an action (possibly merged) and
 			//the inputs including masks which it needs
 			template<typename TAction, typename... TInputs>
 			struct IndexedAction{
@@ -71,7 +71,7 @@ namespace Kvasir {
 			using GetInputs = typename GetInputsImpl<T>::type;
 
 
-			//predecate retuning result of left < right for RegisterOptions
+			//predicate returning result of left < right for RegisterOptions
 			template<typename TLeft, typename TRight>
 			struct IndexedActionLess;
 			template<typename T1, typename U1, typename T2, typename U2, typename... TInputs1, typename... TInputs2>
@@ -106,7 +106,7 @@ namespace Kvasir {
 							TActionTemplate<(Value1 | Value2)>	//merge
 							//TODO implement register type here
 						>,
-						TInputs1..., TInputs2...>,				//concatinate
+						TInputs1..., TInputs2...>,				//concatenate
 						Us...>									//pass through rest
 			>{};
 
@@ -216,8 +216,8 @@ namespace Kvasir {
 			}
 
 
-			//finder takes a list of lists of unsigned, each list represets a 
-			//pack of arguements to be ignored. All non ignored arguements will 
+			//finder takes a list of lists of unsigned, each list represents a 
+			//pack of arguments to be ignored. All non ignored arguments will 
 			//be ored together
 
 			template<typename T>
@@ -344,7 +344,7 @@ namespace Kvasir {
 			a(Detail::argToUnsigned(args)...);
 		}
 
-		//no parameters is allowed because it could be used in maschine generated code
+		//no parameters is allowed because it could be used in machine generated code
 		//it does nothing
 		inline void apply(){}
 		inline void apply(brigand::list<>){}
