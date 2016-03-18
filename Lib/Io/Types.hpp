@@ -23,7 +23,7 @@ namespace Io{
 		struct Read{};
 		template<int I>
 		struct PinFunction{ static constexpr int value = I;};
-		constexpr Input input;
+		constexpr Input input{};
 		constexpr Output output{};
 		constexpr Set set{};
 		constexpr Clear clear{};
@@ -55,12 +55,12 @@ namespace Io{
 	};
 
 	namespace Access{
-		constexpr MPL::Value<PortAccess,PortAccess::defaultMode> defaultMode;	//this will try to select the best mode for the chip used
-		constexpr MPL::Value<PortAccess,PortAccess::setClear> setClear;
-		constexpr MPL::Value<PortAccess,PortAccess::toggle> toggle;
-		constexpr MPL::Value<PortAccess,PortAccess::exclusiveMask> exclusiveMask;
-		constexpr MPL::Value<PortAccess,PortAccess::sharedMask> sharedMask;
-		constexpr MPL::Value<PortAccess,PortAccess::readModifyWrite> readModifyWrite;
+		constexpr MPL::Value<PortAccess,PortAccess::defaultMode> defaultMode{};	//this will try to select the best mode for the chip used
+		constexpr MPL::Value<PortAccess,PortAccess::setClear> setClear{};
+		constexpr MPL::Value<PortAccess,PortAccess::toggle> toggle{};
+		constexpr MPL::Value<PortAccess,PortAccess::exclusiveMask> exclusiveMask{};
+		constexpr MPL::Value<PortAccess,PortAccess::sharedMask> sharedMask{};
+		constexpr MPL::Value<PortAccess,PortAccess::readModifyWrite> readModifyWrite{};
 	}
 
 }
