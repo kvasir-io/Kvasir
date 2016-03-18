@@ -11,8 +11,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ModfVal> modf{}; 
         namespace ModfValC{
-            constexpr Register::FieldValue<decltype(Spi0S::modf)::Type,ModfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(Spi0S::modf)::Type,ModfVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(modf)::Type,ModfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(modf)::Type,ModfVal::v1> v1{};
         }
         ///SPI Transmit Buffer Empty Flag (when FIFO is not supported or not enabled) or SPI transmit FIFO empty flag (when FIFO is supported and enabled)
         enum class SptefVal {
@@ -21,8 +21,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SptefVal> sptef{}; 
         namespace SptefValC{
-            constexpr Register::FieldValue<decltype(Spi0S::sptef)::Type,SptefVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(Spi0S::sptef)::Type,SptefVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(sptef)::Type,SptefVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sptef)::Type,SptefVal::v1> v1{};
         }
         ///SPI Match Flag
         enum class SpmfVal {
@@ -31,8 +31,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,SpmfVal> spmf{}; 
         namespace SpmfValC{
-            constexpr Register::FieldValue<decltype(Spi0S::spmf)::Type,SpmfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(Spi0S::spmf)::Type,SpmfVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(spmf)::Type,SpmfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(spmf)::Type,SpmfVal::v1> v1{};
         }
         ///SPI Read Buffer Full Flag (when FIFO is not supported or not enabled) or SPI read FIFO FULL flag (when FIFO is supported and enabled)
         enum class SprfVal {
@@ -41,8 +41,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,SprfVal> sprf{}; 
         namespace SprfValC{
-            constexpr Register::FieldValue<decltype(Spi0S::sprf)::Type,SprfVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(Spi0S::sprf)::Type,SprfVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(sprf)::Type,SprfVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sprf)::Type,SprfVal::v1> v1{};
         }
     }
     namespace Spi0Br{    ///<SPI Baud Rate Register
@@ -61,15 +61,15 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,SprVal> spr{}; 
         namespace SprValC{
-            constexpr Register::FieldValue<decltype(Spi0Br::spr)::Type,SprVal::v0000> v0000{};
-            constexpr Register::FieldValue<decltype(Spi0Br::spr)::Type,SprVal::v0001> v0001{};
-            constexpr Register::FieldValue<decltype(Spi0Br::spr)::Type,SprVal::v0010> v0010{};
-            constexpr Register::FieldValue<decltype(Spi0Br::spr)::Type,SprVal::v0011> v0011{};
-            constexpr Register::FieldValue<decltype(Spi0Br::spr)::Type,SprVal::v0100> v0100{};
-            constexpr Register::FieldValue<decltype(Spi0Br::spr)::Type,SprVal::v0101> v0101{};
-            constexpr Register::FieldValue<decltype(Spi0Br::spr)::Type,SprVal::v0110> v0110{};
-            constexpr Register::FieldValue<decltype(Spi0Br::spr)::Type,SprVal::v0111> v0111{};
-            constexpr Register::FieldValue<decltype(Spi0Br::spr)::Type,SprVal::v1000> v1000{};
+            constexpr Register::FieldValue<decltype(spr)::Type,SprVal::v0000> v0000{};
+            constexpr Register::FieldValue<decltype(spr)::Type,SprVal::v0001> v0001{};
+            constexpr Register::FieldValue<decltype(spr)::Type,SprVal::v0010> v0010{};
+            constexpr Register::FieldValue<decltype(spr)::Type,SprVal::v0011> v0011{};
+            constexpr Register::FieldValue<decltype(spr)::Type,SprVal::v0100> v0100{};
+            constexpr Register::FieldValue<decltype(spr)::Type,SprVal::v0101> v0101{};
+            constexpr Register::FieldValue<decltype(spr)::Type,SprVal::v0110> v0110{};
+            constexpr Register::FieldValue<decltype(spr)::Type,SprVal::v0111> v0111{};
+            constexpr Register::FieldValue<decltype(spr)::Type,SprVal::v1000> v1000{};
         }
         ///SPI Baud Rate Prescale Divisor
         enum class SpprVal {
@@ -84,14 +84,14 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,4),Register::ReadWriteAccess,SpprVal> sppr{}; 
         namespace SpprValC{
-            constexpr Register::FieldValue<decltype(Spi0Br::sppr)::Type,SpprVal::v000> v000{};
-            constexpr Register::FieldValue<decltype(Spi0Br::sppr)::Type,SpprVal::v001> v001{};
-            constexpr Register::FieldValue<decltype(Spi0Br::sppr)::Type,SpprVal::v010> v010{};
-            constexpr Register::FieldValue<decltype(Spi0Br::sppr)::Type,SpprVal::v011> v011{};
-            constexpr Register::FieldValue<decltype(Spi0Br::sppr)::Type,SpprVal::v100> v100{};
-            constexpr Register::FieldValue<decltype(Spi0Br::sppr)::Type,SpprVal::v101> v101{};
-            constexpr Register::FieldValue<decltype(Spi0Br::sppr)::Type,SpprVal::v110> v110{};
-            constexpr Register::FieldValue<decltype(Spi0Br::sppr)::Type,SpprVal::v111> v111{};
+            constexpr Register::FieldValue<decltype(sppr)::Type,SpprVal::v000> v000{};
+            constexpr Register::FieldValue<decltype(sppr)::Type,SpprVal::v001> v001{};
+            constexpr Register::FieldValue<decltype(sppr)::Type,SpprVal::v010> v010{};
+            constexpr Register::FieldValue<decltype(sppr)::Type,SpprVal::v011> v011{};
+            constexpr Register::FieldValue<decltype(sppr)::Type,SpprVal::v100> v100{};
+            constexpr Register::FieldValue<decltype(sppr)::Type,SpprVal::v101> v101{};
+            constexpr Register::FieldValue<decltype(sppr)::Type,SpprVal::v110> v110{};
+            constexpr Register::FieldValue<decltype(sppr)::Type,SpprVal::v111> v111{};
         }
     }
     namespace Spi0C2{    ///<SPI Control Register 2
@@ -103,8 +103,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,Spc0Val> spc0{}; 
         namespace Spc0ValC{
-            constexpr Register::FieldValue<decltype(Spi0C2::spc0)::Type,Spc0Val::v0> v0{};
-            constexpr Register::FieldValue<decltype(Spi0C2::spc0)::Type,Spc0Val::v1> v1{};
+            constexpr Register::FieldValue<decltype(spc0)::Type,Spc0Val::v0> v0{};
+            constexpr Register::FieldValue<decltype(spc0)::Type,Spc0Val::v1> v1{};
         }
         ///SPI Stop in Wait Mode
         enum class SpiswaiVal {
@@ -113,8 +113,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,SpiswaiVal> spiswai{}; 
         namespace SpiswaiValC{
-            constexpr Register::FieldValue<decltype(Spi0C2::spiswai)::Type,SpiswaiVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(Spi0C2::spiswai)::Type,SpiswaiVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(spiswai)::Type,SpiswaiVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(spiswai)::Type,SpiswaiVal::v1> v1{};
         }
         ///Receive DMA enable
         enum class RxdmaeVal {
@@ -123,8 +123,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,RxdmaeVal> rxdmae{}; 
         namespace RxdmaeValC{
-            constexpr Register::FieldValue<decltype(Spi0C2::rxdmae)::Type,RxdmaeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(Spi0C2::rxdmae)::Type,RxdmaeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(rxdmae)::Type,RxdmaeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(rxdmae)::Type,RxdmaeVal::v1> v1{};
         }
         ///Bidirectional Mode Output Enable
         enum class BidiroeVal {
@@ -133,8 +133,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,BidiroeVal> bidiroe{}; 
         namespace BidiroeValC{
-            constexpr Register::FieldValue<decltype(Spi0C2::bidiroe)::Type,BidiroeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(Spi0C2::bidiroe)::Type,BidiroeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(bidiroe)::Type,BidiroeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(bidiroe)::Type,BidiroeVal::v1> v1{};
         }
         ///Master Mode-Fault Function Enable
         enum class ModfenVal {
@@ -143,8 +143,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,ModfenVal> modfen{}; 
         namespace ModfenValC{
-            constexpr Register::FieldValue<decltype(Spi0C2::modfen)::Type,ModfenVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(Spi0C2::modfen)::Type,ModfenVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(modfen)::Type,ModfenVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(modfen)::Type,ModfenVal::v1> v1{};
         }
         ///Transmit DMA enable
         enum class TxdmaeVal {
@@ -153,8 +153,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,TxdmaeVal> txdmae{}; 
         namespace TxdmaeValC{
-            constexpr Register::FieldValue<decltype(Spi0C2::txdmae)::Type,TxdmaeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(Spi0C2::txdmae)::Type,TxdmaeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(txdmae)::Type,TxdmaeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(txdmae)::Type,TxdmaeVal::v1> v1{};
         }
         ///SPI 8-bit or 16-bit mode
         enum class SpimodeVal {
@@ -163,8 +163,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,SpimodeVal> spimode{}; 
         namespace SpimodeValC{
-            constexpr Register::FieldValue<decltype(Spi0C2::spimode)::Type,SpimodeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(Spi0C2::spimode)::Type,SpimodeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(spimode)::Type,SpimodeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(spimode)::Type,SpimodeVal::v1> v1{};
         }
         ///SPI Match Interrupt Enable
         enum class SpmieVal {
@@ -173,8 +173,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SpmieVal> spmie{}; 
         namespace SpmieValC{
-            constexpr Register::FieldValue<decltype(Spi0C2::spmie)::Type,SpmieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(Spi0C2::spmie)::Type,SpmieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(spmie)::Type,SpmieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(spmie)::Type,SpmieVal::v1> v1{};
         }
     }
     namespace Spi0C1{    ///<SPI Control Register 1
@@ -186,8 +186,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,LsbfeVal> lsbfe{}; 
         namespace LsbfeValC{
-            constexpr Register::FieldValue<decltype(Spi0C1::lsbfe)::Type,LsbfeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(Spi0C1::lsbfe)::Type,LsbfeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(lsbfe)::Type,LsbfeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(lsbfe)::Type,LsbfeVal::v1> v1{};
         }
         ///Slave Select Output Enable
         enum class SsoeVal {
@@ -196,8 +196,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,SsoeVal> ssoe{}; 
         namespace SsoeValC{
-            constexpr Register::FieldValue<decltype(Spi0C1::ssoe)::Type,SsoeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(Spi0C1::ssoe)::Type,SsoeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(ssoe)::Type,SsoeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(ssoe)::Type,SsoeVal::v1> v1{};
         }
         ///Clock Phase
         enum class CphaVal {
@@ -206,8 +206,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,CphaVal> cpha{}; 
         namespace CphaValC{
-            constexpr Register::FieldValue<decltype(Spi0C1::cpha)::Type,CphaVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(Spi0C1::cpha)::Type,CphaVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cpha)::Type,CphaVal::v1> v1{};
         }
         ///Clock Polarity
         enum class CpolVal {
@@ -216,8 +216,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,CpolVal> cpol{}; 
         namespace CpolValC{
-            constexpr Register::FieldValue<decltype(Spi0C1::cpol)::Type,CpolVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(Spi0C1::cpol)::Type,CpolVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(cpol)::Type,CpolVal::v1> v1{};
         }
         ///Master/Slave Mode Select
         enum class MstrVal {
@@ -226,8 +226,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,MstrVal> mstr{}; 
         namespace MstrValC{
-            constexpr Register::FieldValue<decltype(Spi0C1::mstr)::Type,MstrVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(Spi0C1::mstr)::Type,MstrVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(mstr)::Type,MstrVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(mstr)::Type,MstrVal::v1> v1{};
         }
         ///SPI Transmit Interrupt Enable
         enum class SptieVal {
@@ -236,8 +236,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(5,5),Register::ReadWriteAccess,SptieVal> sptie{}; 
         namespace SptieValC{
-            constexpr Register::FieldValue<decltype(Spi0C1::sptie)::Type,SptieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(Spi0C1::sptie)::Type,SptieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(sptie)::Type,SptieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(sptie)::Type,SptieVal::v1> v1{};
         }
         ///SPI System Enable
         enum class SpeVal {
@@ -246,8 +246,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(6,6),Register::ReadWriteAccess,SpeVal> spe{}; 
         namespace SpeValC{
-            constexpr Register::FieldValue<decltype(Spi0C1::spe)::Type,SpeVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(Spi0C1::spe)::Type,SpeVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(spe)::Type,SpeVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(spe)::Type,SpeVal::v1> v1{};
         }
         ///SPI Interrupt Enable: for SPRF and MODF (when FIFO is not supported or not enabled) or for read FIFO (when FIFO is supported and enabled)
         enum class SpieVal {
@@ -256,8 +256,8 @@ namespace Kvasir {
         };
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,7),Register::ReadWriteAccess,SpieVal> spie{}; 
         namespace SpieValC{
-            constexpr Register::FieldValue<decltype(Spi0C1::spie)::Type,SpieVal::v0> v0{};
-            constexpr Register::FieldValue<decltype(Spi0C1::spie)::Type,SpieVal::v1> v1{};
+            constexpr Register::FieldValue<decltype(spie)::Type,SpieVal::v0> v0{};
+            constexpr Register::FieldValue<decltype(spie)::Type,SpieVal::v1> v1{};
         }
     }
     namespace Spi0Ml{    ///<SPI Match Register low
