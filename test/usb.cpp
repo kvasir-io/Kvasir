@@ -205,6 +205,12 @@ namespace TestScenario1 {
 			0,
 		};
 	};
+	 constexpr uint8_t MyDescriptors::device[];
+	 constexpr uint8_t MyDescriptors::configuration[];
+	 constexpr uint8_t MyDescriptors::langId[];
+	 constexpr uint8_t MyDescriptors::product[];
+	 constexpr uint8_t MyDescriptors::serial[];
+	 constexpr uint8_t MyDescriptors::interface[];
 	using Device = Kvasir::Usb::Device<Alloc, Kvasir::Usb::CompactPacket::Queue<PacketT>, Kvasir::Usb::CompactPacket::Transfer<PacketT, Alloc>,MyDescriptors>;
 
 	template<typename T>

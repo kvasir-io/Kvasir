@@ -131,6 +131,7 @@ namespace Kvasir
 
 							}
 						}
+						return{}; //should be not reachable, surpressing warning
 					}
 					else
 					{
