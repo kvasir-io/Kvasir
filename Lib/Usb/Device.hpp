@@ -7,13 +7,14 @@ namespace Kvasir
 		//Policy classes:
 		// - allocator creates and destroys packts 
 		// - 
-		template<typename TAllocator, typename TOutputQueue, typename TTransfer>
+		template<typename TAllocator, typename TOutputQueue, typename TTransfer, typename TDescriptors>
 		struct Device
 		{
 			using AllocatorType = TAllocator;
 			using OutputQueueType = TOutputQueue;
 			using TransferType = TTransfer;
 			using PacketType = typename TAllocator::DataType;
+			using Descriptor = TDescriptors;
 
 			struct HalCommand
 			{
@@ -38,6 +39,10 @@ namespace Kvasir
 				}
 				HalCommand() = default;
 			};
+
+			static void copyToTransfer(const uint8_t*const buf, const std::size_t length, TTransfer& transfer) {
+				transfer.pushBack(buf, buf + length);
+			}
 
 			enum class State : uint8_t
 			{
@@ -225,163 +230,26 @@ namespace Kvasir
 			static void requestGetDescriptor(PacketType&& p, TTransfer& t)
 			{
 				using namespace SetupPacket;
-				switch (getDescriptorType(p))
+				const auto type = getDescriptorType(p);
+				const auto reqLength = getWLength(p);
+				const auto index = getDescriptorIndex(p);
+				p.clear();
+				t.pushBackPacket(std::move(p));
+				switch (type)
 				{
 				case DescriptorType::device: {
-					constexpr uint8_t descriptor[] = {
-						18,						// bLength
-						1,						// bDescriptorType
-						0x10,
-						0x01,					// bcdUSB
-						2,						// bDeviceClass
-						0,						// bDeviceSubClass
-						0,						// bDeviceProtocol
-						64,						// bMaxPacketSize0
-						0x00,
-						0x1F,					// idVendor
-						0x12,
-						0x20,					// idProduct
-						0x00,
-						0x01,					// bcdDevice
-						1,						// iManufacturer
-						2,						// iProduct
-						3,						// iSerialNumber
-						1						// bNumConfigurations
-					};
-					auto length = std::min(uint16_t(sizeof(descriptor)), getWLength(p));
-					p.clear();
-					t.pushBackPacket(std::move(p));
-					t.pushBack(std::begin(descriptor), std::next(std::begin(descriptor), length));	//only take the requested length				
+					copyToTransfer(Descriptor::device, std::min(uint16_t(sizeof(Descriptor::device)), reqLength), t);
 					break;
 				}
 				case DescriptorType::configuration: {
-#define CONFIG1_DESC_SIZE (9+8+9+5+5+4+5+7+9+7+7)
-					/* Least/Most significant byte of short integer */
-#define LSB(n)  ((n)&0xff)
-#define MSB(n)  (((n)&0xff00)>>8)
-#define PHY_TO_DESC(endpoint) (((endpoint)>>1) | (((endpoint) & 1) ? 0x80:0))
-#define EP1OUT      (2)
-#define EP1IN       (3)
-#define EP2OUT      (4)
-#define EP2IN       (5)
-#define E_INTERRUPT     (0x03)
-					constexpr uint8_t descriptor[] = {
-						9,                      // bLength
-						2,                      // bDescriptorType
-						LSB(CONFIG1_DESC_SIZE), // wTotalLength
-						MSB(CONFIG1_DESC_SIZE),
-						2,                      // bNumInterfaces
-						1,                      // bConfigurationValue
-						0,                      // iConfiguration
-						0x80,                   // bmAttributes
-						50,                     // bMaxPower
-
-												// IAD to associate the two CDC interfaces
-						0x08,                   // bLength
-						0x0b,                   // bDescriptorType
-						0x00,                   // bFirstInterface
-						0x02,                   // bInterfaceCount
-						0x02,                   // bFunctionClass
-						0x02,                   // bFunctionSubClass
-						0,                      // bFunctionProtocol
-						0,                      // iFunction
-
-												// interface descriptor, USB spec 9.6.5, page 267-269, Table 9-12
-						9,                      // bLength
-						4,                      // bDescriptorType
-						0,                      // bInterfaceNumber
-						0,                      // bAlternateSetting
-						1,                      // bNumEndpoints
-						0x02,                   // bInterfaceClass
-						0x02,                   // bInterfaceSubClass
-						0x01,                   // bInterfaceProtocol
-						0,                      // iInterface
-
-												// CDC Header Functional Descriptor, CDC Spec 5.2.3.1, Table 26
-						5,                      // bFunctionLength
-						0x24,                   // bDescriptorType
-						0x00,                   // bDescriptorSubtype
-						0x10,
-						0x01,             // bcdCDC
-
-										  // Call Management Functional Descriptor, CDC Spec 5.2.3.2, Table 27
-						5,                      // bFunctionLength
-						0x24,                   // bDescriptorType
-						0x01,                   // bDescriptorSubtype
-						0x03,                   // bmCapabilities
-						1,                      // bDataInterface
-
-												// Abstract Control Management Functional Descriptor, CDC Spec 5.2.3.3, Table 28
-						4,                      // bFunctionLength
-						0x24,                   // bDescriptorType
-						0x02,                   // bDescriptorSubtype
-						0x06,                   // bmCapabilities
-
-												// Union Functional Descriptor, CDC Spec 5.2.3.8, Table 33
-						5,                      // bFunctionLength
-						0x24,                   // bDescriptorType
-						0x06,                   // bDescriptorSubtype
-						0,                      // bMasterInterface
-						1,                      // bSlaveInterface0
-
-												// endpoint descriptor, USB spec 9.6.6, page 269-271, Table 9-13
-						7,     // bLength
-						5,            // bDescriptorType
-						PHY_TO_DESC(EP1IN),          // bEndpointAddress
-						E_INTERRUPT,                    // bmAttributes (0x03=intr)
-						64,     // wMaxPacketSize (LSB)
-						0,     // wMaxPacketSize (MSB)
-						16,                             // bInterval
-
-														// interface descriptor, USB spec 9.6.5, page 267-269, Table 9-12
-						9,                          // bLength
-						4,                          // bDescriptorType
-						1,                          // bInterfaceNumber
-						0,                          // bAlternateSetting
-						2,                          // bNumEndpoints
-						0x0A,                       // bInterfaceClass
-						0x00,                       // bInterfaceSubClass
-						0x00,                       // bInterfaceProtocol
-						0,                          // iInterface
-
-													// endpoint descriptor, USB spec 9.6.6, page 269-271, Table 9-13
-						7,							// bLength
-						5,							// bDescriptorType
-						PHY_TO_DESC(EP2IN),			// bEndpointAddress
-						2,							// bmAttributes (0x02=bulk)
-						64,							// wMaxPacketSize (LSB)
-						0,							// wMaxPacketSize (MSB)
-						0,                          // bInterval
-
-													// endpoint descriptor, USB spec 9.6.6, page 269-271, Table 9-13
-						7,							// bLength
-						5,							// bDescriptorType
-						PHY_TO_DESC(EP2OUT),		// bEndpointAddress
-						2,							// bmAttributes (0x02=bulk)
-						64,							// wMaxPacketSize (LSB)
-						0,							// wMaxPacketSize (MSB)
-						0                           // bInterval
-					};
-					auto length = std::min(uint16_t(sizeof(descriptor)), getWLength(p));
-					p.clear();
-					t.pushBackPacket(std::move(p));
-					t.pushBack(std::begin(descriptor), std::next(std::begin(descriptor), length));	//only take the requested length
+					copyToTransfer(Descriptor::configuration, std::min(uint16_t(sizeof(Descriptor::configuration)), reqLength), t);
 					break;
 				}
 				case DescriptorType::string:
-					switch (getDescriptorIndex(p))
+					switch (index)
 					{
 					case DescriptorIndex::langId: {
-						static uint8_t descriptor[] = {
-							0x04,               /*bLength*/
-							3, //STRING_DESCRIPTOR,  /*bDescriptorType 0x03*/
-							0x09,
-							0x04,          /*bString Lang ID - 0x0409 - English*/
-						};
-						auto length = std::min(uint16_t(sizeof(descriptor)), getWLength(p));
-						p.clear();
-						t.pushBackPacket(std::move(p));
-						t.pushBack(std::begin(descriptor), std::next(std::begin(descriptor), length));	//only take the requested length
+						copyToTransfer(Descriptor::langId, std::min(uint16_t(sizeof(Descriptor::langId)), reqLength), t);
 						break;
 					}
 					case DescriptorIndex::manufacturer: {
@@ -392,65 +260,11 @@ namespace Kvasir
 						//break;
 					}
 					case DescriptorIndex::product: {
-						static uint8_t descriptor[] = {
-							0x16,
-							3, //STRING_DESCRIPTOR,
-							'C',
-							0,
-							'D',
-							0,
-							'C',
-							0,
-							' ',
-							0,
-							'D',
-							0,
-							'E',
-							0,
-							'V',
-							0,
-							'I',
-							0,
-							'C',
-							0,
-							'E',
-							0
-						};
-						auto length = std::min(uint16_t(sizeof(descriptor)), getWLength(p));
-						p.clear();
-						t.pushBackPacket(std::move(p));
-						t.pushBack(std::begin(descriptor), std::next(std::begin(descriptor), length));	//only take the requested length
+						copyToTransfer(Descriptor::product, std::min(uint16_t(sizeof(Descriptor::product)), reqLength), t);
 						break;
 					}
 					case DescriptorIndex::serial: {
-						static uint8_t descriptor[] = {
-							0x16,
-							3, //STRING_DESCRIPTOR,
-							'C',
-							0,
-							'D',
-							0,
-							'C',
-							0,
-							' ',
-							0,
-							'D',
-							0,
-							'E',
-							0,
-							'V',
-							0,
-							'I',
-							0,
-							'C',
-							0,
-							'E',
-							0
-						};
-						auto length = std::min(uint16_t(sizeof(descriptor)), getWLength(p));
-						p.clear();
-						t.pushBackPacket(std::move(p));
-						t.pushBack(std::begin(descriptor), std::next(std::begin(descriptor), length));	//only take the requested length
+						copyToTransfer(Descriptor::serial, std::min(uint16_t(sizeof(Descriptor::serial)), reqLength), t);
 						break;
 					}
 					case DescriptorIndex::configuration: {
@@ -461,20 +275,7 @@ namespace Kvasir
 						//break;
 					}
 					case DescriptorIndex::interface : {
-						static uint8_t descriptor[] = {
-							0x08,
-							3, //STRING_DESCRIPTOR,
-							'C',
-							0,
-							'D',
-							0,
-							'C',
-							0,
-						};
-						auto length = getWLength(p);
-						p.clear();
-						t.pushBackPacket(std::move(p));
-						t.pushBack(std::begin(descriptor), std::next(std::begin(descriptor), length));	//only take the requested length
+						copyToTransfer(Descriptor::interface, std::min(uint16_t(sizeof(Descriptor::interface)), reqLength), t);
 						break;
 					}
 					}
@@ -532,7 +333,7 @@ namespace Kvasir
 				AllocatorType::deallocate(std::move(p));
 			}
 		};
-		template<typename TAllocator, typename TOutputQueue, typename TTransfer>
-		typename Device<TAllocator, TOutputQueue, TTransfer>::Sm Device<TAllocator, TOutputQueue, TTransfer>::sm_;
+		template<typename TAllocator, typename TOutputQueue, typename TTransfer, typename TDescriptor>
+		typename Device<TAllocator, TOutputQueue, TTransfer, TDescriptor>::Sm Device<TAllocator, TOutputQueue, TTransfer, TDescriptor>::sm_;
 	}
 }
