@@ -16,6 +16,7 @@
  * limitations under the License.
 ****************************************************************************/
 #pragma once
+#pragma GCC optimize ("-O3")
 #include "Mpl/Types.hpp"
 #include "Mpl/Utility.hpp"
 #include "Mpl/Algorithm.hpp"
@@ -34,7 +35,7 @@ namespace Kvasir {
 
 			template<typename TLocation, unsigned ClearMask, unsigned SetMask>
 			struct GenericReadMaskOrWrite{
-				unsigned operator()(unsigned in = 0){
+				DEBUG_OPTIMIZE unsigned operator()(unsigned in = 0){
 					auto i = GetAddress<TLocation>::read();
 					i &= ~ClearMask;
 					i |= SetMask | in;
@@ -45,7 +46,7 @@ namespace Kvasir {
 
 			template<typename TLocation, unsigned ClearMask, unsigned XorMask>
 			struct GenericReadMaskXorWrite{
-				unsigned operator()(unsigned in = 0){
+				DEBUG_OPTIMIZE unsigned operator()(unsigned in = 0){
 					auto i = GetAddress<TLocation>::read();
 					i &= ~ClearMask;
 					i ^= (XorMask | in);
@@ -83,7 +84,7 @@ namespace Kvasir {
 			struct RegisterExec<Register::Action<
 				FieldLocation<TAddress,Mask,Access,FieldType>,ReadAction>>
 			{
-				unsigned operator()(unsigned in = 0){
+				DEBUG_OPTIMIZE unsigned operator()(unsigned in = 0){
 					return GetAddress<TAddress>::read();
 				}
 			};
@@ -98,7 +99,7 @@ namespace Kvasir {
 				  Data>
 			{
 				static_assert((Data & (~Mask))==0,"bad mask");
-				unsigned operator()(unsigned in = 0){
+				DEBUG_OPTIMIZE unsigned operator()(unsigned in = 0){
 					auto i = GetAddress<TAddress>::read();
 					i ^= Data;
 					GetAddress<TAddress>::write(i);

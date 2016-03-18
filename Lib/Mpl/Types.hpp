@@ -18,13 +18,14 @@ limitations under the License.
 #ifndef NDEBUG
 //in debug mode inlining is forced
 #ifdef _MSC_VER
-#define DEBUG_INLINE __forceinline
+#define DEBUG_OPTIMIZE 
 #else
-#define DEBUG_INLINE __attribute__((always_inline))
+#define DEBUG_OPTIMIZE 
+//__attribute__((optimize("-O3")))
 #endif
 #else
 //in release mode its just a hint
-#define DEBUG_INLINE inline
+#define DEBUG_OPTIMIZE 
 #endif
 namespace Kvasir {
 	namespace MPL {
