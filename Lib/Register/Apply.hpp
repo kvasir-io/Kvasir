@@ -289,7 +289,7 @@ namespace Kvasir {
 				template<typename...T>
 				DEBUG_OPTIMIZE ReturnType operator()(T...args){
 					ReturnType ret{ {} }; //default constructed return
-					const int a[]{ 0, (filterReturns<Detail::GetAddress<TActions>::value>(ret,ExecuteSeam<TActions, ::Kvasir::Tag::User>{}(Finder<TInputIndexes>{}(args...))),0)... };
+					const unsigned a[]{ 0U, (filterReturns<Detail::GetAddress<TActions>::value>(ret,ExecuteSeam<TActions, ::Kvasir::Tag::User>{}(Finder<TInputIndexes>{}(args...))),0U)... };
 					ignore(a);
 
 					return ret;
@@ -303,7 +303,7 @@ namespace Kvasir {
 			struct NoReadApply<brigand::list<TActions...>, brigand::list<TInputIndexes...>> {
 				template<typename...T>
 				DEBUG_OPTIMIZE void operator()(T...args) {
-					const int a[]{ 0, (ExecuteSeam<TActions, ::Kvasir::Tag::User>{}(Finder<TInputIndexes>{}(args...)),0)... };
+					const unsigned a[]{ 0U, (ExecuteSeam<TActions, ::Kvasir::Tag::User>{}(Finder<TInputIndexes>{}(args...)),0U)... };
 					ignore(a);
 				}
 			};
@@ -311,7 +311,7 @@ namespace Kvasir {
 			//no read no runtime write apply
 			template<typename... TActions>
 			DEBUG_OPTIMIZE void noReadNoRuntimeWriteApply(brigand::list<TActions...>*) {
-				const int a[]{ 0, ExecuteSeam<TActions,::Kvasir::Tag::User> { }(0)... };
+				const unsigned a[]{ 0U, ExecuteSeam<TActions,::Kvasir::Tag::User> { }(0U)... };
 				ignore(a);
 			}
 
