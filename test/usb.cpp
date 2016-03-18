@@ -3,9 +3,9 @@
 #include <iomanip>
 #include <Usb/SetupPacket.hpp>
 #include <Usb/Endpoint.hpp>
-#include <USB/Packet.hpp>
-#include <USB/Device.hpp>
-#include <USB/Memory.hpp>
+#include <Usb/Packet.hpp>
+#include <Usb/Device.hpp>
+#include <Usb/Memory.hpp>
 
 
 namespace TestScenario1 {
