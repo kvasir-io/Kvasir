@@ -5,9 +5,20 @@ project(Kvasir)
 enable_testing()
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wextra -pedantic -Wold-style-cast")
+if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+  # using Clang
+elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+  # using GCC
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wextra -pedantic -Wold-style-cast -I ${CMAKE_CURRENT_SOURCE_DIR}/Lib/")
+elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Intel")
+  # using Intel C++
+elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
+  # using Visual Studio C++
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /I\"${CMAKE_CURRENT_SOURCE_DIR}/Lib\"")
+endif()
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DBRIGAND_NO_BOOST_SUPPORT -I ${CMAKE_CURRENT_SOURCE_DIR}/Lib/")
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DBRIGAND_NO_BOOST_SUPPORT ")
 
 set(CMAKE_DEBUG_POSTFIX "d")
 
@@ -37,10 +48,10 @@ add_library(Kvasir
     )
 SET_TARGET_PROPERTIES(Kvasir PROPERTIES LINKER_LANGUAGE CXX)
 
-
-
 set(TestFiles
     test/apply.cpp
+    test/usb.cpp
+	test/main.cpp
   )
 
 add_executable(KvasirTest ${TestFiles})

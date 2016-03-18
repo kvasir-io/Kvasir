@@ -26,7 +26,7 @@ Lets see some code.
 
 Example 2:
 
-    //in a headder abstracting the particular chip in question
+    //in a header abstracting the particular chip in question
     constexpr RWLocation<0x40123456,(1<<13)> mySfrBitName1;
     constexpr RWLocation<0x40123456,(1<<14)> mySfrBitName2;
     constexpr RWLocation<0x40123456,(1<<16)> mySfrBitName3;
@@ -41,7 +41,7 @@ here `apply` executes its parameters, in unspecified order. `set` and `clear` ar
 
 In example 2 we still have the same problem of a race condition, we could however remidy this with the `atomic` factory function which changes its parameter into an atomic operation or issues a compiler error if it is not possible. 
 
-    //in a headder abstracting the particular chip in question
+    //in a header abstracting the particular chip in question
     constexpr RWLocation<0x40123456,(1<<13)> mySfrBitName1;
     constexpr RWLocation<0x40123456,(1<<14)> mySfrBitName2;
     constexpr RWLocation<0x40123456,(1<<16)> mySfrBitName3;
@@ -54,7 +54,7 @@ In example 2 we still have the same problem of a race condition, we could howeve
 
 This is now thread safe (using bit banding internally). What if we require that mySfrBitName1 and mySfrBitName2 are set at the same time? Notice that bit 16 used in the ISR is in byte 2 of the SFR and bits 13 and 14 are in byte 1, if we change our read modify write aroud to only access one single byte rather than the whole register we would remove the race condition. This kind of refactoring can be a source of bugs an confusion in normal code but here we can just use the `isolated` factory function. 
 
-    //in a headder abstracting the particular chip in question
+    //in a header abstracting the particular chip in question
     constexpr RWLocation<0x40123456,(1<<13)> mySfrBitName1;
     constexpr RWLocation<0x40123456,(1<<14)> mySfrBitName2;
     constexpr RWLocation<0x40123456,(1<<16)> mySfrBitName3;
