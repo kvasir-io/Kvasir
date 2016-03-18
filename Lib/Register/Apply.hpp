@@ -137,8 +137,8 @@ namespace Kvasir {
 			struct MergeActionSteps<brigand::list<Ts...>> {
 				using type = brigand::list<
 					MergeRegisterActionsT<
-					//brigand::sort<brigand::flatten<Ts>, Detail::IndexedActionLess<brigand::_1,brigand::_2>>
-					SortT<brigand::flatten<Ts>, MPL::Template<Detail::IndexedActionLess>>
+					brigand::sort<brigand::flatten<Ts>, Detail::IndexedActionLess<brigand::_1,brigand::_2>>
+					//SortT<brigand::flatten<Ts>, MPL::Template<Detail::IndexedActionLess>>
 					>...
 				>;
 			};
