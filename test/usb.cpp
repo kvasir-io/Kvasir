@@ -13,7 +13,7 @@ namespace TestScenario1 {
 	using Alloc = Kvasir::Usb::CompactPacket::Allocator<PacketT, 12>;
 
 	struct MyDescriptors {
-		static constexpr uint8_t device[] = {
+		static constexpr uint8_t device[18] = {
 			18,						// bLength
 			1,						// bDescriptorType
 			0x10,
@@ -43,7 +43,7 @@ namespace TestScenario1 {
 #define EP2OUT      (4)
 #define EP2IN       (5)
 #define E_INTERRUPT     (0x03)
-		static constexpr uint8_t configuration[] = {
+		static constexpr uint8_t configuration[CONFIG1_DESC_SIZE] = {
 			9,                      // bLength
 			2,                      // bDescriptorType
 			LSB(CONFIG1_DESC_SIZE), // wTotalLength
@@ -140,13 +140,13 @@ namespace TestScenario1 {
 			0,							// wMaxPacketSize (MSB)
 			0                           // bInterval
 		};
-		static constexpr uint8_t langId[] = {
+		static constexpr uint8_t langId[4] = {
 			0x04,               /*bLength*/
 			3, //STRING_DESCRIPTOR,  /*bDescriptorType 0x03*/
 			0x09,
 			0x04,          /*bString Lang ID - 0x0409 - English*/
 		};
-		static constexpr uint8_t product[] = {
+		static constexpr uint8_t product[0x16] = {
 			0x16,
 			3, //STRING_DESCRIPTOR,
 			'C',
@@ -170,7 +170,7 @@ namespace TestScenario1 {
 			'E',
 			0
 		};
-		static constexpr uint8_t serial[] = {
+		static constexpr uint8_t serial[0x16] = {
 			0x16,
 			3, //STRING_DESCRIPTOR,
 			'C',
@@ -194,7 +194,7 @@ namespace TestScenario1 {
 			'E',
 			0
 		};
-		static constexpr uint8_t interface[] = {
+		static constexpr uint8_t interface[8] = {
 			0x08,
 			3, //STRING_DESCRIPTOR,
 			'C',
@@ -205,12 +205,12 @@ namespace TestScenario1 {
 			0,
 		};
 	};
-	 constexpr uint8_t MyDescriptors::device[];
-	 constexpr uint8_t MyDescriptors::configuration[];
-	 constexpr uint8_t MyDescriptors::langId[];
-	 constexpr uint8_t MyDescriptors::product[];
-	 constexpr uint8_t MyDescriptors::serial[];
-	 constexpr uint8_t MyDescriptors::interface[];
+	constexpr uint8_t MyDescriptors::device[18];
+	constexpr uint8_t MyDescriptors::configuration[CONFIG1_DESC_SIZE];
+	constexpr uint8_t MyDescriptors::langId[4];
+	constexpr uint8_t MyDescriptors::product[0x16];
+	constexpr uint8_t MyDescriptors::serial[0x16];
+	constexpr uint8_t MyDescriptors::interface[8];
 	using Device = Kvasir::Usb::Device<Alloc, Kvasir::Usb::CompactPacket::Queue<PacketT>, Kvasir::Usb::CompactPacket::Transfer<PacketT, Alloc>,MyDescriptors>;
 
 	template<typename T>
