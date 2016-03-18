@@ -3,7 +3,7 @@
 #include "Atomic/Queue.hpp"
 #include <array>
 namespace Kvasir
-{
+{ 
 	namespace Usb
 	{
 		template<std::size_t BufSize, template<typename> class TPointerType>
