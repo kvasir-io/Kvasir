@@ -266,7 +266,7 @@ namespace Kvasir {
 				template<typename...T>
 				ReturnType operator()(T...args){
 					ReturnType ret{ {} }; //default constructed return
-					const unsigned a[]{ (filterReturns<Detail::GetAddress<TActions>::value>(ret,ExecuteSeam<TActions, ::Kvasir::Tag::User>{}(Finder<TInputIndexes>{}(args...))),0)... };
+					const int a[]{ (filterReturns<Detail::GetAddress<TActions>::value>(ret,ExecuteSeam<TActions, ::Kvasir::Tag::User>{}(Finder<TInputIndexes>{}(args...))),0)... };
 					ignore(a);
 
 					return ret;
@@ -280,7 +280,7 @@ namespace Kvasir {
 			struct NoReadApply<brigand::list<TActions...>, brigand::list<TInputIndexes...>> {
 				template<typename...T>
 				void operator()(T...args) {
-					unsigned a[]{ ExecuteSeam<TActions, ::Kvasir::Tag::User>{}(Finder<TInputIndexes>{}(args...))... };
+					int a[]{ ExecuteSeam<TActions, ::Kvasir::Tag::User>{}(Finder<TInputIndexes>{}(args...))... };
 					ignore(a);
 				}
 			};
