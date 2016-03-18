@@ -1,6 +1,5 @@
 #pragma once
 #include "Mpl/Utility.hpp"
-#include "Cmsis/Assembler.hpp"
 
 namespace Kvasir{
 namespace Atomic{
@@ -9,12 +8,12 @@ namespace Atomic{
 		template<typename T, typename = void>
 		struct Intigral;
 		template<typename T>
-		struct Integral<T,EnableIfT<IsIntegral<T>::value>>{
+		struct Intigral<T,EnableIfT<IsIntegral<T>::value>>{
 		private:
 			volatile T data_{0};
 		public:
-			Integral(){}
-			Integral(T in):data_{in}{};
+			Intigral(){}
+			Intigral(T in):data_{in}{};
 			T load(){
 				return data_;
 			}
@@ -24,19 +23,19 @@ namespace Atomic{
 		};
 	}
 	template<typename T>
-	struct Integral : Detail::Integral<T>{};
+	struct Intigral : Detail::Intigral<T>{};
 
-	template<unsigned Address, unsigned Mask, unsigned Value>
-	void atomicPartialWrite(){
-		do{
-			auto reg = *(unsigned*)Address;
-			reg &= Mask;
-			reg |= Value;
-		}while()
-	}
-	template<unsigned Address, unsigned Mask>
-	void atomicPartialWrite(unsigned value){
-
-	}
+	//template<unsigned Address, unsigned Mask, unsigned Value>
+	//void atomicPartialWrite(){
+		//do{
+			//auto reg = *(unsigned*)Address;
+			//reg &= Mask;
+			//reg |= Value;
+		//}while()
+	//}
+	//template<unsigned Address, unsigned Mask>
+	//void atomicPartialWrite(unsigned value){
+//
+	//}
 }
 }
