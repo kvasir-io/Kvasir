@@ -24,7 +24,6 @@
 #include "Exec.hpp"
 #include "Common/Tags.hpp"
 #include <utility>
-
 namespace Kvasir {
 
 	namespace Register{
@@ -46,7 +45,7 @@ namespace Kvasir {
 			template<typename T>
 			using MakeSeperators = MakeSeperatorsImpl<0, brigand::list<>, brigand::list<>, brigand::sort<T>>;
 
-			//an index action consists of an action (possably merged) and
+			//an index action consists of an action (possibly merged) and
 			//the inputs including masks which it needs
 			template<typename TAction, typename... TInputs>
 			struct IndexedAction{
@@ -60,6 +59,11 @@ namespace Kvasir {
 			struct GetAction<IndexedAction<A, T...>> {
 				using type = A;
 			};
+			
+			template<typename F, typename A>
+			struct GetAction<Action<F, A>> {
+				using type = Action<F, A>;
+			};
 
 			template<typename T>
 			struct GetInputsImpl;
@@ -71,11 +75,13 @@ namespace Kvasir {
 			using GetInputs = typename GetInputsImpl<T>::type;
 
 
-			//predecate retuning result of left < right for RegisterOptions
+			//predicate returning result of left < right for RegisterOptions
 			template<typename TLeft, typename TRight>
 			struct IndexedActionLess;
 			template<typename T1, typename U1, typename T2, typename U2, typename... TInputs1, typename... TInputs2>
-			struct IndexedActionLess< IndexedAction<Action<T1,U1>, TInputs1...>, IndexedAction<Action<T2,U2>, TInputs2... >> : Bool<(GetAddress<T1>::value < GetAddress<T2>::value)>{};
+			struct IndexedActionLess< IndexedAction<Action<T1, U1>, TInputs1...>, IndexedAction<Action<T2, U2>, TInputs2... >> : Bool<(GetAddress<T1>::value < GetAddress<T2>::value)> {};
+			template<typename T1, typename U1, typename T2, typename U2>
+			struct IndexedActionLess< Action<T1, U1>, Action<T2, U2>> : Bool<(GetAddress<T1>::value < GetAddress<T2>::value)> {};
 
 			template<typename TRegisters, typename TRet = brigand::list<>> //default
 			struct MergeRegisterActions;
@@ -106,7 +112,7 @@ namespace Kvasir {
 							TActionTemplate<(Value1 | Value2)>	//merge
 							//TODO implement register type here
 						>,
-						TInputs1..., TInputs2...>,				//concatinate
+						TInputs1..., TInputs2...>,				//concatenate
 						Us...>									//pass through rest
 			>{};
 
@@ -132,6 +138,7 @@ namespace Kvasir {
 				using type = brigand::list<
 					MergeRegisterActionsT<
 					brigand::sort<brigand::flatten<Ts>, Detail::IndexedActionLess<brigand::_1,brigand::_2>>
+					//SortT<brigand::flatten<Ts>, MPL::Template<Detail::IndexedActionLess>>
 					>...
 				>;
 			};
@@ -196,7 +203,23 @@ namespace Kvasir {
 
 			//takes an args list or tree, flattens it and removes all actions which are not reads
 			template<typename... TArgList>
-			using GetReadsT = brigand::transform<brigand::remove_if<brigand::flatten<brigand::list<TArgList...>>, IsNotReadPred<brigand::_1>>, GetFieldLocation<brigand::_1>>;
+			using GetReadsT = brigand::transform<brigand::remove_if<brigand::flatten<brigand::list<TArgList...>>, IsNotReadPred<brigand::_1>>, GetFieldLocation<brigand::_1>>;			
+			
+			template<typename...T>
+			constexpr bool noneRuntime()
+			{
+				return brigand::size<brigand::remove_if<brigand::list<T...>, IsNotRuntimeWritePred<brigand::_1>>>::value == 0;
+			}
+			
+			template<typename... T>
+			struct AllCompileTime { 
+				static constexpr bool value = (brigand::size<Detail::GetReadsT<brigand::list<T...>>>::value == 0) && noneRuntime<T...>();
+			};
+
+			template<typename... T>
+			struct NoReadsRuntimeWrites { 
+				static constexpr bool value = (brigand::size<Detail::GetReadsT<brigand::list<T...>>>::value == 0) && !noneRuntime<T...>();
+			};
 
 			template<typename T>
 			struct GetReadMask : Int<0>{};
@@ -208,44 +231,44 @@ namespace Kvasir {
 
 
 			template<typename T, typename = decltype(T::value_)>
-			DEBUG_INLINE unsigned argToUnsigned(T arg){
+			DEBUG_OPTIMIZE unsigned argToUnsigned(T arg){
 				return arg.value_;
 			}
-			unsigned argToUnsigned(...){
+			DEBUG_OPTIMIZE inline unsigned argToUnsigned(...){
 				return 0;
 			}
 
 
-			//finder takes a list of lists of unsigned, each list represets a 
-			//pack of arguements to be ignored. All non ignored arguements will 
+			//finder takes a list of lists of unsigned, each list represents a 
+			//pack of arguments to be ignored. All non ignored arguments will 
 			//be ored together
 
 			template<typename T>
 			struct Finder;
 			template<>
 			struct Finder<brigand::list<>> {
-				DEBUG_INLINE unsigned operator()(...) {
+				DEBUG_OPTIMIZE unsigned operator()(...) {
 					return 0;
 				}
 			};
 			template<typename...A>
 			struct Finder<brigand::list<brigand::list<A...>>> {
 				template<typename...T>
-				DEBUG_INLINE unsigned operator()(A..., unsigned a, T...) {
+				DEBUG_OPTIMIZE unsigned operator()(A..., unsigned a, T...) {
 					return a;
 				}
 			};
 			template<typename...A, typename...B>
 			struct Finder<brigand::list<brigand::list<A...>, brigand::list<B...>>> {
 				template<typename...T>
-				DEBUG_INLINE unsigned operator()(A..., unsigned a, B..., unsigned b, T...) {
+				DEBUG_OPTIMIZE unsigned operator()(A..., unsigned a, B..., unsigned b, T...) {
 					return a | b;
 				}
 			};
 			template<typename...A, typename...B, typename...Rest>
 			struct Finder<brigand::list<brigand::list<A...>, brigand::list<B...>, Rest...>> {
 				template<typename...T>
-				DEBUG_INLINE unsigned operator()(A..., unsigned a, B..., unsigned b, T...t) {
+				DEBUG_OPTIMIZE unsigned operator()(A..., unsigned a, B..., unsigned b, T...t) {
 					auto r = Finder < brigand::list<Rest...>>{};
 					return a | b | r(t...);
 				}
@@ -257,16 +280,16 @@ namespace Kvasir {
 			struct Apply<brigand::list<TActions...>,brigand::list<TInputIndexes...>, FieldTuple<brigand::list<TRetAddresses...>,TRetLocations>>{
 				using ReturnType = FieldTuple<brigand::list<TRetAddresses...>, TRetLocations>;
 				template<unsigned A>
-				typename std::enable_if<brigand::contains<brigand::set<TRetAddresses...>,brigand::uint32_t<A>>::value>::type filterReturns(ReturnType& ret, unsigned in) {
+				DEBUG_OPTIMIZE typename std::enable_if<brigand::contains<brigand::set<TRetAddresses...>,brigand::uint32_t<A>>::value>::type filterReturns(ReturnType& ret, unsigned in) {
 					ret.value_[sizeof...(TRetAddresses)-brigand::size<brigand::find<brigand::list<TRetAddresses...>, std::is_same<brigand::uint32_t<A>,brigand::_1>>>::value] |= in;
 				}
 				template<unsigned A>
-				void filterReturns(...) {}
+				DEBUG_OPTIMIZE void filterReturns(...) {}
 				
 				template<typename...T>
-				ReturnType operator()(T...args){
+				DEBUG_OPTIMIZE ReturnType operator()(T...args){
 					ReturnType ret{ {} }; //default constructed return
-					const int a[]{ (filterReturns<Detail::GetAddress<TActions>::value>(ret,ExecuteSeam<TActions, ::Kvasir::Tag::User>{}(Finder<TInputIndexes>{}(args...))),0)... };
+					const unsigned a[]{ 0U, (filterReturns<Detail::GetAddress<TActions>::value>(ret,ExecuteSeam<TActions, ::Kvasir::Tag::User>{}(Finder<TInputIndexes>{}(args...))),0U)... };
 					ignore(a);
 
 					return ret;
@@ -279,11 +302,18 @@ namespace Kvasir {
 			template<typename... TActions, typename...TInputIndexes>
 			struct NoReadApply<brigand::list<TActions...>, brigand::list<TInputIndexes...>> {
 				template<typename...T>
-				void operator()(T...args) {
-					int a[]{ ExecuteSeam<TActions, ::Kvasir::Tag::User>{}(Finder<TInputIndexes>{}(args...))... };
+				DEBUG_OPTIMIZE void operator()(T...args) {
+					const unsigned a[]{ 0U, (ExecuteSeam<TActions, ::Kvasir::Tag::User>{}(Finder<TInputIndexes>{}(args...)),0U)... };
 					ignore(a);
 				}
 			};
+			
+			//no read no runtime write apply
+			template<typename... TActions>
+			DEBUG_OPTIMIZE void noReadNoRuntimeWriteApply(brigand::list<TActions...>*) {
+				const unsigned a[]{ 0U, ExecuteSeam<TActions,::Kvasir::Tag::User> { }(0U)... };
+				ignore(a);
+			}
 
 			template<typename... Ts>
 			using GetReturnType = FieldTuple<
@@ -313,7 +343,7 @@ namespace Kvasir {
 
 		//if apply contains reads return a FieldTuple
 		template<typename...Args>
-			inline typename std::enable_if<(brigand::size<Detail::GetReadsT<brigand::list<Args...>>>::value != 0),
+			DEBUG_OPTIMIZE inline typename std::enable_if<(brigand::size<Detail::GetReadsT<brigand::list<Args...>>>::value != 0),
 			Detail::GetReturnType<Args...>>::type
 		apply(Args...args){
 			static_assert(Detail::ArgsToApplyArePlausible<Args...>::value,"one of the supplied arguments is not supported");
@@ -330,7 +360,7 @@ namespace Kvasir {
 
 		//if apply does not contain reads return is void
 		template<typename...Args>
-		inline typename std::enable_if<(brigand::size<Detail::GetReadsT<brigand::list<Args...>>>::value == 0)>::type
+		DEBUG_OPTIMIZE typename std::enable_if<Detail::NoReadsRuntimeWrites<Args...>::value>::type
 			apply(Args...args) {
 			static_assert(Detail::ArgsToApplyArePlausible<Args...>::value, "one of the supplied arguments is not supported");
 			using IndexedActions = brigand::transform<brigand::list<Args...>, MPL::BuildIndicesT<sizeof...(Args)>, brigand::quote<Detail::MakeIndexedAction>>;
@@ -343,14 +373,29 @@ namespace Kvasir {
 			Detail::NoReadApply<Functors, Inputs> a{};
 			a(Detail::argToUnsigned(args)...);
 		}
+		
+		
+		//if apply does not contain reads or runtime writes we can speed things up
+		template<typename...Args>
+		DEBUG_OPTIMIZE typename std::enable_if<Detail::AllCompileTime<Args...>::value>::type
+			apply(Args...args) {
+			static_assert(Detail::ArgsToApplyArePlausible<Args...>::value, "one of the supplied arguments is not supported");
+			//using IndexedActions = brigand::transform<brigand::list<Args...>, MPL::BuildIndicesT<sizeof...(Args)>, brigand::quote<Detail::MakeIndexedAction>>;
+			using FlattenedActions = brigand::flatten<brigand::list<Args...>>;
+			using Steps = brigand::split<FlattenedActions, SequencePoint>;
+			using Merged = Detail::MergeActionStepsT<Steps>;
+			using Actions = brigand::flatten<Merged>;
+			//using Functors = brigand::transform<Actions, brigand::quote<Detail::GetAction>>;
+			Detail::noReadNoRuntimeWriteApply((Actions*)nullptr);
+		}
 
-		//no parameters is allowed because it could be used in maschine generated code
+		//no parameters is allowed because it could be used in machine generated code
 		//it does nothing
-		void apply(){}
-		void apply(brigand::list<>){}
+		inline void apply(){}
+		inline void apply(brigand::list<>){}
 
 		template<typename TField, typename TField::DataType Value>
-		inline bool fieldEquals(FieldValue<TField, Value> ) {
+		DEBUG_OPTIMIZE inline bool fieldEquals(FieldValue<TField, Value> ) {
 			return apply(Action<TField,ReadAction>{}) == Value;
 		}
 	}

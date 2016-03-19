@@ -197,6 +197,15 @@ namespace Register{
 
 		template<typename T>
 		struct IsNotReadPred : std::integral_constant<bool,(!IsReadPred<T>::type::value)>{};
+		
+		//predicate returns true if action is a read
+		template<typename T>
+		struct IsRuntimeWritePred : std::false_type {};
+		template<typename A>
+		struct IsRuntimeWritePred< Register::Action<A, WriteAction> > : std::true_type {};
+		
+		template<typename T>
+		struct IsNotRuntimeWritePred : std::integral_constant<bool, (!IsRuntimeWritePred<T>::type::value)> {};
 
 		template<typename T>
 		struct GetMask;
