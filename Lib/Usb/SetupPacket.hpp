@@ -42,7 +42,9 @@ namespace Kvasir
 				getConfiguration,
 				setConfiguration,
 				getInterface,
-				setInterface
+				setInterface,
+				getLineCoding = 0x21,
+				setLineCoding = 0x22
 			};
 			
 			enum class DescriptorType : uint8_t

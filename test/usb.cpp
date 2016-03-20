@@ -6,33 +6,12 @@
 #include <Usb/Packet.hpp>
 #include <Usb/Device.hpp>
 #include <Usb/Memory.hpp>
+#include <Usb/Cdc.hpp>
 
 
 namespace TestScenario1 {
-	using PacketT = Kvasir::Usb::Packet <Kvasir::Usb::CompactPacket::ImplType>;
-	using Alloc = Kvasir::Usb::CompactPacket::Allocator<PacketT, 12>;
-
-	struct MyDescriptors {
-		static constexpr uint8_t device[18] = {
-			18,						// bLength
-			1,						// bDescriptorType
-			0x10,
-			0x01,					// bcdUSB
-			2,						// bDeviceClass
-			0,						// bDeviceSubClass
-			0,						// bDeviceProtocol
-			64,						// bMaxPacketSize0
-			0x00,
-			0x1F,					// idVendor
-			0x12,
-			0x20,					// idProduct
-			0x00,
-			0x01,					// bcdDevice
-			1,						// iManufacturer
-			2,						// iProduct
-			3,						// iSerialNumber
-			1						// bNumConfigurations
-		};
+	struct MyStringDescriptors {
+		
 #define CONFIG1_DESC_SIZE (9+8+9+5+5+4+5+7+9+7+7)
 		/* Least/Most significant byte of short integer */
 #define LSB(n)  ((n)&0xff)
@@ -205,17 +184,23 @@ namespace TestScenario1 {
 			0,
 		};
 	};
-	constexpr uint8_t MyDescriptors::device[18];
-	constexpr uint8_t MyDescriptors::configuration[CONFIG1_DESC_SIZE];
-	constexpr uint8_t MyDescriptors::langId[4];
-	constexpr uint8_t MyDescriptors::product[0x16];
-	constexpr uint8_t MyDescriptors::serial[0x16];
-	constexpr uint8_t MyDescriptors::interface[8];
-	using Device = Kvasir::Usb::Device<Alloc, Kvasir::Usb::CompactPacket::Queue<PacketT>, Kvasir::Usb::CompactPacket::Transfer<PacketT, Alloc>,MyDescriptors>;
+	
+	constexpr uint8_t MyStringDescriptors::configuration[CONFIG1_DESC_SIZE];
+	constexpr uint8_t MyStringDescriptors::langId[4];
+	constexpr uint8_t MyStringDescriptors::product[0x16];
+	constexpr uint8_t MyStringDescriptors::serial[0x16];
+	constexpr uint8_t MyStringDescriptors::interface[8];
+	struct MyCdcSettings : Kvasir::Usb::CdcDefaultSettings{};
+	struct MyDeviceSettings : Kvasir::Usb::DefaultDeviceSettings {
+		using StringDescriptors = MyStringDescriptors;
+		static constexpr uint16_t vid = 0x1F00;
+		static constexpr uint16_t pid = 0x2012;
+	};
+	using Device = Kvasir::Usb::Device<MyDeviceSettings, MyCdcSettings>;
 
 	template<typename T>
-	decltype(Alloc::allocate()) makePacket(std::initializer_list<T> l) {
-		auto packet = Alloc::allocate();
+	decltype(Device::AllocatorType::allocate()) makePacket(std::initializer_list<T> l) {
+		auto packet = Device::AllocatorType::allocate();
 		for (auto d : l) {
 			packet.pushBack(d);
 		}
@@ -227,7 +212,7 @@ int usbTest()
 {
 	{
 		using namespace TestScenario1;
-		Alloc::initialize();
+		Device::AllocatorType::initialize();
 		{
 			//set address
 			auto cmd = Device::onSetupPacket(makePacket({ 0, 5, 5, 0, 0, 0, 0, 0 }));
@@ -430,6 +415,57 @@ int usbTest()
 				return 1;
 			}
 			if (cmd3.packet_) {
+				return 1;
+			}
+		}
+		{
+			//set configuration
+			auto cmd = Device::onSetupPacket(makePacket({ 0x00, 0x09, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00 }));
+			if (cmd.type_ != Device::HalCommand::Type::noAction) {
+				return 1;
+			}
+			if (cmd.packet_.getSize() != 0) {
+				return 1;
+			}
+			auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
+			if (cmd2.type_ != Device::HalCommand::Type::noAction) {
+				return 1;
+			}
+			if (cmd2.packet_) {
+				return 1;
+			}
+		}
+		{
+			//get line coding
+			auto cmd = Device::onSetupPacket(makePacket({ 0xA1, 0x21, 0x01, 0x00, 0x00, 0x00, 0x07, 0x00 }));
+			if (cmd.type_ != Device::HalCommand::Type::noAction) {
+				return 1;
+			}
+			if (cmd.packet_.getSize() != 7) {
+				return 1;
+			}
+			auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
+			if (cmd2.type_ != Device::HalCommand::Type::noAction) {
+				return 1;
+			}
+			if (cmd2.packet_) {
+				return 1;
+			}
+		}
+		{
+			//set line coding
+			auto cmd = Device::onSetupPacket(makePacket({ 0x21, 0x22, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }));
+			if (cmd.type_ != Device::HalCommand::Type::noAction) {
+				return 1;
+			}
+			if (cmd.packet_.getSize() != 0) {
+				return 1;
+			}
+			auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
+			if (cmd2.type_ != Device::HalCommand::Type::noAction) {
+				return 1;
+			}
+			if (cmd2.packet_) {
 				return 1;
 			}
 		}

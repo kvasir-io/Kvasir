@@ -27,7 +27,8 @@ namespace Kvasir
 			PointerType packet_;
 			Packet(PointerType packet) : packet_{packet} {}
 		public:
-			static constexpr std::size_t capacity = TPacketImpl::capacity;
+			using ImplType = TPacketImpl;
+			static constexpr std::size_t capacity = ImplType::capacity;
 			Packet(const Packet&) = delete;
 			Packet(Packet&&other) : packet_{other.packet_} {other.packet_ = PointerType {}; }
 			Packet() = default;

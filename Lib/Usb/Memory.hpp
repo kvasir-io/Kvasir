@@ -7,7 +7,6 @@ namespace Kvasir {
 		namespace CompactPacket {
 			template<typename T>
 			struct Pointer;
-			using ImplType = Kvasir::Usb::PacketImpl<64, Pointer>;
 			template<typename T>
 			struct Pointer
 			{
@@ -58,6 +57,7 @@ namespace Kvasir {
 			struct Allocator
 			{
 				using DataType = PacketType;
+				using ImplType = typename PacketType::ImplType;
 				static ImplType data_[Size];
 				static Pointer<ImplType> free_;
 				static DataType allocate()
@@ -84,9 +84,9 @@ namespace Kvasir {
 				}
 			};
 			template<typename PacketType, int Size>
-			Pointer<ImplType> Allocator<PacketType, Size>::free_;
+			Pointer<typename Allocator<PacketType, Size>::ImplType> Allocator<PacketType, Size>::free_;
 			template<typename PacketType, int Size>
-			ImplType Allocator<PacketType, Size>::data_[Size];
+			typename Allocator<PacketType, Size>::ImplType Allocator<PacketType, Size>::data_[Size];
 
 			template<typename TPacketType>
 			struct Queue
@@ -200,6 +200,13 @@ namespace Kvasir {
 						lastP->pushBack(*begin);
 					}
 				}
+			};
+			template<int NumberOfPackets = 10, int PacketLength = 64>
+			struct MemoryPolicy {
+				using PacketType = Kvasir::Usb::Packet<PacketImpl<PacketLength,Pointer>>;
+				using AllocatorType = Allocator<PacketType, NumberOfPackets>;
+				using QueueType = Queue<PacketType>;
+				using TransferType = Transfer<PacketType, AllocatorType>;
 			};
 		}
 	}
