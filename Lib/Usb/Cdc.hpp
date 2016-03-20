@@ -1,5 +1,5 @@
 #pragma once
-#include <Mpl\brigand.hpp>
+#include <Mpl/brigand.hpp>
 #include <algorithm>
 namespace Kvasir
 {
