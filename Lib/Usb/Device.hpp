@@ -1,4 +1,5 @@
 #pragma once
+#include "Memory.hpp"
 namespace Kvasir
 {
 	namespace Usb
@@ -7,15 +8,13 @@ namespace Kvasir
 		//Policy classes:
 		// - allocator creates and destroys packts 
 		// - 
-		template<typename TAllocator, typename TOutputQueue, typename TTransfer, typename TDescriptors>
+		template<typename TDeviceSettings, typename...TDeviceClass>
 		struct Device
 		{
-			using AllocatorType = TAllocator;
-			using OutputQueueType = TOutputQueue;
-			using TransferType = TTransfer;
-			using PacketType = typename TAllocator::DataType;
-			using Descriptor = TDescriptors;
-
+			using PacketType = typename TDeviceSettings::MemoryPolicy::PacketType;
+			using AllocatorType = typename TDeviceSettings::MemoryPolicy::AllocatorType;;
+			using OutputQueueType = typename TDeviceSettings::MemoryPolicy::QueueType;;
+			using TransferType = typename TDeviceSettings::MemoryPolicy::TransferType;;
 			struct HalCommand
 			{
 				enum class Type : uint8_t
@@ -40,9 +39,29 @@ namespace Kvasir
 				HalCommand() = default;
 			};
 
-			static void copyToTransfer(const uint8_t*const buf, const std::size_t length, TTransfer& transfer) {
-				transfer.pushBack(buf, buf + length);
-			}
+			using DeviceClasses = brigand::list<brigand::apply<typename TDeviceClass::ClassType, TDeviceClass, Device>...>;
+
+			static constexpr uint8_t deviceDescriptor[18] = {
+				18,						// bLength
+				1,						// bDescriptorType
+				0x10,
+				0x01,					// bcdUSB
+				2,						// bDeviceClass
+				0,						// bDeviceSubClass
+				0,						// bDeviceProtocol
+				static_cast<uint8_t>(PacketType::capacity),	// bMaxPacketSize0
+				static_cast<uint8_t>(TDeviceSettings::vid & 0xFF),
+				static_cast<uint8_t>((TDeviceSettings::vid>>8) & 0xFF),					// idVendor
+				static_cast<uint8_t>(TDeviceSettings::pid & 0xFF),
+				static_cast<uint8_t>((TDeviceSettings::pid>>8) & 0xFF),					// idProduct
+				0x00,
+				0x01,					// bcdDevice
+				1,						// iManufacturer
+				2,						// iProduct
+				3,						// iSerialNumber
+				1						// bNumConfigurations
+			};
+
 
 			enum class State : uint8_t
 			{
@@ -55,11 +74,10 @@ namespace Kvasir
 				waitingForAck,
 
 			};
-			class Sm
+			struct Sm
 			{
 				State state_;
-				TTransfer transfer_;
-			public:
+				TransferType transfer_;
 				State getState() const
 				{
 					return state_;
@@ -70,13 +88,31 @@ namespace Kvasir
 					using namespace SetupPacket;
 					auto t = getType(p);
 					auto rt = getRequest(p);
-					if (getWLength(p) > 0)
+
+					switch (t) {
+					case Type::classT:
 					{
-						if (getDirection(p) == Direction::deviceToHost)
+						//TODO support more
+						auto i = getIndex(p);
+						switch (i) {
+						case 0:
+							return brigand::at<DeviceClasses, brigand::int8_t<0>>::onSetupReceived(std::move(p));
+						}
+						
+						break;
+					}
+					case Type::vendor:
+					{
+						break;
+					}
+					case Type::standard:
+					{
+						if (getWLength(p) > 0)
 						{
-							state_ = State::waitingToSend1;
-							if (t == Type::standard)
+							if (getDirection(p) == Direction::deviceToHost)
 							{
+								state_ = State::waitingToSend1;
+
 								if (rt == Request::getStatus)
 								{
 									if (Device::requestGetStatus())
@@ -86,7 +122,7 @@ namespace Kvasir
 								}
 								else if (rt == Request::getDescriptor)
 								{
-									Device::requestGetDescriptor(std::move(p), transfer_);
+									Device::requestGetDescriptor(std::move(p));
 									auto op = transfer_.popFrontPacket();
 									op.makeData1();
 									return HalCommand{ std::move(op) };
@@ -106,21 +142,14 @@ namespace Kvasir
 									}
 								}
 							}
-						}
-						else
-						{
-							state_ = State::waitingForInput1;
-							if (t == Type::standard)
+							else
 							{
+								state_ = State::waitingForInput1;
 								if (rt == Request::clearFeature)
 								{
 									return HalCommand{ makeAck(std::move(p)) };
 								}
 								else if (rt == Request::setFeature)
-								{
-									return HalCommand{ makeAck(std::move(p)) };
-								}
-								else if (rt == Request::setConfiguration)
 								{
 									return HalCommand{ makeAck(std::move(p)) };
 								}
@@ -131,17 +160,24 @@ namespace Kvasir
 
 							}
 						}
-						return{}; //should be not reachable, surpressing warning
-					}
-					else
-					{
-						if (t == Type::standard && rt == Request::setAddress)
+						else
 						{
-							state_ = State::waitingForAckSent;
-							auto val = getValue(p);
-							return HalCommand::makeSetAddress(val, makeAck(std::move(p)));
+							if (t == Type::standard) {
+								if (rt == Request::setAddress)
+								{
+									state_ = State::waitingForAckSent;
+									auto val = static_cast<uint8_t>(getValue(p));
+									return HalCommand::makeSetAddress(val, makeAck(std::move(p)));
+								}
+								else if (rt == Request::setConfiguration)
+								{
+									return HalCommand{ makeAck(std::move(p)) };
+								}
+							}
 						}
+						break;
 					}
+					};
 					AllocatorType::deallocate(std::move(p));  //if we did not use the packet in a return then deallocate it
 				}
 				HalCommand onInSent(PacketType&& p)
@@ -216,6 +252,13 @@ namespace Kvasir
 			friend class Sm;
 
 		private:
+			static void copyToTransfer(const uint8_t*const buf, const std::size_t length) {
+				sm_.transfer_.pushBack(buf, buf + length);
+			}
+			static void sinkPacketInTransfer(PacketType&& p) {
+				p.clear();
+				sm_.transfer_.pushBackPacket(std::move(p));
+			}
 			static bool requestGetStatus()
 			{
 				return false;
@@ -228,29 +271,28 @@ namespace Kvasir
 			{
 				return false;
 			}
-			static void requestGetDescriptor(PacketType&& p, TTransfer& t)
+			static void requestGetDescriptor(PacketType&& p)
 			{
 				using namespace SetupPacket;
 				const auto type = getDescriptorType(p);
 				const auto reqLength = getWLength(p);
 				const auto index = getDescriptorIndex(p);
-				p.clear();
-				t.pushBackPacket(std::move(p));
+				sinkPacketInTransfer(std::move(p));
 				switch (type)
 				{
 				case DescriptorType::device: {
-					copyToTransfer(Descriptor::device, std::min(uint16_t(sizeof(Descriptor::device)), reqLength), t);
+					copyToTransfer(deviceDescriptor, std::min(uint16_t(sizeof(deviceDescriptor)), reqLength));
 					break;
 				}
 				case DescriptorType::configuration: {
-					copyToTransfer(Descriptor::configuration, std::min(uint16_t(sizeof(Descriptor::configuration)), reqLength), t);
+					copyToTransfer(TDeviceSettings::StringDescriptors::configuration, std::min(uint16_t(sizeof(TDeviceSettings::StringDescriptors::configuration)), reqLength));
 					break;
 				}
 				case DescriptorType::string:
 					switch (index)
 					{
 					case DescriptorIndex::langId: {
-						copyToTransfer(Descriptor::langId, std::min(uint16_t(sizeof(Descriptor::langId)), reqLength), t);
+						copyToTransfer(TDeviceSettings::StringDescriptors::langId, std::min(uint16_t(sizeof(TDeviceSettings::StringDescriptors::langId)), reqLength));
 						break;
 					}
 					case DescriptorIndex::manufacturer: {
@@ -261,11 +303,11 @@ namespace Kvasir
 						//break;
 					}
 					case DescriptorIndex::product: {
-						copyToTransfer(Descriptor::product, std::min(uint16_t(sizeof(Descriptor::product)), reqLength), t);
+						copyToTransfer(TDeviceSettings::StringDescriptors::product, std::min(uint16_t(sizeof(TDeviceSettings::StringDescriptors::product)), reqLength));
 						break;
 					}
 					case DescriptorIndex::serial: {
-						copyToTransfer(Descriptor::serial, std::min(uint16_t(sizeof(Descriptor::serial)), reqLength), t);
+						copyToTransfer(TDeviceSettings::StringDescriptors::serial, std::min(uint16_t(sizeof(TDeviceSettings::StringDescriptors::serial)), reqLength));
 						break;
 					}
 					case DescriptorIndex::configuration: {
@@ -276,7 +318,7 @@ namespace Kvasir
 						//break;
 					}
 					case DescriptorIndex::interface : {
-						copyToTransfer(Descriptor::interface, std::min(uint16_t(sizeof(Descriptor::interface)), reqLength), t);
+						copyToTransfer(TDeviceSettings::StringDescriptors::interface, std::min(uint16_t(sizeof(TDeviceSettings::StringDescriptors::interface)), reqLength));
 						break;
 					}
 					}
@@ -304,6 +346,7 @@ namespace Kvasir
 			{
 				return false;
 			}
+		public:
 			static PacketType makeAck(PacketType&& p)
 			{
 				p.unsafeSetSize(0);
@@ -311,7 +354,6 @@ namespace Kvasir
 				p.makeData1(); //all acks are Data1 packets
 				return std::move(p);
 			}
-		public:
 
 			static HalCommand onSetupPacket(PacketType&& p)
 			{
@@ -334,7 +376,14 @@ namespace Kvasir
 				AllocatorType::deallocate(std::move(p));
 			}
 		};
-		template<typename TAllocator, typename TOutputQueue, typename TTransfer, typename TDescriptor>
-		typename Device<TAllocator, TOutputQueue, TTransfer, TDescriptor>::Sm Device<TAllocator, TOutputQueue, TTransfer, TDescriptor>::sm_;
+		template<typename TDeviceSettings, typename...TDeviceClass>
+		typename Device<TDeviceSettings, TDeviceClass...>::Sm Device<TDeviceSettings, TDeviceClass...>::sm_;
+		template<typename TDeviceSettings, typename...TDeviceClass>
+		constexpr uint8_t Device<TDeviceSettings, TDeviceClass...>::deviceDescriptor[18];
+
+		struct DefaultDeviceSettings {
+			using MemoryPolicy = CompactPacket::MemoryPolicy<>;
+			using StringDescriptors = void;  //user must override
+		};
 	}
 }
