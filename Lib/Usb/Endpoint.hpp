@@ -34,17 +34,25 @@ namespace Usb
     constexpr EndpointC<4> ep2Out{};
     constexpr EndpointC<5> ep2In{};
 
-    struct InterruptTag
+    enum EndpointType
     {
+        interrupt,
+        bulk,
+        isochronous
     };
-    struct BulkTag
+    enum EndpointDirection
     {
+        in,
+        out,
+        bidirectional
     };
-    struct IsocronousTag
-    {
-    };
-    template <int Number, bool Interrupt, bool Bulk, bool Isocronous>
+    template <int Number, EndpointDirection Direction, bool Interrupt, bool Bulk, bool Isocronous>
     struct EndpointCapabilities
+    {
+    };
+
+    template <EndpointDirection Direction, EndpointType type>
+    struct EndpointRequirement
     {
     };
 
@@ -54,41 +62,41 @@ namespace Usb
 
     namespace Detail
     {
-        template <typename T>
+        template <typename Requirement>
         struct IsCapablePred;
-        template <>
-        struct IsCapablePred<InterruptTag>
+        template <EndpointDirection Direction>
+        struct IsCapablePred<EndpointRequirement<Direction,EndpointType::interrupt>>
         {
             template <typename U>
             struct apply : std::false_type
             {
             };
-            template <int N, bool B1, bool B2>
-            struct apply<EndpointCapabilities<N, true, B1, B2>> : std::true_type
+            template <int N, EndpointDirection D, bool B1, bool B2>
+            struct apply<EndpointCapabilities<N, D, true, B1, B2>> : std::integral_constant<bool,(Direction==D || D == EndpointDirection::bidirectional)>
             {
             };
         };
-        template <>
-        struct IsCapablePred<BulkTag>
+        template <EndpointDirection Direction>
+        struct IsCapablePred<EndpointRequirement<Direction, EndpointType::bulk>>
         {
             template <typename U>
             struct apply : std::false_type
             {
             };
-            template <int N, bool B1, bool B2>
-            struct apply<EndpointCapabilities<N, B1, true, B2>> : std::true_type
+            template <int N, EndpointDirection D, bool B1, bool B2>
+            struct apply<EndpointCapabilities<N, D, B1, true, B2>> : std::integral_constant<bool, (Direction == D || D == EndpointDirection::bidirectional)>
             {
             };
         };
-        template <>
-        struct IsCapablePred<IsocronousTag>
+        template <EndpointDirection Direction>
+        struct IsCapablePred<EndpointRequirement<Direction, EndpointType::isochronous>>
         {
             template <typename U>
             struct apply : std::false_type
             {
             };
-            template <int N, bool B1, bool B2>
-            struct apply<EndpointCapabilities<N, B1, B2, true>> : std::true_type
+            template <int N, EndpointDirection D, bool B1, bool B2>
+            struct apply<EndpointCapabilities<N, D, B1, B2, true>> : std::integral_constant<bool, (Direction == D || D == EndpointDirection::bidirectional)>
             {
             };
         };

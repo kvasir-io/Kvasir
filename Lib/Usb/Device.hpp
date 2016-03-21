@@ -1,5 +1,6 @@
 #pragma once
 #include "Memory.hpp"
+#include "SetupPacket.hpp"
 namespace Kvasir
 {
 namespace Usb
@@ -13,11 +14,8 @@ namespace Usb
     {
         using PacketType = typename TDeviceSettings::MemoryPolicy::PacketType;
         using AllocatorType = typename TDeviceSettings::MemoryPolicy::AllocatorType;
-        ;
         using OutputQueueType = typename TDeviceSettings::MemoryPolicy::QueueType;
-        ;
         using TransferType = typename TDeviceSettings::MemoryPolicy::TransferType;
-        ;
         struct HalCommand
         {
             enum class Type : uint8_t
