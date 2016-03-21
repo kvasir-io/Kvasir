@@ -5,6 +5,7 @@
 =================================================================================================**/
 #ifndef BRIGAND_HPP_INCLUDED
 #define BRIGAND_HPP_INCLUDED
+#define BRIGAND_NO_BOOST_SUPPORT
 #include <type_traits>
 namespace brigand
 {
