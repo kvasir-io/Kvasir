@@ -1,592 +1,1779 @@
 {
-	".PORTA":{
-		"register":{
-			"PCR0":{
-				"field":{
-					"MUX":{
-						"enum":{
-							"000":{
-								".rename":"disabled"
-							},
-							"001":{
-								".rename":"gpio"
-							},
-							"010":{
-								".rename":"reserved"
-							},
-							"011":{
-								".rename":"tpm0ch5"
-							},
-							"100":{
-								".rename":"reserved"
-							},
-							"101":{
-								".rename":"reserved"
-							},
-							"110":{
-								".rename":"reserved"
-							},
-							"111":{
-								".rename":"swdClk"
-							}
-						}
-					}
-				}
-			},
-			"PCR1":{
-				"field":{
-					"MUX":{
-						"enum":{
-							"000":{
-								".rename":"disabled"
-							},
-							"001":{
-								".rename":"gpio"
-							},
-							"010":{
-								".rename":"lpuart0Rx"
-							},
-							"011":{
-								".rename":"tpm2ch0"
-							},
-							"100":{
-								".rename":"reserved"
-							},
-							"101":{
-								".rename":"reserved"
-							},
-							"110":{
-								".rename":"reserved"
-							},
-							"111":{
-								".rename":"reserved"
-							}
-						}
-					}
-				}
-			},
-			"PCR2":{
-				"field":{
-					"MUX":{
-						"enum":{
-							"000":{
-								".rename":"disabled"
-							},
-							"001":{
-								".rename":"gpio"
-							},
-							"010":{
-								".rename":"lpuart0Tx"
-							},
-							"011":{
-								".rename":"tpm2ch1"
-							},
-							"100":{
-								".rename":"reserved"
-							},
-							"101":{
-								".rename":"reserved"
-							},
-							"110":{
-								".rename":"reserved"
-							},
-							"111":{
-								".rename":"reserved"
-							}
-						}
-					}
-				}
-			},
-			"PCR3":{
-				"field":{
-					"MUX":{
-						"enum":{
-							"000":{
-								".rename":"disabled"
-							},
-							"001":{
-								".rename":"gpio"
-							},
-							"010":{
-								".rename":"i2c1Sda"
-							},
-							"011":{
-								".rename":"tpm0ch0"
-							},
-							"100":{
-								".rename":"reserved"
-							},
-							"101":{
-								".rename":"reserved"
-							},
-							"110":{
-								".rename":"reserved"
-							},
-							"111":{
-								".rename":"SwdDio"
-							}
-						}
-					}
-				}
-			},
-			"PCR4":{
-				"field":{
-					"MUX":{
-						"enum":{
-							"000":{
-								".rename":"disabled"
-							},
-							"001":{
-								".rename":"gpio"
-							},
-							"010":{
-								".rename":"i2c1Sda"
-							},
-							"011":{
-								".rename":"tpm0ch1"
-							},
-							"100":{
-								".rename":"reserved"
-							},
-							"101":{
-								".rename":"reserved"
-							},
-							"110":{
-								".rename":"reserved"
-							},
-							"111":{
-								".rename":"reserved"
-							}
-						}
-					}
-				}
-			},
-			"PCR5":{
-				"field":{
-					"MUX":{
-						"enum":{
-							"000":{
-								".rename":"disabled"
-							},
-							"001":{
-								".rename":"gpio"
-							},
-							"010":{
-								".rename":"usbClkIn"
-							},
-							"011":{
-								".rename":"tpm0ch2"
-							},
-							"100":{
-								".rename":"reserved"
-							},
-							"101":{
-								".rename":"reserved"
-							},
-							"110":{
-								".rename":"reserved"
-							},
-							"111":{
-								".rename":"reserved"
-							}
-						}
-					}
-				}
-			},
-			"PCR18":{
-				"field":{
-					"MUX":{
-						"enum":{
-							"000":{
-								".rename":"extal0"
-							},
-							"001":{
-								".rename":"gpio"
-							},
-							"010":{
-								".rename":"reserved"
-							},
-							"011":{
-								".rename":"lpuart1Rx"
-							},
-							"100":{
-								".rename":"tpmClkIn0"
-							},
-							"101":{
-								".rename":"reserved"
-							},
-							"110":{
-								".rename":"reserved"
-							},
-							"111":{
-								".rename":"reserved"
-							}
-						}
-					}
-				}
-			},
-			"PCR19":{
-				"field":{
-					"MUX":{
-						"enum":{
-							"000":{
-								".rename":"Xtal0"
-							},
-							"001":{
-								".rename":"gpio"
-							},
-							"010":{
-								".rename":"reserved"
-							},
-							"011":{
-								".rename":"lpuart1Tx"
-							},
-							"100":{
-								".rename":"tpmClkIn1"
-							},
-							"101":{
-								".rename":"reserved"
-							},
-							"110":{
-								".rename":"lptmr0Alt1"
-							},
-							"111":{
-								".rename":"reserved"
-							}
-						}
-					}
-				}
-			},
-			"PCR20":{
-				"field":{
-					"MUX":{
-						"enum":{
-							"000":{
-								".rename":"diabled"
-							},
-							"001":{
-								".rename":"gpio"
-							},
-							"010":{
-								".rename":"reserved"
-							},
-							"011":{
-								".rename":"reserved"
-							},
-							"100":{
-								".rename":"reserved"
-							},
-							"101":{
-								".rename":"reserved"
-							},
-							"110":{
-								".rename":"reserved"
-							},
-							"111":{
-								".rename":"resetB"
-							}
-						}
-					}
-				}
-			}
-		}
-	},
-	".PORTB":{
-		"register":{
-			"PCR0":{
-				"field":{
-					"MUX":{
-						"enum":{
-							"000":{
-								".rename":"adc0Se8"
-							},
-							"001":{
-								".rename":"gpio"
-							},
-							"010":{
-								".rename":"i2c0Scl"
-							},
-							"011":{
-								".rename":"tpm1ch0"
-							},
-							"100":{
-								".rename":"reserved"
-							},
-							"101":{
-								".rename":"reserved"
-							},
-							"110":{
-								".rename":"reserved"
-							},
-							"111":{
-								".rename":"reserved"
-							}
-						}
-					}
-				}
-			},
-			"PCR1":{
-				"field":{
-					"MUX":{
-						"enum":{
-							"000":{
-								".rename":"adc0Se9"
-							},
-							"001":{
-								".rename":"gpio"
-							},
-							"010":{
-								".rename":"i2c0Sda"
-							},
-							"011":{
-								".rename":"tpm1ch1"
-							},
-							"100":{
-								".rename":"reserved"
-							},
-							"101":{
-								".rename":"reserved"
-							},
-							"110":{
-								".rename":"reserved"
-							},
-							"111":{
-								".rename":"reserved"
-							}
-						}
-					}
-				}
-			},
-			"PCR18":{
-				"field":{
-					"MUX":{
-						"enum":{
-							"000":{
-								".rename":"disabled"
-							},
-							"001":{
-								".rename":"gpio"
-							},
-							"010":{
-								".rename":"reserved"
-							},
-							"011":{
-								".rename":"tpm2ch0"
-							},
-							"100":{
-								".rename":"i2s0TxBclk"
-							},
-							"101":{
-								".rename":"reserved"
-							},
-							"110":{
-								".rename":"reserved"
-							},
-							"111":{
-								".rename":"reserved"
-							}
-						}
-					}
-				}
-			}
-		}
-	},	".PORTC":{
-		"register":{
-			"PCR1":{
-				"field":{
-					"MUX":{
-						"enum":{
-							"000":{
-								".rename":"adc0Se15"
-							},
-							"001":{
-								".rename":"gpio"
-							},
-							"010":{
-								".rename":"i2c1Scl"
-							},
-							"011":{
-								".rename":"reserved"
-							},
-							"100":{
-								".rename":"tpm0ch0"
-							},
-							"101":{
-								".rename":"reserved"
-							},
-							"110":{
-								".rename":"i2s0Txdo"
-							},
-							"111":{
-								".rename":"reserved"
-							}
-						}
-					}
-				}
-			}
-		}
-	},	".PORTD":{
-		"register":{
-			"PCR4":{
-				"field":{
-					"MUX":{
-						"enum":{
-							"000":{
-								".rename":"disabled"
-							},
-							"001":{
-								".rename":"gpio"
-							},
-							"010":{
-								".rename":"spi1Ss"
-							},
-							"011":{
-								".rename":"uart2Rx"
-							},
-							"100":{
-								".rename":"tpm0ch4"
-							},
-							"101":{
-								".rename":"reserved"
-							},
-							"110":{
-								".rename":"fxioD4"
-							},
-							"111":{
-								".rename":"reserved"
-							}
-						}
-					}
-				}
-			}
-		}
-	},	".PORTE":{
-		"register":{
-			"PCR0":{
-				"field":{
-					"MUX":{
-						"enum":{
-							"000":{
-								".rename":"disabled"
-							},
-							"001":{
-								".rename":"gpio"
-							},
-							"010":{
-								".rename":"spi1Miso"
-							},
-							"011":{
-								".rename":"lpuart1Tx"
-							},
-							"100":{
-								".rename":"rtcClkOut"
-							},
-							"101":{
-								".rename":"cmp0Out"
-							},
-							"110":{
-								".rename":"i2c1Sda"
-							},
-							"111":{
-								".rename":"reserved"
-							}
-						}
-					}
-				}
-			},
-			"PCR30":{
-				"field":{
-					"MUX":{
-						"enum":{
-							"000":{
-								".rename":"dac0OutAdc0Se23Cmp0In4"
-							},
-							"001":{
-								".rename":"gpio"
-							},
-							"010":{
-								".rename":"reserved"
-							},
-							"011":{
-								".rename":"tpm0ch3"
-							},
-							"100":{
-								".rename":"tpmClkIn1"
-							},
-							"101":{
-								".rename":"lpuart1Tx"
-							},
-							"110":{
-								".rename":"lptmr0Alt1"
-							},
-							"111":{
-								".rename":"reserved"
-							}
-						}
-					}
-				}
-			}
-		}
-	},
-	".USB0":{
-		"register":{
-			"ISTAT":{
-				"field":{
-					"USBRST":{
-						"modifiedWriteValues":"oneToClear"
-					},
-					"ERROR":{
-						"modifiedWriteValues":"oneToClear"
-					},
-					"SOFTOK":{
-						"modifiedWriteValues":"oneToClear"
-					},
-					"TOKDNE":{
-						"modifiedWriteValues":"oneToClear"
-					},
-					"SLEEP":{
-						"modifiedWriteValues":"oneToClear"
-					},
-					"RESUME":{
-						"modifiedWriteValues":"oneToClear"
-					},
-					"STALL":{
-						"modifiedWriteValues":"oneToClear"
-					}
-				}
-			}
-		}
-	},
-	"kvasir":{
-		"io":{
-			"default":{
-				"type":"group",
-				"ports":"A-E",
-				"peripheral":"GPIO%s"
-			},
-			"output":{
-				"value":1,
-				"register":"PDDR"
-			},
-			"input":{
-				"value":0,
-				"register":"PDDR"
-			},
-			"set":{
-				"value":1,
-				"register":"PSOR"
-			},
-			"clear":{
-				"value":1,
-				"register":"PCOR"
-			},
-			"toggle":{
-				"value":1,
-				"register":"PTOR"
-			},
-			"read":{
-				"register":"PDIR"
-			}
-		}
-	}
+   ".PORTA" : {
+      "register" : {
+         "PCR0" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "reserved"
+                     },
+                     "011" : {
+                        ".rename" : "tpm0ch5"
+                     },
+                     "100" : {
+                        ".rename" : "reserved"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "swdClk"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR1" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "lpuart0Rx"
+                     },
+                     "011" : {
+                        ".rename" : "tpm2ch0"
+                     },
+                     "100" : {
+                        ".rename" : "reserved"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR2" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "lpuart0Tx"
+                     },
+                     "011" : {
+                        ".rename" : "tpm2ch1"
+                     },
+                     "100" : {
+                        ".rename" : "reserved"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR3" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "i2c1Scl"
+                     },
+                     "011" : {
+                        ".rename" : "tpm0ch0"
+                     },
+                     "100" : {
+                        ".rename" : "reserved"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "swdDio"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR4" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "i2c1Sda"
+                     },
+                     "011" : {
+                        ".rename" : "tpm0ch1"
+                     },
+                     "100" : {
+                        ".rename" : "reserved"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "nmiB"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR5" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "usbClkIn"
+                     },
+                     "011" : {
+                        ".rename" : "tpm0ch2"
+                     },
+                     "100" : {
+                        ".rename" : "reserved"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+          "PCR12" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "reserved"
+                     },
+                     "011" : {
+                        ".rename" : "tpm1ch0"
+                     },
+                     "100" : {
+                        ".rename" : "reserved"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR13" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "reserved"
+                     },
+                     "011" : {
+                        ".rename" : "tpm1ch1"
+                     },
+                     "100" : {
+                        ".rename" : "reserved"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+        "PCR18" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "extal0"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "reserved"
+                     },
+                     "011" : {
+                        ".rename" : "lpuart1Rx"
+                     },
+                     "100" : {
+                        ".rename" : "tpmClkIn0"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR19" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "xtal0"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "reserved"
+                     },
+                     "011" : {
+                        ".rename" : "lpuart1Tx"
+                     },
+                     "100" : {
+                        ".rename" : "tpmClkIn1"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "lptmr0Alt1"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR20" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "reserved"
+                     },
+                     "011" : {
+                        ".rename" : "reserved"
+                     },
+                     "100" : {
+                        ".rename" : "reserved"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "resetB"
+                     }
+                  }
+               }
+            }
+         }
+      }
+   },
+   ".PORTB" : {
+      "register" : {
+         "PCR0" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "adc0Se8"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "i2c0Scl"
+                     },
+                     "011" : {
+                        ".rename" : "tpm1ch0"
+                     },
+                     "100" : {
+                        ".rename" : "spi1Mosi"
+                     },
+                     "101" : {
+                        ".rename" : "spi1Miso"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR1" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "adc0Se9"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "i2c0Sda"
+                     },
+                     "011" : {
+                        ".rename" : "tpm1ch1"
+                     },
+                     "100" : {
+                        ".rename" : "spi1Miso"
+                     },
+                     "101" : {
+                        ".rename" : "spi1Mosi"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR18" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "reserved"
+                     },
+                     "011" : {
+                        ".rename" : "tpm2ch0"
+                     },
+                     "100" : {
+                        ".rename" : "reserved"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR2" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "adc0Se12"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "i2c0Scl"
+                     },
+                     "011" : {
+                        ".rename" : "tpm2ch0"
+                     },
+                     "100" : {
+                        ".rename" : "reserved"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR3" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "adc0Se13"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "i2c0Sda"
+                     },
+                     "011" : {
+                        ".rename" : "tpm2ch1"
+                     },
+                     "100" : {
+                        ".rename" : "reserved"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR16" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "spi1Mosi"
+                     },
+                     "011" : {
+                        ".rename" : "lpuart0Rx"
+                     },
+                     "100" : {
+                        ".rename" : "tpmClkIn0"
+                     },
+                     "101" : {
+                        ".rename" : "spi1Miso"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR17" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "spi1Miso"
+                     },
+                     "011" : {
+                        ".rename" : "lpuart0Tx"
+                     },
+                     "100" : {
+                        ".rename" : "tpmClkIn1"
+                     },
+                     "101" : {
+                        ".rename" : "spi1Mosi"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR19" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "reserved"
+                     },
+                     "011" : {
+                        ".rename" : "tpm2ch1"
+                     },
+                     "100" : {
+                        ".rename" : "reserved"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         }
+      }
+   },
+   ".PORTC" : {
+      "register" : {
+         "PCR0" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "adc0Se14"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "reserved"
+                     },
+                     "011" : {
+                        ".rename" : "extrgIn"
+                     },
+                     "100" : {
+                        ".rename" : "audioUsbSofOut"
+                     },
+                     "101" : {
+                        ".rename" : "cmp0Out"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR1" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "adc0Se15"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "i2c1Scl"
+                     },
+                     "011" : {
+                        ".rename" : "reserved"
+                     },
+                     "100" : {
+                        ".rename" : "tpm0ch0"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR2" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "adc0Se11"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "i2c1Sda"
+                     },
+                     "011" : {
+                        ".rename" : "reserved"
+                     },
+                     "100" : {
+                        ".rename" : "tpm0ch1"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR3" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "spi1Sck"
+                     },
+                     "011" : {
+                        ".rename" : "lpuart1Rx"
+                     },
+                     "100" : {
+                        ".rename" : "tpm0ch2"
+                     },
+                     "101" : {
+                        ".rename" : "clkOut"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR4" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "spi0Pcs0"
+                     },
+                     "011" : {
+                        ".rename" : "lpuart1Tx"
+                     },
+                     "100" : {
+                        ".rename" : "tpm0ch3"
+                     },
+                     "101" : {
+                        ".rename" : "spi1Pcs0"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR5" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "spi0Sck"
+                     },
+                     "011" : {
+                        ".rename" : "lptmr0Alt2"
+                     },
+                     "100" : {
+                        ".rename" : "reserved"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "cmp0Out"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR6" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "cmp0In0"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "spi0Mosi"
+                     },
+                     "011" : {
+                        ".rename" : "extrgIn"
+                     },
+                     "100" : {
+                        ".rename" : "reserved"
+                     },
+                     "101" : {
+                        ".rename" : "spi0Miso"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR7" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "cmp0In1"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "spi0Miso"
+                     },
+                     "011" : {
+                        ".rename" : "audioUsbSofOut"
+                     },
+                     "100" : {
+                        ".rename" : "reserved"
+                     },
+                     "101" : {
+                        ".rename" : "spi0Mosi"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR8" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "cmp0In2"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "i2c0Scl"
+                     },
+                     "011" : {
+                        ".rename" : "tpm0ch4"
+                     },
+                     "100" : {
+                        ".rename" : "reserved"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR9" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "cmp0In3"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "i2c0Sda"
+                     },
+                     "011" : {
+                        ".rename" : "tpm0ch5"
+                     },
+                     "100" : {
+                        ".rename" : "reserved"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR10" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "i2c1Scl"
+                     },
+                     "011" : {
+                        ".rename" : "reserved"
+                     },
+                     "100" : {
+                        ".rename" : "reserved"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR11" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "i2c1Sda"
+                     },
+                     "011" : {
+                        ".rename" : "reserved"
+                     },
+                     "100" : {
+                        ".rename" : "reserved"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         }
+      }
+   },
+   ".PORTD" : {
+      "register" : {
+         "PCR0" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "spi0Pcs0"
+                     },
+                     "011" : {
+                        ".rename" : "reserved"
+                     },
+                     "100" : {
+                        ".rename" : "tpm0ch0"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "fxio0D0"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR1" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "adc0Se5b"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "spi0Sck"
+                     },
+                     "011" : {
+                        ".rename" : "reserved"
+                     },
+                     "100" : {
+                        ".rename" : "tpm0ch1"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "fxio0D1"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR2" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "spi0Mosi"
+                     },
+                     "011" : {
+                        ".rename" : "uart2Rx"
+                     },
+                     "100" : {
+                        ".rename" : "tpm0ch2"
+                     },
+                     "101" : {
+                        ".rename" : "spi0Miso"
+                     },
+                     "110" : {
+                        ".rename" : "fxio0D2"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR3" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "spi0iso"
+                     },
+                     "011" : {
+                        ".rename" : "uart2Tx"
+                     },
+                     "100" : {
+                        ".rename" : "tpm0ch3"
+                     },
+                     "101" : {
+                        ".rename" : "spi0Mosi"
+                     },
+                     "110" : {
+                        ".rename" : "fxio0D3"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR4" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "spi0Pcs0"
+                     },
+                     "011" : {
+                        ".rename" : "uart2Rx"
+                     },
+                     "100" : {
+                        ".rename" : "tpm0ch4"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "fxio0D4"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR5" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "adc0Se6b"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "spi1Sck"
+                     },
+                     "011" : {
+                        ".rename" : "uart2Tx"
+                     },
+                     "100" : {
+                        ".rename" : "tpm0ch5"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "fxio0D5"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR6" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "adc0Se7b"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "spi0Mosi"
+                     },
+                     "011" : {
+                        ".rename" : "lpuart0Rx"
+                     },
+                     "100" : {
+                        ".rename" : "i2c1Sda"
+                     },
+                     "101" : {
+                        ".rename" : "spi1Miso"
+                     },
+                     "110" : {
+                        ".rename" : "fxio0D6"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR7" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "spi0Miso"
+                     },
+                     "011" : {
+                        ".rename" : "lpuart0Tx"
+                     },
+                     "100" : {
+                        ".rename" : "i2c1Scl"
+                     },
+                     "101" : {
+                        ".rename" : "spi1Mosi"
+                     },
+                     "110" : {
+                        ".rename" : "fxio0D7"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         }
+      }
+   },
+   ".PORTE" : {
+      "register" : {
+         "PCR0" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "spi1Miso"
+                     },
+                     "011" : {
+                        ".rename" : "lpuart1Tx"
+                     },
+                     "100" : {
+                        ".rename" : "rtcClkOut"
+                     },
+                     "101" : {
+                        ".rename" : "cmp0Out"
+                     },
+                     "110" : {
+                        ".rename" : "i2c1Sda"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR1" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "spi1Mosi"
+                     },
+                     "011" : {
+                        ".rename" : "lpuart1Rx"
+                     },
+                     "100" : {
+                        ".rename" : "reserved"
+                     },
+                     "101" : {
+                        ".rename" : "spi1Miso"
+                     },
+                     "110" : {
+                        ".rename" : "i2c1Scl"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR16" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "adc0Dp1Se1"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "spi0Pcs0"
+                     },
+                     "011" : {
+                        ".rename" : "uart2Tx"
+                     },
+                     "100" : {
+                        ".rename" : "tpmClkIn0"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "fxio0D0"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR17" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "adc0Dm1Se5a"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "spi0Sck"
+                     },
+                     "011" : {
+                        ".rename" : "uart2Rx"
+                     },
+                     "100" : {
+                        ".rename" : "tpmClkIn1"
+                     },
+                     "101" : {
+                        ".rename" : "lptmr0Alt3"
+                     },
+                     "110" : {
+                        ".rename" : "fxio0D1"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR18" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "adc0Dp2Se2"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "spi0Mosi"
+                     },
+                     "011" : {
+                        ".rename" : "reserved"
+                     },
+                     "100" : {
+                        ".rename" : "i2c0Sda"
+                     },
+                     "101" : {
+                        ".rename" : "spi0Miso"
+                     },
+                     "110" : {
+                        ".rename" : "fxio0D2"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR20" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "adc0Dp0Se0"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "reserved"
+                     },
+                     "011" : {
+                        ".rename" : "tpm1ch0"
+                     },
+                     "100" : {
+                        ".rename" : "lpuart0Tx"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "fxio0D04"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR21" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "adc0Dm0Se4a"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "reserved"
+                     },
+                     "011" : {
+                        ".rename" : "tpm1ch1"
+                     },
+                     "100" : {
+                        ".rename" : "lpuart0Rx"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "fxio0D05"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR22" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "adc0Dp3Se3"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "reserved"
+                     },
+                     "011" : {
+                        ".rename" : "tpm2ch0"
+                     },
+                     "100" : {
+                        ".rename" : "uart2Tx"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "fxio0D06"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR23" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "adc0Dm3Se7a"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "reserved"
+                     },
+                     "011" : {
+                        ".rename" : "tpm2ch1"
+                     },
+                     "100" : {
+                        ".rename" : "uart2Rx"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "fxio0D07"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR24" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "reserved"
+                     },
+                     "011" : {
+                        ".rename" : "tpm0ch0"
+                     },
+                     "100" : {
+                        ".rename" : "reserved"
+                     },
+                     "101" : {
+                        ".rename" : "i2c0Scl"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR25" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "reserved"
+                     },
+                     "011" : {
+                        ".rename" : "tpm0ch1"
+                     },
+                     "100" : {
+                        ".rename" : "reserved"
+                     },
+                     "101" : {
+                        ".rename" : "i2c0Sda"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR29" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "cmp0In5Adc0Se4b"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "reserved"
+                     },
+                     "011" : {
+                        ".rename" : "tpm0ch2"
+                     },
+                     "100" : {
+                        ".rename" : "tpmClkIn0"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR30" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "adc0Se23Cmp0In4"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "reserved"
+                     },
+                     "011" : {
+                        ".rename" : "tpm0ch3"
+                     },
+                     "100" : {
+                        ".rename" : "tpmClkIn1"
+                     },
+                     "101" : {
+                        ".rename" : "lpuart1Tx"
+                     },
+                     "110" : {
+                        ".rename" : "lptmr0Alt1"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         },
+         "PCR31" : {
+            "field" : {
+               "MUX" : {
+                  "enum" : {
+                     "000" : {
+                        ".rename" : "disabled"
+                     },
+                     "001" : {
+                        ".rename" : "gpio"
+                     },
+                     "010" : {
+                        ".rename" : "reserved"
+                     },
+                     "011" : {
+                        ".rename" : "tpm0ch4"
+                     },
+                     "100" : {
+                        ".rename" : "reserved"
+                     },
+                     "101" : {
+                        ".rename" : "reserved"
+                     },
+                     "110" : {
+                        ".rename" : "reserved"
+                     },
+                     "111" : {
+                        ".rename" : "reserved"
+                     }
+                  }
+               }
+            }
+         }
+      }
+   },
+   ".USB0" : {
+      "register" : {
+         "ISTAT" : {
+            "field" : {
+               "USBRST" : {
+                  "modifiedWriteValues" : "oneToClear"
+               },
+               "ERROR" : {
+                  "modifiedWriteValues" : "oneToClear"
+               },
+               "SOFTOK" : {
+                  "modifiedWriteValues" : "oneToClear"
+               },
+               "TOKDNE" : {
+                  "modifiedWriteValues" : "oneToClear"
+               },
+               "SLEEP" : {
+                  "modifiedWriteValues" : "oneToClear"
+               },
+               "RESUME" : {
+                  "modifiedWriteValues" : "oneToClear"
+               },
+               "STALL" : {
+                  "modifiedWriteValues" : "oneToClear"
+               }
+            }
+         }
+      }
+   },
+   "kvasir" : {
+      "io" : {
+         "default" : {
+            "type" : "group",
+            "ports" : "A-E",
+            "peripheral" : "GPIO%s"
+         },
+         "output" : {
+            "value" : 1,
+            "register" : "PDDR"
+         },
+         "input" : {
+            "value" : 0,
+            "register" : "PDDR"
+         },
+         "set" : {
+            "value" : 1,
+            "register" : "PSOR"
+         },
+         "clear" : {
+            "value" : 1,
+            "register" : "PCOR"
+         },
+         "toggle" : {
+            "value" : 1,
+            "register" : "PTOR"
+         },
+         "read" : {
+            "register" : "PDIR"
+         }
+      }
+   }
 }
