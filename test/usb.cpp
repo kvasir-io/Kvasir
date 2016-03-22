@@ -224,7 +224,7 @@ namespace TestScenario1 {
 		return packet;
 	}
 	struct HalDummy {
-		template<typename T>
+		template<typename T, Kvasir::Usb::EndpointDirection Direction, Kvasir::Usb::EndpointType Type>
 		static void activateEndpoint() {
 
 		}

@@ -187,7 +187,7 @@ namespace Usb
                                 // this is where mbed initializes other endpoints
                                 // TODO check if the usb standard says to init here and correct or
                                 // cite depending
-								activateEndpoints<Hal>(EndpointNumbers{});
+								activateEndpoints<Hal>(EndpointNumbers{}, FlatEPRequirements{});
                                 return HalCommand{makeAck(std::move(p))};
                             }
                         }
@@ -380,9 +380,9 @@ namespace Usb
 		static PacketType getPacket() {
 			return AllocatorType::allocate();
 		}
-		template<typename THal, typename...T>
-		static void activateEndpoints(brigand::list<T...>){
-			int i[] = {0,(THal::template activateEndpoint<T>(),0)...};
+		template<typename THal, typename...N, EndpointDirection...D, EndpointType...T>
+		static void activateEndpoints(brigand::list<N...>, brigand::list<EndpointRequirement<D,T>...>){
+			int i[] = {0,(THal::template activateEndpoint<N,D,T>(),0)...};
 		}
         template <typename Hal>
         static HalCommand onSetupPacket(PacketType && p)
