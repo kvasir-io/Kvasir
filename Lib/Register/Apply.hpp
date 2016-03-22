@@ -89,6 +89,7 @@ namespace Kvasir {
 			template<typename TNext, typename... Ts> //none processed yet
 			struct MergeRegisterActions<brigand::list<TNext, Ts...>, brigand::list<>> : MergeRegisterActions<brigand::list<Ts...>, brigand::list<TNext>>{};
 
+			//indexed
 			template<
 				typename TAddress,
 				unsigned Mask1, unsigned Mask2,
@@ -100,21 +101,47 @@ namespace Kvasir {
 				typename... TInputs1, typename... TInputs2,
 				typename... Ts, typename... Us> //next input and last merged are mergable
 			struct MergeRegisterActions<
-				brigand::list<IndexedAction<Action<FieldLocation<TAddress,Mask1,TAccess1,TFieldType1>,TActionTemplate<Value1>>, TInputs1...>, Ts...>,
-				brigand::list<IndexedAction<Action<FieldLocation<TAddress,Mask2,TAccess2,TFieldType2>,TActionTemplate<Value2>>, TInputs2...>, Us...>
-				> :	MergeRegisterActions<
+				brigand::list<IndexedAction<Action<FieldLocation<TAddress, Mask1, TAccess1, TFieldType1>, TActionTemplate<Value1>>, TInputs1...>, Ts...>,
+				brigand::list<IndexedAction<Action<FieldLocation<TAddress, Mask2, TAccess2, TFieldType2>, TActionTemplate<Value2>>, TInputs2...>, Us...>
+			> : MergeRegisterActions<
 				brigand::list<Ts...>,
 				brigand::list<IndexedAction<Action<
-						FieldLocation<
-							TAddress,
-							(Mask1 | Mask2), 						//merge
-							TAccess1>,							//dont care, plausibility check has already been done
-							TActionTemplate<(Value1 | Value2)>	//merge
-							//TODO implement register type here
-						>,
-						TInputs1..., TInputs2...>,				//concatenate
-						Us...>									//pass through rest
-			>{};
+				FieldLocation<
+				TAddress,
+				(Mask1 | Mask2), 						//merge
+				TAccess1>,							//dont care, plausibility check has already been done
+				TActionTemplate<(Value1 | Value2)>	//merge
+													//TODO implement register type here
+				>,
+				TInputs1..., TInputs2...>,				//concatenate
+				Us...>									//pass through rest
+			> {};
+
+			//non indexed
+			template<
+				typename TAddress,
+				unsigned Mask1, unsigned Mask2,
+				typename TAccess1,
+				typename TAccess2,
+				typename TFieldType1, typename TFieldType2,
+				template<unsigned> class TActionTemplate,
+				unsigned Value1, unsigned Value2,
+				typename... Ts, typename... Us> //next input and last merged are mergable
+			struct MergeRegisterActions<
+				brigand::list<Action<FieldLocation<TAddress, Mask1, TAccess1, TFieldType1>, TActionTemplate<Value1>>, Ts...>,
+				brigand::list<Action<FieldLocation<TAddress, Mask2, TAccess2, TFieldType2>, TActionTemplate<Value2>>, Us...>
+			> : MergeRegisterActions<
+				brigand::list<Ts...>,
+				brigand::list<Action<
+				FieldLocation<
+				TAddress,
+				(Mask1 | Mask2), 						//merge
+				TAccess1>,							//dont care, plausibility check has already been done
+				TActionTemplate<(Value1 | Value2)>	//merge
+													//TODO implement register type here
+				>,
+				Us...>									//pass through rest
+			> {};
 
 			template<typename TNext, typename TLast, typename... Ts, typename... Us> //next and last not mergable
 			struct MergeRegisterActions<

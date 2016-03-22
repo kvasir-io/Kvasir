@@ -14,6 +14,16 @@ namespace Kvasir {
 int applyTest()
 {
 	{
+		constexpr auto s = set(Kvasir::Usb0Istat::usbrst, Kvasir::Usb0Istat::resume, Kvasir::Usb0Istat::softok,
+			Kvasir::Usb0Istat::stall, Kvasir::Usb0Istat::tokdne, Kvasir::Usb0Istat::sleep,
+			Kvasir::Usb0Istat::error);
+		apply(s);
+		auto it = Kvasir::Register::actions_.begin();
+		if (it->address_ != 0x40072080 || it->value_ != 0xBF)
+			return 1;
+		Kvasir::Register::actions_.clear();
+	}
+	{
 		constexpr auto w = write(Kvasir::Adc0Cfg2::AdlstsValC::v01);
 		apply(w);
 		auto it = Kvasir::Register::actions_.begin();
