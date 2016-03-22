@@ -14,6 +14,30 @@ namespace Kvasir {
 int applyTest()
 {
 	{
+		constexpr auto c1 = set(Kvasir::SimScgc5::portb, Kvasir::SimScgc5::porta);
+		constexpr auto c2 = list(
+			write(Kvasir::SimSopt2::UsbsrcValC::v1),
+			Kvasir::Register::sequencePoint,				//not sure if this is needed
+			write(Kvasir::SimScgc4::UsbfsValC::v1),
+			Kvasir::Register::sequencePoint,
+			set(Kvasir::Usb0ClkRecoverCtrl::clockRecoverEn, Kvasir::Usb0ClkRecoverIrcEn::ircEn));
+		apply(c1, c2);
+		auto it = Kvasir::Register::actions_.begin();
+		if (it->address_ != 0x40072080 || it->value_ != 0xBF)
+			return 1;
+		Kvasir::Register::actions_.clear();
+	}
+	{
+		constexpr auto s = set(Kvasir::Usb0Istat::usbrst, Kvasir::Usb0Istat::resume, Kvasir::Usb0Istat::softok,
+			Kvasir::Usb0Istat::stall, Kvasir::Usb0Istat::tokdne, Kvasir::Usb0Istat::sleep,
+			Kvasir::Usb0Istat::error);
+		apply(s);
+		auto it = Kvasir::Register::actions_.begin();
+		if (it->address_ != 0x40072080 || it->value_ != 0xBF)
+			return 1;
+		Kvasir::Register::actions_.clear();
+	}
+	{
 		constexpr auto w = write(Kvasir::Adc0Cfg2::AdlstsValC::v01);
 		apply(w);
 		auto it = Kvasir::Register::actions_.begin();
