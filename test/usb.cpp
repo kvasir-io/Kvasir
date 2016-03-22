@@ -8,6 +8,23 @@
 #include <Usb/Memory.hpp>
 #include <Usb/Cdc.hpp>
 
+namespace Kvasir {
+	namespace Usb {
+		template <int I>
+		struct EndpointCapabilityTraits<PeripheralC<I>>
+		{
+			using type = brigand::list<
+				EndpointCapabilities<0, EndpointDirection::out, true, false, false>, EndpointCapabilities<1, EndpointDirection::in, true, false, false>,
+				EndpointCapabilities<2, EndpointDirection::out, true, true, true>, EndpointCapabilities<3, EndpointDirection::in, true, true, true>,
+				EndpointCapabilities<4, EndpointDirection::out, true, true, true>, EndpointCapabilities<5, EndpointDirection::in, true, true, true>,
+				EndpointCapabilities<6, EndpointDirection::out, true, true, true>, EndpointCapabilities<7, EndpointDirection::in, true, true, true>,
+				EndpointCapabilities<8, EndpointDirection::out, true, true, true>, EndpointCapabilities<9, EndpointDirection::in, true, true, true>,
+				EndpointCapabilities<10, EndpointDirection::out, true, true, true>, EndpointCapabilities<11, EndpointDirection::in, true, true, true>,
+				EndpointCapabilities<12, EndpointDirection::out, true, true, true>, EndpointCapabilities<13, EndpointDirection::in, true, true, true>,
+				EndpointCapabilities<14, EndpointDirection::out, true, true, true>, EndpointCapabilities<15, EndpointDirection::in, true, true, true >> ;
+		};
+	}
+}
 
 namespace TestScenario1 {
 	struct MyStringDescriptors {
@@ -190,7 +207,7 @@ namespace TestScenario1 {
 	constexpr uint8_t MyStringDescriptors::product[0x16];
 	constexpr uint8_t MyStringDescriptors::serial[0x16];
 	constexpr uint8_t MyStringDescriptors::interface[8];
-	struct MyCdcSettings : Kvasir::Usb::CdcDefaultSettings{};
+	struct MyCdcSettings : Kvasir::Usb::Cdc::DefaultSettings{};
 	struct MyDeviceSettings : Kvasir::Usb::DefaultDeviceSettings {
 		using StringDescriptors = MyStringDescriptors;
 		static constexpr uint16_t vid = 0x1F00;
@@ -206,6 +223,12 @@ namespace TestScenario1 {
 		}
 		return packet;
 	}
+	struct HalDummy {
+		template<typename T>
+		static void activateEndpoint() {
+
+		}
+	};
 }
 
 int usbTest()
@@ -215,7 +238,7 @@ int usbTest()
 		Device::AllocatorType::initialize();
 		{
 			//set address
-			auto cmd = Device::onSetupPacket(makePacket({ 0, 5, 5, 0, 0, 0, 0, 0 }));
+			auto cmd = Device::onSetupPacket<HalDummy>(makePacket({ 0, 5, 5, 0, 0, 0, 0, 0 }));
 			if (cmd.type_ != Device::HalCommand::Type::setAddress) {
 				return 1;
 			}
@@ -232,7 +255,7 @@ int usbTest()
 		}
 		{
 			//GetDevice descriptor
-			auto cmd = Device::onSetupPacket(makePacket({ 0x80, 6, 0, 1, 0, 0, 8, 0 }));
+			auto cmd = Device::onSetupPacket<HalDummy>(makePacket({ 0x80, 6, 0, 1, 0, 0, 8, 0 }));
 			if (cmd.type_ != Device::HalCommand::Type::noAction) {
 				return 1;
 			}
@@ -249,7 +272,7 @@ int usbTest()
 		}
 		{
 			//GetDevice descriptor
-			auto cmd = Device::onSetupPacket(makePacket({ 0x80, 0x06, 0x00, 0x01, 0x00, 0x00, 0x12, 0x00 }));
+			auto cmd = Device::onSetupPacket<HalDummy>(makePacket({ 0x80, 0x06, 0x00, 0x01, 0x00, 0x00, 0x12, 0x00 }));
 			if (cmd.type_ != Device::HalCommand::Type::noAction) {
 				return 1;
 			}
@@ -266,7 +289,7 @@ int usbTest()
 		}
 		{
 			//Get Configuration descriptor
-			auto cmd = Device::onSetupPacket(makePacket({ 0x80, 0x06, 0x00, 0x02, 0x00, 0x00, 0x09, 0x00 }));
+			auto cmd = Device::onSetupPacket<HalDummy>(makePacket({ 0x80, 0x06, 0x00, 0x02, 0x00, 0x00, 0x09, 0x00 }));
 			if (cmd.type_ != Device::HalCommand::Type::noAction) {
 				return 1;
 			}
@@ -283,7 +306,7 @@ int usbTest()
 		}
 		{
 			//Get Configuration descriptor
-			auto cmd = Device::onSetupPacket(makePacket({ 0x80, 0x06, 0x00, 0x02, 0x00, 0x00, 0x4B, 0x00 }));
+			auto cmd = Device::onSetupPacket<HalDummy>(makePacket({ 0x80, 0x06, 0x00, 0x02, 0x00, 0x00, 0x4B, 0x00 }));
 			if (cmd.type_ != Device::HalCommand::Type::noAction) {
 				return 1;
 			}
@@ -313,7 +336,7 @@ int usbTest()
 		}
 		{
 			//Get String descriptor
-			auto cmd = Device::onSetupPacket(makePacket({ 0x80, 0x06, 0x00, 0x03, 0x00, 0x00, 0xFF, 0x00 }));
+			auto cmd = Device::onSetupPacket<HalDummy>(makePacket({ 0x80, 0x06, 0x00, 0x03, 0x00, 0x00, 0xFF, 0x00 }));
 			if (cmd.type_ != Device::HalCommand::Type::noAction) {
 				return 1;
 			}
@@ -333,7 +356,7 @@ int usbTest()
 		}
 		{
 			//Get String descriptor
-			auto cmd = Device::onSetupPacket(makePacket({ 0x80, 0x06, 0x02, 0x03, 0x09, 0x04, 0xFF, 0x00 }));
+			auto cmd = Device::onSetupPacket<HalDummy>(makePacket({ 0x80, 0x06, 0x02, 0x03, 0x09, 0x04, 0xFF, 0x00 }));
 			if (cmd.type_ != Device::HalCommand::Type::noAction) {
 				return 1;
 			}
@@ -353,7 +376,7 @@ int usbTest()
 		}
 		{
 			//Get String descriptor
-			auto cmd = Device::onSetupPacket(makePacket({ 0x80, 0x06, 0x03, 0x03, 0x09, 0x04, 0xFF, 0x00 }));
+			auto cmd = Device::onSetupPacket<HalDummy>(makePacket({ 0x80, 0x06, 0x03, 0x03, 0x09, 0x04, 0xFF, 0x00 }));
 			if (cmd.type_ != Device::HalCommand::Type::noAction) {
 				return 1;
 			}
@@ -373,7 +396,7 @@ int usbTest()
 		}
 		{
 			//GetDevice descriptor
-			auto cmd = Device::onSetupPacket(makePacket({ 0x80, 0x06, 0x00, 0x01, 0x00, 0x00, 0x12, 0x00 }));
+			auto cmd = Device::onSetupPacket<HalDummy>(makePacket({ 0x80, 0x06, 0x00, 0x01, 0x00, 0x00, 0x12, 0x00 }));
 			if (cmd.type_ != Device::HalCommand::Type::noAction) {
 				return 1;
 			}
@@ -390,7 +413,7 @@ int usbTest()
 		}
 		{
 			//Get Configuration descriptor
-			auto cmd = Device::onSetupPacket(makePacket({ 0x80, 0x06, 0x00, 0x02, 0x00, 0x00, 0x09, 0x01 }));
+			auto cmd = Device::onSetupPacket<HalDummy>(makePacket({ 0x80, 0x06, 0x00, 0x02, 0x00, 0x00, 0x09, 0x01 }));
 			if (cmd.type_ != Device::HalCommand::Type::noAction) {
 				return 1;
 			}
@@ -420,7 +443,7 @@ int usbTest()
 		}
 		{
 			//set configuration
-			auto cmd = Device::onSetupPacket(makePacket({ 0x00, 0x09, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00 }));
+			auto cmd = Device::onSetupPacket<HalDummy>(makePacket({ 0x00, 0x09, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00 }));
 			if (cmd.type_ != Device::HalCommand::Type::noAction) {
 				return 1;
 			}
@@ -437,7 +460,7 @@ int usbTest()
 		}
 		{
 			//get line coding
-			auto cmd = Device::onSetupPacket(makePacket({ 0xA1, 0x21, 0x01, 0x00, 0x00, 0x00, 0x07, 0x00 }));
+			auto cmd = Device::onSetupPacket<HalDummy>(makePacket({ 0xA1, 0x21, 0x01, 0x00, 0x00, 0x00, 0x07, 0x00 }));
 			if (cmd.type_ != Device::HalCommand::Type::noAction) {
 				return 1;
 			}
@@ -454,7 +477,7 @@ int usbTest()
 		}
 		{
 			//set line coding
-			auto cmd = Device::onSetupPacket(makePacket({ 0x21, 0x22, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }));
+			auto cmd = Device::onSetupPacket<HalDummy>(makePacket({ 0x21, 0x22, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }));
 			if (cmd.type_ != Device::HalCommand::Type::noAction) {
 				return 1;
 			}

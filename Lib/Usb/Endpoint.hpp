@@ -100,10 +100,18 @@ namespace Usb
             {
             };
         };
+		struct ToEndpointCPred {
+			template<typename T>
+			struct apply;
+			template<int Number, EndpointDirection Direction, bool Interrupt, bool Bulk, bool Isocronous>
+			struct apply<EndpointCapabilities<Number, Direction, Interrupt, Bulk, Isocronous>> {
+				using type = EndpointC<Number>;
+			};
+		};
         template <typename TNeeded, typename TAvailible, typename TOut>
-        struct MapCapabilitiesToEndpointNumbers
+		struct MapCapabilitiesToEndpointNumbers
         {
-            using type = TOut;
+            using type = brigand::transform<TOut, ToEndpointCPred>;
         };
 
         template <typename T, typename... Ts, typename A, typename... Os>

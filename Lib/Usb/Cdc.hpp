@@ -5,6 +5,7 @@ namespace Kvasir
 {
 namespace Usb
 {
+namespace Cdc{
     struct LineCoding
     {
         uint8_t data_[7];
@@ -56,9 +57,8 @@ namespace Usb
     };
 
     template <typename TSettings, typename TDevice>
-    struct Cdc
+    struct Host
     {
-        static LineCoding lineCoding_;
         static typename TDevice::HalCommand onSetupReceived(typename TDevice::PacketType && p)
         {
             auto rt = SetupPacket::getRequest(p);
@@ -67,20 +67,29 @@ namespace Usb
             case SetupPacket::Request::getLineCoding:
             {
                 p.clear();
-                lineCoding_.unsafeToBuffer(p.unsafeToBufPointer());
+                TSettings::template StoragePolicy<TSettings>::getLineCoding().unsafeToBuffer(p.unsafeToBufPointer());
                 p.unsafeSetSize(7);
                 return typename TDevice::HalCommand{std::move(p)};
             }
             case SetupPacket::Request::setLineCoding:
             {
-                lineCoding_.unsafeFromBuffer(p.unsafeToBufPointer() + 1);
+                TSettings::template StoragePolicy<TSettings>::getLineCoding().unsafeFromBuffer(p.unsafeToBufPointer() + 1);
                 return typename TDevice::HalCommand{TDevice::makeAck(std::move(p))};
             }
             }
         }
     };
-    template <typename TSettings, typename U>
-    LineCoding Cdc<TSettings, U>::lineCoding_ = {
+
+
+	template<typename TSettings>
+	struct DefaultStorage{
+		static LineCoding lineCoding_;
+		static LineCoding& getLineCoding(){
+			return lineCoding_;
+		}
+	};
+    template <typename TSettings>
+    LineCoding DefaultStorage<TSettings>::lineCoding_ = {
         static_cast<uint8_t>(TSettings::baud & 0xFF),
         static_cast<uint8_t>((TSettings::baud >> 8) & 0xFF),
         static_cast<uint8_t>((TSettings::baud >> 16) & 0xFF),
@@ -89,15 +98,18 @@ namespace Usb
         0x00,
         0x08};
 
-    struct CdcDefaultSettings
+    struct DefaultSettings
     {
-        using ClassType = brigand::quote<Cdc>;
+        using ClassType = brigand::quote<Host>;
         using EndpointRequirements =
             brigand::list<EndpointRequirement<EndpointDirection::in, EndpointType::interrupt>,
                           EndpointRequirement<EndpointDirection::in, EndpointType::bulk>,
                           EndpointRequirement<EndpointDirection::out, EndpointType::bulk>>;
+		template<typename T>
+		using StoragePolicy = DefaultStorage<T>;
         static constexpr auto baud = 9600;
         static constexpr LineCoding::StopBits stopBits = LineCoding::StopBits::one;
     };
+}
 }
 }

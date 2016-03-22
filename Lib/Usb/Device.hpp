@@ -48,6 +48,11 @@ namespace Usb
 
         using DeviceClasses = brigand::list<
             brigand::apply<typename TDeviceClass::ClassType, TDeviceClass, Device>...>;
+        using EndpointRequirements = brigand::list<typename TDeviceClass::EndpointRequirements...>;
+        using FlatEPRequirements = brigand::flatten<EndpointRequirements>;
+        using EndpointNumbers =
+            MapCapabilitiesToEndpointNumbers<typename TDeviceSettings::PeripheralNumber,
+                                             FlatEPRequirements>;
 
         static constexpr uint8_t deviceDescriptor[18] = {
             18, // bLength
@@ -86,6 +91,7 @@ namespace Usb
             State state_;
             TransferType transfer_;
             State getState() const { return state_; }
+            template <typename Hal>
             HalCommand onSetupReceived(PacketType && p)
             {
                 transfer_.clear();
@@ -178,6 +184,10 @@ namespace Usb
                             }
                             else if (rt == Request::setConfiguration)
                             {
+                                // this is where mbed initializes other endpoints
+                                // TODO check if the usb standard says to init here and correct or
+                                // cite depending
+								activateEndpoints<Hal>(EndpointNumbers{});
                                 return HalCommand{makeAck(std::move(p))};
                             }
                         }
@@ -367,15 +377,25 @@ namespace Usb
             p.makeData1(); // all acks are Data1 packets
             return std::move(p);
         }
-
+		static PacketType getPacket() {
+			return AllocatorType::allocate();
+		}
+		template<typename THal, typename...T>
+		static void activateEndpoints(brigand::list<T...>){
+			int i[] = {0,(THal::template activateEndpoint<T>(),0)...};
+		}
+        template <typename Hal>
         static HalCommand onSetupPacket(PacketType && p)
         {
-            return sm_.onSetupReceived(std::move(p));
+            return sm_.template onSetupReceived<Hal>(std::move(p));
         }
         static HalCommand onControlOut(PacketType && p) { return sm_.onOutReceived(std::move(p)); }
         static HalCommand onControlIn(PacketType && p) { return sm_.onInSent(std::move(p)); }
         static void onOut(PacketType && p) { AllocatorType::deallocate(std::move(p)); }
         static void onIn(PacketType && p) { AllocatorType::deallocate(std::move(p)); }
+		static void initialize() {
+			AllocatorType::initialize();
+		}
     };
     template <typename TDeviceSettings, typename... TDeviceClass>
     typename Device<TDeviceSettings, TDeviceClass...>::Sm
@@ -387,6 +407,7 @@ namespace Usb
     {
         using MemoryPolicy = CompactPacket::MemoryPolicy<>;
         using StringDescriptors = void; // user must override
+        using PeripheralNumber = PeripheralC<0>;
     };
 }
 }

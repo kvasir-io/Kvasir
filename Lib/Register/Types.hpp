@@ -145,9 +145,18 @@ namespace Register{
 			return Value;
 		}
 	};
-
 	template<typename TAddresses, typename TFieldLocation>
 	struct FieldTuple;		//see below for implementation in specialization
+	namespace Detail {
+		template<typename Object, typename TFieldLocation>
+		struct GetFieldLocationIndex;
+		template<typename TA, typename TLocations, typename TFieldLocation>
+		struct GetFieldLocationIndex<FieldTuple<TA, TLocations>, TFieldLocation> : MPL::Find<TLocations, TFieldLocation> {};
+
+		template<typename Object, typename TFieldLocation>
+		using GetFieldLocationIndexT = typename GetFieldLocationIndex<Object, TFieldLocation>::Type;
+	}
+
 	template<uint32_t... Is, typename... TAs, unsigned... Masks, typename... TAccesss, typename... TRs>
 	struct FieldTuple<brigand::list<brigand::uint32_t<Is>...>,brigand::list<FieldLocation<TAs,Masks,TAccesss,TRs>...>>{
 		unsigned value_[sizeof...(Is)];
@@ -160,6 +169,10 @@ namespace Register{
 			constexpr unsigned mask = brigand::at_c<brigand::list<brigand::uint32_t<Masks>...>, Index>::value;
 			unsigned r = (value_[index] & mask) >> Detail::positionOfFirstSetBit(mask);
 			return ResultType(r);
+		}
+		template<typename T>
+		auto operator[](T)->decltype(get<Detail::GetFieldLocationIndex<FieldTuple, T>::value>()) {
+			return get<Detail::GetFieldLocationIndex<FieldTuple, T>::value>();
 		}
 		template<typename... T>
 		static constexpr unsigned getFirst(unsigned i, T...) {
@@ -182,15 +195,6 @@ namespace Register{
 	template<std::size_t I, typename TFieldTuple>
 	auto get(TFieldTuple o)->decltype(o.template get<I>()) {
 		return o.template get<I>();
-	}
-	namespace Detail{
-		template<typename Object, typename TFieldLocation>
-		struct GetFieldLocationIndex;
-		template<typename TA, typename TLocations, typename TFieldLocation>
-		struct GetFieldLocationIndex<FieldTuple<TA, TLocations>, TFieldLocation> : MPL::Find<TLocations, TFieldLocation> {};
-		
-		template<typename Object, typename TFieldLocation>
-		using GetFieldLocationIndexT = typename GetFieldLocationIndex<Object, TFieldLocation>::Type;
 	}
 	template<typename T, typename TFieldTuple>
 	auto get(T, TFieldTuple o)->decltype(o.template get<Detail::GetFieldLocationIndex<TFieldTuple,T>::value>()) {
