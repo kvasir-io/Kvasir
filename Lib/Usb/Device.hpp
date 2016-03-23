@@ -187,7 +187,7 @@ namespace Usb
                                 // this is where mbed initializes other endpoints
                                 // TODO check if the usb standard says to init here and correct or
                                 // cite depending
-								activateEndpoints<Hal>(EndpointNumbers{}, FlatEPRequirements{});
+                                activateEndpoints<Hal>(EndpointNumbers{}, FlatEPRequirements{});
                                 return HalCommand{makeAck(std::move(p))};
                             }
                         }
@@ -377,13 +377,14 @@ namespace Usb
             p.makeData1(); // all acks are Data1 packets
             return std::move(p);
         }
-		static PacketType getPacket() {
-			return AllocatorType::allocate();
-		}
-		template<typename THal, typename...N, EndpointDirection...D, EndpointType...T>
-		static void activateEndpoints(brigand::list<N...>, brigand::list<EndpointRequirement<D,T>...>){
-			int i[] = {0,(THal::template activateEndpoint<N,D,T>(),0)...};
-		}
+        static PacketType getPacket() { return AllocatorType::allocate(); }
+        static void sinkPacket(PacketType && p) { return AllocatorType::deallocate(std::move(p)); }
+        template <typename THal, typename... N, EndpointDirection... D, EndpointType... T>
+        static void activateEndpoints(brigand::list<N...>,
+                                      brigand::list<EndpointRequirement<D, T>...>)
+        {
+            int i[] = {0, (THal::template activateEndpoint<N, D, T>(), 0)...};
+        }
         template <typename Hal>
         static HalCommand onSetupPacket(PacketType && p)
         {
@@ -391,11 +392,31 @@ namespace Usb
         }
         static HalCommand onControlOut(PacketType && p) { return sm_.onOutReceived(std::move(p)); }
         static HalCommand onControlIn(PacketType && p) { return sm_.onInSent(std::move(p)); }
-        static void onOut(PacketType && p) { AllocatorType::deallocate(std::move(p)); }
-        static void onIn(PacketType && p) { AllocatorType::deallocate(std::move(p)); }
-		static void initialize() {
-			AllocatorType::initialize();
-		}
+        static HalCommand onOut(PacketType && p)
+        {
+            // TODO actually calculate which endpoints go to which device classes
+	        switch (p.getEndpoint().value_)
+            {
+            case 3:
+                return brigand::at<DeviceClasses, brigand::int8_t<0>>::onOut(std::move(p));
+            }
+	        return { };
+        }
+        static HalCommand onIn(PacketType && p)
+        {
+            // TODO actually calculate which endpoints go to which device classes
+	        switch (p.getEndpoint().value_)
+            {
+            case 2:
+                return brigand::at<DeviceClasses, brigand::int8_t<0>>::onIn(std::move(p));
+                break;
+            case 3:
+                return brigand::at<DeviceClasses, brigand::int8_t<0>>::onIn(std::move(p));
+                break;
+            }
+	        return { };
+        }
+        static void initialize() { AllocatorType::initialize(); }
     };
     template <typename TDeviceSettings, typename... TDeviceClass>
     typename Device<TDeviceSettings, TDeviceClass...>::Sm

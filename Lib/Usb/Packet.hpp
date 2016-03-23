@@ -93,7 +93,7 @@ namespace Kvasir
 			}
 			Endpoint getEndpoint()
 			{
-				return Endpoint(packet_->endpoint_ & 0x1F);
+				return Endpoint{ packet_->endpoint_ & 0x1F };
 			} 
 			void setEndpoint(Endpoint ep)
 			{

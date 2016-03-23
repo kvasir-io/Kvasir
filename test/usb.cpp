@@ -492,6 +492,57 @@ int usbTest()
 				return 1;
 			}
 		}
+		{
+			//set line coding
+			auto cmd = Device::onSetupPacket<HalDummy>(makePacket({ 0x21, 0x22, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00 }));
+			if (cmd.type_ != Device::HalCommand::Type::noAction) {
+				return 1;
+			}
+			if (cmd.packet_.getSize() != 0) {
+				return 1;
+			}
+			auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
+			if (cmd2.type_ != Device::HalCommand::Type::noAction) {
+				return 1;
+			}
+			if (cmd2.packet_) {
+				return 1;
+			}
+		}
+		{
+			//set line coding
+			auto cmd = Device::onSetupPacket<HalDummy>(makePacket({ 0x21, 0x22, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00 }));
+			if (cmd.type_ != Device::HalCommand::Type::noAction) {
+				return 1;
+			}
+			if (cmd.packet_.getSize() != 0) {
+				return 1;
+			}
+			auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
+			if (cmd2.type_ != Device::HalCommand::Type::noAction) {
+				return 1;
+			}
+			if (cmd2.packet_) {
+				return 1;
+			}
+		}
+		{
+			//set line coding
+			auto cmd = Device::onSetupPacket<HalDummy>(makePacket({ 0x21, 0x20, 0x00, 0x00, 0x00, 0x00, 0x07, 0x00 }));
+			if (cmd.type_ != Device::HalCommand::Type::noAction) {
+				return 1;
+			}
+			if (cmd.packet_.getSize() != 0) {
+				return 1;
+			}
+			auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
+			if (cmd2.type_ != Device::HalCommand::Type::noAction) {
+				return 1;
+			}
+			if (cmd2.packet_) {
+				return 1;
+			}
+		}
 	}
 	return 0;
 }

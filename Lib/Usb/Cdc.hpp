@@ -76,8 +76,26 @@ namespace Cdc{
                 TSettings::template StoragePolicy<TSettings>::getLineCoding().unsafeFromBuffer(p.unsafeToBufPointer() + 1);
                 return typename TDevice::HalCommand{TDevice::makeAck(std::move(p))};
             }
-            }
+			case SetupPacket::Request::setControlLineState:
+			{
+				
+				return typename TDevice::HalCommand{ TDevice::makeAck(std::move(p)) };
+			}
+            default:
+				TDevice::sinkPacket(std::move(p));
+	            return typename TDevice::HalCommand {};
+}
         }
+	    static typename TDevice::HalCommand onIn(typename TDevice::PacketType && p)
+	    {
+		    p.clear();
+		    return typename TDevice::HalCommand { std::move(p) };
+	    }
+	    static typename TDevice::HalCommand onOut(typename TDevice::PacketType && p)
+	    {
+		    p.clear();
+		    return typename TDevice::HalCommand { std::move(p) };
+	    }
     };
 
 
