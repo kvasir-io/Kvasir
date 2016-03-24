@@ -47,13 +47,14 @@ int applyTest()
         apply(write(Kvasir::Adc0Cfg2::AdlstsValC::v10, Kvasir::Adc0Cfg2::AdhscValC::v1),
               write(Kvasir::Adc0Cfg2::adacken, Kvasir::Adc0Cfg2::AdackenVal::v1));
         auto it = Kvasir::Register::actions_.begin();
+        if (it->address_ != 0x4003b00c || it->value_ != 0x06 || it->mask_ != 0x00000007)
+            return 1;
+        ++it;
         if (it->address_ != 0x4003b00c || it->value_ != 0x08 ||
             it->mask_ !=
                 0x00000008) // this should merge with the next line once that is implemented
             return 1;
-        ++it;
-        if (it->address_ != 0x4003b00c || it->value_ != 0x06 || it->mask_ != 0x00000007)
-            return 1;
+
         Kvasir::Register::actions_.clear();
     }
     {
