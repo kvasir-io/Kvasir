@@ -1,5 +1,6 @@
 #pragma once
 #include "Memory.hpp"
+#include "Packet.hpp"
 #include "SetupPacket.hpp"
 namespace Kvasir
 {

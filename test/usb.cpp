@@ -1,8 +1,6 @@
 #include <Usb/Cdc.hpp>
 #include <Usb/Device.hpp>
 #include <Usb/Memory.hpp>
-#include <Usb/Packet.hpp>
-#include <Usb/SetupPacket.hpp>
 #include <iomanip>
 #include <iostream>
 #include <sstream>

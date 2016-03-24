@@ -1,6 +1,7 @@
 #pragma once
 #include <Mpl/brigand.hpp>
 #include <Usb/Endpoint.hpp>
+#include <Usb/SetupPacket.hpp>
 #include <algorithm>
 namespace Kvasir
 {
@@ -137,7 +138,7 @@ namespace Usb
              static_cast<uint8_t>((THost::Settings::baud >> 8) & 0xFF),
              static_cast<uint8_t>((THost::Settings::baud >> 16) & 0xFF),
              static_cast<uint8_t>((THost::Settings::baud >> 24) & 0xFF), 0x00, 0x00, 0x08},
-            {THost::State::idle}};
+            THost::State::idle};
 
         struct DefaultSettings
         {

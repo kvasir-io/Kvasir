@@ -1,5 +1,4 @@
 #pragma once
-#include "Atomic/Queue.hpp"
 #include "Usb/Endpoint.hpp"
 #include <array>
 namespace Kvasir
