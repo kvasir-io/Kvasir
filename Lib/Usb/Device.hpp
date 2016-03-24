@@ -23,7 +23,8 @@ namespace Usb
                 noAction,
                 setAddress,
                 stall,
-                unstall
+                unstall,
+                expectingOutPacket
             };
             Type type_;
             uint8_t data_;
@@ -84,20 +85,29 @@ namespace Usb
             waitingToSend0,
             waitingForAckSent,
             waitingForAck,
-
+            forwardingOutPackets
         };
         struct Sm
         {
             State state_;
+            uint8_t device_;
             TransferType transfer_;
             State getState() const { return state_; }
+            HalCommand filterClassResponce(HalCommand && in, uint8_t dev)
+            {
+                if (in.type_ == HalCommand::Type::expectingOutPacket)
+                {
+                    state_ = State::forwardingOutPackets;
+                    device_ = dev;
+                }
+                return std::move(in);
+            }
             template <typename Hal>
             HalCommand onSetupReceived(PacketType && p)
             {
                 transfer_.clear();
                 using namespace SetupPacket;
                 auto t = getType(p);
-                auto rt = getRequest(p);
 
                 switch (t)
                 {
@@ -108,8 +118,10 @@ namespace Usb
                     switch (i)
                     {
                     case 0:
-                        return brigand::at<DeviceClasses, brigand::int8_t<0>>::onSetupReceived(
-                            std::move(p));
+                        return filterClassResponce(
+                            brigand::at<DeviceClasses, brigand::int8_t<0>>::onSetupReceived(
+                                std::move(p)),
+                            0);
                     }
 
                     break;
@@ -120,6 +132,7 @@ namespace Usb
                 }
                 case Type::standard:
                 {
+                    auto rt = getRequest(p);
                     if (getWLength(p) > 0)
                     {
                         if (getDirection(p) == Direction::deviceToHost)
@@ -258,6 +271,17 @@ namespace Usb
                         state_ = State::waitingForInput0;
                     }
                     break;
+                case State::forwardingOutPackets:
+                {
+                    // TODO support more
+                    switch (device_)
+                    {
+                    case 0:
+                        return brigand::at<DeviceClasses, brigand::int8_t<0>>::onOut(std::move(p));
+                    }
+
+                    break;
+                }
                 case State::waitingForAck:
                 default:
                     state_ = State::waitingForSetup;
@@ -395,17 +419,17 @@ namespace Usb
         static HalCommand onOut(PacketType && p)
         {
             // TODO actually calculate which endpoints go to which device classes
-	        switch (p.getEndpoint().value_)
+            switch (p.getEndpoint().value_)
             {
             case 3:
                 return brigand::at<DeviceClasses, brigand::int8_t<0>>::onOut(std::move(p));
             }
-	        return { };
+            return {};
         }
         static HalCommand onIn(PacketType && p)
         {
             // TODO actually calculate which endpoints go to which device classes
-	        switch (p.getEndpoint().value_)
+            switch (p.getEndpoint().value_)
             {
             case 2:
                 return brigand::at<DeviceClasses, brigand::int8_t<0>>::onIn(std::move(p));
@@ -414,7 +438,7 @@ namespace Usb
                 return brigand::at<DeviceClasses, brigand::int8_t<0>>::onIn(std::move(p));
                 break;
             }
-	        return { };
+            return {};
         }
         static void initialize() { AllocatorType::initialize(); }
     };

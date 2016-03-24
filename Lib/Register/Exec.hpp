@@ -16,100 +16,96 @@
  * limitations under the License.
 ****************************************************************************/
 #pragma once
-#pragma GCC optimize ("-O3")
+#include "Mpl/Algorithm.hpp"
 #include "Mpl/Types.hpp"
 #include "Mpl/Utility.hpp"
-#include "Mpl/Algorithm.hpp"
 #include "Types.hpp"
 #include "Utility.hpp"
 
+namespace Kvasir
+{
 
-namespace Kvasir {
+namespace Register
+{
 
-	namespace Register{
+    namespace Detail
+    {
 
-		namespace Detail{
+        template <typename TRegisterAction>
+        struct RegisterExec;
 
-			template<typename TRegisterAction>
-			struct RegisterExec;
+        template <typename TLocation, unsigned ClearMask, unsigned SetMask>
+        struct GenericReadMaskOrWrite
+        {
+            DEBUG_OPTIMIZE unsigned operator()(unsigned in = 0)
+            {
+                auto i = GetAddress<TLocation>::read();
+                i &= ~ClearMask;
+                i |= SetMask | in;
+                GetAddress<TLocation>::write(i);
+                return i;
+            }
+        };
 
-			template<typename TLocation, unsigned ClearMask, unsigned SetMask>
-			struct GenericReadMaskOrWrite{
-				DEBUG_OPTIMIZE unsigned operator()(unsigned in = 0){
-					auto i = GetAddress<TLocation>::read();
-					i &= ~ClearMask;
-					i |= SetMask | in;
-					GetAddress<TLocation>::write(i);
-					return i;
-				}
-			};
+        template <typename TLocation, unsigned ClearMask, unsigned XorMask>
+        struct GenericReadMaskXorWrite
+        {
+            DEBUG_OPTIMIZE unsigned operator()(unsigned in = 0)
+            {
+                auto i = GetAddress<TLocation>::read();
+                i &= ~ClearMask;
+                i ^= (XorMask | in);
+                GetAddress<TLocation>::write(i);
+                return i;
+            }
+        };
 
-			template<typename TLocation, unsigned ClearMask, unsigned XorMask>
-			struct GenericReadMaskXorWrite{
-				DEBUG_OPTIMIZE unsigned operator()(unsigned in = 0){
-					auto i = GetAddress<TLocation>::read();
-					i &= ~ClearMask;
-					i ^= (XorMask | in);
-					GetAddress<TLocation>::write(i);
-					return i;
-				}
-			};
+        // write literal with read modify write
+        template <typename TAddress, unsigned Mask, typename Access, typename FieldType,
+                  unsigned Data>
+        struct RegisterExec<Register::Action<FieldLocation<TAddress, Mask, Access, FieldType>,
+                                             WriteLiteralAction<Data>>>
+            : GenericReadMaskOrWrite<FieldLocation<TAddress, Mask, Access, FieldType>, Mask, Data>
+        {
+            static_assert((Data & (~Mask)) == 0, "bad mask");
+        };
 
-			//write literal with read modify write
-			template<typename TAddress, unsigned Mask, typename Access, typename FieldType, unsigned Data>
-			struct RegisterExec<
-				Register::Action<
-					FieldLocation<TAddress,Mask,Access,FieldType>,
-					WriteLiteralAction<Data>>>
-				: GenericReadMaskOrWrite<
-				  	  FieldLocation<TAddress,Mask,Access,FieldType>,
-					  Mask,
-					  Data>
-			{
-				static_assert((Data & (~Mask))==0,"bad mask");
-			};
+        template <typename TAddress, unsigned Mask, typename Access, typename FieldType>
+        struct RegisterExec<
+            Register::Action<FieldLocation<TAddress, Mask, Access, FieldType>, WriteAction>>
+            : GenericReadMaskOrWrite<FieldLocation<TAddress, Mask, Access, FieldType>, Mask, 0>
+        {
+        };
 
-			template<typename TAddress, unsigned Mask, typename Access, typename FieldType>
-			struct RegisterExec<
-				Register::Action<
-					FieldLocation<TAddress,Mask,Access,FieldType>,
-					WriteAction>>
-				: GenericReadMaskOrWrite<
-			  	  FieldLocation<TAddress,Mask,Access,FieldType>,
-				  Mask,
-				  0>	{};
+        template <typename TAddress, unsigned Mask, typename Access, typename FieldType>
+        struct RegisterExec<
+            Register::Action<FieldLocation<TAddress, Mask, Access, FieldType>, ReadAction>>
+        {
+            DEBUG_OPTIMIZE unsigned operator()(unsigned in = 0)
+            {
+                return GetAddress<TAddress>::read();
+            }
+        };
+        template <typename TAddress, unsigned Mask, typename Access, typename FieldType,
+                  unsigned Data>
+        struct RegisterExec<Register::Action<FieldLocation<TAddress, Mask, Access, FieldType>,
+                                             XorLiteralAction<Data>>>
+            : GenericReadMaskOrWrite<FieldLocation<TAddress, Mask, Access, FieldType>, Mask, Data>
+        {
+            static_assert((Data & (~Mask)) == 0, "bad mask");
+            DEBUG_OPTIMIZE unsigned operator()(unsigned in = 0)
+            {
+                auto i = GetAddress<TAddress>::read();
+                i ^= Data;
+                GetAddress<TAddress>::write(i);
+                return 0;
+            }
+        };
+    }
 
-
-			template<typename TAddress, unsigned Mask, typename Access, typename FieldType>
-			struct RegisterExec<Register::Action<
-				FieldLocation<TAddress,Mask,Access,FieldType>,ReadAction>>
-			{
-				DEBUG_OPTIMIZE unsigned operator()(unsigned in = 0){
-					return GetAddress<TAddress>::read();
-				}
-			};
-			template<typename TAddress, unsigned Mask, typename Access, typename FieldType, unsigned Data>
-			struct RegisterExec<
-				Register::Action<
-					FieldLocation<TAddress,Mask,Access,FieldType>,
-					XorLiteralAction<Data>>>
-				: GenericReadMaskOrWrite<
-				  FieldLocation<TAddress,Mask,Access,FieldType>,
-				  Mask,
-				  Data>
-			{
-				static_assert((Data & (~Mask))==0,"bad mask");
-				DEBUG_OPTIMIZE unsigned operator()(unsigned in = 0){
-					auto i = GetAddress<TAddress>::read();
-					i ^= Data;
-					GetAddress<TAddress>::write(i);
-					return 0;
-				}
-			};
-		}
-
-
-		template<typename T, typename U>
-		struct ExecuteSeam : Detail::RegisterExec<T> {};
-	}
+    template <typename T, typename U>
+    struct ExecuteSeam : Detail::RegisterExec<T>
+    {
+    };
+}
 }

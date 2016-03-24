@@ -2,8 +2,4 @@
 int applyTest();
 int usbTest();
 
-int main()
-{
-	return applyTest() || usbTest();
-}
-
+int main() { return applyTest() || usbTest(); }
