@@ -36,8 +36,9 @@ namespace Usb
 
     enum EndpointType
     {
-        interrupt,
+        control,
         bulk,
+        interrupt,
         isochronous
     };
     enum EndpointDirection
@@ -65,14 +66,16 @@ namespace Usb
         template <typename Requirement>
         struct IsCapablePred;
         template <EndpointDirection Direction>
-        struct IsCapablePred<EndpointRequirement<Direction,EndpointType::interrupt>>
+        struct IsCapablePred<EndpointRequirement<Direction, EndpointType::interrupt>>
         {
             template <typename U>
             struct apply : std::false_type
             {
             };
             template <int N, EndpointDirection D, bool B1, bool B2>
-            struct apply<EndpointCapabilities<N, D, true, B1, B2>> : std::integral_constant<bool,(Direction==D || D == EndpointDirection::bidirectional)>
+            struct apply<EndpointCapabilities<N, D, true, B1, B2>>
+                : std::integral_constant<bool,
+                                         (Direction == D || D == EndpointDirection::bidirectional)>
             {
             };
         };
@@ -84,7 +87,9 @@ namespace Usb
             {
             };
             template <int N, EndpointDirection D, bool B1, bool B2>
-            struct apply<EndpointCapabilities<N, D, B1, true, B2>> : std::integral_constant<bool, (Direction == D || D == EndpointDirection::bidirectional)>
+            struct apply<EndpointCapabilities<N, D, B1, true, B2>>
+                : std::integral_constant<bool,
+                                         (Direction == D || D == EndpointDirection::bidirectional)>
             {
             };
         };
@@ -96,20 +101,25 @@ namespace Usb
             {
             };
             template <int N, EndpointDirection D, bool B1, bool B2>
-            struct apply<EndpointCapabilities<N, D, B1, B2, true>> : std::integral_constant<bool, (Direction == D || D == EndpointDirection::bidirectional)>
+            struct apply<EndpointCapabilities<N, D, B1, B2, true>>
+                : std::integral_constant<bool,
+                                         (Direction == D || D == EndpointDirection::bidirectional)>
             {
             };
         };
-		struct ToEndpointCPred {
-			template<typename T>
-			struct apply;
-			template<int Number, EndpointDirection Direction, bool Interrupt, bool Bulk, bool Isocronous>
-			struct apply<EndpointCapabilities<Number, Direction, Interrupt, Bulk, Isocronous>> {
-				using type = EndpointC<Number>;
-			};
-		};
+        struct ToEndpointCPred
+        {
+            template <typename T>
+            struct apply;
+            template <int Number, EndpointDirection Direction, bool Interrupt, bool Bulk,
+                      bool Isocronous>
+            struct apply<EndpointCapabilities<Number, Direction, Interrupt, Bulk, Isocronous>>
+            {
+                using type = EndpointC<Number>;
+            };
+        };
         template <typename TNeeded, typename TAvailible, typename TOut>
-		struct MapCapabilitiesToEndpointNumbers
+        struct MapCapabilitiesToEndpointNumbers
         {
             using type = brigand::transform<TOut, ToEndpointCPred>;
         };
