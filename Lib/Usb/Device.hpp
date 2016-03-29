@@ -2,14 +2,12 @@
 #include "Memory.hpp"
 #include "Packet.hpp"
 #include "SetupPacket.hpp"
+#include <Common\Tags.hpp>
+#include "HalTraits.hpp"
 namespace Kvasir
 {
 namespace Usb
 {
-    // generic customizable USB device
-    // Policy classes:
-    // - allocator creates and destroys packts
-    // -
     template <typename TDeviceSettings, typename... TDeviceClass>
     struct Device
     {
@@ -17,36 +15,27 @@ namespace Usb
         using AllocatorType = typename TDeviceSettings::MemoryPolicy::AllocatorType;
         using OutputQueueType = typename TDeviceSettings::MemoryPolicy::QueueType;
         using TransferType = typename TDeviceSettings::MemoryPolicy::TransferType;
-        struct HalCommand
+/*        struct HalCommand
         {
             enum class Type : uint8_t
             {
                 noAction,
-                setAddress,
                 stall,
                 unstall,
                 expectingOutPacket
             };
             Type type_;
-            uint8_t data_;
             PacketType packet_;
             HalCommand(HalCommand && o)
-                : type_{o.type_}, data_{o.data_}, packet_{std::move(o.packet_)}
+                : type_{o.type_}, packet_{std::move(o.packet_)}
             {
             }
             explicit HalCommand(PacketType && packet)
                 : type_{Type::noAction}, packet_{std::move(packet)}
             {
             }
-            static HalCommand makeSetAddress(uint8_t address, PacketType && packet)
-            {
-                HalCommand c{std::move(packet)};
-                c.type_ = Type::setAddress;
-                c.data_ = address;
-                return c;
-            }
             HalCommand() = default;
-        };
+        };*/
 
         using DeviceClasses = brigand::list<
             brigand::apply<typename TDeviceClass::ClassType, TDeviceClass, Device>...>;
@@ -85,6 +74,7 @@ namespace Usb
             waitingToSend1,
             waitingToSend0,
             waitingForAckSent,
+	        waitingForAckSentSetAddress,
             waitingForAck,
             forwardingOutPackets
         };
@@ -93,8 +83,9 @@ namespace Usb
             State state_;
             uint8_t device_;
             TransferType transfer_;
+	        uint8_t address_;
             State getState() const { return state_; }
-            HalCommand filterClassResponce(HalCommand && in, uint8_t dev)
+/*            HalCommand filterClassResponce(HalCommand && in, uint8_t dev)
             {
                 if (in.type_ == HalCommand::Type::expectingOutPacket)
                 {
@@ -102,9 +93,8 @@ namespace Usb
                     device_ = dev;
                 }
                 return std::move(in);
-            }
-            template <typename Hal>
-            HalCommand onSetupReceived(PacketType && p)
+            }*/
+            void onSetupReceived(PacketType && p)
             {
                 transfer_.clear();
                 using namespace SetupPacket;
@@ -119,10 +109,11 @@ namespace Usb
                     switch (i)
                     {
                     case 0:
-                        return filterClassResponce(
-                            brigand::at<DeviceClasses, brigand::int8_t<0>>::onSetupReceived(
-                                std::move(p)),
-                            0);
+						if (brigand::at<DeviceClasses, brigand::int8_t<0>>::onSetupReceived(
+							std::move(p))) {
+							state_ = State::forwardingOutPackets;
+							device_ = 0;
+						}
                     }
 
                     break;
@@ -144,7 +135,8 @@ namespace Usb
                             {
                                 if (Device::requestGetStatus())
                                 {
-                                    return HalCommand{makeAck(std::move(p))};
+									sendControlAck(std::move(p));
+									return;
                                 }
                             }
                             else if (rt == Request::getDescriptor)
@@ -152,20 +144,23 @@ namespace Usb
                                 Device::requestGetDescriptor(std::move(p));
                                 auto op = transfer_.popFrontPacket();
                                 op.makeData1();
-                                return HalCommand{std::move(op)};
+								sendPacket(std::move(op));
+								return; 
                             }
                             else if (rt == Request::getConfiguration)
                             {
                                 if (Device::requestGetConfiguration())
                                 {
-                                    return HalCommand{makeAck(std::move(p))};
+									sendControlAck(std::move(p));
+									return;
                                 }
                             }
                             else if (rt == Request::getInterface)
                             {
                                 if (Device::requestGetInterface())
                                 {
-                                    return HalCommand{makeAck(std::move(p))};
+									sendControlAck(std::move(p));
+									return;
                                 }
                             }
                         }
@@ -174,15 +169,18 @@ namespace Usb
                             state_ = State::waitingForInput1;
                             if (rt == Request::clearFeature)
                             {
-                                return HalCommand{makeAck(std::move(p))};
+								sendControlAck(std::move(p));
+								return;
                             }
                             else if (rt == Request::setFeature)
                             {
-                                return HalCommand{makeAck(std::move(p))};
+								sendControlAck(std::move(p));
+								return;
                             }
                             else if (rt == Request::setInterface)
                             {
-                                return HalCommand{makeAck(std::move(p))};
+								sendControlAck(std::move(p));
+								return;
                             }
                         }
                     }
@@ -192,17 +190,19 @@ namespace Usb
                         {
                             if (rt == Request::setAddress)
                             {
-                                state_ = State::waitingForAckSent;
-                                auto val = static_cast<uint8_t>(getValue(p));
-                                return HalCommand::makeSetAddress(val, makeAck(std::move(p)));
+                                state_ = State::waitingForAckSentSetAddress;
+	                            address_ = static_cast<uint8_t>(getValue(p));
+								sendControlAck(std::move(p));
+								return;
                             }
                             else if (rt == Request::setConfiguration)
                             {
                                 // this is where mbed initializes other endpoints
                                 // TODO check if the usb standard says to init here and correct or
                                 // cite depending
-                                activateEndpoints<Hal>(EndpointNumbers{}, FlatEPRequirements{});
-                                return HalCommand{makeAck(std::move(p))};
+                                activateEndpoints(EndpointNumbers{}, FlatEPRequirements{});
+								sendControlAck(std::move(p));
+								return;
                             }
                         }
                     }
@@ -212,7 +212,7 @@ namespace Usb
                 AllocatorType::deallocate(
                     std::move(p)); // if we did not use the packet in a return then deallocate it
             }
-            HalCommand onInSent(PacketType && p)
+            void onInSent(PacketType && p)
             {
                 AllocatorType::deallocate(std::move(p));
                 switch (state_)
@@ -227,7 +227,8 @@ namespace Usb
                         state_ = State::waitingToSend0;
                         auto op = transfer_.popFrontPacket();
                         op.makeData0();
-                        return HalCommand{std::move(op)};
+						sendControlAck(std::move(p));
+						return;
                     }
                     break;
                 case State::waitingToSend0:
@@ -240,15 +241,19 @@ namespace Usb
                         state_ = State::waitingToSend1;
                         auto op = transfer_.popFrontPacket();
                         op.makeData1();
-                        return HalCommand{std::move(op)};
+						sendControlAck(std::move(p));
+						return;
                     }
                     break;
+                case State::waitingForAckSentSetAddress: {
+					GetHal<Device, Tag::User>::type::setAddress(address_);
+                }
                 default:
                     state_ = State::waitingForSetup;
                 }
-                return {};
+                return;
             }
-            HalCommand onOutReceived(PacketType && p)
+            void onOutReceived(PacketType && p)
             {
                 switch (state_)
                 {
@@ -288,7 +293,7 @@ namespace Usb
                     state_ = State::waitingForSetup;
                 }
                 AllocatorType::deallocate(std::move(p));
-                return {};
+                return;
             }
         };
         static Sm sm_;
@@ -395,52 +400,30 @@ namespace Usb
         static bool requestGetInterface() { return false; }
         static bool requestSetInterface() { return false; }
     public:
-        static PacketType makeAck(PacketType && p)
+        static void sendControlAck(PacketType && p)
         {
             p.unsafeSetSize(0);
-            p.setEndpoint(Endpoint{0});
+            p.setEndpoint(Endpoint{1});
             p.makeData1(); // all acks are Data1 packets
-            return std::move(p);
+            sendPacket(std::move(p));
         }
+		static void sendPacket(PacketType && p) {
+			GetHal<Device, Tag::User>::type::sendPacket(std::move(p));
+		}
         static PacketType getPacket() { return AllocatorType::allocate(); }
         static void sinkPacket(PacketType && p) { return AllocatorType::deallocate(std::move(p)); }
-        template <typename THal, typename... N, EndpointDirection... D, EndpointType... T>
+        template <typename... N, EndpointDirection... D, EndpointType... T>
         static void activateEndpoints(brigand::list<N...>,
                                       brigand::list<EndpointRequirement<D, T>...>)
         {
-            int i[] = {0, (THal::template activateEndpoint<N, D, T>(), 0)...};
+            int i[] = {0, (GetHal<Device,Tag::User>::type::template activateEndpoint<N, D, T>(), 0)...};
         }
-        template <typename Hal>
-        static HalCommand onSetupPacket(PacketType && p)
+        static void onSetupPacket(PacketType && p)
         {
-            return sm_.template onSetupReceived<Hal>(std::move(p));
+            sm_.onSetupReceived(std::move(p));
         }
-        static HalCommand onControlOut(PacketType && p) { return sm_.onOutReceived(std::move(p)); }
-        static HalCommand onControlIn(PacketType && p) { return sm_.onInSent(std::move(p)); }
-        static HalCommand onOut(PacketType && p)
-        {
-            // TODO actually calculate which endpoints go to which device classes
-            switch (p.getEndpoint().value_)
-            {
-            case 3:
-                return brigand::at<DeviceClasses, brigand::int8_t<0>>::onOut(std::move(p));
-            }
-            return {};
-        }
-        static HalCommand onIn(PacketType && p)
-        {
-            // TODO actually calculate which endpoints go to which device classes
-            switch (p.getEndpoint().value_)
-            {
-            case 2:
-                return brigand::at<DeviceClasses, brigand::int8_t<0>>::onIn(std::move(p));
-                break;
-            case 3:
-                return brigand::at<DeviceClasses, brigand::int8_t<0>>::onIn(std::move(p));
-                break;
-            }
-            return {};
-        }
+        static void onOutReceived(PacketType && p) { sm_.onOutReceived(std::move(p)); }
+        static void onInSent(PacketType && p) { sm_.onInSent(std::move(p)); }
         static void initialize() { AllocatorType::initialize(); }
     };
     template <typename TDeviceSettings, typename... TDeviceClass>

@@ -4,6 +4,8 @@
 #include <iomanip>
 #include <iostream>
 #include <sstream>
+#include <vector>
+#include <tuple>
 
 namespace Kvasir
 {
@@ -13,22 +15,22 @@ namespace Usb
     struct EndpointCapabilityTraits<PeripheralC<I>>
     {
         using type =
-            brigand::list<EndpointCapabilities<0, EndpointDirection::out, true, false, false>,
-                          EndpointCapabilities<1, EndpointDirection::in, true, false, false>,
-                          EndpointCapabilities<2, EndpointDirection::out, true, true, true>,
-                          EndpointCapabilities<3, EndpointDirection::in, true, true, true>,
-                          EndpointCapabilities<4, EndpointDirection::out, true, true, true>,
-                          EndpointCapabilities<5, EndpointDirection::in, true, true, true>,
-                          EndpointCapabilities<6, EndpointDirection::out, true, true, true>,
-                          EndpointCapabilities<7, EndpointDirection::in, true, true, true>,
-                          EndpointCapabilities<8, EndpointDirection::out, true, true, true>,
-                          EndpointCapabilities<9, EndpointDirection::in, true, true, true>,
-                          EndpointCapabilities<10, EndpointDirection::out, true, true, true>,
-                          EndpointCapabilities<11, EndpointDirection::in, true, true, true>,
-                          EndpointCapabilities<12, EndpointDirection::out, true, true, true>,
-                          EndpointCapabilities<13, EndpointDirection::in, true, true, true>,
-                          EndpointCapabilities<14, EndpointDirection::out, true, true, true>,
-                          EndpointCapabilities<15, EndpointDirection::in, true, true, true>>;
+			brigand::list<EndpointCapabilities<0, EndpointDirection::out, true, false, false, false>,
+			EndpointCapabilities<1, EndpointDirection::in, true, false, false, false>,
+			EndpointCapabilities<2, EndpointDirection::out, false, true, true, true>,
+			EndpointCapabilities<3, EndpointDirection::in, false, true, true, true>,
+			EndpointCapabilities<4, EndpointDirection::out, false, true, true, true>,
+			EndpointCapabilities<5, EndpointDirection::in, false, true, true, true>,
+			EndpointCapabilities<6, EndpointDirection::out, false, true, true, true>,
+			EndpointCapabilities<7, EndpointDirection::in, false, true, true, true>,
+			EndpointCapabilities<8, EndpointDirection::out, false, true, true, true>,
+			EndpointCapabilities<9, EndpointDirection::in, false, true, true, true>,
+			EndpointCapabilities<10, EndpointDirection::out, false, true, true, true>,
+			EndpointCapabilities<11, EndpointDirection::in, false, true, true, true>,
+			EndpointCapabilities<12, EndpointDirection::out, false, true, true, true>,
+			EndpointCapabilities<13, EndpointDirection::in, false, true, true, true>,
+			EndpointCapabilities<14, EndpointDirection::out, false, true, true, true>,
+			EndpointCapabilities<15, EndpointDirection::in, false, true, true, true >> ;
     };
 }
 }
@@ -170,15 +172,17 @@ constexpr uint8_t MyStringDescriptors::langId[4];
 constexpr uint8_t MyStringDescriptors::product[0x16];
 constexpr uint8_t MyStringDescriptors::serial[0x16];
 constexpr uint8_t MyStringDescriptors::interface[8];
-struct MyCdcSettings : Kvasir::Usb::Cdc::DefaultSettings
+struct MyCdcSettings : ::Kvasir::Usb::Cdc::DefaultSettings
 {
 };
-struct MyDeviceSettings : Kvasir::Usb::DefaultDeviceSettings
+struct MyDeviceSettings : ::Kvasir::Usb::DefaultDeviceSettings
 {
     using StringDescriptors = MyStringDescriptors;
     static constexpr uint16_t vid = 0x1F00;
     static constexpr uint16_t pid = 0x2012;
 };
+
+
 using Device = Kvasir::Usb::Device<MyDeviceSettings, MyCdcSettings>;
 
 template <typename T>
@@ -191,16 +195,36 @@ decltype(Device::AllocatorType::allocate()) makePacket(std::initializer_list<T> 
     }
     return packet;
 }
-struct HalDummy
+}
+enum class Type { enableEp0, setAddress, activateEndpoint, sendPacket };
+using Packet = TestScenario1::Device::PacketType;
+static std::vector<std::tuple<Type, Packet>> events_;
+namespace Kvasir
 {
-    template <typename T, Kvasir::Usb::EndpointDirection Direction, Kvasir::Usb::EndpointType Type>
-    static void activateEndpoint()
-    {
-        int physical = T::value;
-        Kvasir::Usb::EndpointDirection dir = Direction;
-        Kvasir::Usb::EndpointType t = Type;
-    }
-};
+	namespace Usb
+	{
+	struct MocHal {
+		static void enableEP0Out(bool data1) {
+			events_.emplace_back(Type::enableEp0, ::Packet{});
+		}
+		static void setAddress(uint8_t address) {
+			events_.emplace_back(Type::setAddress, ::Packet{});
+		}
+		template <typename T, EndpointDirection Direction, EndpointType Type>
+		static void activateEndpoint()
+		{
+			events_.emplace_back(Type::activateEndpoint, ::Packet{});
+		}
+		static void sendPacket(::Packet && p) {
+			events_.emplace_back(Type::sendPacket,std::move(p));
+		}
+	};
+
+		template<typename T>
+		struct GetHal<T, Tag::User> {
+			using type = MocHal;
+		};
+	}
 }
 
 int usbTest()
@@ -210,406 +234,407 @@ int usbTest()
         Device::AllocatorType::initialize();
         {
             // set address
-            auto cmd = Device::onSetupPacket<HalDummy>(makePacket({0, 5, 5, 0, 0, 0, 0, 0}));
-            if (cmd.type_ != Device::HalCommand::Type::setAddress)
+            Device::onSetupPacket(makePacket({0, 5, 5, 0, 0, 0, 0, 0}));
+            if (std::get<0>(events_[0]) != Type::sendPacket)
             {
                 return 1;
             }
-            if (cmd.packet_.getSize() != 0)
+			auto packet = std::move(std::get<1>(events_[0]));
+            if (packet.getSize() != 0)
             {
                 return 1;
             }
-            auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
-            if (cmd2.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd2.packet_)
-            {
-                return 1;
-            }
-        }
-        {
-            // GetDevice descriptor
-            auto cmd = Device::onSetupPacket<HalDummy>(makePacket({0x80, 6, 0, 1, 0, 0, 8, 0}));
-            if (cmd.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd.packet_.getSize() != 8)
-            {
-                return 1;
-            }
-            auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
-            if (cmd2.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd2.packet_)
+            Device::onInSent(std::move(packet));
+			if (std::get<0>(events_[1]) != Type::setAddress)
+			{
+				return 1;
+			}
+            if (events_.size() == 2)
             {
                 return 1;
             }
         }
-        {
-            // GetDevice descriptor
-            auto cmd = Device::onSetupPacket<HalDummy>(
-                makePacket({0x80, 0x06, 0x00, 0x01, 0x00, 0x00, 0x12, 0x00}));
-            if (cmd.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd.packet_.getSize() != 18)
-            {
-                return 1;
-            }
-            auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
-            if (cmd2.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd2.packet_)
-            {
-                return 1;
-            }
-        }
-        {
-            // Get Configuration descriptor
-            auto cmd = Device::onSetupPacket<HalDummy>(
-                makePacket({0x80, 0x06, 0x00, 0x02, 0x00, 0x00, 0x09, 0x00}));
-            if (cmd.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd.packet_.getSize() != 9)
-            {
-                return 1;
-            }
-            auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
-            if (cmd2.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd2.packet_)
-            {
-                return 1;
-            }
-        }
-        {
-            // Get Configuration descriptor
-            auto cmd = Device::onSetupPacket<HalDummy>(
-                makePacket({0x80, 0x06, 0x00, 0x02, 0x00, 0x00, 0x4B, 0x00}));
-            if (cmd.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd.packet_.getSize() != 64)
-            {
-                return 1;
-            }
-            if (cmd.packet_[0] != 9)
-            {
-                return 1;
-            }
-            auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
-            if (cmd2.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd2.packet_.getSize() != 11)
-            {
-                return 1;
-            }
-            if (cmd2.packet_[0] != 2)
-            {
-                return 1;
-            }
-            auto cmd3 = Device::onControlIn(std::move(cmd2.packet_));
-            if (cmd3.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd3.packet_)
-            {
-                return 1;
-            }
-        }
-        {
-            // Get String descriptor
-            auto cmd = Device::onSetupPacket<HalDummy>(
-                makePacket({0x80, 0x06, 0x00, 0x03, 0x00, 0x00, 0xFF, 0x00}));
-            if (cmd.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd.packet_.getSize() != 4)
-            {
-                return 1;
-            }
-            if (cmd.packet_[0] != 4)
-            {
-                return 1;
-            }
-            auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
-            if (cmd2.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd2.packet_)
-            {
-                return 1;
-            }
-        }
-        {
-            // Get String descriptor
-            auto cmd = Device::onSetupPacket<HalDummy>(
-                makePacket({0x80, 0x06, 0x02, 0x03, 0x09, 0x04, 0xFF, 0x00}));
-            if (cmd.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd.packet_.getSize() != 22)
-            {
-                return 1;
-            }
-            if (cmd.packet_[0] != 0x16)
-            {
-                return 1;
-            }
-            auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
-            if (cmd2.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd2.packet_)
-            {
-                return 1;
-            }
-        }
-        {
-            // Get String descriptor
-            auto cmd = Device::onSetupPacket<HalDummy>(
-                makePacket({0x80, 0x06, 0x03, 0x03, 0x09, 0x04, 0xFF, 0x00}));
-            if (cmd.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd.packet_.getSize() != 22)
-            {
-                return 1;
-            }
-            if (cmd.packet_[0] != 0x16)
-            {
-                return 1;
-            }
-            auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
-            if (cmd2.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd2.packet_)
-            {
-                return 1;
-            }
-        }
-        {
-            // GetDevice descriptor
-            auto cmd = Device::onSetupPacket<HalDummy>(
-                makePacket({0x80, 0x06, 0x00, 0x01, 0x00, 0x00, 0x12, 0x00}));
-            if (cmd.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd.packet_.getSize() != 18)
-            {
-                return 1;
-            }
-            auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
-            if (cmd2.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd2.packet_)
-            {
-                return 1;
-            }
-        }
-        {
-            // Get Configuration descriptor
-            auto cmd = Device::onSetupPacket<HalDummy>(
-                makePacket({0x80, 0x06, 0x00, 0x02, 0x00, 0x00, 0x09, 0x01}));
-            if (cmd.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd.packet_.getSize() != 64)
-            {
-                return 1;
-            }
-            if (cmd.packet_[0] != 9)
-            {
-                return 1;
-            }
-            auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
-            if (cmd2.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd2.packet_.getSize() != 11)
-            {
-                return 1;
-            }
-            if (cmd2.packet_[0] != 2)
-            {
-                return 1;
-            }
-            auto cmd3 = Device::onControlIn(std::move(cmd2.packet_));
-            if (cmd3.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd3.packet_)
-            {
-                return 1;
-            }
-        }
-        {
-            // set configuration
-            auto cmd = Device::onSetupPacket<HalDummy>(
-                makePacket({0x00, 0x09, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00}));
-            if (cmd.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd.packet_.getSize() != 0)
-            {
-                return 1;
-            }
-            auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
-            if (cmd2.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd2.packet_)
-            {
-                return 1;
-            }
-        }
-        {
-            // get line coding
-            auto cmd = Device::onSetupPacket<HalDummy>(
-                makePacket({0xA1, 0x21, 0x01, 0x00, 0x00, 0x00, 0x07, 0x00}));
-            if (cmd.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd.packet_.getSize() != 7)
-            {
-                return 1;
-            }
-            auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
-            if (cmd2.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd2.packet_)
-            {
-                return 1;
-            }
-        }
-        {
-            // set line coding
-            auto cmd = Device::onSetupPacket<HalDummy>(
-                makePacket({0x21, 0x22, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}));
-            if (cmd.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd.packet_.getSize() != 0)
-            {
-                return 1;
-            }
-            auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
-            if (cmd2.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd2.packet_)
-            {
-                return 1;
-            }
-        }
-        {
-            // set line coding
-            auto cmd = Device::onSetupPacket<HalDummy>(
-                makePacket({0x21, 0x22, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00}));
-            if (cmd.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd.packet_.getSize() != 0)
-            {
-                return 1;
-            }
-            auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
-            if (cmd2.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd2.packet_)
-            {
-                return 1;
-            }
-        }
-        {
-            // set line coding
-            auto cmd = Device::onSetupPacket<HalDummy>(
-                makePacket({0x21, 0x22, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00}));
-            if (cmd.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd.packet_.getSize() != 0)
-            {
-                return 1;
-            }
-            auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
-            if (cmd2.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd2.packet_)
-            {
-                return 1;
-            }
-        }
-        {
-            // set line coding
-            auto cmd = Device::onSetupPacket<HalDummy>(
-                makePacket({0x21, 0x20, 0x00, 0x00, 0x00, 0x00, 0x07, 0x00}));
-            if (cmd.packet_)
-            {
-                return 1;
-            }
-            auto cmd2 =
-                Device::onControlOut(makePacket({0x80, 0x25, 0x00, 0x00, 0x00, 0x00, 0x08}));
-            if (cmd2.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd2.packet_.getSize() != 0)
-            {
-                return 1;
-            }
-            auto cmd3 = Device::onControlIn(std::move(cmd2.packet_));
-            if (cmd3.type_ != Device::HalCommand::Type::noAction)
-            {
-                return 1;
-            }
-            if (cmd3.packet_)
-            {
-                return 1;
-            }
-        }
+        //{
+        //    // GetDevice descriptor
+        //    auto cmd = Device::onSetupPacket<HalDummy>(makePacket({0x80, 6, 0, 1, 0, 0, 8, 0}));
+        //    if (cmd.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd.packet_.getSize() != 8)
+        //    {
+        //        return 1;
+        //    }
+        //    auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
+        //    if (cmd2.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd2.packet_)
+        //    {
+        //        return 1;
+        //    }
+        //}
+        //{
+        //    // GetDevice descriptor
+        //    auto cmd = Device::onSetupPacket<HalDummy>(
+        //        makePacket({0x80, 0x06, 0x00, 0x01, 0x00, 0x00, 0x12, 0x00}));
+        //    if (cmd.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd.packet_.getSize() != 18)
+        //    {
+        //        return 1;
+        //    }
+        //    auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
+        //    if (cmd2.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd2.packet_)
+        //    {
+        //        return 1;
+        //    }
+        //}
+        //{
+        //    // Get Configuration descriptor
+        //    auto cmd = Device::onSetupPacket<HalDummy>(
+        //        makePacket({0x80, 0x06, 0x00, 0x02, 0x00, 0x00, 0x09, 0x00}));
+        //    if (cmd.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd.packet_.getSize() != 9)
+        //    {
+        //        return 1;
+        //    }
+        //    auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
+        //    if (cmd2.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd2.packet_)
+        //    {
+        //        return 1;
+        //    }
+        //}
+        //{
+        //    // Get Configuration descriptor
+        //    auto cmd = Device::onSetupPacket<HalDummy>(
+        //        makePacket({0x80, 0x06, 0x00, 0x02, 0x00, 0x00, 0x4B, 0x00}));
+        //    if (cmd.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd.packet_.getSize() != 64)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd.packet_[0] != 9)
+        //    {
+        //        return 1;
+        //    }
+        //    auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
+        //    if (cmd2.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd2.packet_.getSize() != 11)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd2.packet_[0] != 2)
+        //    {
+        //        return 1;
+        //    }
+        //    auto cmd3 = Device::onControlIn(std::move(cmd2.packet_));
+        //    if (cmd3.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd3.packet_)
+        //    {
+        //        return 1;
+        //    }
+        //}
+        //{
+        //    // Get String descriptor
+        //    auto cmd = Device::onSetupPacket<HalDummy>(
+        //        makePacket({0x80, 0x06, 0x00, 0x03, 0x00, 0x00, 0xFF, 0x00}));
+        //    if (cmd.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd.packet_.getSize() != 4)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd.packet_[0] != 4)
+        //    {
+        //        return 1;
+        //    }
+        //    auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
+        //    if (cmd2.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd2.packet_)
+        //    {
+        //        return 1;
+        //    }
+        //}
+        //{
+        //    // Get String descriptor
+        //    auto cmd = Device::onSetupPacket<HalDummy>(
+        //        makePacket({0x80, 0x06, 0x02, 0x03, 0x09, 0x04, 0xFF, 0x00}));
+        //    if (cmd.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd.packet_.getSize() != 22)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd.packet_[0] != 0x16)
+        //    {
+        //        return 1;
+        //    }
+        //    auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
+        //    if (cmd2.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd2.packet_)
+        //    {
+        //        return 1;
+        //    }
+        //}
+        //{
+        //    // Get String descriptor
+        //    auto cmd = Device::onSetupPacket<HalDummy>(
+        //        makePacket({0x80, 0x06, 0x03, 0x03, 0x09, 0x04, 0xFF, 0x00}));
+        //    if (cmd.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd.packet_.getSize() != 22)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd.packet_[0] != 0x16)
+        //    {
+        //        return 1;
+        //    }
+        //    auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
+        //    if (cmd2.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd2.packet_)
+        //    {
+        //        return 1;
+        //    }
+        //}
+        //{
+        //    // GetDevice descriptor
+        //    auto cmd = Device::onSetupPacket<HalDummy>(
+        //        makePacket({0x80, 0x06, 0x00, 0x01, 0x00, 0x00, 0x12, 0x00}));
+        //    if (cmd.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd.packet_.getSize() != 18)
+        //    {
+        //        return 1;
+        //    }
+        //    auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
+        //    if (cmd2.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd2.packet_)
+        //    {
+        //        return 1;
+        //    }
+        //}
+        //{
+        //    // Get Configuration descriptor
+        //    auto cmd = Device::onSetupPacket<HalDummy>(
+        //        makePacket({0x80, 0x06, 0x00, 0x02, 0x00, 0x00, 0x09, 0x01}));
+        //    if (cmd.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd.packet_.getSize() != 64)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd.packet_[0] != 9)
+        //    {
+        //        return 1;
+        //    }
+        //    auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
+        //    if (cmd2.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd2.packet_.getSize() != 11)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd2.packet_[0] != 2)
+        //    {
+        //        return 1;
+        //    }
+        //    auto cmd3 = Device::onControlIn(std::move(cmd2.packet_));
+        //    if (cmd3.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd3.packet_)
+        //    {
+        //        return 1;
+        //    }
+        //}
+        //{
+        //    // set configuration
+        //    auto cmd = Device::onSetupPacket<HalDummy>(
+        //        makePacket({0x00, 0x09, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00}));
+        //    if (cmd.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd.packet_.getSize() != 0)
+        //    {
+        //        return 1;
+        //    }
+        //    auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
+        //    if (cmd2.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd2.packet_)
+        //    {
+        //        return 1;
+        //    }
+        //}
+        //{
+        //    // get line coding
+        //    auto cmd = Device::onSetupPacket<HalDummy>(
+        //        makePacket({0xA1, 0x21, 0x01, 0x00, 0x00, 0x00, 0x07, 0x00}));
+        //    if (cmd.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd.packet_.getSize() != 7)
+        //    {
+        //        return 1;
+        //    }
+        //    auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
+        //    if (cmd2.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd2.packet_)
+        //    {
+        //        return 1;
+        //    }
+        //}
+        //{
+        //    // set line coding
+        //    auto cmd = Device::onSetupPacket<HalDummy>(
+        //        makePacket({0x21, 0x22, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}));
+        //    if (cmd.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd.packet_.getSize() != 0)
+        //    {
+        //        return 1;
+        //    }
+        //    auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
+        //    if (cmd2.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd2.packet_)
+        //    {
+        //        return 1;
+        //    }
+        //}
+        //{
+        //    // set line coding
+        //    auto cmd = Device::onSetupPacket<HalDummy>(
+        //        makePacket({0x21, 0x22, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00}));
+        //    if (cmd.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd.packet_.getSize() != 0)
+        //    {
+        //        return 1;
+        //    }
+        //    auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
+        //    if (cmd2.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd2.packet_)
+        //    {
+        //        return 1;
+        //    }
+        //}
+        //{
+        //    // set line coding
+        //    auto cmd = Device::onSetupPacket<HalDummy>(
+        //        makePacket({0x21, 0x22, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00}));
+        //    if (cmd.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd.packet_.getSize() != 0)
+        //    {
+        //        return 1;
+        //    }
+        //    auto cmd2 = Device::onControlIn(std::move(cmd.packet_));
+        //    if (cmd2.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd2.packet_)
+        //    {
+        //        return 1;
+        //    }
+        //}
+        //{
+        //    // set line coding
+        //    auto cmd = Device::onSetupPacket<HalDummy>(
+        //        makePacket({0x21, 0x20, 0x00, 0x00, 0x00, 0x00, 0x07, 0x00}));
+        //    if (cmd.packet_)
+        //    {
+        //        return 1;
+        //    }
+        //    auto cmd2 =
+        //        Device::onControlOut(makePacket({0x80, 0x25, 0x00, 0x00, 0x00, 0x00, 0x08}));
+        //    if (cmd2.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd2.packet_.getSize() != 0)
+        //    {
+        //        return 1;
+        //    }
+        //    auto cmd3 = Device::onControlIn(std::move(cmd2.packet_));
+        //    if (cmd3.type_ != Device::HalCommand::Type::noAction)
+        //    {
+        //        return 1;
+        //    }
+        //    if (cmd3.packet_)
+        //    {
+        //        return 1;
+        //    }
+        //}
     }
     return 0;
 }
