@@ -211,19 +211,19 @@ namespace Usb
 {
     struct MocHal
     {
-        static void enableEP0Out(bool data1) { events_.emplace_back(Type::enableEp0, ::Packet{}); }
+        static void enableEP0Out(bool data1) { events_.emplace_back(::Type::enableEp0, ::Packet{}); }
         static void setAddress(uint8_t address)
         {
-            events_.emplace_back(Type::setAddress, ::Packet{});
+            events_.emplace_back(::Type::setAddress, ::Packet{});
         }
         template <typename T, EndpointDirection Direction, EndpointType Type>
         static void activateEndpoint()
         {
-            events_.emplace_back(Type::activateEndpoint, ::Packet{});
+            events_.emplace_back(::Type::activateEndpoint, ::Packet{});
         }
         static void sendPacket(::Packet && p)
         {
-            events_.emplace_back(Type::sendPacket, std::move(p));
+            events_.emplace_back(::Type::sendPacket, std::move(p));
         }
     };
 
