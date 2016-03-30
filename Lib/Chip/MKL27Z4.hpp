@@ -49,4 +49,3 @@
 #include <Chip/CM0+/Freescale/MKL27Z4/MTBDWT.hpp>
 #include <Chip/CM0+/Freescale/MKL27Z4/ROM.hpp>
 #include <Chip/CM0+/Freescale/MKL27Z4/MCM.hpp>
-#include <Usb/Hal/Kinetis/UsbHal.hpp>
