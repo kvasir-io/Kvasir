@@ -2,7 +2,7 @@
 #include "Memory.hpp"
 #include "Packet.hpp"
 #include "SetupPacket.hpp"
-#include <Common\Tags.hpp>
+#include <Common/Tags.hpp>
 #include "HalTraits.hpp"
 namespace Kvasir
 {
