@@ -47,7 +47,7 @@ namespace Usb
         out,
         bidirectional
     };
-    template <int Number, EndpointDirection Direction, bool Interrupt, bool Bulk, bool Isocronous>
+    template <int Number, EndpointDirection Direction, bool Control, bool Bulk, bool Interrupt, bool Isocronous>
     struct EndpointCapabilities
     {
     };
@@ -72,8 +72,8 @@ namespace Usb
             struct apply : std::false_type
             {
             };
-            template <int N, EndpointDirection D, bool B1, bool B2>
-            struct apply<EndpointCapabilities<N, D, true, B1, B2>>
+            template <int N, EndpointDirection D, bool B1, bool B2, bool B3>
+            struct apply<EndpointCapabilities<N, D, B1,  B2, true, B3>>
                 : std::integral_constant<bool,
                                          (Direction == D || D == EndpointDirection::bidirectional)>
             {
@@ -86,8 +86,8 @@ namespace Usb
             struct apply : std::false_type
             {
             };
-            template <int N, EndpointDirection D, bool B1, bool B2>
-            struct apply<EndpointCapabilities<N, D, B1, true, B2>>
+            template <int N, EndpointDirection D, bool B1, bool B2, bool B3>
+            struct apply<EndpointCapabilities<N, D, B1, true, B2, B3>>
                 : std::integral_constant<bool,
                                          (Direction == D || D == EndpointDirection::bidirectional)>
             {
@@ -100,8 +100,8 @@ namespace Usb
             struct apply : std::false_type
             {
             };
-            template <int N, EndpointDirection D, bool B1, bool B2>
-            struct apply<EndpointCapabilities<N, D, B1, B2, true>>
+            template <int N, EndpointDirection D, bool B1, bool B2, bool B3>
+            struct apply<EndpointCapabilities<N, D, B1, B2, B3, true>>
                 : std::integral_constant<bool,
                                          (Direction == D || D == EndpointDirection::bidirectional)>
             {
@@ -111,9 +111,9 @@ namespace Usb
         {
             template <typename T>
             struct apply;
-            template <int Number, EndpointDirection Direction, bool Interrupt, bool Bulk,
+            template <int Number, EndpointDirection Direction, bool Control, bool Bulk, bool Interrupt,
                       bool Isocronous>
-            struct apply<EndpointCapabilities<Number, Direction, Interrupt, Bulk, Isocronous>>
+            struct apply<EndpointCapabilities<Number, Direction, Control, Bulk, Interrupt, Isocronous>>
             {
                 using type = EndpointC<Number>;
             };

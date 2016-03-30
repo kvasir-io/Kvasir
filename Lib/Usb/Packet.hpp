@@ -53,7 +53,7 @@ namespace Usb
         void makeData1() { packet_->endpoint_ |= 0x80; }
         void makeData0() { packet_->endpoint_ &= ~0x80; }
         Endpoint getEndpoint() { return Endpoint{static_cast<uint8_t>(packet_->endpoint_ & 0x1F)}; }
-        void setEndpoint(Endpoint ep) { packet_->endpoint_ |= (ep.value_ & 0x1F); }
+		void setEndpoint(const Endpoint ep) { packet_->endpoint_ &= ~0x1F; packet_->endpoint_ |= (ep.value_ & 0x1F); }
         void pushBack(uint8_t data) { packet_->pushBack(data); }
     };
 }
