@@ -37,6 +37,7 @@ namespace Usb
                     p.clear();
                     getData().lineCoding_.unsafeToBuffer(p.unsafeToBufPointer());
                     p.unsafeSetSize(7);
+					p.setEndpoint(Endpoint{ 1 });
                     TDevice::sendPacket(std::move(p));
 					return false;
                 }
