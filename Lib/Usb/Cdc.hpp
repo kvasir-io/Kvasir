@@ -25,7 +25,7 @@ namespace Usb
                 State state_;
             };
             static Data & getData() { return TSettings::template StoragePolicy<Host>::get(); }
-			//return true if expecting a packet
+            // return true if expecting a packet
             static bool onSetupReceived(typename TDevice::PacketType && p)
             {
                 getData().state_ = State::idle;
@@ -37,9 +37,9 @@ namespace Usb
                     p.clear();
                     getData().lineCoding_.unsafeToBuffer(p.unsafeToBufPointer());
                     p.unsafeSetSize(7);
-					p.setEndpoint(Endpoint{ 1 });
+                    p.setEndpoint(Endpoint{1});
                     TDevice::sendPacket(std::move(p));
-					return false;
+                    return false;
                 }
                 case SetupPacket::Request::setLineCoding:
                 {
@@ -49,7 +49,7 @@ namespace Usb
                 }
                 case SetupPacket::Request::setControlLineState:
                 {
-					TDevice::sendControlAck(std::move(p));
+                    TDevice::sendControlAck(std::move(p));
                     return false;
                 }
                 default:
@@ -59,18 +59,18 @@ namespace Usb
             }
             static void onIn(typename TDevice::PacketType && p)
             {
-				//TODO
+                // TODO
             }
             static void onOut(typename TDevice::PacketType && p)
             {
                 if (p.getEndpoint().value_ == 0 && getData().state_ == State::settingLineCoding)
                 {
                     getData().lineCoding_.unsafeFromBuffer(p.unsafeToBufPointer());
-					TDevice::sendControlAck(std::move(p));
+                    TDevice::sendControlAck(std::move(p));
                 }
                 else
                 {
-					//TODO
+                    // TODO
                 }
             }
         };
