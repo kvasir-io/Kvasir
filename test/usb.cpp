@@ -513,7 +513,7 @@ int usbTest()
         }
         {
             // get line coding
-            Device::onSetupPacket(makePacket({0xA1, 0x21, 0x01, 0x00, 0x00, 0x00, 0x07, 0x00}));
+            Device::onSetupPacket(makePacket({0xA1, 0x21, 0x00, 0x00, 0x00, 0x00, 0x07, 0x00}));
             if (std::get<0>(events_[0]) != Type::sendPacket)
             {
                 return 1;

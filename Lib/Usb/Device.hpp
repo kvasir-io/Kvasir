@@ -1,9 +1,9 @@
 #pragma once
+#include "HalTraits.hpp"
 #include "Memory.hpp"
 #include "Packet.hpp"
 #include "SetupPacket.hpp"
 #include <Common/Tags.hpp>
-#include "HalTraits.hpp"
 namespace Kvasir
 {
 namespace Usb
@@ -15,27 +15,6 @@ namespace Usb
         using AllocatorType = typename TDeviceSettings::MemoryPolicy::AllocatorType;
         using OutputQueueType = typename TDeviceSettings::MemoryPolicy::QueueType;
         using TransferType = typename TDeviceSettings::MemoryPolicy::TransferType;
-/*        struct HalCommand
-        {
-            enum class Type : uint8_t
-            {
-                noAction,
-                stall,
-                unstall,
-                expectingOutPacket
-            };
-            Type type_;
-            PacketType packet_;
-            HalCommand(HalCommand && o)
-                : type_{o.type_}, packet_{std::move(o.packet_)}
-            {
-            }
-            explicit HalCommand(PacketType && packet)
-                : type_{Type::noAction}, packet_{std::move(packet)}
-            {
-            }
-            HalCommand() = default;
-        };*/
 
         using DeviceClasses = brigand::list<
             brigand::apply<typename TDeviceClass::ClassType, TDeviceClass, Device>...>;
@@ -74,7 +53,7 @@ namespace Usb
             waitingToSend1,
             waitingToSend0,
             waitingForAckSent,
-	        waitingForAckSentSetAddress,
+            waitingForAckSentSetAddress,
             waitingForAck,
             forwardingOutPackets
         };
@@ -83,17 +62,8 @@ namespace Usb
             State state_;
             uint8_t device_;
             TransferType transfer_;
-	        uint8_t address_;
+            uint8_t address_;
             State getState() const { return state_; }
-/*            HalCommand filterClassResponce(HalCommand && in, uint8_t dev)
-            {
-                if (in.type_ == HalCommand::Type::expectingOutPacket)
-                {
-                    state_ = State::forwardingOutPackets;
-                    device_ = dev;
-                }
-                return std::move(in);
-            }*/
             void onSetupReceived(PacketType && p)
             {
                 transfer_.clear();
@@ -109,13 +79,14 @@ namespace Usb
                     switch (i)
                     {
                     case 0:
-						if (brigand::at<DeviceClasses, brigand::int8_t<0>>::onSetupReceived(
-							std::move(p))) {
-							state_ = State::forwardingOutPackets;
-							device_ = 0;
-							GetHal<Device, Tag::User>::type::enableEP0Out(1);
-						}
-						return;
+                        if (brigand::at<DeviceClasses, brigand::int8_t<0>>::onSetupReceived(
+                                std::move(p)))
+                        {
+                            state_ = State::forwardingOutPackets;
+                            device_ = 0;
+                            GetHal<Device, Tag::User>::type::enableEP0Out(1);
+                        }
+                        return;
                     }
 
                     break;
@@ -137,33 +108,33 @@ namespace Usb
                             {
                                 if (Device::requestGetStatus())
                                 {
-									sendControlAck(std::move(p));
-									return;
+                                    sendControlAck(std::move(p));
+                                    return;
                                 }
                             }
                             else if (rt == Request::getDescriptor)
                             {
                                 Device::requestGetDescriptor(std::move(p));
                                 auto op = transfer_.popFrontPacket();
-								op.setEndpoint(Endpoint{ 1 });
+                                op.setEndpoint(Endpoint{1});
                                 op.makeData1();
-								sendPacket(std::move(op));
-								return; 
+                                sendPacket(std::move(op));
+                                return;
                             }
                             else if (rt == Request::getConfiguration)
                             {
                                 if (Device::requestGetConfiguration())
                                 {
-									sendControlAck(std::move(p));
-									return;
+                                    sendControlAck(std::move(p));
+                                    return;
                                 }
                             }
                             else if (rt == Request::getInterface)
                             {
                                 if (Device::requestGetInterface())
                                 {
-									sendControlAck(std::move(p));
-									return;
+                                    sendControlAck(std::move(p));
+                                    return;
                                 }
                             }
                         }
@@ -172,18 +143,18 @@ namespace Usb
                             state_ = State::waitingForInput1;
                             if (rt == Request::clearFeature)
                             {
-								sendControlAck(std::move(p));
-								return;
+                                sendControlAck(std::move(p));
+                                return;
                             }
                             else if (rt == Request::setFeature)
                             {
-								sendControlAck(std::move(p));
-								return;
+                                sendControlAck(std::move(p));
+                                return;
                             }
                             else if (rt == Request::setInterface)
                             {
-								sendControlAck(std::move(p));
-								return;
+                                sendControlAck(std::move(p));
+                                return;
                             }
                         }
                     }
@@ -194,9 +165,9 @@ namespace Usb
                             if (rt == Request::setAddress)
                             {
                                 state_ = State::waitingForAckSentSetAddress;
-	                            address_ = static_cast<uint8_t>(getValue(p));
-								sendControlAck(std::move(p));
-								return;
+                                address_ = static_cast<uint8_t>(getValue(p));
+                                sendControlAck(std::move(p));
+                                return;
                             }
                             else if (rt == Request::setConfiguration)
                             {
@@ -204,8 +175,8 @@ namespace Usb
                                 // TODO check if the usb standard says to init here and correct or
                                 // cite depending
                                 activateEndpoints(EndpointNumbers{}, FlatEPRequirements{});
-								sendControlAck(std::move(p));
-								return;
+                                sendControlAck(std::move(p));
+                                return;
                             }
                         }
                     }
@@ -217,48 +188,51 @@ namespace Usb
             }
             void onInSent(PacketType && p)
             {
-				if (p.getEndpoint().value_ == 1) {
-					AllocatorType::deallocate(std::move(p));
-					if (transfer_.empty()) {
-						GetHal<Device, Tag::User>::type::enableEP0Out(0);
-					}
-					switch (state_)
-					{
-					case State::waitingToSend1:
-						if (transfer_.empty())
-						{
-							state_ = State::waitingForAck;
-						}
-						else
-						{
-							state_ = State::waitingToSend0;
-							auto op = transfer_.popFrontPacket();
-							op.setEndpoint(Endpoint{ 1 });
-							op.makeData0();
-							sendPacket(std::move(op));
-						}
-						break;
-					case State::waitingToSend0:
-						if (transfer_.empty())
-						{
-							state_ = State::waitingForAck;
-						}
-						else
-						{
-							state_ = State::waitingToSend1;
-							auto op = transfer_.popFrontPacket();
-							op.setEndpoint(Endpoint{ 1 });
-							op.makeData1();
-							sendPacket(std::move(op));
-						}
-						break;
-					case State::waitingForAckSentSetAddress: {
-						GetHal<Device, Tag::User>::type::setAddress(address_);
-					}
-					default:
-						state_ = State::waitingForSetup;
-					}
-				}
+                if (p.getEndpoint().value_ == 1)
+                {
+                    AllocatorType::deallocate(std::move(p));
+                    if (transfer_.empty())
+                    {
+                        GetHal<Device, Tag::User>::type::enableEP0Out(0);
+                    }
+                    switch (state_)
+                    {
+                    case State::waitingToSend1:
+                        if (transfer_.empty())
+                        {
+                            state_ = State::waitingForAck;
+                        }
+                        else
+                        {
+                            state_ = State::waitingToSend0;
+                            auto op = transfer_.popFrontPacket();
+                            op.setEndpoint(Endpoint{1});
+                            op.makeData0();
+                            sendPacket(std::move(op));
+                        }
+                        break;
+                    case State::waitingToSend0:
+                        if (transfer_.empty())
+                        {
+                            state_ = State::waitingForAck;
+                        }
+                        else
+                        {
+                            state_ = State::waitingToSend1;
+                            auto op = transfer_.popFrontPacket();
+                            op.setEndpoint(Endpoint{1});
+                            op.makeData1();
+                            sendPacket(std::move(op));
+                        }
+                        break;
+                    case State::waitingForAckSentSetAddress:
+                    {
+                        GetHal<Device, Tag::User>::type::setAddress(address_);
+                    }
+                    default:
+                        state_ = State::waitingForSetup;
+                    }
+                }
             }
             void onOutReceived(PacketType && p)
             {
@@ -414,21 +388,20 @@ namespace Usb
             p.makeData1(); // all acks are Data1 packets
             sendPacket(std::move(p));
         }
-		static void sendPacket(PacketType && p) {
-			GetHal<Device, Tag::User>::type::sendPacket(std::move(p));
-		}
+        static void sendPacket(PacketType && p)
+        {
+            GetHal<Device, Tag::User>::type::sendPacket(std::move(p));
+        }
         static PacketType getPacket() { return AllocatorType::allocate(); }
         static void sinkPacket(PacketType && p) { return AllocatorType::deallocate(std::move(p)); }
         template <typename... N, EndpointDirection... D, EndpointType... T>
         static void activateEndpoints(brigand::list<N...>,
                                       brigand::list<EndpointRequirement<D, T>...>)
         {
-            int i[] = {0, (GetHal<Device,Tag::User>::type::template activateEndpoint<N, D, T>(), 0)...};
+            int i[] = {
+                0, (GetHal<Device, Tag::User>::type::template activateEndpoint<N, D, T>(), 0)...};
         }
-        static void onSetupPacket(PacketType && p)
-        {
-            sm_.onSetupReceived(std::move(p));
-        }
+        static void onSetupPacket(PacketType && p) { sm_.onSetupReceived(std::move(p)); }
         static void onOutReceived(PacketType && p) { sm_.onOutReceived(std::move(p)); }
         static void onInSent(PacketType && p) { sm_.onInSent(std::move(p)); }
         static void initialize() { AllocatorType::initialize(); }

@@ -1,9 +1,9 @@
 #pragma once
 #include "Bdt.hpp"
-#include <Usb/Endpoint.hpp>
 #include <Chip/CM0+/Freescale/MKL27Z4/USB0.hpp>
 #include <Mpl/IntegralConstants.hpp>
 #include <Register/Register.hpp>
+#include <Usb/Endpoint.hpp>
 #include <Usb/HalTraits.hpp>
 #include <stdint.h>
 
@@ -14,29 +14,29 @@ namespace Usb
     template <int I>
     struct EndpointCapabilityTraits<PeripheralC<I>>
     {
-        using type =
-            brigand::list<EndpointCapabilities<0, EndpointDirection::out, true, false, false, false>,
-                          EndpointCapabilities<1, EndpointDirection::in, true, false, false, false>,
-                          EndpointCapabilities<2, EndpointDirection::out, false, true, true, true>,
-                          EndpointCapabilities<3, EndpointDirection::in, false, true, true, true>,
-                          EndpointCapabilities<4, EndpointDirection::out, false, true, true, true>,
-                          EndpointCapabilities<5, EndpointDirection::in, false, true, true, true>,
-                          EndpointCapabilities<6, EndpointDirection::out, false, true, true, true>,
-                          EndpointCapabilities<7, EndpointDirection::in, false, true, true, true>,
-                          EndpointCapabilities<8, EndpointDirection::out, false, true, true, true>,
-                          EndpointCapabilities<9, EndpointDirection::in, false, true, true, true>,
-                          EndpointCapabilities<10, EndpointDirection::out, false, true, true, true>,
-                          EndpointCapabilities<11, EndpointDirection::in, false, true, true, true>,
-                          EndpointCapabilities<12, EndpointDirection::out, false, true, true, true>,
-                          EndpointCapabilities<13, EndpointDirection::in, false, true, true, true>,
-                          EndpointCapabilities<14, EndpointDirection::out, false, true, true, true>,
-                          EndpointCapabilities<15, EndpointDirection::in, false, true, true, true>>;
+        using type = brigand::list<
+            EndpointCapabilities<0, EndpointDirection::out, true, false, false, false>,
+            EndpointCapabilities<1, EndpointDirection::in, true, false, false, false>,
+            EndpointCapabilities<2, EndpointDirection::out, false, true, true, true>,
+            EndpointCapabilities<3, EndpointDirection::in, false, true, true, true>,
+            EndpointCapabilities<4, EndpointDirection::out, false, true, true, true>,
+            EndpointCapabilities<5, EndpointDirection::in, false, true, true, true>,
+            EndpointCapabilities<6, EndpointDirection::out, false, true, true, true>,
+            EndpointCapabilities<7, EndpointDirection::in, false, true, true, true>,
+            EndpointCapabilities<8, EndpointDirection::out, false, true, true, true>,
+            EndpointCapabilities<9, EndpointDirection::in, false, true, true, true>,
+            EndpointCapabilities<10, EndpointDirection::out, false, true, true, true>,
+            EndpointCapabilities<11, EndpointDirection::in, false, true, true, true>,
+            EndpointCapabilities<12, EndpointDirection::out, false, true, true, true>,
+            EndpointCapabilities<13, EndpointDirection::in, false, true, true, true>,
+            EndpointCapabilities<14, EndpointDirection::out, false, true, true, true>,
+            EndpointCapabilities<15, EndpointDirection::in, false, true, true, true>>;
     };
 
     template <typename TDerived>
     class Hal
     {
-		friend TDerived;
+        friend TDerived;
         static uint8_t data01_;
         static Bdt::Data & getBdt(int index) { return ((Bdt::Data *)0x400FE000)[index]; }
         static typename TDerived::PacketType readEndpoint(Bdt::Data & bdt)
@@ -88,66 +88,65 @@ namespace Usb
                       k::Usb0Erren::dmaerren),
                   write(k::Usb0Addr::addr, _0));
         }
-		// sinks a packet
-		static void sendPacket(typename TDerived::PacketType p, int index)
-		{
-			using InfoBits = ::Kvasir::Usb::Bdt::InfoBits;
-			auto & b = getBdt(index);
-			b.address = p.unsafeToBufPointer();
-			b.byteCount = p.getSize();
-			if (p.isData1())
-			{
-				b.info = InfoBits::own | InfoBits::dts | InfoBits::data1;
-			}
-			else
-			{
-				b.info = InfoBits::own | InfoBits::dts;
-			}
-		}
+        // sinks a packet
+        static void sendPacket(typename TDerived::PacketType p, int index)
+        {
+            using InfoBits = ::Kvasir::Usb::Bdt::InfoBits;
+            auto & b = getBdt(index);
+            b.address = p.unsafeToBufPointer();
+            b.byteCount = p.getSize();
+            if (p.isData1())
+            {
+                b.info = InfoBits::own | InfoBits::dts | InfoBits::data1;
+            }
+            else
+            {
+                b.info = InfoBits::own | InfoBits::dts;
+            }
+        }
 
-		// sinks a packet
-		static void sendPacket(typename TDerived::PacketType&& p)
-		{
-			auto i = p.getEndpoint().value_ << 1;
-			sendPacket(std::move(p), i);
-		}
+        // sinks a packet
+        static void sendPacket(typename TDerived::PacketType && p)
+        {
+            auto i = p.getEndpoint().value_ << 1;
+            sendPacket(std::move(p), i);
+        }
         static void handleTokdne()
         {
             using namespace Kvasir;
             auto stat = apply(read(Usb0Stat::endp, Usb0Stat::tx, Usb0Stat::odd));
-            auto epNum = (uint8_t)stat[Usb0Stat::endp];
-            auto idx = epNum * 4 + (unsigned)stat[Usb0Stat::tx] * 2 + (unsigned)stat[Usb0Stat::odd];
+            uint8_t physical = (uint8_t)stat[Usb0Stat::endp] * 2 + (unsigned)stat[Usb0Stat::tx];
+            uint8_t idx = physical * 2 + (unsigned)stat[Usb0Stat::odd];
             auto & b = getBdt(idx);
             auto tokpid = getTokPid(b);
             auto packet = readEndpoint(b);
-            packet.setEndpoint(Kvasir::Usb::Endpoint{epNum});
+            packet.setEndpoint(Kvasir::Usb::Endpoint{physical});
 
             switch (tokpid)
             {
             case Kvasir::Usb::Bdt::TokPid::setup:
             {
-				TDerived::onSetupPacket(std::move(packet)); // pass the packet upstream
+                TDerived::onSetupPacket(std::move(packet)); // pass the packet upstream
                 apply(clear(Usb0Ctl::txsuspendtokenbusy));
                 break;
             }
             case Kvasir::Usb::Bdt::TokPid::out:
                 giveBdtToSie(b);
-				TDerived::onOutReceived(std::move(packet));
+                TDerived::onOutReceived(std::move(packet));
                 break;
             case Kvasir::Usb::Bdt::TokPid::in:
-				TDerived::onInSent(std::move(packet));
+                TDerived::onInSent(std::move(packet));
                 break;
             }
             apply(reset(Usb0Istat::tokdne));
         }
 
     public:
-		static void enableEP0Out(bool data1) {	//called when control transfer has finished
-			giveBdtToSie(getBdt(0),data1);		
-		}
-		static void setAddress(uint8_t address) {
-			apply(write(Usb0Addr::addr, address));
-		}
+        static void enableEP0Out(bool data1)
+        { // called when control transfer has finished
+            giveBdtToSie(getBdt(0), data1);
+        }
+        static void setAddress(uint8_t address) { apply(write(Usb0Addr::addr, address)); }
         template <typename T, EndpointDirection Direction, EndpointType Type>
         static void activateEndpoint()
         {
@@ -170,8 +169,8 @@ namespace Usb
                 ept |= B |                   // ep handshaking (not if iso endpoint)
                        endpointTxEnableMask; // en TX (IN) tran
                 odd.byteCount = 0;
-				odd.address = 0;//TDerived::getPacket().unsafeToBufPointer();
-                //odd.info = Bdt::InfoBits::allClear; //Bdt::InfoBits::own | Bdt::InfoBits::dts;
+                odd.address = 0;                    // TDerived::getPacket().unsafeToBufPointer();
+                odd.info = Bdt::InfoBits::allClear; // Bdt::InfoBits::own | Bdt::InfoBits::dts;
             }
             // OUT endpt -> host to device (RX)
             else
@@ -216,7 +215,7 @@ namespace Usb
                       k::Usb0Erren::btserren));
             *((volatile uint32_t *)0x4007210C) |=
                 0x40; // USBTRC0, fucked up, see page 729 of the ref manual
-			// Disable weak pull downs
+                      // Disable weak pull downs
             apply(clear(Kvasir::Usb0Usbctrl::susp, Kvasir::Usb0Usbctrl::pde));
         }
         static void connect()
@@ -278,11 +277,12 @@ namespace Usb
         }
     };
     template <typename TDerived>
-	uint8_t Hal<TDerived>::data01_{ 0 };
+    uint8_t Hal<TDerived>::data01_{0};
 
-	template<typename T, typename U>
-	struct GetHal<T, U>{
-		using type = Hal<T>;
-	};
+    template <typename T, typename U>
+    struct GetHal<T, U>
+    {
+        using type = Hal<T>;
+    };
 }
 }
