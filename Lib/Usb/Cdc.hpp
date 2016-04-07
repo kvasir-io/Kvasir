@@ -10,6 +10,7 @@ namespace Usb
 {
     namespace Cdc
     {
+	    using std::move;
         template <typename TSettings, typename TDevice>
         struct Host
         {
@@ -22,56 +23,44 @@ namespace Usb
             struct Data
             {
                 LineCoding lineCoding_;
-                State state_;
             };
             static Data & getData() { return TSettings::template StoragePolicy<Host>::get(); }
             // return true if expecting a packet
-            static bool onSetupReceived(typename TDevice::PacketType && p)
+			template<typename T>
+            static bool onSetupReceived(T & t)
             {
-                getData().state_ = State::idle;
-                auto rt = SetupPacket::getRequest(p);
+                auto rt = t.getRequest();
                 switch (rt)
                 {
                 case SetupPacket::Request::getLineCoding:
                 {
-                    p.clear();
+                    auto p = TDevice::AllocatorType::allocate();
                     getData().lineCoding_.unsafeToBuffer(p.unsafeToBufPointer());
                     p.unsafeSetSize(7);
                     p.setEndpoint(Endpoint{1});
-                    TDevice::sendPacket(std::move(p));
-                    return false;
+					p.makeData1();
+					t.pushPacket(std::move(p));
+                    return true;
                 }
                 case SetupPacket::Request::setLineCoding:
                 {
-                    getData().state_ = State::settingLineCoding;
-                    TDevice::sinkPacket(std::move(p));
+					auto p = t.popPacket();
+					getData().lineCoding_.unsafeFromBuffer(p.unsafeToBufPointer());
+					TDevice::AllocatorType::deallocate(std::move(p));
                     return true;
                 }
                 case SetupPacket::Request::setControlLineState:
                 {
-                    TDevice::sendControlAck(std::move(p));
-                    return false;
+                    return true;
                 }
                 default:
-                    TDevice::sinkPacket(std::move(p));
+                    //TDevice::sinkPacket(move(p));
                     return false;
                 }
             }
             static void onIn(typename TDevice::PacketType && p)
             {
-                // TODO
-            }
-            static void onOut(typename TDevice::PacketType && p)
-            {
-                if (p.getEndpoint().value_ == 0 && getData().state_ == State::settingLineCoding)
-                {
-                    getData().lineCoding_.unsafeFromBuffer(p.unsafeToBufPointer());
-                    TDevice::sendControlAck(std::move(p));
-                }
-                else
-                {
-                    // TODO
-                }
+	            TDevice::sinkPacket(move(p));
             }
         };
 
@@ -86,8 +75,7 @@ namespace Usb
             {static_cast<uint8_t>(THost::Settings::baud & 0xFF),
              static_cast<uint8_t>((THost::Settings::baud >> 8) & 0xFF),
              static_cast<uint8_t>((THost::Settings::baud >> 16) & 0xFF),
-             static_cast<uint8_t>((THost::Settings::baud >> 24) & 0xFF), 0x00, 0x00, 0x08},
-            THost::State::idle};
+             static_cast<uint8_t>((THost::Settings::baud >> 24) & 0xFF), 0x00, 0x00, 0x08}};
 
         struct DefaultSettings
         {

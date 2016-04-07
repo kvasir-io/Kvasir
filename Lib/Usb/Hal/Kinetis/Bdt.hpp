@@ -26,7 +26,7 @@ namespace Usb
             volatile InfoBits info;      // BD[0:7]
             uint8_t dummy;               // RSVD: BD[8:15]
             volatile uint16_t byteCount; // BD[16:32]
-            uint8_t * volatile address;  // Addr
+            volatile uint8_t * volatile address;  // Addr
         };
 
         enum class TokPid : uint8_t

@@ -36,7 +36,8 @@ namespace Usb
             return Packet(pp);
         }
         uint8_t * unsafeToBufPointer() { return packet_->buf_; }
-        static Packet unsafeFromPacketPointer(PointerType p) { return Packet(p); }
+		static Packet unsafeConstructFromPacketPointer(PointerType p) { return Packet(p); }
+		void unsafeFromPacketPointer(PointerType p) { packet_ = p; }
         PointerType unsafeToPacketPointer() { return packet_; }
         void unsafeSetSize(int i) { packet_->size_ = i; }
         uint8_t getSize() { return packet_->size_; }

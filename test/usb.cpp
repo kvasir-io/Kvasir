@@ -253,11 +253,11 @@ int usbTest()
                 return 1;
             }
             Device::onInSent(std::move(packet));
-            if (std::get<0>(events_[1]) != Type::enableEp0)
-            {
-                return 1;
-            }
-            if (std::get<0>(events_[2]) != Type::setAddress)
+			if (std::get<0>(events_[1]) != Type::setAddress)
+			{
+				return 1;
+			}
+            if (std::get<0>(events_[2]) != Type::enableEp0)
             {
                 return 1;
             }
@@ -275,10 +275,14 @@ int usbTest()
                 return 1;
             }
             auto packet = std::move(std::get<1>(events_[0]));
-            if (packet.getSize() != 8)
-            {
-                return 1;
-            }
+			if (packet.getSize() != 8)
+			{
+				return 1;
+			}
+			if (!packet.isData1())
+			{
+				return 1;
+			}
             Device::onInSent(std::move(packet));
             if (std::get<0>(events_[1]) != Type::enableEp0)
             {

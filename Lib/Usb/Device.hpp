@@ -57,256 +57,66 @@ namespace Usb
             waitingForAck,
             forwardingOutPackets
         };
-        struct Sm
-        {
-            State state_;
-            uint8_t device_;
-            TransferType transfer_;
-            uint8_t address_;
-            State getState() const { return state_; }
-            void onSetupReceived(PacketType && p)
-            {
-                transfer_.clear();
-                using namespace SetupPacket;
-                auto t = getType(p);
-
-                switch (t)
-                {
-                case Type::classT:
-                {
-                    // TODO support more
-                    auto i = getIndex(p);
-                    switch (i)
-                    {
-                    case 0:
-                        if (brigand::at<DeviceClasses, brigand::int8_t<0>>::onSetupReceived(
-                                std::move(p)))
-                        {
-                            state_ = State::forwardingOutPackets;
-                            device_ = 0;
-                            GetHal<Device, Tag::User>::type::enableEP0Out(1);
-                        }
-                        return;
-                    }
-
-                    break;
-                }
-                case Type::vendor:
-                {
-                    break;
-                }
-                case Type::standard:
-                {
-                    auto rt = getRequest(p);
-                    if (getWLength(p) > 0)
-                    {
-                        if (getDirection(p) == Direction::deviceToHost)
-                        {
-                            state_ = State::waitingToSend1;
-
-                            if (rt == Request::getStatus)
-                            {
-                                if (Device::requestGetStatus())
-                                {
-                                    sendControlAck(std::move(p));
-                                    return;
-                                }
-                            }
-                            else if (rt == Request::getDescriptor)
-                            {
-                                Device::requestGetDescriptor(std::move(p));
-                                auto op = transfer_.popFrontPacket();
-                                op.setEndpoint(Endpoint{1});
-                                op.makeData1();
-                                sendPacket(std::move(op));
-                                return;
-                            }
-                            else if (rt == Request::getConfiguration)
-                            {
-                                if (Device::requestGetConfiguration())
-                                {
-                                    sendControlAck(std::move(p));
-                                    return;
-                                }
-                            }
-                            else if (rt == Request::getInterface)
-                            {
-                                if (Device::requestGetInterface())
-                                {
-                                    sendControlAck(std::move(p));
-                                    return;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            state_ = State::waitingForInput1;
-                            if (rt == Request::clearFeature)
-                            {
-                                sendControlAck(std::move(p));
-                                return;
-                            }
-                            else if (rt == Request::setFeature)
-                            {
-                                sendControlAck(std::move(p));
-                                return;
-                            }
-                            else if (rt == Request::setInterface)
-                            {
-                                sendControlAck(std::move(p));
-                                return;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (t == Type::standard)
-                        {
-                            if (rt == Request::setAddress)
-                            {
-                                state_ = State::waitingForAckSentSetAddress;
-                                address_ = static_cast<uint8_t>(getValue(p));
-                                sendControlAck(std::move(p));
-                                return;
-                            }
-                            else if (rt == Request::setConfiguration)
-                            {
-                                // this is where mbed initializes other endpoints
-                                // TODO check if the usb standard says to init here and correct or
-                                // cite depending
-                                activateEndpoints(EndpointNumbers{}, FlatEPRequirements{});
-                                sendControlAck(std::move(p));
-                                return;
-                            }
-                        }
-                    }
-                    break;
-                }
-                };
-                AllocatorType::deallocate(
-                    std::move(p)); // if we did not use the packet in a return then deallocate it
-            }
-            void onInSent(PacketType && p)
-            {
-                if (p.getEndpoint().value_ == 1)
-                {
-                    AllocatorType::deallocate(std::move(p));
-                    if (transfer_.empty())
-                    {
-                        GetHal<Device, Tag::User>::type::enableEP0Out(0);
-                    }
-                    switch (state_)
-                    {
-                    case State::waitingToSend1:
-                        if (transfer_.empty())
-                        {
-                            state_ = State::waitingForAck;
-                        }
-                        else
-                        {
-                            state_ = State::waitingToSend0;
-                            auto op = transfer_.popFrontPacket();
-                            op.setEndpoint(Endpoint{1});
-                            op.makeData0();
-                            sendPacket(std::move(op));
-                        }
-                        break;
-                    case State::waitingToSend0:
-                        if (transfer_.empty())
-                        {
-                            state_ = State::waitingForAck;
-                        }
-                        else
-                        {
-                            state_ = State::waitingToSend1;
-                            auto op = transfer_.popFrontPacket();
-                            op.setEndpoint(Endpoint{1});
-                            op.makeData1();
-                            sendPacket(std::move(op));
-                        }
-                        break;
-                    case State::waitingForAckSentSetAddress:
-                    {
-                        GetHal<Device, Tag::User>::type::setAddress(address_);
-                    }
-                    default:
-                        state_ = State::waitingForSetup;
-                    }
-                }
-            }
-            void onOutReceived(PacketType && p)
-            {
-                switch (state_)
-                {
-                case State::waitingForInput1:
-                    if (transfer_.empty())
-                    {
-                        state_ = State::waitingForAckSent;
-                    }
-                    else
-                    {
-                        state_ = State::waitingForInput0;
-                    }
-                    break;
-                case State::waitingForInput0:
-                    if (transfer_.empty())
-                    {
-                        state_ = State::waitingForAckSent;
-                    }
-                    else
-                    {
-                        state_ = State::waitingForInput0;
-                    }
-                    break;
-                case State::forwardingOutPackets:
-                {
-                    // TODO support more
-                    switch (device_)
-                    {
-                    case 0:
-                        return brigand::at<DeviceClasses, brigand::int8_t<0>>::onOut(std::move(p));
-                    }
-
-                    break;
-                }
-                case State::waitingForAck:
-                default:
-                    state_ = State::waitingForSetup;
-                }
-                AllocatorType::deallocate(std::move(p));
-                return;
-            }
-        };
-        static Sm sm_;
-        friend class Sm;
 
     private:
         static void copyToTransfer(const uint8_t * const buf, const std::size_t length)
         {
-            sm_.transfer_.pushBack(buf, buf + length);
-        }
-        static void sinkPacketInTransfer(PacketType && p)
-        {
-            p.clear();
-            sm_.transfer_.pushBackPacket(std::move(p));
+            auto begin = buf;
+            auto end = buf + length;
+            bool data1 = true;
+            while (begin + PacketType::capacity <= end)
+            { // while packet is full
+                auto p = AllocatorType::allocate();
+                p.setEndpoint(Endpoint{1});
+                if (data1)
+                {
+                    p.makeData1();
+                }
+                else
+                {
+                    p.makeData0();
+                }
+                data1 = !data1;
+                // sendPacket(std::move(op));
+                auto packetEnd = begin + PacketType::capacity;
+                while (begin < packetEnd)
+                {
+                    p.pushBack(*begin++);
+                }
+                controlTransfer_.pushPacket(std::move(p));
+            }
+            auto p = AllocatorType::allocate();
+            p.setEndpoint(Endpoint{1});
+            if (data1)
+            {
+                p.makeData1();
+            }
+            else
+            {
+                p.makeData0();
+            }
+            while (begin < end)
+            {
+                p.pushBack(*begin++);
+            }
+            controlTransfer_.pushPacket(std::move(p));
         }
         static bool requestGetStatus() { return false; }
         static bool requestClearFeature() { return false; }
         static bool requestSetFeature() { return false; }
-        static void requestGetDescriptor(PacketType && p)
+        static bool requestGetDescriptor()
         {
             using namespace SetupPacket;
-            const auto type = getDescriptorType(p);
-            const auto reqLength = getWLength(p);
-            const auto index = getDescriptorIndex(p);
-            sinkPacketInTransfer(std::move(p));
+            const auto type = controlTransfer_.getDescriptorType();
+            const auto reqLength = controlTransfer_.getWLength();
+            const auto index = controlTransfer_.getDescriptorIndex();
             switch (type)
             {
             case DescriptorType::device:
             {
                 copyToTransfer(deviceDescriptor,
                                std::min(uint16_t(sizeof(deviceDescriptor)), reqLength));
-                break;
+                return true;
             }
             case DescriptorType::configuration:
             {
@@ -314,7 +124,7 @@ namespace Usb
                     TDeviceSettings::StringDescriptors::configuration,
                     std::min(uint16_t(sizeof(TDeviceSettings::StringDescriptors::configuration)),
                              reqLength));
-                break;
+                return true;
             }
             case DescriptorType::string:
                 switch (index)
@@ -325,7 +135,7 @@ namespace Usb
                         TDeviceSettings::StringDescriptors::langId,
                         std::min(uint16_t(sizeof(TDeviceSettings::StringDescriptors::langId)),
                                  reqLength));
-                    break;
+                    return true;
                 }
                 case DescriptorIndex::manufacturer:
                 {
@@ -333,7 +143,7 @@ namespace Usb
                     // transfer.ptr = stringImanufacturerDesc();
                     // transfer.direction = DEVICE_TO_HOST;
                     // success = true;
-                    // break;
+                    break;
                 }
                 case DescriptorIndex::product:
                 {
@@ -341,7 +151,7 @@ namespace Usb
                         TDeviceSettings::StringDescriptors::product,
                         std::min(uint16_t(sizeof(TDeviceSettings::StringDescriptors::product)),
                                  reqLength));
-                    break;
+                    return true;
                 }
                 case DescriptorIndex::serial:
                 {
@@ -349,7 +159,7 @@ namespace Usb
                         TDeviceSettings::StringDescriptors::serial,
                         std::min(uint16_t(sizeof(TDeviceSettings::StringDescriptors::serial)),
                                  reqLength));
-                    break;
+                    return true;
                 }
                 case DescriptorIndex::configuration:
                 {
@@ -365,7 +175,7 @@ namespace Usb
                         TDeviceSettings::StringDescriptors::interface,
                         std::min(uint16_t(sizeof(TDeviceSettings::StringDescriptors::interface)),
                                  reqLength));
-                    break;
+                    return true;
                 }
                 }
                 break;
@@ -375,12 +185,146 @@ namespace Usb
             default:
                 break;
             }
+            return false;
         }
         static bool requestGetConfiguration() { return false; }
         static bool requestSetConfiguration() { return false; }
         static bool requestGetInterface() { return false; }
         static bool requestSetInterface() { return false; }
-    public:
+        struct ControlTransfer
+        {
+        private:
+            PacketType setupPacket_;
+            TransferType transfer_;
+
+        public:
+            bool dataStageComplete() { return transfer_.size() == controlTransfer_.getWLength(); }
+            void pushPacket(PacketType && p) { transfer_.pushBackPacket(std::move(p)); }
+            PacketType popPacket() { return transfer_.popFrontPacket(); }
+            bool empty() { return transfer_.empty(); }
+            void initialize(PacketType && p)
+            {
+                if (setupPacket_)
+                {
+                    AllocatorType::deallocate(std::move(setupPacket_));
+                }
+                setupPacket_.unsafeFromPacketPointer(p.unsafeToPacketPointer());
+            }
+            auto getDirection() -> decltype(SetupPacket::getDirection(setupPacket_))
+            {
+                return SetupPacket::getDirection(setupPacket_);
+            }
+            auto getWLength() -> decltype(SetupPacket::getWLength(setupPacket_))
+            {
+                return SetupPacket::getWLength(setupPacket_);
+            }
+            auto getType() -> decltype(SetupPacket::getType(setupPacket_))
+            {
+                return SetupPacket::getType(setupPacket_);
+            }
+            auto getRequest() -> decltype(SetupPacket::getRequest(setupPacket_))
+            {
+                return SetupPacket::getRequest(setupPacket_);
+            }
+            auto getValue() -> decltype(SetupPacket::getValue(setupPacket_))
+            {
+                return SetupPacket::getValue(setupPacket_);
+            }
+            auto getDescriptorType() -> decltype(SetupPacket::getDescriptorType(setupPacket_))
+            {
+                return SetupPacket::getDescriptorType(setupPacket_);
+            }
+            auto getDescriptorIndex() -> decltype(SetupPacket::getDescriptorIndex(setupPacket_))
+            {
+                return SetupPacket::getDescriptorIndex(setupPacket_);
+            }
+        };
+        static ControlTransfer controlTransfer_;
+
+        static bool handleHostToDevice()
+        {
+            using namespace SetupPacket;
+            switch (controlTransfer_.getType())
+            {
+            case Type::classT:
+            {
+                // TODO support more
+                return brigand::at<DeviceClasses, brigand::int8_t<0>>::onSetupReceived(
+                    controlTransfer_);
+            }
+            case Type::vendor:
+            {
+                break;
+            }
+            case Type::standard:
+            {
+                auto rt = controlTransfer_.getRequest();
+                if (rt == Request::setAddress)
+                {
+                    return true;
+                }
+                else if (rt == Request::setConfiguration)
+                {
+                    // this is where mbed initializes other endpoints
+                    // TODO check if the usb standard says to init here and correct or
+                    // cite depending
+                    activateEndpoints(EndpointNumbers{}, FlatEPRequirements{});
+                    // sendControlAck(std::move(p));
+                    return true;
+                }
+                break;
+            }
+            };
+        }
+        static bool handleDeviceToHost()
+        {
+            using namespace SetupPacket;
+            switch (controlTransfer_.getType())
+            {
+            case Type::classT:
+            {
+                // TODO support more
+                brigand::at<DeviceClasses, brigand::int8_t<0>>::onSetupReceived(controlTransfer_);
+                return true;
+            }
+            case Type::vendor:
+            {
+                break;
+            }
+            case Type::standard:
+            {
+                switch (controlTransfer_.getRequest())
+                {
+                case Request::getStatus:
+                {
+                    return Device::requestGetStatus();
+                }
+                case Request::getDescriptor:
+                {
+                    return Device::requestGetDescriptor();
+                }
+                case Request::getConfiguration:
+                {
+                    if (Device::requestGetConfiguration())
+                    {
+                        // sendControlAck(std::move(p));
+                        return true;
+                    }
+                }
+                case Request::getInterface:
+                {
+                    if (Device::requestGetInterface())
+                    {
+                        // sendControlAck(std::move(p));
+                        return true;
+                    }
+                }
+                }
+                break;
+            }
+            };
+        }
+
         static void sendControlAck(PacketType && p)
         {
             p.unsafeSetSize(0);
@@ -392,8 +336,6 @@ namespace Usb
         {
             GetHal<Device, Tag::User>::type::sendPacket(std::move(p));
         }
-        static PacketType getPacket() { return AllocatorType::allocate(); }
-        static void sinkPacket(PacketType && p) { return AllocatorType::deallocate(std::move(p)); }
         template <typename... N, EndpointDirection... D, EndpointType... T>
         static void activateEndpoints(brigand::list<N...>,
                                       brigand::list<EndpointRequirement<D, T>...>)
@@ -401,14 +343,72 @@ namespace Usb
             int i[] = {
                 0, (GetHal<Device, Tag::User>::type::template activateEndpoint<N, D, T>(), 0)...};
         }
-        static void onSetupPacket(PacketType && p) { sm_.onSetupReceived(std::move(p)); }
-        static void onOutReceived(PacketType && p) { sm_.onOutReceived(std::move(p)); }
-        static void onInSent(PacketType && p) { sm_.onInSent(std::move(p)); }
+        static void onPacketFromHost(bool data1)
+        {
+            if (controlTransfer_.dataStageComplete())
+            {
+                if (handleHostToDevice())
+                {
+                    sendControlAck(getPacket());
+                }
+            }
+            else
+            {
+                GetHal<Device, Tag::User>::type::enableEP0Out(
+                    data1); // if control transfer not complete then alternate data0/1 packets
+            }
+        }
+
+    public:
+        static PacketType getPacket() { return AllocatorType::allocate(); }
+        static void onSetupPacket(PacketType && p)
+        {
+            using namespace SetupPacket;
+            controlTransfer_.initialize(std::move(p));
+            if (controlTransfer_.getDirection() == Direction::hostToDevice)
+            {
+                onPacketFromHost(true);
+            }
+            else
+            {
+                handleDeviceToHost();
+                if (!controlTransfer_.empty())
+                {
+                    sendPacket(controlTransfer_.popPacket());
+                }
+            }
+        }
+        static void onOutReceived(PacketType && p)
+        {
+            bool wasData1 = p.isData1();
+            controlTransfer_.pushPacket(std::move(p));
+            onPacketFromHost(!wasData1);
+        }
+        static void onInSent(PacketType && p)
+        {
+            using namespace SetupPacket;
+            if (p.getSize() < PacketType::capacity)
+            { // if the packet is smaller than the capacity it is by definition the last packet
+                // in the transfer
+                switch (controlTransfer_.getRequest())
+                {
+                case Request::setAddress:
+                    GetHal<Device, Tag::User>::type::setAddress(static_cast<uint8_t>(getValue(p)));
+                    break;
+                }
+                GetHal<Device, Tag::User>::type::enableEP0Out(0);
+            }
+            else
+            {
+                sendPacket(controlTransfer_.popPacket());
+            }
+            AllocatorType::deallocate(std::move(p));
+        }
         static void initialize() { AllocatorType::initialize(); }
     };
     template <typename TDeviceSettings, typename... TDeviceClass>
-    typename Device<TDeviceSettings, TDeviceClass...>::Sm
-        Device<TDeviceSettings, TDeviceClass...>::sm_;
+    typename Device<TDeviceSettings, TDeviceClass...>::ControlTransfer
+        Device<TDeviceSettings, TDeviceClass...>::controlTransfer_;
     template <typename TDeviceSettings, typename... TDeviceClass>
     constexpr uint8_t Device<TDeviceSettings, TDeviceClass...>::deviceDescriptor[18];
 
