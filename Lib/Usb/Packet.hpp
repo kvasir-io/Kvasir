@@ -50,7 +50,7 @@ namespace Usb
             packet_->size_ = 0;
         }
         void setNext(PointerType & p) { packet_->next_ = p; }
-        bool isData1() { return packet_->endpoint_ & 0x80; }
+        bool isData1() { return (packet_->endpoint_ & 0x80) != 0; }
         void makeData1() { packet_->endpoint_ |= 0x80; }
         void makeData0() { packet_->endpoint_ &= ~0x80; }
         Endpoint getEndpoint() { return Endpoint{static_cast<uint8_t>(packet_->endpoint_ & 0x1F)}; }

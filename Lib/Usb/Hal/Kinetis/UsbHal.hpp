@@ -129,7 +129,6 @@ namespace Usb
                 b.byteCount = 64;
                 apply(clear(Usb0Ctl::txsuspendtokenbusy));
                 TDerived::onSetupPacket(std::move(packet)); // pass the packet upstream
-
                 break;
             }
             case Kvasir::Usb::Bdt::TokPid::out:

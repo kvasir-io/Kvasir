@@ -172,11 +172,27 @@ constexpr uint8_t MyStringDescriptors::langId[4];
 constexpr uint8_t MyStringDescriptors::product[0x16];
 constexpr uint8_t MyStringDescriptors::serial[0x16];
 constexpr uint8_t MyStringDescriptors::interface[8];
-struct MyCdcSettings : ::Kvasir::Usb::Cdc::DefaultSettings
+using MyMemoryPolicy = Kvasir::Usb::CompactPacket::MemoryPolicy<20>;
+struct MyBuffPolicy
 {
+	template<typename T>
+	static T onIn(T && p)
+	{
+		return std::move(p);
+	}
+	template<typename T>
+	static void onOut(T && p)
+	{
+		MyMemoryPolicy::AllocatorType::deallocate(std::move(p));
+	}
+};
+struct MyCdcSettings : Kvasir::Usb::Cdc::DefaultSettings
+{
+	using BufferPolicy = MyBuffPolicy;
 };
 struct MyDeviceSettings : ::Kvasir::Usb::DefaultDeviceSettings
 {
+	using MemoryPolicy = MyMemoryPolicy;
     using StringDescriptors = MyStringDescriptors;
     static constexpr uint16_t vid = 0x1F00;
     static constexpr uint16_t pid = 0x2012;

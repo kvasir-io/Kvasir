@@ -372,14 +372,14 @@ namespace Usb
         static void onInSent(PacketType && p)
         {
             using namespace SetupPacket;
-			if (p.getEndpoint().value_ == 0) {
+			if (p.getEndpoint().value_ == 1) {
 				if (p.getSize() < PacketType::capacity)
 				{ // if the packet is smaller than the capacity it is by definition the last packet
 					// in the transfer
 					switch (controlTransfer_.getRequest())
 					{
 					case Request::setAddress:
-						GetHal<Device, Tag::User>::type::setAddress(static_cast<uint8_t>(getValue(p)));
+						GetHal<Device, Tag::User>::type::setAddress(static_cast<uint8_t>(controlTransfer_.getValue()));
 						break;
 					}
 					GetHal<Device, Tag::User>::type::enableEP0Out(0);
