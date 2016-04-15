@@ -117,7 +117,7 @@ namespace Usb
                 while (packet_ != nullptr)
                 {
                     auto next = packet_->next_;
-                    TAllocator::deallocate(PacketType::unsafeFromPacketPointer(packet_));
+                    TAllocator::deallocate(PacketType::unsafeConstructFromPacketPointer(packet_));
                     packet_ = next;
                 }
             }

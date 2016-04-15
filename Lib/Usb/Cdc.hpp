@@ -54,14 +54,17 @@ namespace Usb
                     return true;
                 }
                 default:
-                    //TDevice::sinkPacket(move(p));
                     return false;
                 }
             }
-            static void onIn(typename TDevice::PacketType && p)
-            {
-	            TDevice::sinkPacket(move(p));
-            }
+	        static typename TDevice::PacketType onIn(typename TDevice::PacketType && p)
+	        {
+		        return TSettings::BufferPolicy::onIn(move(p));
+	        }
+	        static void onOut(typename TDevice::PacketType && p)
+	        {
+		        TSettings::BufferPolicy::onOut(move(p));
+	        }
         };
 
         template <typename THost>

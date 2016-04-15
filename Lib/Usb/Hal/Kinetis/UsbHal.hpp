@@ -38,18 +38,17 @@ namespace Usb
     {
         friend TDerived;
         static uint8_t data01_;
-        static Bdt::Data*  getBdt() { return ((Bdt::Data *)0x400FE000); }
+        static Bdt::Data * getBdt() { return ((Bdt::Data *)0x400FE000); }
         static typename TDerived::PacketType readEndpoint(Bdt::Data & bdt)
         {
-            auto ret = TDerived::PacketType::unsafeFromBufPointer(const_cast<uint8_t*>(bdt.address));
+            auto ret =
+                TDerived::PacketType::unsafeFromBufPointer(const_cast<uint8_t *>(bdt.address));
             ret.unsafeSetSize(bdt.byteCount);
             bdt.address = 0;
             return ret;
         }
         static void giveBdtToSie(Bdt::Data & b, bool data1 = false)
         {
-            b.address = TDerived::getPacket().unsafeToBufPointer();
-            b.byteCount = 64;
             if (data1)
             {
                 b.info =
@@ -126,16 +125,16 @@ namespace Usb
             {
             case Kvasir::Usb::Bdt::TokPid::setup:
             {
-							if (packet[0] == 0xA1) {
-					volatile int v = 0;
-			}
-							apply(clear(Usb0Ctl::txsuspendtokenbusy));
+                b.address = TDerived::getPacket().unsafeToBufPointer();
+                b.byteCount = 64;
+                apply(clear(Usb0Ctl::txsuspendtokenbusy));
                 TDerived::onSetupPacket(std::move(packet)); // pass the packet upstream
-                
+
                 break;
             }
             case Kvasir::Usb::Bdt::TokPid::out:
-                giveBdtToSie(b);
+				b.address = TDerived::getPacket().unsafeToBufPointer();
+				b.byteCount = 64;
                 TDerived::onOutReceived(std::move(packet));
                 break;
             case Kvasir::Usb::Bdt::TokPid::in:
@@ -164,7 +163,7 @@ namespace Usb
             auto & odd = getBdt()[bufIndex];
             auto & even = getBdt()[bufIndex + 1];
             even.address = 0;
-			even.info = Bdt::InfoBits::allClear;
+            even.info = Bdt::InfoBits::allClear;
             constexpr unsigned endpointTxEnableMask{0x4u};
             constexpr unsigned endpointRxEnableMask{0x8u};
             // IN endpt -> device to host (TX)
@@ -263,7 +262,7 @@ namespace Usb
                 if (status[Usb0Istat::tokdne])
                 {
                     handleTokdne();
-					apply(reset(Usb0Istat::tokdne));
+                    apply(reset(Usb0Istat::tokdne));
                 }
                 // sleep interrupt
                 if (status[Usb0Istat::sleep])
