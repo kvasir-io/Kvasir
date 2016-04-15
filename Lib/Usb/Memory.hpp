@@ -58,7 +58,7 @@ namespace Usb
                 auto p = free_;
                 free_ = n;
                 p->next_ = nullptr;
-                auto ret = DataType::unsafeFromPacketPointer(p);
+                auto ret = DataType::unsafeConstructFromPacketPointer(p);
                 ret.clear();
                 return ret;
             }
@@ -117,7 +117,7 @@ namespace Usb
                 while (packet_ != nullptr)
                 {
                     auto next = packet_->next_;
-                    TAllocator::deallocate(PacketType::unsafeFromPacketPointer(packet_));
+                    TAllocator::deallocate(PacketType::unsafeConstructFromPacketPointer(packet_));
                     packet_ = next;
                 }
             }
@@ -131,7 +131,7 @@ namespace Usb
                 auto ret = packet_;
                 ret->next_ = nullptr;
                 packet_ = p;
-                return PacketType::unsafeFromPacketPointer(ret);
+                return PacketType::unsafeConstructFromPacketPointer(ret);
             }
             void pushBackPacket(PacketType && p)
             {
@@ -145,6 +145,20 @@ namespace Usb
                     nextPointer->next_ = p.unsafeToPacketPointer();
                 }
             }
+			uint32_t size() {
+				if (packet_ == nullptr)
+				{
+					return 0;
+				}
+				auto cp = packet_;
+				uint32_t ret{};
+				while (cp->next_ != nullptr)
+				{
+					cp = cp->next_;
+					ret += PacketType::capacity;
+				}
+				return ret + cp->size_;
+			}
             TransferIterator begin() {}
             TransferIterator end() {}
             bool empty() { return packet_ == nullptr; }

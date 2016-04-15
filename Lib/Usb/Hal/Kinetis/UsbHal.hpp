@@ -38,18 +38,17 @@ namespace Usb
     {
         friend TDerived;
         static uint8_t data01_;
-        static Bdt::Data & getBdt(int index) { return ((Bdt::Data *)0x400FE000)[index]; }
+        static Bdt::Data * getBdt() { return ((Bdt::Data *)0x400FE000); }
         static typename TDerived::PacketType readEndpoint(Bdt::Data & bdt)
         {
-            auto ret = TDerived::PacketType::unsafeFromBufPointer(bdt.address);
+            auto ret =
+                TDerived::PacketType::unsafeFromBufPointer(const_cast<uint8_t *>(bdt.address));
             ret.unsafeSetSize(bdt.byteCount);
             bdt.address = 0;
             return ret;
         }
         static void giveBdtToSie(Bdt::Data & b, bool data1 = false)
         {
-            b.address = TDerived::getPacket().unsafeToBufPointer();
-            b.byteCount = 64;
             if (data1)
             {
                 b.info =
@@ -92,7 +91,7 @@ namespace Usb
         static void sendPacket(typename TDerived::PacketType p, int index)
         {
             using InfoBits = ::Kvasir::Usb::Bdt::InfoBits;
-            auto & b = getBdt(index);
+            auto & b = getBdt()[index];
             b.address = p.unsafeToBufPointer();
             b.byteCount = p.getSize();
             if (p.isData1())
@@ -117,7 +116,7 @@ namespace Usb
             auto stat = apply(read(Usb0Stat::endp, Usb0Stat::tx, Usb0Stat::odd));
             uint8_t physical = (uint8_t)stat[Usb0Stat::endp] * 2 + (unsigned)stat[Usb0Stat::tx];
             uint8_t idx = physical * 2 + (unsigned)stat[Usb0Stat::odd];
-            auto & b = getBdt(idx);
+            auto & b = getBdt()[idx];
             auto tokpid = getTokPid(b);
             auto packet = readEndpoint(b);
             packet.setEndpoint(Kvasir::Usb::Endpoint{physical});
@@ -126,25 +125,27 @@ namespace Usb
             {
             case Kvasir::Usb::Bdt::TokPid::setup:
             {
-                TDerived::onSetupPacket(std::move(packet)); // pass the packet upstream
+                b.address = TDerived::getPacket().unsafeToBufPointer();
+                b.byteCount = 64;
                 apply(clear(Usb0Ctl::txsuspendtokenbusy));
+                TDerived::onSetupPacket(std::move(packet)); // pass the packet upstream
                 break;
             }
             case Kvasir::Usb::Bdt::TokPid::out:
-                giveBdtToSie(b);
+				b.address = TDerived::getPacket().unsafeToBufPointer();
+				b.byteCount = 64;
                 TDerived::onOutReceived(std::move(packet));
                 break;
             case Kvasir::Usb::Bdt::TokPid::in:
                 TDerived::onInSent(std::move(packet));
                 break;
             }
-            apply(reset(Usb0Istat::tokdne));
         }
 
     public:
         static void enableEP0Out(bool data1)
         { // called when control transfer has finished
-            giveBdtToSie(getBdt(0), data1);
+            giveBdtToSie(getBdt()[0], data1);
         }
         static void setAddress(uint8_t address) { apply(write(Usb0Addr::addr, address)); }
         template <typename T, EndpointDirection Direction, EndpointType Type>
@@ -158,9 +159,10 @@ namespace Usb
 
             auto & ept = ((uint8_t *)0x400720C0)[4 * logicalEndpoint];
 
-            auto & odd = getBdt(bufIndex);
-            auto & even = getBdt(bufIndex + 1);
+            auto & odd = getBdt()[bufIndex];
+            auto & even = getBdt()[bufIndex + 1];
             even.address = 0;
+            even.info = Bdt::InfoBits::allClear;
             constexpr unsigned endpointTxEnableMask{0x4u};
             constexpr unsigned endpointRxEnableMask{0x8u};
             // IN endpt -> device to host (TX)
@@ -180,7 +182,6 @@ namespace Usb
                 odd.byteCount = TDerived::PacketType::capacity;
                 odd.address = TDerived::getPacket().unsafeToBufPointer();
                 odd.info = Bdt::InfoBits::own | Bdt::InfoBits::dts;
-                even.info = Bdt::InfoBits::allClear;
             }
         }
         static void initialize()
@@ -195,7 +196,7 @@ namespace Usb
             for (volatile int i = 0; i < 10; i++)
             {
             };                                             // wait for reset
-            memset(&getBdt(0), 0, sizeof(getBdt(0)) * 16); // clear all bdts
+            memset(getBdt(), 0, sizeof(getBdt()[0]) * 16); // clear all bdts
             // Set BDT Base Register
             apply(write(k::Usb0Bdtpage1::bdtba, (0xE0 >> 1)), // only bits 7-1
                   write(k::Usb0Bdtpage2::bdtba, 0x0F), write(k::Usb0Bdtpage3::bdtba, 0x40));
@@ -260,6 +261,7 @@ namespace Usb
                 if (status[Usb0Istat::tokdne])
                 {
                     handleTokdne();
+                    apply(reset(Usb0Istat::tokdne));
                 }
                 // sleep interrupt
                 if (status[Usb0Istat::sleep])

@@ -36,7 +36,8 @@ namespace Usb
             return Packet(pp);
         }
         uint8_t * unsafeToBufPointer() { return packet_->buf_; }
-        static Packet unsafeFromPacketPointer(PointerType p) { return Packet(p); }
+		static Packet unsafeConstructFromPacketPointer(PointerType p) { return Packet(p); }
+		void unsafeFromPacketPointer(PointerType p) { packet_ = p; }
         PointerType unsafeToPacketPointer() { return packet_; }
         void unsafeSetSize(int i) { packet_->size_ = i; }
         uint8_t getSize() { return packet_->size_; }
@@ -49,7 +50,7 @@ namespace Usb
             packet_->size_ = 0;
         }
         void setNext(PointerType & p) { packet_->next_ = p; }
-        bool isData1() { return packet_->endpoint_ & 0x80; }
+        bool isData1() { return (packet_->endpoint_ & 0x80) != 0; }
         void makeData1() { packet_->endpoint_ |= 0x80; }
         void makeData0() { packet_->endpoint_ &= ~0x80; }
         Endpoint getEndpoint() { return Endpoint{static_cast<uint8_t>(packet_->endpoint_ & 0x1F)}; }

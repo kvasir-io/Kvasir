@@ -36,7 +36,7 @@ namespace Usb
             clearFeature = 1,
             setFeature = 3,
             setAddress = 5,
-            getDescriptor,
+            getDescriptor = 6,
             setDescriptor,
             getConfiguration,
             setConfiguration,

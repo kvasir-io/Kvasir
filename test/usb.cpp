@@ -172,11 +172,27 @@ constexpr uint8_t MyStringDescriptors::langId[4];
 constexpr uint8_t MyStringDescriptors::product[0x16];
 constexpr uint8_t MyStringDescriptors::serial[0x16];
 constexpr uint8_t MyStringDescriptors::interface[8];
-struct MyCdcSettings : ::Kvasir::Usb::Cdc::DefaultSettings
+using MyMemoryPolicy = Kvasir::Usb::CompactPacket::MemoryPolicy<20>;
+struct MyBuffPolicy
 {
+	template<typename T>
+	static T onIn(T && p)
+	{
+		return std::move(p);
+	}
+	template<typename T>
+	static void onOut(T && p)
+	{
+		MyMemoryPolicy::AllocatorType::deallocate(std::move(p));
+	}
+};
+struct MyCdcSettings : Kvasir::Usb::Cdc::DefaultSettings
+{
+	using BufferPolicy = MyBuffPolicy;
 };
 struct MyDeviceSettings : ::Kvasir::Usb::DefaultDeviceSettings
 {
+	using MemoryPolicy = MyMemoryPolicy;
     using StringDescriptors = MyStringDescriptors;
     static constexpr uint16_t vid = 0x1F00;
     static constexpr uint16_t pid = 0x2012;
@@ -253,11 +269,11 @@ int usbTest()
                 return 1;
             }
             Device::onInSent(std::move(packet));
-            if (std::get<0>(events_[1]) != Type::enableEp0)
-            {
-                return 1;
-            }
-            if (std::get<0>(events_[2]) != Type::setAddress)
+			if (std::get<0>(events_[1]) != Type::setAddress)
+			{
+				return 1;
+			}
+            if (std::get<0>(events_[2]) != Type::enableEp0)
             {
                 return 1;
             }
@@ -275,10 +291,14 @@ int usbTest()
                 return 1;
             }
             auto packet = std::move(std::get<1>(events_[0]));
-            if (packet.getSize() != 8)
-            {
-                return 1;
-            }
+			if (packet.getSize() != 8)
+			{
+				return 1;
+			}
+			if (!packet.isData1())
+			{
+				return 1;
+			}
             Device::onInSent(std::move(packet));
             if (std::get<0>(events_[1]) != Type::enableEp0)
             {
