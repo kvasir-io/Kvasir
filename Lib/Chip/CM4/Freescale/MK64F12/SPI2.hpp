@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Serial Peripheral Interface
     namespace Spi2Mcr{    ///<Module Configuration Register
-        using Addr = Register::Address<0x400ac000,0x00c000fe,0,unsigned>;
+        using Addr = Register::Address<0x400ac000,0x00c000fe,0x00000000,unsigned>;
         ///Halt
         enum class HaltVal {
             v0=0x00000000,     ///<Start transfers.
@@ -31,7 +31,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Do not clear the RX FIFO counter.
             v1=0x00000001,     ///<Clear the RX FIFO counter.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::ReadWriteAccess,ClrrxfVal> clrRxf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,10),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ClrrxfVal> clrRxf{}; 
         namespace ClrrxfValC{
             constexpr Register::FieldValue<decltype(clrRxf)::Type,ClrrxfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(clrRxf)::Type,ClrrxfVal::v1> v1{};
@@ -41,7 +41,7 @@ namespace Kvasir {
             v0=0x00000000,     ///<Do not clear the TX FIFO counter.
             v1=0x00000001,     ///<Clear the TX FIFO counter.
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::ReadWriteAccess,ClrtxfVal> clrTxf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,11),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,ClrtxfVal> clrTxf{}; 
         namespace ClrtxfValC{
             constexpr Register::FieldValue<decltype(clrTxf)::Type,ClrtxfVal::v0> v0{};
             constexpr Register::FieldValue<decltype(clrTxf)::Type,ClrtxfVal::v1> v1{};
@@ -132,7 +132,7 @@ namespace Kvasir {
         enum class DconfVal {
             v00=0x00000000,     ///<SPI
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::ReadWriteAccess,DconfVal> dconf{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(29,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,DconfVal> dconf{}; 
         namespace DconfValC{
             constexpr Register::FieldValue<decltype(dconf)::Type,DconfVal::v00> v00{};
         }
@@ -158,12 +158,12 @@ namespace Kvasir {
         }
     }
     namespace Spi2Tcr{    ///<Transfer Count Register
-        using Addr = Register::Address<0x400ac008,0x0000ffff,0,unsigned>;
+        using Addr = Register::Address<0x400ac008,0x0000ffff,0x00000000,unsigned>;
         ///SPI Transfer Counter
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> spiTcnt{}; 
     }
     namespace Spi2Ctar0{    ///<Clock and Transfer Attributes Register (In Master Mode)
-        using Addr = Register::Address<0x400ac00c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ac00c,0x00000000,0x00000000,unsigned>;
         ///Baud Rate Scaler
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> br{}; 
         ///Delay After Transfer Scaler
@@ -272,7 +272,7 @@ namespace Kvasir {
         }
     }
     namespace Spi2Ctar1{    ///<Clock and Transfer Attributes Register (In Master Mode)
-        using Addr = Register::Address<0x400ac010,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ac010,0x00000000,0x00000000,unsigned>;
         ///Baud Rate Scaler
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> br{}; 
         ///Delay After Transfer Scaler
@@ -381,7 +381,7 @@ namespace Kvasir {
         }
     }
     namespace Spi2CtarSlave{    ///<Clock and Transfer Attributes Register (In Slave Mode)
-        using Addr = Register::Address<0x400ac00c,0x01ffffff,0,unsigned>;
+        using Addr = Register::Address<0x400ac00c,0x01ffffff,0x00000000,unsigned>;
         ///Clock Phase
         enum class CphaVal {
             v0=0x00000000,     ///<Data is captured on the leading edge of SCK and changed on the following edge.
@@ -406,15 +406,15 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,27),Register::ReadWriteAccess,unsigned> fmsz{}; 
     }
     namespace Spi2Sr{    ///<Status Register
-        using Addr = Register::Address<0x400ac02c,0x25f50000,0,unsigned>;
+        using Addr = Register::Address<0x400ac02c,0x25f50000,0x00000000,unsigned>;
         ///Pop Next Pointer
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> popnxtptr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> popnxtptr{}; 
         ///RX FIFO Counter
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::ReadWriteAccess,unsigned> rxctr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,4),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxctr{}; 
         ///Transmit Next Pointer
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::ReadWriteAccess,unsigned> txnxtptr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txnxtptr{}; 
         ///TX FIFO Counter
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::ReadWriteAccess,unsigned> txctr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,12),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txctr{}; 
         ///Receive FIFO Drain Flag
         enum class RfdfVal {
             v0=0x00000000,     ///<RX FIFO is empty.
@@ -487,7 +487,7 @@ namespace Kvasir {
         }
     }
     namespace Spi2Rser{    ///<DMA/Interrupt Request Select and Enable Register
-        using Addr = Register::Address<0x400ac030,0x64f4ffff,0,unsigned>;
+        using Addr = Register::Address<0x400ac030,0x64f4ffff,0x00000000,unsigned>;
         ///Receive FIFO Drain DMA or Interrupt Request Select
         enum class RfdfdirsVal {
             v0=0x00000000,     ///<Interrupt request.
@@ -570,7 +570,7 @@ namespace Kvasir {
         }
     }
     namespace Spi2Pushr{    ///<PUSH TX FIFO Register In Master Mode
-        using Addr = Register::Address<0x400ac034,0x03c00000,0,unsigned>;
+        using Addr = Register::Address<0x400ac034,0x03c00000,0x00000000,unsigned>;
         ///Transmit Data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txdata{}; 
         ///no description available
@@ -609,61 +609,61 @@ namespace Kvasir {
         }
     }
     namespace Spi2PushrSlave{    ///<PUSH TX FIFO Register In Slave Mode
-        using Addr = Register::Address<0x400ac034,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ac034,0x00000000,0x00000000,unsigned>;
         ///Transmit Data
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> txdata{}; 
     }
     namespace Spi2Popr{    ///<POP RX FIFO Register
-        using Addr = Register::Address<0x400ac038,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ac038,0x00000000,0x00000000,unsigned>;
         ///Received Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxdata{}; 
     }
     namespace Spi2Txfr0{    ///<Transmit FIFO Registers
-        using Addr = Register::Address<0x400ac03c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ac03c,0x00000000,0x00000000,unsigned>;
         ///Transmit Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txdata{}; 
         ///Transmit Command or Transmit Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> txcmdTxdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txcmdTxdata{}; 
     }
     namespace Spi2Txfr1{    ///<Transmit FIFO Registers
-        using Addr = Register::Address<0x400ac040,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ac040,0x00000000,0x00000000,unsigned>;
         ///Transmit Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txdata{}; 
         ///Transmit Command or Transmit Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> txcmdTxdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txcmdTxdata{}; 
     }
     namespace Spi2Txfr2{    ///<Transmit FIFO Registers
-        using Addr = Register::Address<0x400ac044,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ac044,0x00000000,0x00000000,unsigned>;
         ///Transmit Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txdata{}; 
         ///Transmit Command or Transmit Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> txcmdTxdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txcmdTxdata{}; 
     }
     namespace Spi2Txfr3{    ///<Transmit FIFO Registers
-        using Addr = Register::Address<0x400ac048,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ac048,0x00000000,0x00000000,unsigned>;
         ///Transmit Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txdata{}; 
         ///Transmit Command or Transmit Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::ReadWriteAccess,unsigned> txcmdTxdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txcmdTxdata{}; 
     }
     namespace Spi2Rxfr0{    ///<Receive FIFO Registers
-        using Addr = Register::Address<0x400ac07c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ac07c,0x00000000,0x00000000,unsigned>;
         ///Receive Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxdata{}; 
     }
     namespace Spi2Rxfr1{    ///<Receive FIFO Registers
-        using Addr = Register::Address<0x400ac080,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ac080,0x00000000,0x00000000,unsigned>;
         ///Receive Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxdata{}; 
     }
     namespace Spi2Rxfr2{    ///<Receive FIFO Registers
-        using Addr = Register::Address<0x400ac084,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ac084,0x00000000,0x00000000,unsigned>;
         ///Receive Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxdata{}; 
     }
     namespace Spi2Rxfr3{    ///<Receive FIFO Registers
-        using Addr = Register::Address<0x400ac088,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400ac088,0x00000000,0x00000000,unsigned>;
         ///Receive Data
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> rxdata{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxdata{}; 
     }
 }
