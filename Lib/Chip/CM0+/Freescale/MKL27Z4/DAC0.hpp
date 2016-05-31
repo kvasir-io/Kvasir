@@ -2,26 +2,6 @@
 #include <Register/Utility.hpp>
 namespace Kvasir {
 //12-Bit Digital-to-Analog Converter
-    namespace Dac0Dat0l{    ///<DAC Data Low Register
-        using Addr = Register::Address<0x4003f000,0xffffff00,0x00000000,unsigned char>;
-        ///DATA0
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data0{}; 
-    }
-    namespace Dac0Dat1l{    ///<DAC Data Low Register
-        using Addr = Register::Address<0x4003f002,0xffffff00,0x00000000,unsigned char>;
-        ///DATA0
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data0{}; 
-    }
-    namespace Dac0Dat0h{    ///<DAC Data High Register
-        using Addr = Register::Address<0x4003f001,0xfffffff0,0x00000000,unsigned char>;
-        ///DATA1
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> data1{}; 
-    }
-    namespace Dac0Dat1h{    ///<DAC Data High Register
-        using Addr = Register::Address<0x4003f003,0xfffffff0,0x00000000,unsigned char>;
-        ///DATA1
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> data1{}; 
-    }
     namespace Dac0Sr{    ///<DAC Status Register
         using Addr = Register::Address<0x4003f020,0xfffffffc,0x00000000,unsigned char>;
         ///DAC Buffer Read Pointer Bottom Position Flag
@@ -159,5 +139,25 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> dacbfup{}; 
         ///DAC Buffer Read Pointer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,4),Register::ReadWriteAccess,unsigned> dacbfrp{}; 
+    }
+    namespace Dac0Dat0l{    ///<DAC Data Low Register
+        using Addr = Register::Address<0x4003f000,0xffffff00,0x00000000,unsigned char>;
+        ///DATA0
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data0{}; 
+    }
+    namespace Dac0Dat1l{    ///<DAC Data Low Register
+        using Addr = Register::Address<0x4003f002,0xffffff00,0x00000000,unsigned char>;
+        ///DATA0
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,unsigned> data0{}; 
+    }
+    namespace Dac0Dat0h{    ///<DAC Data High Register
+        using Addr = Register::Address<0x4003f001,0xfffffff0,0x00000000,unsigned char>;
+        ///DATA1
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> data1{}; 
+    }
+    namespace Dac0Dat1h{    ///<DAC Data High Register
+        using Addr = Register::Address<0x4003f003,0xfffffff0,0x00000000,unsigned char>;
+        ///DATA1
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,0),Register::ReadWriteAccess,unsigned> data1{}; 
     }
 }

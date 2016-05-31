@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //SDRAM Controller
     namespace SdramcMr{    ///<SDRAMC Mode Register
-        using Addr = Register::Address<0xffffea00,0xfffffff8,0,unsigned>;
+        using Addr = Register::Address<0xffffea00,0xfffffff8,0x00000000,unsigned>;
         ///SDRAMC Command Mode
         enum class ModeVal {
             normal=0x00000000,     ///<Normal mode. Any access to the SDRAM is decoded normally. To activate this mode, command must be followed by a write to the SDRAM.
@@ -26,12 +26,12 @@ namespace Kvasir {
         }
     }
     namespace SdramcTr{    ///<SDRAMC Refresh Timer Register
-        using Addr = Register::Address<0xffffea04,0xfffff000,0,unsigned>;
+        using Addr = Register::Address<0xffffea04,0xfffff000,0x00000000,unsigned>;
         ///SDRAMC Refresh Timer Count
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(11,0),Register::ReadWriteAccess,unsigned> count{}; 
     }
     namespace SdramcCr{    ///<SDRAMC Configuration Register
-        using Addr = Register::Address<0xffffea08,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0xffffea08,0x00000000,0x00000000,unsigned>;
         ///Number of Column Bits
         enum class NcVal {
             col8=0x00000000,     ///<8 column bits
@@ -96,7 +96,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::ReadWriteAccess,unsigned> txsr{}; 
     }
     namespace SdramcLpr{    ///<SDRAMC Low Power Register
-        using Addr = Register::Address<0xffffea10,0xffffc08c,0,unsigned>;
+        using Addr = Register::Address<0xffffea10,0xffffc08c,0x00000000,unsigned>;
         ///Low-power Configuration Bits
         enum class LpcbVal {
             disabled=0x00000000,     ///<Low Power Feature is inhibited: no Power-down, Self-refresh or Deep Power-down command is issued to the SDRAM device.
@@ -131,27 +131,27 @@ namespace Kvasir {
         }
     }
     namespace SdramcIer{    ///<SDRAMC Interrupt Enable Register
-        using Addr = Register::Address<0xffffea14,0xfffffffe,0,unsigned>;
+        using Addr = Register::Address<0xffffea14,0xfffffffe,0x00000000,unsigned>;
         ///Refresh Error Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> res{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> res{}; 
     }
     namespace SdramcIdr{    ///<SDRAMC Interrupt Disable Register
-        using Addr = Register::Address<0xffffea18,0xfffffffe,0,unsigned>;
+        using Addr = Register::Address<0xffffea18,0xfffffffe,0x00000000,unsigned>;
         ///Refresh Error Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> res{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> res{}; 
     }
     namespace SdramcImr{    ///<SDRAMC Interrupt Mask Register
-        using Addr = Register::Address<0xffffea1c,0xfffffffe,0,unsigned>;
+        using Addr = Register::Address<0xffffea1c,0xfffffffe,0x00000000,unsigned>;
         ///Refresh Error Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> res{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> res{}; 
     }
     namespace SdramcIsr{    ///<SDRAMC Interrupt Status Register
-        using Addr = Register::Address<0xffffea20,0xfffffffe,0,unsigned>;
+        using Addr = Register::Address<0xffffea20,0xfffffffe,0x00000000,unsigned>;
         ///Refresh Error Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> res{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> res{}; 
     }
     namespace SdramcMdr{    ///<SDRAMC Memory Device Register
-        using Addr = Register::Address<0xffffea24,0xfffffffc,0,unsigned>;
+        using Addr = Register::Address<0xffffea24,0xfffffffc,0x00000000,unsigned>;
         ///Memory Device Type
         enum class MdVal {
             sdram=0x00000000,     ///<SDRAM

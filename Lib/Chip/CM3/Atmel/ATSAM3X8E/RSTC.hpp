@@ -1,31 +1,31 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Reset Controller
     namespace RstcCr{    ///<Control Register
-        using Addr = Register::Address<0x400e1a00,0x00fffff2,0,unsigned>;
+        using Addr = Register::Address<0x400e1a00,0x00fffff2,0x00000000,unsigned>;
         ///Processor Reset
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> procrst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> procrst{}; 
         ///Peripheral Reset
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> perrst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> perrst{}; 
         ///External Reset
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> extrst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> extrst{}; 
         ///System Reset Key
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> key{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> key{}; 
     }
     namespace RstcSr{    ///<Status Register
-        using Addr = Register::Address<0x400e1a04,0xfffcf8fe,0,unsigned>;
+        using Addr = Register::Address<0x400e1a04,0xfffcf8fe,0x00000000,unsigned>;
         ///User Reset Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ursts{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ursts{}; 
         ///Reset Type
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::ReadWriteAccess,unsigned> rsttyp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(10,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rsttyp{}; 
         ///NRST Pin Level
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::ReadWriteAccess,unsigned> nrstl{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(16,16),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> nrstl{}; 
         ///Software Reset Command in Progress
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::ReadWriteAccess,unsigned> srcmp{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(17,17),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> srcmp{}; 
     }
     namespace RstcMr{    ///<Mode Register
-        using Addr = Register::Address<0x400e1a08,0x00fff0ee,0,unsigned>;
+        using Addr = Register::Address<0x400e1a08,0x00fff0ee,0x00000000,unsigned>;
         ///User Reset Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ursten{}; 
         ///User Reset Interrupt Enable

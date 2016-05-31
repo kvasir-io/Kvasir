@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Real-time Timer
     namespace RttMr{    ///<Mode Register
-        using Addr = Register::Address<0x400e1230,0xfff80000,0,unsigned>;
+        using Addr = Register::Address<0x400e1230,0xfff80000,0x00000000,unsigned>;
         ///Real-time Timer Prescaler Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> rtpres{}; 
         ///Alarm Interrupt Enable
@@ -14,20 +14,20 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(18,18),Register::ReadWriteAccess,unsigned> rttrst{}; 
     }
     namespace RttAr{    ///<Alarm Register
-        using Addr = Register::Address<0x400e1234,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400e1234,0x00000000,0x00000000,unsigned>;
         ///Alarm Value
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> almv{}; 
     }
     namespace RttVr{    ///<Value Register
-        using Addr = Register::Address<0x400e1238,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400e1238,0x00000000,0x00000000,unsigned>;
         ///Current Real-time Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> crtv{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> crtv{}; 
     }
     namespace RttSr{    ///<Status Register
-        using Addr = Register::Address<0x400e123c,0xfffffffc,0,unsigned>;
+        using Addr = Register::Address<0x400e123c,0xfffffffc,0x00000000,unsigned>;
         ///Real-time Alarm Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> alms{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> alms{}; 
         ///Real-time Timer Increment
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rttinc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rttinc{}; 
     }
 }

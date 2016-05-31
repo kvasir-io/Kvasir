@@ -1,14 +1,14 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Digital-to-Analog Converter Controller
     namespace DaccCr{    ///<Control Register
-        using Addr = Register::Address<0x400c8000,0xfffffffe,0,unsigned>;
+        using Addr = Register::Address<0x400c8000,0xfffffffe,0x00000000,unsigned>;
         ///Software Reset
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> swrst{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> swrst{}; 
     }
     namespace DaccMr{    ///<Mode Register
-        using Addr = Register::Address<0x400c8004,0xc0cc0080,0,unsigned>;
+        using Addr = Register::Address<0x400c8004,0xc0cc0080,0x00000000,unsigned>;
         ///Trigger Enable
         enum class TrgenVal {
             dis=0x00000000,     ///<External trigger mode disabled. DACC in free running mode.
@@ -139,77 +139,77 @@ namespace Kvasir {
         }
     }
     namespace DaccCher{    ///<Channel Enable Register
-        using Addr = Register::Address<0x400c8010,0xfffffffc,0,unsigned>;
+        using Addr = Register::Address<0x400c8010,0xfffffffc,0x00000000,unsigned>;
         ///Channel 0 Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ch0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ch0{}; 
         ///Channel 1 Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ch1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ch1{}; 
     }
     namespace DaccChdr{    ///<Channel Disable Register
-        using Addr = Register::Address<0x400c8014,0xfffffffc,0,unsigned>;
+        using Addr = Register::Address<0x400c8014,0xfffffffc,0x00000000,unsigned>;
         ///Channel 0 Disable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ch0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ch0{}; 
         ///Channel 1 Disable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ch1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ch1{}; 
     }
     namespace DaccChsr{    ///<Channel Status Register
-        using Addr = Register::Address<0x400c8018,0xfffffffc,0,unsigned>;
+        using Addr = Register::Address<0x400c8018,0xfffffffc,0x00000000,unsigned>;
         ///Channel 0 Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> ch0{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ch0{}; 
         ///Channel 1 Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> ch1{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> ch1{}; 
     }
     namespace DaccCdr{    ///<Conversion Data Register
-        using Addr = Register::Address<0x400c8020,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400c8020,0x00000000,0x00000000,unsigned>;
         ///Data to Convert
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> data{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> data{}; 
     }
     namespace DaccIer{    ///<Interrupt Enable Register
-        using Addr = Register::Address<0x400c8024,0xfffffff0,0,unsigned>;
+        using Addr = Register::Address<0x400c8024,0xfffffff0,0x00000000,unsigned>;
         ///Transmit Ready Interrupt Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txrdy{}; 
         ///End of Conversion Interrupt Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> eoc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> eoc{}; 
         ///End of Transmit Buffer Interrupt Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> endtx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> endtx{}; 
         ///Transmit Buffer Empty Interrupt Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txbufe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txbufe{}; 
     }
     namespace DaccIdr{    ///<Interrupt Disable Register
-        using Addr = Register::Address<0x400c8028,0xfffffff0,0,unsigned>;
+        using Addr = Register::Address<0x400c8028,0xfffffff0,0x00000000,unsigned>;
         ///Transmit Ready Interrupt Disable.
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txrdy{}; 
         ///End of Conversion Interrupt Disable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> eoc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> eoc{}; 
         ///End of Transmit Buffer Interrupt Disable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> endtx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> endtx{}; 
         ///Transmit Buffer Empty Interrupt Disable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txbufe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txbufe{}; 
     }
     namespace DaccImr{    ///<Interrupt Mask Register
-        using Addr = Register::Address<0x400c802c,0xfffffff0,0,unsigned>;
+        using Addr = Register::Address<0x400c802c,0xfffffff0,0x00000000,unsigned>;
         ///Transmit Ready Interrupt Mask
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txrdy{}; 
         ///End of Conversion Interrupt Mask
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> eoc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> eoc{}; 
         ///End of Transmit Buffer Interrupt Mask
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> endtx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> endtx{}; 
         ///Transmit Buffer Empty Interrupt Mask
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txbufe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txbufe{}; 
     }
     namespace DaccIsr{    ///<Interrupt Status Register
-        using Addr = Register::Address<0x400c8030,0xfffffff0,0,unsigned>;
+        using Addr = Register::Address<0x400c8030,0xfffffff0,0x00000000,unsigned>;
         ///Transmit Ready Interrupt Flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> txrdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txrdy{}; 
         ///End of Conversion Interrupt Flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> eoc{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> eoc{}; 
         ///End of DMA Interrupt Flag
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> endtx{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> endtx{}; 
         ///Transmit Buffer Empty
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> txbufe{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txbufe{}; 
     }
     namespace DaccAcr{    ///<Analog Current Register
-        using Addr = Register::Address<0x400c8094,0xfffffcf0,0,unsigned>;
+        using Addr = Register::Address<0x400c8094,0xfffffcf0,0x00000000,unsigned>;
         ///Analog Output Current Control
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,0),Register::ReadWriteAccess,unsigned> ibctlch0{}; 
         ///Analog Output Current Control
@@ -218,55 +218,55 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,8),Register::ReadWriteAccess,unsigned> ibctldaccore{}; 
     }
     namespace DaccWpmr{    ///<Write Protect Mode register
-        using Addr = Register::Address<0x400c80e4,0x000000fe,0,unsigned>;
+        using Addr = Register::Address<0x400c80e4,0x000000fe,0x00000000,unsigned>;
         ///Write Protect Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wpen{}; 
         ///Write Protect KEY
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,8),Register::ReadWriteAccess,unsigned> wpkey{}; 
     }
     namespace DaccWpsr{    ///<Write Protect Status register
-        using Addr = Register::Address<0x400c80e8,0xffff00fe,0,unsigned>;
+        using Addr = Register::Address<0x400c80e8,0xffff00fe,0x00000000,unsigned>;
         ///Write protection error
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> wproterr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> wproterr{}; 
         ///Write protection error address
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::ReadWriteAccess,unsigned> wprotaddr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> wprotaddr{}; 
     }
     namespace DaccTpr{    ///<Transmit Pointer Register
-        using Addr = Register::Address<0x400c8108,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400c8108,0x00000000,0x00000000,unsigned>;
         ///Transmit Counter Register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> txptr{}; 
     }
     namespace DaccTcr{    ///<Transmit Counter Register
-        using Addr = Register::Address<0x400c810c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c810c,0xffff0000,0x00000000,unsigned>;
         ///Transmit Counter Register
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txctr{}; 
     }
     namespace DaccTnpr{    ///<Transmit Next Pointer Register
-        using Addr = Register::Address<0x400c8118,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400c8118,0x00000000,0x00000000,unsigned>;
         ///Transmit Next Pointer
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> txnptr{}; 
     }
     namespace DaccTncr{    ///<Transmit Next Counter Register
-        using Addr = Register::Address<0x400c811c,0xffff0000,0,unsigned>;
+        using Addr = Register::Address<0x400c811c,0xffff0000,0x00000000,unsigned>;
         ///Transmit Counter Next
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(15,0),Register::ReadWriteAccess,unsigned> txnctr{}; 
     }
     namespace DaccPtcr{    ///<Transfer Control Register
-        using Addr = Register::Address<0x400c8120,0xfffffcfc,0,unsigned>;
+        using Addr = Register::Address<0x400c8120,0xfffffcfc,0x00000000,unsigned>;
         ///Receiver Transfer Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxten{}; 
         ///Receiver Transfer Disable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> rxtdis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxtdis{}; 
         ///Transmitter Transfer Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txten{}; 
         ///Transmitter Transfer Disable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::ReadWriteAccess,unsigned> txtdis{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(9,9),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txtdis{}; 
     }
     namespace DaccPtsr{    ///<Transfer Status Register
-        using Addr = Register::Address<0x400c8124,0xfffffefe,0,unsigned>;
+        using Addr = Register::Address<0x400c8124,0xfffffefe,0x00000000,unsigned>;
         ///Receiver Transfer Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> rxten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> rxten{}; 
         ///Transmitter Transfer Enable
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::ReadWriteAccess,unsigned> txten{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(8,8),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> txten{}; 
     }
 }

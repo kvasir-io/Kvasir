@@ -9,26 +9,6 @@ namespace Kvasir {
         ///Number of comparators
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,28),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> numcmp{}; 
     }
-    namespace MtbdwtComp0{    ///<MTB_DWT Comparator Register
-        using Addr = Register::Address<0xf0001020,0x00000000,0x00000000,unsigned>;
-        ///Reference value for comparison
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> comp{}; 
-    }
-    namespace MtbdwtComp1{    ///<MTB_DWT Comparator Register
-        using Addr = Register::Address<0xf0001030,0x00000000,0x00000000,unsigned>;
-        ///Reference value for comparison
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> comp{}; 
-    }
-    namespace MtbdwtMask0{    ///<MTB_DWT Comparator Mask Register
-        using Addr = Register::Address<0xf0001024,0xffffffe0,0x00000000,unsigned>;
-        ///MASK
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> mask{}; 
-    }
-    namespace MtbdwtMask1{    ///<MTB_DWT Comparator Mask Register
-        using Addr = Register::Address<0xf0001034,0xffffffe0,0x00000000,unsigned>;
-        ///MASK
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> mask{}; 
-    }
     namespace MtbdwtFct0{    ///<MTB_DWT Comparator Function Register 0
         using Addr = Register::Address<0xf0001028,0xfeff02f0,0x00000000,unsigned>;
         ///Function
@@ -147,6 +127,26 @@ namespace Kvasir {
         using Addr = Register::Address<0xf0001fcc,0x00000000,0x00000000,unsigned>;
         ///DEVICETYPID
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> devicetypid{}; 
+    }
+    namespace MtbdwtComp0{    ///<MTB_DWT Comparator Register
+        using Addr = Register::Address<0xf0001020,0x00000000,0x00000000,unsigned>;
+        ///Reference value for comparison
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> comp{}; 
+    }
+    namespace MtbdwtComp1{    ///<MTB_DWT Comparator Register
+        using Addr = Register::Address<0xf0001030,0x00000000,0x00000000,unsigned>;
+        ///Reference value for comparison
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> comp{}; 
+    }
+    namespace MtbdwtMask0{    ///<MTB_DWT Comparator Mask Register
+        using Addr = Register::Address<0xf0001024,0xffffffe0,0x00000000,unsigned>;
+        ///MASK
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> mask{}; 
+    }
+    namespace MtbdwtMask1{    ///<MTB_DWT Comparator Mask Register
+        using Addr = Register::Address<0xf0001034,0xffffffe0,0x00000000,unsigned>;
+        ///MASK
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(4,0),Register::ReadWriteAccess,unsigned> mask{}; 
     }
     namespace MtbdwtPeriphid4{    ///<Peripheral ID Register
         using Addr = Register::Address<0xf0001fd0,0x00000000,0x00000000,unsigned>;

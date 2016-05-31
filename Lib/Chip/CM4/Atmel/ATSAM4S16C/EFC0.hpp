@@ -1,9 +1,9 @@
 #pragma once 
-#include "Register/Utility.hpp"
+#include <Register/Utility.hpp>
 namespace Kvasir {
 //Embedded Flash Controller 0
     namespace Efc0Fmr{    ///<EEFC Flash Mode Register
-        using Addr = Register::Address<0x400e0a00,0xfafef0fe,0,unsigned>;
+        using Addr = Register::Address<0x400e0a00,0xfafef0fe,0x00000000,unsigned>;
         ///Ready Interrupt Enable
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> frdy{}; 
         ///Flash Wait State
@@ -16,7 +16,7 @@ namespace Kvasir {
         constexpr Register::FieldLocation<Addr,Register::maskFromRange(26,26),Register::ReadWriteAccess,unsigned> cloe{}; 
     }
     namespace Efc0Fcr{    ///<EEFC Flash Command Register
-        using Addr = Register::Address<0x400e0a04,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400e0a04,0x00000000,0x00000000,unsigned>;
         ///Flash Command
         enum class FcmdVal {
             getd=0x00000000,     ///<Get Flash Descriptor
@@ -41,7 +41,7 @@ namespace Kvasir {
             stus=0x00000014,     ///<Start Read User Signature
             spus=0x00000015,     ///<Stop Read User Signature
         };
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::ReadWriteAccess,FcmdVal> fcmd{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(7,0),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,FcmdVal> fcmd{}; 
         namespace FcmdValC{
             constexpr Register::FieldValue<decltype(fcmd)::Type,FcmdVal::getd> getd{};
             constexpr Register::FieldValue<decltype(fcmd)::Type,FcmdVal::wp> wp{};
@@ -66,24 +66,24 @@ namespace Kvasir {
             constexpr Register::FieldValue<decltype(fcmd)::Type,FcmdVal::spus> spus{};
         }
         ///Flash Command Argument
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,8),Register::ReadWriteAccess,unsigned> farg{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(23,8),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> farg{}; 
         ///Flash Writing Protection Key
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::ReadWriteAccess,unsigned> fkey{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,24),Register::Access<Register::AccessType::writeOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> fkey{}; 
     }
     namespace Efc0Fsr{    ///<EEFC Flash Status Register
-        using Addr = Register::Address<0x400e0a08,0xfffffff0,0,unsigned>;
+        using Addr = Register::Address<0x400e0a08,0xfffffff0,0x00000000,unsigned>;
         ///Flash Ready Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::ReadWriteAccess,unsigned> frdy{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(0,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> frdy{}; 
         ///Flash Command Error Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::ReadWriteAccess,unsigned> fcmde{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(1,1),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> fcmde{}; 
         ///Flash Lock Error Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::ReadWriteAccess,unsigned> flocke{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(2,2),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> flocke{}; 
         ///Flash Error Status
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::ReadWriteAccess,unsigned> flerr{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(3,3),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> flerr{}; 
     }
     namespace Efc0Frr{    ///<EEFC Flash Result Register
-        using Addr = Register::Address<0x400e0a0c,0x00000000,0,unsigned>;
+        using Addr = Register::Address<0x400e0a0c,0x00000000,0x00000000,unsigned>;
         ///Flash Result Value
-        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::ReadWriteAccess,unsigned> fvalue{}; 
+        constexpr Register::FieldLocation<Addr,Register::maskFromRange(31,0),Register::Access<Register::AccessType::readOnly,Register::ReadActionType::normal,Register::ModifiedWriteValueType::normal>,unsigned> fvalue{}; 
     }
 }
